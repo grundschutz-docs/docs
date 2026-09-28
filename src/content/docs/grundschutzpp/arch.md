@@ -2,8 +2,6 @@
 title: "ARCH – Architektur"
 ---
 
-# ARCH Architektur
-
 Die Praktik Architektur definiert die grundlegende Struktur sowie die Sicherheitsprinzipien der IT-Infrastruktur und leitet daraus Anforderungen für einzelne IT-Komponenten ab – etwa für Anwendungen oder IT-Systeme. Ziel ist es, eine sichere und skalierbare Basis zu schaffen. Im Rahmen dieser Praktik werden Sicherheitsanforderungen systematisch in die Gesamtarchitektur eingebettet. Dazu gehören die Gestaltung der Netzarchitektur sowie die Entwicklung übergreifender Konzepte, beispielsweise für Kryptografie oder den Schutz vor Schadsoftware.
 
 ## ARCH.1 Grundlagen

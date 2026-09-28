@@ -92,6 +92,11 @@ header.header {
 	padding-top: calc(var(--sl-nav-height) + var(--sl-mobile-toc-height) + (2 * var(--glass-gap)));
 }
 
+/* "On this page"-Spalte: gleicher Abstand zum schwebenden Header wie der Rest. */
+.right-sidebar {
+	padding-top: calc(var(--sl-nav-height) + (2 * var(--glass-gap)));
+}
+
 site-search button {
 	border-radius: 999px;
 	border: 1px solid var(--glass-border);
@@ -142,4 +147,58 @@ site-search dialog::backdrop {
 #starlight__search .pagefind-ui__search-input:focus-visible {
 	outline: 2px solid var(--sl-color-accent);
 	outline-offset: 2px;
+}
+
+/* Übersichtsseite: Karten statt unterstrichener Linkliste */
+.practice-index {
+	display: grid;
+	gap: 0.75rem;
+	padding: 0;
+	margin: 1.5rem 0 2.5rem;
+	list-style: none;
+}
+
+.practice-index li {
+	position: relative;
+	border: 1px solid var(--sl-color-hairline);
+	border-radius: 1rem;
+	padding: 1rem 1.25rem;
+	background-color: var(--sl-color-bg-nav);
+	transition: border-color 0.15s ease;
+}
+
+.practice-index li:hover {
+	border-color: var(--sl-color-accent);
+}
+
+.practice-index a {
+	font-family: 'Fraunces Variable', Georgia, serif;
+	font-size: var(--sl-text-lg);
+	font-weight: 600;
+	color: var(--sl-color-white);
+	text-decoration: none;
+}
+
+.practice-index a::after {
+	content: '';
+	position: absolute;
+	inset: 0;
+	border-radius: inherit;
+}
+
+.practice-index a:hover {
+	text-decoration: none;
+}
+
+.practice-id {
+	font-family: 'JetBrains Mono Variable', ui-monospace, monospace;
+	font-size: var(--sl-text-xs);
+	color: var(--sl-color-accent-high);
+	margin-inline-end: 0.5em;
+}
+
+.practice-index p {
+	margin: 0.35rem 0 0;
+	color: var(--sl-color-gray-3);
+	font-size: var(--sl-text-sm);
 }

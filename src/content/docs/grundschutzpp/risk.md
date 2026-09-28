@@ -2,8 +2,6 @@
 title: "RISK – Risikomanagement"
 ---
 
-# RISK Risikomanagement
-
 Risikomanagement ist ein systematischer, wiederkehrender Zyklus, mit dem Ziel, Risiken für die Vertraulichkeit, Integrität und Verfügbarkeit von Informationen zu identifizieren, zu bewerten, zu steuern und kontinuierlich zu überwachen. Es dient dazu, Risiken auf ein akzeptables Maß zu reduzieren.
 
 ## RISK.1 Risiko

@@ -2,8 +2,6 @@
 title: "TEST – Änderungen und Tests"
 ---
 
-# TEST Änderungen und Tests
-
 Die Praktik "Änderungen und Tests" stellt sicher, dass alle geplanten Veränderungen an Informationssystemen systematisch und kontrolliert ablaufen, um ungewollte Störungen, Sicherheitsrisiken oder Compliance-Verstöße zu vermeiden (Change Management). Sie umfasst die Vorbereitung, Planung und Durchführung von Tests, die Freigabe und den Rollout von Änderunge, sowie die begleitende Dokumentation.
 
 ## TEST.1 Grundlagen

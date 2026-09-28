@@ -2,8 +2,6 @@
 title: "GC – Governance und Compliance"
 ---
 
-# GC Governance und Compliance
-
 Die Praktik Governance und Compliance stellt sicher, dass Informationssicherheitsstrategien mit den übergeordneten Zielen der Institution und regulatorischen Anforderungen im Einklang stehen. Sie vereint die strategische Steuerung der Informationssicherheit mit der systematischen Identifikation und Integration externer sowie interner Anforderungen. Diese Praktik definiert den strategischen Rahmen für die Informationssicherheit und beantwortet die Fragen nach dem "Was" und "Warum" von Anforderungen und Sicherheitsmaßnahmen. Sie gewährleistet die Einbindung der obersten Führungsebene in wichtige Entscheidungen zur Informationssicherheit und stellt sicher, dass alle relevanten gesetzlichen, regulatorischen und vertraglichen Vorgaben identifiziert und berücksichtigt werden. Während Governance und Compliance die strategische Ausrichtung und die Anforderungen definiert, übernehmen die operativen Praktiken wie Strukturmodellierung und Umsetzung die konkrete Ausgestaltung.
 
 ## GC.1 Grundlagen

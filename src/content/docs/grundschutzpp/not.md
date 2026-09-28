@@ -2,8 +2,6 @@
 title: "NOT – Notfallplanung"
 ---
 
-# NOT Notfallplanung
-
 Die Notfallplanung stellt sicher, dass bei schwerwiegenden Störungen oder Krisen schnell und koordiniert reagiert wird, um den Fortbestand kritischer Geschäftsprozesse und die Wiederherstellung der betroffenen Systeme zu gewährleisten. Notfallplanung adressiert umfassende Notfälle und Krisensituationen, während die Sicherheitsvorfallbehandlung spezifisch auf Informationssicherheitsvorfälle fokussiert ist. Notfallmanagement ist strategisch und organisatorisch umfassender, während die Vorfallbehandlung auf operative Sicherheitsprobleme eingeht.
 
 ## NOT.1 Grundlagen

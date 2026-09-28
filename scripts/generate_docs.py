@@ -8,7 +8,7 @@ Doku-Seite auf den aktuellen Stand zu bringen:
 
     cd Grundschutz-PlusPlus && git pull
     python3 ../Grundschutz-Docs/scripts/generate_docs.py
-    cd ../Grundschutz-Docs && npm run build   # oder: npm run dev
+    cd ../Grundschutz-Docs && pnpm run build   # oder: pnpm run dev
 """
 import json
 import re
@@ -20,6 +20,12 @@ OUT_DIR = Path(__file__).resolve().parent.parent / "src" / "content" / "docs" / 
 ASTRO_CONFIG = Path(__file__).resolve().parent.parent / "astro.config.mjs"
 
 PARAM_RE = re.compile(r"\{\{\s*insert:\s*param,\s*([a-zA-Z0-9._-]+)\s*\}\}")
+
+# Der Katalog selbst benennt diese sechs Praktiken als PDCA-Managementzyklus
+# (z. B. VRB: "schließt den PDCA-Zyklus ab", PERF: "Check-Phase im
+# PDCA-Zyklus") — keine eigene Erfindung, sondern in den Gruppentexten
+# explizit so beschrieben. Alle anderen Gruppen sind operative Themenfelder.
+MANAGEMENT_CYCLE_IDS = {"GC", "STM", "UMS", "VRB", "PERF", "RISK"}
 
 
 def prop(node, name):
@@ -91,9 +97,11 @@ def render_control(control, level, params_by_id):
     return "\n".join(lines)
 
 
-def render_group(group, level, params_by_id):
-    heading = "#" * min(level, 6)
-    lines = [f"{heading} {group['id']} {group['title']}\n"]
+def render_group(group, level, params_by_id, include_heading=True):
+    lines = []
+    if include_heading:
+        heading = "#" * min(level, 6)
+        lines.append(f"{heading} {group['id']} {group['title']}\n")
 
     desc = group_description(group)
     if desc:
@@ -122,6 +130,24 @@ def build_params_index(catalog):
     return index
 
 
+def first_sentence(text):
+    if not text:
+        return ""
+    match = re.search(r"(.+?[.!?])(\s|$)", text)
+    return match.group(1) if match else text
+
+
+def render_index_section(heading, intro, entries):
+    lines = [f"## {heading}\n", f"{intro}\n", '<ul class="practice-index">']
+    for gid, title, slug, summary in entries:
+        lines.append(
+            f'<li><a href="/grundschutzpp/{slug}/"><span class="practice-id">{gid}</span> {title}</a>'
+            f"<p>{summary}</p></li>"
+        )
+    lines.append("</ul>\n")
+    return "\n".join(lines)
+
+
 def main():
     data = json.loads(CATALOG_FILE.read_text())
     catalog = data["catalog"]
@@ -131,33 +157,51 @@ def main():
     for old in OUT_DIR.glob("*.md"):
         old.unlink()
 
-    sidebar_items = []
+    management, themenfelder = [], []
     for group in catalog["groups"]:
         slug = group["id"].lower()
-        body = render_group(group, level=1, params_by_id=params_by_id)
+        # include_heading=False: Starlight rendert die Seiten-Überschrift bereits
+        # automatisch aus der Frontmatter — sonst stünde sie doppelt auf der Seite.
+        body = render_group(group, level=1, params_by_id=params_by_id, include_heading=False)
         frontmatter = (
             "---\n"
             f"title: \"{group['id']} – {group['title']}\"\n"
             "---\n\n"
         )
         (OUT_DIR / f"{slug}.md").write_text(frontmatter + body)
-        sidebar_items.append((group["id"], group["title"], slug))
 
-    index_lines = ["---\ntitle: Grundschutz++ Kompendium\n---\n\n",
-                   "Automatisch generiert aus dem OSCAL-Katalog. "
-                   "Nicht Teil des offiziellen BSI-Materials — eigene lesbare Aufbereitung.\n\n"]
-    for gid, title, slug in sidebar_items:
-        index_lines.append(f"- [{gid} {title}](/grundschutzpp/{slug}/)\n")
-    (OUT_DIR / "index.md").write_text("".join(index_lines))
+        entry = (group["id"], group["title"], slug, first_sentence(group_description(group)))
+        (management if group["id"] in MANAGEMENT_CYCLE_IDS else themenfelder).append(entry)
 
-    print(f"{len(sidebar_items)} Gruppen-Seiten erzeugt in {OUT_DIR}")
+    index_lines = [
+        "---\ntitle: Start\n---\n\n",
+        "Automatisch generiert aus dem OSCAL-Katalog. "
+        "Nicht Teil des offiziellen BSI-Materials — eigene lesbare Aufbereitung.\n\n",
+        render_index_section(
+            "Managementsystem",
+            "Diese sechs Praktiken bilden den PDCA-Zyklus des ISMS — von der "
+            "strategischen Vorgabe bis zur kontinuierlichen Verbesserung.",
+            management,
+        ),
+        render_index_section(
+            "Themenfelder",
+            "Operative Sicherheitspraktiken, die im Rahmen des Managementsystems umgesetzt werden.",
+            themenfelder,
+        ),
+    ]
+    (OUT_DIR / "index.md").write_text("\n".join(index_lines))
 
-    sidebar_js = ",\n\t\t\t\t\t".join(
-        f'{{ label: "{gid} {title}", slug: "grundschutzpp/{slug}" }}'
-        for gid, title, slug in sidebar_items
-    )
+    total = len(management) + len(themenfelder)
+    print(f"{total} Gruppen-Seiten erzeugt in {OUT_DIR}")
+
+    def sidebar_group(label, entries):
+        items = ",\n\t\t\t\t\t\t".join(
+            f'{{ label: "{gid} {title}", slug: "grundschutzpp/{slug}" }}' for gid, title, slug, _ in entries
+        )
+        return f'{{\n\t\t\t\t\tlabel: "{label}",\n\t\t\t\t\titems: [\n\t\t\t\t\t\t{items},\n\t\t\t\t\t],\n\t\t\t\t}}'
+
     print("\nastro.config.mjs Sidebar-Snippet (manuell einfügen falls gewünscht):\n")
-    print(sidebar_js)
+    print(sidebar_group("Managementsystem", management) + ",\n" + sidebar_group("Themenfelder", themenfelder))
 
 
 if __name__ == "__main__":

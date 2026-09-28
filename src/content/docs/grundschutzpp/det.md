@@ -2,8 +2,6 @@
 title: "DET – Detektion"
 ---
 
-# DET Detektion
-
 Die Praktik Detektion sorgt dafür, dass sicherheitsrelevante Ereignisse rechtzeitig erkannt werden. Zu diesem Zweck werden geeignete organisatorische, personelle und technische Maßnahmen im Vorfeld geplant, implementiert und regelmäßig geübt. Damit die Detektion erfolgreich ist, muss umfassend protokolliert werden. Das Zusammenspiel zwischen den Praktiken Protokollierung und Detektion ist für die erfolgreiche Erkennung sicherheitsrelevanter Ereignisse unerlässlich. Die Praktik Detektion regelt jedoch nicht den Umgang mit sicherheitsrelevanten Ereignissen nach deren Erkennung. Dies ist Aufgabe der Praktik Sicherheitsvorfallsbehandlung.
 
 ## DET.1 Grundlagen

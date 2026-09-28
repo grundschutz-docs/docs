@@ -2,8 +2,6 @@
 title: "SENS – Sensibilisierung"
 ---
 
-# SENS Sensibilisierung
-
 Die Praktik Sensibilisierung sorgt dafür, dass alle Mitarbeitenden über die Leitlinie zur Informationssicherheit sowie relevanten Informationssicherheitsrichtlinien, -verfahren und -bedrohungen informiert sind. Ziel ist es, ein sicherheitsbewusstes Verhalten im Arbeitsalltag zu fördern und zu verankern. Der Fokus liegt auf der Schaffung eines Verständnisses für die Bedeutung der Informationssicherheit innerhalb der Institution. Gleichzeitig wird die notwendige Qualifikation für den sicheren Betrieb und die Nutzung von Anwendungen und IT-Systemen vermittelt, um Fehler zu vermeiden. Die Praktik Personalmanagement stellt sicher, dass Informationssicherheitsaspekte während des gesamten Beschäftigungszyklus von Mitarbeitenden berücksichtigt werden, während Sensibilisierung speziell auf die kontinuierliche Weiterbildung und Sensibilisierung im Bereich Informationssicherheit abzielt.
 
 ## SENS.1 Grundlagen

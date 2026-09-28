@@ -2,8 +2,6 @@
 title: "GEB – Gebäudemanagement"
 ---
 
-# GEB Gebäudemanagement
-
 Das Gebäudemanagement sorgt für die Implementierung von physischen Sicherheitsmaßnahmen in und um das Gebäude. Dazu gehören insbesondere Zutrittskontrollen, Überwachungsmechanismen und die Sicherstellung geeigneter Umgebungsbedingungen, um sensible IT-Systeme und Informationen vor physischen Bedrohungen zu schützen. Diese Praktik fokussiert sich auf den Schutz der physischen Umgebung (z.B. Gebäude, Räume), während andere Praktiken wie IT-Betrieb oder Berechtigungen sich mit systemseitigen und personellen Sicherheitsmaßnahmen beschäftigen. Das Gebäudemanagement stellt sicher, dass die physische Infrastruktur so gestaltet ist, dass sie IT-Systeme und sensible Daten bestmöglich schützt.
 
 ## GEB.1 Grundlagen

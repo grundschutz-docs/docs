@@ -2,8 +2,6 @@
 title: "DEV – Entwicklung"
 ---
 
-# DEV Entwicklung
-
 Die Praktik Entwicklung stellt sicher, dass Sicherheitsanforderungen bereits von Beginn an in die Planungs- und Entwicklungsphase von IT-Systemen und Anwendungen integriert werden. Auf diese Weise können potenzielle Schwachstellen frühzeitig erkannt und vermieden werden, wodurch die Sicherheit über den gesamten Lebenszyklus der IT-Systeme und Anwendungen hinweg gewährleistet ist. Entwicklung berücksichtigt die Software- und Systementwicklung, also die Erzeugung und Integration neuer IT-Komponenten in die IT-Infrastruktur der Institution. Durch die enge Zusammenarbeit mit anderen Praktiken wie IT-Betrieb, Asset Management und Konfiguration wird gewährleistet, dass die entwickelten IT-Komponenten nicht nur sicher entwickelt werden, sondern auch sicher betrieben, verwaltet und gepflegt werden können. Diese enge Verzahnung sorgt dafür, dass Sicherheitsanforderungen durchgängig und über alle Phasen hinweg eingehalten werden.
 
 ## DEV.1 Grundlagen

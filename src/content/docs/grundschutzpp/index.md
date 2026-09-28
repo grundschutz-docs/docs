@@ -1,26 +1,41 @@
 ---
-title: Grundschutz++ Kompendium
+title: Start
 ---
+
 
 Automatisch generiert aus dem OSCAL-Katalog. Nicht Teil des offiziellen BSI-Materials — eigene lesbare Aufbereitung.
 
-- [GC Governance und Compliance](/grundschutzpp/gc/)
-- [STM Strukturmodellierung](/grundschutzpp/stm/)
-- [UMS Umsetzung](/grundschutzpp/ums/)
-- [VRB Verbesserung](/grundschutzpp/vrb/)
-- [PERF Monitoring-Evaluation](/grundschutzpp/perf/)
-- [RISK Risikomanagement](/grundschutzpp/risk/)
-- [ASST Informationen und Assets](/grundschutzpp/asst/)
-- [PERS Personal](/grundschutzpp/pers/)
-- [BES Beschaffungsmanagement](/grundschutzpp/bes/)
-- [DLS Dienstleistersteuerung](/grundschutzpp/dls/)
-- [TEST Änderungen und Tests](/grundschutzpp/test/)
-- [GEB Gebäudemanagement](/grundschutzpp/geb/)
-- [SENS Sensibilisierung](/grundschutzpp/sens/)
-- [ARCH Architektur](/grundschutzpp/arch/)
-- [BER Berechtigung](/grundschutzpp/ber/)
-- [NOT Notfallplanung](/grundschutzpp/not/)
-- [DET Detektion](/grundschutzpp/det/)
-- [REA Sicherheitsvorfallsbehandlung](/grundschutzpp/rea/)
-- [KONF Konfiguration](/grundschutzpp/konf/)
-- [DEV Entwicklung](/grundschutzpp/dev/)
+
+## Managementsystem
+
+Diese sechs Praktiken bilden den PDCA-Zyklus des ISMS — von der strategischen Vorgabe bis zur kontinuierlichen Verbesserung.
+
+<ul class="practice-index">
+<li><a href="/grundschutzpp/gc/"><span class="practice-id">GC</span> Governance und Compliance</a><p>Die Praktik Governance und Compliance stellt sicher, dass Informationssicherheitsstrategien mit den übergeordneten Zielen der Institution und regulatorischen Anforderungen im Einklang stehen.</p></li>
+<li><a href="/grundschutzpp/stm/"><span class="practice-id">STM</span> Strukturmodellierung</a><p>Die Praktik Strukturmodellierung bildet die Grundlage für eine systematische Analyse der Informationssicherheit einer Institution.</p></li>
+<li><a href="/grundschutzpp/ums/"><span class="practice-id">UMS</span> Umsetzung</a><p>Die Praktik Umsetzung sorgt für die systematische Planung, Implementierung und Dokumentation von Anforderungen bzw.</p></li>
+<li><a href="/grundschutzpp/vrb/"><span class="practice-id">VRB</span> Verbesserung</a><p>Die Praktik Verbesserung gewährleistet die kontinuierliche Weiterentwicklung und Optimierung des Informationssicherheitsmanagementsystems.</p></li>
+<li><a href="/grundschutzpp/perf/"><span class="practice-id">PERF</span> Monitoring-Evaluation</a><p>Die Praktik Monitoring-Evaluation stellt durch kontinuierliche Überwachung und systematische Bewertung sicher, dass die implementierten Sicherheitsmaßnahmen wirksam sind und die Sicherheitsziele der Organisation erreicht werden.</p></li>
+<li><a href="/grundschutzpp/risk/"><span class="practice-id">RISK</span> Risikomanagement</a><p>Risikomanagement ist ein systematischer, wiederkehrender Zyklus, mit dem Ziel, Risiken für die Vertraulichkeit, Integrität und Verfügbarkeit von Informationen zu identifizieren, zu bewerten, zu steuern und kontinuierlich zu überwachen.</p></li>
+</ul>
+
+## Themenfelder
+
+Operative Sicherheitspraktiken, die im Rahmen des Managementsystems umgesetzt werden.
+
+<ul class="practice-index">
+<li><a href="/grundschutzpp/asst/"><span class="practice-id">ASST</span> Informationen und Assets</a><p>Im Rahmen der IT-Komponenten stellt das Asset Management sicher, dass die IT-Komponenten erfasst und inventarisiert werden.</p></li>
+<li><a href="/grundschutzpp/pers/"><span class="practice-id">PERS</span> Personal</a><p>Die Praktik Personal fokussiert sich auf die Integration von Sicherheitsanforderungen über den gesamten Beschäftigungs- oder Vertragszyklus von Mitarbeitenden sowie externen Partnern hinweg.</p></li>
+<li><a href="/grundschutzpp/bes/"><span class="practice-id">BES</span> Beschaffungsmanagement</a><p>Die Praktik Beschaffungsmanagement sorgt für die frühzeitige Integration von Informationssicherheit in fachliche Anforderungs-, Planungs- und Beschaffungsverfahren, einschließlich angehender Projekte.</p></li>
+<li><a href="/grundschutzpp/dls/"><span class="practice-id">DLS</span> Dienstleistersteuerung</a><p>Die Praktik Dienstleistersteuerung regelt die kontinuierliche Überwachung und Steuerung externer Dienstleister, wie etwa Outsourcing-Partner oder Cloud-Anbieter.</p></li>
+<li><a href="/grundschutzpp/test/"><span class="practice-id">TEST</span> Änderungen und Tests</a><p>Die Praktik "Änderungen und Tests" stellt sicher, dass alle geplanten Veränderungen an Informationssystemen systematisch und kontrolliert ablaufen, um ungewollte Störungen, Sicherheitsrisiken oder Compliance-Verstöße zu vermeiden (Change Management).</p></li>
+<li><a href="/grundschutzpp/geb/"><span class="practice-id">GEB</span> Gebäudemanagement</a><p>Das Gebäudemanagement sorgt für die Implementierung von physischen Sicherheitsmaßnahmen in und um das Gebäude.</p></li>
+<li><a href="/grundschutzpp/sens/"><span class="practice-id">SENS</span> Sensibilisierung</a><p>Die Praktik Sensibilisierung sorgt dafür, dass alle Mitarbeitenden über die Leitlinie zur Informationssicherheit sowie relevanten Informationssicherheitsrichtlinien, -verfahren und -bedrohungen informiert sind.</p></li>
+<li><a href="/grundschutzpp/arch/"><span class="practice-id">ARCH</span> Architektur</a><p>Die Praktik Architektur definiert die grundlegende Struktur sowie die Sicherheitsprinzipien der IT-Infrastruktur und leitet daraus Anforderungen für einzelne IT-Komponenten ab – etwa für Anwendungen oder IT-Systeme.</p></li>
+<li><a href="/grundschutzpp/ber/"><span class="practice-id">BER</span> Berechtigung</a><p>Die Praktik Berechtigung stellt sicher, dass ausschließlich autorisierte Personen und IT-Systeme Zugriff auf sensible Informationen und Ressourcen erhalten.</p></li>
+<li><a href="/grundschutzpp/not/"><span class="practice-id">NOT</span> Notfallplanung</a><p>Die Notfallplanung stellt sicher, dass bei schwerwiegenden Störungen oder Krisen schnell und koordiniert reagiert wird, um den Fortbestand kritischer Geschäftsprozesse und die Wiederherstellung der betroffenen Systeme zu gewährleisten.</p></li>
+<li><a href="/grundschutzpp/det/"><span class="practice-id">DET</span> Detektion</a><p>Die Praktik Detektion sorgt dafür, dass sicherheitsrelevante Ereignisse rechtzeitig erkannt werden.</p></li>
+<li><a href="/grundschutzpp/rea/"><span class="practice-id">REA</span> Sicherheitsvorfallsbehandlung</a><p>Die Praktik Sicherheitsvorfallsbehandlung sorgt dafür, dass Informationssicherheitsvorfälle effizient erkannt, gemeldet, analysiert und behoben werden, um Schäden zu minimieren und den Normalbetrieb so schnell wie möglich wiederherzustellen.</p></li>
+<li><a href="/grundschutzpp/konf/"><span class="practice-id">KONF</span> Konfiguration</a><p>Die Praktik Konfiguration stellt sicher, dass IT-Komponenten – wie Anwendungen und IT-Systeme – gemäß den festgelegten Informationssicherheitsrichtlinien eingerichtet und kontinuierlich gepflegt werden, um Sicherheitslücken durch fehlerhafte oder unsichere Einstellungen zu vermeiden.</p></li>
+<li><a href="/grundschutzpp/dev/"><span class="practice-id">DEV</span> Entwicklung</a><p>Die Praktik Entwicklung stellt sicher, dass Sicherheitsanforderungen bereits von Beginn an in die Planungs- und Entwicklungsphase von IT-Systemen und Anwendungen integriert werden.</p></li>
+</ul>
