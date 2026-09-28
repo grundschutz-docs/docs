@@ -27,6 +27,9 @@ export default defineConfig({
 		starlight({
 			title: SITE_NAME || 'Grundschutz++ Docs',
 			description: 'Eigene lesbare Aufbereitung des BSI Grundschutz++ OSCAL-Katalogs',
+			locales: {
+				root: { label: 'Deutsch', lang: 'de' },
+			},
 			customCss: ['./src/styles/custom.css'],
 			components: {
 				ThemeSelect: './src/components/ThemeToggle.astro',

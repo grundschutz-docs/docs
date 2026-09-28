@@ -1,5 +1,6 @@
 ---
 title: "PERS – Personal"
+description: "Die Praktik Personal fokussiert sich auf die Integration von Sicherheitsanforderungen über den gesamten Beschäftigungs- oder Vertragszyklus von Mitarbeitenden sowie externen Partnern hinweg."
 ---
 
 Die Praktik Personal fokussiert sich auf die Integration von Sicherheitsanforderungen über den gesamten Beschäftigungs- oder Vertragszyklus von Mitarbeitenden sowie externen Partnern hinweg. Ziel ist es, einen sicheren Umgang mit Informationen während der gesamten Dauer der Beschäftigung oder Zusammenarbeit zu gewährleisten. Diese Praktik fokussiert auf den sicheren Umgang mit Personen, während Praktiken, wie Berechtigungen, den systemseitigen Zugriff regeln.

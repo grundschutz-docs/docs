@@ -1,5 +1,6 @@
 ---
 title: "DLS – Dienstleistersteuerung"
+description: "Die Praktik Dienstleistersteuerung regelt die kontinuierliche Überwachung und Steuerung externer Dienstleister, wie etwa Outsourcing-Partner oder Cloud-Anbieter."
 ---
 
 Die Praktik Dienstleistersteuerung regelt die kontinuierliche Überwachung und Steuerung externer Dienstleister, wie etwa Outsourcing-Partner oder Cloud-Anbieter. Sie stellt sicher, dass die erbrachten Leistungen den vereinbarten Sicherheitsanforderungen entsprechen und die Dienstleister ihre vertraglichen Verpflichtungen in Bezug auf die Informationssicherheit erfüllen. Im Gegensatz dazu befasst sich die Praktik Beschaffungsmanagement mit der Auswahl von Dienstleistern sowie der vertraglichen Absicherung, wobei die Integration von Informationssicherheitsanforderungen in den Beschaffungsprozess im Vordergrund steht. Während das Beschaffungsmanagement also die Grundlage für die Zusammenarbeit mit externen Dienstleistern schafft, übernimmt die Dienstleistersteuerung die fortlaufende Kontrolle und das Management dieser Beziehungen, um sicherzustellen, dass die vereinbarten Sicherheitsstandards auch langfristig eingehalten werden.

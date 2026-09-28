@@ -1,5 +1,6 @@
 ---
 title: "STM – Strukturmodellierung"
+description: "Die Praktik Strukturmodellierung bildet die Grundlage für eine systematische Analyse der Informationssicherheit einer Institution."
 ---
 
 Die Praktik Strukturmodellierung bildet die Grundlage für eine systematische Analyse der Informationssicherheit einer Institution. Ziel der Strukturmodellierung ist aus dem Stand-der-Technik-Kompendium ein individuelles Anforderungspaket für die Institution zu generieren. Auf Basis der Geschäftsprozesse und Informationen wird der individuelle Schutzbedarf festgelegt. Mit der Zuordnung einzelner Praktiken und Zielobjekte erfolgen eine Auswahl von Anforderungen auf der Grundlage des vorgegebenen Schutzniveaus. Blaupausen unterstützen die Filterung der Anforderungen. Eine Klassifizierung des Schutzbedarfs der Zielobjekte erfolgt auf Anforderungsebene. Die individuelle Anpassung der Anforderungen durch Auswahlmöglichkeiten erleichtern eine Skalierung. Eine Erweiterung des Anforderungspakets durch spezifische Anforderungen erhöht die Flexibilität. Für diese Anforderungen ist eine Risikobetrachtung erforderlich. Die Strukturmodellierung liefert essentielle Eingangsdaten für die nachgelagerten Praktiken wie Umsetzung und Monitoring-Evaluation und ermöglicht eine zielgerichtete und risikoorientierte Planung von Anforderungen und Sicherheitsmaßnahmen.

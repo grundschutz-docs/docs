@@ -142,6 +142,10 @@ def build_params_index(catalog):
     return index
 
 
+def yaml_quote(text):
+    return '"' + text.replace("\\", "\\\\").replace('"', '\\"') + '"'
+
+
 def first_sentence(text):
     if not text:
         return ""
@@ -198,14 +202,17 @@ def main():
         # include_heading=False: Starlight rendert die Seiten-Überschrift bereits
         # automatisch aus der Frontmatter — sonst stünde sie doppelt auf der Seite.
         body = render_group(group, level=1, params_by_id=params_by_id, include_heading=False)
+        summary = first_sentence(group_description(group))
+        page_title = f"{group['id']} – {group['title']}"
         frontmatter = (
             "---\n"
-            f"title: \"{group['id']} – {group['title']}\"\n"
+            f"title: {yaml_quote(page_title)}\n"
+            f"description: {yaml_quote(summary)}\n"
             "---\n\n"
         )
         (OUT_DIR / f"{slug}.md").write_text(frontmatter + body)
 
-        entry = (group["id"], group["title"], slug, first_sentence(group_description(group)))
+        entry = (group["id"], group["title"], slug, summary)
         (management if group["id"] in MANAGEMENT_CYCLE_IDS else themenfelder).append(entry)
 
     index_lines = [

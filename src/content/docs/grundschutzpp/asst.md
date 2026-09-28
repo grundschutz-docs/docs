@@ -1,5 +1,6 @@
 ---
 title: "ASST – Informationen und Assets"
+description: "Im Rahmen der IT-Komponenten stellt das Asset Management sicher, dass die IT-Komponenten erfasst und inventarisiert werden."
 ---
 
 Im Rahmen der IT-Komponenten stellt das Asset Management sicher, dass die IT-Komponenten erfasst und inventarisiert werden. Hierbei geht es darum eine Übersicht, über relevante "Assets", wie Server, Clients, Netzwerkkomponenten sowie auch Datenträger sowie deren Verantwortlichkeiten, Besitzer oder auch Produktlebenszyklus zu haben. Des Weiteren soll im Rahmen des Asset Management auch die Ist-Dokumentation der Komponenten (z.B. Konfiguration, Patch-Level, Kritikalitätsstufen) erfasst werden. Während die Praktik "Konfiguration" die Parameter einer IT-Komponenten betrachtet und IT-Betrieb die Vorgehensweisen zu Wartung und Pflege von IT-Komponenten, betrachtet Asset Management die Übersicht und Dokumentation aller IT-Komponenten.

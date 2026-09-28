@@ -1,5 +1,6 @@
 ---
 title: "VRB – Verbesserung"
+description: "Die Praktik Verbesserung gewährleistet die kontinuierliche Weiterentwicklung und Optimierung des Informationssicherheitsmanagementsystems."
 ---
 
 Die Praktik Verbesserung gewährleistet die kontinuierliche Weiterentwicklung und Optimierung des Informationssicherheitsmanagementsystems. Sie nutzt die Erkenntnisse aus dem Monitoring und der Evaluation, um die Wirksamkeit der Sicherheitsmaßnahmen zu erhöhen. Diese Praktik umfasst die Planung und Umsetzung von Korrektur- und Vorbeugungsmaßnahmen. Ziel ist es, einen Prozess der kontinuierlichen Verbesserung zu etablieren, der flexibel auf neue Bedrohungen und veränderte Rahmenbedingungen reagieren kann. Die Verbesserung schließt den PDCA-Zyklus ab und leitet gleichzeitig einen neuen Zyklus ein, indem sie Impulse für Anpassungen in den Praktiken Governance und Compliance, Strukturmodellierung und Umsetzung gibt. Sie stellt sicher, dass das ISMS dynamisch bleibt und sich an veränderte Anforderungen und Bedrohungen anpasst.

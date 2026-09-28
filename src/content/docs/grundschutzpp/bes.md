@@ -1,5 +1,6 @@
 ---
 title: "BES – Beschaffungsmanagement"
+description: "Die Praktik Beschaffungsmanagement sorgt für die frühzeitige Integration von Informationssicherheit in fachliche Anforderungs-, Planungs- und Beschaffungsverfahren, einschließlich angehender Projekte."
 ---
 
 Die Praktik Beschaffungsmanagement sorgt für die frühzeitige Integration von Informationssicherheit in fachliche Anforderungs-, Planungs- und Beschaffungsverfahren, einschließlich angehender Projekte. Dabei erfolgt keine Unterscheidung zwischen den Bereichen Organisation, Personal, Dienstleister, IT-Infrastruktur, Komponenten oder Gebäuden. Ziel ist es, Sicherheitsanforderungen frühzeitig in die strategische Planung einzubinden – von der "Make-or-Buy"-Entscheidung bis hin zur konkreten Beschaffung. Während die Praktik Compliance sich explizit auf Anforderungen auf die Informationssicherheit konzentriert, umfasst das Beschaffungsmanagement alle fachlichen, regulatorischen und technischen Anforderungen, die in die Organisation, Personal-, Dienstleisterverträge, IT-Infrastruktur, Komponenten und Gebäude integriert werden müssen.

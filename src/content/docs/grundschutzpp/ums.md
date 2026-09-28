@@ -1,5 +1,6 @@
 ---
 title: "UMS – Umsetzung"
+description: "Die Praktik Umsetzung sorgt für die systematische Planung, Implementierung und Dokumentation von Anforderungen bzw."
 ---
 
 Die Praktik Umsetzung sorgt für die systematische Planung, Implementierung und Dokumentation von Anforderungen bzw. der Sicherheitsmaßnahmen, die aus der Strukturmodellierung und Risikobewertung abgeleitet wurden. Sie stellt sicher, dass identifizierte Sicherheitsanforderungen effektiv in die organisatorischen und technischen Prozesse integriert werden. Diese Praktik umfasst die detaillierte Planung von Maßnahmen, die Festlegung von Verantwortlichkeiten und Zeitplänen sowie die Bereitstellung notwendiger Ressourcen. Zudem beinhaltet sie die Nachverfolgung der Implementierung und die Dokumentation der umgesetzten Maßnahmen. Während die Praktik Strukturmodellierung die notwendigen Anforderungen identifiziert und die Praktik Monitoring-Evaluation die Wirksamkeit der Maßnahmen überprüft, konzentriert sich die Umsetzung auf die effiziente und effektive Realisierung der erforderlichen Sicherheitsmaßnahmen.

@@ -108,7 +108,8 @@ header.header {
 	box-shadow: 0 12px 30px oklch(0% 0 0 / 0.22);
 }
 
-/* Sidebar-Popover und Seiteninhalt müssen um Status-Leiste + Header-Abstand nach unten rücken. */
+/* Sidebar-Popover (mobil: volle Breite, bleibt bewusst randlos für Bedienbarkeit;
+   Abstand nach unten wegen Status-Leiste + Header). */
 .sidebar-pane {
 	inset-block-start: calc(var(--banner-height) + var(--sl-nav-height) + var(--glass-gap));
 }
@@ -119,9 +120,44 @@ header.header {
 	);
 }
 
-/* "On this page"-Spalte: gleicher Abstand zum schwebenden Header wie der Rest. */
-.right-sidebar {
-	padding-top: calc(var(--banner-height) + var(--sl-nav-height) + (2 * var(--glass-gap)));
+/* Desktop: linke Sidebar als schwebendes Glas-Panel, wie Header und Suche. */
+@media (min-width: 50rem) {
+	.sidebar-pane {
+		inset-inline-start: var(--glass-gap);
+		inset-block-start: calc(
+			var(--banner-height) + var(--sl-nav-height) + (2 * var(--glass-gap))
+		);
+		inset-block-end: var(--glass-gap);
+		width: calc(var(--sl-sidebar-width) - var(--glass-gap));
+		border-radius: 1.5rem;
+		border: 1px solid var(--glass-border);
+		border-inline-end: none;
+		background-color: var(--glass-tint);
+		backdrop-filter: blur(20px) saturate(160%);
+		-webkit-backdrop-filter: blur(20px) saturate(160%);
+		box-shadow: 0 12px 30px oklch(0% 0 0 / 0.18);
+	}
+}
+
+/* "On this page"-Spalte: gleicher Abstand zum schwebenden Header, ab 72rem
+   (dort erst existiert die Spalte laut Starlight) ebenfalls als Glas-Panel. */
+@media (min-width: 72rem) {
+	.right-sidebar {
+		inset-block-start: calc(
+			var(--banner-height) + var(--sl-nav-height) + (2 * var(--glass-gap))
+		);
+		inset-block-end: var(--glass-gap);
+		margin-inline: var(--glass-gap);
+		height: auto;
+		padding-top: 1.25rem;
+		border-radius: 1.5rem;
+		border: 1px solid var(--glass-border);
+		border-inline-start: none;
+		background-color: var(--glass-tint);
+		backdrop-filter: blur(20px) saturate(160%);
+		-webkit-backdrop-filter: blur(20px) saturate(160%);
+		box-shadow: 0 12px 30px oklch(0% 0 0 / 0.18);
+	}
 }
 
 site-search button {

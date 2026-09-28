@@ -1,5 +1,6 @@
 ---
 title: "PERF – Monitoring-Evaluation"
+description: "Die Praktik Monitoring-Evaluation stellt durch kontinuierliche Überwachung und systematische Bewertung sicher, dass die implementierten Sicherheitsmaßnahmen wirksam sind und die Sicherheitsziele der Organisation erreicht werden."
 ---
 
 Die Praktik Monitoring-Evaluation stellt durch kontinuierliche Überwachung und systematische Bewertung sicher, dass die implementierten Sicherheitsmaßnahmen wirksam sind und die Sicherheitsziele der Organisation erreicht werden. Sie liefert Erkenntnisse über den aktuellen Sicherheitszustand und identifiziert Verbesserungspotentiale. Im Rahmen dieser Praktik werden regelmäßige Sicherheitsaudits, kontinuierliches Monitoring von Sicherheitsereignissen sowie periodische Überprüfungen und Bewertungen des ISMS durchgeführt. Sie entspricht der "Check-Phase" im PDCA-Zyklus und dient dazu, Abweichungen von den definierten Zielen zu erkennen. Die Ergebnisse der Monitoring-Evaluation fließen direkt in die Praktik Verbesserung ein, wo konkrete Maßnahmen zur Behebung identifizierter Schwachstellen und zur kontinuierlichen Weiterentwicklung des ISMS abgeleitet werden.
