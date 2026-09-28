@@ -12,6 +12,7 @@ Doku-Seite auf den aktuellen Stand zu bringen:
 """
 import json
 import re
+from datetime import date
 from pathlib import Path
 
 REPO_ROOT = Path(__file__).resolve().parent.parent.parent
@@ -20,6 +21,17 @@ OUT_DIR = Path(__file__).resolve().parent.parent / "src" / "content" / "docs" / 
 ASTRO_CONFIG = Path(__file__).resolve().parent.parent / "astro.config.mjs"
 
 PARAM_RE = re.compile(r"\{\{\s*insert:\s*param,\s*([a-zA-Z0-9._-]+)\s*\}\}")
+
+# Zeitplan laut BSI-Fahrplan (Pilotphase, it-sa-Termin) und Fachpublikationen
+# (Übergangsfrist/Ablösung — vom BSI noch nicht mit einem fixen Datum bestätigt,
+# daher als "geplant" ausgewiesen). Quellen siehe Commit-Historie/Konversation.
+TIMELINE = [
+    (date(2026, 4, 1), date(2026, 9, 30), "Pilotphase", "Grundschutz++ wird mit Pilotpartnern erprobt."),
+    (date(2026, 10, 27), date(2026, 10, 29), "Vorstellung auf der it-sa", "Methodik und Kompendium werden öffentlich vorgestellt."),
+    (date(2026, 4, 1), date(2029, 12, 31), "Übergangsphase", "Das bisherige IT-Grundschutz-Kompendium bleibt parallel gültig."),
+    (date(2027, 1, 1), None, "Zertifizierung möglich (geplant)", "Eine Zertifizierung nach Grundschutz++ soll ab 2027 möglich sein."),
+    (date(2029, 1, 1), None, "Vollständige Ablösung (geplant, Datum offen)", "Das bisherige Kompendium soll danach vollständig abgelöst werden."),
+]
 
 # Der Katalog selbst benennt diese sechs Praktiken als PDCA-Managementzyklus
 # (z. B. VRB: "schließt den PDCA-Zyklus ab", PERF: "Check-Phase im
@@ -137,6 +149,29 @@ def first_sentence(text):
     return match.group(1) if match else text
 
 
+def format_range(start, end):
+    if end is None:
+        return f"ab {start.strftime('%m/%Y')}"
+    if start.year == end.year and start.month == end.month:
+        return f"{start.day}.–{end.day}.{start.strftime('%m.%Y')}"
+    return f"{start.strftime('%m/%Y')} – {end.strftime('%m/%Y')}"
+
+
+def render_timeline():
+    today = date.today()
+    lines = ['<ul class="status-timeline">']
+    for start, end, label, detail in TIMELINE:
+        is_current = start <= today and (end is None or today <= end)
+        status = ' data-current="true"' if is_current else ""
+        badge = '<span class="status-badge">läuft</span>' if is_current else ""
+        lines.append(
+            f'<li{status}><span class="status-range">{format_range(start, end)}</span>'
+            f"<strong>{label}</strong>{badge}<p>{detail}</p></li>"
+        )
+    lines.append("</ul>\n")
+    return "\n".join(lines)
+
+
 def render_index_section(heading, intro, entries):
     lines = [f"## {heading}\n", f"{intro}\n", '<ul class="practice-index">']
     for gid, title, slug, summary in entries:
@@ -190,6 +225,15 @@ def main():
         ),
     ]
     (OUT_DIR / "index.md").write_text("\n".join(index_lines))
+
+    zeitplan_lines = [
+        "---\ntitle: Status & Zeitplan\n---\n\n",
+        "Grundschutz++ ersetzt das bisherige IT-Grundschutz-Kompendium nicht von "
+        "heute auf morgen. Stand nach BSI-Fahrplan und Fachpublikationen "
+        "(nicht offiziell von der BSI in jedem Detail bestätigt):\n",
+        render_timeline(),
+    ]
+    (OUT_DIR / "zeitplan.md").write_text("\n".join(zeitplan_lines))
 
     total = len(management) + len(themenfelder)
     print(f"{total} Gruppen-Seiten erzeugt in {OUT_DIR}")

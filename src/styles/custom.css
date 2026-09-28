@@ -69,10 +69,35 @@ h6,
 
 /* Liquid-Glass-Chrome: nur auf UI-Rahmen, nie auf Fließtext */
 
+:root {
+	--banner-height: 3.5rem;
+}
+
+@media (min-width: 50rem) {
+	:root {
+		--banner-height: 2.5rem;
+	}
+}
+
+/* Status-Leiste: vollbreit über allem (auch Sidebar und Header), nicht in
+   die Content-Spalte eingezwängt — das ist eine sitewide Statusmeldung. */
+.sl-banner {
+	position: fixed;
+	inset-block-start: 0;
+	inset-inline: 0;
+	z-index: calc(var(--sl-z-index-navbar) + 1);
+	height: var(--banner-height);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	overflow: hidden;
+}
+
 /* Die schwebende Kopfleiste: vom Rand gelöst statt randlos, damit tatsächlich
-   Seiteninhalt hinter dem Glas durchscheint. */
+   Seiteninhalt hinter dem Glas durchscheint. Jetzt zusätzlich unter der
+   Status-Leiste eingerückt. */
 header.header {
-	inset-block-start: var(--glass-gap);
+	inset-block-start: calc(var(--banner-height) + var(--glass-gap));
 	inset-inline: var(--glass-gap);
 	width: auto;
 	border-radius: 999px;
@@ -83,18 +108,20 @@ header.header {
 	box-shadow: 0 12px 30px oklch(0% 0 0 / 0.22);
 }
 
-/* Sidebar-Popover und Seiteninhalt müssen um den neuen Abstand nach unten rücken. */
+/* Sidebar-Popover und Seiteninhalt müssen um Status-Leiste + Header-Abstand nach unten rücken. */
 .sidebar-pane {
-	inset-block-start: calc(var(--sl-nav-height) + var(--glass-gap));
+	inset-block-start: calc(var(--banner-height) + var(--sl-nav-height) + var(--glass-gap));
 }
 
 .main-frame {
-	padding-top: calc(var(--sl-nav-height) + var(--sl-mobile-toc-height) + (2 * var(--glass-gap)));
+	padding-top: calc(
+		var(--banner-height) + var(--sl-nav-height) + var(--sl-mobile-toc-height) + (2 * var(--glass-gap))
+	);
 }
 
 /* "On this page"-Spalte: gleicher Abstand zum schwebenden Header wie der Rest. */
 .right-sidebar {
-	padding-top: calc(var(--sl-nav-height) + (2 * var(--glass-gap)));
+	padding-top: calc(var(--banner-height) + var(--sl-nav-height) + (2 * var(--glass-gap)));
 }
 
 site-search button {
@@ -199,6 +226,64 @@ site-search dialog::backdrop {
 
 .practice-index p {
 	margin: 0.35rem 0 0;
+	color: var(--sl-color-gray-3);
+	font-size: var(--sl-text-sm);
+}
+
+/* Status & Zeitplan: vertikale Zeitleiste */
+.status-timeline {
+	list-style: none;
+	margin: 1.5rem 0 2.5rem;
+	padding: 0 0 0 1.25rem;
+	border-inline-start: 2px solid var(--sl-color-hairline);
+}
+
+.status-timeline li {
+	position: relative;
+	padding-block: 0.25rem 1.25rem;
+}
+
+.status-timeline li::before {
+	content: '';
+	position: absolute;
+	inset-inline-start: -1.5625rem;
+	top: 0.4rem;
+	width: 0.6rem;
+	height: 0.6rem;
+	border-radius: 999px;
+	background-color: var(--sl-color-hairline);
+}
+
+.status-timeline li[data-current='true']::before {
+	background-color: var(--sl-color-accent);
+	box-shadow: 0 0 0 4px var(--sl-color-accent-low);
+}
+
+.status-timeline .status-range {
+	display: block;
+	font-family: 'JetBrains Mono Variable', ui-monospace, monospace;
+	font-size: var(--sl-text-xs);
+	color: var(--sl-color-gray-3);
+}
+
+.status-timeline strong {
+	font-family: 'Fraunces Variable', Georgia, serif;
+	font-size: var(--sl-text-lg);
+}
+
+.status-badge {
+	margin-inline-start: 0.6em;
+	padding: 0.1em 0.6em;
+	border-radius: 999px;
+	background-color: var(--sl-color-accent-low);
+	color: var(--sl-color-accent-high);
+	font-size: var(--sl-text-2xs);
+	font-weight: 600;
+	vertical-align: middle;
+}
+
+.status-timeline p {
+	margin: 0.25rem 0 0;
 	color: var(--sl-color-gray-3);
 	font-size: var(--sl-text-sm);
 }

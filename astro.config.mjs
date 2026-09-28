@@ -32,6 +32,7 @@ export default defineConfig({
 				ThemeSelect: './src/components/ThemeToggle.astro',
 				Hero: './src/components/Hero.astro',
 				Footer: './src/components/Footer.astro',
+				Banner: './src/components/Banner.astro',
 			},
 			social: [
 				{
@@ -45,6 +46,7 @@ export default defineConfig({
 					label: 'Grundschutz++',
 					items: [
 						{ label: 'Übersicht', slug: 'grundschutzpp' },
+						{ label: 'Status & Zeitplan', slug: 'grundschutzpp/zeitplan' },
 						{
 							label: 'Managementsystem',
 							items: [
