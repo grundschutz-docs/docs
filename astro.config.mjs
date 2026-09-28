@@ -2,6 +2,7 @@
 import { readFileSync } from 'node:fs';
 import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
+import starlightLinksValidator from 'starlight-links-validator';
 
 // Name an einer Stelle definiert (.env, siehe .env.example) statt über
 // mehrere Dateien verstreut — solange der endgültige Name noch nicht feststeht.
@@ -30,6 +31,7 @@ export default defineConfig({
 			locales: {
 				root: { label: 'Deutsch', lang: 'de' },
 			},
+			plugins: [starlightLinksValidator()],
 			customCss: ['./src/styles/custom.css'],
 			components: {
 				ThemeSelect: './src/components/ThemeToggle.astro',

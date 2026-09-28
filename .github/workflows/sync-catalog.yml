@@ -1,0 +1,47 @@
+name: Sync upstream catalog
+
+on:
+  schedule:
+    - cron: '0 6 * * *' # daily, 06:00 UTC — adjust once the pilot phase settles down
+  workflow_dispatch:
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+    steps:
+      - name: Checkout this repo
+        uses: actions/checkout@v4
+
+      - name: Checkout upstream BSI catalog
+        uses: actions/checkout@v4
+        with:
+          repository: BSI-Bund/Stand-der-Technik-Bibliothek
+          sparse-checkout: |
+            control_layer/Grundschutz++
+          path: upstream
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Regenerate docs from the upstream catalog
+        env:
+          GRUNDSCHUTZPP_CATALOG: upstream/control_layer/Grundschutz++/Grundschutz++-resolved_catalog.json
+        run: python3 scripts/generate_docs.py
+
+      - name: Open a PR if anything changed
+        uses: peter-evans/create-pull-request@v7
+        with:
+          commit-message: 'Sync generated docs with upstream Grundschutz++ catalog'
+          title: 'Sync: upstream Grundschutz++ catalog changed'
+          body: |
+            The BSI's `Grundschutz++-resolved_catalog.json` changed upstream.
+            This PR regenerates the docs from the new version.
+
+            Review the diff before merging — read it, don't just trust that CI
+            passed (see CONTRIBUTING.md, "Green isn't the same as right").
+          branch: sync/upstream-catalog
+          add-paths: src/content/docs/grundschutzpp/**

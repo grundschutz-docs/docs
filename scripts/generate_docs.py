@@ -11,12 +11,19 @@ Doku-Seite auf den aktuellen Stand zu bringen:
     cd ../Grundschutz-Docs && pnpm run build   # oder: pnpm run dev
 """
 import json
+import os
 import re
 from datetime import date
 from pathlib import Path
 
 REPO_ROOT = Path(__file__).resolve().parent.parent.parent
-CATALOG_FILE = REPO_ROOT / "Grundschutz-PlusPlus" / "control_layer" / "Grundschutz++" / "Grundschutz++-resolved_catalog.json"
+DEFAULT_CATALOG_FILE = (
+    REPO_ROOT / "Grundschutz-PlusPlus" / "control_layer" / "Grundschutz++" / "Grundschutz++-resolved_catalog.json"
+)
+# Lokal: Grundschutz-PlusPlus liegt als Ordner neben diesem Repo. In CI gibt es
+# diesen Nachbarordner nicht — dort wird der Pfad stattdessen über die Umgebungsvariable
+# gesetzt (siehe .github/workflows/sync-catalog.yml).
+CATALOG_FILE = Path(os.environ["GRUNDSCHUTZPP_CATALOG"]) if os.environ.get("GRUNDSCHUTZPP_CATALOG") else DEFAULT_CATALOG_FILE
 OUT_DIR = Path(__file__).resolve().parent.parent / "src" / "content" / "docs" / "grundschutzpp"
 ASTRO_CONFIG = Path(__file__).resolve().parent.parent / "astro.config.mjs"
 
