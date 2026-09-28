@@ -125,7 +125,9 @@ if (image) {
 			.hero {
 				grid-template-columns: 7fr 4fr;
 				gap: 3%;
-				padding-block: clamp(2.5rem, calc(1rem + 10vmin), 10rem);
+				/* Starlights Standardwert reserviert viel Platz für ein Hero-Bild
+				   (bis zu 10rem). Wir haben keins, also deutlich knapper. */
+				padding-block: clamp(1.5rem, 4vmin, 3rem);
 			}
 
 			.hero > img,

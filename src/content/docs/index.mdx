@@ -12,16 +12,41 @@ hero:
       link: https://github.com/BSI-Bund/Stand-der-Technik-Bibliothek
       icon: external
       variant: minimal
+      attrs:
+        target: _blank
+        rel: noopener noreferrer
 ---
 
 ## Was hier passiert
 
+**20 Themenfelder** in **6 Management-Phasen** (PDCA-Zyklus) — aktuell in
+der **Pilotphase**, siehe [Status & Zeitplan](/grundschutzpp/zeitplan/).
+
 Diese Seite ist **kein offizielles BSI-Angebot**. Der BSI-OSCAL-Katalog
 (`Grundschutz++-resolved_catalog.json`, CC BY-SA 4.0, BSI-Bund) ist für
-Maschinen geschrieben – SSP-Generierung, Tooling, Validierung. Hier wird
-derselbe Katalog gelesen und in etwas verwandelt, das man einfach liest: 20
-Themengruppen, durchsuchbar, mit Sicherheitsstufe, Aufwand und
-Basisgefährdungen direkt am jeweiligen Control.
+Maschinen geschrieben – SSP-Generierung, Tooling, Validierung. OSCAL selbst
+stammt von NIST, nicht vom BSI: ein bereits etablierter, international
+genutzter Standard, den das BSI bewusst übernommen hat, statt eine eigene
+Lösung zu bauen.
+
+Hier wird derselbe Katalog gelesen und in etwas verwandelt, das man einfach
+liest: [Governance & Compliance](/grundschutzpp/gc/) →
+[Strukturmodellierung](/grundschutzpp/stm/) →
+[Umsetzung](/grundschutzpp/ums/) →
+[Monitoring-Evaluation](/grundschutzpp/perf/) →
+[Verbesserung](/grundschutzpp/vrb/), dazu
+[Risikomanagement](/grundschutzpp/risk/) als durchgehender Begleiter — das
+Managementsystem als PDCA-Zyklus. Dazu 14 operative Themenfelder von
+Berechtigung bis Detektion, alle durchsuchbar, mit Sicherheitsstufe,
+Aufwand und Basisgefährdungen direkt am jeweiligen Control.
+
+Es gibt bereits ein Tool, das den OSCAL-Katalog visuell aufbereitet – mit
+mehr Darstellungsmöglichkeiten (Graphen, Diagramme) als diese Seite. Es
+steht aber unter einer Content-Lizenz (CC BY-SA) statt einer echten
+Software-Lizenz – wovon Creative Commons bei Code selbst abrät (kein
+Patentschutz, nie von der OSI zertifiziert). Diese Seite trennt das
+bewusst: der BSI-Katalog-Inhalt bleibt CC BY-SA (wie vom BSI selbst
+vergeben), der Code hier läuft unter MIT.
 
 Aktuell bleibt die Seite, ohne dass irgendetwas neu recherchiert werden muss:
 nach einem `git pull` im Grundschutz-PlusPlus-Repo einmal
