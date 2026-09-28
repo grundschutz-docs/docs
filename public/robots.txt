@@ -1,0 +1,32 @@
+# Allgemein: alles erlauben, außer den reinen Pagefind-Indexdateien
+# (JSON/WASM-Fragmente der Suche, kein Inhalt, keine Seiten).
+User-agent: *
+Disallow: /pagefind/
+Allow: /
+
+# KI-Trainings-Crawler: gesperrt. Der zugrunde liegende BSI-Katalog steht
+# unter CC BY-SA 4.0 (Namensnennung + Share-Alike) — ob kommerzielles
+# Modelltraining auf lizenziertem Fremdinhalt davon gedeckt ist, ist
+# rechtlich ungeklärt. Live-Abruf durch KI-Assistenten (unten nicht
+# gesperrt) ist dagegen genau der gewünschte Anwendungsfall dieser Seite.
+User-agent: GPTBot
+Disallow: /
+
+User-agent: Google-Extended
+Disallow: /
+
+User-agent: CCBot
+Disallow: /
+
+User-agent: Bytespider
+Disallow: /
+
+User-agent: anthropic-ai
+Disallow: /
+
+User-agent: Applebot-Extended
+Disallow: /
+
+# Sitemap: sobald `site` in astro.config.mjs gesetzt ist (siehe dortiger
+# Kommentar), hier die vollständige URL ergänzen:
+# Sitemap: https://<domain>/sitemap.xml
