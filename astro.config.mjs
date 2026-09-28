@@ -1,17 +1,37 @@
 // @ts-check
+import { readFileSync } from 'node:fs';
 import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
+
+// Name an einer Stelle definiert (.env, siehe .env.example) statt über
+// mehrere Dateien verstreut — solange der endgültige Name noch nicht feststeht.
+// Kein vite-Import hier: pnpms strenges node_modules verbietet den Zugriff auf
+// nicht direkt deklarierte Abhängigkeiten, deshalb ein minimaler eigener Parser.
+function readSiteName() {
+	if (process.env.SITE_NAME) return process.env.SITE_NAME;
+	try {
+		const line = readFileSync(new URL('./.env', import.meta.url), 'utf-8')
+			.split('\n')
+			.find((l) => l.startsWith('SITE_NAME='));
+		return line?.slice('SITE_NAME='.length).trim();
+	} catch {
+		return undefined;
+	}
+}
+
+const SITE_NAME = readSiteName();
 
 // https://astro.build/config
 export default defineConfig({
 	integrations: [
 		starlight({
-			title: 'Klartext',
+			title: SITE_NAME || 'Grundschutz++ Docs',
 			description: 'Eigene lesbare Aufbereitung des BSI Grundschutz++ OSCAL-Katalogs',
 			customCss: ['./src/styles/custom.css'],
-				components: {
-					ThemeSelect: './src/components/ThemeToggle.astro',
-				},
+			components: {
+				ThemeSelect: './src/components/ThemeToggle.astro',
+				Hero: './src/components/Hero.astro',
+			},
 			social: [
 				{
 					icon: 'github',
