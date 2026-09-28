@@ -1,0 +1,96 @@
+---
+import { Icon } from '@astrojs/starlight/components';
+---
+
+<theme-toggle>
+	<button type="button">
+		<Icon class="icon icon-light" name="sun" />
+		<Icon class="icon icon-dark" name="moon" />
+		<Icon class="icon icon-auto" name="laptop" />
+	</button>
+</theme-toggle>
+
+<style>
+	theme-toggle button {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 2.25rem;
+		height: 2.25rem;
+		border-radius: 999px;
+		border: 1px solid var(--glass-border);
+		background-color: var(--glass-tint);
+		backdrop-filter: blur(12px) saturate(160%);
+		-webkit-backdrop-filter: blur(12px) saturate(160%);
+		color: var(--sl-color-text);
+		cursor: pointer;
+	}
+
+	theme-toggle button:hover {
+		border-color: var(--sl-color-accent);
+	}
+
+	theme-toggle .icon {
+		display: none;
+	}
+
+	theme-toggle[data-active='light'] .icon-light,
+	theme-toggle[data-active='dark'] .icon-dark,
+	theme-toggle[data-active='auto'] .icon-auto {
+		display: block;
+	}
+</style>
+
+<script>
+	type Theme = 'auto' | 'light' | 'dark';
+
+	const storageKey = 'starlight-theme';
+	const order: Theme[] = ['auto', 'light', 'dark'];
+	const labels: Record<Theme, string> = {
+		auto: 'Farbschema: System. Klicken für Hell.',
+		light: 'Farbschema: Hell. Klicken für Dunkel.',
+		dark: 'Farbschema: Dunkel. Klicken für System.',
+	};
+
+	const parseTheme = (value: unknown): Theme =>
+		value === 'light' || value === 'dark' ? value : 'auto';
+
+	const loadTheme = (): Theme =>
+		parseTheme(typeof localStorage !== 'undefined' ? localStorage.getItem(storageKey) : null);
+
+	const storeTheme = (theme: Theme): void => {
+		if (typeof localStorage === 'undefined') return;
+		localStorage.setItem(storageKey, theme === 'auto' ? '' : theme);
+	};
+
+	const getSystemTheme = (): 'light' | 'dark' =>
+		matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+
+	class ThemeToggle extends HTMLElement {
+		#theme: Theme = 'auto';
+
+		connectedCallback() {
+			this.#apply(loadTheme());
+
+			this.querySelector('button')?.addEventListener('click', () => {
+				const next = order[(order.indexOf(this.#theme) + 1) % order.length] ?? 'auto';
+				storeTheme(next);
+				this.#apply(next);
+			});
+
+			matchMedia('(prefers-color-scheme: light)').addEventListener('change', () => {
+				if (this.#theme === 'auto') this.#apply('auto');
+			});
+		}
+
+		#apply(theme: Theme) {
+			this.#theme = theme;
+			document.documentElement.dataset.theme = theme === 'auto' ? getSystemTheme() : theme;
+			this.dataset.active = theme;
+			const button = this.querySelector('button');
+			if (button) button.setAttribute('aria-label', labels[theme]);
+		}
+	}
+
+	customElements.define('theme-toggle', ThemeToggle);
+</script>

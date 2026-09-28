@@ -1,0 +1,757 @@
+---
+title: "BER – Berechtigung"
+---
+
+# BER Berechtigung
+
+Die Praktik Berechtigung stellt sicher, dass ausschließlich autorisierte Personen und IT-Systeme Zugriff auf sensible Informationen und Ressourcen erhalten. Sie regelt die Verwaltung von Identitäten und Berechtigungen, um die Vertraulichkeit, Integrität und Verfügbarkeit von Informationen zu gewährleisten. Dabei bildet die Praktik Berechtigung eine zentrale Schnittstelle zwischen den Praktiken Personal, Dienstleistersteuerung, Asset Management und Gebäudemanagement. Während IT-Systeme den Zugriff regeln, behandeln die Praktik Personal den Umgang mit Mitarbeitenden. Die Praktik Berechtigung vereint diese organisatorischen und technischen Aspekte, um Zugriffsrechte sicher und effizient zu verwalten.
+
+## BER.1 Grundlagen
+
+### BER.1.1 – Verfahren und Regelungen
+
+**Stufe:** `normal-SdT` · **Aufwand:** 0 · **Gefährdungen:** G 0.18
+
+> Berechtigung MUSS Verfahren und Regelungen zum Identitäts- und Berechtigungsmanagement verankern.
+
+Ziel ist einen dokumentierten Prozess einzurichten, der die Vergabe, Verwaltung und Entfernung von Zugangs- und Zugriffsberechtigungen, sowie der damit verbundenen Identitäten regelt. Zu berücksichtigen sind insbesondere Neueinstellungen, Versetzungen und Entlassungen. Empfehlenswert ist es, die Vergabe und den Entzug von Berechtigungen so weit wie möglich zu automatisieren. Die bei der Festlegung des Verfahrens im Einzelnen zu berücksichtigenden Inhalte ergeben sich aus den Anforderungen dieser Praktik.
+
+#### BER.1.1.1 – Dokumentation
+
+**Stufe:** `normal-SdT` · **Aufwand:** 0 · **Gefährdungen:** G 0.18, G 0.37
+
+> Berechtigung MUSS die Verfahren und Regelungen dokumentieren.
+
+Ohne eine Dokumentation könnte die Einhaltung der Verfahren und Regelungen von der Tagesform oder dem individuellen Wissen einzelner Mitarbeiter abhängen, was zu inkonsistenten Entscheidungen und Fehlern führen könnte; insbesondere beim Ausscheiden eines langjährigen Administrators könnte wertvolles prozessuales Wissen verloren gehen. Eine klare Dokumentation sichert die Verbindlichkeit und Wiederholbarkeit und dient als unverzichtbare Grundlage für die Einarbeitung neuer Kollegen, für die Durchführung von Audits und zur einheitlichen Anwendung der Regeln in der gesamten Institution. Die Dokumentation kann in einem eigenständigen Dokument als Richtlinie erfolgen, aber auch als Abschnitt in einem bereits bestehenden Dokument oder über die digital strukturiere Erfassung von Maßnahmen zur Umsetzung der Anforderungen, etwa über eine Software zum Management der Informationssicherheit. Sinnvoll ist es Ort und Struktur der Dokumentation an der jeweiligen Zielgruppe, d.h. den für das Management und die Umsetzung verantwortlichen Personen oder Rollen, auszurichten.
+
+#### BER.1.1.2 – Zuweisung der Aufgaben
+
+**Stufe:** `normal-SdT` · **Aufwand:** 0 · **Gefährdungen:** G 0.18, G 0.31
+
+> Berechtigung MUSS die mit den Verfahren und Regelungen verbundenen Aufgaben *[zuständigen Personen oder Rollen]* zuweisen.
+
+Die Zuweisung von Aufgaben bezeichnet die eindeutige und verbindliche Übertragung von konkreten Tätigkeiten und Verantwortlichkeiten des Änderungsprozesses, wie etwa die Risikobewertung, die technische Umsetzung oder die finale Freigabe, an definierte Stellen in der Institution. Der Sinn dieser Vorschrift ist es, die Verantwortlichkeit ("Accountability") für jeden einzelnen Schritt im Prozess klarzustellen. Ohne eine solche Zuweisung könnten kritische Prüfungen unterbleiben, weil sich niemand explizit zuständig fühlt, was wiederum die Wahrscheinlichkeit fehlgeschlagener Änderungen erhöht. Eine klare Regelung kann sicherstellen, dass keine Aufgaben übersehen werden und jede Tätigkeit von einer dafür qualifizierten und befugten Stelle ausgeführt wird, was die Prozesssicherheit signifikant erhöht. Eine bewährte Methode zur Umsetzung ist die Erstellung einer RACI-Matrix (Responsible, Accountable, Consulted, Informed), die tabellarisch für jeden Prozessschritt darstellt, wer für die Durchführung verantwortlich ist, wer die Gesamtverantwortung trägt, wer zu konsultieren und wer zu informieren ist. Diese Zuständigkeiten können auch direkt in einem Workflow- oder Ticketsystem abgebildet werden, sodass Aufgaben, wie beispielsweise Genehmigungsschritte, automatisch an die richtige Gruppe oder Person weitergeleitet werden. Sinnvoll ist es, die Zuweisung anhand von Rollen (z. B. "Anwendungsverantwortlicher", "Netzwerkadministrator", "Change Manager") vorzunehmen, statt an konkrete Personen. Dieser Ansatz stellt sicher, dass die Prozesse auch bei Personalwechseln stabil weiterlaufen, da die Zuständigkeit an die Funktion und nicht an das Individuum gebunden ist.
+
+#### BER.1.1.3 – Bekanntgabe
+
+**Stufe:** `normal-SdT` · **Aufwand:** 0 · **Gefährdungen:** G 0.18, G 0.31
+
+> Berechtigung MUSS die zuständigen Personen oder Rollen über die Verfahren und Regelungen informieren.
+
+Wenn die Zuständigen die etablierten Verfahren nicht kennen, besteht die Gefahr, dass diese – sei es aus Unwissenheit oder Bequemlichkeit – umgangen werden, was die Schutzwirkung des gesamten Managementsystems untergräbt. So könnte ein neuer Systemadministrator eine weitreichende Konfigurationsänderung vornehmen, ohne den vorgeschriebenen Genehmigungsprozess zu durchlaufen, was zu einem unbemerkten Sicherheitsrisiko führen könnte. Eine gezielte Information kann hingegen die Akzeptanz der Regelungen fördern und sicherstellen, dass alle Beteiligten ihre Rolle im Prozess verstehen und die Abläufe korrekt anwenden. Zur Umsetzung ist es sinnvoll die Dokumentation im Rahmen eines Onboarding-Prozesses bekanntzugeben und bei allen Änderungen eine automtatische Benachrichtigung aller zuständigen Personen oder Rollen anzustoßen.
+
+### BER.1.2 – Regelmäßige Überprüfung
+
+**Stufe:** `normal-SdT` · **Aufwand:** 0 · **Gefährdungen:** G 0.18
+
+> Berechtigung MUSS die Verfahren und Regelungen *[regelmäßig]* und anlassbezogen auf Aktualität überprüfen.
+
+Eine geplante Überprüfung der etablierten Verfahren und Regelungen dient dazu festzustellen, ob diese noch wirksam, effizient und an die aktuellen Gegebenheiten angepasst sind. Eine anlassbezogene Überprüfung wird durch spezifische Ereignisse ausgelöst, wie etwa einen schwerwiegenden Sicherheitsvorfall, eine strategische Neuausrichtung der IT oder neue gesetzliche Anforderungen. Der Zweck dieser Anforderung ist es, die kontinuierliche Verbesserung und Anpassungsfähigkeit des Prozesses sicherzustellen, da veraltete Regelungen neuen technologischen Entwicklungen oder Bedrohungen nicht mehr gerecht werden könnten; ein vor Jahren für monolithische Anwendungen konzipierter Prozess ist beispielsweise für agile Entwicklungsmethoden oder Microservice-Architekturen ungeeignet. Die regelmäßige Überprüfung kann die Effektivität des Sicherheitsmanagements langfristig aufrechterhalten und die Resilienz der Institution stärken.
+
+### BER.1.3 – Inventar Authentifizierungs- und Autorisierungssysteme
+
+**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.18
+
+> Berechtigung SOLLTE ein Inventar der Systeme zur Authentifizierung und Autorisierung dokumentieren.
+
+Ein dokumentiertes Inventar der Authentifizierungs- und Autorisierungssysteme kann eine zentrale Grundlage sein, um den Überblick über sicherheitsrelevante Zugangskontrollen zu behalten, sowohl lokal als auch in der Cloud. Solche Systeme sind dafür zuständig zu prüfen, wer Zugriff auf IT-Ressourcen erhält (Authentifizierung) und was dieser Zugriff umfassen darf (Autorisierung). Wird kein vollständiges und gepflegtes Inventar geführt, könnten Schwachstellen unentdeckt bleiben, z.B. veraltete Login-Dienste, falsch konfigurierte Rollen oder Schatten-Identitäten in cloudbasierten Identitätsplattformen. In einem konkreten Vorfall könnte etwa ein ehemals genutzter Verzeichnisdienst (z.B. ein ausgemusterter LDAP-Server) unbemerkt weiterhin aktiv sein und von Angreifern für unautorisierte Zugriffe verwendet werden. Ebenso könnte ein unerkannter Konfigurationsfehler in einem Authentifizierungs-Gateway dazu führen, dass privilegierte Nutzerrollen ohne Zwei-Faktor-Absicherung zugänglich sind. Zu Authentifizierungs- und Autorisierungssystemen zählen beispielsweise Verzeichnisdienste (Directory Services), Identity Provider (IdPs), Single Sign-On-Plattformen (SSO), lokale Passwortdatenbanken sowie API-Gateways mit Zugriffskontrolllogik. Eine Möglichkeit zur Umsetzung kann darin bestehen, auf eine Liste aller Systeme des Informationsverbundes zurückzugreifen und Informationen zum Berechtigungsmanagement zu ergänzen – inklusive ihrer Funktion, angebundenen Anwendungen, unterstützten Protokollen (wie SAML, OAuth2, OpenID Connect) sowie Zuständigkeiten. Die Pflege dieses Inventars kann über ein zentrales Configuration Management Database (CMDB) erfolgen oder alternativ über eine revisionsfähige Tabellenstruktur mit Zugriffskontrollen. Hilfreich kann es sein, den Lifecycle einzelner Systeme zu erfassen, etwa ob sich diese in Einführung, Nutzung oder Stilllegung befinden. Ein Abgleich mit dem Rollen- und Rechtemanagement der Institution kann die Konsistenz zusätzlich verbessern.
+
+### BER.1.4 – Inventar der Berechtigungen
+
+**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.18
+
+> Berechtigung SOLLTE ein Inventar der Berechtigungen mit Personen, Identitäten, Zugangskonten, Berechtigungen und deren jeweiliger Zuordnung dokumentieren.
+
+Ein Inventar der Berechtigungen kann helfen, Zugriffsrechte innerhalb einer Institution transparent zu machen und unnötige oder riskante Berechtigungen zu erkennen. Es dokumentiert, welche Identitäten – also digitale Repräsentationen von Personen oder Systemen – über welche Konten und Berechtigungen verfügen. So können potenzielle Risiken wie verwaiste Konten oder unautorisierte Privilegien sichtbar werden. Beispielsweise könnte ein ehemaliger Mitarbeitender noch aktive Zugänge besitzen, oder ein Dienstkonto könnte über weitreichende Rechte verfügen, obwohl der Einsatz längst beendet ist – beides kann ein Einfallstor für Missbrauch sein. Relevant sind neben den Berechtigungen von Personen auch Dienstekonten, Cloud-Zugänge und physische Zugangsberechtigungen wie Schlüssel-Schließpläne. Berechtigungen bezeichnen konkrete Zugriffsrechte auf Ressourcen (z. B. Lesen oder Administrieren). Eine Institution kann dies etwa durch einen Verzeichnisdienst, ein zentrales Berechtigungsmanagement oder gepflegte Berechtigungsverzeichnisse abbilden. Die Benennung von Zuständigen je Fachbereich, regelmäßige Überprüfungen und der Einsatz von klaren Rollenkennzeichnungen (z. B. „temporär“, „Admin“) können helfen, das Inventar aktuell und verständlich zu halten. Auch eine strukturierte Offboarding-Checkliste kann sicherstellen, dass veraltete Zugänge rechtzeitig entfernt werden.
+
+## BER.2 Identitätsmanagement
+
+### BER.2.1 – Person-Identität
+
+**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.36, G 0.30, G 0.32
+
+> Berechtigung SOLLTE eine eindeutige Identität zu genau einer natürlichen Person oder einem IT-System zuweisen.
+
+Hier wird eine Identität ("muellera") genau einer natürlichen Person ("Andrea Müller") zugewiesen, oder einem IT-System ("pc02348" zu "pc02348.our.domain").
+
+### BER.2.2 – Einschränkung
+
+**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.36, G 0.30, G 0.32
+
+> Berechtigung SOLLTE die Einrichtung, Änderung oder Löschung einer Identität einschränken.
+
+Das Identitäts- und Berechtigungsmanagement ist entscheidend für die sichere Authentifizierung vor Zugang zu Informationen. Identitäten sind die Grundlage hierfür. Je nach Organisationsstruktur benötigen z.B. das Personalmanagement oder Administrierende schreibenden Zugang zu Identitäten.
+
+### BER.2.3 – Stammdatenprüfung
+
+**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.36, G 0.30, G 0.32
+
+> Berechtigung SOLLTE Stammdaten einer Identität anhand allgemeiner Stammdaten *[regelmäßig]* überprüfen.
+
+Allgemeine Stammdaten können z.B. sein: Unterlagen der Personalabteilung, Ergebnisse von Netzwerkscans für IT-Systeme, CMDB. Der Abgleich kann auch automatisiert vorgenommen werden.
+
+### BER.2.4 – Protokollierung von Stammdatenänderungen
+
+**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.36, G 0.30, G 0.32, G 0.37
+
+> Berechtigung SOLLTE Änderungen von Identitäts-Stammdaten protokollieren.
+
+Zu einem Ereignisprotokoll gehört der Zeitpunkt, das Zugangskonto, sowie welche Änderungen vorgenommen wurden.
+
+### BER.2.5 – Deaktivierung bei Weggang
+
+**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.36, G 0.30, G 0.32
+
+> Berechtigung SOLLTE die zugeordnete Identität bei Weggang von Nutzenden deaktivieren.
+
+Weggang meint hier die nicht nur kurzfristige Beendigung der Aktivitäten der Identität, z.B. bei Kündigung, Elternzeit, Sabbatical. Die Anforderung ist auch umgesetzt, wenn die Identität gelöscht wird. Empfehlenswert ist die Löschung jedoch erst nach Ablauf längerer Löschfristen, um die Nachvollziehbarkeit von Aktionen im Audit Log zu erhalten.
+
+### BER.2.6 – Löschen nach Fristablauf
+
+**Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.36, G 0.30, G 0.32
+
+> Berechtigung SOLLTE nicht mehr benötigte Identitäten nach Ablauf der Löschfristen löschen.
+
+Gesetzliche Aufbewahrungs- und Löschfristen ergeben sich aus dem Compliance-Management, z.B. aus Regelungen der DSGVO oder dem Handels- und Steuerrecht. Sicheres Löschen bedeutet, Daten so zu entfernen, dass sie mit vertretbarem Aufwand (auch forensisch) nicht mehr rekonstruierbar sind. Je nach Medium geschieht das z. B. durch verifizierbares Überschreiben, kryptografisches Löschen (Schlüsselvernichtung) oder physische Zerstörung (inklusive zugehöriger Metadaten, Caches und Datensicherungen).
+
+## BER.3 Zugangskonten
+
+### BER.3.1 – Zentrales Management
+
+**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.36, G 0.30, G 0.32
+
+> Berechtigung SOLLTE ein zentrales Managementsystem für Zugangskonten installieren.
+
+Wenn Zugangskonten lokal auf jedem Gerät einzeln verwaltet werden, könnte es zu inkonsistenten und veralteten Zugängen und Berechtigungen kommen. Ein zentrales System steuert Benutzeridentitäten und Zugriffsrechte übergreifend – oft als Identity and Access Management (IAM) oder bei sensiblen Konten als Privileged Access Management (PAM) bezeichnet. Es kann die Nachvollziehbarkeit erhöhen, Audits erleichtern und gerade in komplexen IT-Umgebungen Transparenz schaffen. Umsetzbar ist dies etwa über Verzeichnisdienste wie LDAP oder Active Directory, ergänzt durch rollenbasierte Zugriffsmodelle (RBAC). Praktische Maßnahmen zum Management können Self-Service-Portale, automatische Genehmigungsworkflows und regelmäßige Rechteüberprüfungen umfassen. Für den Einstieg kann eine Institution kritische Systeme priorisieren und Prozesse schrittweise zentralisieren.
+
+### BER.3.2 – Autorisierung neuer Zugangskonten
+
+**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.36, G 0.30, G 0.32
+
+> Berechtigung SOLLTE die Einrichtung von Zugangskonten durch *[bestimmte Personen oder Rollen]* autorisieren.
+
+Gemeint ist hier die Entscheidungsbefugnis für die Freigabe neuer Zugangskonten. Dies können je nach Organissationsstruktur beispielsweise fachliche Vorgesetzte, Systemverantwortliche, Anwendungseigentümer, Rollenverantwortliche, Personalverantwortliche, Sicherheitsbeauftragte oder benannte Administratoren mit Freigabekompetenz sein. Eine geregelte Autorisierung stellt sicher, dass Zugänge nur auf Grundlage eines legitimen geschäftlichen oder technischen Bedarfs entstehen. Ohne eine solche Autorisierung könnte ein Zugangskonto "auf Zuruf" ohne gültigen Auftrag eingerichtet werden, z.B. für hier nicht berechtigte Personen, ehemalige Beschäftigte oder externe Dienstleister. Dies könnte unbefugte Zugriffe, Berechtigungsausweitung, Umgehung von Verantwortlichkeiten oder nicht erkennbare Schattenkonten begünstigen.
+
+### BER.3.3 – Einschränkung des Managements
+
+**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.36, G 0.30, G 0.32
+
+> Berechtigung SOLLTE das Management von Zugangskonten auf Administrierende einschränken.
+
+Management meint hier Aktionen wie z.B. das Erstellen oder Ändern von Metadaten oder Berechtigungen oder die Löschung des Zugangskontos.
+
+### BER.3.4 – Protokollierung von Änderungen
+
+**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.36, G 0.30, G 0.32, G 0.37
+
+> Berechtigung SOLLTE Aktionen an Zugangskonten revisionsfähig protokollieren.
+
+Werden Aktionen an Zugangskonten wie die Erstellung, Veränderung von Metadaten oder Berechtigungen, Aktivierung, Deaktivierung oder Löschung von Zugangskonten automatisch protokolliert, so können Sicherheitsverstöße erkannt und nachgewiesen werden. Siehe auch Praktik Detektion.
+
+### BER.3.5 – Identität-Zugangskonto
+
+**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.36, G 0.30, G 0.32
+
+> Berechtigung SOLLTE ein Zugangskonto zu genau einer Identität zuweisen.
+
+Wenn ein Zugangskonto genau einer Identität zugewiesen ist erleichtert dies die Vergabe von Berechtigungen nach dem Need-to-know-Prinzip. Außerdem kann so bei einem Vorfall nachvollzogen werden, welche Person welche Befehle ausgeführt hat, z.B. mittels des Audit Logs. Anders herum können einer Identität auch mehrere Zugangskonten zugewiesen sein, z.B. ein normalen Nutzungskonto und ein Zugangskonto für die Systemadministration.
+
+### BER.3.6 – Privilegierte Zugangskonten
+
+**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.36, G 0.30, G 0.32
+
+> Berechtigung für Administrierende SOLLTE separate Zugangskonten für administrative Tätigkeiten (Administrationskonten) verankern.
+
+Zugangskonten mit privilegierten Rechten (Superuser wie z.B. root) könnten durch menschliche Fehler oder Schadcode weitreichende Probleme verursachen. Bewährt hat es sich daher für administrative Tätigkeiten wie die Installation von Anwendungen dedizierte Zugangskonten einzurichten und diese auch nur für derartige Tätigkeiten zu verwenden. Für normale Geschäftsaktivitäten wie E-Mail oder Webbrowser nutzen auch Administrierende dann ausschließlich Zugangskonten ohne administrative Berechtigungen.
+
+### BER.3.7 – Single-Sign-On
+
+**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.36, G 0.30, G 0.32
+
+> Berechtigung für Anwendungen SOLLTE die Anmeldung über einen zentralen Identitätsprovider aktivieren.
+
+Bei Single Sign-on authentifizieren sich Nutzende bei einem zentralen Identity Provider, der auch die Berechtigungen zur Nutzung der Anwendung prüft. Bei erfolgreicher Authentifizierung und passenden Berechtigungen wird für die Sitzung ein Token ausgestellt, das den Zugang zur Anwendung ermöglicht. Da Nutzende durch Single-Sign-On weniger Anmeldeinformationen benötigen, wird es leichter, sich komplexe Passwörter zu merken oder zentrale gepflegte Schutzmaßnahmen, wie eine Mehr-Faktor-Authentifizierung oder Überwachung von Anmeldeinformationen, auch auf die Anwendung anzuwenden. Zudem erschwert Single-Sign-On auch Phishing-Angriffe, da Anmeldeinformationen nur noch an zentraler Stelle und nicht mehr verstreut in einzelne Anwendungen oder Webseiten abgefragt werden. Andererseits ist bei der Kompromittierung des Single-Sign-On-Logins auch die Authentifizierung an der Anwendung kompromittiert und die Verfügbarkeit der Anwendung hängt auch von der Verfügbarkeit des zentralen Logins ab. Dies kann unter Windows durch Nutzung eines Windows Server Domain Controllers und unter Linux durch Samba mit aktiviertem Heimdal Kerberos Key Distribution Center (KDC) umgesetzt werden.
+
+### BER.3.8 – Hinweise bei Anmeldefehlern
+
+**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.36, G 0.30, G 0.32
+
+> Berechtigung für Anwendungen SOLLTE Hinweise darauf, ob ein Zugangskonto existiert bei erfolglosen Anmeldeversuchen deaktivieren.
+
+Den Hinweis, dass bei erfolglosen Anmeldeversuchen das Passwort oder die Kennung falsch ist, könnte ein Angreifer als sogenannte User Enumeration (Benutzerkonten-Aufzählung) oder Account Discovery (Konto-Entdeckung) Schwachstelle ausnutzen. Dadurch wird das Risiko einer Brute-Force-Attacke oder eines Credential Stuffings erhöht, bei der ein Angreifer eine Liste potenzieller Benutzernamen durchprobieren könnte, um gültige Konten zu identifizieren. Der Schutz kann gewährleisten, dass ein Angreifer nicht automatisch weiß, welche Konten er als Nächstes mit Passwörtern attackieren muss oder Rückschlüsse auf registrierte Zugangskonten erhält. Zur Umsetzung kann die Institution alle Rückmeldungen bei fehlgeschlagenen Anmeldeversuchen so vereinheitlichen, dass sie keinen Aufschluss über den Grund des Fehlschlags geben, beispielsweise durch die generische Nachricht „Der eingegebene Benutzername oder das Passwort ist ungültig.“.
+
+### BER.3.9 – Ereignisgesteuerte Deaktivierung
+
+**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.36, G 0.30, G 0.32
+
+> Berechtigung SOLLTE Zugangskonten ereignisgesteuert deaktivieren.
+
+Ungenutzte Zugangskonten stellen ein unnötiges Risiko für unberechtigte Zugriffe dar. Werden sie z.B. bei längerer Inaktivität, bei Personalweggang oder bei Verletzung von Richtlinien unverzüglich deaktiviert, so vermindert sich das Risiko eines Missbrauchs erheblich.
+
+### BER.3.10 – Anmeldeversuchsgrenze am System
+
+**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.36, G 0.30, G 0.32
+
+> Berechtigung für IT-Systeme SOLLTE weitere Anmeldeversuche nach Erreichen von *[einem maximalen Schwellwert an]* fehlgeschlagenen Versuchen vorübergehend blockieren.
+
+Betrifft sowohl die lokale Anmeldung über eine Benutzeroberfläche als auch den Zugriff über Fernwartungsprotokolle oder -anwendungen wie RDP, SNMP, wenn diese vorhanden sind. Die Umsetzung erfolgt im einfachsten Fall durch ein Login, bzw. eine Bildschirmsperre für das IT-System. Biometrische Daten wie Fingerabdrücke können gefälscht werden und sind nicht so leicht zu ändern wie Passwörter. Setzen Sie Biometrie daher nicht als einzigen Authentifizierungsfaktor ein, sondern wenn, dann nur zur Ergänzung (Mehr-Faktor-Authentifizierung). Die Anforderung ist entbehrlich, wenn das System keinen Zugriff auf schützenswerte Daten erlaubt, z.B. bei Nutzung als Kiosk.
+
+### BER.3.11 – Anmeldeversuchsgrenze an der Anwendung
+
+**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.36, G 0.30, G 0.32
+
+> Berechtigung für Anwendungen SOLLTE weitere Anmeldeversuche nach Erreichen von *[einem maximalen Schwellwert an]* fehlgeschlagenen Versuchen vorübergehend blockieren.
+
+Häufen sich Anmeldeversuche, so könnte ein Angreifer Zugangsdaten durchprobieren. Durch eine Anmeldeversuchsgrenze wird der Zugriff durch das massenhafte Durchprobieren von Zugangsdaten (Credential Stuffing) verhindert. Dies kann z.B. durch die Begrenzung der Anmeldeversuche pro Client oder pro IP erfolgen. Dies betrifft sowohl die Anmeldung an der Benutzeroberfläche als auch über das Netz. Relevant sind hierbei sowohl primäre als auch ggf. vorhandene sekundäre Zugänge (z.B. Sicherheitsfragen, Passwort zurücksetzen). Für die Wahl des Schwellwertes ist die Anzahl der betroffenen Zugangskonten, die Passwortlänge und der Schutzbedarf der Anwendung von Bedeutung. Je nach Risikoprofil der Anwendung sind verschiedene Lösungen denkbar, z.B. die Verwendung von CAPTCHAS bei Erreichen der Anmeldeversuchsgrenze oder indem der Zeitraum einer Blockierung nach jedem fehlgeschlagenen Anmeldeversuch erhöht wird. Erfordert die Anwendung keine Zugangsdaten, so ist auch diese Anforderung entbehrlich.
+
+### BER.3.12 – Systemsperre bei Inaktivität
+
+**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.36, G 0.30, G 0.32
+
+> Berechtigung für IT-Systeme SOLLTE eine Sperre bei Inaktivität nach *[einer Frist]* aktivieren.
+
+Kann durch eine Bildschirmsperre oder Abmeldung (Automatic Session Locking) umgesetzt werden. Eine längere Inaktivität kann z.B. 5-15 Minuten lang sein. Verwendet das System keine eigene Authentifizierung, so ist auch diese Anforderung entbehrlich.
+
+### BER.3.13 – Sperre der Anwendung bei Inaktivität
+
+**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.36, G 0.30, G 0.32
+
+> Berechtigung für Anwendungen SOLLTE eine Sperre bei Inaktivität nach *[einer Frist]* aktivieren.
+
+Kann je nach Anmeldeweg durch eine Abmeldung (Automatic Session Locking) direkt an der Anwendung, über Single-Sign-On oder (bei Anmeldung über das Netz) die Trennung der Netzverbindung umgesetzt werden. Eine längere Inaktivität kann z.B. 5-15 Minuten lang sein. Verfügt die Anwendung über keine eigene Authentifizierungsmethode, so ist die Anforderung entbehrlich.
+
+### BER.3.14 – Kein Recycling von Zugängen
+
+**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.30, G 0.32, G 0.36
+
+> Berechtigung SOLLTE die Wiederverwendung von Zugangskonten für *[einen bestimmten Zeitraum]* blockieren.
+
+Wiederverwendung von Zugangskonten meint hier die erneute Vergabe oder Reaktivierung zuvor bereits verwendeter Zugangskonten für Einzelpersonen, Gruppen, Rollen, Dienste oder Geräte zu anderen Einzelpersonen, Gruppen, Rollen, Diensten oder Geräten (engl. account reuse, account recycling). Der Parameter „einen bestimmten Zeitraum“ beschreibt eine durch die Institution festgelegte Sperr- oder Karenzfrist, innerhalb derer ein deaktiviertes, entzogenes oder nicht mehr zugeordnetes Konto nicht erneut verwendet werden kann; sinnvolle Werte können je nach Schutzbedarf etwa 90 Tage, 180 Tage, ein Jahr oder bei besonders kritischen bzw. privilegierten Konten eine dauerhafte Nichtwiederverwendung sein. Ohne eine solche Sperrfrist könnte eine neue nutzende Person fälschlich Zugriff auf alte Berechtigungen, Protokollzuordnungen, Postfächer, Schlüssel, Tokens oder Anwendungskontexte erhalten, und ein Sicherheitsvorfall könnte später nicht mehr eindeutig einer handelnden Person oder einem technischen Vorgang zugeordnet werden.
+
+### BER.3.15 – Zugang löschen nach Fristablauf
+
+**Stufe:** `normal-SdT` · **Aufwand:** 1 · **Gefährdungen:** G 0.36, G 0.30, G 0.32
+
+> Berechtigung SOLLTE nicht mehr benötigte Zugangskonten nach Ablauf der Löschfristen löschen.
+
+Die Löschfristen ergeben sich aus gesetzlichen Aufbewahrungs- und Löschfristen, die dem Compliance-Management entnommen werden können. Sicheres Löschen bedeutet, Daten so zu entfernen, dass sie mit vertretbarem Aufwand (auch forensisch) nicht mehr rekonstruierbar sind. Je nach Medium geschieht das z. B. durch verifizierbares Überschreiben, kryptografisches Löschen (Schlüsselvernichtung) oder physische Zerstörung (inklusive zugehöriger Metadaten, Caches und Datensicherungen).
+
+### BER.3.16 – Keine Gruppenkonten
+
+**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.36, G 0.30, G 0.32
+
+> Berechtigung SOLLTE Gruppenkonten im Regelbetrieb untersagen.
+
+Ein Gruppenkonto (englisch shared account) bezeichnet hier ein Zugangskonto, das von mehreren natürlichen Personen gemeinsam genutzt wird und daher keiner einzelnen natürlichen Person eindeutig zugeordnet werden kann. Vom Regelbetrieb erfasst ist die gewöhnliche, wiederkehrende Nutzung im Tagesgeschäft, nicht jedoch ein eng begrenzter Ausnahmefall mit gesonderter Begründung und Absicherung, sowie nachvollziehbarer Zuordnung der Nutzung zu einer konkreten Person. Der Ausschluss von Gruppenkonten hat das Ziel die Nachvollziehbarkeit von Zugriffen und Änderungen zu verbessern und eine eindeutige Verantwortlichkeit für die Nutzung von Berechtigungen sicherzustellen. Die Verwendung von Gruppenkonten im Regelbetrieb könnten hingegen die Aufklärung von Sicherheitsvorfällen erschweren, die missbräuchliche Nutzung von Zugriffsrechten begünstigen oder nach dem Ausscheiden einzelner Nutzer unbemerkte Zugriffsmöglichkeiten bestehen lassen. Für technisch unvermeidbare Sonderfälle können stattdessen speziell gekennzeichneter Funktions- oder Dienstkonten (service accounts) verwendet werden. Im Unterschied zu Gruppenkonten sind Service Accounts nicht zur gemeinsamen interaktiven Nutzung durch mehrere Mitarbeiter gedacht. Sie können beispielsweise einen Datenbankdienst mit einer Anwendung verbinden, automatisierte Datensicherungen durchführen oder den Datenaustausch zwischen zwei Systemen ermöglichen. Um klar von Gruppenkonten abgegrenzt zu sein benötigt ein Dienstkonto eine klar nachvollziehbare Zweckbindung, die Sperrung interaktiver Anmeldungen, sowie eine regelmäßige Erneuerung von Authentisierungsmerkmalen.
+
+### BER.3.17 – Gruppenkonten - MFA
+
+**Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.36, G 0.30, G 0.32
+
+> Berechtigung SOLLTE für Gruppenkonten die Mehr-Faktor-Authentisierung aktivieren.
+
+Werden trotz des damit verbundenen Risikos Gruppenkonten genutzt, so kann mit Mehr-Faktor-Authentifizierung der Mißbrauch von Zugangsdaten erschwert werden. Kann zum Beispiel durch mehrere dem Zugangskonto zugewiesene Hardwaretoken oder durch OTP-Apps umgesetzt werden. Falls keine Gruppenkonten verwendet werden, so ist die Anforderung entbehrlich.
+
+### BER.3.18 – Gruppenkonten - Wechsel dokumentieren
+
+**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.36, G 0.30, G 0.32
+
+> Berechtigung SOLLTE für Gruppenkonten die Identitäten, welche die Möglichkeit zum Zugriff haben, zum Wechselzeitpunkt dokumentieren.
+
+Es kann z.B. anhand von Dienst- oder Anwesenheitsplänen nachvollzogen werden, wer wann theoretisch Zugriff gehabt haben könnte. Werden keine Gruppenkonten verwendet, so ist die Anforderung entbehrlich.
+
+### BER.3.19 – Gruppenkonten - Passwortwechsel bei Weggang
+
+**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.36, G 0.30, G 0.32
+
+> Berechtigung SOLLTE für Gruppenkonten die Änderung von Zugangsdaten bei Weggang von Nutzenden ausführen.
+
+Gruppenkonten werden von mehreren Nutzenden (z.B. Schichtdienst) verwendet. Verlassen Nutzende die Institution oder Wechseln das Tätigkeitsfeld und das Passwort des Gruppenkontos wird nicht gewechselt, so besteht die Gefahr, dass das Gruppenkonto unberechtigt verwendet wird.
+
+### BER.3.20 – Zwischenspeicherung von Zugangsdaten
+
+**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.36, G 0.30, G 0.32
+
+> Berechtigung für IT-Systeme SOLLTE die Zwischenspeicherung der Zugangsdaten von Nutzern deaktivieren.
+
+Wird die Zwischenspeicherung von Zugangsdaten auf IT-Systemen deaktiviert, so wird Angreifern deren Diebstahl erschwert. Kann unter Windows ab Server 2012 R2 durch Zuweisung aller Zugangskonten zur Gruppe "Geschützte Benutzer" (Protected Users) umgesetzt werden. Konten für Dienste und Computer brauchen nicht Mitglied von „Geschützte Nutzer“ sein.
+
+### BER.3.21 – Dienstekonten
+
+**Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.36, G 0.30, G 0.32
+
+> Berechtigung für Hostsysteme SOLLTE eine automatische Verwaltung der Zugangsdaten von Dienste-Konten aktivieren.
+
+Eine automatische Verwaltung der Zugangsdaten von Dienste-Konten bezeichnet in diesem Kontext die technische Fähigkeit, Passwörter, Schlüssel oder Tokens solcher Konten – im Englischen häufig als service accounts oder machine identities bezeichnet – durch spezialisierte Systeme ohne manuelles Eingreifen zu erzeugen, zu speichern, regelmäßig zu erneuern und kontrolliert zu verteilen. Zugangsdaten sind hierbei sämtliche Authentifizierungsinformationen, die einem Dienst ermöglichen, auf Ressourcen anderer Systeme zuzugreifen, beispielsweise API-Schlüssel, SSH-Keys oder Anmeldedaten für Datenbanken. Dienste-Konten werden meist von Applikationen, Hintergrunddiensten oder Automatisierungsprozessen genutzt und unterscheiden sich von personenbezogenen Benutzerkonten dadurch, dass sie keinem Individuum zugeordnet sind, sondern einem technischen Zweck dienen. Erfolgt bei Zugangskonten für automatisierte Dienste eine automatische Rotation von Passwörtern oder Anmeldezertifikaten, so werden statische Passwörter, die Ablage von Zugangsdaten auf Netzlaufwerken oder plötzliche Fehlfunktionen durch Zertifikatsablauf vermieden. Ihre automatische Verwaltung kann durch zentrale Passworttresore (password vaults), Identitätsmanagementsysteme (Identity and Access Management, IAM) oder Secret-Management-Lösungen realisiert werden.
+
+### BER.3.22 – Notfallzugang
+
+**Stufe:** `erhöht` · **Aufwand:** 1 · **Gefährdungen:** G 0.36, G 0.30, G 0.32
+
+> Berechtigung KANN Notfallzugangskonten installieren.
+
+Ein Notfallzugangskonto (sog. Break Glass Account) ist ein Zugang mit privilegierten Berechtigungen, der bei Notfällen als letztes Mittel zum Zugang zu wichtigen Systemen verwendet werden kann, z.B. Verzeichnisdienste, Cloud-Infrastrukturen. Es empfiehlt sich für diese Konten die Verwendung langer Passwörter und die Aufbewahrung dieser z.B. in einem Safe oder aufgeteilt auf mehrere Administrierende.
+
+### BER.3.23 – Notfallzugang Verzeichnisdienst
+
+**Stufe:** `normal-SdT` · **Aufwand:** 5 · **Gefährdungen:** G 0.36, G 0.30, G 0.32
+
+> Berechtigung für Verzeichnisdienste SOLLTE ein Notfallzugangskonto installieren.
+
+Ein Notfallzugangskonto (sog. Break Glass Account) ist ein Zugang mit privilegierten Berechtigungen, der bei Notfällen als letztes Mittel zum Zugang zu wichtigen Systemen verwendet werden kann, z.B. Verzeichnisdienste, Cloud-Infrastrukturen. Verwenden Sie für diese Konten lange Passwörter und bewahren Sie diese z.B. in einem Safe oder aufgeteilt auf mehrere Administrierende auf.
+
+### BER.3.24 – Alternative Authentifizierung am IT-System
+
+**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.36, G 0.30
+
+> Berechtigung für IT-Systeme KANN ein ebenso vertrauenswürdiges, alternatives Verfahren zur Authentifizierung verankern.
+
+Wenn Nutzende ein für die reguläre Authentisierung erforderliches Authentisierungsmittel verlieren oder nicht mehr verwenden können, kann eine alternative Möglichkeit zur Wiederherstellung des Zugangs relevant sein. Hierfür kommen sowohl bereits eingerichtete alternative Authentisierungsmittel als auch besondere Wiederherstellungsverfahren in Betracht. Ein vergleichbares Vertrauensniveau der alternativen Authentisierung oder Wiederherstellung trägt dazu bei, dass der Schutz der regulären Authentisierung nicht unangemessen herabgesetzt wird. Als alternative Authentisierungsmittel kommen beispielsweise ein zusätzlich registrierter kryptografischer Authenticator, eine Smartcard oder andere geeignete Authentisierungsverfahren in Betracht. Möglichkeiten zur Wiederherstellung sind beispielsweise sicher hinterlegte Recovery-Codes bzw. PUKs, die Verifikation über ein noch verfügbares Authentisierungsmittel oder eine bestehende vertrauenswürdige Sitzung sowie eine erneute Identitätsprüfung, etwa durch persönliche Vorstellung und Prüfung eines amtlichen Ausweisdokuments.
+
+### BER.3.25 – Alternative Authentifizierung an der Anwendung
+
+**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.36, G 0.30
+
+> Berechtigung für Anwendungen KANN ein ebenso vertrauenswürdiges, alternatives Verfahren zur Authentifizierung verankern.
+
+Wenn Nutzende ihren Primärzugang (z.B. Passwort, Smartphone mit Authentifizierungs-App) verlieren, wird eine alternative Möglichkeit zur Wiederherstellung des Zugangs benötigt. Damit dieser Alternativzugang den Schutz der Primärmethode nicht aushebelt, ist eine vergleichbare Zuverlässigkeit der Authentifizierung erforderlich. Lösungsmöglichkeiten je nach Schutzbedarf sind z.B. (1) ein Einmalpasswort, dass an die hinterlegte E-Mailadresse versendet wird, (2) die persönliche Vorstellung mit Ausweis, (3) die Verifikation über bestehende Sitzungen, (4) die Authentifizierung über vertrauenswürdige Stellen wie Vorgesetzte oder IT-Sicherheitsteams.
+
+## BER.4 Berechtigungsmanagement
+
+### BER.4.1 – Prinzip der geringsten Berechtigungen
+
+**Stufe:** `normal-SdT` · **Aufwand:** 1 · **Gefährdungen:** G 0.36, G 0.30, G 0.32, G 0.18
+
+> Berechtigung SOLLTE die Vergabe von Berechtigungen nach dem Prinzip der geringsten Berechtigungen einschränken.
+
+Das Prinzip der geringsten Berechtigungen, im Englischen als Principle of Least Privilege (PoLP) bekannt, besagt, dass Nutzende, Prozesse oder Systeme nur die minimal notwendigen Zugriffsrechte erhalten dürfen, um die ihnen jeweils zugewiesenen Aufgaben zu erfüllen. Dies dient primär der Minimierung der Angriffsfläche und der Begrenzung potenzieller Schäden. Sollte beispielsweise ein Zugangskonto durch Phishing kompromittiert werden, könnte ein Angreifer ohne dieses Prinzip weitreichenden Zugriff auf kritische Daten oder Systeme erlangen und diese manipulieren, exfiltrieren oder verschlüsseln. Die konsequente Anwendung dieses Grundsatzes kann die Ausbreitung von Schadsoftware nach einem ersten Eindringen erheblich erschweren und sicherstellen, dass Mitarbeitende nur jene Informationen einsehen, die für ihre Tätigkeit unmittelbar relevant sind. Hierdurch wird auch das Risiko von Datendiebstahl durch Innentäter reduziert. Es empfiehlt sich als Ergänzung hier auch das "Need to know"-Prinzip zu betrachten, da sich beide Prinzipien ergänzen. Während das "Least Privilege"-Prinzip auf Systremrechte, Rollen und Berechtigungen fokussiert, liegt der Fokus des "Need to know"-Prinzips mehr auf Informationen und Datenzugriff. Zur sinnvollen Umsetzung kann die Institution ein rollenbasiertes Berechtigungskonzept (Role-Based Access Control, RBAC) etablieren, bei dem Berechtigungen nicht an einzelne Personen, sondern an vordefinierte Rollen (z.B. "Finanzbuchhaltung" oder "Netzwerkadministrator") gebunden werden. Für die Einführung in eine bestehende Umgebung kann ein gestuftes Vorgehen gewählt werden: (1) Zunächst wird ein Überwachungsmodus ("Audit-Only") aktiviert, der protokolliert, welche Zugriffe durch eine strengere Richtlinie verweigert würden, ohne sie tatsächlich zu blockieren. (2) Anschließend werden diese Protokolle analysiert, um legitime, für den Geschäftsbetrieb notwendige Zugriffe zu identifizieren und diese gezielt in die jeweiligen Rollen und Berechtigungsgruppen aufzunehmen. (3) Erst wenn keine legitimen Zugriffe mehr in den Protokollen als "verweigert" auftauchen, wird die Richtlinie scharf geschaltet und blockiert aktiv alle nicht explizit erlaubten Zugriffe. Alle relevanten Anforderungen zur Vergabe von Berechtigungen können mit den Handlungsworten "authentifizieren", "autorisieren" und "einschränken" gefunden werden.
+
+#### BER.4.1.1 – Rollenbasierte Berechtigung
+
+**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.36, G 0.30, G 0.32
+
+> Berechtigung SOLLTE Berechtigungen rollenbasiert zuweisen.
+
+Aus Gründen der Nachvollziehbarkeit und des administrativen Aufwands wird die direkte Vergabe von Berechtigungen an Einzelkonten vermieden. Berechtigungen werden gemäß dem Least-Privilege-Prinzip in Rollen gebündelt, wobei die Zuweisung und der Entzug ausschließlich über diese Rollen erfolgt. Etwaige Ausnahmen, beispielsweise für temporäre Spezialrechte, werden restriktiv gehandhabt, nachvollziehbar dokumentiert und zeitlich befristet.
+
+#### BER.4.1.2 – JIT‑/JEA‑Berechtigungen
+
+**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.32, G 0.30, G 0.36
+
+> Berechtigung KANN die Berechtigung zum Zeitpunkt des Zugriffs für *[besonders kritische Ressourcen oder Zugänge]* aktivieren.
+
+„JIT‑/JEA‑Berechtigungen“ (Just‑In‑Time/Just‑Enough‑Access) ist die zeitlich und inhaltlich begrenzte Vergabe von Rechten zum Zeitpunkt eines Zugriffs auf eine Ressource. Dies kann insbesondere für privilegierte Zugangskonten und Administrationszugänge sinnvoll sein, um erhöhte Rechte nur genau dann zu ermöglichen, wenn sie wirklich erforderlich sind.
+
+### BER.4.2 – Autorisierung von Berechtigungen
+
+**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.36, G 0.30, G 0.32
+
+> Berechtigung SOLLTE die Zuweisung von Berechtigungen durch *[bestimmte Personen oder Rollen]* autorisieren.
+
+Mit „bestimmte Personen oder Rollen“ sind hier vorab festgelegte, nachvollziehbar benannte Autorisierungsinstanzen gemeint, also etwa disziplinarische Führungskräfte, fachliche Daten- oder Prozessverantwortliche, Systemverantwortliche, Rollen wie Application Owner, Data Owner, Service Owner oder Genehmiger in einem Identity-and-Access-Management-Prozess. Gemeint ist nicht eine beliebige informelle Zustimmung, sondern eine fachlich oder organisatorisch legitimierte Entscheidung darüber, ob eine konkrete Berechtigung zu einer Person, Funktion, Aufgabe oder einem Schutzbedarf passt. Die Vorschrift zielt darauf ab, unkontrollierte, fachlich nicht begründete oder zu weitreichende Berechtigungsvergaben zu vermeiden; ohne eine festgelegte Autorisierungsinstanz könnte ein Zugangskonto Zugriff auf vertrauliche Daten erhalten, eine nicht mehr passende Gruppenmitgliedschaft könnte bestehen bleiben oder ein privilegierter Zugang könnte ohne ausreichende fachliche Prüfung vergeben werden. Eine geregelte Autorisierung kann die Nachvollziehbarkeit von Zugriffsentscheidungen erhöhen, Interessenkonflikte reduzieren und sicherstellen, dass Berechtigungen an Aufgaben, Verantwortlichkeiten und Schutzbedarf ausgerichtet bleiben.
+
+### BER.4.3 – Begründung von Berechtigungen
+
+**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.36, G 0.30, G 0.32
+
+> Berechtigung SOLLTE die Vergabe von Berechtigungen und Änderungen an Berechtigungen mit einer Begründung dokumentieren.
+
+Zweck ist die Nachvollziehbarkeit der Vergabe von Berechtigungen. Die Dokumentation kann z.B. mit einem Identity-Access-Management oder Personalmanagementsystem automatisiert werden.
+
+### BER.4.4 – Überprüfung von Berechtigungen
+
+**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.36, G 0.30, G 0.32
+
+> Berechtigung SOLLTE vergebene Berechtigungen *[regelmäßig]* auf Erforderlichkeit überprüfen.
+
+Erforderlichkeit bedeutet in diesem Kontext, dass eine vergebene Berechtigung nur dann als gerechtfertigt gilt, wenn sie für die aktuelle Aufgabenwahrnehmung, Rolle oder Funktion einer Person tatsächlich benötigt wird. Dabei kann zwischen fachlicher Notwendigkeit (z. B. Zugriff auf eine bestimmte Anwendung, um Kernaufgaben erfüllen zu können) und zeitlicher Relevanz (z. B. Projektzugriff, der nur für die Dauer des Projekts sinnvoll ist) unterschieden werden. Als mögliche Werte für den Parameter regelmäßig bieten sich an: (1) quartalsweise, (2) halbjährlich, (3) jährlich – je nach Kritikalität der Systeme und Sensibilität der Daten. Die regelmäßige Überprüfung der Erforderlichkeit kann verhindern, dass sich unbemerkt überhöhte Rechte („Privilege Creep“) ansammeln, die Angreifern im Falle einer Kompromittierung zusätzlichen Spielraum eröffnen könnten. Ohne solche Kontrollen könnte ein ehemaliger Projektmitarbeiter weiterhin Zugang zu sensiblen Daten haben oder ein interner Angreifer auf nicht benötigte Administrationsrechte stoßen. Umgekehrt kann die Überprüfung sicherstellen, dass Berechtigungen stets am aktuellen Aufgabenprofil ausgerichtet bleiben und so Schaden durch Missbrauch oder Fehlhandlungen eingedämmt werden kann. Zur Umsetzung kann eine Institution rollenbasierte Zugriffskonzepte einsetzen, die regelmäßig mit den Ist-Berechtigungen der Nutzer abgeglichen werden („Access Reviews“). Dies kann durch automatisierte Reports aus Verzeichnisdiensten, Datenbanken oder Fachanwendungen erfolgen, die Verantwortlichen zur Bestätigung oder Korrektur vorgelegt werden. Hilfreich kann auch ein Vier-Augen-Prinzip sein, bei dem Vorgesetzte die Notwendigkeit von Berechtigungen bestätigen. Darüber hinaus kann es nützlich sein, temporäre Projekt- oder Sonderrechte mit Ablaufdatum zu vergeben, sodass diese automatisch entzogen werden, wenn sie nicht mehr bestätigt werden.
+
+#### BER.4.4.1 – Überprüfung tatsächlicher Berechtigungen
+
+**Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.36, G 0.30, G 0.32
+
+> Berechtigung SOLLTE dokumentierte und tatsächlich vergebene Berechtigungen *[regelmäßig]* auf Übereinstimmung überprüfen.
+
+Der Sinn und Zweck der Vorgabe liegt darin, eine unbemerkte Abweichung zwischen Dokumentation und Realität frühzeitig zu erkennen. Ohne diesen Abgleich könnte es vorkommen, dass ehemalige Mitarbeitende weiterhin Zugriff auf interne Systeme behalten oder dass sich im Laufe der Zeit unautorisierte Rechteanhäufungen einschleichen. Durch eine wirksame Überprüfung kann hingegen sichergestellt werden, dass nur aktuelle, geprüfte und erforderliche Zugriffsrechte bestehen bleiben und so die Angriffsfläche der Institution reduziert werden kann. Zur Umsetzung kann die Institution Berechtigungsübersichten automatisiert aus IT-Systemen exportieren und diese mit den in Verzeichnissen oder Rollenmodellen hinterlegten Daten vergleichen, z.B. anhand eines automatisierten Abgleiches mit Personalstammdaten einmal pro Quartal. Diese Anforderung ist auch dann erfüllt, wenn Dokumentation der Berechtigungen und tatsächliche Berechtigung (z.B. ein Verzeichnisdienst) dasselbe sind. Bitte beachten Sie dabei, dass die generelle Anforderung zur Überprüfung vergebener Berechtigungen weiter gefasst ist und z.B. auch den Abgleich zwischen tatsächlich vergebenen Berechtigungen und nicht dokumentieren Erfordernissen (beispielsweise durch die Vorlage bei Vorgesetzten) umfassen kann.
+
+### BER.4.5 – Systemfunktionen ohne Authentifizierung
+
+**Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.36, G 0.30, G 0.32
+
+> Berechtigung für IT-Systeme SOLLTE Funktionen, auf die ohne vorherige Authentifizierung zugegriffen werden kann, dokumentieren.
+
+Funktionen ohne Authentifizierung sind alle Zugriffsmöglichkeiten auf Schnittstellen oder Daten des Systems, für die keine Authentifizierung erforderlich ist. Hierzu gehören z. B. Sprachassistenten, offene Webserver-Ports oder das Einblenden von Inhalten aus Apps auf dem Sperrbildschirm, wodurch persönliche Nachrichten oder Logintoken für Unbefugte zugänglich sein könnten. Solche Funktionen sind häufige Einfallstore für Angriffe auf das System oder für Datenleaks. Daher ist es sinnvoll eine Übersicht dieser Funktionen zu führen, selbst wenn die Funktionen benötigt werden.
+
+### BER.4.6 – Anwendungsfunktionen ohne Authentifizierung
+
+**Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.36, G 0.30, G 0.32
+
+> Berechtigung für Anwendungen SOLLTE Funktionen, auf die ohne vorherige Authentifizierung zugegriffen werden kann, dokumentieren.
+
+Hierzu gehören z.B. der Zugriff auf öffentliche Inhalte oder Funktionen zum Zurücksetzen des Passwortes, wodurch persönliche Daten oder Logintoken für Unbefugte zugänglich sein könnten. Allerdings kann es auch unauthentifizierte Funktionen geben, die für Betrieb oder Informationssicherheit benötigt werden, z.B. Meldeformulare für Sicherheitsvorfälle oder öffentliche Webseiteninhalte.
+
+### BER.4.7 – IT-System-Zugangskonto
+
+**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.36, G 0.30, G 0.32
+
+> Berechtigung für IT-Systeme KANN diese genau einem Zugangskonto zuweisen.
+
+Wenn ein besonders schützenswertes IT-System nur von einer Person oder Identität genutzt wird, empfiehlt es sich dieses mit genau einem zugehörigen Zugangskonto zu verknüpfen. Dadurch wird ausgeschlossen, dass weitere Konten unnötig Zugriff erhalten. Bei Revisionen ist auf diese Weise eindeutig nachvollziehbar, welche Identität Zugriff auf das System hatte. Das Vorgehen ist auch auf virtualisierte IT-Systeme übertragbar. Ein Beispiel ist eine spezielle Administrationskonsole, die ausschließlich einem dedizierten Admin-Konto zugeordnet ist.
+
+### BER.4.8 – Entzug von Berechtigungen
+
+**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.36, G 0.30, G 0.32
+
+> Berechtigung SOLLTE eine Vorgehensweise zum Entzug von Berechtigungen verankern.
+
+Innerhalb der Institution ist ein Prozess etabliert, mit dem Berechtigungen system- und anwendungsübergreifend entzogen sowie Zugänge deaktiviert oder gelöscht werden, sobald diese nicht mehr benötigt werden. Dadurch wird sichergestellt, dass bei Personalwechseln oder Aufgabenänderungen keine Berechtigungen für einzelne Systeme oder Anwendungen bestehen bleiben. Der Entzug von Berechtigungen bei Kündigungen, Versetzungen oder Änderungen von Zuständigkeiten ist, soweit möglich, als automatisierter Ablauf umgesetzt.
+
+## BER.5 Umgang mit Authentisierungsmitteln
+
+### BER.5.1 – Vorgehensweise zur Ausgabe
+
+**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.36
+
+> Berechtigung SOLLTE eine Vorgehensweise zur initialen Ausgabe von Authentifizierungsmitteln verankern.
+
+Die initiale Ausgabe von Authentifizierungsmitteln ist die erstmalige, kontrollierte Bereitstellung von Mitteln, mit denen eine natürliche Person oder ein technischer Dienst seine Identität nachweisen kann; hierzu zählen beispielsweise Passwörter oder Einmalpasswörter, Hardware- oder Software-Token, Smartcards, Zertifikate, kryptografische Schlüssel, Passkeys, initiale MFA-Faktoren sowie Aktivierungs- oder Registrierungsinformationen (engl. authentication credentials, authentication factors, authenticators). Die Vorgehensweise zur initialen Ausgabe umfasst dabei insbesondere die nachvollziehbare Feststellung der berechtigten empfangenden Person oder Instanz, die Zuordnung zum vorgesehenen Zugangskonto oder Berechtigungsumfang, einen geschützten Übergabeweg, die Vermeidung unkontrollierter Mehrfachausgaben sowie eine dokumentierbare Bestätigung, dass das Authentifizierungsmittel nur der vorgesehenen empfangenden Stelle zugänglich gemacht wurde. Sinn und Zweck der Vorschrift ist, bereits beim ersten Zugang zu verhindern, dass Authentifizierungsmittel an falsche, nicht hinreichend identifizierte oder nicht mehr berechtigte Empfänger gelangen; andernfalls könnte ein Konto von Beginn an kompromittiert, ein Initialpasswort abgefangen, ein Token an eine falsche Person ausgegeben oder ein Zertifikat missbräuchlich zur Anmeldung verwendet werden.
+
+#### BER.5.1.1 – Initiale Ausgabe
+
+**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.36
+
+> Berechtigung SOLLTE vor der Verteilung von Authentifizierungsmitteln die Identität authentifizieren.
+
+Identität meint hier die natürliche Person, Gruppe, Rolle, Anwendung oder das IT-System, welches das Authentifizierungsmittel erhält. Verteilung meint hier die initiale Ausgabe, Weiterleitung oder Speicherung des Authentifizierungsfaktors, z.B. die Ausgabe eines initialen Passwortes an Nutzende oder die Speicherung eines X.509-Zertifikates zu einem neuen Hostsystem als vertrauenswürdig in einem Trust Store.
+
+### BER.5.2 – Vorgehensweise zur Zurücksetzung
+
+**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.36
+
+> Berechtigung SOLLTE eine Vorgehensweise zur Zurücksetzung von Authentifizierungsmitteln verankern.
+
+Zurücksetzung meint hier die geregelte Wiederherstellung, Erneuerung, Sperrung und Neuvergabe solcher Mittel, wenn sie vergessen, verloren, kompromittiert, technisch unbrauchbar oder aus anderen nachvollziehbaren Gründen nicht mehr sicher verwendbar sind; sie umfasst insbesondere die Prüfung der Identität der berechtigten Person, die Verhinderung unberechtigter Übernahmeversuche und die nachvollziehbare Durchführung des Vorgangs. Eine verankerte Vorgehensweise kann verhindern, dass der Reset selbst zum Einfallstor wird: Ohne klare Regeln könnte ein Angreifer über Social Engineering, manipulierte Helpdesk-Anfragen, abgefangene Wiederherstellungslinks oder missbrauchte Sicherheitsfragen Zugriff auf fremde Konten erhalten. Ebenso könnte eine uneinheitliche Behandlung verlorener Token, vergessener Passwörter oder kompromittierter Zertifikate dazu führen, dass alte Authentifizierungsmittel weiterverwendet werden oder neue Mittel an die falsche Person gelangen.
+
+### BER.5.3 – Vorgehensweise zum Widerruf
+
+**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.36
+
+> Berechtigung SOLLTE eine Vorgehensweise zum Widerruf von Authentifizierungsmitteln verankern.
+
+Der Widerruf meint hier die gezielte Ungültigsetzung, Sperrung, Deaktivierung oder Rücknahme solcher Mittel, sodass sie nicht mehr zur Anmeldung, Signatur, Schnittstellennutzung oder sonstigen Authentisierung verwendet werden können; er unterscheidet sich von einer bloßen Änderung der Berechtigung, weil nicht nur der Zugriffsumfang, sondern das Authentifizierungsmittel selbst unwirksam gemacht wird; umfasst sein können auch Sperrung, Deaktivierung, Löschung, Ersetzung, Zurücksetzung, Entzug aus Vertrauenslisten oder das Ungültigmachen noch aktiver Sitzungen, soweit dies für das jeweilige Verfahren technisch einschlägig ist. Eine Vorgehensweise ist dabei als beschriebener, wiederholbarer Ablauf zu verstehen, der Auslöser, Zuständigkeiten, Prüfschritte, technische Durchführung, Dokumentation und erforderliche Folgemaßnahmen so konkretisiert, dass der Widerruf auch bei Zeitdruck, außerhalb regulärer Arbeitszeiten oder bei unvollständiger Informationslage verlässlich angestoßen werden kann. Sinn und Zweck der Vorschrift ist, die Nutzbarkeit kompromittierter, verlorener, fehlgeleiteter oder missbräuchlich verwendeter Authentifizierungsmittel zeitnah zu beenden und dadurch unbefugte Zugriffe, fortgesetzte Sitzungen oder die Ausweitung eines Vorfalls zu begrenzen. Ohne geregelten Widerruf könnte ein verlorener Hardware-Token weiter für Remote-Zugriffe genutzt werden, ein offengelegtes Passwort könnte nach einem Phishing-Vorfall erneut eingesetzt werden, oder ein kompromittiertes Zertifikat könnte weiterhin Dienste, Geräte oder Benutzeridentitäten legitimieren; eine klare Vorgehensweise kann die Reaktionszeit verkürzen, Fehlentscheidungen reduzieren und die Nachvollziehbarkeit der Maßnahme verbessern.
+
+### BER.5.4 – Nur etablierte Kryptographie
+
+**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.36
+
+> Berechtigung SOLLTE bei kryptografischen Authentifizierungsmitteln die ausschließliche Verwendung etablierter kryptografischer Algorithmen nach *[einem oder mehreren anerkannten Standards]* verankern.
+
+Kryptografische Authentifizierungsmittel sind Authentisierungsnachweise, deren Sicherheit wesentlich auf kryptografischen Verfahren beruht, etwa Passwort-Hashing, Zertifikate, Schlüsselpaare, Smartcards, Hardware-Token, Passkeys/FIDO2-Authentifikatoren, signaturbasierte API-Zugänge oder SSH-Schlüssel (engl. cryptographic authenticators). Etablierte kryptografische Algorithmen sind mathematisch fundierte Verschlüsselungsverfahren und Protokolle, die in der aktuellen Praxis nicht mit vertretbarem Aufwand gebrochen werden können, beispielsweise für Signaturen, Message Authentication Codes, Hashfunktionen, Schlüsselableitung oder authentisierte Verschlüsselung. Sie basieren auf mathematisch schwer lösbaren Problemen, bieten Resistenz gegen bekannte kryptanalytische Angriffe, unterstützen ausreichend große Schlüssellängen und wurden von Experten gründlich geprüft und analysiert. Aktuelle etablierte Algorithmen sind in BSI TR-02102 zu finden. Für weitere Details zur Implementierung siehe Detailspezifikation kryptografischer Abläufe und Mechanismen des BSI.
+
+### BER.5.5 – Deaktivierung einfacher Biometrie auf IT-Systemen
+
+**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.36, G 0.30
+
+> Berechtigung für IT-Systeme SOLLTE die Authentifizierung nur anhand von Biometrie deaktivieren.
+
+Wenn die Authentifizierung nur biometrisch vorgenommen wird (z.B. anhand von Fingerabdrücken oder Abbildern des Gesichtes), dann könnten Angreifer Fälschungen oder gestohlene Fingerabdrücke missbrauchen, um sich Zugang zu verschaffen. Werden biometrische Verfahren dagegen mit weiteren Authentisierungsmittel (z.B. einer PIN) kombiniert, können sie den Zugriffsschutz verbessern. Ein häufig vorkommendes Beispiel sind Mobilgeräte wie Smartphones, die durch Fingerabdruck den Zugriff auf Daten oder Funktionen wie das mobile Bezahlen gestatten - obwohl auf dem Gerät selbst häufig noch Fingerabdrücke erkennbar sind.
+
+### BER.5.6 – Vorkonfigurierte Authentisierungsmittel von IT-Systemen
+
+**Stufe:** `normal-SdT` · **Aufwand:** 1 · **Gefährdungen:** G 0.36, G 0.30
+
+> Berechtigung für IT-Systeme SOLLTE vorkonfigurierte Authentisierungsmittel deaktivieren.
+
+Herstellerseitige Standardkonten und Default-Passwörter stellen ein beliebtes Eingangstor für Angreifer dar. Achten Sie hierbei nicht nur auf Passwörter, sondern auch auf andere Zugangsmittel wie Hardware-Zugangstoken, Zertifikate oder physische Zugangskontrollsysteme.
+
+### BER.5.7 – Vorkonfigurierte Authentisierungsmittel von Anwendungen
+
+**Stufe:** `normal-SdT` · **Aufwand:** 1 · **Gefährdungen:** G 0.36, G 0.30
+
+> Berechtigung für Anwendungen SOLLTE vorkonfigurierte Authentisierungsmittel deaktivieren.
+
+Herstellerseitige Standardkonten und Default-Passwörter stellen ein beliebtes Eingangstor für Angreifer dar. Achten Sie hierbei nicht nur auf Passwörter, sondern auch auf andere Zugangsmittel wie Hardware-Zugangstoken, Zertifikate oder physische Zugangskontrollsysteme.
+
+### BER.5.8 – Mehr-Faktor-Authentisierung am Perimeter
+
+**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.36, G 0.30, G 0.42
+
+> Berechtigung für Anwendungen von Externe Netzanschlüssen SOLLTE Phishing-resistente Mehr-Faktor-Authentisierung für alle Schnittstellen, auf die von Extern zugegriffen werden könnte, aktivieren.
+
+Phishing-resistente Mehr-Faktor-Authentisierung bezeichnet Verfahren zur Anmeldung, bei denen mindestens zwei unterschiedliche Faktoren genutzt werden und bei denen die Authentisierung zusätzlich gegen typische Angriffe wie Credential Phishing, Adversary-in-the-Middle-Angriffe oder die Wiederverwendung abgefangener Sitzungsdaten abgesichert ist. Phishing-resistente Verfahren basieren typischerweise auf kryptographischen Nachweisen zwischen Endgerät und Zielsystem und verhindern dadurch, dass einmal abgefragte Zugangsdaten oder Einmalcodes durch täuschend echte Anmeldeseiten weiterverwendet werden können, beispielsweise FIDO2 Passkeys. Hintergrund ist, dass aus externen Netzen wie dem Internet erreichbare Anwendungen (insbesondere die VPN-Einwahl oder Cloud-Anwendungen) ein beliebtes Ziel für Angreifer sind. Klassische Passwörter oder einfache Einmalcodes könnten durch Social Engineering, gefälschte Login-Portale oder Man-in-the-Browser-Angriffe ausgespäht werden.
+
+### BER.5.9 – Mehr-Faktor-Authentisierung für weitreichende Berechtigungen
+
+**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.36, G 0.30
+
+> Berechtigung SOLLTE Mehr-Faktor-Authentisierung für weitreichende Berechtigungen aktivieren.
+
+Eine Mehr-Faktor-Authentifizierung bei Zugängen mit weitreichenden Berechtigungen, z.B. Administrationskonten, die Zugriff auf wichtige Server wie den Verzeichnisdienst, das MDM, EDR oder DNS haben, erschwert den unberechtigten Zugang zu diesen Zugängen. Auch der Zugriff auch besonders sensible Daten kann eine weitreichende Berechtigung sein.
+
+### BER.5.10 – Zugriffsbeschränkung pro IT-System
+
+**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.36
+
+> Berechtigung für IT-Systeme SOLLTE den lesenden und schreibenden Zugriff auf Authentifizierungsmittel einschränken.
+
+Lesender Zugriff bezeichnet in diesem Kontext jede Möglichkeit, Authentifizierungsmittel einzusehen, auszulesen, zu exportieren, zu kopieren oder technisch zu verwenden, ohne sie unmittelbar zu verändern; schreibender Zugriff meint jede Möglichkeit, Authentifizierungsmittel anzulegen, zu ändern, zu ersetzen, zu löschen, zu importieren oder deren Vertrauensstatus zu beeinflussen. Authentifizierungsmittel sind hier alle technischen oder organisatorisch verwalteten Mittel, mit denen Identitäten nachgewiesen oder Vertrauensbeziehungen hergestellt werden, etwa Passwörter, private Schlüssel, API-Keys, Token, Zertifikate, Kerberos-Keytabs, SSH-Schlüssel, Recovery-Codes, Hardware-Token-Zuordnungen oder Einträge in Trust Stores. Der Zugriff auf solche Mittel ist besonders sensibel, weil bereits lesender Zugriff in vielen Fällen zur Nachahmung einer Identität oder zur Umgehung vorgesehener Kontrollmechanismen führen könnte, während schreibender Zugriff zusätzlich Manipulationen an Vertrauensketten, Schlüsselmaterial oder Anmeldeverfahren ermöglichen könnte.
+
+### BER.5.11 – Zugriffsbeschränkung pro Anwendung
+
+**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.36
+
+> Berechtigung für Anwendungen SOLLTE den lesenden und schreibenden Zugriff auf Authentifizierungsmittel einschränken.
+
+Lesender Zugriff bezeichnet in diesem Kontext jede Möglichkeit, Authentifizierungsmittel einzusehen, auszulesen, zu exportieren, zu kopieren oder technisch zu verwenden, ohne sie unmittelbar zu verändern; schreibender Zugriff meint jede Möglichkeit, Authentifizierungsmittel anzulegen, zu ändern, zu ersetzen, zu löschen, zu importieren oder deren Vertrauensstatus zu beeinflussen. Authentifizierungsmittel sind hier alle technischen oder organisatorisch verwalteten Mittel, mit denen Identitäten nachgewiesen oder Vertrauensbeziehungen hergestellt werden, etwa Passwörter, private Schlüssel, API-Keys, Token, Zertifikate, Kerberos-Keytabs, SSH-Schlüssel, Recovery-Codes, Hardware-Token-Zuordnungen oder Einträge in Trust Stores. Der Zugriff auf solche Mittel ist besonders sensibel, weil bereits lesender Zugriff in vielen Fällen zur Nachahmung einer Identität oder zur Umgehung vorgesehener Kontrollmechanismen führen könnte, während schreibender Zugriff zusätzlich Manipulationen an Vertrauensketten, Schlüsselmaterial oder Anmeldeverfahren ermöglichen könnte.
+
+### BER.5.12 – Zugang nur durch zwei Personen
+
+**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.36, G 0.30, G 0.32
+
+> Berechtigung KANN die Aufteilung von Authentisierungsmitteln auf mehrere Personen verankern.
+
+Dient zur Absicherung des Zugriffs auf Daten, deren Vertraulichkeit oder Integrität als hoch einzuschätzen ist, nach dem Vier-Augen-Prinzip. Dazu kann z.B. Person #1 die ersten zehn Stellen eines Passwort kennen und Person #2 die hinteren zehn Stellen eines Passwortes. Oder aber Person #1 erhält einen Hardwaretoken, während Person #2 das Passwort kennt.
+
+### BER.5.13 – Identitätsüberprüfung
+
+**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.18
+
+> Berechtigung SOLLTE vor dem Zurücksetzen von Berechtigungsmitteln eine Identitätsüberprüfung verankern.
+
+Unter einer Identitätsüberprüfung ist hier die Verifikation zu verstehen, ob die anfragende Person tatsächlich die berechtigte Identität besitzt, für die ein neues Passwort vergeben werden soll; in der Fachsprache wird dies häufig als Identity Verification oder Identity Proofing bezeichnet. Ein Passwort-Reset stellt einen besonders sensiblen Vorgang dar, da hierbei bestehende Authentisierungsmerkmale ersetzt werden und eine erfolgreiche Täuschung einem Unbefugten unmittelbar Zugang zu geschützten Informationen und Diensten verschaffen kann. Eine vorgelagerte Identitätsüberprüfung kann das Risiko verringern, dass sich Angreifer durch Social Engineering, gestohlene Kontaktdaten oder die Ausnutzung unzureichender Supportprozesse Zugang zu Benutzerkonten verschaffen könnten. \n\nDas unberechtigte Zurücksetzen von Zugangsdaten ist eine sehr bekannte Angriffsmethode und erfordert vom Täter nur geringe technische Fähigkeiten. Eine eindeutige Identifizierung des Inhabers des Zugangs kann z.B. anhand eines Personalausweises, durch die persönliche Identifikation bei autorisierten Stellen, die Bestätigung über einen unabhängigen zweiten Kommunikationskanal oder die Nutzung bestehender Mehrfaktor-Authentisierung erfolgen.
+
+### BER.5.14 – Kompromittierte Authentifizierungsmittel
+
+**Stufe:** `normal-SdT` · **Aufwand:** 1 · **Gefährdungen:** G 0.36, G 0.30, G 0.32
+
+> Berechtigung SOLLTE die Sperrung kompromittierter Authentifizierungsmittel verankern.
+
+Ein Authentifizierungsmittel gilt als kompromittiert, wenn Anzeichen bestehen, dass Unbefugte es nutzen oder Zugriff darauf gehabt haben könnten. Beispiele sind Passwörter, die durch Datenlecks öffentlich geworden sind, oder biometrische Merkmale (z. B. Fingerabdrücke), die Unbefugten vorliegen. In solchen Fällen ist das Authentifizierungsmittel zu sperren oder zu entziehen, etwa durch den Einsatz von Sperrlisten. Bei biometrischen Merkmalen besteht zusätzlich ein enger Bezug zu datenschutzrechtlichen Anforderungen, da diese Daten nicht einfach ausgetauscht werden können.
+
+## BER.6 Passwortgebrauch
+
+### BER.6.1 – Passwortmanager
+
+**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.36, G 0.30, G 0.42
+
+> Berechtigung für Nutzende SOLLTE einen Passwortmanager installieren.
+
+Der Einsatz eines Passwortmanagers, der von der Institution den Nutzenden zur Verfügung gestellt wird, erleichtert die Generierung von sicheren Passwörtern und deren sicherer Verwahrung, indem eine verschlüsselte Datenbank genutzt wird und der Zugang zu dem Passwortmanager mit einem Masterpasswort oder Multi-Faktor Authentisierung geschützt ist.
+
+### BER.6.2 – Blockieren von Passwort Recycling
+
+**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.36, G 0.30, G 0.42
+
+> Berechtigung für Nutzende SOLLTE die Wiederverwendung von Passwörtern blockieren.
+
+Die Wiederverwendung von Passwörtern („password reuse“) ist die Nutzung identischer oder bereits früher verwendeter Passwörter für verschiedene Konten, Systeme oder aufeinanderfolgende Authentifizierungsvorgänge. Die Blockierung der Passwortwiederverwendung bedeutet hier, dass das Berechtigungsmanagementsystem („access management system“) technisch verhindert, dass ein neues Passwort mit einem zuvor verwendeten identisch ist oder einer vordefinierten Anzahl früherer Passwörter entspricht. Dies könnte nicht nur bei Wiederverwendung einer Person problematisch sein, sondern auch bei einer systemübergreifenden Fehlkonfiguration: Ein typisches Szenario wäre, dass in einer Institution mehrere Arbeitsplatzrechner mit identischen lokalen Administratorpasswörtern konfiguriert sind („local admin password reuse“). Wird ein einzelner Rechner durch Schadsoftware oder physischen Zugriff kompromittiert, könnte ein Angreifer dieses Passwort anschließend nutzen, um sich mit denselben Anmeldeinformationen lateral auf weitere Systeme auszubreiten. Die Wiederverwendung des lokalen Administratorpassworts könnte somit eine vollständige Kompromittierung der internen IT-Infrastruktur ermöglichen. Diese Anforderung adressiert den Schutz vor solchen Angriffen, die sich aus der Wiederverwendung kompromittierter Anmeldeinformationen ergeben könnten, etwa durch Credential-Stuffing oder Brute-Force-Angriffe auf bekannte Passwortmuster. Blockieren kann das Risiko verringern, dass ein Angreifer durch bekannte Passwörter unbefugten Zugang zu Konten erhält. Hierzu können zum einen eine lokale Passworthistorie oder zum anderen elektronische Passwortmanager genutzt werden, die unabhängige sichere Passwörter generieren, wo die Wahrscheinlichkeit einer Passwortwiederholung ausgeschlossen werden kann.
+
+### BER.6.3 – Trivialpasswörter
+
+**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.36, G 0.30, G 0.42
+
+> Berechtigung für Nutzende SOLLTE die Verwendung von Trivialpassworten blockieren.
+
+Trivialpasswörter sind leicht zu erratende oder zu diesem Zugangskonto bereits öffentlich bekannte Passwörter (erkennbar durch Nutzung sog. Leak Check Datenbanken). Leicht zu erraten sind Passwörter, wenn sie mit gängigen Wörterbuchangriffen (dictionary attacks) bzw. systematischem Ausprobieren (brute force) in kurzer Zeit zu kompromittieren sind. Dazu zählen etwa einfache Folgen wie „123456“, „Passwort“ oder „qwerty“ sowie häufig vorkommende, in Leaks dokumentierte Standardkombinationen. Der Zweck der Anforderung liegt darin, das Risiko unautorisierter Zugriffe zu reduzieren: Ein Angreifer könnte mit automatisierten Tools in Sekunden oder Minuten triviale Passwörter durchprobieren, was zu einem unbefugten Zugriff auf Benutzerkonten, Systemressourcen oder sensible Daten führen könnte. Die Blockierung solcher Passwörter kann dagegen sicherstellen, dass nur schwer vorhersehbare Kennwörter verwendet werden, wodurch ein entscheidender Schutz gegen automatisierte Angriffsverfahren erreicht werden kann. Zudem können Passwortmanager beim Generieren nicht-trivialer Passwörter unterstützen.
+
+### BER.6.4 – Kriterien für die Qualität von Passwörtern
+
+**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.36, G 0.30
+
+> Berechtigung SOLLTE Kriterien für die Qualität von Passwörtern anhand von Lebensdauer und Angriffsmöglichkeiten verankern.
+
+Kriterien für die Qualität von Passwörtern können z.B. eine minimale Entropie, Passwortlänge oder Verwendung verschiedener Symbole sein. Die Lebensdauer meint die erwartete Nutzungsdauer des Passwortes. Die erforderliche Qualität hängt von den Angriffsmöglichkeiten ab, z.B. Anzahl der Zugangskonten, verwendetes kryptografisches Verfahren (vgl. BSI TR-02102) und begleitenden Sicherheitsmaßnahmen wie maximale Passwortversuche oder Mehr-Faktor-Authentifizierung. Für Zugänge ohne begleitende Maßnahmen ist eine Passwortlänge nicht unter 14 Zeichen empfehlenswert. Die Kriterien können einmalig festgelegt werden oder zwischen Zugängen oder Anwendungen differenzieren.
+
+### BER.6.5 – Anlassbezogene Passwortwechsel
+
+**Stufe:** `normal-SdT` · **Aufwand:** 1 · **Gefährdungen:** G 0.36, G 0.30, G 0.42
+
+> Berechtigung SOLLTE einen Passwortwechsel ausschließlich anlassbezogen ausführen.
+
+Ein ausschließlich anlassbezogener Passwortwechsel bedeutet, dass Passwörter nur genau dann geändert werden, wenn ein begründeter Sicherheitsanlass vorliegt – beispielsweise ein Verdacht auf Kompromittierung des Endgerätes oder Zugangs, neue einschlägige Einträge in öffentlichen Leak-Datenbanken, die Weitergabe an Unbefugte durch einen Phishing-Vorfall, oder technische Indikatoren für einen möglichen Missbrauch des Zugangs zu Systemen oder Anwendungen. Dieser Ansatz unterscheidet sich vom früher häufig praktizierten, periodischen Passwortwechsel, der ohne konkreten Anlass in festen Intervallen erzwungen wurde. Ein solcher erzwungener Rhythmus könnte die Passwortsicherheit sogar verringern, weil Nutzende dann dazu neigen, schwächere, nur leicht veränderte Passwörter („sommer5“) zu wählen oder Zugangsdaten in verschiedenen Zugängen wiederzuverwenden. Zweck dieser Regelung ist es, die tatsächliche Sicherheit von Zugangskonten zu erhöhen und unnötige Belastungen der Nutzenden zu vermeiden.
+
+### BER.6.6 – Monitoring von Zugangsdaten
+
+**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.36, G 0.30, G 0.18, G 0.47
+
+> Berechtigung SOLLTE Zugangsdaten auf Kompromittierung durch *[einen automatisierten Mechanismus]* überwachen.
+
+Eine Kompromittierung meint hier, dass Zugangsdaten wie Benutzername und Passwort (englisch: credentials) von Unbefugten eingesehen, abgefangen oder manipuliert wurden, sodass ein Missbrauch für unautorisierte Zugriffe möglich wird. Dies könnte etwa durch Leaks in Datenbanken, durch Phishing-Angriffe oder durch das Abfangen unverschlüsselter Übertragungen entstehen. Ein automatisierter Mechanismus bezeichnet hierbei eine technische Lösung, die ohne manuelles Zutun kontinuierlich prüft, ob bekannte Indikatoren einer Kompromittierung vorliegen (englisch: credential monitoring system). Geeignete Mechanismen können etwa Credential-Leak-Monitoring-Dienste, Data Breach Checker oder Darknet-Scanning-Tools sein. Der Zweck dieser Vorgabe liegt darin, dass ein frühzeitiges Erkennen von kompromittierten Zugangsdaten helfen kann, unautorisierte Logins und den Missbrauch sensibler Systeme zu verhindern; ohne eine solche Überwachung könnte ein Angreifer über lange Zeit unentdeckt mit gestohlenen Daten arbeiten und kritische Schäden verursachen. Ergeben sich hierbei Anzeichen auf eine Kompromittierung oder einen Leak der Zugangsdaten, so kann als Reaktion ein Wechsel der Zugangsdaten über einen nicht kompromittierten Kommunikationskanal veranlasst oder schlicht das betroffene Zugangskonto gesperrt werden.
+
+## BER.7 Schlüsselmanagement
+
+### BER.7.1 – Etablierte Algorithmen bei der Schlüsselerzeugung
+
+**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.36
+
+> Berechtigung SOLLTE die ausschließliche Verwendung etablierter kryptografischer Algorithmen bei der Schlüsselerzeugung nach *[einem anerkannten Standard]* verankern.
+
+Etablierte kryptografische Algorithmen sind mathematisch fundierte Verschlüsselungsverfahren und Protokolle, die in der aktuellen Praxis nicht mit vertretbarem Aufwand gebrochen werden können. Sie basieren auf mathematisch schwer lösbaren Problemen, bieten Resistenz gegen bekannte kryptanalytische Angriffe, unterstützen ausreichend große Schlüssellängen und wurden von Experten gründlich geprüft und analysiert. Aktuelle etablierte Algorithmen sind in BSI TR-02102 zu finden. Für weitere Details zur Implementierung siehe Detailspezifikation kryptografischer Abläufe und Mechanismen des BSI.
+
+### BER.7.2 – Schlüssellänge
+
+**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.36
+
+> Berechtigung SOLLTE die Schlüssellängen nach *[einem anerkannten Standard]* bei der Schlüsselerzeugung zuweisen.
+
+Für die Sicherheit von Schlüsseln wie Passwörter oder PINs ist die Länge von Bedeutung. Für Details siehe BSI TR-02102.
+
+### BER.7.3 – Verzeichnis öffentlicher Schlüssel
+
+**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.36
+
+> Berechtigung SOLLTE zu jedem öffentlichen Schlüssel die dazugehörige Identität, das Ablaufdatum, den Nutzungszweck, die Schlüsselart und den Algorithmus bei der Schlüsselbeglaubigung dokumentieren.
+
+Im Verzeichnis öffentlicher Schlüssel werden die öffentlichen Schlüssel, die von der Institution erzeugt oder eingesetzt werden, aufgelistet. Hiermit werden kryptografische Schlüssel systematisch erfasst und dokumentiert. Zweckmäßig ist es, die Angaben direkt im Schlüssel abzuspeichern.
+
+### BER.7.4 – Erzeugung auf sicheren IT-Systemen
+
+**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.36
+
+> Berechtigung SOLLTE die Verwendung eines IT-Systems, welches mindestens dasselbe Schutzniveau bietet, für das der Schlüssel eingesetzt werden soll, bei der Schlüsselerzeugung verankern.
+
+Wird ein Schlüssel auf einem System erzeugt, dass einen geringeren Schutz bietet als auf dem späteren Einsatzsystem, dann könnte der Schlüssel bereits kompromittiert sein.
+
+### BER.7.5 – Kriterien für die Qualität von Zufallszahlen
+
+**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.36
+
+> Berechtigung SOLLTE *[Kriterien]* für die Qualität von Zufallszahlen bei der Schlüsselerzeugung verankern.
+
+Wenn bei der Schlüsselerzeugung ein ungeeigneter Zufallszahlengenerator verwendet wird, könnte ein Angreifer Schlüssel errechnen. Daher sind Kriterien für Zufallszahlengeneratoren zu wählen, z.B. Verwendung etablierter, durch unabängige Dritte geprüfter Zufallszahlengeneratoren. Für Details siehe BSI TR-02102-1. Wichtig ist dabei auch, dass die verwendete Zufallsquelle tatsächlich eine nicht vorhersagbare Zahlenerzeugung erreicht. Inbesondere virtualisierte Systeme könnten ungeeignet sein zur Schlüsselerzeugung, da ihre Zufallszahlenquellen nicht direkt auf Hardwarefunktionen zurückgreifen.
+
+### BER.7.6 – Etablierte Algorithmen beim Transport
+
+**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.36
+
+> Berechtigung SOLLTE die ausschließliche Verwendung etablierter kryptografischer Algorithmen beim Transport geheimer Schlüssel verankern.
+
+Aktuelle etablierte Algorithmen sind in BSI TR-02102 zu finden. Der Transport kann mit Public Key Cryptography Standards (PKCS), z.B. PKCS#12 Dateiformat erfolgen. Für weitere Details zur Implementierung siehe Detailspezifikation kryptografischer Abläufe und Mechanismen des BSI.
+
+### BER.7.7 – Kein Transport privater Schlüssel
+
+**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.36
+
+> Berechtigung KANN den Export privater Schlüssel durch *[eine zuständige Person oder Rolle]* autorisieren.
+
+Im Allgemeinen ist es sinnvoll, private Schlüssel nur dort zu erzeugen, wo sie auch genutzt werden. Andernfalls könnten sie durch den Export kompromittiert werden. Hiervon sind allerdings zahlreiche Ausnahmen denkbar, z.B. zur Schlüsselerzeugung auf besonders abgesicherten Systemen, zum Transport auf Redundanzsysteme oder zur Datensicherung. Daher ist eine Abwägung sinnvoll, ob der Export zu genehmigen ist.
+
+### BER.7.8 – Etablierte Algorithmen bei der Schlüsselnutzung
+
+**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.36
+
+> Berechtigung SOLLTE die ausschließliche Verwendung etablierter Algorithmen bei der Schlüsselnutzung verankern.
+
+Aktuelle etablierte Algorithmen sind in BSI TR-02102 zu finden. Für weitere Details zur Implementierung siehe Detailspezifikation kryptografischer Abläufe und Mechanismen des BSI.
+
+### BER.7.9 – Zweckbindung
+
+**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.36
+
+> Berechtigung SOLLTE Verstöße gegen die Zweckbindung bei der Schlüsselnutzung untersagen.
+
+Zweckbindung bedeutet, dass der Schlüssel ausschließlich zu dem im Verzeichnis öffentlicher Schlüssel festgelegten Nutzungszweck verwendet werden darf. Die Zweckbindung gilt insbesondere auch für den privaten Schlüssel.
+
+### BER.7.10 – Abgelaufene Schlüssel
+
+**Stufe:** `normal-SdT` · **Aufwand:** 1 · **Gefährdungen:** G 0.36, G 0.19, G 0.22
+
+> Berechtigung SOLLTE die Nutzung des Schlüssels zur Verschlüsselung oder Signierung nach Ablauf der Nutzungszeit untersagen.
+
+Schlüssel dürfen nach Ablauf der Nutzungszeit nur noch zur Entschlüsselung oder Signaturprüfung alter Daten verwendet werden. Bei automatisierter Schlüsselnutzung ist der Schlüssel zu deaktivieren, bei manueller Schlüsselnutzung ist den Nutzenden weitere Verwendung des Schlüssels zu verbieten.
+
+### BER.7.11 – Integrität
+
+**Stufe:** `normal-SdT` · **Aufwand:** 1 · **Gefährdungen:** G 0.36, G 0.19, G 0.22
+
+> Berechtigung SOLLTE die Verifikation der Integrität geheimer Schlüssel vor jeder Nutzung verankern.
+
+Wird die Integrität von Schlüsseln vor der Verwendung nicht geprüft, so könnte er unbemerkt durch einen Angreifer ausgetauscht werden, wodurch der Angreifer den vermeintlich verschlüsselten Austausch mitlesen. Daher ist ein Integritätsschutz (z.B. eine bekannte Checksumme oder Fingerabdruck) von abgelegten Schlüsseln sinnvoll. Dies kann z.B. durch den Abgleich von Prüfsummen geschehen, welche auf einem anderen IT-System gespeichert sind. Für die Implementierung genügt es, wenn die eingesetzten IT-Produkte bereits so entwickelt oder beschafft worden sind, dass sie die Prüfung automatisiert durchführen.
+
+### BER.7.12 – Authentizität
+
+**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.36
+
+> Berechtigung SOLLTE die Verifikation der Authentizität öffentlicher Schlüssel vor jeder Nutzung verankern.
+
+Für die Implementierung genügt es, wenn die eingesetzten IT-Produkte bereits so entwickelt oder beschafft worden sind, dass sie die Prüfung automatisiert durchführen.
+
+### BER.7.13 – Gültigkeit
+
+**Stufe:** `normal-SdT` · **Aufwand:** 1 · **Gefährdungen:** G 0.36
+
+> Berechtigung SOLLTE die Verifikation der Gültigkeit des Schlüssels vor jeder Nutzung verankern.
+
+Die Gültigkeit ergibt sich aus Nutzungszeit und Revocation-Status. Für die Implementierung genügt es, wenn die eingesetzten IT-Produkte bereits so entwickelt oder beschafft worden sind, dass sie die Prüfung automatisiert durchführen.
+
+### BER.7.14 – Schlüssel vor Ablauf prüfen
+
+**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.19, G 0.22, G 0.36
+
+> Berechtigung SOLLTE Schlüssel auf das baldige Auslaufen der Nutzungszeit *[regelmäßig]* überprüfen.
+
+Wird die Gültigkeit von Schlüsseln vor dem Auslaufen nicht überwacht, so könnten Schlüssel ungültig werden, wodurch Schnittstellen oder Anwendungen plötzlich nicht mehr verfügbar sein könnten. Läuft ein Schlüssel bald ab, obwohl der Zweck weiterhin bestehen bleibt, so ist es sinnvoll den Schlüssel rechtzeitig durch einen neuen zu ersetzen. Hierbei ist zu beachten, dass bei Schlüsselwechsel verschlüsselte Daten entschlüsselt und erneut verschlüsselt werden.
+
+### BER.7.15 – Vorgehensweise nach Nutzung
+
+**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.19, G 0.22, G 0.36
+
+> Berechtigung SOLLTE eine Vorgehensweise zur Außerbetriebnahme geheimer Schlüssel , sobald sie nicht mehr benötigt werden, verankern.
+
+Werden Schlüssen nicht mehr benötigt, so ist es sinnvoll diese im Einklang mit den Anforderungen zur Löschung von Informationen außer Betrieb zu nehmen. Hierbei ist zu beachten, dass bei einem Schlüsselwechsel verschlüsselte Daten entschlüsselt und erneut verschlüsselt werden. Flüchtige Schlüssel sind nach der Sitzung umgehend zu löschen.
+
+### BER.7.16 – Vorgaben für die Schlüsselbeglaubigung
+
+**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.36
+
+> Berechtigung SOLLTE Vorgaben für die Schlüsselbeglaubigung verankern.
+
+Je nach Umfang der Beglaubigungstätigkeit gehören hierzu z.B. Algorithmen, Zweckbindung, Nutzungsdauer, sowie prozessuale Vorgaben für Speicherung, Beantragung, Revocation, Erneuerung und Verfügbarkeit. Für Details siehe IETF RFC 3647.
+
+#### BER.7.16.1 – Zertifizierungsstelle
+
+**Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.36
+
+> Berechtigung SOLLTE die Beglaubigung von Schlüsseln *[einer zuständigen Person oder Rolle]* zuweisen.
+
+Die Beglaubigung von Schlüsseln ist technisch komplex. Gleichzeitig hängt von ihr die Vertrauensstellung von Systemen und Anwendungen im Informationsverbund ab. Daher ist es sinnvoll diese Aufgabe konkret bestimmten Personen oder Rollen zuzuweisen.
+
+#### BER.7.16.2 – Beglaubigung
+
+**Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.36, G 0.19, G 0.22
+
+> Berechtigung SOLLTE den Schlüssel anhand der Vorgaben für die Schlüsselbeglaubigung bei Beantragung einer Beglaubigung testen.
+
+Schlüsselbeglaubigung (engl. key certification) ist der kryptographische Nachweis, dass ein kryptographischer Schlüssel echt, unverändert und einer berechtigten Identität eindeutig zugeordnet ist. Der Schlüsseltest vor der Beglaubigung dient dazu, sicherzustellen, dass der einzureichende Schlüssel die festgelegten technischen und organisatorischen Vorgaben für die Genehmigung der Beglaubigung erfüllt – etwa hinsichtlich Schlüssellänge, Algorithmuskompatibilität oder Integrität der Schlüsseldaten. Solche Prüfungen können die korrekte Formatierung, die Funktionsfähigkeit innerhalb der vorgesehenen Kryptosysteme sowie den Abgleich mit vertrauenswürdigen Referenzen umfassen. Ziel ist die Gewährleistung, dass keine fehlerhaften, kompromittierten oder absichtlich manipulierten Schlüssel in eine Vertrauenskette eingebracht werden. Diese Vorgabe kann das Risiko reduzieren, dass fehlerhafte oder bösartig erzeugte Schlüssel zu einer Täuschung über die Identität oder zu unbemerkten Datenmanipulationen führen könnte. Ebenso kann sie verhindern, dass ein unzureichend geprüfter Schlüssel später als gültig angesehen wird, obwohl er kompromittiert ist. Eine konsequente Umsetzung kann die Integrität kryptographischer Infrastrukturen stärken und die Vertrauenswürdigkeit digitaler Signaturen, Authentifizierungen und Verschlüsselungsprozesse sichern. In der Praxis kann dies etwa durch automatisierte Validierungsroutinen in einer Public-Key-Infrastruktur (PKI), durch den Einsatz spezialisierter HSM-Testwerkzeuge oder durch manuelle Prüfung anhand festgelegter Zertifizierungsrichtlinien erfolgen.
+
+#### BER.7.16.3 – Erneuerung
+
+**Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.36
+
+> Berechtigung SOLLTE den Schlüssel anhand der Vorgaben für die Schlüsselbeglaubigung bei Erneuerung einer Beglaubigung testen.
+
+Die Erneuerung einer Beglaubigung beschreibt den Vorgang, bei dem ein ablaufendes oder gefährdetes Zertifikat durch ein neues ersetzt wird, wobei die Vertrauenskette erhalten bleibt. Dazu wird geprüft, ob die Vorgaben für die Erneuerung der Beglaubigung erfüllt sind. Das Testen des Schlüssels im Rahmen der Erneuerung dient dazu, die fortgesetzte Vertrauenswürdigkeit und Funktionsfähigkeit des Schlüssels sicherzustellen, etwa durch Verifikation der Signatur, Abgleich der Fingerprints oder Validierung gegen Sperrlisten. Der Zweck dieser Anforderung liegt in der Sicherstellung, dass bei der Erneuerung eines Zertifikats keine kompromittierten, fehlerhaften oder unautorisierten Schlüssel weiterverwendet werden. Wird die Schlüsselprüfung unterlassen, könnte ein Angreifer manipulierte oder gefälschte Schlüssel einschleusen, was zu unbemerktem Datenabgriff, Identitätsmissbrauch oder Integritätsverlust führen könnte. Eine wirksame Prüfung kann dagegen sicherstellen, dass nur überprüfte und gültige Schlüssel erneut beglaubigt werden, wodurch das Vertrauensniveau der gesamten kryptographischen Infrastruktur stabil bleibt. Sinnvolle Umsetzungsvarianten können z. B. die Nutzung automatisierter Schlüsselvalidierungen in Public-Key-Infrastrukturen (PKI), der Einsatz von Hardware-Sicherheitsmodulen (HSM) für die Signaturprüfung oder der Abgleich über Transparenzregister wie Certificate Transparency Logs sein.
+
+#### BER.7.16.4 – Revocation
+
+**Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.19, G 0.22, G 0.36
+
+> Berechtigung SOLLTE den Schlüssel anhand der Vorgaben für die Schlüsselbeglaubigung bei Revocation einer Beglaubigung testen.
+
+Die Revocation einer Beglaubigung (engl. revocation of attestation) ist die nachträgliche Ungültigerklärung einer solchen Bestätigung, beispielsweise durch Sperrung eines Zertifikats mittels Certificate Revocation List (CRL) oder Online Certificate Status Protocol (OCSP). Das Testen des Schlüssels anhand der Vorgaben für die Schlüsselbeglaubigung bedeutet hier, dass geprüft wird, ob die festgelegten Vorgaben für die Revocation erfüllt sind. Damit wird sichergestellt, dass der Widerruf einer Beglaubigung nur bei Vorliegen der Voraussetzungen angestoßen wird und dann technisch und organisatorisch korrekt umgesetzt und im Systemverhalten nachvollziehbar berücksichtigt wird, etwa durch sofortige Ungültigkeitserklärung oder Sperrung des betreffenden Schlüssels. Der Zweck dieser Vorgabe liegt darin, unzulässige oder verfrühte Revocations ebenso zu vermeiden wie verspätete oder unvollständige Umsetzungen, die zu Sicherheitslücken führen könnten. Wird die Prüfung der Revocation-Vorgaben fehlerhaft oder unvollständig durchgeführt, könnte ein gültiger Schlüssel fälschlich gesperrt werden oder ein tatsächlich kompromittierter Schlüssel weiter im Einsatz bleiben. Eine konsequente Umsetzung kann dagegen gewährleisten, dass der Widerruf von Beglaubigungen nur im vorgesehenen Rahmen erfolgt, die Integrität des Vertrauensmodells erhalten bleibt und alle abhängigen Systeme den neuen Status korrekt übernehmen. Praktisch kann dies durch automatisierte Regelprüfungen in Zertifikatsverwaltungsdiensten, durch Ereignisprotokollierung in Key Management Services (KMS) oder durch Hardware-Sicherheitsmodule (HSM) umgesetzt werden, die Revocation-Bedingungen strikt validieren, bevor Änderungen am Schlüsselstatus ausgeführt werden.
+
+#### BER.7.16.5 – Beglaubigungsstatus
+
+**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.36
+
+> Berechtigung SOLLTE den Beglaubigungsstatus des Schlüssels im Verzeichnis öffentlicher Schlüssel dokumentieren.
+
+Der Beglaubigungsstatus erfasst, ob der Schlüssel von der Beglaubigungs- oder Zertifizierungsstelle der Institution beglaubigt wurde.
+
+#### BER.7.16.6 – Revocationstatus
+
+**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.36
+
+> Berechtigung SOLLTE den Revocationstatus des Schlüssels im Verzeichnis öffentlicher Schlüssel dokumentieren.
+
+Der Revocationsstatus des Schlüsseln erfasst, ob der Schlüssel zurückgezogen wurde, etwa weil er aufgrund einer Kompromittierung nicht mehr sicher verwendet werden kann.

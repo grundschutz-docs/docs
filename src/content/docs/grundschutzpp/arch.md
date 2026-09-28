@@ -1,0 +1,529 @@
+---
+title: "ARCH – Architektur"
+---
+
+# ARCH Architektur
+
+Die Praktik Architektur definiert die grundlegende Struktur sowie die Sicherheitsprinzipien der IT-Infrastruktur und leitet daraus Anforderungen für einzelne IT-Komponenten ab – etwa für Anwendungen oder IT-Systeme. Ziel ist es, eine sichere und skalierbare Basis zu schaffen. Im Rahmen dieser Praktik werden Sicherheitsanforderungen systematisch in die Gesamtarchitektur eingebettet. Dazu gehören die Gestaltung der Netzarchitektur sowie die Entwicklung übergreifender Konzepte, beispielsweise für Kryptografie oder den Schutz vor Schadsoftware.
+
+## ARCH.1 Grundlagen
+
+### ARCH.1.1 – Verfahren und Regelungen
+
+**Stufe:** `normal-SdT` · **Aufwand:** 0 · **Gefährdungen:** G 0.18, G 0.29, G 0.30
+
+> Architektur MUSS Verfahren und Regelungen zur Architektur des Netzes und damit verbundener Infrastrukturen verankern.
+
+Die Netzarchitektur ist der strukturierte Entwurf einer Netzinfrastruktur, einschließlich der IT-Systeme und verbundsbezogenen Schutzmechanismen darin. Hierzu gehören die Segmentierung und Filterung von kabelgebundenen und kabellosen Netzen, Netzmanagement sowie die Redundanz wichtiger Systeme für eine ausreichende Gewährleistung der Verfügbarkeit. Die bei der Festlegung des Verfahrens im Einzelnen zu berücksichtigenden Inhalte ergeben sich aus den Anforderungen dieser Praktik. Empfehlenswert ist ein Design des Netzes nach dem Zero-Trust-Prinzip (siehe BSI Positionspapier Zero-Trust). Dennoch sind Netzgrenzen zur Isolierung durch Filterung oder Zugbrücken bei Angriffen weiterhin sinnvoll. Weitere Informationen zur Absicherung von Netzen sind in ISO/IEC 27033 zu finden.
+
+#### ARCH.1.1.1 – Dokumentation
+
+**Stufe:** `normal-SdT` · **Aufwand:** 0 · **Gefährdungen:** G 0.18, G 0.37, G 0.29
+
+> Architektur MUSS die Verfahren und Regelungen dokumentieren.
+
+Ohne eine Dokumentation könnte die Einhaltung der Verfahren und Regelungen von der Tagesform oder dem individuellen Wissen einzelner Mitarbeiter abhängen, was zu inkonsistenten Entscheidungen und Fehlern führen könnte; insbesondere beim Ausscheiden eines langjährigen Administrators könnte wertvolles prozessuales Wissen verloren gehen. Eine klare Dokumentation sichert die Verbindlichkeit und Wiederholbarkeit und dient als unverzichtbare Grundlage für die Einarbeitung neuer Kollegen, für die Durchführung von Audits und zur einheitlichen Anwendung der Regeln in der gesamten Institution. Die Dokumentation kann in einem eigenständigen Dokument als Richtlinie erfolgen, aber auch als Abschnitt in einem bereits bestehenden Dokument oder über die digital strukturierte Erfassung von Maßnahmen zur Umsetzung der Anforderungen, etwa über eine Software zum Management der Informationssicherheit. Sinnvoll ist es, Ort und Struktur der Dokumentation an der jeweiligen Zielgruppe, d.h. den für das Management und die Umsetzung verantwortlichen Personen oder Rollen, auszurichten.
+
+#### ARCH.1.1.2 – Zuweisung der Aufgaben
+
+**Stufe:** `normal-SdT` · **Aufwand:** 0 · **Gefährdungen:** G 0.18, G 0.31
+
+> Architektur MUSS die mit den Verfahren und Regelungen verbundenen Aufgaben *[zuständigen Personen oder Rollen]* zuweisen.
+
+Die Zuweisung von Aufgaben bezeichnet die eindeutige und verbindliche Übertragung von konkreten Tätigkeiten und Verantwortlichkeiten des Änderungsprozesses, wie etwa die Risikobewertung, die technische Umsetzung oder die finale Freigabe, an definierte Stellen in der Institution. Der Sinn dieser Vorschrift ist es, die Verantwortlichkeit ("Accountability") für jeden einzelnen Schritt im Prozess klarzustellen. Ohne eine solche Zuweisung könnten kritische Prüfungen unterbleiben, weil sich niemand explizit zuständig fühlt, was wiederum die Wahrscheinlichkeit fehlgeschlagener Änderungen erhöht. Eine klare Regelung kann sicherstellen, dass keine Aufgaben übersehen werden und jede Tätigkeit von einer dafür qualifizierten und befugten Stelle ausgeführt wird, was die Prozesssicherheit signifikant erhöht. Eine bewährte Methode zur Umsetzung ist die Erstellung einer RACI-Matrix (Responsible, Accountable, Consulted, Informed), die tabellarisch für jeden Prozessschritt darstellt, wer für die Durchführung verantwortlich ist, wer die Gesamtverantwortung trägt, wer zu konsultieren und wer zu informieren ist. Diese Zuständigkeiten können auch direkt in einem Workflow- oder Ticketsystem abgebildet werden, sodass Aufgaben, wie beispielsweise Genehmigungsschritte, automatisch an die richtige Gruppe oder Person weitergeleitet werden. Sinnvoll ist es, die Zuweisung anhand von Rollen (z. B. "Anwendungsverantwortlicher", "Netzwerkadministrator", "Change Manager") vorzunehmen, statt an konkrete Personen. Dieser Ansatz stellt sicher, dass die Prozesse auch bei Personalwechseln stabil weiterlaufen, da die Zuständigkeit an die Funktion und nicht an das Individuum gebunden ist.
+
+#### ARCH.1.1.3 – Bekanntgabe
+
+**Stufe:** `normal-SdT` · **Aufwand:** 0 · **Gefährdungen:** G 0.18, G 0.29
+
+> Architektur MUSS die zuständigen Personen oder Rollen über die Verfahren und Regelungen informieren.
+
+Wenn die Zuständigen die etablierten Verfahren nicht kennen, besteht die Gefahr, dass diese – sei es aus Unwissenheit oder Bequemlichkeit – umgangen werden, was die Schutzwirkung des gesamten Managementsystems untergräbt. So könnte ein neuer Systemadministrator eine weitreichende Konfigurationsänderung vornehmen, ohne den vorgeschriebenen Genehmigungsprozess zu durchlaufen, was zu einem unbemerkten Sicherheitsrisiko führen könnte. Eine gezielte Information kann hingegen die Akzeptanz der Regelungen fördern und sicherstellen, dass alle Beteiligten ihre Rolle im Prozess verstehen und die Abläufe korrekt anwenden. Zur Umsetzung ist es sinnvoll, die Dokumentation im Rahmen eines Onboarding-Prozesses bekanntzugeben und bei allen Änderungen eine automatische Benachrichtigung aller zuständigen Personen oder Rollen anzustoßen.
+
+### ARCH.1.2 – Regelmäßige Überprüfung
+
+**Stufe:** `normal-SdT` · **Aufwand:** 0 · **Gefährdungen:** G 0.18, G 0.29, G 0.31
+
+> Architektur MUSS die Verfahren und Regelungen *[regelmäßig]* und anlassbezogen auf Aktualität überprüfen.
+
+Eine geplante Überprüfung der etablierten Verfahren und Regelungen dient dazu festzustellen, ob diese noch wirksam, effizient und an die aktuellen Gegebenheiten angepasst sind. Eine anlassbezogene Überprüfung wird durch spezifische Ereignisse ausgelöst, wie etwa einen schwerwiegenden Sicherheitsvorfall, eine strategische Neuausrichtung der IT oder neue gesetzliche Anforderungen. Der Zweck dieser Anforderung ist es, die kontinuierliche Verbesserung und Anpassungsfähigkeit des Prozesses sicherzustellen, da veraltete Regelungen neuen technologischen Entwicklungen oder Bedrohungen nicht mehr gerecht werden könnten; ein vor Jahren für monolithische Anwendungen konzipierter Prozess ist beispielsweise für agile Entwicklungsmethoden oder Microservice-Architekturen ungeeignet. Die regelmäßige Überprüfung kann die Effektivität des Sicherheitsmanagements langfristig aufrechterhalten und die Resilienz der Institution stärken.
+
+## ARCH.2 Netzdesign
+
+### ARCH.2.1 – Netzsegmente
+
+**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.23, G 0.19, G 0.30, G 0.47
+
+> Architektur für Netze SOLLTE eine Unterteilung des internen Netzes in Netzsegmente unter Berücksichtigung der Anforderungen der Institution und des Schutzbedarfes verankern.
+
+Die Aufteilung in Netzsegmente (auch Netzdomänen oder Subnetze genannt) ermöglicht es, verschiedene Zonen mit unterschiedlichen Schutzanforderungen – z. B. Büro-IT, Produktionsnetz, Managementnetz – getrennt zu betrachten und gezielt zu schützen. Relevant sind dabei (falls vorhanden) auch WLANs/SSIDs, IoT-Geräte wie vernetzte Kühlschränke, Hausleittechnik, operative Technologien, Industrielle Steuerungssysteme oder Netze zum Zugriff auf Speichersysteme (Storage Area Network, SAN). Die Anforderung gilt auch, wenn die Systeme nur noch als VMs oder Container existieren. Die Segmentierung kann hier in die virtuelle Netzwerk‑Ebene verlagert werden, sodass die Segmentierung weder vom Hypervisor noch von den Workloads umgangen wird. Die Einteilung in Segmente kann anhand einer Klassifizierung von Netzen erfolgen (z.B. nach Schutzbedarf der dort verarbeiteten Daten oder nach Risikoklassen angeschlossener Systeme) erfolgen. Beispiele hierfür sind Internet-Domäne, Endgeräte-Domäne, Domäne für zentrale Serverdienste, Domäne für Systeme hoher Vertraulichkeit. Alternativ können auch organisatorische Domänen verwendet werden, z. B. Personalwesen, Marketing, Finanzverwaltung, Innere Verwaltung. Die Filterkriterien können sich nach den Sicherheitsanforderungen der jeweiligen Netze im Einzelnen oder nach einer vorgenommenen Klassifikation der Netze richten. Hierzu gehören insbesondere die Anforderungen zur Authentifizierung und Autorisierung von Assets.
+
+### ARCH.2.2 – Einschränkung von Verbindungen zwischen Segmenten
+
+**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.23, G 0.47, G 0.40
+
+> Architektur für Netze SOLLTE Verbindungen zwischen Netzsegmenten anhand von *[Kriterien]* einschränken.
+
+Dient dem Ziel, die Angriffsfläche innerhalb interner und externer Netze zu reduzieren und die Ausbreitung potenzieller Schadsoftware oder unberechtigter Zugriffe einzudämmen. Ohne solche Begrenzungen könnte ein einzelner kompromittierter Bereich direkten Zugriff auf weitere sensible Segmente erhalten und dadurch Geschäftsprozesse massiv beeinträchtigen. Beispielsweise benötigt ein Endgerät Verbindungen zu internen Servern und Druckern, während Gäste lediglich auf den Internetanschluss Zugriff benötigen. Im Blick auf weitreichende Sicherheitsvorfälle ist hier insbesondere die Trennung interner Netzsegmente vom Internet zu beachten. Diese Regeln können auf Kriterien wie Gerätetyp (z. B. Laptop, IoT-Gerät), Benutzerrolle (z. B. Administrator, Gast), physischem Anschlussort oder Uhrzeit basieren. Eine klare Trennung von Benutzergruppen über VLANs oder dynamische ACLs erhöht die Sicherheit und Transparenz. Für die Einführung in eine bestehende Umgebung kann ein gestuftes Vorgehen gewählt werden: (1) Zunächst wird ein Überwachungsmodus ("Audit-Only") aktiviert, der protokolliert, welche Zugriffe durch eine strengere Richtlinie verweigert würden, ohne sie tatsächlich zu blockieren. (2) Anschließend werden diese Protokolle analysiert, um legitime, für den Geschäftsbetrieb notwendige Zugriffe zu identifizieren und diese gezielt in die jeweiligen Rollen und Berechtigungsgruppen aufzunehmen. (3) Erst wenn keine legitimen Zugriffe mehr in den Protokollen als "verweigert" auftauchen, wird die Richtlinie scharf geschaltet und blockiert aktiv alle nicht explizit erlaubten Zugriffe.
+
+#### ARCH.2.2.1 – Externe Netzanschlüsse
+
+**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.14, G 0.23, G 0.39, G 0.40, G 0.9, G 0.47
+
+> Architektur für Netze SOLLTE Verbindungen über externe Netzanschlüsse einschränken.
+
+Dient dazu, die Angriffsfläche zu reduzieren, unerwünschte Ein- und Ausleitungen zu begrenzen und das Risiko von Datenabflüssen zu minimieren. Für mobile Systeme kann dies z. B. über das Erzwingen einer VPN-Verbindung ins gefilterte Netz der Institution oder über die Verwendung eines direkten Internetzugangs erfolgen, welcher über einen Direct-Internet-Access Agenten abgesichert ist.
+
+#### ARCH.2.2.2 – Gastnetz
+
+**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.23
+
+> Architektur für Netze SOLLTE Verbindungen zwischen Gastnetz und internem Netz einschränken.
+
+Wenn Gäste der Institution sich mit dem internen Netz verbinden, könnten Schadprogramme in das Netz gelangen oder unbeabsichtigte Datenflüsse über die Verbindung fließen. Daher ist es sinnvoll, einen vom übrigen Netz getrennten Gastzugang einzurichten, z.B. in Besprechungs-, Veranstaltungs- und Schulungsräumen. Wenn die Einschränkungen von Gastnetzen lockerer sind als die interner Netze am gleichen Standort, so zeigt die Erfahrung, dass auch interne Mitarbeitende gerne auf Gastnetze zurückgreifen. Dadurch könnte es zur Umgehung der internen Schutzmaßnahmen kommen. Daher ist es empfehlenswert, für das Gastnetz gleiche oder strengere Einschränkungen zu wählen oder die Nutzung des Gastnetzes durch Mitarbeitende technisch oder organisatorisch zu beschränken.
+
+#### ARCH.2.2.3 – Segmentierung von Servern und Clients
+
+**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.23, G 0.9, G 0.40
+
+> Architektur für Netze SOLLTE Verbindungen zwischen Hostsystemen und Clients einschränken.
+
+Die Anforderung gilt auch, wenn die IT-Systeme nur noch als VMs oder Container existieren. Die Segmentierung kann hier in die virtuelle Netzwerk‑Ebene verlagert werden, sodass die Segmentierung weder vom Hypervisor noch von den Workloads umgangen wird. Die Anforderung kann auch physisch durch dedizierte Infrastruktur für VDI/Client‑VMs umgesetzt werden. Um die klare Trennung sicherzustellen, wird empfohlen kein Bridging zwischen Port‑Groups sowie auf dem virtuellen Switch keinen promiscuous Mode zu verwenden.
+
+#### ARCH.2.2.4 – VoIP-Netz
+
+**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.23, G 0.9, G 0.40
+
+> Architektur für Netze KANN Verbindungen zwischen Daten- und VoIP-Systemen einschränken.
+
+Werden sowohl Telefonie als auch andere Daten über dasselbe Netz geführt, so könnte dies bei einem Netzausfall dazu führen, dass keine Kommunikation mehr möglich ist, auch nicht zur Meldung oder Behebung der Störung. Die Wahrscheinlichkeit kann durch getrennt betriebene Voice- und Datennetze verringert werden. Für weitere Details siehe „Kompendium für organisationsinterne Telekommunikationssysteme mit erhöhtem Schutzbedarf".
+
+#### ARCH.2.2.5 – OT-Systeme
+
+**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.23, G 0.9, G 0.40
+
+> Architektur für Netze SOLLTE Verbindungen zwischen OT-Systemen und anderen IT-Systemen einschränken.
+
+IT- und OT-Systeme haben typischerweise sehr unterschiedliche Risikoprofile (IT: Schnelllebig, viele Cybersicherheitsmechanismen, OT: Stabilität, weniger Cybersicherheitsmechanismen, beispielsweise industrielle Steuerungssysteme und Gebäudeautomationstechnik). Insbesondere der Zugriff auf OT-Funktionen (z. B. Öffnung zentraler Schließanlage) ist mit erhöhtem Risiko verbunden und könnte auch versehentlich z.B. durch Portscanner ausgelöst werden. Stattdessen ist es empfehlenswert, den Zugriff zu solchen Netzen nur über dafür vorgesehene Quellen zu ermöglichen (z. B. Sprungserver, bestimmte auslösende OT-Systeme).
+
+#### ARCH.2.2.6 – Demilitarisierte Zone
+
+**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.23, G 0.47
+
+> Architektur für Netze SOLLTE eine demilitarisierte Zone installieren.
+
+Unter einer Demilitarisierten Zone versteht man in diesem Kontext ein logisch oder physisch getrenntes Teilnetz, in dem Systeme mit exponierten Diensten – wie Webserver, Mail-Gateways oder VPN-Endpunkte – betrieben werden. Systeme der Institution, die sowohl aus dem öffentlichen Netz als auch aus dem internen Netz erreichbar sind, werden in einer demilitarisierten Zone (DMZ) so betrieben, dass (1) der Netzverkehr zwischen dem System und dem öffentlichen Netz gefiltert wird und (2) der Netzverkehr zwischen dem System und anderen internen Netzen gefiltert wird. Eine DMZ kann sowohl durch dedizierte Hardware-Firewalls als auch durch virtuelle Netzwerksegmente umgesetzt werden. Ohne eine solche Trennung könnte ein kompromittierter Webserver direkt als Sprungbrett ins interne Netz dienen oder Schadsoftware könnte sich ungehindert auf sensible Systeme ausbreiten. Mit einer DMZ kann eine Institution hingegen erreichen, dass kompromittierte Systeme isoliert bleiben und sicherheitskritische interne Netze weiterhin geschützt sind.
+
+#### ARCH.2.2.7 – Management-Netz
+
+**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.30, G 0.23, G 0.32, G 0.19
+
+> Architektur für Netze SOLLTE ein oder mehrere Management-Netze installieren.
+
+Ein Management-Netz ist ein physisch oder durch Netzfilter separiertes Netzsegment, das dediziert für die Überwachung, Verwaltung und Wartung von IT-Systemen bestimmt ist. Es ist von anderen Produktions- und Datennetzen getrennt, um den Zugriff auf kritische Verwaltungsfunktionen zu schützen und die Verfügbarkeit dieser Zugänge auch bei Problemen im restlichen Netz zu sichern. Dies gilt auch für virtualisierte Systeme. Im Kontext der Containerisierung empfiehlt es sich, administrative Zugänge auf Applikations-Container immer über die Container-Runtime erfolgen zu lassen.
+
+#### ARCH.2.2.8 – Segmentierung von Test und Betrieb
+
+**Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.23, G 0.26, G 0.20, G 0.28
+
+> Architektur für Netze SOLLTE Verbindungen zwischen Testumgebungen und Betrieb einschränken.
+
+Entwicklungs-, Staging- und Testumgebungen haben oft geringere Sicherheitsvorkehrungen als Produktivsysteme. Eine saubere Trennung zwischen Test- und Produktivumgebung verhindert Übergriffe auf das Produktivsystem und vermeidet Ressourcenkonflikte.
+
+#### ARCH.2.2.9 – Segmentierung von IPv4 und IPv6
+
+**Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.23, G 0.18, G 0.39
+
+> Architektur für Netze SOLLTE Verbindungen zwischen IPv4 und IPv6 einschränken.
+
+IPv4 und IPv6 sind grundlegende Netzprotokolle, die unterschiedliche Protokollstacks und Sicherheitseigenschaften haben. Eine Trennung von IT-Systemen mit IPv4 und IPv6 erschwert es Angreifern, Schwachstellen der Protokolle auszunutzen oder zu kombinieren und verringert die Wahrscheinlichkeit von Fehlern durch Wechselwirkungen.
+
+#### ARCH.2.2.10 – Drucker-Netz
+
+**Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.30, G 0.18, G 0.39
+
+> Architektur für Netze SOLLTE Verbindungen zwischen Druckern und anderen Systemen einschränken.
+
+Drucker können Schwachstellen aufweisen, die Angreifer ausnutzen, z.B. veraltete Firmware oder ungesicherte Netzprotokolle. Durch die Segmentierung wird die Angriffsoberfläche reduziert und die Netzüberwachung erleichtert. Die Umsetzung kann physisch oder durch VLANs erfolgen.
+
+#### ARCH.2.2.11 – Physische Segmentierung
+
+**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.18, G 0.29, G 0.23, G 0.9
+
+> Architektur für Netze KANN den physischen Zugang auf diese einschränken.
+
+Obwohl sich eine virtuelle Vernetzung immer größerer Beliebtheit erfreut, können Konfigurationsfehler oder Sicherheitslücken dabei leichter zu einer Umgehung der Netztrennung führen, als wenn die Netze bereits auf physischer Ebene voneinander getrennt werden.
+
+#### ARCH.2.2.12 – Sprungserver
+
+**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.23, G 0.30, G 0.15
+
+> Architektur KANN Sprungserver installieren.
+
+Ein Sprungserver (englisch „jump server“ oder „jump host“) ist ein speziell abgesicherter Server, der als einzig vorgesehener Einstiegspunkt in ein Verwaltungsnetz oder zu administrierten Systemen dient. Alle administrativen Sitzungen laufen über diesen zentralen Knotenpunkt, wodurch die Angriffsfläche reduziert und die Nachvollziehbarkeit erhöht wird. Ohne Sprungserver könnte ein Angreifer beispielsweise über kompromittierte Administrator-Notebooks unbemerkt direkt auf zentrale Systeme zugreifen und dort Manipulationen durchführen. Ein Sprungserver kann hingegen alle Management-Zugriffe zentral kanalisieren, sodass verdächtige Aktivitäten leichter erkannt und im Nachhinein nachvollzogen werden können. Praktische Umsetzungen können sein: (1) der Einsatz eines dedizierten, gehärteten Servers mit restriktiven Firewall-Regeln, (2) die Nutzung von Mehrfaktor-Authentisierung und zentralem Benutzer-Management auf dem Sprungserver, (3) eine verpflichtende Session-Aufzeichnung oder Protokollierung sämtlicher Administrationsvorgänge.
+
+### ARCH.2.3 – Mikrosegmentierung
+
+**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.23, G 0.30, G 0.15
+
+> Architektur für IT-Systeme KANN Verbindungen zu allen anderen IT-Systemen einschränken.
+
+Mikrosegmentierung ist die Unterteilung des Netzes in möglichst kleine Segmente (z.B. pro IT-System oder Server-Anwendung). Für jedes dieser Segmente wird die erlaubte Kommunikation definiert und gefiltert. Mikrosegmentierung sorgt dafür, dass z.B. zwei medizinische Geräte mit gleicher Rolle zwar ins gleiche VLAN dürfen, aber nicht direkt miteinander kommunizieren dürfen. Die Umsetzung kann mit dynamischen VLANs, softwaredefinierten Netzwerken (SDN) oder Netzwerk-Firewalls auf Host-Ebene erfolgen. Die Mikrosegmentierung begrenzt Angriffe, die sich lateral ausbreiten.
+
+### ARCH.2.4 – Inventar der Netze
+
+**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.18, G 0.23, G 0.30
+
+> Architektur SOLLTE ein Inventar der Netze einschließlich interner Segmente, externer Netzanschlüsse und deren Verwendungszweck dokumentieren.
+
+Die Erfassung externer Netzanschlüsse – etwa zu Partnernetzen, Cloud-Diensten oder dem Internet – hilft, potenzielle Angriffspunkte zu identifizieren und gezielte Schutzmaßnahmen zu planen. Beispiele für interne Netzsegmente können klassische Trennungen wie IT-Office-Netze, SCADA-/Leittechnik-Netze oder DMZs für externe Zugriffe sein. Dabei sollten auch virtuelle Netze und virtuelle Switches berücksichtigt werden, ebenso wie Container-Infrastrukturen. Als externe Netzanschlüsse kommen etwa VPN-Gateways, dedizierte Providerverbindungen, Fernwartungszugänge oder Cloud-Endpunkte in Frage. Dabei sind nicht nur die auf den ersten Blick relevanten Datennetze, sondern auch andere Telekommunikationsanbindungen wie ISDN-Leitungen, Mobilfunkausweichstrecken oder WLAN-Roaming von Clients relevant. Der Verwendungszweck beschreibt, warum ein Segment oder Anschluss existiert – etwa für Produktivsysteme, Entwicklung, Administration oder Gastzugänge. Der Zweck von Netzsegmenten kann durch einen sprechenden Namen dokumentiert werden, z. B. Management-Netz, OT-Netz, Internetanschluss, Netz der Finanzverwaltung. Dies hilft, Zuständigkeiten und Zugriffsrechte klar zuzuordnen, z. B. anhand von Geschäftsprozessen, Organisationseinheiten oder Zielgruppen (z. B. Gäste, Vertrieb, Leitung). Dabei sind, falls vorhanden, auch WLANs/SSIDs, IoT-Geräte wie vernetzte Kühlschränke, Hausleittechnik, operative Technologien oder Industrielle Steuerungssysteme zu berücksichtigen. Informationen können aus Netzwerkmanagementsystemen, Konfigurationsdateien oder Asset-Management-Tools gewonnen werden. Die Pflege kann als wiederkehrende Aufgabe in Prozesse eingebettet oder im Rahmen von Änderungen (z. B. Change Management) angestoßen werden. Auch eine einfache Pflege in Tabellenform kann sinnvoll sein – entscheidend ist die Klarheit und Aktualität.
+
+### ARCH.2.5 – Netzplan
+
+**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.23, G 0.30, G 0.18, G 0.37
+
+> Architektur für Netze SOLLTE einen Netzplan dokumentieren.
+
+Ein Netzplan (engl. network diagram) stellt eine schematische Darstellung der logischen und physischen Struktur von Kommunikationsnetzen dar und bildet die Grundlage für Transparenz im Betrieb. Er kann einen zentralen Beitrag zur Informationssicherheit leisten, da er Transparenz über die Struktur, Verbindungen und Schutzbedarfe einer Netzwerkumgebung schafft. Ein aktueller Netzplan, aus dem sich gut die Netzstruktur erkennen lässt, ermöglicht es Anschlüssen mit hohem Risiko oder von einzelnen Ausfallstellen (Single Points of Failure) auf einen Blick zu erkennen. Für die Umsetzung ist es nicht erforderlich, jedes Subnetz einzeln in einer Grafik zu visualisieren. Vielmehr kann es hilfreich sein, Netzpläne auf einem abstrahierten Level zu halten, z. B. als logische Übersicht mit Domänen, Segmenten und Übergängen (bereinigter Netzplan). Eine Visualisierung als Layer-Modell (z. B. Infrastruktur-, Kommunikations- und Applikationsebene) kann zusätzliche Einblicke schaffen. Auch eine einfache Pflege als visuelle Skizze kann sinnvoll sein – entscheidend ist die Klarheit und Aktualität.
+
+### ARCH.2.6 – Topologieüberwachung
+
+**Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.19, G 0.30, G 0.22, G 0.41
+
+> Architektur für Netze SOLLTE die Einhaltung der Netzarchitektur *[regelmäßig]* überprüfen.
+
+Unbeabsichtigte Netzverbindungen können z.B. über falsch gesteckte Kabel, WLAN auf Clients oder Modems im öffentlichen Telefonnetz (PSTN) an einer TK-Anlage entstehen. Die Anforderung kann durch Netzscans, Software zur Topologieüberwachung oder Protokollanalyse umgesetzt werden. Hierbei sind auch virtualisierte Systeme auf VM-Hosts zu berücksichtigen.
+
+## ARCH.3 Wireless LAN
+
+### ARCH.3.1 – Netzabdeckung
+
+**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.18, G 0.43
+
+> Architektur für WLANs SOLLTE die Netzabdeckung testen.
+
+Drahtlose Netzanbindungen sind schwerer zu schützen als kabelgebundene Netze, da der Perimeter des Netzes schwerer zu erkennen ist. Das erschwert es, die Netzverfügbarkeit zu gewährleisten und gleichzeitig den Zugang zum Netz vor unbefugtem Zugriff oder Störungen zwischen Netzen zu schützen. Zudem können Wände und andere strahlende Geräte wie Mikrowellen-Geräte oder Bluetooth-Sender den Empfang beeinträchtigen. Ein Test des Empfangs an wichtigen Standorten unter realen Bedingungen hilft, die WLAN-Qualität zu gewährleisten. Der Empfang in den verschiedenen Frequenzbändern kann dabei unterschiedlich ausfallen. Für weitere Informationen, siehe Allgemeinzuteilungen von Frequenzen für Mobilfunkanwendungen, DECT, WLAN, CB-Funk und ähnliche Anwendungen der Bundesnetzagentur. Abdeckungsbereich ist der Bereich, in dem das WLAN mit gewöhnlichen Endgeräten genutzt werden kann. Relevant ist dabei auch die Abdeckung aller Orte, an denen sich Gäste aufhalten, sowie an Orte an denen gerade kein Empfang gewünscht ist, z.B. Serverräume oder abhörsichere Räume.
+
+### ARCH.3.2 – Einschränkung in Sicherheitsbereichen
+
+**Stufe:** `erhöht` · **Aufwand:** 4 · **Gefährdungen:** G 0.18, G 0.16
+
+> Architektur für WLANs KANN in Sicherheitsbereichen die Ausstrahlung einschränken.
+
+Hierzu gehören beispielsweise abhörsichere Räume oder Serverräume, von denen aus keine Daten ins Internet gesendet werden sollen. Dies kann z.B. durch die Reduktion der Sendeleistung in benachbarten Räumen oder die Isolierung der Räume erfolgen.
+
+### ARCH.3.3 – SSIDs
+
+**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.18, G 0.23
+
+> Architektur für WLANs SOLLTE institutionsspezifische SSIDs aktivieren.
+
+Viele WLAN-Geräte bringen ab Werk eingestellte Netznamen (Default SSID) mit, aus denen sich häufig Rückschlüsse auf eingesetzte Geräte oder sogar Zugangsdaten ziehen lassen. Eigene SSIDs können Nutzenden die Zuordnung der Netze zur Institution oder deren Unterscheidung erleichtern, wenn hierfür sprechende Namen konfiguriert werden (z.B. "Institutionsname-Gastnetz").
+
+### ARCH.3.4 – Verschlüsselte Netzanbindung
+
+**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.23, G 0.15, G 0.43
+
+> Architektur für WLANs SOLLTE die Netzanbindung *[nach einem anerkannten Standard]* verschlüsseln.
+
+Ohne eine sichere Verschlüsselung könnte ein Angreifer durch „Sniffing“ sensible Inhalte wie Passwörter, E-Mails oder Geschäftsdaten abfangen oder sogar schadhaften Datenverkehr in die Kommunikation einschleusen. Ebenso könnte ein schwacher oder veralteter Standard wie WEP einem Angreifer ermöglichen, das WLAN-Passwort innerhalb weniger Minuten zu knacken und damit vollständigen Netzzugang zu erlangen. Eine zeitgemäße und wirksame Verschlüsselung kann dagegen die Vertraulichkeit und Integrität der Kommunikation sicherstellen und bietet Schutz vor Angriffen wie „Man-in-the-Middle“-Manipulationen oder unerwünschtem Zugriff über „Rogue Clients“. Netzanbindung bedeutet hier, dass nicht nur die über das Netz transportierten Daten verschlüsselt werden, sondern auch die Kommunikation selbst, z.B. die Adressen kommunizierender Geräte. Anerkannten Standards meint z.B. WPA3-Enterprise mit 802.1X und EAP-TLS. Für Details siehe IEEE 80211, WPA3.
+
+## ARCH.4 Zugangsbeschränkungen
+
+### ARCH.4.1 – Netzzugangskontrolle
+
+**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.18, G 0.23
+
+> Architektur für Interne Netzsegmente SOLLTE den Zugriff von IT-Systemen auf das Netzsegment im Einklang mit den zugehörigen Anforderungen des Identitäts- und Berechtigungsmanagements authentifizieren.
+
+Unautorisierte Systeme könnten Ausgangspunkt von Angriffen sein oder zu unbeabsichtigten Störungen im Netz führen. Netzwerkzugangskontrolle (Network Access Control, NAC) bietet eine wirksame Möglichkeit, den Zugriff auf Netzwerke kontrolliert zu steuern, insbesondere in schützenswerten Bereichen wie Management-Netzen, Produktionssystemen oder Forschungsumgebungen. Die Auswahl der Netzbereiche für die Netzzugangskontrolle richtet sich nach dem Schutzbedarf oder Risikoprofil. Dabei empfiehlt sich zu dokumentieren, welche Zonen mit NAC abgesichert werden und warum andere bewusst nicht berücksichtigt werden (z.B. aufgrund technischer Einschränkungen oder fehlender Relevanz). Die Umsetzung kann (1) auf Zertifikaten basieren (X.509, EAP‑TLS or mTLS), (2) auf Zugangskonten basieren (IEEE 802.1X, RADIUS), (3) auf dynamischen Prüfungen basieren (z.B. Sicherheitspatches). Eine Authentifizierung, die nur auf MAC-Adressen basiert, gilt dagegen nicht mehr als zeitgemäß, da MAC-Adressen sehr leicht ausgelesen und auf Systemen eingestellt werden könnten und so unberechtigte IT-Systeme zu leicht auch Zugang erhalten. Wenn Systeme die Netzzugangskontrolle nicht oder nur unzureichend unterstützen, ist für solche Systeme anstelle einer Netzzugangskontrolle die Nutzung eines eigenen Netzsegmentes empfehlenswert. Für die Verbindung zwischen RADIUS-Servern, Switches und Verzeichnisdiensten kommen Protokolle wie RadSec, IPsec oder LDAPS in Betracht. Die Verwendung nur einer einzigen Serverkonfigurationen (z.B. ein gemeinsamer RADIUS-Server für NAC und VPN) führt zu Komplexität und Angriffspunkten. Daher werden getrennte Systeme empfohlen. Dies gilt insbesondere bei unterschiedlichen Schutzklassen im LAN/WLAN oder Büro-/Produktionsnetz. Bei WLANs kann die Umsetzung in größeren Umgebungen mittels 802.1X (WPA3-Enterprise) und an kleineren Zugangspunkten oder Gastnetzen durch SAE (WPA3-Personal) erfolgen. Da es sich um eine automatisierte Sicherheitsrichtlinie handelt, ist hier auch die Anforderung zur Überwachung solcher Richtlinien anwendbar. Überwachungskriterien sind hier z.B. die Erreichbarkeit des RADIUS-Servers, die Antwortzeiten, die Last auf Access-Switches und andere Metriken. Für die Überwachung der Integrität ist insbesondere die Authentifizierung oder deren Fehlschlag relevant, z.B. viele abgelehnte Authentisierungen, plötzliche Deaktivierung eines Supplicants. Durch synthetische Anfragen an Testkonten kann die gesamte Authentisierungskette regelmäßig geprüft werden. Die Formulierung "im Einklang mit den Festlegungen des Identitäts- und Berechtigungsmanagements" bedeutet, dass die Authentifizierung so erfolgt, wie in der Praktik IDM festgelegt. Hierzu gehört insbesondere die Verwendung aktueller kryptographischer Verfahren, wie sie im Thema Kryptographie zu finden ist.
+
+#### ARCH.4.1.1 – Dynamische Netzzugangskontrolle
+
+**Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.18, G 0.36
+
+> Architektur für Interne Netzsegmente SOLLTE den Zugriff von IT-Systemen auf das Netzsegment anhand *[dynamischer Kriterien]* im Einklang mit den zugehörigen Anforderungen des Identitäts- und Berechtigungsmanagements authentifizieren.
+
+Bei der dynamischen Netzzugangskontrolle (Posturing oder Dynamic NAC) wird vor dem Netzzugang auch der Zustand des IT-Systems geprüft, z.B. der aktuelle Patchlevel des Systems oder von Erkennungssignaturen. Hierzu gehört auch die softwaredefinierte Netzzugangskontrolle, die dynamisch auf Aktivitäten des Systems oder aktuelle Threat Intelligence reagieren kann. Empfehlenswert ist es hierbei, die Konfiguration der Systeme automatisiert vorzunehmen, z.B. über eine automatische Supplicant-Konfiguration beim Rollout und die Zuweisung von Zertifikaten über Enrollment-Dienste. Die Formulierung "im Einklang mit den Festlegungen des Identitäts- und Berechtigungsmanagements" bedeutet, dass die Authentifizierung so erfolgt, wie in der Praktik IDM festgelegt. Hierzu gehört insbesondere die Verwendung aktueller kryptographischer Verfahren, wie sie im Thema Kryptographie zu finden ist.
+
+#### ARCH.4.1.2 – Quarantäne
+
+**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.18
+
+> Architektur für Interne Netzsegmente KANN ein Quarantänenetz für nicht authentifizierte IT-Systeme installieren.
+
+Wenn Systeme aufgrund bestimmter Voraussetzungen sich nicht authentifizieren (z.B. installierte Sicherheitsupdates oder weil sie keine 802.1X-Anmeldung unterstützen), kann ein vollständiges blockieren aller Netzverbindungen die Verfügbarkeit erforderlicher Geschäftsprozesse unmöglich machen. Um IT-Systemen einen eingeschränkten Zugang zu Netzressourcen zu ermöglichen – etwa damit diese die Voraussetzungen durch den Download von Updates erfüllen können – kann ein Quarantänenetz eingerichtet werden, das z.B. Zugang zu bestimmten Downloadservern oder eine Meldung des Problems ermöglicht.
+
+### ARCH.4.2 – Autorisiertes Routing
+
+**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.18, G 0.22
+
+> Architektur für Netze SOLLTE Routing-Verbindungen durch *[eine zuständige Person oder Rolle]* autorisieren.
+
+Dient der Kontrolle von Netzarchitekturen, um unbeabsichtigte oder böswillige Änderungen zu verhindern. Ohne eine solche Freigabe könnte ein Angreifer durch unbemerkte Manipulation von Routing-Einträgen den Datenverkehr umleiten, abhören oder blockieren; auch ein ungeschulter Administrator könnte versehentlich falsche Routen konfigurieren, wodurch kritische Dienste ausfallen könnten. Die Autorisierung kann sicherstellen, dass jede Änderung nachvollziehbar geprüft, dokumentiert und nur nach sachgerechter Bewertung umgesetzt wird, wodurch die Integrität und Verfügbarkeit der Netze erhöht werden kann. Im konkreten Kontext bedeutet „Routing-Verbindungen“ die Konfiguration von Pfaden, über die Datenpakete zwischen Netzsegmenten oder über Gateways weitergeleitet werden. „Autorisieren“ bedeutet hier die formale Freigabe nach einer sachlichen und fachlichen Prüfung, typischerweise durch Rollen wie (1) Netzwerkarchitekt, (2) IT-Sicherheitsbeauftragter oder (3) Leiter IT-Betrieb. Eine Institution kann dies umsetzen, indem sie (1) eine dokumentierte Freigabeprozedur für alle Routing-Änderungen etabliert, (2) Änderungen technisch über ein Ticket- oder Change-Management-System prüfen und protokollieren lässt, (3) rollenbasierte Zugriffsrechte in Routern und Firewalls so einschränken kann, dass nur autorisierte Personen Konfigurationsänderungen durchführen, und (4) automatisierte Plausibilitätsprüfungen oder Peer-Reviews nutzen kann, um fehlerhafte oder unsichere Routen frühzeitig zu erkennen. Die Autorisierung kann entweder einzelne Routen (z.B. für Netz A zwischen Router B und C), als auch bestimmte Routing-Regeln (z.B. Default-Routing über die zentrale Firewall) autorisieren. Sinnvoll ist es dabei das Prinzip "so allgemein wie für den Betrieb nötig, so spezifisch wie für die Sicherheit möglich" als Faustregel anzuwenden. Bei der Verwendung dynamischer Routing-Algorithmen kann die Anforderung umgesetzt werden, indem eingeschränkte Bereiche freigegeben werden, z.B. "dynamisches Routing im Bereich 10.x.x.x)".
+
+### ARCH.4.3 – Authentifizierung von Routingprotokollen
+
+**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.18, G 0.23
+
+> Architektur für Netze SOLLTE Änderungen an Routing-Tabellen im Einklang mit den zugehörigen Anforderungen des Identitäts- und Berechtigungsmanagements authentifizieren.
+
+Hierzu zählt z.B. die Authentifizierung von BGP/OSPF-Sitzungen zur Verhinderung von Route Hijacking, BGP origin validation with RPKI oder OSPF/ISIS/BGP MD5 or TTL+hMAC authentication. Die Formulierung "im Einklang mit den Festlegungen des Identitäts- und Berechtigungsmanagements" bedeutet, dass die Authentifizierung so erfolgt, wie in der Praktik IDM festgelegt. Hierzu gehört insbesondere die Verwendung aktueller kryptographischer Verfahren, wie sie im Thema Kryptographie zu finden ist.
+
+## ARCH.5 Perimeterschutz
+
+### ARCH.5.1 – Einschränkung und Inspektion von Verbindungen
+
+**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.23, G 0.14, G 0.30
+
+> Architektur für Netze SOLLTE Verbindungen zwischen IT-Systemen einschränken.
+
+Über Netverbindungen können unbeabsichtigte Verbindungen aufgebaut werden oder netzbasierte Angriffe über das Internet gegen die Institution erfolgen. Unerwünschter Datenverkehr nach außen können z.B. private IP-Adressen (RFC 1918 leakage), Multicasting, TCP/UDP Ports für veraltete, angreifbare Protokolle oder ICMP-Verkehr sein. Die Beschränkung der Verbindung zwischen IT-Systemen kann sowohl durch zustandsbehaftete Paketfilter, als auch mit Application Layer Gateways umgesetzt werden. Empfehlenswert ist eine Kombination aus Allowlisting, IP-Reputationslisten, Deep Packet Inspection und Durchsatzratenbegrenzung. Hierbei können Verbindungen auch nach Kategorien autorisiert werden (z.B. anhand von IP-Subnetzen oder Voraussetzungen wie per Zertifikat authentifzierten IT-Systemen). Damit dabei keine unnötigen Verbindungen zugelassen werden, ist es wichtig, die Kategorisierung möglich genau zu wählen (z.B. möglichst einzelne Subnetze statt des ganzen Netzes oder nur bestimmte Ports oder Anwendungen zuzulassen).
+
+#### ARCH.5.1.1 – Blockieren anfälliger Netzprotokolle
+
+**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.23
+
+> Architektur für Netze SOLLTE anfällige Netzwerkprotokolle blockieren.
+
+Anfällig sind Netzprotokolle, wenn sie veraltete oder gar keine Algorithmen zur Verschlüsselung oder Integritätsprüfung verwenden. Hierzu gehören Protokolle wie Telnet, SMB v1, SNMP v1/v2c. Für aktuelle Verschlüsselungsalgorithmen siehe BSI TR 02102.
+
+#### ARCH.5.1.2 – Netzbasierte Angriffe
+
+**Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.23, G 0.40
+
+> Architektur für Netze SOLLTE bekannte netzbasierte Angriffsmethoden blockieren.
+
+Netzbasierte Angriffe verwenden Netzwerktechnologien (typischerweise auf OSI Layer 2-3), z.B. Fragmentierungsangriffe. Beispiele für mögliche Maßnahmen sind DHCP snooping, ARP/Dynamic ARP Inspection, IP-source guard, BPDU guard, root guard, port-security (sticky MAC).
+
+#### ARCH.5.1.3 – TCP-basierte Angriffe
+
+**Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.23, G 0.40
+
+> Architektur für Netze SOLLTE bekannte TCP-basierte Angriffsmethoden blockieren.
+
+TCP ist das am meisten verwendete Protokoll für die zuverlässige Datenübertragung. Durch TCP-basierte Angriffe können IT-Systeme gehackt oder Daten unbemerkt ausgeleitet werden. Beispiele sind TCP Session Hijacking (ACK-number guessing), Overlapping-Segment Attacks, TCP Reset (RST) Injection, Xmas-tree Scanning. Die Anforderung kann durch Blockieren solcher Verbindungen oder nur bestimmter Mechanismen umgesetzt werden.
+
+#### ARCH.5.1.4 – UDP-basierte Angriffe
+
+**Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.23, G 0.40
+
+> Architektur für Netze SOLLTE bekannte UDP-basierte Angriffsmethoden blockieren.
+
+UDP-basierte Angriffsmethoden (englisch: known UDP-based attack vectors) sind hierbei Techniken zu verstehen, die das User Datagram Protocol (UDP) ausnutzen. UDP ist das am meisten verwendete Protokoll für die Übertragung von Datenstreams. Aufgrund seiner verbindungslosen Eigenschaft ermöglicht UDP eine sehr schnelle Datenübertragung und wird daher oft für zeitkritische Anwendungen wie Videostreaming, VoIP oder DNS-Anfragen verwendet. Genau diese Eigenschaft macht es jedoch anfällig für Missbrauch, da die Absenderadresse leicht gefälscht werden kann (IP-Spoofing). Beispiele für Angriffe sind Sequence Number Guessing, DHCP Starvation und UDP Hole-Punching Abuse. Die Anforderung kann durch Blockieren solcher Verbindungen oder nur bestimmter Mechanismen umgesetzt werden.
+
+#### ARCH.5.1.5 – Deaktivierung von Split Tunneling
+
+**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.23, G 0.14
+
+> Architektur für Externe Netzanschlüsse SOLLTE Split Tunneling blockieren.
+
+Um eine durchgehende Kontrolle und Absicherung des Netzverkehrs zu gewährleisten, muss verhindert werden, dass IT-Clients während einer aktiven Verbindung zum internen Netz gleichzeitig ungeschützten Zugriff auf das öffentliche Internet oder andere Netzwerke haben. Dies schließt sogenannte „Split Tunneling“-Konfigurationen aus, bei denen nur ausgewählter Datenverkehr über das VPN geleitet wird, während anderer Datenverkehr (z. B. Webzugriffe) über das lokale Netzwerk oder die Internetverbindung des Clients erfolgt.
+
+#### ARCH.5.1.6 – Blockieren direkter Management-Verbindungen
+
+**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.23, G 0.40
+
+> Architektur für Externe Netzanschlüsse SOLLTE Verbindungen zu Management-Schnittstellen blockieren.
+
+Zum Internet offene Management-Schnittstellen werden von Angreifern durch Scans leicht gefunden und sind häufig Ziel von Angriffen. Deshalb ist es sinnvoll, alle eingehenden Verbindungen zu Management-Schnittstellen aus externen Netzen zu blockieren, einschließlich der Verwaltung von VPN- und Firewallsystemen selbst. Wenn eine Administration dieser Systeme aus der Ferne erforderlich ist, so kann dieser Zugriff stattdessen über ein VPN in das interne Netz hergestellt werden, wobei auch hiermit ein erhöhten Risiko für Angriffe einhergeht.
+
+#### ARCH.5.1.7 – Edge-Routing
+
+**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.23, G 0.30, G 0.43
+
+> Architektur für Externe Netzanschlüsse SOLLTE dynamische Routingprotokolle blockieren.
+
+Dynamische Routingprotokolle könnten versehentlich oder durch Angriffe unerwünschte Verbindungen ermöglichen. An den Übergangen zu externen Netzen sind statische Default-Routen deshalb die bessere Alternative.
+
+#### ARCH.5.1.8 – Inspektion verschlüsselter Verbindungen
+
+**Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.23, G 0.39, G 0.30
+
+> Architektur für Externe Netzanschlüsse SOLLTE den Inhalt unverschlüsselter und verschlüsselter Verbindungen basierend auf der Art des Inhalts einschränken.
+
+Verschlüsselte Verbindungen wie VoIP über TLS oder HTTPS-Anfragen können über Sicherheitsproxies oder die Inspektion auf den Endstellen der Verbindungen inspiziert werden. Ein Proxy bzw. Proxy-Server ist ein Vermittler im Netz, der zwischen dem Client und einer Netzressource, wie einer Webseite, fungiert. Er dient als Brücke zwischen dem Client und dem Server, wobei Anfragen und Antworten stellvertretend abgewickelt werden. Proxys können Datenverkehr filtern, blockieren, oder auch speichern, um die Netzwerkleistung zu optimieren. Systeme zur Filterung von Webinhalten gehören zu den häufigsten Arten von Proxyservern, die zur Vermittlung des Internetzugangs eingesetzt werden. Diese Server können TCP-Sitzungen protokollieren und die Zugriffskontrolle durch Blockieren bestimmter URLs, IP-Adressen oder Domänennamen erzwingen. Institutionen können Web-Proxys mit benutzerdefinierten Erlaubnis- und Sperrlisten konfigurieren, um den Zugriff auf der Grundlage von Richtlinien zu regeln. Es ist jedoch zu beachten, dass Proxyserver die Nutzung virtueller privater Netzwerke (VPN) beeinträchtigen und je nach Implementierung Risiken wie Man-in-the-Middle-Angriffe (MitM) mit sich bringen können. Beispiel-Implementierungen sind Squid, Nginx, Privoxy.
+
+#### ARCH.5.1.9 – Filterung von DNS
+
+**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.23, G 0.14, G 0.39
+
+> Architektur für Externe Netzanschlüsse SOLLTE unerwünschte Inhalte in DNS-Verbindungen einschränken.
+
+Unerwünschte Inhalte sind DNS-Anfragen oder -Antworten, die für Geschäftsprozesse unnötige oder sogar schädliche Daten enthalten, z.B. Verbindungen zu bekannten Malware-Domains oder zu Werbe- oder Telemetriediensten. Dies kann entweder nach dem Allowlist- oder Denylist-Ansatz erfolgen. Listen bekannter schädlicher Domains können über Threat Intelligence-Feeds oder spezielle DNS-Lösungen wie Pihole bezogen werden.
+
+#### ARCH.5.1.10 – Webfilterung
+
+**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.39, G 0.28, G 0.14, G 0.23
+
+> Architektur für Externe Netzanschlüsse SOLLTE den Zugriff auf Webinhalte anhand von *[Kriterien]* einschränken.
+
+Das World Wide Web ist für zahlreiche Geschäftsprozesse essenziell. Andererseits wird das Web von Angreifern auch für die Verbreitung von illegalen Inhalten, Schadprogrammen oder Phishing verwendet. Durch unkontrollierten Webzugriff könnten etwa Schadcode, Phishing oder Datenabfluss in die Institution gelangen. Kriterien meint hier die festgelegten Maßstäbe, nach denen externe Verbindungen zu Webinhalten gefiltert oder eingeschränkt werden. Im Fachjargon spricht man von filtering criteria oder access control policies. Solche Kriterien können beispielsweise Inhaltskategorien (z. B. Glücksspiel, soziale Netzwerke, Streaming), Reputationsbewertungen von Domains (z. B. „malicious“ oder „suspicious“ laut Threat-Intelligence-Feeds), oder technische Eigenschaften (z. B. bekannte IP-Ranges, Länderzugehörigkeit, verwendete Protokolle/Ports, Signaturen) sein. Sinnvoll ist eine Kombination verschiedener Kriterien. Die Anforderung kann über Filterung im Browser, auf Systemen oder an Netzgrenzen umgesetzt werden (z.B. durch Firewalls, Sicherheitsproxies oder VPN-Gateways).
+
+##### ARCH.5.1.10.1 – Bekannte schädliche Inhalte
+
+**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.39, G 0.28, G 0.14, G 0.23
+
+> Architektur für Externe Netzanschlüsse SOLLTE bekannte schädliche Inhalte einschränken.
+
+Hierzu gehören beispielsweise Schadprogramme, Phishing, Malware Command & Control Server. Zur Einschränkung kann auf öffentlich verfügbare Sperrlisten für solche Webseiten, auf Filtersysteme spezialisierter Hersteller von Firewalls und ähnlichen Systemen oder auf Daten aus der Threat Intelligence zurückgegriffen werden.
+
+##### ARCH.5.1.10.2 – Bekannte illegale Inhalte
+
+**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.39, G 0.28, G 0.14, G 0.23
+
+> Architektur für Externe Netzanschlüsse SOLLTE bekannte illegale Inhalte einschränken.
+
+Gerade bei größeren Webdiensten kann es vorkommen, dass hierüber immer wieder vereinzelt illegale Inhalte verbreitet werden, obwohl der Dienst selbst von einer legitimen Institution betrieben wird. In solchen Fällen empfiehlt es sich, die Filterung möglich passgenau vorzunehmen (also soweit möglich nur bestimmte Seiten, Seitenbereiche oder Subdomains zu filtern) und den Anbieter über die illegalen Inhalte zu informieren.
+
+##### ARCH.5.1.10.3 – Speicherdienste
+
+**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.39, G 0.28, G 0.14, G 0.23
+
+> Architektur für Externe Netzanschlüsse SOLLTE Speicherdienste einschränken.
+
+Ausnahmen können sinnvoll sein, wenn es nach den Geschäftsprozessen erforderlich ist, die Daten öffentlich zur Verfügung zu stellen oder diese mit anderen Institutionen über den Speicherdienst auszutauschen.
+
+#### ARCH.5.1.11 – P-A-P-Struktur
+
+**Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.19, G 0.30, G 0.40
+
+> Architektur für Externe Netzanschlüsse SOLLTE eine P-A-P-Struktur für eingehende und ausgehende Verbindungen installieren.
+
+Die P-A-P-Struktur besteht aus 2 Paketfiltern (P) und einem Filter auf Anwendungsebene (A), die durch Hardware getrennt sind und alle Verbindungen auf Anwendungsebene filtern. In Hardware getrennte Systeme sind hier solche, die jeweils über eigene Rechenkomponenten (CPU, RAM, etc.) verfügen und nur über Netzverbindungen zusammenhängen. Dies minimiert die Angriffsfläche für übergreifende Angriffe wie Covert Channel oder Side Channel.
+
+#### ARCH.5.1.12 – Software-definierte Verbindungen
+
+**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.19, G 0.30
+
+> Architektur für Netze KANN Verbindungen zwischen IT-Systemen anhand dynamischer Kriterien einschränken.
+
+Software-definierte Verbindungen sind logisch kontrollierte Netzwerkpfade, deren Zugriffsbedingungen nicht statisch hinterlegt, sondern anhand aktueller Merkmale bewertet werden; dynamische Kriterien meint dabei festgelegte Filterregeln, deren Werte situativ ermittelt werden, etwa über „context attributes“ oder „dynamic policies“. Solche Merkmale können als contextual signals wie momentane Auslastung, Gerätezustand („device posture“) oder zeitliche Rahmenbedingungen interpretiert werden, während die zugrunde liegenden Regeln unverändert bleiben und nur ihre Bewertung variiert. Dies kann helfen, laterale Bewegungen einzudämmen und kann gleichzeitig unerwartete Zugriffe in veränderten Betriebszuständen abblocken; ein Angriff, der unentdeckt Systeme durchqueren könnte, oder ein kompromittierter Client, der außerhalb definierter Parameter agiert, könnte dadurch abgewehrt werden. Praktisch kann dies über segmentierende „Software-Defined Networking“-Mechanismen, kontextabhängige Firewall-Policies oder adaptive Access-Control-Engines erfolgen. Eine angemessene Absicherung ist hier zu verstehen als ein Bündel verlässlicher Signale, die den Zustand eines Endpunkts oder Dienstes authentisch widerspiegeln. Als Varianten kommen etwa kontextabhängige SDN-Flows, regelbasierte Mikrosegmentierung über Identity-Tags oder der Einsatz von Policy-Engines infrage, die ihre Entscheidungen anhand dynamisch erfasster Werte wie Geräteintegrität, Standort oder Risikobewertung fällen.
+
+#### ARCH.5.1.13 – Produktdiversität
+
+**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.19, G 0.30
+
+> Architektur für Externe Netzanschlüsse KANN für die Filterung diverse Produkte unterschiedlicher Hersteller für eingehende und ausgehende Verbindungen installieren.
+
+Wenn nur gleichartige Filtersysteme verwendet werden, könnten Angreifer eine Schwachstelle zweimal hintereinander ausnutzen, um Netzzugang zu erhalten. Der Einsatz verschiedener, voneinander unabhängiger Hersteller hintereinander verringert die Wahrscheinlichkeit, dass beide Systeme gleichzeitig anfällig sind.
+
+### ARCH.5.2 – Blockieren direkter öffentlicher Verbindungen
+
+**Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.23, G 0.14
+
+> Architektur für IT-Systeme SOLLTE direkte Verbindungen von diesen ins öffentliche Netz blockieren.
+
+Direkte Verbindungen sind hier alle Verbindungen, die nicht von der Filterung erfasst werden. Die Anforderung ist für Firewallsysteme umgesetzt, wenn deren eingehende Verbindungen ebenfalls vollständig gefiltert werden, bevor sie Daten an Systemschnittstellen senden können.
+
+## ARCH.6 Vertraulichkeit und Integrität im Weitverkehrsnetz
+
+### ARCH.6.1 – Kontrollierte Verbindungsführung
+
+**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.23, G 0.14
+
+> Architektur für Externe Netzanschlüsse KANN eine *[physisch oder logisch]* kontrollierte Verbindungsführung für Weitverkehrsverbindungen aktivieren.
+
+Unter einer physisch kontrollierten Verbindungsführung kann in diesem Kontext die Verwendung dedizierter Leitungswege (Dark Fiber), sowie Hardware-Komponenten wie Router, Firewalls oder Trennstellen verstanden werden, die den Zugriff auf Leitungen oder Ports unmittelbar begrenzen. Eine logisch kontrollierte Verbindungsführung kann durch softwarebasierte Mechanismen wie VLANs, VPN-Tunnel oder Routing-Regeln erfolgen, die den Datenverkehr unabhängig von der physischen Leitung steuern. Ohne eine kontrollierte Verbindungsführung könnte ein Angreifer über eine ungeschützte oder direkt angebundene Leitung in interne Systeme eindringen und dort Schadsoftware platzieren, Daten manipulieren oder vertrauliche Informationen abziehen. Ebenso könnte durch eine unzureichend kontrollierte Verbindung ein Ausfall der Netzstabilität eintreten, etwa wenn über eine falsch konfigurierte Schnittstelle großflächiger Datenverkehr einbricht und produktive Systeme beeinträchtigt. Eine kontrollierte Architektur kann dagegen Angriffsflächen reduzieren, Datenströme nachvollziehbar machen und die Sicherheit der Informationsflüsse zwischen Institution und externen Partnern oder Netzanbietern erhöhen. Die Umsetzung kann beispielsweise durch klar definierte Übergabepunkte zum externen Netz erfolgen, an denen sämtliche eingehenden und ausgehenden Verbindungen zentral zusammenlaufen und durch Filter- oder Segmentierungsmechanismen geprüft werden.
+
+### ARCH.6.2 – Verschlüsselung von Weiterverkehrsverbindungen
+
+**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.15, G 0.14, G 0.18
+
+> Architektur für Externe Netzanschlüsse SOLLTE Verbindungen ins Weitverkehrsnetz nach *[einem anerkannten Standard]* verschlüsseln.
+
+Ohne ein etabliertes Verschlüsselungsverfahren könnte sensible Kommunikation im Klartext übertragen werden, was Angreifern ein einfaches Mitlesen ermöglichen könnte – etwa durch Abhören in einem öffentlichen WLAN, durch kompromittierte Router eines Providers oder durch staatliche Massenüberwachung. Auch die unbemerkte Manipulation von Datenpaketen auf dem Weg zwischen Institution und Gegenstelle könnte die Integrität der übermittelten Inhalte gefährden und beispielsweise zu manipulierten Geschäftsdaten oder Schadcode-Einschleusungen führen. Der Einsatz von anerkannten Standards zur Verschlüsselung kann Vertraulichkeit und Integrität wahren, indem die Inhalte für Unbefugte unlesbar bleiben und Kommunikationspartner einander zuverlässig identifizieren können. So kann beispielsweise sichergestellt werden, dass eine entfernte Niederlassung tatsächlich mit der Zentrale verbunden ist und nicht mit einem Angreifer, der den Datenverkehr umleitet. Im Kontext externer Netzanschlüsse bezeichnet „Weitverkehrsnetz“ typischerweise öffentliche Netze wie das Internet oder auch gemietete WAN-Verbindungen über Telekommunikationsanbieter, die institutionsextern betrieben und potenziell unsicher sind. Anerkannte Standards sind z.B. TLS, IPsec oder WireGuard, die regelmäßig überprüft und weit verbreitet eingesetzt werden. Eine Institution kann diese Anforderung durch konkrete Maßnahmen umsetzen, z. B. indem sie Site-to-Site-VPNs zwischen Standorten einrichtet, Remote-Zugriffe von Mitarbeitenden ausschließlich über VPN-Gateways mit Zwei-Faktor-Authentisierung ermöglicht und auch Cloud-Dienste konsequent über gesicherte Verbindungen anbindet.
+
+## ARCH.7 Dedizierte Systeme
+
+### ARCH.7.1 – Dedizierte Hostsysteme für Server
+
+**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.25, G 0.28, G 0.23
+
+> Architektur für Anwendungen SOLLTE Serverdienste ausschließlich auf für die Anwendung dedizierten *[virtuellen oder physischen]* Hostsystemen platzieren.
+
+„Serverdienste“ bezeichnen hier die logisch oder physisch abgegrenzten IT-Services (engl. server services), die bestimmte Funktionalitäten einer Anwendung bereitstellen, etwa Datenbankinstanzen, Webserver-Komponenten oder API-Endpunkte. Ein „dediziertes Hostsystem“ (engl. dedicated host system) ist dabei ein physischer oder virtueller Server, der ausschließlich für eine einzelne Anwendung und deren zugehörige Serverdienste betrieben wird, ohne dass darauf weitere fachfremde oder von der Anwendung unabhängige Dienste ausgeführt werden. Mögliche Bereitstellungsformen können virtualisierte Maschinen, Container-fähige Hypervisor-Instanzen, Bare-Metal-Server oder Appliances sein. Diese Abgrenzung dient der klaren Trennung von Verantwortlichkeiten, Konfigurationen und Ressourcen und reduziert die Komplexität innerhalb der Systemlandschaft. Sie schafft eine saubere Zuordnung zwischen Anwendung und ihrer technischen Plattform, was die Nachvollziehbarkeit, Wartbarkeit und Sicherheit der jeweiligen Lösung deutlich erhöht. Ziel ist, dass nicht mehrere Server-Anwendungen auf einem Betriebssystem (oder sogar auf Endgeräten) laufen, um systemische Risiken zu minimieren, die aus Mehrfachnutzung oder unklarer Ressourcenteilung entstehen könnten. Sonst könnte es etwa durch unerwartete Wechselwirkungen zwischen Diensten, fehlerhafte Berechtigungszuweisungen, unbeabsichtigte Seitenkanäle, unkontrollierte Ressourcenkonflikte oder Abhängigkeiten bei Systemupdates zu Betriebsproblemen oder lateralen Bewegungen von Angreifenden kommen. Die Anforderung kann auch durch die Verwendung von virtuellen Maschinen oder Containern realisiert werden.
+
+### ARCH.7.2 – Dedizierte Hardware
+
+**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.27, G 0.18
+
+> Architektur für Hostsysteme KANN diese auf dedizierter Hardware platzieren.
+
+Um die Verfügbarkeit ausreichender Ressourcen sicherzustellen und zyklische Abhängigkeiten zu vermeiden (z.B. einen VM-Host, dessen Domain Controller auf ihm selbst virtualisiert wird).
+
+### ARCH.7.3 – Entwicklungs- und Testumgebungen
+
+**Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.18, G 0.46, G 0.19
+
+> Architektur für Virtualisierungslösungen SOLLTE Entwicklungs- und Testumgebungen nicht auf produktiven Hostsystemen platzieren.
+
+Entwicklungs- und Testumgebungen sind dabei Umgebungen, in denen Software noch nicht ausgereift ist, sondern aktiv entwickelt, angepasst oder erprobt wird. Der Sinn der Vorgabe liegt darin, dass instabile oder absichtlich manipulierbare Testsysteme nicht auf denselben Hostsystemen betrieben werden sollten, auf denen produktive Anwendungen laufen. Andernfalls könnte ein Fehler in experimenteller Software dazu führen, dass der Hypervisor oder das Host-Betriebssystem beeinträchtigt wird und produktive Daten oder Dienste in Mitleidenschaft gezogen werden. Ebenso könnte Schadcode, der in einer Testumgebung eingebracht wird, unerwartet in produktive Netze durchgreifen. Durch die Trennung kann sichergestellt werden, dass ein Ausfall oder eine Kompromittierung in Entwicklungsumgebungen nicht die Stabilität und Vertraulichkeit produktiver Systeme gefährdet. Zur praktischen Umsetzung kann eine Institution Entwicklungs- und Testumgebungen auf dedizierte Virtualisierungshosts auslagern, die physisch oder logisch getrennt von den produktiven Hosts betrieben werden. Zusätzlich kann eine Institution Richtlinien zur Lifecycle-Kennzeichnung von VMs einführen (z. B. „dev“, „test“, „prod“ im Namen oder Tagging), um die klare Trennung auch in größeren Umgebungen praktikabel zu machen.
+
+## ARCH.8 Ausfallsicherheit
+
+### ARCH.8.1 – Redundanz im Kernnetz
+
+**Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.25, G 0.11, G 0.9, G 0.18
+
+> Architektur für Netze SOLLTE für das Kernnetz redundante Netzkomponenten installieren.
+
+Ziel hierbei ist es, dass beim Ausfall eines Systems oder einer Systemkomponente die Netzanbindung stets weiterhin funktionsfähig bleibt (Single-Point-of-Failure).
+
+### ARCH.8.2 – Redundante TK-Anbindung
+
+**Stufe:** `erhöht` · **Aufwand:** 4 · **Gefährdungen:** G 0.9, G 0.27, G 0.25, G 0.11
+
+> Architektur für Externe Netzanschlüsse KANN redundante TK-Anbindungen für eingehende und ausgehende Verbindungen installieren.
+
+Telekommunikationsanbindungen sind z.B. SIP-Trunks zum öffentlichen Telefonnetz (PSTN). Für weitere Details siehe „Kompendium für organisationsinterne Telekommunikationssysteme mit erhöhtem Schutzbedarf".
+
+### ARCH.8.3 – Redundante Server
+
+**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.25, G 0.9, G 0.40, G 0.27
+
+> Architektur für Anwendungen KANN für die Funktionsfähigkeit der Anwendung erforderliche Hostsysteme redundant installieren.
+
+Redundanz ist gegeben, wenn sowohl das System als auch seine Netzanbindung redundant vorhanden sind. Das System selbst ist nur redundant, wenn auch seine Datenspeicher und Stromversorgung redundant ausgelegt sind. Automatische Umschaltung meint das Failover. Die Anforderung kann durch netzbasierte Load Balancer oder serverseitige automatisch Umschaltung umgesetzt werden (z.B. durch Hello-Pakete).
+
+## ARCH.9 Kapazitätsmanagement
+
+### ARCH.9.1 – Dimensionierung der Netzanbindung
+
+**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.18, G 0.27
+
+> Architektur für Netze SOLLTE eine bedarfsgerechte Netzanbindung installieren.
+
+Für die Verfügbarkeit und Leistungsfähigkeit kritischer Geschäfts‑ und Fachverfahren ist eine bedarfsgerechte Netzanbindung erforderlich. Durch das strukturierte Erfassen des Bedarfes kann eine Institution frühzeitig Engpässe erkennen, Ausfallrisiken minimieren und eine wirtschaftliche Auslegung ihrer Anschlüsse erreichen. Gleichzeitig lässt sich so eine belastbare Grundlage für Kapazitäts‑, Notfall‑ und Budget‑Planungen schaffen, ohne sich allein auf starre Hersteller‑ oder Provider‑Vorgaben zu verlassen. Relevant ist hierbei die gesamte Netzstrecke zwischen Servern und IT-Clients, zumindest bis zum Internet-Anschluss der Institution. Beispiele für den Anwendungsbereich können sehr unterschiedlich ausfallen: In einem Call‑Center kann sich der Bedarf aus der Anzahl zeitgleich aktiver Soft‑Phones ableiten, deren Codec‑Bandbreite sowie der gewünschten Gesprächsqualität (Latenz < Antwortzeit in ms). In einem Forschungslabor kann die Anbindung darauf basieren, dass täglich große Datensätze mit einer bestimmten maximalen Bandbreite in Gbit/s zu Kooperationspartnern repliziert werden. Auch eine E‑Learning‑Plattform kann berücksichtigen, dass zu Semesterbeginn Studierende gleichzeitig parallele Video‑Streams in HD abrufen, während administrative Dienste weiterhin innerhalb einer bestimmten Antwortzeit in ms reagieren sollen. Dabei ist es sinnvoll, die Netzanbindung an realistische Belastungsszenarien anzupassen.
+
+### ARCH.9.2 – Lastverteilung
+
+**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.18, G 0.27
+
+> Architektur für Anwendungen KANN eine *[netzbasierte oder serverbasierte]* automatische Lastverteilung aktivieren.
+
+Netzbasierte Lastverteilung bedeutet hier, dass ein dedizierter Netzwerkdienst – z. B. über Load-Balancer oder Layer-4/Layer-7-Komponenten – den eingehenden Datenverkehr dynamisch auf mehrere Server oder Dienste verteilt. Serverbasierte Lastverteilung bedeutet dagegen, dass die beteiligten Systeme selbst Mechanismen bereitstellen, um Anfragen untereinander weiterzugeben oder zu koordinieren, etwa durch eingebaute Proxy- oder Cluster-Funktionalitäten. Der Zweck einer solchen Verteilung liegt in der Absicherung der Verfügbarkeit: Ein plötzlicher Anstieg von Benutzeranfragen könnte ansonsten einzelne Systeme überlasten und zu Ausfällen führen; ebenso könnte ein Defekt in einem Knoten die Gesamtleistung stark beeinträchtigen. Mit geeigneter Lastverteilung kann die Stabilität der Anwendung verbessert und ein unterbrechungsfreier Betrieb unterstützt werden. Zur Umsetzung kann die Institution netzbasierte Verfahren einsetzen, etwa (1) hardware- oder softwaregestützte Load-Balancer, die eingehende Verbindungen nach konfigurierbaren Regeln verteilen, (2) DNS-basierte Verfahren, bei denen Abfragen gezielt auf unterschiedliche Zielsysteme geleitet werden, oder (3) virtuelle Appliances in virtualisierten oder Cloud-nahen Umgebungen. Serverbasierte Verfahren können etwa durch den Einsatz von Cluster-Software, eingebaute Reverse-Proxy-Funktionen in Webservern oder den Einsatz von Message-Queues realisiert werden. Dabei kann eine Institution darauf achten, dass Monitoring-Funktionen integriert sind, um Engpässe frühzeitig zu erkennen, und dass Konfigurationen für Failover-Szenarien getestet werden. Auch ein gestuftes Testen der Lastverteilung unter realitätsnahen Bedingungen kann helfen, die Wirksamkeit sicherzustellen.
+
+### ARCH.9.3 – Automatische Skalierung
+
+**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.27
+
+> Architektur für Anwendungen KANN eine automatische Skalierung der von der Anwendung verwendeten Computerinstanzen anhand von *[Schwellwerten]* aktivieren.
+
+Automatische Skalierung ist die Fähigkeit einer Anwendungsarchitektur, die Anzahl der von einer Anwendung genutzten Serverinstanzen dynamisch und automatisiert zu erhöhen oder zu verringern. Grundlage für diese Anpassungen sind definierte Schwellwerte, die beispielsweise auf Metriken wie CPU-Auslastung, Speichernutzung oder Antwortzeiten beruhen können. Damit wird festgelegt, bei welchen messbaren Bedingungen zusätzliche Server gestartet oder wieder abgeschaltet werden. Typische Werte für Schwellwerte können etwa „80 % durchschnittliche CPU-Auslastung über 5 Minuten“, „weniger als 500 MB freier Arbeitsspeicher“ oder „Antwortzeit über 2 Sekunden bei mehr als 100 gleichzeitigen Anfragen“ sein. Ohne Auto-Scaling könnte es vorkommen, dass Anwendungen unter hoher Last nicht mehr reagieren, Datenverlust entsteht oder ganze Dienste für Nutzer unerreichbar werden. Umgekehrt kann Auto-Scaling helfen, Kosten und Ressourcen zu optimieren, indem ungenutzte Server wieder abgeschaltet werden. Eine sinnvolle Umsetzung kann beispielsweise durch den Einsatz von cloudbasierten Skalierungsgruppen erfolgen, die auf klar definierte Metriken reagieren, oder durch Virtualisierungsplattformen, die zusätzliche Instanzen automatisch bereitstellen. Praktische Tipps sind etwa (1) die Definition realistischer und getesteter Schwellwerte auf Basis historischer Lastprofile, (2) die Einrichtung von Stresstests, um das Verhalten bei Erreichen der Schwellwerte zu validieren, und (3) die Einführung von Alarmierungen, die Administratoren über ungewöhnlich häufiges Hoch- oder Runterskalieren informieren können. So kann die Institution sicherstellen, dass Auto-Scaling verlässlich funktioniert und gleichzeitig eine ökonomische Ressourcennutzung gewährleistet bleibt.
+
+### ARCH.9.4 – Content Delivery Network
+
+**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.18, G 0.27, G 0.25
+
+> Architektur für Anwendungen KANN ein Content Delivery Network installieren.
+
+Ein Content Delivery Network (CDN) ist ein Netz geographisch verteilter Server, welches Inhalte wie Webseiten und große Mediendateien auch bei hoher Last skaliert zur Verfügung stellt. CDNs sind sinnvoll für weltweit hochverfügbare Server-Anwendungen, da so Lastspitzen und DDoS-Angriffe abgemildert werden. Ein CDN kann selbst umgesetzt oder durch einen entsprechenden Dienstleister übernommen werden.
+
+### ARCH.9.5 – Schutz gegen volumetrische DoS-Angriffe
+
+**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.27, G 0.40, G 0.25
+
+> Architektur für Netze KANN Schutzmaßnahmen gegen volumetrische DoS-Angriffe aktivieren.
+
+Volumetrische Angriffe können z.B. durch die Verwendung von Anycast-DNS, Upstream Rate Limiting, On-Premise- oder Cloud-Scrubbing, BGP FlowSpec-Filter, Auto-Null-Routing oder Remotely Triggered Blackholing abgewehrt werden.

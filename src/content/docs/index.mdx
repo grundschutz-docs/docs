@@ -1,0 +1,29 @@
+---
+title: Klartext
+description: Eigene lesbare Aufbereitung des BSI Grundschutz++ OSCAL-Katalogs
+template: splash
+hero:
+  tagline: Der BSI-OSCAL-Katalog ist für Maschinen gebaut (SSP-Generierung, Tooling) – das hier ist die Übersetzung für Menschen.
+  actions:
+    - text: Zum Katalog
+      link: /grundschutzpp/
+      icon: right-arrow
+    - text: BSI-Quellrepo (GitHub)
+      link: https://github.com/BSI-Bund/Stand-der-Technik-Bibliothek
+      icon: external
+      variant: minimal
+---
+
+## Was hier passiert
+
+Diese Seite ist **kein offizielles BSI-Angebot**. Der BSI-OSCAL-Katalog
+(`Grundschutz++-resolved_catalog.json`, CC BY-SA 4.0, BSI-Bund) ist für
+Maschinen geschrieben – SSP-Generierung, Tooling, Validierung. Hier wird
+derselbe Katalog gelesen und in etwas verwandelt, das man einfach liest: 20
+Themengruppen, durchsuchbar, mit Sicherheitsstufe, Aufwand und
+Basisgefährdungen direkt am jeweiligen Control.
+
+Aktuell bleibt die Seite, ohne dass irgendetwas neu recherchiert werden muss:
+nach einem `git pull` im Grundschutz-PlusPlus-Repo einmal
+`python3 scripts/generate_docs.py` laufen lassen. Jede Gruppenseite lässt sich
+außerdem direkt über die Browser-Druckfunktion als PDF exportieren.

@@ -1,0 +1,305 @@
+---
+title: "TEST – Änderungen und Tests"
+---
+
+# TEST Änderungen und Tests
+
+Die Praktik "Änderungen und Tests" stellt sicher, dass alle geplanten Veränderungen an Informationssystemen systematisch und kontrolliert ablaufen, um ungewollte Störungen, Sicherheitsrisiken oder Compliance-Verstöße zu vermeiden (Change Management). Sie umfasst die Vorbereitung, Planung und Durchführung von Tests, die Freigabe und den Rollout von Änderunge, sowie die begleitende Dokumentation.
+
+## TEST.1 Grundlagen
+
+### TEST.1.1 – Verfahren und Regelungen
+
+**Stufe:** `normal-SdT` · **Aufwand:** 0 · **Gefährdungen:** G 0.18
+
+> Änderungen und Tests MUSS Verfahren und Regelungen zum Management von Neueinführungen, Änderungen oder der Entfernung von Komponenten *[für den Informationsverbund, pro Geschäftsprozess oder pro IT-System]* verankern.
+
+Verfahren und Regelungen beschreiben die formalisierten Abläufe, nach denen Änderungen an informationstechnischen Komponenten – also Hardware, Software oder Konfigurationen – geplant, bewertet, genehmigt und umgesetzt werden; im Englischen ist hier oft von Change Management Procedures die Rede. Weil moderne Infrastrukturen komplexe Abhängigkeiten haben, könnten Änderungen an Systemen und Anwendungen sonst zu unbeabsichtigten Ausfällen oder Sicherheitslücken führen. Dies betrifft auch die Neueinführung von Systemen oder Anwendungen in den Informationsverbund, oder deren Entfernung. Das Ziel der Änderung können Sicherheitsaktualisierungen ebenso wie funktionelle Änderungen sein, da sich auch vermeintlich rein funktionelle Änderungen häufig auf die Sicherheit auswirken. KPI zur Leistungsmessung können z.B. die Fehlerquote bei Änderungen (CFR), die mittlere Wiederherstellungszeit (MTTR) und die Vorlaufzeit für Änderungen (Lead Time) sein. Die Verfahren und Regelungen können dabei entweder einheitlich für den gesamten Informationsverbund, oder alternativ pro Geschäftsprozess oder (Kategorie von) IT-System festgelegt werden, um spezifischen Risiken oder Kontexten gerecht zu werden. Die Umsetzung kann in einem eigenen Prozess, oder integriert in andere Prozesse und Aufgaben, erfolgen. Die bei der Festlegung des Verfahrens im Einzelnen zu berücksichtigenden Inhalte ergeben sich aus den Anforderungen dieser Praktik.
+
+#### TEST.1.1.1 – Dokumentation
+
+**Stufe:** `normal-SdT` · **Aufwand:** 0 · **Gefährdungen:** G 0.18
+
+> Änderungen und Tests MUSS die Verfahren und Regelungen dokumentieren.
+
+Ohne eine Dokumentation könnte die Einhaltung der Verfahren und Regelungen von der Tagesform oder dem individuellen Wissen einzelner Mitarbeiter abhängen, was zu inkonsistenten Entscheidungen und Fehlern führen könnte; insbesondere beim Ausscheiden eines langjährigen Administrators könnte wertvolles prozessuales Wissen verloren gehen. Eine klare Dokumentation sichert die Verbindlichkeit und Wiederholbarkeit und dient als unverzichtbare Grundlage für die Einarbeitung neuer Kollegen, für die Durchführung von Audits und zur einheitlichen Anwendung der Regeln in der gesamten Institution. Die Dokumentation kann in einem eigenständigen Dokument als Richtlinie erfolgen, aber auch als Abschnitt in einem bereits bestehenden Dokument oder über die digital strukturiere Erfassung von Maßnahmen zur Umsetzung der Anforderungen, etwa über eine Software zum Management der Informationssicherheit. Sinnvoll ist es Ort und Struktur der Dokumentation an der jeweiligen Zielgruppe, d.h. den für das Management und die Umsetzung verantwortlichen Personen oder Rollen, auszurichten.
+
+#### TEST.1.1.2 – Zuweisung der Aufgaben
+
+**Stufe:** `normal-SdT` · **Aufwand:** 0 · **Gefährdungen:** G 0.18
+
+> Änderungen und Tests MUSS die mit den Verfahren und Regelungen verbundenen Aufgaben *[zuständigen Personen oder Rollen]* zuweisen.
+
+Die Zuweisung von Aufgaben bezeichnet die eindeutige und verbindliche Übertragung von konkreten Tätigkeiten und Verantwortlichkeiten des Änderungsprozesses, wie etwa die Risikobewertung, die technische Umsetzung oder die finale Freigabe, an definierte Stellen in der Institution. Der Sinn dieser Vorschrift ist es, die Verantwortlichkeit ("Accountability") für jeden einzelnen Schritt im Prozess klarzustellen. Ohne eine solche Zuweisung könnten kritische Prüfungen unterbleiben, weil sich niemand explizit zuständig fühlt, was wiederum die Wahrscheinlichkeit fehlgeschlagener Änderungen erhöht. Eine klare Regelung kann sicherstellen, dass keine Aufgaben übersehen werden und jede Tätigkeit von einer dafür qualifizierten und befugten Stelle ausgeführt wird, was die Prozesssicherheit signifikant erhöht. Eine bewährte Methode zur Umsetzung ist die Erstellung einer RACI-Matrix (Responsible, Accountable, Consulted, Informed), die tabellarisch für jeden Prozessschritt darstellt, wer für die Durchführung verantwortlich ist, wer die Gesamtverantwortung trägt, wer zu konsultieren und wer zu informieren ist. Diese Zuständigkeiten können auch direkt in einem Workflow- oder Ticketsystem abgebildet werden, sodass Aufgaben, wie beispielsweise Genehmigungsschritte, automatisch an die richtige Gruppe oder Person weitergeleitet werden. Sinnvoll ist es die Zuweisung anhand von Rollen (z.B. "Anwendungsverantwortlicher", "Netzwerkadministrator", "Change Manager") vorzunehmen, statt an konkrete Personen. Dieser Ansatz stellt sicher, dass die Prozesse auch bei Personalwechseln stabil weiterlaufen, da die Zuständigkeit an die Funktion und nicht an das Individuum gebunden ist.
+
+#### TEST.1.1.3 – Bekanntgabe
+
+**Stufe:** `normal-SdT` · **Aufwand:** 0 · **Gefährdungen:** G 0.18, G 0.29
+
+> Änderungen und Tests MUSS die zuständigen Personen oder Rollen über die Verfahren und Regelungen informieren.
+
+Wenn die Zuständigen die etablierten Verfahren nicht kennen, besteht die Gefahr, dass diese – sei es aus Unwissenheit oder Bequemlichkeit – umgangen werden, was die Schutzwirkung des gesamten Managementsystems untergräbt. So könnte ein neuer Systemadministrator eine weitreichende Konfigurationsänderung vornehmen, ohne den vorgeschriebenen Genehmigungsprozess zu durchlaufen, was zu einem unbemerkten Sicherheitsrisiko führen könnte. Eine gezielte Information kann hingegen die Akzeptanz der Regelungen fördern und sicherstellen, dass alle Beteiligten ihre Rolle im Prozess verstehen und die Abläufe korrekt anwenden. Zur Umsetzung ist es sinnvoll die Dokumentation im Rahmen eines Onboarding-Prozesses bekanntzugeben und bei allen Änderungen eine automtatische Benachrichtigung aller zuständigen Personen oder Rollen anzustoßen.
+
+### TEST.1.2 – Regelmäßige Überprüfung
+
+**Stufe:** `normal-SdT` · **Aufwand:** 0 · **Gefährdungen:** G 0.18
+
+> Änderungen und Tests MUSS die Verfahren und Regelungen *[regelmäßig]* und anlassbezogen auf Aktualität überprüfen.
+
+Eine geplante Überprüfung der etablierten Verfahren und Regelungen dient dazu festzustellen, ob diese noch wirksam, effizient und an die aktuellen Gegebenheiten angepasst sind. Eine anlassbezogene Überprüfung wird durch spezifische Ereignisse ausgelöst, wie etwa einen schwerwiegenden Sicherheitsvorfall, eine strategische Neuausrichtung der IT oder neue gesetzliche Anforderungen. Der Zweck dieser Anforderung ist es, die kontinuierliche Verbesserung und Anpassungsfähigkeit des Prozesses sicherzustellen, da veraltete Regelungen neuen technologischen Entwicklungen oder Bedrohungen nicht mehr gerecht werden könnten; ein vor Jahren für monolithische Anwendungen konzipierter Prozess ist beispielsweise für agile Entwicklungsmethoden oder Microservice-Architekturen ungeeignet. Die regelmäßige Überprüfung kann die Effektivität des Sicherheitsmanagements langfristig aufrechterhalten und die Resilienz der Institution stärken.
+
+### TEST.1.3 – Einschränkung von Änderungen
+
+**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.18, G 0.30, G 0.23
+
+> Änderungen und Tests SOLLTE die Durchführung von Änderungen auf Administrierende einschränken.
+
+Ziel ist es, zu verhindern, dass unautorisierte Personen Eingriffe in produktive Systeme vornehmen. Ohne diese Einschränkung könnte Schadcode eingeschleust werden, Konfigurationen unbeabsichtigt verändert oder sensible Daten offengelegt werden. Die klare Zuweisung an Administrierende kann gleichzeitig sicherstellen, dass Änderungen nachvollziehbar und fachgerecht durchgeführt werden, wodurch die Stabilität und Verfügbarkeit von Systemen geschützt werden kann. Eine Institution kann die Anforderung beispielsweise durch folgende Maßnahmen umsetzen: (1) Verwendung von Rollenkonzepten, bei denen nur Administrierende Schreibrechte in produktiven Systemen besitzen, während anderen Rollen lediglich Leserechte eingeräumt werden können, (2) Einsatz von Testumgebungen oder Sandbox-Systemen, in denen auch Nicht-Administrierende Änderungen gefahrlos vorbereiten und dokumentieren können, (3) Einführung von Change-Management-Workflows mit Genehmigungsschritten, so dass Administrierende Änderungen erst nach dokumentierter Prüfung umsetzen können, und (4) Einsatz von technischen Kontrollmechanismen wie „Just-in-Time“-Privilegien oder Protokollierung von administrativen Sitzungen, wodurch die Nachvollziehbarkeit und Integrität der Änderungen verbessert werden kann.
+
+## TEST.2 Vorbereitung
+
+### TEST.2.1 – Versionshistorie
+
+**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.18
+
+> Änderungen und Tests SOLLTE eine Versionshistorie wesentlicher Änderungen protokollieren.
+
+Wesentlich sind Änderungen, wenn sie Auswirkungen auf die Informationssicherheit von Produktivsystemen und -anwendungen haben können, die über eine geringe Anzahl von Nutzenden hinausgeht.
+
+### TEST.2.2 – Folgenabschätzung
+
+**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.18
+
+> Änderungen und Tests für Administrierende SOLLTE zu einer strukturierten Folgenabschätzung vor wesentlichen Änderungen anweisen.
+
+Sinnvoll ist es die Ausführlichkeit der Folgenabschätzung an Umfang und Reichweite der Änderungen, sowie dem Risikoprofil betroffener Assets zu orientieren: Empfehlenswert ist es die Änderungen je nach Abschätzung der Folgen in Klassen einzusortieren (z.B. Geringe Auswirkungen, Mittlere Auswirkungen, Hohe Auswirkungen) und die weitere Prüftiefe nach dieser Einstufung auszurichten.
+
+#### TEST.2.2.1 – Kategorisierung von Änderungen
+
+**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.18
+
+> Änderungen und Tests SOLLTE Änderungsvorhaben einer Kategorie zuweisen.
+
+Dabei werden Änderungen je nach Abschätzung der Folgen in Kategorien einsortiert, die im Verhältnis zu den möglichen Auswirkungen stehen (z.B. Geringe Auswirkungen, Mittlere Auswirkungen, Hohe Auswirkungen). Umfang und Tiefe der weiterer Prüfungen kann dann nach dieser Einstufung ausgerichtet werden.
+
+#### TEST.2.2.2 – Anpassung der Dokumentation
+
+**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.18
+
+> Änderungen und Tests SOLLTE die geplanten Änderungen dokumentieren.
+
+Je nach Inhalt der Änderung können hierzu Konfigurationsdateien, Sicherheitsrichtlinien, oder begleitende Dokumente wie ein IT-Betriebshandbuch oder für Nutzende gedachte Anwenderhandbücher oder Wikis gehören.
+
+#### TEST.2.2.3 – Dokumentation der Abhängigkeiten
+
+**Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.18, G 0.28, G 0.25
+
+> Änderungen und Tests SOLLTE von der Änderung betroffene Abhängigkeiten dokumentieren.
+
+Betroffene Abhängigkeiten sind sowohl alle Systeme und Anwendungen, die durch die geplanten Änderungen beeinflusst werden könnten, als auch die Abhängigkeiten der zu ändernden Systeme oder Anwendungen selbst (Up- and Downstream Dependency Management). Hierzu können z.B. Programmquellbibliotheken, angebundene Systeme, Netzanbindungen oder Anwendungen zählen.
+
+## TEST.3 Tests
+
+### TEST.3.1 – Sicherheitstest
+
+**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.26, G 0.28, G 0.27
+
+> Änderungen und Tests SOLLTE vor wesentlichen Änderungen die Einhaltung der Sicherheitsanforderungen testen.
+
+Änderungen sind wesentlich, wenn sie die Informationssicherheit von Produktivsystemen und -anwendungen betreffen und über eine geringe Anzahl von Nutzenden hinaus Auswirkungen haben können. Dabei sind sowohl die Sicherheitsanforderungen relevant, die direkt durch IT-Produkte umgesetzt werden (technische Anforderungen), als auch die prozessualen Anforderungen, die von der Änderung betroffen sind, etwa zur Überwachung von Ereignissen oder zur Sensibilisierung des Personals. Die Sicherheitsanforderungen ergeben sich aus den für das jeweilige Zielobjekt geltenden Vorgaben aus allen Praktiken. Sowohl die Funktionalität einzelner Module als auch das Zusammenspiel von Schnittstellen ist wichtig, um Sicherheitslücken frühzeitig zu erkennen.
+
+#### TEST.3.1.1 – Dokumentation von Testergebnissen
+
+**Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.18, G 0.37, G 0.28, G 0.26
+
+> Änderungen und Tests SOLLTE Tests einschließlich Prüfschritte, Ergebnissen und ggf. vorgenommenen Korrekturen dokumentieren.
+
+Die Dokumentation von Tests zielt primär darauf ab, Transparenz und Nachvollziehbarkeit bei Änderungen zu gewährleisten, was das Risiko unbeabsichtigter Sicherheitslücken, Systemausfälle oder Datenverluste erheblich reduzieren kann. Ohne strukturierte Testdokumentation könnten beispielsweise fehlerhafte Konfigurationsänderungen unbemerkt in Produktivsysteme gelangen, was potenziell zu Verfügbarkeitsstörungen, verfälschten Daten oder kompromittierten Anwendungen führen könnte. Ein dokumentierter Testprozess ermöglicht zudem eine effektive Ursachenanalyse bei auftretenden Störungen, da alle durchgeführten Änderungen mit ihren beabsichtigten Wirkungen transparent nachvollzogen werden können. Eine nachvollziehbare und digital strukturierte Verknüpfung von Anforderung zu Prüfschritt und Prüfergebnissen kann durch OSCAL-Dokumente als strukturierte Daten erstellt werden. Gezielte Tests vor wesentlichen Änderungen tragen dazu bei, unbeabsichtigte Schwachstellen zu vermeiden, die zu unbefugtem Datenzugriff, Verlust von Geschäftsinformationen oder Ausfällen kritischer Systeme führen könnten. Je nach Art und Umfang der Änderungen lassen sich beispielsweise physische Zustände oder die Ausführung von Systemfunktionen verifizieren. Dabei werden sowohl die gewünschten Sicherheitsfunktionen als auch unerwünschte Zustände getestet, zum Beispiel, dass keine unautorisierten Funktionen aktiviert sind oder Apps ungewollt mit unbekannten Internetservern kommunizieren. Anwendbare Testarten umfassen statische und dynamische Tests, Unit- und Integrationstests sowie Regressionstests. Relevant ist dabei sowohl das Testen von manuellen Eingaben über die Benutzerschnittstelle als auch der Zugriffe über das Netzwerk, etwa über eine API. Die Tests können automatisiert (z. B. Unit-Tests, CI/CD-Tests, Schwachstellenscanner) oder manuell unterstützt (z. B. Click-Tests oder die Auswertung von LLM-Zusammenfassungen) durchgeführt werden. Sinnvoll ist es, automatische Tests für alle Funktionen und Codepfade einzusetzen, ergänzt durch manuelle Tests der wichtigsten Funktionen, wie Authentifizierung und Verschlüsselung, sowie durch Stichproben der übrigen Funktionen.
+
+#### TEST.3.1.2 – Verwendung externer Software
+
+**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.28, G 0.46, G 0.20
+
+> Änderungen und Tests SOLLTE die Einbindung externer Softwareartefakte und -Schnittstellen aus unzuverlässigen oder unbekannten Quellen untersagen.
+
+Externe Softwareartefakte sind in diesem Kontext nicht von der Institution entwickelte, durch die Änderung in die eigene Infrastruktur eingebundene oder zur Laufzeit nachgeladene Bestandteile wie Bibliotheken, Frameworks, Container-Images, Plug-ins, Packages, Binärdateien, Skripte, Modelle, Templates oder Build-Abhängigkeiten (sog. Third-Party Components, Dependencies). Externe Softwareschnittstellen sind fremde technische Übergabe- und Kommunikationspunkte, über die eine Anwendung Funktionen oder Daten anderer Systeme nutzt, etwa Third-Party APIs, Webhooks, SDK-Schnittstellen, Datenfeeds, Authentifizierungsdienste oder Remote Services. Eine Quelle ist unzuverlässig, wenn zukünftig mit Verstößen gegen die Schutzziele Vertraulichkeit, Verfügbarkeit oder Integrität durch sie zu rechnen ist (d.h. eine Prognose der Vertrauenswürdigkeit). Dies ist insbesondere der Fall, wenn erhebliche Verstöße gegen die Schutzziele durch sie begangen worden sind oder Anzeichen dafür vorliegen, dass bei einer Verwendung mit solchen Verstößen zu rechnen ist. Unbekannte Quellen meint hier Quellen, deren Herkunft, Integrität, Pflegezustand, Verantwortlichkeit, Vertrauenswürdigkeit oder Sicherheitsniveau nicht belastbar nachvollziehbar ist, etwa anonyme Paket-Repositories, private Download-Links, unklare Git-Repositories, veraltete Mirror-Server, nicht verifizierte Container-Registries oder Schnittstellen ohne erkennbare Betreiber-, Sicherheits- und Änderungsinformationen.
+
+#### TEST.3.1.3 – Integritätstest
+
+**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.28, G 0.20, G 0.23
+
+> Änderungen und Tests SOLLTE die Integrität von Softwareartefakten testen.
+
+Softwareartefakte sind in diesem Kontext Anwendungen oder ihre Bestandteile wie Bibliotheken, Frameworks, Container-Images, Plug-ins, Packages, Binärdateien, Skripte, Modelle, Templates oder Build-Abhängigkeiten (sog. Third-Party Components, Dependencies), die durch die Änderung installiert oder aktualisiert werden. Dies kann z.B. durch Vergleich von Prüfsummen geschehen. Wenn möglich ist der Einsatz automatisierter Prüfungen empfehlenswert, es kann aber auch ein manueller Abgleich z.B. mit der Herstellerwebseite erfolgen.
+
+#### TEST.3.1.4 – Testdaten
+
+**Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.26, G 0.28
+
+> Änderungen und Tests SOLLTE die Testfälle abdeckende, aber unkritische Testdaten verankern.
+
+Testdaten (engl. test data) sind synthetisch erstellte oder abstrahierte Daten, die zur Durchführung von Testfällen genutzt werden. „Unkritisch“ bedeutet hier, dass die Daten keinen schützenswerten Daten wie Geschäftsgeheimnisse oder sicherheitsrelevanten Konfigurationsdetails enthalten. Testfälle (engl. test cases) sind vorab definierte Szenarien oder Abläufe, die das Verhalten einer Anwendung oder eines Systems gezielt prüfen sollen. Der Zweck der Anforderung liegt darin, sicherzustellen, dass Testaktivitäten einerseits realistische Bedingungen nachbilden, andererseits aber keine Risiken durch unbeabsichtigte Preisgabe oder Manipulation produktiver Daten entstehen. Ein Vorfall könnte beispielsweise darin bestehen, dass versehentlich echte Kundendaten in einer Testumgebung landen und durch unzureichende Sicherung Dritten zugänglich werden; durch den Einsatz unkritischer Testdaten kann dieses Risiko vermieden und dennoch die Qualität der Tests gewährleistet werden. Eine Institution kann die Anforderung praktisch umsetzen, indem sie Testdatensätze automatisiert generieren lässt, etwa durch Anonymisierung oder Pseudonymisierung produktiver Daten oder durch die Nutzung von Zufallswerten, die für Testlogik realistisch wirken. Zusätzlich kann es hilfreich sein, Regeln für Entwickler und Tester festzulegen, die dokumentieren, welche Arten von Daten zulässig sind. Auch Tools zur data masking oder synthetic data generation können verwendet werden, um komplexe Datenstrukturen ohne reale Inhalte nachzubilden.
+
+#### TEST.3.1.5 – Testumgebung
+
+**Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.28, G 0.18
+
+> Änderungen und Tests SOLLTE eine dedizierte Testumgebung installieren.
+
+Eine dedizierte Testumgebung (auch Entwicklungsumgebung oder Laborumgebung genannt) ist hier eine von der Produktionsumgebung unabhängige Infrastruktur, die speziell für die Durchführung von Änderungen, Prüfungen und Qualitätssicherungsmaßnahmen vorgesehen ist. Sie dient dazu, geplante Anpassungen, Updates oder Neuentwicklungen realistisch nachzustellen, ohne die Verfügbarkeit oder Integrität der produktiven Systeme und Daten zu gefährden. Zur Produktivumgebung zählen dabei auch Betriebssysteme, verwendete Datenbanken und Netzschnittstellen. Dediziert bedeutet in diesem Zusammenhang, dass Ressourcen – beispielsweise Server, Datenbanken, Netzsegmente oder virtuelle Umgebungen – ausschließlich für Testzwecke bereitgestellt werden und nicht gleichzeitig produktiven Aufgaben dienen. Der Zweck dieser Vorgabe liegt darin, unbeabsichtigte Auswirkungen von Änderungen auf laufende Systeme zu vermeiden. Ohne eine solche Testumgebung könnte ein fehlerhaftes Update unmittelbar zu Produktionsausfällen führen oder sensible Daten unbeabsichtigt preisgeben. Eine Trennung kann dagegen sicherstellen, dass Schwachstellen oder Inkompatibilitäten frühzeitig erkannt werden, wodurch die Stabilität und Sicherheit der produktiven Systeme erhalten bleiben. Zur Umsetzung kann eine Institution verschiedene Maßnahmen einsetzen: (1) Sie kann separate physische oder virtuelle Serverlandschaften bereitstellen, die die Produktionsumgebung realitätsnah abbilden. (2) Sie kann Testdatenbanken mit anonymisierten oder synthetisch generierten Daten nutzen, um Datenschutzrisiken zu vermeiden. (3) Sie kann durch ein definiertes Deployment-Verfahren sicherstellen, dass Änderungen zunächst automatisiert in die Testumgebung ausgerollt und dort validiert werden, bevor eine Freigabe für die Produktion erfolgt.
+
+#### TEST.3.1.6 – Kontinuierliche Tests
+
+**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.28, G 0.18
+
+> Änderungen und Tests KANN die Auswirkungen bei jeder Änderung automatisch testen.
+
+„Automatisch testen“ meint den Einsatz technischer Verfahren oder Werkzeuge („continuous testing“), um bei Änderungen an Systemen oder Anwendungen unmittelbar und ohne manuelles Eingreifen Prüfungen auszuführen. Gemeint sind hier vordefinierte Testszenarien, die mit jedem Update, Patch oder Konfigurationswechsel ablaufen und systematisch überprüfen, ob die vorgesehenen Funktionen erhalten bleiben und ob unerwünschte Nebenwirkungen auftreten. Der Zweck liegt darin, dass Änderungen zwar notwendig sind, diese aber unbeabsichtigte Sicherheitslücken oder Funktionsstörungen mit sich bringen könnten – ein fehlerhaftes Update könnte beispielsweise Authentifizierungsprozesse umgehen lassen oder kritische Daten unzugänglich machen. Durch automatisierte Tests kann die Institution dagegen frühzeitig erkennen, ob eine Änderung die Vertraulichkeit, Integrität oder Verfügbarkeit gefährden könnte, und die Fehlerquote im Betrieb insgesamt senken. Umsetzungsmöglichkeiten können unterschiedlich gestaltet werden: Eine Institution kann (1) Continuous-Integration/Continuous-Delivery-Pipelines (CI/CD) einrichten, in die automatisierte Unit- und Integrationstests integriert sind, (2) produktionsnahe Szenarien in Testumgebungen abbilden und in denen Sicherheitstests automatisch mitlaufen, oder (3) Skripte einsetzen, die nach Konfigurationsänderungen direkt auf bekannte Schwachstellen oder das Vorhandensein von Sicherheitsfunktionen prüfen. Auch die Verwendung von Regressionstests, die kritische Kernfunktionen gezielt wiederholt prüfen, kann ein bewährtes Mittel sein, um sicherzustellen, dass durch eine Änderung keine unbeabsichtigten Seiteneffekte ausgelöst werden. Automatische Test ermöglichen es auch die Dokumentation der Testergebnisse automatisiert zu erstellen, sodass Verantwortliche sofort eine Übersicht über den Status erhalten.
+
+#### TEST.3.1.7 – Chaos Engineering
+
+**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.28, G 0.26
+
+> Änderungen und Tests KANN die Resilienz bei Simulation verschiedenartiger Störungen testen.
+
+Chaos Engineering kann helfen, die Zuverlässigkeit von Systemen oder Anwendungen zu erhöhen, indem es die Resilienz, also die Fähigkeit bei störenden Einflüssen den Betrieb fortzusetzen oder wiederherzustellen, durch simulierte Ausfälle oder Störungen testet. Dabei ist jedoch zu beachten, dass dabei keine geschäftskritischen, im Betrieb befindlichen Dienste gestört werden. Daher ist der Ansatz nur nach einer Analyse und Abwägung der Risiken sinnvoll. Zweckmäßig ist es dabei, geschäftskritische Systeme und Anwendungen mit hohen Auswirkungen zu priorisieren, häufige Ausfallmodi zu testen, kritische Abhängigkeiten unter Stress zu setzen, vergangene Vorfälle nachzubilden und Systemannahmen durch methodische Prozesse zu hinterfragen. Hierzu kann eine Karte der Abhängigkeiten verwendet werden oder eine Analyse kritischer Pfade. Wertvolle Experimente können Netzwerkbeeinträchtigungen, Dienstausfälle, Abhängigkeitsunterbrechungen, Ressourcenerschöpfung, Multiregionsausfälle und Zeitsynchronisationsprobleme umfassen. Geschäftskritische Dienste können dabei z.B. durch eine Begrenzung auf bestimmte Systeme, oder Durchführung solcher Tests nur außerhalb der Betriebszeiten geschützt werden.
+
+#### TEST.3.1.8 – Analyse der Zusammensetzung
+
+**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.23, G 0.46
+
+> Änderungen und Tests KANN die Zusammensetzung der Änderungen testen.
+
+Eine Analyse der Zusammensetzung (Composition Analysis) ist die systematische Untersuchung und Bewertung der Bestandteile einer Software oder eines Systems – insbesondere in Bezug auf deren Herkunft, Eigenschaften und potenzielle Schwachstellen. Hierzu können auch (teil-)automatisierte Lösungen eingesetzt werden, z.B. können SBOMs in eine Plattform zur Verwaltung von Schwachstellen importiert werden, die eine Bereitstellung blockiert, wenn eine CVSS ≥ 9.0-Schwachstelle keine kompensierende Maßnahme hat.
+
+#### TEST.3.1.9 – Fuzzing
+
+**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.23, G 0.28
+
+> Änderungen und Tests KANN die Stabilität gegen Fehlerzustände oder Abstürze bei der Eingabe großer Mengen an Zufallsdaten testen.
+
+Fuzzing ist eine automatisierte Softwaretestmethode, mit der unerwartete Schwachstellen und Fehler in Anwendungen durch Eingabe zufälliger, unerwarteter oder ungültiger Daten aufgedeckt werden können. Der Hauptzweck besteht darin, Grenzbedingungen zu prüfen und Programmabstürze, Speicherlecks oder sicherheitskritische Fehler wie Buffer Overflows zu identifizieren, bevor Angreifer diese ausnutzen können. Kann durch spezialisierte Tools oder kontinuierliches Fuzzing in der CI/CD-Pipeline umgesetzt werden. Für einen effektiven Einsatz empfiehlt es sich, mit strukturiertem Fuzzing zu beginnen, das auf bekannten Protokollspezifikationen oder Datenformaten basiert, Fuzzing-Tests in die frühen Phasen des Entwicklungszyklus zu integrieren, alle gefundenen Fehler systematisch zu dokumentieren und zu beheben, sowie regelmäßig neue Testfälle auf Basis entdeckter Schwachstellen zu entwickeln, um die Testabdeckung kontinuierlich zu verbessern.
+
+#### TEST.3.1.10 – Lasttest
+
+**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.28, G 0.18
+
+> Änderungen und Tests KANN die Belastbarkeit bei hoher Auslastung testen.
+
+Ziel ist es, die Dimensionierung der Ressourcen zu verifizieren und Fehler zu entdecken, die nur bei höherer Last auftreten. Hierzu können z.B. eine hohe Zahl gleichzeitiger Verbindungen, große Datenmengen oder eine hohe Zahl paralleler Interaktionen genutzt werden. Die Höhe der Auslastung kann sich dabei z.B. nach der maximalen Anzahl erwarteter gleichzeitiger Nutzungen richten.
+
+#### TEST.3.1.11 – Penetrationstest bei Änderungen
+
+**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.28, G 0.18, G 0.23
+
+> Änderungen und Tests KANN bekannte Schwachstellen bei kritischen Änderungen testen.
+
+Bei einem Penetrationstest führen qualifizierte Sicherheitsexperten kontrollierte Angriffe auf Systeme, Anwendungen oder Netzwerke durch. Der primäre Zweck besteht darin, die tatsächliche Angriffsfläche aus der Perspektive eines potenziellen Angreifers zu bewerten, reale Ausnutzungsmöglichkeiten zu demonstrieren und die Wirksamkeit implementierter Sicherheitsmaßnahmen unter realistischen Bedingungen zu verifizieren. Praktische Umsetzungsbeispiele umfassen Black-Box-Tests ohne Vorkenntnisse des Systems, Grey-Box-Tests mit begrenztem Zugang und Wissen sowie White-Box-Tests mit vollständigem Quellcode-Zugriff, wobei Tools zur Automatisierung und Strukturierung der Tests eingesetzt werden können. Für ein effektives Pentesting empfiehlt es sich, den Testumfang klar zu definieren und zu dokumentieren, realistische Angriffsziele und Erfolgsmetriken festzulegen, ausreichend Zeit für die Behebung identifizierter Schwachstellen im Release-Plan einzuplanen, ein erfahrenes, unabhängiges Testteam einzusetzen, das nicht an der Entwicklung beteiligt war, sowie Re-Tests nach der Behebung von Schwachstellen durchzuführen, um sicherzustellen, dass alle identifizierten Risiken vor dem Produktivgang angemessen adressiert wurden.
+
+### TEST.3.2 – Testabdeckung
+
+**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.28, G 0.18, G 0.27
+
+> Änderungen und Tests SOLLTE die Testabdeckung *[regelmäßig]* überprüfen.
+
+Ein ungenügendes Testverfahren könnte beispielsweise dazu führen, dass Schwachstellen in kritischen Anwendungen unentdeckt bleiben, was wiederum zu Datenverlust, unbefugtem Zugriff oder Systemausfällen führen könnte. Ein Beispiel hierfür ist der Fall einer industriellen Steuerungsanlage, bei der eine nicht ausreichend getestete Firmware-Aktualisierung zu einem Sicherheitsversagen und anschließendem Produktionsausfall führt. Der Begriff "Testabdeckung" (engl. "test coverage") bezeichnet hierbei den Umfang, in dem Komponenten, Funktionen und Schnittstellen eines Systems durch strukturierte Tests überprüft werden. Zur Umsetzung kann eine Institution verschiedene Maßnahmen implementieren: Für Software kann ein Code-Coverage-Monitoring etabliert werden, während für Hardware systematische Testmatrizen entwickelt werden können, die alle relevanten Betriebsparameter und Umgebungsbedingungen abdecken. Test-Dashboards können sowohl Software- als auch Hardware-Metriken visualisieren und in Entwicklungs- bzw. Implementierungsprozesse integriert werden. Für Hardware können FMEA-Analysen (Failure Mode and Effects Analysis) die kritischen zu testenden Komponenten identifizieren, während Software durch automatisierte CI/CD-Tests abgesichert werden kann. Bei der Implementierung empfiehlt es sich, einen risikobasierten Ansatz zu verfolgen, bei dem zuerst sicherheitskritische Komponenten umfassend getestet werden. Zudem kann eine systematische Dokumentation aller Testfälle und -ergebnisse, sowohl für Hardware- als auch für Software-Komponenten, die Nachvollziehbarkeit und kontinuierliche Verbesserung der Testabdeckung unterstützen. Zudem kann eine Kombination aus verschiedenen Testebenen (z.B. Stichproben, automatisierte und manuelle Verfahren, Unit-, Integrations- und Systemtests) eine umfassendere Abdeckung gewährleisten.
+
+## TEST.4 Freigabe
+
+### TEST.4.1 – Autorisierung von Änderungen
+
+**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.18
+
+> Änderungen und Tests SOLLTE kritische Änderungen anhand von Kriterien einschließlich der Sicherheitsanforderungen autorisieren.
+
+Änderungen gelten als kritisch, wenn sie breite Auswirkungen auf Geschäftsprozesse haben, beispielsweise die Aktivierung der Zwei-Faktor-Authentifizierung am zentralen Verzeichnisdienst. Die Kritikalität ergibt sich zudem aus Art und Umfang der Änderung, etwa bei umfangreichen Migrationen oder sicherheitsrelevanten Fehlerbehebungen. Kritische Änderungen betreffen häufig die Bereitstellung für eine große Zahl interner oder externer Nutzender oder Eingriffe in hochverfügbare Systeme. Zu den maßgeblichen Kriterien für die Freigabe zählen das fehlerfreie Durchlaufen definierter Tests, eine ausreichende Nutzerakzeptanz in einem Beta-Test und das erfolgreiche Bestehen von Penetrationstests. Zweckmäßig ist eine mehrstufige Autorisierung, in der Änderungen anhand der prognostizierten Auswirkungen den Kategorien niedrig, mittel oder hoch zugeordnet und mit abgestuften Genehmigungsanforderungen verknüpft werden. Während bei geringfügigen Änderungen an unkritischen Systemen eine konzentrierte Prüfung grundlegender Sicherheitsanforderungen wie Authentifizierung, Verschlüsselung und Härtung ausreichen kann, erfordern umfangreiche Vorhaben mit hohem Risikoprofil in der Regel automatisierte Prüfmechanismen, ergänzt durch Checklisten für manuelle Tätigkeiten, um die Auswirkungen verlässlich beherrschbar zu halten.
+
+#### TEST.4.1.1 – Unabhängigkeit der Autorisierung
+
+**Stufe:** `erhöht` · **Aufwand:** 4 · **Gefährdungen:** G 0.18
+
+> Änderungen und Tests KANN kritische Änderungen auch durch eine von der Implementierung unabhängige Person autorisieren.
+
+Eine Freigabe durch eine unabhängige Person ist die nachweisliche Bestätigung der Testergebnisse durch eine fachlich qualifizierte, aber nicht an der Entwicklung, Durchführung oder unmittelbaren Implementierung der getesteten Änderung beteiligte Person. Ziel ist es, Objektivität und Unvoreingenommenheit sicherzustellen und das Vier-Augen-Prinzip für kritische Änderungen zu wahren. Hierbei genügt es, wenn neben beteiligten Personen auch eine unabhängige Person die Änderung autorisiert hat, wie z.B. bei einem Change Advisory Board, an dem mehrere Personen beteiligt sind. Die geltenden Anforderungen sind alle für das Zielobjekt ausgewählten Sicherheitsanforderungen, z.B. Verifikation korrekter TLS-Konfiguration oder Fertigstellung einer Datensicherung mit korrektem Umfang zu geforderter Zeit gemäß Konzept. Empfehlenswert ist es den Prozess in einem Versionkontrollsystem abzubilden, sodass die Dokumentation der Änderungen und der Freigabe weitestgehend automatisiert stattfindet.
+
+#### TEST.4.1.2 – Staging
+
+**Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.25, G 0.26, G 0.18
+
+> Änderungen und Tests SOLLTE die freizugebenden Änderungen in einer von der Produktumgebung getrennten Staging-Umgebung, deren Komponenten so weit wie möglich der Produktivumgebung entsprechen, testen.
+
+Eine Staging-Umgebung ist von der Produktivumgebung getrennt, wenn sie keine IT-Systeme, Anwendungen oder Datenquellen der Produktivumgebung verwendet. Sie entspricht so weit wie möglich der Produktivumgebung, damit zwischen Freigabe und Produktivbetrieb möglichst wenige Abweichungen vorkommen, z.B. hinsichtlich der Schwachstellen eingesetzter Softwareversionen oder der Verfügbarkeit von Ressourcen in verschiedenen Rechenzentren.
+
+#### TEST.4.1.3 – Dokumentation der Freigabe
+
+**Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.18, G 0.37
+
+> Änderungen und Tests SOLLTE die Freigabe einschließlich Zeitpunkt, Vorhaben, Freigabekriterien und freigebender Personen dokumentieren.
+
+Je nach Organisationstruktur kann es sinnvoll sein, weitere Angaben aufzuführen, z.B. in der Freigabe durchgeführte Prüfschritte oder weitere beteiligte Personen. Allerdings kann sich die Freigabe auch auf eine Dokumentation der zuvor durchgeführten Tests stützen. In jedem Fall handelt es sich nur dann um eine Freigabe, wenn die entscheidenden Personen oder Rollen eine eigenständige Entscheidung getroffen haben, die auf einer eigenen Untersuchung des Änderungsvorhabens basiert.
+
+### TEST.4.2 – Signatur
+
+**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.26, G 0.25
+
+> Änderungen und Tests KANN eine Signatur der Freigabeerklärung ausführen.
+
+Die Signatur der Freigabeerklärung ist hier als eine digitale oder handschriftliche Unterschrift zu verstehen, die dokumentiert, dass eine geplante Änderung oder ein Test geprüft, bewertet und zur Umsetzung freigegeben wurde. Die Signatur kann damit sowohl eine elektronische Signatur nach gängigen Standards (z. B. qualifizierte elektronische Signatur im Ticketsystem) als auch eine händische Unterschrift sein. Sie stellt nicht nur eine rechtliche, sondern vor allem eine technische und organisatorische Nachvollziehbarkeit sicher, indem eindeutig erkennbar wird, wer eine Entscheidung zur Durchführung von Änderungen verantwortet hat. Die Freigabe durch eine Signatur kann dazu beitragen, dass unbeabsichtigte oder fehlerhafte Änderungen nicht unkontrolliert in den Betrieb gelangen. Ein fehlender Nachweis könnte im Vorfallfall zu Streitigkeiten über Verantwortlichkeiten führen oder die forensische Nachvollziehbarkeit erschweren. Ebenso könnte ohne dokumentierte Freigabe eine ungetestete Änderung produktive Systeme beeinträchtigen und Ausfälle oder Datenverlust verursachen. Durch eine dokumentierte Signatur kann hingegen nachvollziehbar gemacht werden, dass fachliche, technische und sicherheitsrelevante Prüfungen stattgefunden haben und die Entscheidung zur Umsetzung bewusst und überprüfbar getroffen wurde.
+
+### TEST.4.3 – Rückfallösung
+
+**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.18
+
+> Änderungen und Tests SOLLTE eine Rückfallösung verankern.
+
+Kritisch sind administrative Änderungen an geschäftskritischen Systemen, da ihr Ausfall gravierende Folgen haben könnte. Die Kritikalität ergibt sich außerdem aus Art und Umfang der Änderungen, z.B. umfangreiche Migration oder Bugfix. Maßnahmen können z.B. die Wiederherstellung aus einer vorher erstellten aktuellen Datensicherung, einer Versionsverwaltung oder Blue-Green-Deployment sein.
+
+### TEST.4.4 – Geregelte Notfalländerungen
+
+**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.18, G 0.27
+
+> Änderungen und Tests SOLLTE Regelungen für Notfalländerungen einschließlich Vorgehensweise, Zuständigkeiten, erforderlicher Ressourcen und minimaler Prüfschritte verankern.
+
+Ein Notfall-Deployment-Prozess ermöglicht eine schnelle Reaktion auf akute Bedrohungen. Als Notfall-Ereignisse kommen z.B. Zero-Day-Exploits, kritische Sicherheitslücken mit aktiver Ausnutzung, schwerwiegende Produktionsfehler mit Geschäftsauswirkungen oder koordinierte Cyberangriffe in Frage. Zu einer strukturierten Vorgehensweise können z.B. gehören: (1) Ein Eskalationsverfahren mit definierten Kommunikationswegen, z.B. zum ISB und Administrierenden, welche über Rufbereitschaftspläne und automatisierte Alarmierungssysteme erreichbar sind und Zugriffsrechte auf isolierte Notfall-Deployment-Umgebungen, vorkonfigurierte Rollback-Mechanismen sowie dedizierte Notfall-Builds mit minimalen Abhängigkeiten besitzen. (2) Minimale Prüfschritte können z.B. eine beschleunigte Sicherheitsvalidierung kritischer Codeänderungen, automatisierte Sicherheitsscans zur Identifikation offensichtlicher Schwachstellen, die Verifizierung der Code-Integrität durch mindestens zwei autorisierte Personen nach dem Vier-Augen-Prinzip sowie ein dokumentierter Genehmigungsprozess mit expliziter Abzeichnung durch den CISO oder einen designierten Stellvertreter sein. (3) Eine Nachbereitung mit Post-Incident-Analyse zur Dokumentation der getroffenen Maßnahmen, identifizierten Verbesserungspotenzialen und notwendigen Nacharbeiten.
+
+## TEST.5 Bereitstellung
+
+### TEST.5.1 – Information betroffener Kreise
+
+**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.18, G 0.25
+
+> Änderungen und Tests SOLLTE von der Änderung betroffene Kreise informieren.
+
+Betroffene Kreise können je nach Vorhaben z.B. interne oder externe Nutzende, IT-Betrieb, das Monitoring-Team, die Öffentlichkeitsarbeit oder ISB sein. Erforderliche Informationen können z.B. zu erwartende Ausfallzeiten oder Beginn und Ende des Wartungsfensters, die Vorgehensweise zum Bezug von Sicherheitsupdates oder anzupassende Sicherheitseinstellungen sein, die Nutzende selbst vornehmen können.
+
+### TEST.5.2 – Verschlüsselte Bereitstellung
+
+**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.23, G 0.14, G 0.41, G 0.21
+
+> Änderungen und Tests SOLLTE die Bereitstellung verschlüsseln.
+
+Das Konzept der Bereitstellung (engl. Deployment oder Provisioning) bezieht sich hier auf den Vorgang des Übertragens, Installierens oder Aktivierens von Software-Artefakten, Konfigurationen, Skripten oder anderen digitalen Gütern von einer gesicherten Umgebung (z.B. Test- oder Staging-Umgebung) in die Ziel- oder Produktionsumgebung. Die Verschlüsselung dieser Bereitstellung meint dabei die kryptografische Sicherung des Datenstroms oder der übertragenen Daten während des Transports, sodass diese für unbefugte Dritte unlesbar sind. Diese Vorschrift dient primär dem Schutz vor der Offenlegung sensibler Daten oder der Manipulation der ausgelieferten Artefakte: Ein Angreifer, der den Übertragungsweg abhört, könnte ohne Verschlüsselung leicht auf vertrauliche Informationen zugreifen, etwa proprietären Quellcode oder sensible Konfigurationsparameter (wie Passwörter oder API-Schlüssel), was zur Geheimhaltung (Confidentiality) in der Institution im Widerspruch stünde. Außerdem könnte ein Man-in-the-Middle-Angriff die übertragenen Daten manipulieren und so bösartigen Code in die Produktionsumgebung einschleusen, bevor die Integrity-Checks greifen, was die Integrität der bereitgestellten Lösungen gefährden könnte. Technisch kann die Institution dies gewährleisten, indem alle Deployment-Pipelines ausschließlich gesicherte Kommunikationsprotokolle nutzen. Zusätzlich ist es sinnvoll die Bereitstellungs-Artefakte digital zu signieren und diese Signatur erst nach erfolgreicher End-zu-End-Integritätsprüfung (z.B. durch Prüfsummen wie SHA-256) auf dem Zielsystem zur Installation freigeben, was einen Manipulationsversuch im Transit erschwert.
+
+### TEST.5.3 – Schrittweiser Rollout
+
+**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.18
+
+> Änderungen und Tests KANN die Inbetriebnahme stufenweise ausführen.
+
+Inbetriebnahme (engl. deployment oder rollout) meint hier die technische und organisatorische Überführung einer Änderung oder Neuerung – etwa an IT-Systemen, Anwendungen oder Konfigurationen – vom Test- in den Produktivbetrieb. Eine stufenweise Inbetriebnahme (auch phased deployment, gradual rollout oder staged release) meint dabei das gezielte Ausrollen von Änderungen in mehreren kontrollierten Schritten, etwa nach Rollen, geografischen Standorten oder Systemkomponenten gruppiert, anstatt in einem einzigen vollständigen Übergang. Diese Methode kann gezielt dazu genutzt werden, Probleme frühzeitig zu erkennen und zu verhindern, dass diese sich flächendeckend auf die gesamte Infrastruktur auswirken. Ziel ist insbesondere, mögliche Risiken aus unzureichend getesteten Änderungen zu reduzieren – etwa wenn fehlerhafte Updates zu Systemausfällen, Datenverlusten oder Funktionseinschränkungen führen könnten. Auch unbeabsichtigte Interaktionen mit bestehenden Komponenten, die im Testsystem nicht abgebildet waren, könnten auftreten. Ein simples Rolling-Release-Modell, bei dem kleinschrittige Änderungen allen betroffenen Geräte gleichzeitig bereitgestellt werden, genügt NICHT um die Anforderung zu erfüllen. Ein schrittweiser Rollout ist in verschiedenen Varianten möglich: (1) der Einsatz von sogenannten Canary Releases, bei denen Änderungen zuerst auf ein kleines, repräsentatives Nutzersegment ausgerollt werden, (2) der automatisierte Rollout nach dem One-Some-All-Prinzip, (3) das gezielte Aktivieren neuer Funktionen über Feature Toggles, die zentrale Steuerung ermöglichen, oder (4) das parallele Führen alter und neuer Systemversionen in einer Blue-Green Deployment-Struktur.
+
+### TEST.5.4 – Persistenz
+
+**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.23, G 0.22, G 0.43, G 0.18
+
+> Änderungen und Tests SOLLTE die Persistenz nach wesentlichen Änderungen testen.
+
+Persistenz bedeutet hier, dass eine wesentliche Änderung nach ihrer Einführung dauerhaft wirksam bleibt, also auch nach einem Neustart, einem System-Update oder einem Rückspielen von Konfigurations-Backups nicht unbeabsichtigt verloren geht. Dies könnte beispielsweise dazu führen, dass eine sicherheitsrelevante Konfiguration nach einem Reboot verschwindet oder eine Migration zu einem neuen Anbieter scheitert, weil Daten oder Regeln nicht portabel waren. Eine Institution kann die Anforderung praktisch umsetzen, indem Änderungen nach Abschluss nicht nur funktional, sondern auch über System- und Lebenszyklusereignisse hinweg überprüft werden. Dazu kann es hilfreich sein, Änderungen gezielt mit simulierten Neustarts, Failover-Tests oder dem erneuten Einspielen von Standard-Backups zu validieren. Um den laufenden Betrieb hierdurch nicht zu beeinträchtigen können Systeme oder Anwendungsinstanzen nacheinander oder zu unkritischen Zeiten neu gestartet werden.
+
+### TEST.5.5 – Rückblick
+
+**Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.18
+
+> Änderungen und Tests SOLLTE die Erreichung der Bereitstellungsziele *[regelmäßig]* überprüfen.
+
+Ein effektiver Änderungsmanagementprozess profitiert von systematischen Überprüfungen nach der Implementierung. Dabei wird bewertet, ob die definierten Bereitstellungsziele tatsächlich erreicht wurden und ob Änderungen unbeabsichtigte Auswirkungen auf Sicherheit, Stabilität oder Verfügbarkeit hatten. Die gewonnenen Erkenntnisse können genutzt werden, um zukünftige Änderungen gezielter zu planen und Risiken zu reduzieren.

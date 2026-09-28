@@ -1,0 +1,106 @@
+/* Selbst gehostete Variable Fonts — keine Google-Fonts-CDN-Anfrage zur Laufzeit. */
+@import '@fontsource-variable/fraunces/standard.css';
+@import '@fontsource-variable/karla';
+@import '@fontsource-variable/jetbrains-mono';
+
+:root {
+	--sl-font: 'Karla Variable', system-ui, sans-serif;
+	--sl-font-mono: 'JetBrains Mono Variable', ui-monospace, monospace;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.hero h1,
+.site-title {
+	font-family: 'Fraunces Variable', Georgia, serif;
+	font-optical-sizing: auto;
+}
+
+/*
+ * Warme Palette in OKLCH (deckt automatisch den P3-Farbraum ab, wo der
+ * Browser es unterstützt — kein separates color(display-p3 …) nötig).
+ * Wir überschreiben nur Starlights Basis-Tokens (white/black/gray-1..7,
+ * accent-*) — alle semantischen Variablen (--sl-color-bg, --sl-color-text, …)
+ * leiten sich daraus automatisch ab, exakt wie im Original-Theme.
+ */
+:root {
+	/* Dunkelmodus: warmes Anthrazit statt neutralem Blauschwarz */
+	--sl-color-black: oklch(19% 0.014 70);
+	--sl-color-gray-6: oklch(24% 0.016 70);
+	--sl-color-gray-5: oklch(30% 0.017 70);
+	--sl-color-gray-4: oklch(46% 0.02 70);
+	--sl-color-gray-3: oklch(62% 0.02 70);
+	--sl-color-gray-2: oklch(84% 0.015 70);
+	--sl-color-gray-1: oklch(92% 0.012 70);
+	--sl-color-white: oklch(98% 0.006 70);
+
+	--sl-color-accent-low: oklch(32% 0.06 75);
+	--sl-color-accent: oklch(74% 0.14 75);
+	--sl-color-accent-high: oklch(90% 0.07 75);
+
+	--glass-tint: oklch(30% 0.02 70 / 0.55);
+	--glass-border: oklch(90% 0.02 70 / 0.18);
+	--glass-gap: 0.75rem;
+}
+
+:root[data-theme='light'] {
+	/* Helles warmes Papier statt neutralem Grau */
+	--sl-color-white: oklch(20% 0.015 70);
+	--sl-color-gray-1: oklch(26% 0.016 70);
+	--sl-color-gray-2: oklch(34% 0.017 70);
+	--sl-color-gray-3: oklch(48% 0.018 70);
+	--sl-color-gray-4: oklch(64% 0.016 70);
+	--sl-color-gray-5: oklch(82% 0.013 70);
+	--sl-color-gray-6: oklch(94% 0.012 78);
+	--sl-color-gray-7: oklch(97% 0.01 80);
+	--sl-color-black: oklch(99% 0.006 80);
+
+	--sl-color-accent-high: oklch(38% 0.09 75);
+	--sl-color-accent: oklch(62% 0.15 75);
+	--sl-color-accent-low: oklch(93% 0.05 78);
+
+	--glass-tint: oklch(97% 0.01 80 / 0.55);
+	--glass-border: oklch(30% 0.02 70 / 0.12);
+}
+
+/* Liquid-Glass-Chrome: nur auf UI-Rahmen, nie auf Fließtext */
+
+/* Die schwebende Kopfleiste: vom Rand gelöst statt randlos, damit tatsächlich
+   Seiteninhalt hinter dem Glas durchscheint. */
+header.header {
+	inset-block-start: var(--glass-gap);
+	inset-inline: var(--glass-gap);
+	width: auto;
+	border-radius: 999px;
+	border: 1px solid var(--glass-border);
+	background-color: var(--glass-tint);
+	backdrop-filter: blur(20px) saturate(160%);
+	-webkit-backdrop-filter: blur(20px) saturate(160%);
+	box-shadow: 0 12px 30px oklch(0% 0 0 / 0.22);
+}
+
+/* Sidebar-Popover und Seiteninhalt müssen um den neuen Abstand nach unten rücken. */
+.sidebar-pane {
+	inset-block-start: calc(var(--sl-nav-height) + var(--glass-gap));
+}
+
+.main-frame {
+	padding-top: calc(var(--sl-nav-height) + var(--sl-mobile-toc-height) + (2 * var(--glass-gap)));
+}
+
+site-search button {
+	border-radius: 999px;
+	border: 1px solid var(--glass-border);
+	background-color: var(--glass-tint);
+	backdrop-filter: blur(12px) saturate(160%);
+	-webkit-backdrop-filter: blur(12px) saturate(160%);
+	padding-inline: 1rem;
+}
+
+:focus-visible {
+	outline-color: var(--sl-color-accent);
+}

@@ -1,0 +1,895 @@
+---
+title: "BES – Beschaffungsmanagement"
+---
+
+# BES Beschaffungsmanagement
+
+Die Praktik Beschaffungsmanagement sorgt für die frühzeitige Integration von Informationssicherheit in fachliche Anforderungs-, Planungs- und Beschaffungsverfahren, einschließlich angehender Projekte. Dabei erfolgt keine Unterscheidung zwischen den Bereichen Organisation, Personal, Dienstleister, IT-Infrastruktur, Komponenten oder Gebäuden. Ziel ist es, Sicherheitsanforderungen frühzeitig in die strategische Planung einzubinden – von der "Make-or-Buy"-Entscheidung bis hin zur konkreten Beschaffung. Während die Praktik Compliance sich explizit auf Anforderungen auf die Informationssicherheit konzentriert, umfasst das Beschaffungsmanagement alle fachlichen, regulatorischen und technischen Anforderungen, die in die Organisation, Personal-, Dienstleisterverträge, IT-Infrastruktur, Komponenten und Gebäude integriert werden müssen.
+
+## BES.1 Grundlagen
+
+### BES.1.1 – Verfahren und Regelungen
+
+**Stufe:** `normal-SdT` · **Aufwand:** 0 · **Gefährdungen:** G 0.18
+
+> Beschaffungsmanagement MUSS Verfahren und Regelungen zur Beschaffung von IT-Produkten und Dienstleistungen verankern.
+
+Relevant sind hierbei sowohl Beschaffungen von Produkten und Dienstleistungen für den internen Betrieb als auch Verträge bei denen Informationen für die Institution extern verarbeitet werden, z.B. Cloud-Dienstleistungen. Die bei der Festlegung des Verfahrens im Einzelnen zu berücksichtigenden Inhalte ergeben sich aus den Anforderungen dieser Praktik.
+
+#### BES.1.1.1 – Dokumentation
+
+**Stufe:** `normal-SdT` · **Aufwand:** 0 · **Gefährdungen:** G 0.18, G 0.37
+
+> Beschaffungsmanagement MUSS die Verfahren und Regelungen dokumentieren.
+
+Ohne eine Dokumentation könnte die Einhaltung der Verfahren und Regelungen von der Tagesform oder dem individuellen Wissen einzelner Mitarbeiter abhängen, was zu inkonsistenten Entscheidungen und Fehlern führen könnte; insbesondere beim Ausscheiden eines langjährigen Administrators könnte wertvolles prozessuales Wissen verloren gehen. Eine klare Dokumentation sichert die Verbindlichkeit und Wiederholbarkeit und dient als unverzichtbare Grundlage für die Einarbeitung neuer Kollegen, für die Durchführung von Audits und zur einheitlichen Anwendung der Regeln in der gesamten Institution. Die Dokumentation kann in einem eigenständigen Dokument als Richtlinie erfolgen, aber auch als Abschnitt in einem bereits bestehenden Dokument oder über die digital strukturiere Erfassung von Maßnahmen zur Umsetzung der Anforderungen, etwa über eine Software zum Management der Informationssicherheit. Sinnvoll ist es Ort und Struktur der Dokumentation an der jeweiligen Zielgruppe, d.h. den für das Management und die Umsetzung verantwortlichen Personen oder Rollen, auszurichten.
+
+#### BES.1.1.2 – Zuweisung der Aufgaben
+
+**Stufe:** `normal-SdT` · **Aufwand:** 0 · **Gefährdungen:** G 0.18, G 0.31
+
+> Beschaffungsmanagement MUSS die mit den Verfahren und Regelungen verbundenen Aufgaben *[zuständigen Personen oder Rollen]* zuweisen.
+
+Die Zuweisung von Aufgaben bezeichnet die eindeutige und verbindliche Übertragung von konkreten Tätigkeiten und Verantwortlichkeiten des Änderungsprozesses, wie etwa die Risikobewertung, die technische Umsetzung oder die finale Freigabe, an definierte Stellen in der Institution. Der Sinn dieser Vorschrift ist es, die Verantwortlichkeit ("Accountability") für jeden einzelnen Schritt im Prozess klarzustellen. Ohne eine solche Zuweisung könnten kritische Prüfungen unterbleiben, weil sich niemand explizit zuständig fühlt, was wiederum die Wahrscheinlichkeit fehlgeschlagener Änderungen erhöht. Eine klare Regelung kann sicherstellen, dass keine Aufgaben übersehen werden und jede Tätigkeit von einer dafür qualifizierten und befugten Stelle ausgeführt wird, was die Prozesssicherheit signifikant erhöht. Eine bewährte Methode zur Umsetzung ist die Erstellung einer RACI-Matrix (Responsible, Accountable, Consulted, Informed), die tabellarisch für jeden Prozessschritt darstellt, wer für die Durchführung verantwortlich ist, wer die Gesamtverantwortung trägt, wer zu konsultieren und wer zu informieren ist. Diese Zuständigkeiten können auch direkt in einem Workflow- oder Ticketsystem abgebildet werden, sodass Aufgaben, wie beispielsweise Genehmigungsschritte, automatisch an die richtige Gruppe oder Person weitergeleitet werden. Sinnvoll ist es die Zuweisung anhand von Rollen (z.B. "Anwendungsverantwortlicher", "Netzwerkadministrator", "Change Manager") vorzunehmen, statt an konkrete Personen. Dieser Ansatz stellt sicher, dass die Prozesse auch bei Personalwechseln stabil weiterlaufen, da die Zuständigkeit an die Funktion und nicht an das Individuum gebunden ist.
+
+#### BES.1.1.3 – Bekanntgabe
+
+**Stufe:** `normal-SdT` · **Aufwand:** 0 · **Gefährdungen:** G 0.18, G 0.31
+
+> Beschaffungsmanagement MUSS die zuständigen Personen oder Rollen über die Verfahren und Regelungen informieren.
+
+Wenn die Zuständigen die etablierten Verfahren nicht kennen, besteht die Gefahr, dass diese – sei es aus Unwissenheit oder Bequemlichkeit – umgangen werden, was die Schutzwirkung des gesamten Managementsystems untergräbt. So könnte ein neuer Systemadministrator eine weitreichende Konfigurationsänderung vornehmen, ohne den vorgeschriebenen Genehmigungsprozess zu durchlaufen, was zu einem unbemerkten Sicherheitsrisiko führen könnte. Eine gezielte Information kann hingegen die Akzeptanz der Regelungen fördern und sicherstellen, dass alle Beteiligten ihre Rolle im Prozess verstehen und die Abläufe korrekt anwenden. Zur Umsetzung ist es sinnvoll die Dokumentation im Rahmen eines Onboarding-Prozesses bekanntzugeben und bei allen Änderungen eine automatische Benachrichtigung aller zuständigen Personen oder Rollen anzustoßen.
+
+### BES.1.2 – Regelmäßige Überprüfung
+
+**Stufe:** `normal-SdT` · **Aufwand:** 0 · **Gefährdungen:** G 0.18
+
+> Beschaffungsmanagement MUSS die Verfahren und Regelungen *[regelmäßig]* und anlassbezogen auf Aktualität überprüfen.
+
+Eine geplante Überprüfung der etablierten Verfahren und Regelungen dient dazu festzustellen, ob diese noch wirksam, effizient und an die aktuellen Gegebenheiten angepasst sind. Eine anlassbezogene Überprüfung wird durch spezifische Ereignisse ausgelöst, wie etwa einen schwerwiegenden Sicherheitsvorfall, eine strategische Neuausrichtung der IT oder neue gesetzliche Anforderungen. Der Zweck dieser Anforderung ist es, die kontinuierliche Verbesserung und Anpassungsfähigkeit des Prozesses sicherzustellen, da veraltete Regelungen neuen technologischen Entwicklungen oder Bedrohungen nicht mehr gerecht werden könnten; ein vor Jahren für monolithische Anwendungen konzipierter Prozess ist beispielsweise für agile Entwicklungsmethoden oder Microservice-Architekturen ungeeignet. Die regelmäßige Überprüfung kann die Effektivität des Sicherheitsmanagements langfristig aufrechterhalten und die Resilienz der Institution stärken.
+
+### BES.1.3 – Lieferanten- und Dienstleisterverzeichnis
+
+**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.18
+
+> Beschaffungsmanagement für Einkäufe SOLLTE alle direkten Zulieferer und Dienstleister inklusive der jeweiligen Kontaktdaten und den bezogenen Lieferungen dokumentieren.
+
+Direkte Zulieferer sind hier alle Vertragspartner, von denen IT-Produkte bezogen werden. Dienstleister sind alle Vertragspartner, die schützenswerte Informationen des Informationsverbundes verarbeiten.
+
+#### BES.1.3.1 – Gesamte Lieferkette
+
+**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.18
+
+> Beschaffungsmanagement für Einkäufe KANN die gesamte Lieferkette inklusive der jeweiligen Unterauftragnehmer und deren Kontaktdaten dokumentieren.
+
+Sicherheitsvorfälle können nicht nur auf direkter Ebene entstehen, sondern werden häufig durch nachgelagerte Dienstleister oder Unterlieferanten verursacht – etwa wenn ein Unterauftragnehmer unzureichende Sicherheitsmaßnahmen umsetzt, kritische Softwarekomponenten fehlerhaft bezieht oder sensible Daten bei einem Subdienstleister unkontrolliert verarbeitet werden. Ein solches Ereignis könnte sich durch Lieferausfälle, den Einschleusung kompromittierter Hard- oder Software oder auch durch den Verlust von Betriebsgeheimnissen bemerkbar machen. Nur wenn eine Institution die gesamte Kette kennt, kann sie Schwachstellen lückenlos erkennen, Abhängigkeiten bewerten und im Bedarfsfall schneller reagieren, etwa indem bei Störungen alternative Bezugsquellen aktiviert werden. Die (ja fortlaufend zu gewährleistende) Dokumentation der gesamten Lieferkette ist allerdings auch mit großem Aufwand verbunden und setzt auch die Bereitschaft zur Mitwirkung in der gesamten Lieferkette voraus.
+
+### BES.1.4 – Outsourcing-Strategie
+
+**Stufe:** `erhöht` · **Aufwand:** 4 · **Gefährdungen:** G 0.11
+
+> Beschaffungsmanagement für Outsourcing SOLLTE eine Strategie mit Zielen, Chancen und Risiken des Outsourcings verankern.
+
+Outsourcing-Strategie bezeichnet hierbei die von der Institution festgelegten Grundsätze, Entscheidungskriterien und Grenzen für die Auslagerung von Leistungen. Die Strategie beinhaltet z.B. die Entscheidung über die Art und den Scope des Outsourcings und welche Arten von Anwendungen/Daten oder Prozessen ausgelagert werden. Bei einem Outsourcing in die Cloud wäre hier z.B. über "cloud only, cloud first, some cloud, no cloud" und bei der Bereitstellungsart über "Saas, PaaS, IaaS" etc. zu entscheiden. Typische Risiken sind versteckte Kosten, unklare Zuständigkeiten ("Verantwortungsdiffusion") durch gemeinsame Verantwortlichkeit mit dem Dienstleister für die Informationssicherheit (Shared Responsibility), Verlust von eigenem Knowhow, Abhängigkeit vom Anbietenden von Outsourcing, Verlust von Kontroll- und Steuerungsmöglichkeiten, Einblicke Dritter in interne Betriebsabläufe und Daten. Ziele beinhalten unter anderem auch die angestrebten Sicherheitsziele, z.B. "bei Bearbeitung von VS-NfD Inhalten die Einhaltung der VSA". Chancen können z.B. in einer schnelleren Einführung neuer Technologien, einer höheren Flexibilität bei Lastspitzen, einer verbesserten Verfügbarkeit durch die Infrastruktur des Dienstleisters oder in Kostenersparnissen durch Skaleneffekte liegen. Im Cloud-Kontext ergeben sich zudem Möglichkeiten wie eine weltweite Standortunabhängigkeit, einfachere Anbindung verteilter Teams oder die Nutzung spezialisierter Sicherheits- und Compliance-Services, die intern nur mit erheblichem Aufwand aufgebaut werden könnten.
+
+#### BES.1.4.1 – Freigabe der Strategie
+
+**Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.18
+
+> Beschaffungsmanagement für Outsourcing SOLLTE die Strategie durch die Institutionsleitung autorisieren.
+
+Ziel ist es sicherzustellen, dass Auslagerungen dem Risikoverständnis, den gesetzlichen Rahmenbedingungen und den geschäftlichen Zielen entsprechen und Verantwortlichkeiten eindeutig verankert sind. Fehlende oder uneinheitliche Leitentscheidungen könnten zu Schattenbeschaffungen, regulatorischen Beanstandungen, Konzentrationsrisiken oder unkontrollierten Datenabflüssen führen; etwa könnte ein Fachbereich ohne strategischen Rahmen einen Dienst in einer problematischen Jurisdiktion beauftragen oder mehrere kritische Leistungen bei einem einzigen Anbieter bündeln, was bei dessen Ausfall zu erheblichen Betriebsunterbrechungen führen könnte.
+
+### BES.1.5 – Autorisierung des Bereitstellungsmodells
+
+**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.18
+
+> Beschaffungsmanagement für Cloud-Dienste SOLLTE für jeden Cloud-Dienst das Bereitstellungsmodell durch *[eine zuständige Person oder Rolle]* autorisieren.
+
+Hiermit ist die bewusste Entscheidung für ein Modell und die konzeptionelle Umsetzung ("Shared Responsibility") dieser Entscheidung gemeint. Bereitstellungsmodelle sind z.B.: Public Cloud, Private Cloud, Community Cloud, Hybrid Cloud. Es kann in der Praxis aber zu dadurch nicht abgedeckten Varianten, wie z. B. "Virtual Private Cloud" kommen. Die Anforderung ist erst dann umgesetzt, wenn auch zwischen den Vertragspartnern das Bereitstellungsmodell explizit vereinbart ist, so dass die Verteilung der Verantwortlichkeiten (Shared Responsibility) für Schutzmaßnahmen zwischen Institution und Dienstleister klar geregelt ist.
+
+### BES.1.6 – Dokumentation des Bereitstellungsmodells
+
+**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.18, G 0.37
+
+> Beschaffungsmanagement für Cloud-Dienste SOLLTE für jeden Cloud-Dienst das gewünschte Bereitstellungsmodell mit Ausführung der geteilten Verantwortlichkeiten dokumentieren.
+
+Hiermit ist die bewusste Entscheidung für ein Modell und die konzeptionelle Umsetzung ("Shared Responsibility") dieser Entscheidung gemeint. Bereitstellungsmodelle sind z.B.: Public Cloud, Private Cloud, Community Cloud, Hybrid Cloud. Es kann in der Praxis aber zu dadurch nicht abgedeckten Varianten, wie z. B. "Virtual Private Cloud" kommen.
+
+### BES.1.7 – Vereinbarung der geteilten Verantwortung
+
+**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.18
+
+> Beschaffungsmanagement für Cloud-Dienste SOLLTE für jeden Cloud-Dienst mit dem Anbieter die geteilte Verantwortung vereinbaren.
+
+Die Anforderung ist erst dann umgesetzt, wenn auch zwischen den Vertragspartnern das Bereitstellungsmodell explizit vereinbart ist, so dass die Verteilung der Verantwortlichkeiten (Shared Responsibility) für Schutzmaßnahmen zwischen Institution und Dienstleister klar geregelt ist.
+
+## BES.2 Bedarfserfassung
+
+### BES.2.1 – Erfassung des Bedarfes
+
+**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.18
+
+> Beschaffungsmanagement für Einkäufe SOLLTE den Bedarf anhand einer Leistungsbeschreibung oder einer Umsetzungsstrategie dokumentieren.
+
+Dies umfasst sowohl Bedürfnisse für eine sichere Funktionalität als auch nicht-funktionalen Bedarf wie Datensicherung und Einbindung in das Monitoring.
+
+#### BES.2.1.1 – Verwendungszweck
+
+**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.18
+
+> Beschaffungsmanagement für IT-Produkte SOLLTE den Verwendungszweck dokumentieren.
+
+Relevant kann hierbei beispielsweise sein, ob es verschiedene Einsatzszenarien (z.B. Innen- und Außendienst) gibt.
+
+#### BES.2.1.2 – Geschäftsprozessprofile
+
+**Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.18
+
+> Beschaffungsmanagement für Outsourcing SOLLTE Geschäftsprozessprofile für (Teil-)Prozesse, die ausgelagert werden, mit Funktion, verarbeiteten Informationen, einzuhaltenden rechtlichen und organisatorischen Rahmenbedingungen, prozessualen Schnittstellen, Abhängigkeiten zwischen Prozessen, sowie ihren Schutzbedarfen und Kritikalitäten dokumentieren.
+
+Ist bereits eine Business-Impact-Analyse (BIA) vorhanden, welche die Angaben enthält, so kann die Anforderung durch die BIA erfüllt werden. Kritikalität bezeichnet die Bedeutung eines Prozesses für den Geschäftsbetrieb der Institution. Die Umsetzung kann auch durch eine Tabelle von Geschäftsprozessprofilen geschehen.
+
+#### BES.2.1.3 – Systemvoraussetzungen
+
+**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.18
+
+> Beschaffungsmanagement für IT-Produkte SOLLTE Systemvoraussetzungen dokumentieren.
+
+Hierzu können sowohl Hardwareparameter gehören (z.B. 8 GB RAM, TPM 2.0), als auch Voraussetzungen an Betriebssysteme (z.B. Lauffähigkeit nur auf bestimmten Betriebssystemen oder bei Unterstützung bestimmter Funktionen), auf denen der Einsatz geplant ist.
+
+#### BES.2.1.4 – Kompatibilität
+
+**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.18
+
+> Beschaffungsmanagement für Einkäufe SOLLTE den Bedarf für die Kompatibilität mit der bestehenden Infrastruktur dokumentieren.
+
+Werden Beschaffungen ohne Betrachtung der Kompatibilität zur angebundenen Infrastruktur vorgenommen, kann es zu unvorhergesehenen Wechselwirkungen zwischen Komponenten kommen. Durch die steigende Komplexität von Infrastrukturen wächst auch das Risiko solcher Inkompatibilitäten oder Fehlerbilder. Zur relevanten Infrastruktur können je nach Einsatzzweck z.B. der Verzeichnisdienst, die Protokollierung von Ereignissen, das Monitoring oder der Datenspeicher gehören. Soweit möglich, ist es sinnvoll, zur Anbindung anerkannte Standards zu nutzen, z.B. REST-API und HTTPS für die Schnittstellen, TCP/IP und Ethernet (IEEE 802.3) für die Netzanbindung, SSH für die Administration,sowie SQL oder JSON für das Datenmanagement.
+
+##### BES.2.1.4.1 – Kompatibilität der Schnittstellen
+
+**Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.18
+
+> Beschaffungsmanagement für Einkäufe SOLLTE den Bedarf für die Kompatibilität im Hinblick auf Schnittstellen dokumentieren.
+
+Kompatibilität im Hinblick auf Schnittstellen meint die Fähigkeit eines zu beschaffenden IT-Systems, einer Anwendung oder Komponente, mit bestehenden oder vorgesehenen IT- und OT-Umgebungen interoperabel zu sein; hierzu zählen technische Schnittstellen wie APIs (Application Programming Interfaces), Protokolle, Authentifizierungsmechanismen sowie physische oder virtuelle Netzanschlüsse. Eine Schnittstelle ist dabei jede definierte Übergabestelle, an der Daten, Signale oder Steuerinformationen zwischen Systemen ausgetauscht werden, einschließlich logischer (z. B. Webservices, REST, SOAP), datenbezogener (z. B. XML, JSON, CSV, authentifizierender (z.B. SAML oder OAuth 2.0) und infrastruktureller Anbindungen (z. B. VPN, TLS-gesicherte Verbindungen). Die Dokumentation des Bedarfs umfasst eine nachvollziehbare Beschreibung, welche bestehenden Infrastrukturen angebunden werden, welche Kommunikationsprotokolle und Sicherheitsmechanismen unterstützt werden und welche Abhängigkeiten oder Einschränkungen bestehen. Die Regelung zielt darauf ab, Integrationsrisiken frühzeitig zu erkennen und Fehlbeschaffungen zu vermeiden; ohne dokumentierten Kompatibilitätsbedarf könnte es zu Medienbrüchen, unsicheren Ad-hoc-Anbindungen oder kostenintensiven Nachrüstungen kommen, wodurch Sicherheitslücken entstehen könnten. Eine systematische Erfassung der Schnittstellenanforderungen kann hingegen sicherstellen, dass nur Lösungen ausgewählt werden, die sich kontrolliert und sicher in die bestehende Architektur einfügen lassen.
+
+##### BES.2.1.4.2 – Kompatibilität der Netzanbindung
+
+**Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.18
+
+> Beschaffungsmanagement für Einkäufe SOLLTE den Bedarf für die Kompatibilität im Hinblick auf die Netzanbindung dokumentieren.
+
+Kompatibilität im Hinblick auf die Netzanbindung ist hier die technische und logische Anschlussfähigkeit einer zu beschaffenden Komponente an die bestehende Netzwerkinfrastruktur der Institution zu verstehen, einschließlich physischer Schnittstellen (z.B. Ethernet, Glasfaser), unterstützter Übertragungsprotokolle (z.B. TCP/IP, HTTP, TLS), Authentisierungs- und Autorisierungsverfahren (z.B. IEEE 802.1X, RADIUS), Adressierungskonzepte (IPv4/IPv6, erforderlicher Netzbandbreite und Laufzeiten, sowie Segmentierungs- und Sicherheitsarchitekturen (z.B. VLAN, Network Access Control – NAC). Netzanbindung meint dabei jede Form der Integration in interne Netze, Perimeternetze oder dedizierte Verbindungen zu externen Netzen, einschließlich drahtloser Anbindungen (WLAN) oder standortübergreifender Kopplungen (WAN). Der dokumentierte Bedarf beschreibt die konkret erforderlichen technischen, sicherheitsrelevanten und betrieblichen Eigenschaften der Netzschnittstelle, sodass bereits im Beschaffungsprozess transparent wird, welche Integrationsvoraussetzungen notwendig sind und welche Abweichungen nicht akzeptabel sind. Die Dokumentation dieses Bedarfs kann verhindern, dass Lösungen beschafft werden, die sich nur mit unsicheren Protokollen anbinden lassen oder bestehende Segmentierungs- und Schutzmechanismen umgehen, was zu ungewollten Netzöffnungen, erhöhten Angriffsflächen oder Integrationsproblemen führen könnte. Sie kann zudem Transparenz schaffen, sodass spätere Notlösungen wie unkontrollierte Gateways oder Protokollkonverter vermieden werden, die zusätzliche Schwachstellen einführen könnten.
+
+##### BES.2.1.4.3 – Kompatibilität des Administrationsmodells
+
+**Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.37
+
+> Beschaffungsmanagement für Einkäufe SOLLTE den Bedarf für die Kompatibilität im Hinblick auf das Administrationsmodell dokumentieren.
+
+Unter „Kompatibilität im Hinblick auf das Administrationsmodell“ ist hier die technische und organisatorische Anschlussfähigkeit einer zu beschaffenden Lösung an das bestehende Berechtigungs- und Rollenmodell der Institution zu verstehen, also an die Struktur von Benutzerkonten, Rollen, Gruppen, Verantwortlichkeiten und administrativen Zuständigkeiten (z.B. Role-Based Access Control – RBAC, Attribute-Based Access Control – ABAC, Privileged Access Management – PAM). Das Administrationsmodell beschreibt dabei, wie Identitäten angelegt, geändert und gelöscht werden (Identity Lifecycle), wie Rechte vergeben und überprüft werden (Access Governance) und wie administrative Tätigkeiten nachvollziehbar protokolliert werden (Logging, Audit Trail). Die Dokumentation des Bedarfs für diese Kompatibilität bedeutet, dass im Beschaffungsprozess transparent festgehalten wird, welche Integrationsanforderungen bestehen, etwa hinsichtlich zentraler Verzeichnisdienste (z.B. LDAP, Active Directory), Single Sign-On (SSO), Multi-Faktor-Authentisierung (MFA), Mandantenfähigkeit oder der Trennung von administrativen und fachlichen Rollen. Der Zweck dieser Vorgabe liegt darin, Inkonsistenzen und Medienbrüche im Identitäts- und Berechtigungsmanagement zu vermeiden, da eine nicht kompatible Lösung zu Schattenadministration, doppelten Benutzerkonten oder unzureichender Trennung von Aufgaben führen könnte und dadurch unautorisierte Zugriffe oder fehlende Nachvollziehbarkeit begünstigt werden könnten. Eine frühzeitige und strukturierte Festlegung der Kompatibilitätsanforderungen kann hingegen eine einheitliche Durchsetzung von Sicherheitsrichtlinien, eine zentrale Steuerung privilegierter Konten und eine revisionssichere Protokollierung administrativer Handlungen unterstützen. die Unterstützung sowie (3) die technische Möglichkeit zur rollenbasierten Delegation administrativer Rechte innerhalb der Anwendung umfassen.
+
+##### BES.2.1.4.4 – Kompatibilität des Datenmanagementmodells
+
+**Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.18
+
+> Beschaffungsmanagement für Einkäufe SOLLTE den Bedarf für die Kompatibilität im Hinblick auf das Datenmanagementmodell dokumentieren.
+
+Unter „Kompatibilität im Hinblick auf das Datenmanagementmodell“ ist im Kontext dieser Anforderung die fachliche und technische Übereinstimmung beschaffter Produkte oder Dienstleistungen mit den in der Institution etablierten Regeln zur Strukturierung, Klassifizierung, Speicherung und Verarbeitung von Daten zu verstehen. Das Datenmanagementmodell beschreibt dabei unter anderem Datenkategorien (z.B. „confidentiality level“), Metadatenstrukturen, Datenformate, Lebenszyklusregeln („data lifecycle management“) sowie Integrationsvorgaben für Schnittstellen und Austauschformate. Kompatibilität meint hier insbesondere, dass neue IT-Systeme oder Anwendungen die definierten Datenformate, Klassifizierungsmerkmale, Aufbewahrungs- und Löschregeln sowie Anforderungen an Datenlokation („data residency“) technisch unterstützen oder abbilden können, ohne dass Medienbrüche, manuelle Nacharbeiten oder unkontrollierte Parallelstrukturen entstehen. Die Dokumentation dieses Bedarfs kann dazu beitragen, dass bei Beschaffungen von Anfang an Transparenz über notwendige Integrations- und Datenanforderungen entsteht und spätere kostenintensive Anpassungen vermieden werden. Ohne eine solche Berücksichtigung könnte es zu inkonsistenten Datenbeständen, fehlender Durchgängigkeit von Klassifizierungen oder zu unzulässigen Datenübertragungen in nicht vorgesehene Speicherorte kommen, was Integritäts- und Verfügbarkeitsrisiken erhöht. Eine frühzeitige Festlegung kann hingegen eine konsistente Datenarchitektur und nachvollziehbare Datenflüsse unterstützen.
+
+#### BES.2.1.5 – Lizenzierung
+
+**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.18
+
+> Beschaffungsmanagement für IT-Produkte SOLLTE für den geplanten Einsatzzeitraum erforderliche Lizenzen dokumentieren.
+
+Lizenzen sind erforderlich, wenn sie für den Einsatz des geplanten IT-Produktes benötigt werden. Hierbei können sowohl Softwarelizenzen selbst als auch begleitende Lizenzen, z.B. für Protokollierungssysteme oder Cloud-Schnittstellen gehören. Die Lizenzierung ist ausreichend, wenn voraussichtlich für alle anfallenden Arbeiten genug Zugänge und aktivierte IT-Produkte über den geplanten Einsatzzeittraum verfügbar sind. Denken Sie auch daran, welche Funktionen unter welcher Lizenz vom Anbieter freigeschaltet und erlaubt sind.
+
+#### BES.2.1.6 – Support- und Wartungsverträge
+
+**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.18
+
+> Beschaffungsmanagement für IT-Produkte SOLLTE den Bedarf an Support- und Wartungsverträgen basierend auf dem Schutzbedarf für Verfügbarkeit dokumentieren.
+
+Dies zielt auf den Abschluss von Support- und Wartungsverträgen für alle IT-Produkte ab, deren Verfügbarkeit nicht durch die Institution allein sichergestellt werden kann. Zur Ermittlung des Bedarfes können die Empfehlungen des jeweiligen Anbieters zu Wartungsintervallen herangezogen werden. Dabei kann es vorkommen, dass unterschiedliche Komponenten durchaus unterschiedliche Wartungsintervalle benötigen.
+
+### BES.2.2 – Dokumentation des Rechtsraums und der Datenlokation
+
+**Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.18, G 0.37
+
+> Beschaffungsmanagement für Cloud-Dienste SOLLTE Rechtsraum und Datenlokation dokumentieren.
+
+Beispielsweise könnte die Datenlokation auf europäische Standorte eingeschränkt sein, während der Anbieter seinen Hauptsitz im außereuropäischen Rechtsraum hat und daher nicht der DSGVO unterliegt. Werden keine Daten aus dem Informationsverbund verarbeitet, so ist die Anforderung entbehrlich.
+
+### BES.2.3 – Vereinbarung des Rechtsraums und der Datenlokation
+
+**Stufe:** `erhöht` · **Aufwand:** 4 · **Gefährdungen:** G 0.18
+
+> Beschaffungsmanagement für Cloud-Dienste KANN Rechtsraum und Datenlokation mit dem Anbieter vereinbaren.
+
+Beispielsweise könnte die Datenlokation auf europäische Standorte eingeschränkt sein, während der Anbieter seinen Hauptsitz im außereuropäischen Rechtsraum hat und daher nicht der DSGVO unterliegt. Werden keine Daten aus dem Informationsverbund verarbeitet, so ist die Anforderung entbehrlich.
+
+### BES.2.4 – Anhörung Nutzender
+
+**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.18
+
+> Beschaffungsmanagement für Einkäufe SOLLTE Nutzende bei der Bedarfserfassung anhören.
+
+Werden IT-Produkte oder Dienstleistungen für eine Zielgruppe beschafft, so ist es zweckmäßig, Vertreter dieser Zielgruppe in die Erhebung der Beschaffungskriterien mit einzubeziehen. Dies kann durch die Anhörung aller potenziellen Nutzer, z.B. durch eine Umfrage, oder durch die Anhörung bestimmter Personen oder Rollen aus dem Kreis der Nutzenden (z.B. Fachverantwortliche, Testgruppen oder Stichproben) erfolgen.
+
+### BES.2.5 – Anhörung Administrierender
+
+**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.18
+
+> Beschaffungsmanagement für Einkäufe SOLLTE Administrierende bei der Bedarfserfassung anhören.
+
+Ohne diese Einbindung könnte etwa eine Fachabteilung Systeme einkaufen, die keine sicheren Schnittstellen bieten, nicht mit bestehenden Sicherheitsrichtlinien kompatibel sind oder schwer zu administrieren sind, was später zu kostspieligen Nacharbeiten oder Sicherheitslücken führen könnte. Eine rechtzeitige Beteiligung kann hingegen gewährleisten, dass Produkte aus administrativer Sicht wartbar, updatefähig und kompatibel mit etablierten Sicherheitsmechanismen sind. Die Anforderung kann durch verschiedene Maßnahmen praktisch umgesetzt werden: (1) Ein definiertes Beschaffungsformular kann Eingabefelder enthalten, in denen die fachliche Einschätzung von Administrierenden dokumentiert werden kann. (2) Eine Checkliste mit Mindestkriterien wie Updatefähigkeit, Protokollierungsoptionen oder Berechtigungssteuerung kann bei jeder Bedarfserfassung hinzugezogen werden. (3) Ein kurzer, standardisierter Freigabeprozess über ein Ticket- oder Workflow-System kann sicherstellen, dass vor der endgültigen Beschaffung eine Rückmeldung aus administrativer Sicht eingeholt wird. (4) Zur Effizienzsteigerung kann eine Wissensdatenbank mit Erfahrungswerten zu bereits genutzten Produkten gepflegt werden, sodass Administrierende wiederkehrende Anforderungen schneller einschätzen können.
+
+### BES.2.6 – Outsourcing auf Grundlage der Geschäftsprozessprofile
+
+**Stufe:** `erhöht` · **Aufwand:** 4 · **Gefährdungen:** G 0.18
+
+> Beschaffungsmanagement für Outsourcing KANN Outsourcingverträge auf Grundlage der Geschäftsprozessprofile durch die Leitung autorisieren.
+
+Das Outsourcing eigener (Teil-)Prozesse ist eine bewusste und häufig folgenreiche Entscheidung - auch für die die eigene Kontrolle der Informationssicherheit. Die Entscheidung kann sich am festgestellten Schutzbedarf oder Risikoprofil der Institution und der betroffenen Geschäftsprozesse orientieren. Die Entscheidung durch die Leitung bezieht sich hier auf die Frage, ob Outsourcing von der Institution grundsätzlich gewollt ist und welche (Teil-)Prozesse ausgelagert werden können oder in der Institution verbleiben. Diese kann konkrete Geschäftsprozesse benennen, aber auch anhand allgemeiner Kriterien getroffen werden (z.B. Keine Auslagerung von Geschäftsprozessen mit hohem Schutzbedarf).
+
+## BES.3 Auswahl von Lieferanten
+
+### BES.3.1 – Klassifizierung von Lieferantenbeziehungen
+
+**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.18
+
+> Beschaffungsmanagement für Einkäufe SOLLTE Lieferantenbeziehungen einer Klasse zuweisen.
+
+Klasse meint hier eine Einstufung der Lieferantenbeziehung aus dem Blickwinkel der Informationssicherheit. Dies ermöglicht den Mitarbeitern der Institution eine schnelle und korrekte Abschätzung, welche Informationen dem Lieferanten gegenüber preisgegeben werden dürfen. Die Klassen können sowohl anhand einer Einstufung der Daten (z.B. Preisgabe von Verschlussachen oder nicht), als auch anhand der Funktion aus Sicht der Institution (z.B. Finanzdienstleister, Versorgungseinrichtungen, Cloud, Logistik, Lieferant von IT-Produkten) gewählt werden. Es empfiehlt sich auch das Herkunftsland oder nachrichtendienstliche Erkenntnisse über den Lieferanten mit in die Bewertung einfließen zu lassen.
+
+### BES.3.2 – Auswahlkriterien
+
+**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.18
+
+> Beschaffungsmanagement für Einkäufe SOLLTE die Auswahl von Lieferanten anhand von Kriterien zu ihrer Verlässlichkeit verankern.
+
+Beispielsweise durch Marktanalysen, Kundenreferenzen, Zertifizierungen, Begutachtungen oder Audits. Hierzu können z.B. Entwicklungsprozesse, Verschlüsselung oder Anonymisierung vertraulicher Daten, Schlüsselmanagement, Authentifizierung von Zugriffen, Wiederherstellung nach Vorfällen oder die Evaluation der sicheren Verarbeitung gehören. Auch die Prüfung auf finanzielle Stabilität des Lieferanten ist zu empfehlen. Ein finanziell instabiler Lieferant stellt ein erhebliches Risiko für die Geschäftskontinuität dar, da er möglicherweise den Betrieb einstellt, Supportleistungen nicht mehr erbringen kann oder von einem Unternehmen mit unklaren Sicherheitsstandards übernommen wird.
+
+#### BES.3.2.1 – Zertifizierte Lieferanten
+
+**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.18
+
+> Beschaffungsmanagement für Einkäufe KANN die Auswahl von Lieferanten anhand von Zertifikaten, Testaten oder Vergleichbarem verankern.
+
+Ein „Zertifikat“ ist in diesem Kontext ein formaler Nachweis durch eine akkreditierte, unabhängige Stelle, dass bestimmte Anforderungen oder Standards erfüllt werden (z. B. ISO/IEC-Normen). Ein „Testat“ kann die schriftliche Bestätigung einer fachkundigen Prüfstelle darstellen, dass ein Prozess oder System in definierten Punkten geprüft und als konform bewertet wurde. Vergleichbare Nachweise können Berichte von Audits, externe Gutachten oder auch dokumentierte Ergebnisse standardisierter Sicherheitstests sein. Eine Institution kann die Anforderung konkret umsetzen, indem sie in Ausschreibungen eine Liste akzeptierter Zertifikate (z. B. ISO 27001, ISO 9001, SOC 2), Testate (z. B. C5 für Cloud-Dienste) oder vergleichbarer Nachweise (z. B. Penetrationstest-Reports durch Dritte) benennt. Hilfreich kann es sein, Mindestgültigkeitszeiträume für Nachweise zu definieren, stichprobenartige Plausibilitätsprüfungen der Dokumente vorzunehmen oder in Bewertungsmatrizen höhere Gewichtungspunkte für aktuelle und unabhängige Nachweise zu vergeben. Zusätzlich kann ein einfacher Maßnahmenkatalog etabliert werden, der (1) überprüft, ob Nachweise aktuell und gültig sind, (2) die Relevanz für den konkreten Leistungsumfang bewertet und (3) die Ergebnisse nachvollziehbar dokumentiert, um Entscheidungen transparent und revisionssicher zu halten.
+
+#### BES.3.2.2 – Quellendiversifikation
+
+**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.11
+
+> Beschaffungsmanagement für Einkäufe KANN die Auswahl von Lieferanten anhand ihrer Fähigkeit, ihre Bezugsquellen zu diversifizieren und die Bindung an bestimmte Lieferanten zu begrenzen, verankern.
+
+Die Fähigkeit zur Diversifizierung von Bezugsquellen bedeutet in diesem Kontext, dass ein Lieferant nicht ausschließlich auf einzelne Hersteller, Produzenten oder Märkte angewiesen ist, sondern alternative Beschaffungswege vorweisen kann. Die Bindung an bestimmte Lieferanten beschreibt eine Abhängigkeit, bei der zentrale Produkte oder Dienstleistungen faktisch nur von wenigen oder gar einem Anbieter bezogen werden können. Der Sinn dieser Anforderung liegt darin, die Risiken eines Vendor lock-in auf Seiten des Lieferanten zu begrenzen: Könnte ein Lieferant aufgrund geopolitischer Spannungen, wirtschaftlicher Probleme oder technischer Abkündigungen sich nicht mehr auf seine Zulieferer verlassen, so könnt er möglicherweise seine Leistungen nicht mehr erbringen, wodurch die Institution ohne Alternativen möglicherweise gravierende Ausfälle erleiden würde. Eine bewusste Auswahl nach Diversifizierungsfähigkeit kann die Versorgungssicherheit erhöhen und kritische Engpässe vermeiden.
+
+### BES.3.3 – Unzuverlässige Lieferanten
+
+**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.18
+
+> Beschaffungsmanagement für Einkäufe SOLLTE die Beschaffung aus einer unbekannten oder unzuverlässigen Quelle untersagen.
+
+Eine Quelle (z.B. ein Softwarelieferant) ist unzuverlässig, wenn zukünftig mit Verstößen gegen die Schutzziele Vertraulichkeit, Verfügbarkeit oder Integrität durch ihn zu rechnen ist (d.h. eine Prognose der Vertrauenswürdigkeit). Dies ist insbesondere der Fall, wenn erhebliche Verstöße gegen die Schutzziele durch ihn begangen worden sind oder Anzeichen dafür vorliegen, dass bei einer Verwendung mit solchen Verstößen zu rechnen ist.
+
+## BES.4 Auswahl von Produkten und Dienstleistungen
+
+### BES.4.1 – Klassifizierung von Beschaffungsvorhaben
+
+**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.20
+
+> Beschaffungsmanagement für Einkäufe SOLLTE dem Beschaffungsvorhaben eine Klasse zuweisen.
+
+Hierzu kann auf die Klassifizierung von Informationen zurückgegriffen werden, die vom zu beschaffenden Vertrag betroffen sind. Oft verfügen Lieferanten über eigene Klassifizierungsschemata, die sie wiederum mit bestimmten Sicherheitsregelungen und -mechanismen verknüpft haben. In diesem Fall bietet sich ein Mapping zwischen den institutionseigenen Klassen und denen des Lieferanten an. Weitere Informationen zur Festlegung möglicher Kriterien, inklusive einer Risikobeurteilung, können der ISO/IEC 27036-3 entnommen werden.
+
+### BES.4.2 – Dokumentation der Beschaffungskriterien
+
+**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.20, G 0.18, G 0.37
+
+> Beschaffungsmanagement für Einkäufe SOLLTE *[Kriterien]* für die Beschaffung dokumentieren.
+
+Beschaffungskriterien sind nachvollziehbare Bewertungsmaßstäbe, die bei der Anschaffung von IT-Produkten und Dienstleistungen berücksichtigt werden, um sicherzustellen, dass diese den Sicherheitsanforderungen der Institution entsprechen. Sie ergeben sich aus dem erfassten Bedarf (z.B. einer Beschreibung der Funktionen von IT-Produkten oder zu leistenden Diensten), sowie den Sicherheitsanforderungen an das zu beschaffende Produkt oder die Dienstleistung, die über das jeweilige Zielobjekt im Katalog gefiltert werden können. Beispiele für Beschaffungskriterien sind die Erfüllung definierter Sicherheitsstandards, Verschlüsselungsfähigkeiten, Authentifizierungsmechanismen, Autorisierungskonzepte, die Stärke der geforderten Mechanismen (z.B. Mehr-Faktor-Authentifizierung), Verfügbarkeitsgarantien (SLAs), Umfang und Qualität der Dokumentation, Regelungen zur Prüfung oder Überwachung der Sicherheitskontrollen, sowie Einsatzbedingungen wie Temperatur oder mobile Konnektivität. Relevant ist dabei der gesamte Lebenszyklus von Vertragsschluss über Entwicklung von Lösungen bis hin zu Regelungen für Kündigungen. Zu den Kriterien können auch Negativkriterien gehören, die eine Beschaffung verhindern würden (z.B. "Keine Komponenten von der unmittelbaren Konkurrenz oder aus Staaten von denen bekannt ist, dass sie Spionage gegen den Sektor der Institution betreiben"). Je nach Beschaffung kann dafür eine Beschreibung von Informationen und Methoden zur Bereitstellung oder zum Abruf der Informationen relevant sein, sowie eine Beschreibung bestimmter technischer Eigenschaften eines Systems oder einer Anwendung. Zur Umsetzung bietet es sich an, standardisierte Vertragsvorlagen für neue Verträge zu verwenden. Bei individuellen Verträgen, die einzelne Sicherheitskontrollmechanismen festlegen, bietet sich ein Austausch von Beschreibungen der Mechanismen über strukturierte Datenformate wie OSCAL an. Weitere Informationen zur Festlegung möglicher Kriterien, inklusive einer Risikobeurteilung, können der ISO/IEC 27036-3 entnommen werden.
+
+### BES.4.3 – Beschaffung anhand der Kriterien
+
+**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.20
+
+> Beschaffungsmanagement für Einkäufe SOLLTE die Beschaffung anhand der festgelegten Kriterien verankern.
+
+Werden Waren, Systeme oder Dienstleistungen ohne überprüfbare Kriterien beschafft, kann dies zu Sicherheitslücken, finanziellen Schäden oder Abhängigkeiten führen. Beispielsweise könnte eine Institution Hardware von einem unbekannten Anbieter erwerben, deren Firmware Schadcode enthält, oder Cloud-Dienste nutzen, die ihre Datenhaltung in unsicheren Rechtsräumen vornehmen. Ebenso könnte ein IT-Dienstleister beauftragt werden, ohne dass geprüft wurde, ob er über angemessene Qualifikationen oder Referenzen verfügt, was im Ernstfall zu Ausfällen oder Datenverlust führen könnte.
+
+### BES.4.4 – Vertragsvorlage für Outsourcing
+
+**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.20
+
+> Beschaffungsmanagement für Outsourcing SOLLTE Kriterien für Outsourcing-Dienstleistungen in einer standardisierten Richtlinie für Verträge dokumentieren.
+
+Eine standardisierte Richtlinie für Verträge enthält klare grundlegende Kriterien für Verträge mit Anbietenden von Outsourcing , etwa zu Datenlokationen, Test- und Freigabeverfahren, Compliance-Risiken bei Anbietenden von Outsourcing sowie bei Sub-Dienstleistenden, sowie weiteren Aspekte der Informationssicherheit für Outsourcing-Vorhaben. Der besondere Fokus auf Outsourcing ergibt sich daraus, dass hierbei nicht nur Werk- oder Dienstleistungen zugekauft werden, sondern sensible Prozesse oder Daten langfristig aus der direkten Kontrolle der Institution herausgegeben werden. Ohne standardisierte Kriterien könnte ein eigenhändisch formulierter Vertrag z. B. unpräzise Datenschutzregelungen enthalten, was im Vorfallfall dazu führen könnte, dass vertrauliche Daten in ein unsicheres Drittland gelangen oder dass bei Ausfällen keine klaren Eskalationswege bestehen.
+
+### BES.4.5 – Security by Design
+
+**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.20
+
+> Beschaffungsmanagement für Einkäufe SOLLTE Security by Design vereinbaren.
+
+Security by Design gilt als vereinbart, wenn eine Vorgehensweise nach diesem Prinzip oder eine bestimmte Sicherheitsarchitektur Vertragsbestandteil geworden sind, unabhängig von der Frage, von welchem Vertragspartner dies in den Vertrag eingebracht wurde. Zu einer Sicherheitsarchitektur gehören beispielsweise eine Beschreibung der bereitgestellten Schnittstellen und deren Sicherheitsmechanismen, ein Architekturdiagramm, sowie Schemata zum Aufbau von Komponenten oder von Quellcode.
+
+#### BES.4.5.1 – Entwicklung nach einem Sicherheitslebenszyklus
+
+**Stufe:** `erhöht` · **Aufwand:** 4 · **Gefährdungen:** G 0.20
+
+> Beschaffungsmanagement für IT-Produkte KANN Nachweise zur Entwicklung nach einem Sicherheitslebenszyklus vereinbaren.
+
+Ein Sicherheitslebenszyklus (engl. security development lifecycle, kurz SDL) besteht aus strukturierten Entwicklungsphasen, in denen Sicherheitsaspekte systematisch in Planung, Design, Implementierung, Test und Wartung eines IT-Produkts integriert werden. Solche Nachweise können etwa BSI-Zertifizierungen oder Dokumentationen einer vom Lieferanten unabhängigen Auditierung von Bedrohungsanalysen (threat modeling), sicheren Programmierpraktiken (secure coding guidelines), oder Ergebnissen von Penetrationstests umfassen. Ziel ist, nachprüfbar zu belegen, dass das Produkt nicht nur funktional, sondern auch sicherheitsseitig kontrolliert entwickelt wurde. Fehlt ein solcher Nachweis, könnte ein Produkt Schwachstellen enthalten, die später zu unbemerkten Manipulationen oder Datenabflüssen führen. Ein dokumentierter Sicherheitslebenszyklus kann dagegen Vertrauen in die Integrität, Belastbarkeit und Wartbarkeit eines Produkts schaffen. Die Vereinbarung entsprechender Nachweise kann beispielsweise über standardisierte Sicherheitsanforderungen in Ausschreibungsunterlagen, die Vorlage von Entwicklungsrichtlinien nach ISO/IEC 27034 oder NIST SP 800-218, oder die Anerkennung von Zertifikaten wie Common Criteria erfolgen. Alternativ kann die Institution bei kleineren Anbietern auch stichprobenartige Sicherheitsreviews, Entwicklerbefragungen oder Auditberichte als geeignete Nachweisvarianten akzeptieren.
+
+#### BES.4.5.2 – Mandantentrennung
+
+**Stufe:** `erhöht` · **Aufwand:** 4 · **Gefährdungen:** G 0.20, G 0.14, G 0.19, G 0.29
+
+> Beschaffungsmanagement für Outsourcing KANN eine festgelegte Mandantentrennung vereinbaren.
+
+Eine Mandantentrennung bezeichnet die Trennung schützenswerter Daten und Verarbeitungskontexte zwischen verschiedenen Mandanten, also den Kunden des Anbieters. Eine festgelegte Mandatentrennung meint hier, dass der Anbieter Informationen über die konkret von ihm zur Mandantentrennung getroffenen Maßnahmen bereitstellt. Hierzu gehören insbesondere Informationen darüber, welche Daten oder Funktionen als mandantenabhängige oder mandantenübergreifende Daten behandelt werden.
+
+### BES.4.6 – Security by Default
+
+**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.20, G 0.22, G 0.23
+
+> Beschaffungsmanagement für Einkäufe SOLLTE Security by Default vereinbaren.
+
+Der Detaillierungsgrad der Kriterien kann sich hierbei nach Umfang und Klassifizierung der Beschaffung richten. Bei einfachen Beschaffungen von geringer Bedeutung kann es ausreichend sein grundlegende Sicherheitsmechanismen wie Verschlüsselung und Authentifizierung zu vereinbaren, während bei umfangreichen oder anderweitig risikobehafteten Beschaffungen eine Vereinbarung einzelner Sicherheitsmechanismen sinnvoll ist.
+
+#### BES.4.6.1 – Authentifizierung des Kunden
+
+**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.20, G 0.21, G 0.22
+
+> Beschaffungsmanagement für Dienstleistungen SOLLTE eine Authentifizierung vor dem Zugriff auf schützenswerte Informationen oder Dienste vereinbaren.
+
+Sinnvoll ist es sich hierbei sich auf konkrete Authentifizierungsmethoden (z.B. Kundenkennwort, OTP oder Passkeys) zu einigen, mit denen authentifiziert wird, bevor der Lieferant jemandem Zugriff auf Daten oder Prozesse wie den Versand einer neuen SIM-Karte gibt, um Angriffe wie SIM Swapping zu verhindern.
+
+#### BES.4.6.2 – Verschlüsselung durch den Anbieter
+
+**Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.20, G 0.21, G 0.22
+
+> Beschaffungsmanagement für Outsourcing SOLLTE die Verschlüsselung schützenswerter Informationen durch den Anbieter vereinbaren.
+
+Hiermit ist die Ablageverschlüsselung (at rest) und die Transportverschlüsselung (in transit) gemeint. Die Transportverschlüsselung ist dabei sowohl für die Verbindung zum Outsourcing-Dienstleister, als auch bei der Übertragung innerhalb des Dienstleisternetzes vorzunehmen.
+
+#### BES.4.6.3 – Manipulationsschutz
+
+**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.21, G 0.22, G 0.20
+
+> Beschaffungsmanagement für IT-Produkte KANN Schutzmechanismen gegen Manipulationen auf dem Lieferweg vereinbaren.
+
+Bei physischen Produkten können hierfür Siegel oder schwer fälschbare Kennzeichnungen verwendet werden, während bei Software und Daten kryptographische Prüfsummen oder digitale Signaturen eingesetzt werden können.
+
+### BES.4.7 – ISMS beim Dienstleister
+
+**Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.20, G 0.11, G 0.25
+
+> Beschaffungsmanagement für Outsourcing SOLLTE ein Managementsystem für Informationssicherheit (ISMS) vereinbaren.
+
+Ohne klare Vorgaben zum Managementsystem könnte ein Anbieter vertrauliche Daten unverschlüsselt übertragen, Sicherheitslücken in seiner Infrastruktur nicht rechtzeitig schließen oder sicherheitsrelevante Vorfälle nicht transparent melden. Durch abgestimmte Sicherheitsstandards kann dagegen die Vertraulichkeit von Daten gewahrt, die Integrität von Prozessen gesichert und die Nachvollziehbarkeit bei Vorfällen verbessert werden. Das Vorhandensein lässt sich durch ein Zertifikat nachweisen, z.B. nach ISO/IEC 27001:2022 oder BSI IT-Grundschutz.
+
+### BES.4.8 – Konformitätsnachweise
+
+**Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.20
+
+> Beschaffungsmanagement für Einkäufe SOLLTE Nachweise des Lieferanten zur Erfüllung der Sicherheitskriterien vereinbaren.
+
+Nachweise können z.B. durch eine passende Zertifizierung (etwa nach IT-Grundschutz bei Dienstleistern oder CCRA bei IT-Produkten), ein Testat (z.B. C5-Testat für Cloud-Anbieter), oder durch die Vorlage von Sicherheitskonzepten, Risikoanalysen und Pentesting-Ergebnissen erbracht werden.
+
+#### BES.4.8.1 – Zertifizierung
+
+**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.20
+
+> Beschaffungsmanagement für Einkäufe KANN ein Zertifikat oder Testat nach *[einem passenden Sicherheitsstandard]* vereinbaren.
+
+Ein Zertifikat ist eine unabhängige Bestätigung der Konformität, die von einer akkreditierten Konformitätsbewertungsstelle (wie z.B. einer Zertifizierungsstelle) ausgestellt wird, nachdem diese die Konformität eines Produkts, einer Dienstleistung, eines Prozesses oder eines Managementsystems mit bestimmten Normen oder Anforderungen bestätigt hat. Die Art des Zertifikates richtet sich dabei nach der Art der geplanten Beschaffung. IT-Produkte können z.B. nach Common Criteria zertifiziert werden. Bei Dienstleistungen kann ein zertifiziertes Managementsystem für Informationssicherheit (nach IT-Grundschutz oder ISO/IEC 27001) vereinbart werden. Ein Testat wäre z.B. C5.
+
+#### BES.4.8.2 – Cloud-Konformität
+
+**Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.20, G 0.18
+
+> Beschaffungsmanagement für Cloud-Dienste SOLLTE einen Konformitätsnachweis durch Dritte vereinbaren.
+
+Beispielsweise durch ein C5 Testat. Hierbei ist zu prüfen, ob der Geltungsbereich und der Schutzbedarf die genutzten Clouddienste erfasst (Auswertung des Nachweises). Dies gilt auch für Subdienstleister.
+
+#### BES.4.8.3 – IT-Grundschutz-Analyse der Infrastruktur
+
+**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.20
+
+> Beschaffungsmanagement für Outsourcing KANN eine IT-Grundschutz-Analyse der potenziell zu nutzenden Infrastruktur des Dienstleisters vereinbaren.
+
+Bei einer IT-Grundschutz-Analyse im Rahmen des Outsourcings wird an der potenziell zu nutzenden Infrastruktur des Dienstleisters eine IT-Grundschutz-Analyse (Strukturanalyse, Schutzbedarfsfeststellung, …) durchgeführt. Anschließend werden die sich daraus ergebenden Sicherheitsanforderungen als Beschaffungskriterien an den Dienstleister gestellt. Dies bietet sich an, wenn entweder ein besonders hohes Sicherheitsniveau angestrebt wird, oder der Dienstleister bislang über kein ISMS verfügt, obwohl die Institution umfangreiche Prozesse auslagern möchte.
+
+#### BES.4.8.4 – Offenlegung der Risikoanalyse
+
+**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.20
+
+> Beschaffungsmanagement für Outsourcing KANN eine Offenlegung der Risikoanalyse aus dem ISMS des Dienstleisters, soweit eine Risikoanalyse nach IT-Grundschutz-Vorgehensweise notwendig ist, vereinbaren.
+
+Eine Offenlegung ist hierzu nur erforderlich, soweit die Informationen für die Risikoanalyse des Auftraggebers erforderlich sind.
+
+### BES.4.9 – Sicherheitsüberprüfung (extern)
+
+**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.20
+
+> Beschaffungsmanagement für Einkäufe KANN Sicherheitsüberprüfungen für Personen, die vom Lieferanten mit der Vertragsdurchführung beauftragt werden, vereinbaren.
+
+Eine Sicherheitsüberprüfung meint die Verifikation von Identität, beruflicher Qualifikation und Verlässlichkeit von allen Personen mit Zugriff auf schützenswerte Informationen, hier konkret des beauftragten Personal des Lieferanten. Die Sicherheitsüberprüfung kann je nach Vereinbarung vom Lieferanten oder dem Auftraggeber ausgeführt werden. Die Verlässlichkeit kann z.B. anhand eines polizeilichen Führungszeugnisses und einer OSINT-Recherche verifiziert werden. Hierbei besteht ein enger Bezug zum Persönlichkeits- und Datenschutzrecht der Betroffenen.
+
+## BES.5 Auswahl von Produkten und Dienstleistungen - Zusammenarbeit
+
+### BES.5.1 – Kompetenzen
+
+**Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.20
+
+> Beschaffungsmanagement für Dienstleistungen SOLLTE Kompetenzen in Informationssicherheit, die von den Mitarbeitern des Lieferanten verlangt werden, vereinbaren.
+
+Dient dem Ziel, Risiken durch unzureichend geschultes Personal zu minimieren. Ohne solche Vorgaben könnte es dazu kommen, dass Dienstleister vertrauliche Daten versehentlich preisgeben, schwache Passwörter verwenden oder Phishing-Angriffe nicht erkennen. Durch die Vereinbarung von Mindestkompetenzen kann erreicht werden, dass Dienstleister Sicherheitsrichtlinien verstehen, Bedrohungen frühzeitig identifizieren und im Einklang mit den Schutzinteressen der Institution handeln. Im Kontext bedeutet Kompetenzen in Informationssicherheit, dass Mitarbeiter des Lieferanten über Wissen, Fähigkeiten und Verhalten verfügen, die erforderlich sind, um mit vertraulichen Informationen und IT-Systemen angemessen sicher umzugehen. Dies kann grundlegendes Verständnis für sichere Passwörter und mobile Geräte umfassen, aber auch Kenntnisse zu branchenspezifischen Sicherheitsverfahren oder zum Umgang mit sensiblen Kundendaten. Eine sinnvolle Umsetzung kann zum Beispiel beinhalten, dass die Institution in den Verträgen mit Lieferanten konkrete Mindestanforderungen an Schulungen und Zertifikate definiert, etwa: (1) Einführungsschulungen zu IT-Sicherheitsgrundlagen, (2) regelmäßige Auffrischungen zu Themen wie Social Engineering oder sichere Datennutzung, (3) Nachweise über spezielle Fachkenntnisse, wenn besonders sensible Daten verarbeitet werden. Praktisch kann eine Institution durch standardisierte Schulungsprogramme, die Überprüfung von Zertifikaten (z. B. ISO/IEC- oder BSI-bezogene Qualifikationen) oder durch kurze Wissens-Checks im Rahmen der Dienstleister-Onboarding-Prozesse sicherstellen, dass vereinbarte Kompetenzen tatsächlich vorhanden sind.
+
+### BES.5.2 – Service Level Agreement
+
+**Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.20
+
+> Beschaffungsmanagement für Outsourcing SOLLTE die Einhaltung einer bestimmten Dienstgüte anhand von *[Kriterien]* vereinbaren.
+
+Dienstgüte (engl. Service Quality oder Service Level) beschreibt das messbare Leistungsniveau, das ein externer Anbieter dauerhaft erbringen soll. Sie wird üblicherweise in Service Level Agreements (SLA) festgelegt und kann Aspekte wie Reaktionszeiten, Verfügbarkeiten, Fehlerraten oder Sicherheitsstandards betreffen. Die Kriterien können z. B. Verfügbarkeit (in %), maximale Wiederherstellungszeiten (Recovery Time Objective, RTO), Datensicherheitsmaßnahmen, Supportzeiten oder Nachweisintervalle für Penetrationstests sein. Der Zweck dieser Vorgabe liegt darin, Risiken unklarer Leistungs- oder Sicherheitsverantwortung zu vermeiden, die im Falle unpräziser oder fehlender Dienstgütezusagen zu Ausfällen, Datenverlusten oder unzureichenden Sicherheitsreaktionen führen könnten. Eine klar definierte und überprüfbare Dienstgüte kann dagegen Transparenz schaffen, die Vergleichbarkeit von Anbietern erleichtern und die Resilienz ausgelagerter Prozesse erhöhen. Dabei sind möglichst objektivierte, quantitative Kriterien deutlich nachvollziehbarer und eindeutiger als einfache Beschreibungen wie "gut". Ein Beipiel ist eine Mindestverfügbarkeit von 99% für einen Server, auf dem hochverfügbare Daten gespeichert werden. Neben einzuhaltenden Mindestkriterien bietet es sich hier auch an optionale Qualitätskriterien festzulegen, bei deren Erfüllung höhere Preise akzeptiert werden, um ein "Race to the bottom" im Wettbewerb der Anbieter um die Institution zu vermeiden, da ein rein preisorientierter Wettlauf auf Kosten der Sicherheit gehen könnte.
+
+### BES.5.3 – Compliance-Verpflichtungen
+
+**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.20
+
+> Beschaffungsmanagement für Einkäufe SOLLTE die Übereinstimmung mit Compliance-Verpflichtungen vereinbaren.
+
+Hierzu gehören beispielsweise der Schutz personenbezogener Daten, geistige Eigentumsrechte von interessierten Parteien oder Dritten. Aufgrund unterschiedlicher Rechtssetzung und -durchsetzung sind dabei insbesondere Verarbeitungsstandorte zwischen Inland, EU und außereuropäischem Ausland zu unterscheiden.
+
+### BES.5.4 – Informationssicherheitskontrollmechanismen
+
+**Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.20
+
+> Beschaffungsmanagement für Einkäufe SOLLTE Informationssicherheitskontrollmechanismen vereinbaren.
+
+Genaue und vollständige Beschreibung der Mechanismen, insbesondere zur Zugriffskontrolle durch Mehr-Faktor-Authentifizierung, Verschlüsselung von Daten beim Transport und bei der Speicherung, Härtung von Systemen, Überwachung sicherheitsrelevanter Ereignisse oder zum Schwachstellenmanagement.
+
+### BES.5.5 – Nutzungsregelungen
+
+**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.20
+
+> Beschaffungsmanagement für Dienstleistungen SOLLTE Regelungen zur Nutzung der Daten und damit verbundenen Assets vereinbaren.
+
+Hierzu zählen z.B. Zugriffsregelungen und Regelungen darüber unter welchen Bedingungen (Ort, Zeit, etc.) Daten genutzt werden dürfen. Darüber hinaus gehören auch Regelungen dazu, wann eine Nutzung aus Sicht der Institution explizit nicht akzeptabel ist.
+
+#### BES.5.5.1 – Datenlokationen
+
+**Stufe:** `erhöht` · **Aufwand:** 4 · **Gefährdungen:** G 0.20
+
+> Beschaffungsmanagement für Dienstleistungen KANN die Verarbeitung von Daten ausschließlich an von der Institution erlaubten Datenlokationen vereinbaren.
+
+Ziel ist es zu verhindern, dass vertrauliche Informationen in Staaten mit schwachem Datenschutz oder unter fremder Rechtsaufsicht verarbeitet werden. Ohne diese Festlegung könnte ein Dienstleister Daten an Subunternehmer in Drittländern weitergeben, wo staatliche Zugriffe oder unzureichende Sicherheitsmaßnahmen die Vertraulichkeit und Integrität der Daten gefährden könnten. Durch eine konsequente Beschränkung der Datenlokationen kann die Institution hingegen nachvollziehbare Sicherheits- und Rechtsrahmen schaffen, die Transparenz gegenüber Betroffenen erhöhen und das Risiko unkontrollierter Datenabflüsse verringern. Unter „Datenlokation“ ist in diesem Kontext der physische oder virtuelle Standort gemeint, an dem Daten gespeichert, verarbeitet oder übertragen werden – also Rechenzentren, Cloud-Regionen oder spezifische Länderzonen. Eine „erlaubte Datenlokation“ kann eine innerhalb der EU liegende Cloud-Region, ein zertifiziertes Rechenzentrum im eigenen Land oder ein dedizierter Bereich innerhalb eines Cloud-Anbieters sein. Die Institution kann dies umsetzen, indem sie (1) in Dienstleistungsverträgen präzise Angaben zu zulässigen Ländern oder Regionen vereinbart, (2) von Dienstleistern Nachweise wie technische Standortkontrollen oder Auditberichte einfordert und (3) bei Cloud-Diensten gezielt Konfigurationen wie „Data Residency“-Optionen, Geofencing oder restriktive Auswahl von Regionen einsetzt.
+
+#### BES.5.5.2 – Autorisierung der Zugriffsberechtigung
+
+**Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.20
+
+> Beschaffungsmanagement für Dienstleistungen SOLLTE Regelungen zur Autorisierung der Zugriffsberechtigung für Personal des Lieferanten anhand von *[Kriterien]* vereinbaren.
+
+Dies kann beispielsweise durch eine explizite Liste der Personen oder Rollen des Zulieferers, welche berechtigt sind, die Informationen der Institution und andere zugehörige Vermögenswerte zu nutzen, umgesetzt werden.
+
+### BES.5.6 – Vergabe von Unteraufträgen
+
+**Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.20
+
+> Beschaffungsmanagement für Einkäufe SOLLTE Regelungen für die Vergabe von Unteraufträgen vereinbaren.
+
+Unter einem „Unterauftrag“ versteht man in diesem Kontext die vollständige oder teilweise Weitergabe vertraglich geschuldeter Leistungen an Dritte, z.B. einem Subunternehmer (Subcontractor). Relevant ist, dass die Institution nicht nur mit dem direkten Vertragspartner in einer vertraglichen Beziehung steht, sondern durch Unteraufträge auch indirekt Abhängigkeiten und Risiken entstehen könnten. Ohne klare Vereinbarungen könnte es dazu kommen, dass Unterauftragnehmer geringere Sicherheitsstandards einhalten, vertrauliche Informationen unzureichend schützen oder den vereinbarten Leistungsumfang nicht vollständig erfüllen. Beispielsweise könnte ein IT-Dienstleister einen Teil der Softwareentwicklung an ein externes Team in einem Land mit niedrigeren Datenschutzstandards auslagern, was zu Datenabfluss, Urheberrechtsverletzungen oder unkontrollierten Zugriffswegen führt. Auch Lieferkettenmanipulationen, etwa durch den Austausch von Hardware-Komponenten gegen kompromittierte Bauteile, können so unbemerkt ihren Weg in kritische Systeme finden. Umgesetzt werden kann die Anforderung beispielsweise dadurch, dass (1) die Institution in Verträgen festhält, ob und in welchem Rahmen Unteraufträge zulässig sind. Eine weitere praxisnahe Maßnahme kann sein, (2) Subunternehmer nur nach vorheriger schriftlicher Zustimmung der Institution zuzulassen und dabei (3) bestimmte Kategorien wie kritische IT-Dienstleistungen oder Datenverarbeitung ausdrücklich zu kennzeichnen. Technisch kann vertraglich vereinbart werden, dass Subunternehmer mindestens gleichwertige Sicherheitsstandards nachweislich erfüllen und dies regelmäßig auditiert werden kann.
+
+#### BES.5.6.1 – Weitergabe der Beschaffungskriterien
+
+**Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.20
+
+> Beschaffungsmanagement für Einkäufe SOLLTE die Weitergabe der Beschaffungskriterien an Unterauftragnehmer vereinbaren.
+
+Dient dazu, sicherzustellen, dass die bei der Auswahl von Produkten, Dienstleistungen oder Lieferanten berücksichtigten Anforderungen entlang der gesamten Lieferkette eingehalten werden. Werden diese Kriterien nicht weitergegeben, kann es dazu kommen, dass sicherheitsrelevante Eigenschaften verloren gehen, etwa wenn ein Unterauftragnehmer günstigere, aber unsichere oder nicht konforme Komponenten beschafft. So könnte beispielsweise ein IT-Dienstleister ohne Kenntnis der geforderten Verschlüsselungsstandards Speichermedien einsetzen, die keine wirksame Datenverschlüsselung bieten, oder ein Bauunternehmen minderwertige Zutrittskontrollsysteme verbauen, weil die eigentlichen Sicherheitsvorgaben nicht bekannt waren. Auch Lieferverzögerungen, rechtliche Probleme durch fehlende Zertifizierungen oder das Einschleusen von Schadsoftware über ungesicherte Lieferungen können die Folge sein. Um die Weitergabe zu vereinfachen, können die Kriterien in einem maschinell verarbeitbaren Format (z.B. OSCAL Catalog oder Profile) ausgetauscht werden.
+
+#### BES.5.6.2 – Autorisierung von Unterauftragnehmern
+
+**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.20
+
+> Beschaffungsmanagement für Einkäufe KANN die Autorisierung von Unterauftragnehmern durch den Auftraggeber vereinbaren.
+
+Unterauftragnehmer sind in diesem Zusammenhang Dritte, die vom beauftragten Hauptdienstleister zur Erfüllung vertraglicher Leistungen hinzugezogen werden. Die Autorisierung von Unterauftragnehmern durch den Auftraggeber kann sicherstellen, dass keine unkontrollierten oder ungeprüften Dritten in die Leistungserbringung eingebunden werden. Ohne eine solche Regelung könnte ein Hauptauftragnehmer eigenmächtig Subunternehmen einsetzen, die unzureichende Sicherheitsstandards einhalten, intransparent agieren oder in kritische Abhängigkeiten geraten. Durch die vorherige Zustimmung des Auftraggebers kann das Risiko unzureichender Qualifikation oder fehlender Vertrauenswürdigkeit reduziert werden und es kann eine gezielte Steuerung erfolgen, wer Zugang zu vertraulichen Informationen oder kritischen Prozessen erhält.
+
+#### BES.5.6.3 – Nachverfolgbarkeit der Lieferkette
+
+**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.20
+
+> Beschaffungsmanagement für IT-Produkte KANN die Nachverfolgbarkeit der gesamten Lieferkette bis zum Hersteller für *[kritische Komponenten]* vereinbaren.
+
+Kritische Komponenten sind in diesem Kontext Bauteile oder Softwareelemente, deren Kompromittierung erhebliche Auswirkungen auf Sicherheit, Verfügbarkeit oder Integrität der eingesetzten Systeme haben könnte, z. B. kryptographische Module, Firmware von Netzwerkgeräten oder sicherheitsrelevante Steuerungseinheiten. Ohne nachvollziehbare Herkunft könnten Komponenten aus unsicheren Produktionsumgebungen stammen, in denen Hintertüren eingebaut oder Schadcode eingeschleust wurde; ebenso könnten gefälschte Ersatzteile eingesetzt werden, deren Qualität und Funktionssicherheit unzureichend ist. „Nachverfolgbarkeit“ (Traceability) bedeutet in diesem Zusammenhang die Möglichkeit, Herkunft, Transport- und Verarbeitungsschritte einer Komponente lückenlos und verifizierbar zu dokumentieren. Geeignete Maßnahmen können z. B. die Anforderung eines „Chain of Custody“-Protokolls, die Nutzung digital signierter Herkunftszertifikate oder die Einbindung seriöser, auditierter Distributoren sein. Auch der Einsatz von Datenbanken anerkannter Prüfinstanzen, in denen verifizierte Hersteller gelistet sind, kann eine Möglichkeit sein, die Nachverfolgbarkeit zu unterstützen.
+
+### BES.5.7 – Schulung
+
+**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.20
+
+> Beschaffungsmanagement für Einkäufe KANN eine Schulung zur Nutzung gelieferter Sicherheitsmechanismen vereinbaren.
+
+Sicherheitsmechanismen sind in diesem Kontext technische oder organisatorische Schutzfunktionen, die in gelieferten Produkten, Systemen oder Diensten bereits vorgesehen sind, beispielsweise Verschlüsselungsfunktionen, Zugriffskontrollen oder Protokollierungsfunktionen. Ziel der Anforderung ist es, dass diese Schutzfunktionen von den Mitarbeitenden der Institution auch tatsächlich verstanden und korrekt angewandt werden. Ohne entsprechende Schulung könnte es passieren, dass vorhandene Sicherheitsfunktionen ungenutzt bleiben oder falsch bedient werden, wodurch Daten kompromittiert oder unbefugt zugänglich werden könnten. Durch gezielte Unterweisungen kann das Potenzial solcher Mechanismen ausgeschöpft und die Widerstandsfähigkeit gegenüber Angriffen oder Fehlbedienungen erhöht werden. Die Umsetzung kann pragmatisch gestaltet werden: (1) Eine Institution kann bei der Lieferung von IT-Systemen mit dem Hersteller oder Dienstleister eine kurze Einweisung in die sicherheitsrelevanten Funktionen vereinbaren, beispielsweise zur richtigen Konfiguration einer Multifaktor-Authentisierung. (2) Bei komplexeren Produkten kann die Institution Trainingsmaterialien wie Handbücher, Videos oder interaktive Tutorials anfordern, die auf den Einsatz der bereitgestellten Sicherheitsfunktionen zugeschnitten sind. (3) Zusätzlich kann es hilfreich sein, eine kurze Praxisübung im Rahmen der Abnahme durchzuführen, in der Schlüsselmechanismen wie sichere Passwortänderung oder Rechtevergabe ausprobiert werden. Die Schulung kann je nach Bedarf als Vor-Ort-Einweisung, Remote-Sitzung oder durch strukturierte E-Learning-Module erfolgen.
+
+### BES.5.8 – Rechte für geistges Eigentum
+
+**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.20
+
+> Beschaffungsmanagement für Dienstleistungen SOLLTE für geistiges Eigentum, das während der Vertragslaufzeit entwickelt wird, die Eigentumsrechte vereinbaren.
+
+Geistiges Eigentum meint hier alle während der Vertragslaufzeit entstehenden immateriellen Schutzgüter wie Softwarecode, Datenmodelle, Konzepte, technische Dokumentationen oder urheberrechtlich geschützte Inhalte, die im Rahmen der Dienstleistungserbringung entwickelt oder verbessert werden. Der Sinn und Zweck einer vertraglichen Regelung der Eigentumsrechte liegt darin, sicherzustellen, dass die Institution dauerhaft Kontrolle und Nutzungsrechte über Ergebnisse behält, die für ihren Betrieb oder ihre Weiterentwicklung relevant sind. Ohne klare Festlegung könnte es zu Konflikten kommen, wenn ein Dienstleister etwa nach Projektende die weitere Nutzung einer entwickelten Lösung untersagt oder hohe Lizenzgebühren verlangt; eine vertragliche Klarheit kann dagegen rechtliche Auseinandersetzungen und Abhängigkeiten verhindern. Eine Umsetzung kann über konkrete Vertragsklauseln erfolgen, die präzise definieren, welche Partei Eigentum oder Nutzungsrechte an entwickelten Ergebnissen erhält und ob bestimmte Elemente (z. B. Standardbibliotheken des Dienstleisters) ausgenommen sind. Dazu kann die Institution (1) standardisierte Vertragsvorlagen mit abgestuften Rechtemodellen nutzen, (2) ein internes Prüfschema für alle externen Verträge etablieren, das die Einbindung der Rechtsabteilung vorsieht, und (3) bei komplexen Entwicklungsleistungen technische Dokumentationspflichten verankern, damit Eigentums- und Nutzungsrechte nachvollziehbar abgesichert sind. Praktisch kann es helfen, im Vertrag eine Übergabepflicht sämtlicher Quelltexte, Dokumentationen oder Zugangsdaten vorzusehen und diese an definierte Projektmeilensteine zu koppeln.
+
+### BES.5.9 – Umgang mit Änderungen
+
+**Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.20
+
+> Beschaffungsmanagement für Dienstleistungen SOLLTE Regelungen für den Umgang mit Änderungen vereinbaren.
+
+Unkontrollierte oder unklare Änderungen bringen Risiken für die Verfügbarkeit, Integrität oder Vertraulichkeit von Informationen mit sich – etwa wenn ein Dienstleister plötzlich eine neue Softwareversion einführt, ohne die Auswirkungen auf Schnittstellen zu prüfen. Vereinbarte Prozesse für den Umgang mit Änderungen können dagegen sicherstellen, dass Abhängigkeiten transparent bleiben und Risiken im Vorfeld bewertet werden. Zur Umsetzung kann eine Institution mit Dienstleistern definieren, dass Änderungen vorab angekündigt und dokumentiert werden, z. B. durch ein Ticket- oder Freigabe-System, das beide Seiten einsehen können. Es kann hilfreich sein, verschiedene Kategorien von Änderungen (z. B. Standardänderungen, Notfalländerungen, größere Releases) zu vereinbaren und abhängig von der Kritikalität unterschiedliche Prüf- und Genehmigungsschritte festzulegen. Transparenz kann durch regelmäßige Änderungsberichte oder Dashboards erreicht werden, die auch historische Änderungen nachvollziehbar machen. Praktische Maßnahmen können sein: (1) Einführung eines Test- und Abnahmefensters vor produktiven Änderungen, (2) Einsatz von Versionskontrolle oder Änderungsprotokollen, um Auswirkungen gezielt zurückverfolgen zu können, (3) Einrichtung klarer Kommunikationswege, damit die Institution rechtzeitig von geplanten Änderungen erfährt und eigene Schutzmaßnahmen – etwa zusätzliche Backups – vorbereiten kann.
+
+#### BES.5.9.1 – Autorisierung von Änderungen
+
+**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.20, G 0.18
+
+> Beschaffungsmanagement für Dienstleistungen KANN die Autorisierung von Änderungen durch den Auftraggeber vereinbaren.
+
+Die Autorisierung von Änderungen bedeutet in diesem Kontext, dass die Institution mit einem Dienstleister vereinbart, dass geplante Anpassungen – etwa an Prozessen, Konfigurationen, Infrastruktur oder Vertragsbedingungen die zur Vertragserfüllung verwendet werden– vor ihrer Umsetzung explizit durch den Auftraggeber bestätigt werden. Damit ist nicht nur die formale Vertragsänderung gemeint, sondern auch technische oder organisatorische Änderungen, die mittelbar Auswirkungen auf Sicherheit, Verfügbarkeit oder Integrität von Daten und Diensten haben können. Der Zweck dieser Regelung liegt darin, die Kontrolle über den Einflussbereich des Dienstleisters zu behalten: Ohne solche Vereinbarungen könnte ein Dienstleister eigenmächtig Anpassungen vornehmen, die unerwartete Schwachstellen einführen oder die Datenlokation verändern könnten. Zur Umsetzung kann die Institution mit dem Dienstleister praktikable Verfahren zur Änderungsfreigabe vereinbaren. Dies kann z. B. durch (1) die Einführung eines Freigabe-Workflows in einem Ticket- oder Change-Management-System erfolgen, (2) die Verpflichtung zu einer schriftlichen Änderungsmitteilung mit klaren Auswirkungen auf Sicherheit und Betrieb, sowie (3) die Festlegung, dass kritische Änderungen erst nach einer formellen Zustimmung des Auftraggebers in einem definierten Zeitfenster umgesetzt werden können. Ergänzend kann der Dienstleister angehalten werden, geplante Änderungen in einer Änderungsübersicht mit Versionsstand und Rückfalloptionen zu dokumentieren, sodass die Institution bewerten kann, ob Risiken oder Abhängigkeiten entstehen.
+
+### BES.5.10 – Behandlung von Vorfällen
+
+**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.20, G 0.18
+
+> Beschaffungsmanagement für Einkäufe SOLLTE Regelungen für die Behandlung von Vorfällen vereinbaren.
+
+Ein Vorfall bezeichnet in diesem Zusammenhang jedes sicherheitsrelevante Ereignis, das zu einer Beeinträchtigung der Vertraulichkeit, Integrität oder Verfügbarkeit von Informationen oder IT-Diensten führen kann, etwa Datenabflüsse, unbefugte Zugriffe oder längerfristige Systemausfälle. Der Sinn und Zweck der Regelung liegt darin, mit Vertragspartnern abgestimmte Verfahren zu haben, um im Ernstfall schnell und koordiniert reagieren zu können. Ohne klare Vereinbarungen könnte wertvolle Zeit verloren gehen, es könnten unklare Zuständigkeiten entstehen oder Meldungen verzögert erfolgen. Mit abgestimmten Prozessen kann dagegen die Schadensbegrenzung beschleunigt, Transparenz über den Vorfall geschaffen und eine wirksame Ursachenanalyse ermöglicht werden. Hierzu gehört insbesondere die Benachrichtigung des Vertragspartners und die Zusammenarbeit zur Behebung von Vorfällen.
+
+#### BES.5.10.1 – Erreichbarkeit über Meldewege
+
+**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.20
+
+> Beschaffungsmanagement für Einkäufe SOLLTE die Erreichbarkeit des Lieferanten über bestimmte Meldewege vereinbaren.
+
+Die Meldewege bezeichnen in diesem Zusammenhang klar definierte Kommunikationskanäle, über die ein Lieferant zuverlässig erreichbar ist. Das kann beispielsweise eine dedizierte E-Mail-Adresse für Sicherheitsvorfälle, ein 24/7-Telefonkontakt, ein Ticket-System oder ein abgesicherter Webzugang sein. Der Sinn dieser Vereinbarung liegt darin, dass kritische Ereignisse, wie etwa ein entdeckter Datenabfluss oder technische Störungen in ausgelagerten Systemen, nicht ins Leere laufen. Ohne abgestimmte Erreichbarkeit könnte eine Meldung verzögert oder gar nicht ankommen, wodurch Schaden an vertraulichen Informationen unbemerkt bleiben könnte. Mit verbindlich vereinbarten Kanälen kann die Institution hingegen sicherstellen, dass relevante Informationen zeitnah und nachweisbar beim Lieferanten ankommen und bearbeitet werden. Die Umsetzung dieser Anforderung kann durch mehrere Maßnahmen unterstützt werden: (1) Eine Institution kann im Vertrag mit dem Lieferanten eine feste Ansprechstelle und Eskalationsstufen für bestimmte Ereignisse benennen lassen. (2) Es kann ein technischer Meldeweg wie ein verschlüsseltes E-Mail-Postfach oder ein Ticketportal vorgesehen werden, das eindeutig den Zweck "Sicherheitsvorfälle" trägt und regelmäßig überwacht wird.
+
+#### BES.5.10.2 – Melden von Vorfällen
+
+**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.20
+
+> Beschaffungsmanagement für Einkäufe SOLLTE eine Verpflichtung zur unverzüglichen Information des Auftraggebers über ihn betreffende Vorfälle vereinbaren.
+
+Der Sinn dieser Regelung liegt darin, dass der Auftraggeber seine Handlungsfähigkeit behält und Risiken frühzeitig einschätzen kann. Ein verzögerter Informationsfluss könnte dazu führen, dass Schäden sich unbemerkt ausweiten oder notwendige Reaktionen, wie etwa die Unterbindung von Angriffspfaden, verspätet erfolgen. Eine rechtzeitige Mitteilung kann hingegen Transparenz schaffen und es ermöglichen, dass Gegenmaßnahmen in Koordination mit dem Auftraggeber wirksam eingeleitet werden. Die praktische Umsetzung kann durch klare vertragliche Regelungen erfolgen, in denen Eskalationswege und Fristen für Meldungen definiert werden. Dazu kann ein gemeinsames Kontakt- und Kommunikationsverfahren etabliert werden, etwa ein 24/7 erreichbarer Ansprechpartner oder eine dedizierte Notfalladresse für sicherheitsrelevante Meldungen. Technisch kann eine Schnittstelle (z. B. ein abgesicherter Meldekanal oder Ticket-System) eingerichtet werden, über die Vorfälle dokumentiert und weitergeleitet werden können.
+
+#### BES.5.10.3 – Schwachstellenbehebung
+
+**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.20
+
+> Beschaffungsmanagement für Einkäufe SOLLTE eine Verpflichtung für Lieferanten, die den Auftraggeber betreffende Schwachstelle zeitnah zu beheben, vereinbaren.
+
+Die Verpflichtung bezieht sich hierbei auf die gesamte Lebensdauer der Dienstleistungen oder Produkte. Je nach Vertrag kann die Behebung von Schwachstellen z.B. durch Sicherheitsupdates oder den Austausch von Komponenten gewährleistet werden.
+
+##### BES.5.10.3.1 – Schwachstellenmeldeprozess
+
+**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.20
+
+> Beschaffungsmanagement für IT-Produkte KANN einen Schwachstellenmeldeprozess nach *[einem anerkannten Standard]* vereinbaren.
+
+Die Anforderung ist erfüllt, wenn der Prozess zur Meldung und Behandlung von Schwachstellen für das zu beschaffende Produkt vertraglich zugesichert ist, unabhängig von der Frage durch wen die Klausel in den Vertrag eingebracht wurde. Der Schwachstellenmeldeprozess kann direkt durch den Lieferanten oder durch Weitergabe der Verpflichtung an den Hersteller gewährleistet sein. Für Details siehe BSI TR-03183-3.
+
+#### BES.5.10.4 – Konfliktlösungsprozesse
+
+**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.20
+
+> Beschaffungsmanagement für Einkäufe KANN Prozesse zur Lösung von Konflikten zwischen den Vertragsparteien vereinbaren.
+
+Ein „Konflikt zwischen den Vertragsparteien“ bedeutet hier jede Form von Uneinigkeit, die im Zuge eines Vertragsverhältnisses auftreten kann – etwa über die Auslegung von Leistungszusagen, den Umgang mit Verzögerungen, Qualitätsabweichungen oder Verantwortlichkeiten bei Sicherheitsvorfällen. Solche Konfliktlösungsprozesse können helfen, Missverständnisse strukturiert zu klären und Rechtsstreitigkeiten vorzubeugen. Das Ziel der Anforderung ist es, Risiken durch unklare Verantwortlichkeiten und eskalierende Streitigkeiten zu verringern: Ein ungelöster Konflikt könnte dazu führen, dass sicherheitsrelevante Leistungen nicht rechtzeitig erbracht werden, Vertragsinhalte unterschiedlich interpretiert werden oder sensible Daten im Streitfall unkontrolliert preisgegeben werden. Umgekehrt kann eine klar geregelte Konfliktlösungsroutine Transparenz schaffen, die Handlungsfähigkeit der Institution sichern und einen fairen Interessenausgleich fördern. Praktisch umgesetzt werden kann dies durch verschiedene Maßnahmen: (1) In Verträgen kann eine Schlichtungsklausel vorgesehen werden, die definiert, dass bei Meinungsverschiedenheiten zunächst ein moderiertes Gespräch oder ein Mediationsverfahren durchgeführt werden kann. (2) Es kann hilfreich sein, feste Eskalationspfade zu vereinbaren, zum Beispiel mit einer dreistufigen Struktur aus Projektleitung, Management-Ebene und unabhängiger Stelle. (3) Die Institution kann Checklisten nutzen, um im Konfliktfall die relevanten Dokumentationen – etwa Leistungsnachweise oder Kommunikationsprotokolle – geordnet vorzulegen. (4) Technische Hilfen wie gemeinsame Ticket- oder Kollaborationssysteme können Transparenz schaffen und verhindern, dass Konflikte durch unklare Informationslagen eskalieren.
+
+#### BES.5.10.5 – Konsequenzen bei Verstößen
+
+**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.20
+
+> Beschaffungsmanagement für Einkäufe KANN Abhilfemaßnahmen für den Fall von Verstößen durch den Lieferanten vereinbaren.
+
+Hierzu können Abhilfemaßnahmen wie die Abschaltung angreifbarer Systeme, die Information betroffener Personen sowie Entschädigungen für die betroffene Institution oder betroffene Dritte in einer festgelegten Höhe gehören.
+
+### BES.5.11 – Recht auf Audit
+
+**Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.29, G 0.20, G 0.18, G 0.37
+
+> Beschaffungsmanagement für Outsourcing SOLLTE ein Recht des Auftraggebers zur Überprüfung der Sicherheitsprozesse und -maßnahmen, die im Zusammenhang mit dem Vertrag stehen, vereinbaren.
+
+Je nach Vereinbarung kann die Umsetzung durch ein vom Auftraggeber durchgeführtes Audit, eine Revision (Second Party Audit) oder eine Auditierung durch Dritte (Third Party Audit), z.B. im Rahmen einer Zertifizierung, erfolgen.
+
+### BES.5.12 – Informationspflichten
+
+**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.20
+
+> Beschaffungsmanagement für Dienstleistungen SOLLTE eine Pflicht des Lieferanten, den Auftraggeber regelmäßig über die Wirksamkeit der Sicherheitsmaßnahmen zu informieren, vereinbaren.
+
+Im konkreten Kontext bedeutet Wirksamkeit, dass die vereinbarten Sicherheitsmaßnahmen des Lieferanten nicht nur formal existieren, sondern nachweislich den angestrebten Schutzzweck erfüllen – beispielsweise durch messbare Ergebnisse, dokumentierte Prüfberichte oder Nachweise aus internen Kontrollen. Der Auftraggeber ist hierbei die Institution, die eine Dienstleistung einkauft und deren Informationswerte geschützt werden sollen, während der Lieferant der erbringende externe Dienstleister ist, dessen Sicherheitspraktiken Einfluss auf diese Informationswerte haben. Regelmäßige Informationen können etwa Statusberichte, Prüfprotokolle oder Kennzahlen zu Sicherheitsvorfällen und deren Behandlung umfassen.
+
+### BES.5.13 – Bereitstellung von Datensicherungen
+
+**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.20
+
+> Beschaffungsmanagement für Dienstleistungen SOLLTE eine Verpflichtung des Lieferanten, Sicherungskopien regelmäßig bereitzustellen, vereinbaren.
+
+Der Zweck dieser Anforderung liegt in der Absicherung gegen Datenverlust durch technische Defekte, menschliche Fehler oder Schadsoftware. Ein fehlendes Backup könnte dazu führen, dass wichtige Kundendaten, Vertragsunterlagen oder Konfigurationsstände dauerhaft verloren gehen. Durch die vertragliche Verpflichtung zur Bereitstellung von Sicherungskopien kann die Institution ihre Datenhoheit behalten und Ausfälle oder Manipulationen deutlich schneller abfangen. Die Umsetzung kann beispielsweise so erfolgen, dass der Lieferant verpflichtet wird, Backups auf einem separaten, verschlüsselten Speichermedium bereitzustellen, welches der Institution in vereinbarten Intervallen übergeben wird. Zur Umsetzung kann ein Lieferant beispielsweise quartalsweise Berichte zu durchgeführten Penetrationstests, Schwachstellen-Scans oder Notfallübungen bereitstellen. Ebenso kann er standardisierte Dashboards mit Kennzahlen zu Sicherheitsvorfällen, Patchständen oder Awareness-Maßnahmen freigeben. Hilfreich kann auch sein, dass der Lieferant auf Anfrage gezielt Audit-Reports oder Zertifikate (z. B. SOC-2-Berichte, ISO 27001-Auditberichte) zur Verfügung stellt.
+
+#### BES.5.13.1 – Datenbereitstellung
+
+**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.20, G 0.25
+
+> Beschaffungsmanagement für Outsourcing KANN die Bereitstellung der beim Dienstleister verarbeiteten Daten in einem standardisierten Format vereinbaren.
+
+Kann das Risiko verringern, dass im Falle eines Anbieterwechsels, einer Vertragsbeendigung oder einer Notfallwiederherstellung Daten nur in proprietären oder unvollständig dokumentierten Formaten vorliegen. Ohne ein solches Format könnte eine Institution vor dem Problem stehen, dass bei einem unerwarteten Ausfall des Dienstleisters die Daten erst zeitaufwendig konvertiert werden müssen, was den Geschäftsbetrieb verzögert oder kritische Prozesse unterbricht.
+
+### BES.5.14 – Löschregeln
+
+**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.20
+
+> Beschaffungsmanagement für Outsourcing SOLLTE die Löschung von Daten während der Vertragslaufzeit im Einklang mit den Compliance-Verpflichtungen der Institution vereinbaren.
+
+Compliance-Verpflichtungen werden in der Praktik GC ermittelt. Die Umsetzung kann z.B. durch individuelle vertragliche Festlegung oder durch die Auswahl eines Dienstleisters, dessen Löschregelungen im Einklang mit den Compliance-Verpflichtungen stehen, erfolgen.
+
+## BES.6 Auswahl von Produkten und Dienstleistungen - Kündigung
+
+### BES.6.1 – Entziehung der Zugangsberechtigungen
+
+**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.20
+
+> Beschaffungsmanagement für Dienstleistungen SOLLTE die Entziehung der für den Vertrag relevanten Zugangsberechtigungen für den Fall einer Kündigung vereinbaren.
+
+„Zugangsberechtigungen“ meint hier die Gesamtheit aller physischen, logischen und administrativen Rechte, die externen Dienstleistern den Zugriff auf Systeme, Daten, Gebäude oder digitale Ressourcen der Institution ermöglichen. Dazu gehören sowohl Benutzerkonten und technische Schnittstellen als auch Zutrittskarten oder Remote-Zugänge über VPN. Der Sinn und Zweck der Vorschrift liegt darin, dass unautorisierte Zugriffe nach einer Vertragsbeendigung verhindert werden können. Ein ehemaliger Dienstleister könnte ansonsten weiterhin über aktive Accounts sensible Daten einsehen oder Systeme manipulieren, was zu Datenabfluss, Sabotage oder unbemerkten Veränderungen führen könnte.
+
+### BES.6.2 – Löschung von Daten
+
+**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.20
+
+> Beschaffungsmanagement für Dienstleistungen SOLLTE die Löschung aller beim Dienstleister vorhandenen Daten für den Fall einer Kündigung vereinbaren.
+
+Kündigung meint hier sowohl ordentliche als auch außerordentliche Kündigungen. Hierzu können z.B. die Rückgabe von Authentifizierungstoken oder Löschung aller Auftraggeberdaten nach Ablauf der gesetzlichen Aufbewahrungsfristen gehören. Relevant sind dabei neben Inhaltsdaten auch Metadaten, Lizenzen und weitere Zugriffsrechte.
+
+#### BES.6.2.1 – Löschverfahren
+
+**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.20, G 0.18
+
+> Beschaffungsmanagement für Dienstleistungen KANN ein Verfahren zur nicht wiederherstellbaren Löschung für den Fall einer Kündigung vereinbaren.
+
+Ein Verfahren zur nicht wiederherstellbaren Löschung bedeutet in diesem Kontext, dass Daten nach Beendigung einer Dienstleistungsbeziehung so entfernt werden, dass auch mit spezialisierten forensischen Methoden keine Rekonstruktion mehr möglich ist. Typische Verfahren reichen von mehrfachen Überschreibungen mit Zufallswerten über kryptographisches Löschen (Zerstörung der Schlüssel, die zur Entschlüsselung notwendig wären) bis hin zur physikalischen Zerstörung der Speichermedien. Die Regelung zielt darauf ab, das Risiko zu mindern, dass vertrauliche Daten nach einer Vertragskündigung bei einem Dienstleister verbleiben und unbefugt genutzt oder versehentlich offengelegt werden könnten. Ein Datenleck nach einem Providerwechsel könnte beispielsweise zu Identitätsdiebstahl, Industriespionage oder Reputationsschäden führen. Die Vereinbarung einer sicheren, nicht wiederherstellbaren Löschung kann sicherstellen, dass Informationen tatsächlich entfernt sind und keine Restkopien unkontrolliert in Umlauf geraten.
+
+### BES.6.3 – Übertragbarkeit von Daten
+
+**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.20
+
+> Beschaffungsmanagement für Dienstleistungen SOLLTE die Übertragbarkeit von Daten, Konfigurationen und der Funktionalität für den Fall einer Kündigung vereinbaren.
+
+Ohne eine solche Regelung kann es zu erheblichen Betriebsstörungen kommen, etwa wenn ein Dienstleister im Streitfall Daten nur in proprietären Formaten bereitstellt oder deren Übergabe verzögert. Dies könnte dazu führen, dass eine Institution den Betrieb nicht nahtlos mit einem neuen Anbieter fortsetzen kann, etwa bei Cloud-Diensten, Hosting oder SaaS-Lösungen. Auch kann der Verlust von Metadaten, Zugriffshistorien oder Konfigurationsdateien eintreten, was die Nachvollziehbarkeit und Funktionsfähigkeit stark einschränken könnte. Unter „Übertragbarkeit von Daten“ (Data Portability) versteht man in diesem Kontext die technische und organisatorische Fähigkeit, alle relevanten Daten in einem vollständigen, strukturierten und maschinenlesbaren Format an die Institution oder einen Nachfolger zu übertragen. Es geht dabei nicht nur um die Rohdaten, sondern auch um begleitende Informationen, die für die Wiederaufnahme des Betriebs an anderer Stelle erforderlich sind (Metadaten). Die Angemessenheit dieser Maßnahme bemisst sich daran, wie stark die Tätigkeit der Institution von den ausgelagerten Prozessen abhängt und wie groß die Auswirkungen einer verzögerten oder unvollständigen Rückgabe wären.
+
+### BES.6.4 – Übertragung von Supportdienstleistungen
+
+**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.20
+
+> Beschaffungsmanagement für Dienstleistungen KANN die Übergabe der Supportdienstleistungen für den Fall einer Kündigung vereinbaren.
+
+Die Übergabe der Supportdienstleistungen beschreibt in diesem Kontext die geordnete und dokumentierte Weitergabe von relevanten Informationen, Ressourcen und Zugängen durch einen externen Dienstleister an die Institution oder einen neuen Dienstleister, wenn ein Vertrag endet. Dazu gehören z. B. Dokumentationen zu Konfigurationen, Wartungsprotokolle, Zugangsdaten, Lizenzinformationen oder Ansprechpartnerketten. Ziel ist es, dass der Betrieb der unterstützten Systeme nach Vertragsende ohne Unterbrechung oder Informationsverlust fortgesetzt werden kann. Die Anforderung dient dazu, Risiken abzufedern, die entstehen, wenn bei einer Kündigung der Dienstleister abrupt ausscheidet. Ohne geregelte Übergabe könnte es passieren, dass wichtige Betriebsinformationen verloren gehen, der Zugriff auf Systeme blockiert wird oder die Institution abhängig von individuellem Wissen einzelner Personen bleibt. Die Übergabe kann entweder an die Institution selbst oder an einen von der Institution gewählten neuen Vertragspartner erfolgen. Um die Anforderung praktisch umzusetzen, kann eine Institution in Verträgen explizit eine Exit- oder Übergabeklausel verankern, die Inhalte, Formate und Fristen der Übergabe beschreibt. Diese Klausel kann beispielsweise definieren, dass (1) aktuelle System- und Betriebsdokumentationen vollständig zu übergeben sind, (2) Zugangsdaten in einem abgestimmten Verfahren gesichert bereitgestellt werden und (3) technische Ansprechpartner für eine Übergangsphase verfügbar bleiben.
+
+### BES.6.5 – Behandlung aufzubewahrender Aufzeichnungen
+
+**Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.20
+
+> Beschaffungsmanagement für Dienstleistungen SOLLTE Kontrollmechanismen zur Behandlung aufzubewahrender Aufzeichnungen für den Fall einer Kündigung vereinbaren.
+
+Der Begriff Kontrollmechanismen kann in diesem Kontext verstanden werden als vertraglich vereinbarte Verfahren, technische Maßnahmen oder organisatorische Vorkehrungen, die es der Institution ermöglichen, die Vollständigkeit, Integrität und Vertraulichkeit der betreffenden Aufzeichnungen sicherzustellen. Aufzubewahrende Aufzeichnungen bezeichnet hierbei jede Form von Daten oder Dokumenten – in physischer oder digitaler Form – die aufgrund gesetzlicher, vertraglicher oder interner Vorgaben über das Vertragsende hinaus (zumindest für einen bestimmten Zeitraum) vom Dienstleister aufbewahrt werden. Dabei kann es sich beispielsweise um Vertragsunterlagen, Protokolldateien oder Gesprächsprotokolle handeln, die etwa aus steuerlichen Gründen aufzubewahren sind.
+
+### BES.6.6 – Rückgewähr von Assets
+
+**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.20
+
+> Beschaffungsmanagement für Dienstleistungen SOLLTE die Rückgewähr von Assets für den Fall einer Kündigung vereinbaren.
+
+Rückgewähr bedeutet hier, dass sämtliche von der Institution bereitgestellte Werte – wie etwa IT-Systeme, Datenträger oder Papierkopien – bei Beendigung des Vertragsverhältnisses an die Institution zurückgegeben werden. Der Zweck liegt darin, unkontrollierten Weitergebrauch oder Missbrauch von Informationen und Ressourcen zu verhindern. So könnte etwa ein externer Dienstleister nach einer Kündigung weiterhin Zugriff auf sensible Daten behalten oder unbeabsichtigt alte Backup-Medien in seinem Besitz behalten, was zu Datenabflüssen oder unautorisierten Offenlegungen führen könnte. Eine klare Regelung kann dagegen sicherstellen, dass sämtliche Ressourcen nachvollziehbar wieder unter die alleinige Kontrolle der Institution gelangen und Vertraulichkeit sowie Integrität gewahrt bleiben. Für die Umsetzung kann es hilfreich sein, die Rückgabepflicht vertraglich zu konkretisieren und präzise Abläufe zu definieren. So kann die Institution (1) Inventarlisten führen, in denen alle übergebenen physischen Geräte, Datenträger oder Zutrittsmedien eindeutig aufgeführt werden, (2) Checklisten für die geordnete Rückführung bei Vertragsende einsetzen und (3) eine Rückgabequittung oder Übergabebestätigung durch den Dienstleister einfordern, die den ordnungsgemäßen Erhalt dokumentiert. Ergänzend kann die Institution Rückgabefristen und Verantwortlichkeiten im Vertrag festlegen sowie technische Maßnahmen wie die Sperrung von verlorenen oder nicht zurückgegebenen Zutrittskarten einplanen. Auch kann eine Abnahmeprüfung der zurückgegebenen Assets durch die Institution erfolgen, um sicherzustellen, dass diese vollständig und funktionsfähig übergeben wurden.
+
+## BES.7 Abnahme
+
+### BES.7.1 – Eingangskontrolle
+
+**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.26, G 0.18
+
+> Beschaffungsmanagement für Einkäufe SOLLTE erbrachte oder gelieferte Leistungen anhand von *[Kriterien zur Akzeptanz]* vor der ersten Verwendung testen.
+
+Durch eine Prüfung anhand von Akzeptanzkriterien wird sichergestellt, dass die erbrachten Dienstleistungen oder IT-Produkte den geforderten Beschaffungskriterien entsprechen. Die Akzeptanzkriterien können also den Beschaffungskriterien entsprechen oder deren Prüfung konkretisieren. Hierzu können verschiedene Methoden eingesetzt werden, etwa Stichproben, Sicherheitstests oder die Nachverfolgung der Lieferkette anhand von Seriennummern. Dabei besteht ein enger Zusammenhang zu den Praktiken Dienstleistersteuerung, sowie Änderungen und Tests.
+
+#### BES.7.1.1 – Test der Kompatibilität
+
+**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.26, G 0.18, G 0.28
+
+> Beschaffungsmanagement für Outsourcing SOLLTE die Kompatibilität des Dienstes mit dem Informationsverbund im Hinblick auf die Schnittstellen, die Netzanbindung, das Administrationsmodell und das Datenmanagementmodell testen.
+
+Die Regelung dient dazu, ungewollte Brüche oder Inkompatibilitäten zu vermeiden, die im Betrieb zu Sicherheits- oder Funktionsproblemen führen können. Ohne eine solche Überprüfung könnte z. B. eine unklare Rechtevergabe dazu führen, dass ein Dienstleister umfassendere Zugriffe erhält als notwendig, oder eine fehlerhafte Schnittstellenintegration könnte den Ausfall wichtiger Anwendungen nach sich ziehen. Umgekehrt kann eine saubere Prüfung sicherstellen, dass Outsourcing-Dienste nahtlos integriert, technisch handhabbar und im Betrieb kontrollierbar bleiben. Für die Bewertung der Kompatibilität sind dabei vier Aspekte besonders kritisch: Schnittstellen sind die technischen Übergabepunkte, an denen Systeme Daten austauschen oder Funktionen ansprechen; Netzanbindung bezeichnet die physische oder logische Verbindung zwischen dem Dienstleister und dem Informationsverbund der Institution; das Administrationsmodell beschreibt, wer welche Rechte zur Einrichtung, Änderung und Überwachung von Systemkomponenten hat; und das Datenmanagementmodell legt fest, wie Daten gespeichert, strukturiert, repliziert und gelöscht werden.
+
+#### BES.7.1.2 – Netzcheck
+
+**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.26, G 0.18
+
+> Beschaffungsmanagement für Outsourcing SOLLTE die Umsetzung der geforderten Beschaffungskriterien für die Netzanbindung vor der Netzanbindung testen.
+
+Netzanbindung meint hier jede Form der logischen oder physischen Kopplung von Netzwerken – etwa über VPN, MPLS, dedizierte Leitungen oder Cloud-Interconnects. Der Sinn dieser Vorschrift liegt darin, Risiken aus unsicheren oder ungetesteten Dienstleisterverbindungen zu minimieren. So könnte ein ungeprüfter Zugang über eine unsauber konfigurierte VPN-Schnittstelle Schadsoftware einschleusen oder interne Systeme unautorisiert zugänglich machen. Umgekehrt kann die vorgelagerte Prüfung sicherstellen, dass Verschlüsselung, Bandbreite, Trennung sensibler Netze oder auch Logging-Vorgaben wie vorgesehen funktionieren und dadurch ein sicherer, nachvollziehbarer Betrieb gewährleistet wird. Die Umsetzung kann durch mehrere Maßnahmen erfolgen: (1) Vor der Inbetriebnahme kann ein technischer Funktionstest durchgeführt werden, bei dem Firewalls, Routing und VPN-Tunnel anhand von Testaccounts überprüft werden. (2) Ein Abnahmetest durch die Institution kann beinhalten, dass simulierte Angriffe oder Fehlkonfigurationen (z. B. offene Ports) nachgestellt werden, um die Widerstandsfähigkeit des Dienstleisters zu prüfen. (3) Prozessual kann eine Checkliste genutzt werden, die verbindlich vorgibt, dass Sicherheitsanforderungen wie Verschlüsselungsstandards, Protokollierung, Redundanz oder die Einhaltung von Latenzgrenzen dokumentiert und validiert sind, bevor der „Go-Live“ erfolgt. Zusätzlich kann es hilfreich sein, die Ergebnisse der Tests nachvollziehbar in einem Freigabeprotokoll festzuhalten, das sowohl die Institution als auch der Dienstleister unterzeichnen. Auf diese Weise kann die Institution sicherstellen, dass die Netzanbindung nicht nur formell, sondern auch praktisch den definierten Kriterien entspricht.
+
+### BES.7.2 – Prozesse vor Netzanbindung
+
+**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.18, G 0.26, G 0.28
+
+> Beschaffungsmanagement für Outsourcing SOLLTE vor Anbindung des Datennetzes der Nutzenden an das Datennetz der Anbietenden alle sicherheitsrelevanten Maßnahmen im Einklang mit den Regelungen und Verfahren des Managementsystems verankern.
+
+Der Sinn der Vorschrift liegt darin, Risiken durch unkontrollierte Netzwerkanbindungen zu minimieren, die bei Outsourcing deutlich höher sind als bei Standard-Dienstleistungsverträgen. Ohne vorherige Verankerung von Prozessen und technischen Lösungen, die für die sichere Anbindung zum Outsourcing-Dienstleiser erforderlich sind, könnte etwa Schadsoftware aus dem Anbietenden-Netz ungehindert in das Netz der Institution gelangen oder unbefugte Zugriffe könnten entstehen, wenn Authentifizierungsverfahren nicht abgestimmt sind. Umgekehrt kann eine klare Festlegung vorab bewirken, dass nur geprüfte, verschlüsselte und überwachte Schnittstellen genutzt werden, was eine vertrauenswürdige Zusammenarbeit ermöglicht. Da Outsourcing regelmäßig mit tiefen technischen Integrationen verbunden ist, unterscheidet es sich von herkömmlichen Lieferantenbeziehungen, bei denen keine direkte Netzwerkkopplung erfolgt. Eine Institution kann diese Anforderung praktisch umsetzen, indem sie vor der Anbindung (1) eine technische Schnittstellenbeschreibung einfordert, die Protokolle, Ports und Authentifizierungsmechanismen dokumentiert, (2) die Kommunikation auf gesicherte Kanäle wie VPN oder verschlüsselte Direktleitungen beschränkt, und (3) Verfahren zur Netzsegmentierung etabliert, sodass der Zugriff nur auf explizit freigegebene Systeme möglich ist. Ergänzend kann eine Checkliste für Dienstleisterprüfung genutzt werden, in der Sicherheitszertifikate, Protokolle zur Patch-Pflege oder geplante Monitoring-Mechanismen abgefragt werden. Ein prozessualer Tipp kann darin bestehen, die Netzfreigabe erst nach einem gemeinsamen Test der Sicherheitsmechanismen freizuschalten und dies in einem Freigabeprotokoll zu dokumentieren. So kann eine Institution sicherstellen, dass Outsourcing-Verbindungen kontrolliert, nachvollziehbar und mit einem definierten Sicherheitsniveau umgesetzt werden.
+
+### BES.7.3 – Anhörung Prozessbeteiligter
+
+**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.18, G 0.26
+
+> Beschaffungsmanagement für Outsourcing SOLLTE alle am ausgelagerten Prozess beteiligten Mitarbeiter oder Rollen anhören.
+
+Je nach Prozess können hierzu z.B. IT-Betriebspersonal oder Cybersicherheitsexperten der Institution oder von weiteren Dienstleistern, oder die Rechtsabteilung gehören.
+
+### BES.7.4 – Vollständigkeit der Unterlagen
+
+**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.26, G 0.18
+
+> Beschaffungsmanagement für Einkäufe SOLLTE Informationen, die für eine bestimmungsgemäße Verwendung im Informationsverbund erforderlich sind, dokumentieren.
+
+Dient in erster Linie dazu, sicherheitsrelevante Eigenschaften, Abhängigkeiten und Einsatzbedingungen nachvollziehbar festzuhalten. Ohne diese Informationen könnte es zu Fehlkonfigurationen, unsachgemäßem Betrieb oder unentdeckten Schwachstellen kommen, etwa wenn sicherheitskritische Firmware-Updates, empfohlene Hardening-Anleitungen oder Hinweise zu bekannten Sicherheitslücken nicht beachtet werden. So könnte beispielsweise ein Netzwerkgerät ohne die dokumentierten Herstellerhinweise zu sicheren Standardpasswörtern betrieben werden, wodurch Angreifer einfachen Zugriff erlangen könnten. Für diesen Kontext bedeutet „Informationen, die für eine bestimmungsgemäße Verwendung der Beschaffung im Informationsverbund erforderlich sind“ sämtliche sicherheitsrelevanten Dokumente, Konfigurationshinweise, Updateanweisungen und Supportinformationen, die erforderlich sind, damit beschaffte Produkte und Dienste so verwendet werden können, wie in den Beschaffungskriterien vorgesehen. Am einfachsten kann diese Anforderung erfüllt werden, indem die erforderlichen Informationen vom Lieferanten oder Hersteller mitgeliefert werden. Alternativ ist es auch möglich, dass die Institution die Dokumentation selbst vornimmt, z.B. in Zusammenarbeit mit dem Lieferanten, durch Untersuchung der Lieferung oder durch Ablage von Informationen, welche der Hersteller auf seiner Webseite bereitgestellt hat. Eine praktische Umsetzung kann darin bestehen, dass die Institution im Rahmen des Beschaffungsprozesses gezielt nach sicherheitsrelevanten Unterlagen fragt und diese zentral ablegt, etwa in einem internen Dokumentationssystem, auf das die zuständigen Administratoren und IT-Sicherheitsverantwortlichen zugreifen können. Hierbei kann es hilfreich sein, Checklisten einzusetzen, die beim Wareneingang oder der Inbetriebnahme prüfen, ob etwa Handbücher mit sicherheitsrelevanten Konfigurationsempfehlungen, Updatepläne, Zertifikate oder Kompatibilitätslisten vorliegen. Auch kann die Institution eine eindeutige Referenzierung der Unterlagen vornehmen, damit später nachvollziehbar ist, welche Version der Herstellerinformationen bei Inbetriebnahme zugrunde lag. Um die Nutzbarkeit zu erhöhen, kann eine Kurzfassung der relevanten Sicherheitspunkte in die interne Betriebsdokumentation übernommen werden, während die Originalunterlagen für Detailfragen hinterlegt bleiben. Bei wiederkehrenden Beschaffungen ähnlicher Komponenten kann zudem eine Vorlagenstruktur helfen, in der die typischen Unterlagenarten und deren Ablageorte definiert sind. So wird sichergestellt, dass die sicherheitsrelevanten Informationen nicht nur vorhanden, sondern auch im Bedarfsfall schnell auffindbar und anwendbar sind.
+
+#### BES.7.4.1 – Beschreibung der Sicherheitsarchitektur
+
+**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.18, G 0.26, G 0.28
+
+> Beschaffungsmanagement für IT-Produkte SOLLTE eine Beschreibung der Sicherheitsarchitektur dokumentieren.
+
+Die technische Sicherheitsarchitektur bezeichnet in diesem Kontext die strukturierte Darstellung der sicherheitsrelevanten Komponenten und Mechanismen eines IT-Produkts. Dazu gehören z. B. die eingesetzten kryptografischen Verfahren, die Segmentierung von Netzwerken, Schnittstellen zu anderen Systemen, Rollen- und Berechtigungskonzepte sowie Schutzmechanismen gegen Schadsoftware oder Manipulation. Sie bildet somit eine nachvollziehbare Übersicht, wie die Sicherheit im Produkt technisch verankert ist und wie diese in die bestehende IT-Landschaft integriert werden kann. Die Dokumentation kann verhindern, dass eine Institution Systeme übernimmt, deren Schutzmechanismen unklar oder unzureichend sind. Ohne eine solche Transparenz könnte es passieren, dass kritische Schwachstellen verborgen bleiben oder Sicherheitsmechanismen aufgrund mangelnden Verständnisses nicht korrekt konfiguriert werden. Eine sinnvolle Umsetzung kann beispielsweise so erfolgen: (1) Ein Anbieter kann verpflichtet werden, vor Abnahme ein Architekturdiagramm mit hervorgehobenen Sicherheitskomponenten bereitzustellen. (2) Die Institution kann bei Pilotinstallationen Checklisten verwenden, um die dokumentierten Sicherheitsmaßnahmen mit der realisierten Konfiguration abzugleichen. (3) Ergänzend kann ein standardisiertes Template genutzt werden, das Mindestangaben wie eingesetzte Protokolle, Verschlüsselungsmechanismen, Rollenmodelle und Logging-Kapazitäten abfragt, sodass einheitliche und vergleichbare Unterlagen entstehen. Auch ein Abgleich mit bewährten Referenzarchitekturen kann helfen, die Vollständigkeit und Plausibilität der Angaben zu prüfen.
+
+#### BES.7.4.2 – Beschreibung von Sicherheitsmechanismen
+
+**Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.26, G 0.18
+
+> Beschaffungsmanagement für IT-Produkte SOLLTE eine Beschreibung der gelieferten Sicherheitsmechanismen dokumentieren.
+
+Hierzu zählt z.B. eine Information des Herstellers, dass die Verschlüsselung nach BSI TR-02102 erfolgt.
+
+#### BES.7.4.3 – Empfohlene Konfiguration
+
+**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.28, G 0.31, G 0.26, G 0.18
+
+> Beschaffungsmanagement für IT-Produkte SOLLTE eine vom Hersteller oder Lieferanten für den sicheren Betrieb empfohlene Konfiguration dokumentieren.
+
+Eine vom Hersteller oder Lieferanten empfohlene Konfiguration ist eine dokumentierte Vorgabe, welche Einstellungen, Dienste und Sicherheitsparameter für den sicheren Betrieb vorgesehen sind. Diese Empfehlung ist im Fachkontext oft als Secure Baseline Configuration bekannt und kann z. B. Angaben zu Benutzerrechten, Netzwerkschnittstellen oder Update-Mechanismen enthalten. Der Sinn und Zweck dieser Anforderung liegt darin, dass IT-Produkte nicht im unsicheren Auslieferungszustand betrieben werden, sondern in einer geprüften und abgestimmten Form. Ohne solche Empfehlungen könnte ein System mit unnötig offenen Ports betrieben werden oder ein Administratorkonto ohne Passwortschutz bestehen, was Angreifern leichtes Spiel böte. Eine dokumentierte und nachvollziehbar empfohlene Konfiguration kann hingegen dafür sorgen, dass Schwachstellen von Beginn an reduziert werden und ein sicherer Ausgangszustand für den weiteren Betrieb geschaffen wird. Konkret kann dies durch (1) die Ablage der Herstellerempfehlungen in einer zentralen Wissensdatenbank, (2) die Überführung dieser Vorgaben in technische Checklisten für Systemadministratoren oder (3) die Nutzung von Skripten oder Vorlagen zur automatischen Einrichtung von Betriebssystemen, Netzwerkgeräten oder Anwendungen erfolgen. Zusätzlich kann es hilfreich sein, Abweichungen zur Empfehlung zu dokumentieren, um spätere Prüfungen oder Audits nachvollziehbar zu gestalten.
+
+#### BES.7.4.4 – Dokumentation der Komponenten
+
+**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.18, G 0.26, G 0.37
+
+> Beschaffungsmanagement für Einkäufe SOLLTE eine Beschreibung der verwendeten Hardware- und Softwarekomponenten dokumentieren.
+
+Hierzu zählen Angaben zum Hersteller und der Leistungsfähigkeit und Zusammensetzung der verbauten Hardware- und Softwarekomponenten. Für die Softwarekomponenten kann die Beschreibung standardisiert nach BSI TR-03183-2 erfolgen.
+
+##### BES.7.4.4.1 – Software Bill of Materials (SBOM)
+
+**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.26, G 0.18, G 0.28
+
+> Beschaffungsmanagement für IT-Produkte KANN für jede gelieferte Software die entsprechende Software Bill of Materials (SBOM) nach *[einem anerkannten Standard]* dokumentieren.
+
+Je nach Produkt können hierzu auch die Firmware, das Betriebssystem oder mehrere Softwarebestandteile einer Anwendung gehören. Ein anerkannter Standard für SBOM ist die BSI TR-03183-2.
+
+#### BES.7.4.5 – Netzverbindungen ab Werk
+
+**Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.26, G 0.18, G 0.28
+
+> Beschaffungsmanagement für IT-Produkte SOLLTE eine Liste der Internetserver, mit denen das IT-Produkt von sich aus Verbindung aufnimmt, mit Zweck der Verbindung, Zieladresse(n), Port-Nummern dokumentieren.
+
+Geräte und Software verbinden sich oft schon im Auslieferungszustand oder bei der normalen Nutzung über das Internet mit Diensten, z.B. zur Übermittlung von Telemetrie- und Diagnosedaten oder zur Bereitstellung von Cloud-Funktionen. Eine Liste der Verbindungen hilft, die Übersicht zu behalten, welche Kommunikationsbeziehungen zu welchem Zweck das IT-Produkt aufnimmt. Die Liste kann vom Lieferanten gestellt werden oder durch Untersuchung des Produktes selbst ermittelt werden. Eine eigene Untersuchung ist jedoch deutlich aufwändiger, da sichergestellt werden muss, dass auch Verbindungen erfasst werden, die z.B. nur bei einem Absturz der Anwendung aufgebaut werden.
+
+#### BES.7.4.6 – Shared Responsibility
+
+**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.18, G 0.26
+
+> Beschaffungsmanagement für Dienstleistungen SOLLTE die Verteilung der Zuständigkeiten und deren Abgrenzung dokumentieren.
+
+Beim Outsourcing gibt es verteilte Zuständigkeiten zwischen Dienstleister und Institution (sog. Shared Responsibility). Hierbei ist z.B. relevant, welche Verarbeitungen in der Zuständigkeit des Dienstleisters liegen und welche weiterhin bei der Institution vorgenommen werden, z.B. Infrastructure-as-a-Service vs. Software-as-a-Service.
+
+#### BES.7.4.7 – Organisatorische Schnittstellen
+
+**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.26, G 0.18
+
+> Beschaffungsmanagement für Dienstleistungen SOLLTE die organisatorischen Schnittstellen des Dienstleisters dokumentieren.
+
+Beispielsweise Meldewege für Notfälle, Sicherheitsvorfälle, Eskalationsstufen.
+
+#### BES.7.4.8 – Technische Schnittstellen
+
+**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.26, G 0.18
+
+> Beschaffungsmanagement für Dienstleistungen SOLLTE die vom Dienstleister bereitgestellten technischen Schnittstellen und deren Sicherheitsfunktionalität dokumentieren.
+
+Die Dokumentation der vom Dienstleister bereitgestellten technischen Schnittstellen und deren Sicherheitsfunktionalität dient in erster Linie dazu, Transparenz über potenzielle Angriffspunkte und Integrationsrisiken zu schaffen. Fehlende oder unzureichend beschriebene Schnittstellen können zu gravierenden Vorfällen führen: So könnte etwa eine unsauber dokumentierte API unbemerkt unverschlüsselte Daten übertragen oder unautorisierte Zugriffe ermöglichen.
+
+#### BES.7.4.9 – Auslagerungsregister
+
+**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.26, G 0.18
+
+> Beschaffungsmanagement für Outsourcing SOLLTE Informationen über den Dienstleister, die Kritikalität des Prozesses, abgeschlossene Verträge und Vereinbarungen sowie Zeitpunkt und Inhalt von Änderungen an den Vereinbarungen nach Vertragsschluss dokumentieren.
+
+Hierzu genügt ein zentrales Auslagerungsregister, welches zu allen ausgelagerten Prozessen die geforderten Informationen enthält. Als Angaben zum Dienstleister gehören dessen Unternehmensbezeichnung und Erreichbarkeiten.
+
+#### BES.7.4.10 – Serviceprofil
+
+**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.26, G 0.18
+
+> Beschaffungsmanagement für Cloud-Dienste SOLLTE für jeden geplanten oder genutzten Cloud-Dienst ein Serviceprofil mit dem Namen des Services und des Anbieters dokumentieren.
+
+Mögliche Inhalte um zuvor identifizierte Anforderungen ergänzen : Bezeichnung, Kurzbeschreibung, Kategorie, Sub- bzw. Sekundärservices, Varianten, technische Parameter, Service-Parameter/SLA, SLA-Messung, Gültigkeit des Services (Zeitraum), Service-Übergabe, Methoden der Kostenermittlung, Preis/Verrechnung, Ansprechpartner für den Service, Berechtigte und Anforderer sowie Voraussetzungen und Abhängigkeiten zu anderen Diensten.
+
+#### BES.7.4.11 – Dokumentierte Mandantentrennung
+
+**Stufe:** `erhöht` · **Aufwand:** 4 · **Gefährdungen:** G 0.18, G 0.26, G 0.28
+
+> Beschaffungsmanagement für Outsourcing KANN die beim Dienstleister implementierten Maßnahmen zur Mandantentrennung nach Vertragsschluss dokumentieren.
+
+Die Dokumentation der beim Dienstleister implementierten Maßnahmen zur Mandantentrennung trägt dazu bei, die Risiken unzureichender Abgrenzung zwischen verschiedenen Kundeninstanzen transparent zu bewerten und im Bedarfsfall nachzuweisen. Ohne eine solche Transparenz könnte es zu Datenabflüssen oder unbefugtem Zugriff durch andere Mandanten kommen, etwa wenn virtuelle Maschinen auf derselben Hardware betrieben werden und Schwachstellen in der Virtualisierung ausgenutzt werden könnten. Eine dokumentierte Trennungskontrolle kann nachweisen, dass Speicher, Rechenleistung oder Netzwerksegmente isoliert sind und dadurch die Vertraulichkeit und Integrität der eigenen Daten erhalten bleibt. Im Kontext bedeutet Mandantentrennung die technische und/oder organisatorische Gewährleistung, dass Daten, Prozesse und Ressourcen verschiedener Kunden innerhalb einer geteilten Infrastruktur so voneinander abgegrenzt sind, dass unbeabsichtigte oder absichtliche Zugriffe ausgeschlossen werden können. Damit ist nicht nur die physische, sondern auch die logische Separation gemeint. Die Umsetzung kann sinnvoll erfolgen, indem eine Institution nach Vertragsschluss gezielt vom Dienstleister beschriebene Schutzmechanismen abfragt und dokumentiert, beispielsweise Isolierungsverfahren auf Hypervisor-Ebene, Verschlüsselung pro Mandant oder die Vergabe getrennter Schlüsselmaterialien. Praktisch kann es hilfreich sein, in Service-Reports nachvollziehbare Testnachweise zu verlangen, etwa Ergebnisse von Penetrationstests, die speziell auf Mandantengrenzen zielen.
+
+#### BES.7.4.12 – Software Bill of Materials (SBOM) - Cloud
+
+**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.26, G 0.18, G 0.28
+
+> Beschaffungsmanagement für Cloud-Dienste KANN für jede gelieferte Software-as-a-Service (SaaS) die entsprechende Software Bill of Materials (SBOM) nach *[einem anerkannten Standard]* dokumentieren.
+
+Ein anerkannter Standard für SBOM ist die BSI TR-03183-2.
+
+## BES.8 Kompensierende Kontrollmechanismen
+
+### BES.8.1 – Bereithaltung alternativer Lieferanten
+
+**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.18, G 0.25
+
+> Beschaffungsmanagement für Einkäufe KANN die Bereithaltung alternativer Lieferanten verankern.
+
+Das Bereithalten alternativer Lieferanten kann dazu beitragen, Abhängigkeiten zu reduzieren und die Resilienz der Liefer- und Beschaffungskette zu erhöhen. Das ist insbesondere dann von großer Bedeutung, wenn ein einzelner, wichtiger Lieferant kurzfristig ausfällt – etwa durch Produktionsstörungen, Insolvenzen, Lieferengpässe, politische Sanktionen oder Cyberangriffe auf dessen Systeme. In solchen Fällen könnte die institutionseigene Versorgung mit kritischen Gütern oder Dienstleistungen gefährdet sein, was wiederum Ausfälle, Qualitätsmängel oder Vertragsstrafen nach sich ziehen könnte. Gerade bei sicherheitskritischen Komponenten, Spezialsoftware oder Ersatzteilen mit langen Vorlaufzeiten könnte das Fehlen einer zweiten Bezugsquelle zu erheblichen Betriebsunterbrechungen führen. Der Begriff „alternative Lieferanten“ meint in diesem Kontext qualifizierte Drittanbieter, die vergleichbare Produkte oder Leistungen in einer wirtschaftlich und technisch angemessenen Qualität und Menge wirksam bereitstellen können. „Angemessenheit“ bezieht sich hier auf den Grad, in dem ein alternativer Lieferant die Mindestanforderungen der Institution hinsichtlich Qualität, Sicherheit, Verfügbarkeit und Kompatibilität erfüllt, während „Wirksamkeit“ bedeutet, dass dieser im Bedarfsfall tatsächlich kurzfristig und ohne erhebliche Zusatzrisiken einspringen kann. Zur praktischen Umsetzung kann eine Institution zunächst identifizieren, für welche Materialien, Systeme oder Services ein Ausfall besonders kritisch wäre, und für diese gezielt alternative Bezugsquellen evaluieren. Dazu kann gehören, eine Lieferantenliste mit geprüften Zweitanbietern zu pflegen, Rahmenverträge vorzubereiten oder vereinbarte Notfallmengen zu definieren, die im Bedarfsfall abgerufen werden können. Eine Möglichkeit ist es, Testbestellungen bei alternativen Anbietern durchzuführen, um Qualität, Liefergeschwindigkeit und Kommunikationswege zu erproben. Ebenso kann es hilfreich sein, technische Spezifikationen so zu gestalten, dass mehrere Anbieter kompatible Produkte liefern können, um Lock-in-Effekte zu vermeiden.
+
+### BES.8.2 – Verfahren zur Übertragung von Geschäftsprozessen
+
+**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.18
+
+> Beschaffungsmanagement für Outsourcing KANN Verfahren zur Übertragung von Geschäftsprozessen für den Fall einer geplanten oder ungeplanten Beendigung des Vertrages verankern.
+
+Es empfiehlt sich diese Alternativen in einem Maßnahmenkatalog zu dokumentieren. Darin können z.B. alternative Dienstleister festgehalten werden, welche über das notwendige Niveau an Informationssicherheit verfügen, um den Prozess, welcher an den bisherigen Dienstleister ausgelagert wird, in gleichem Maße umzusetzen.
+
+### BES.8.3 – Ressourcensouveränität
+
+**Stufe:** `erhöht` · **Aufwand:** 4 · **Gefährdungen:** G 0.18
+
+> Beschaffungsmanagement für Outsourcing KANN ausreichende interne Ressourcen für den Fall einer geplanten oder ungeplanten Beendigung des Vertrages zuweisen.
+
+Die Bereithaltung ausreichender interner Ressourcen zielt hier darauf ab, für den Fall einer plötzlichen Einstellung der beschafften Dienste ausreichend ausgestattet zu sein, um einer übermäßigen Abhängigkeit gegenüber den Anbietenden von Outsourcing vorzubeugen. Zu den notwendigen Ressourcen gehört sowohl Personal, welches für die bei einem Ausfall des Dienstleisters erforderlichen Aufgaben qualifiziert ist, als auch die für diese Aufgaben erforderliche Infrastruktur (z.B. IT-Systeme, Anwendungslizenzen, Zugänge und Berechtigungen).
+
+### BES.8.4 – Individuelle Implementierung kritischer Komponenten
+
+**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.18
+
+> Beschaffungsmanagement für IT-Produkte KANN eine eigens für die Institution entwickelte Implementierung kritischer Komponenten vereinbaren.
+
+Dient dazu das Risiko zu mindern, dass sicherheitsrelevante Funktionen oder Integrationspunkte ungeeignet, unvollständig oder von Drittanbietern unzureichend abgesichert bereitgestellt werden. Kritische Komponenten sind dabei jene Hardware- oder Software-Bestandteile, deren Ausfall, Kompromittierung oder Fehlfunktion wesentliche Geschäftsprozesse beeinträchtigen oder sensible Daten gefährden könnte – etwa Kryptomodule, Authentifizierungsmechanismen, Schnittstellen zur Anbindung an interne Systeme oder sicherheitsrelevante Konfigurationsbausteine. Ohne gezielte Einflussnahme bei der Beschaffung könnte es beispielsweise vorkommen, dass ein Standardprodukt mit unsicheren Voreinstellungen geliefert wird, ein Modul nicht die für den Einsatzzweck erforderliche Verschlüsselung unterstützt oder herstellerseitige Updates nicht zeitnah bereitgestellt werden. Andererseits bergen selbst entwickelte Komponenten gegenüber Standardbeschaffungen das Risiko, dass die Eigenentwicklungen unzureichend getestet oder im Einsatz erprobt wurden. Daher ist vor einer Eigenentwicklung eine Risikoabschätzung sinnvoll. Typischerweise lohnt eine Eigenentwicklung sich nur wenn erhebliche Ressourcen für deren Absicherung vorhanden sind und der Vertraulichkeit oder Integrität eine stark erhöhte Bedeutung im Vergleich zu Standardprodukten zukommt. Eine Institution kann bei der Umsetzung dieser Anforderung gezielt in den Beschaffungsvertrag aufnehmen, dass bestimmte Komponenten nach definierten Vorgaben angepasst, gehärtet oder erweitert werden – beispielsweise eine erweiterte Protokollierungsfunktion in einer Verwaltungssoftware, eine abgesicherte Firmware-Konfiguration bei Netzwerkgeräten oder die Integration zusätzlicher Prüfmechanismen in eine Schnittstellen-API.
+
+### BES.8.5 – Treuhand
+
+**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.18, G 0.29
+
+> Beschaffungsmanagement für Dienstleistungen KANN ESCROW- bzw. Treuhandverträge vereinbaren.
+
+ESCROW- bzw. Treuhandverträge regeln die Verwertungs- und Bearbeitungsrechte (z.B. für eine Software sowie Herausgabefälle des Quellcodes) für den Fall, dass es zu Streitigkeiten oder Ausfällen der Dienstleister kommt. Hierzu gehören auch ggf. zur Nutzung erforderliche Begleitunterlagen oder Zugangsmittel wie Schlüssel oder Passwörter. Außerdem ist es zweckmäßig, vertraglich festzulegen, wie häufig Daten (z.B. Quellcode) hinterlegt und dokumentiert werden. Auch eine Regelung bzgl. der Geheimhaltungspflichten im Vertrag ist zu empfehlen.

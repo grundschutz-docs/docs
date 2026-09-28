@@ -1,0 +1,727 @@
+---
+title: "SENS – Sensibilisierung"
+---
+
+# SENS Sensibilisierung
+
+Die Praktik Sensibilisierung sorgt dafür, dass alle Mitarbeitenden über die Leitlinie zur Informationssicherheit sowie relevanten Informationssicherheitsrichtlinien, -verfahren und -bedrohungen informiert sind. Ziel ist es, ein sicherheitsbewusstes Verhalten im Arbeitsalltag zu fördern und zu verankern. Der Fokus liegt auf der Schaffung eines Verständnisses für die Bedeutung der Informationssicherheit innerhalb der Institution. Gleichzeitig wird die notwendige Qualifikation für den sicheren Betrieb und die Nutzung von Anwendungen und IT-Systemen vermittelt, um Fehler zu vermeiden. Die Praktik Personalmanagement stellt sicher, dass Informationssicherheitsaspekte während des gesamten Beschäftigungszyklus von Mitarbeitenden berücksichtigt werden, während Sensibilisierung speziell auf die kontinuierliche Weiterbildung und Sensibilisierung im Bereich Informationssicherheit abzielt.
+
+## SENS.1 Grundlagen
+
+### SENS.1.1 – Verfahren und Regelungen
+
+**Stufe:** `normal-SdT` · **Aufwand:** 0 · **Gefährdungen:** G 0.18
+
+> Sensibilisierung MUSS Verfahren und Regelungen zur rollenspezifischen Schulung und Sensibilisierung verankern.
+
+Zweck ist es, internen und externen Nutzenden die korrekte Verarbeitung von schützenswerten Informationen sowie die sichere Bedienung von IT-Systemen und Anwendungen nahezubringen. Ohne Sensibilisierung könnte etwa ein Administrator durch Unachtsamkeit kritische Systemkonfigurationen offenlegen, eine Pflegekraft könnte Patientendaten in unsicheren Kanälen weitergeben oder ein Beschäftigter im Einkauf könnte auf täuschend echt wirkende Phishing-Mails hereinfallen. Durch passgenaue Schulungen kann dagegen erreicht werden, dass Mitarbeitende die für ihre Aufgaben relevanten Gefahren frühzeitig erkennen, geeignete Schutzmaßnahmen anwenden und damit einen aktiven Beitrag zur Informationssicherheit leisten. Zweckmäßig ist es, im Rahmen der Ersteinweisung dazu Schulungen durchzuführen und um jährliche Information über aktuelle Neuerungen zu ergänzen. Zur Ergänzung und Erinnerung sind z.B. Poster oder Kampagnen sinnvoll. Die bei der Festlegung des Verfahrens im Einzelnen zu berücksichtigenden Inhalte ergeben sich aus den Anforderungen dieser Praktik.
+
+#### SENS.1.1.1 – Dokumentation
+
+**Stufe:** `normal-SdT` · **Aufwand:** 0 · **Gefährdungen:** G 0.18, G 0.37
+
+> Sensibilisierung MUSS die Verfahren und Regelungen dokumentieren.
+
+Ohne eine Dokumentation könnte die Einhaltung der Verfahren und Regelungen von der Tagesform oder dem individuellen Wissen einzelner Mitarbeiter abhängen, was zu inkonsistenten Entscheidungen und Fehlern führen könnte; insbesondere beim Ausscheiden eines langjährigen Administrators könnte wertvolles prozessuales Wissen verloren gehen. Eine klare Dokumentation sichert die Verbindlichkeit und Wiederholbarkeit und dient als unverzichtbare Grundlage für die Einarbeitung neuer Kollegen, für die Durchführung von Audits und zur einheitlichen Anwendung der Regeln in der gesamten Institution. Die Dokumentation kann in einem eigenständigen Dokument als Richtlinie erfolgen, aber auch als Abschnitt in einem bereits bestehenden Dokument oder über die digital strukturiere Erfassung von Maßnahmen zur Umsetzung der Anforderungen, etwa über eine Software zum Management der Informationssicherheit. Sinnvoll ist es Ort und Struktur der Dokumentation an der jeweiligen Zielgruppe, d.h. den für das Management und die Umsetzung verantwortlichen Personen oder Rollen, auszurichten.
+
+#### SENS.1.1.2 – Zuweisung der Aufgaben
+
+**Stufe:** `normal-SdT` · **Aufwand:** 0 · **Gefährdungen:** G 0.18, G 0.31
+
+> Sensibilisierung MUSS die mit den Verfahren und Regelungen verbundenen Aufgaben *[zuständigen Personen oder Rollen]* zuweisen.
+
+Die Zuweisung von Aufgaben bezeichnet die eindeutige und verbindliche Übertragung von konkreten Tätigkeiten und Verantwortlichkeiten des Änderungsprozesses, wie etwa die Risikobewertung, die technische Umsetzung oder die finale Freigabe, an definierte Stellen in der Institution. Der Sinn dieser Vorschrift ist es, die Verantwortlichkeit ("Accountability") für jeden einzelnen Schritt im Prozess klarzustellen. Ohne eine solche Zuweisung könnten kritische Prüfungen unterbleiben, weil sich niemand explizit zuständig fühlt, was wiederum die Wahrscheinlichkeit fehlgeschlagener Änderungen erhöht. Eine klare Regelung kann sicherstellen, dass keine Aufgaben übersehen werden und jede Tätigkeit von einer dafür qualifizierten und befugten Stelle ausgeführt wird, was die Prozesssicherheit signifikant erhöht. Eine bewährte Methode zur Umsetzung ist die Erstellung einer RACI-Matrix (Responsible, Accountable, Consulted, Informed), die tabellarisch für jeden Prozessschritt darstellt, wer für die Durchführung verantwortlich ist, wer die Gesamtverantwortung trägt, wer zu konsultieren und wer zu informieren ist. Diese Zuständigkeiten können auch direkt in einem Workflow- oder Ticketsystem abgebildet werden, sodass Aufgaben, wie beispielsweise Genehmigungsschritte, automatisch an die richtige Gruppe oder Person weitergeleitet werden. Sinnvoll ist es, die Zuweisung anhand von Rollen (z. B. "Anwendungsverantwortlicher", "Netzwerkadministrator", "Change Manager") vorzunehmen, statt an konkrete Personen. Dieser Ansatz stellt sicher, dass die Prozesse auch bei Personalwechseln stabil weiterlaufen, da die Zuständigkeit an die Funktion und nicht an das Individuum gebunden ist.
+
+#### SENS.1.1.3 – Bekanntgabe
+
+**Stufe:** `normal-SdT` · **Aufwand:** 0 · **Gefährdungen:** G 0.18, G 0.31
+
+> Sensibilisierung MUSS die zuständigen Personen oder Rollen über die Verfahren und Regelungen informieren.
+
+Wenn die Zuständigen die etablierten Verfahren nicht kennen, besteht die Gefahr, dass diese – sei es aus Unwissenheit oder Bequemlichkeit – umgangen werden, was die Schutzwirkung des gesamten Managementsystems untergräbt. So könnte ein neuer Systemadministrator eine weitreichende Konfigurationsänderung vornehmen, ohne den vorgeschriebenen Genehmigungsprozess zu durchlaufen, was zu einem unbemerkten Sicherheitsrisiko führen könnte. Eine gezielte Information kann hingegen die Akzeptanz der Regelungen fördern und sicherstellen, dass alle Beteiligten ihre Rolle im Prozess verstehen und die Abläufe korrekt anwenden. Zur Umsetzung ist es sinnvoll die Dokumentation im Rahmen eines Onboarding-Prozesses bekanntzugeben und bei allen Änderungen eine automatische Benachrichtigung aller zuständigen Personen oder Rollen anzustoßen.
+
+### SENS.1.2 – Erfolgsmessung
+
+**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.18
+
+> Sensibilisierung SOLLTE den Erfolg der Sensibilisierung anhand *[objektivierter Kriterien]* *[regelmäßig]* überprüfen.
+
+Zur Erfolgsmessung sind sowohl quantitative als auch qualitative Kriterien heranzuziehen, die unabhängig nachvollziehbar und überprüfbar sind. Erfolg zeigt sich dabei sowohl im erworbenen Wissen der Zielgruppen zur Informationssicherheit als auch in der tatsächlich umgesetzten Praxis von Schutzmaßnahmen.
+
+## SENS.2 Grundlegende Sensibilisierung
+
+### SENS.2.1 – Schutzziele
+
+**Stufe:** `normal-SdT` · **Aufwand:** 1 · **Gefährdungen:** G 0.31, G 0.42
+
+> Sensibilisierung für Nutzende SOLLTE zu den Schutzzielen Verfügbarkeit, Vertraulichkeit und Integrität sensibilisieren.
+
+Für die grundlegende Schulung kann z.B. auf den Online-Kurs des BSI zum IT-Grundschutz zurückgegriffen werden.
+
+### SENS.2.2 – Meldewege
+
+**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.31, G 0.42
+
+> Sensibilisierung für Nutzende SOLLTE zu den Meldewegen und Informationsquellen bei Fragen informieren.
+
+Zur Bekanntgabe von Meldewegen gehört, welche Meldewege (z.B. Adresse, Rufnummer, Ticketsystem) zur Verfügung stehen und welche weiteren Informationsquellen (z.B. Wissensmanagement im Intranet, Dienstanweisungen, Betriebshandbuch, Chatbots) relevante Informationen zur Informationssicherheit enthalten.
+
+### SENS.2.3 – Verschlüsselung und Signatur
+
+**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.31, G 0.42
+
+> Sensibilisierung für Nutzende von Anwendungen SOLLTE zur Bedienung von Verschlüsselungs- und Signaturfunktionen sensibilisieren.
+
+Viele Anwendungen zur Kommunikation bieten Funktionen zur Verschlüsselung oder digitalen Signatur (z.B. Verifikation der Ende-zu-Ende-Verschlüsselung per QR-Code im Messenger, Digitale Signatur von E-Mails). Verschlüsselung kann symmetrisch (gleicher Schlüssel ist auf beiden Seiten bekannt) oder asymmetrisch (ein öffentlicher und ein privater Schlüssel) erfolgen. Digitale Signaturen ermöglichen es, die Herkunft einer Nachricht zu überprüfen und Manipulationen zu erkennen.
+
+### SENS.2.4 – Nutzung unautorisierter Assets
+
+**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.31, G 0.42
+
+> Sensibilisierung für Nutzende SOLLTE die Nutzung unautorisierter Assets untersagen.
+
+Die Nutzung unautorisierter Assets bezeichnet hier den Einsatz von IT-Systemen, Datenträgern, Anwendungen oder Cloud-Diensten, die nicht durch die Institution freigegeben und inventarisiert sind. Hierzu gehört auch der Anschluss privater Peripheriegeräte wie Tastaturen oder das Telefonieren mit nicht autorisierten Telefonen. Der Sinn und Zweck der Anforderung liegt darin, unkontrollierte Schatten-IT und damit verbundene Risiken zu reduzieren. So könnte etwa ein unautorisiertes USB-Gerät Schadsoftware einschleusen, oder eine nicht genehmigte Cloud-Anwendung könnte zu unbemerkten Datenabflüssen führen. Besteht ein Bedarf an Assets, dann können die festgelegten Meldewege genutzt werden. Bei der Beschaffung von Assets sind die Verfahren und Regelungen des Assetmanagements zu beachten.
+
+#### SENS.2.4.1 – Verbindung unautorisierter IT-Systeme
+
+**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.31, G 0.42
+
+> Sensibilisierung für Nutzende SOLLTE die Verbindung unautorisierter IT-Systeme mit internen Netzen oder Schnittstellen untersagen.
+
+Unautorisierte IT-Systeme sind solche, die von der Institution nicht für den Einsatz in den Netzen der Institution vorgesehen sind. Werden solche Geräte mit internen Netzen verbunden, so besteht das Risiko, dass sich hierüber Schadcode verbreitet oder unerwünschte Netzverbindungen aufgebaut werden. Das betrifft sowohl kabelgebundene Verbindungen als auch Funkverbindungen wie WLAN oder Bluetooth.
+
+### SENS.2.5 – Zuständigkeitsbereiche
+
+**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.31, G 0.42
+
+> Sensibilisierung für Nutzende SOLLTE zu Schutzbedarf und Schnittstellen in ihrem Zuständigkeitssbereich sensibilisieren.
+
+Hiermit ist der Schutzbedarf des Zuständigkeitsbereichs des jeweiligen Nutzenden gemeint. Die Schnittstellen zu anderen Zuständigkeitsbereichen und deren entsprechender Schutzbedarf ist ebenfalls zu betrachten.
+
+### SENS.2.6 – Umgehung von Sicherheitsfunktionen
+
+**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.31, G 0.42
+
+> Sensibilisierung für Nutzende SOLLTE gegen die Umgehung von Sicherheitsfunktionen sensibilisieren.
+
+Selbst die ausgefeiltesten Sicherheitssysteme werden wirkungslos, wenn Anwender diese durch Eigeninitiative oder mangelndes Verständnis umgehen. Umgehungshandlungen könnten beispielsweise dazu führen, dass Schadprogramme durch Deaktivieren des Virenschutzes ins System gelangen, oder Angreifer über unsichere Verbindungen Zugang erhalten, wenn neue Verbindungen eigenmächtig geschaffen werden. Der Begriff "Umgehung von Sicherheitsfunktionen" umfasst dabei alle Handlungen, bei denen implementierte technische oder organisatorische Schutzmaßnahmen außer Kraft gesetzt, deaktiviert oder auf andere Weise ihrer Schutzwirkung beraubt werden, z.B. durch Rooting/Jailbreaking oder Verwendung nicht autorisierter Anwendungen oder Geräte. Wenn für eine Tätigkeit Funktionen benötigt werden, die durch Sicherheitsmechanismen verhindert werden, ist stattdessen eine Abstimmung über die festgelegten Meldewege sinnvoll.
+
+### SENS.2.7 – Änderung von Konfigurationen
+
+**Stufe:** `normal-SdT` · **Aufwand:** 1 · **Gefährdungen:** G 0.31, G 0.42
+
+> Sensibilisierung für Nutzende SOLLTE gegen die unautorisierte Änderung sicherheitsrelevanter Konfigurationen sensibilisieren.
+
+Sicherheitsrelevante Konfigurationen umfassen dabei alle Einstellungen, die direkten Einfluss auf die Sicherheit haben, wie Firewall-Regeln, Benutzerrechte, Verschlüsselungsparameter, Netzwerkkonfigurationen oder Sicherheitssoftware-Einstellungen. Besteht ein Bedarf zur Änderung (z.B. Einschalten bislang deaktivierter Funktionen, Akzeptanz von Verschlüsselungszertifikaten) so ist stattdessen ein Gespräch mit den für Informationssicherheit zuständigen Stellen in der Institution sinnvoll um einen sicheren Betrieb zu ermöglichen.
+
+### SENS.2.8 – Melden von Ereignissen
+
+**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.31, G 0.42
+
+> Sensibilisierung für Nutzende SOLLTE zum Melden von sicherheitsrelevanten Ereignissen anweisen.
+
+Ohne ein Bewusstsein für die Bedeutung solcher Meldungen könnte ein Vorfall wie ein Phishing-Versuch, ein auffälliges Verhalten in einem IT-System oder der Verlust eines mobilen Endgeräts unbemerkt bleiben und gravierende Auswirkungen nach sich ziehen. Umgekehrt kann eine geschulte Aufmerksamkeit verhindern, dass Schwachstellen unentdeckt bleiben, und kann so die Widerstandsfähigkeit der Institution stärken. Sicherheitsrelevante Ereignisse sind hier Beobachtungen oder Abweichungen, die auf eine mögliche Beeinträchtigung der Informationssicherheit hinweisen – beispielsweise technische Probleme wie Systemausfälle und Virenfunde, aber auch verdächtige Aktivitäten von Personen wie z.B. unbefugte Zugriffe auf Systeme oder Daten oder unbekannte Personen in Sicherheitsbereichen. Eine geeignete Umsetzung kann durch unterschiedliche Maßnahmen unterstützt werden: (1) einfache und klar sichtbare Meldewege, z. B. eine zentrale Funktionsmailadresse oder eine Notfallhotline, (2) kurze Schulungen oder Awareness-Kampagnen mit praxisnahen Beispielen, die verdeutlichen, welche Vorfälle gemeldet werden können, (3) niedrigschwellige Hilfsmittel wie Poster, Bildschirm-Hinweise oder Quick-Reference-Karten, die den Meldeprozess in Erinnerung rufen. Für eine Umsetzung kann die BSI IT-Notfallkarte „Verhalten bei IT-Notfällen“ genutzt werden.
+
+#### SENS.2.8.1 – Melden von Fehler- und Warnmeldungen
+
+**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.31, G 0.42
+
+> Sensibilisierung für Nutzende SOLLTE zum Melden von Fehler- und Warnmeldungen sensibilisieren.
+
+Unerwartete Fehler- oder Warnmeldungen könnten ein Indiz für weitreichendere Störungen oder sogar einen Angriff sein. Das Melden von Fehler- oder Warnmeldungen ist daher im Zweifel eine gute Idee nicht nur um den Betrieb aufrechtzuerhalten, sondern auch um die Informationssicherheit zu gewährleisten.
+
+## SENS.3 Schutz vor Schadprogrammen
+
+### SENS.3.1 – Schadprogramme
+
+**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.18
+
+> Sensibilisierung für Nutzende SOLLTE gegen die Risiken von Schadprogrammen sensibilisieren.
+
+Viele Dateitypen, wie z. B. Office-Dateien mit Makros, Adobe PDF, .exe, .ps1, oder .vbs, können Schadcode enthalten, der bei Ausführung die Kontrolle über das System übernimmt und Angreifern zur weiteren Ausbreitung im Informationsverbund dient.
+
+### SENS.3.2 – Öffnen in der Sandbox
+
+**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.18
+
+> Sensibilisierung für Nutzende KANN zum Öffnen verdächtiger Dateien ausschließlich auf einem isolierten IT-System (Sandbox) sensibilisieren.
+
+Eine Sandbox ist ein isoliertes IT-System, das bewusst so gestaltet ist, dass Dateien oder Programme in einer abgeschotteten Umgebung geöffnet und ausgeführt werden, ohne die produktive IT-Infrastruktur zu gefährden. Damit wird ein geschützter Bereich geschaffen, in dem verdächtige Dateien getestet und beobachtet werden, ohne dass Schadsoftware unkontrolliert in interne Systeme gelangt. Der Sinn dieser Anforderung liegt darin, das Risiko unbewusster Schadcode-Ausführung zu reduzieren: Ein unbedachtes Öffnen von E-Mail-Anhängen könnte beispielsweise zu Verschlüsselung durch Ransomware führen, oder ein manipuliertes Office-Dokument könnte eine unbemerkte Datenabflussschleuse öffnen. Als Sandbox kann auch ein virtuelles System auf dem Endgerät genutzt werden, wenn dieses von der Betriebssystemumgebung des Endgerätes isoliert ausgeführt wird.
+
+### SENS.3.3 – Umwandeln verdächtiger Dateien
+
+**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.18
+
+> Sensibilisierung für Nutzende KANN zum Umwandeln verdächtiger Dateien in ein nicht-ausführbares Format vor der weiteren Verwendung sensibilisieren.
+
+Das gezielte Umwandeln potenziell schadhafter Dateien in ein nicht-ausführbares Format (engl. defanging) kann helfen, die Ausnutzung von Sicherheitslücken zu verhindern, bevor schädlicher Code aktiv werden kann. Eine Datei gilt dabei als verdächtig, wenn sie aus einer unbekannten oder unzuverlässigen Quelle stammt. Im Kontext dieser Anforderung bedeutet nicht-ausführbares Format (non-executable format), dass die Datei zwar geöffnet oder betrachtet, jedoch nicht direkt ausgeführt werden kann – Beispiele sind PDF ohne eingebettete aktive Inhalte, reines Textformat (.txt) oder Bildformate wie .png/.jpg. Die Umwandlung kann auf unterschiedliche Weise erfolgen, ohne dass dabei möglicher schadhafter Code in der Originaldatei ausgeführt wird. Verdächtige Office-Dokumente können automatisiert in ein PDF umgewandelt oder als Screenshot exportiert werden, bevor der Inhalt zur Ansicht freigegeben wird. Auch das Verwenden von sicheren Cloud-Vorschau-Ansichten, die keine direkte Ausführung erlauben, kann eingesetzt werden. Weitere praktikable Möglichkeiten sind das Umwandeln von ausführbaren Anhängen in komprimierte Archive mit deaktivierter automatischer Entpackung, oder die Nutzung spezieller Konverter-Tools, die potenziell gefährliche Dateiinhalte in ein sicheres Anzeigeformat übertragen. Hilfreich kann auch ein einfaches, intern bereitgestelltes Kurztutorial sein, das typische Umwandlungsschritte für verschiedene Dateitypen erklärt und aufzeigt, woran Nutzende potenzielle Risiken erkennen können.
+
+## SENS.4 Authentisierung
+
+### SENS.4.1 – Personengebundene Authentisierungsmittel
+
+**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.30, G 0.36, G 0.23
+
+> Sensibilisierung für Nutzende SOLLTE zum Umgang mit Authentisierungsmitteln im Einklang mit den zugehörigen Anforderungen des Identitäts- und Berechtigungsmanagements sensibilisieren.
+
+Zur Definition von Authentisierungsmitteln siehe Glossar/Namensräume. Um Missbrauch zu vermeiden ist es wichtig, diese (1) geschützt aufzubewahren und niemals weiterzugeben, (2) den Verdacht, dass ein Passwort oder Token kompromittiert sein könnte, sofort zu melden und (3) aufmerksam gegenüber ungewöhnlichen Login-Masken oder Aufforderungen zu sein, die Zugangsdaten außerhalb der gewohnten Systeme einzugeben.
+
+#### SENS.4.1.1 – Verdeckte Eingabe
+
+**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.30, G 0.36, G 0.23
+
+> Sensibilisierung für Nutzende SOLLTE zur verdeckten Eingabe von Zugangsdaten sensibilisieren.
+
+Werden Zugangsdaten unverdeckt eingegeben, so könnten diese durch Shoulder Surfing kompromittiert werden, etwa in überfüllten Bereichen, Aufzügen oder während Videokonferenzen. Die verdeckte Eingabe umfasst dabei alle Tätigkeiten, die verhindern, dass Unbefugte die Eingabe von Passwörtern, PINs oder anderen Authentifizierungsdaten visuell erfassen können, sei es durch direkte Sichtbarkeit oder durch das Verfolgen von Handbewegungen und Tastaturanschlägen. Beispiele sind die bewusste Positionierung des Körpers oder der Hand als natürlicher Sichtschutz bei der Eingabe, sowie die Nutzung von Sichtschutzfolien auf Bildschirmen in öffentlichen Bereichen oder beim mobilen Arbeiten.
+
+#### SENS.4.1.2 – Untersagung von Passwort Recycling
+
+**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.30, G 0.36, G 0.23
+
+> Sensibilisierung für Nutzende SOLLTE die Wiederverwendung von Passwörtern untersagen.
+
+Wiederverwendung von Passwörtern bezeichnet die Nutzung identischer Zugangsdaten für verschiedene Systeme, Dienste oder Anwendungen. Werden identische Passwörter auf unterschiedlichen Systemen eingesetzt, steigt die Wahrscheinlichkeit, dass ein Angreifer mit einem einzigen erlangten Passwort Zugriff auf weitere Konten erhält („Credential Stuffing“). Ein Vorfall könnte beispielsweise darin bestehen, dass ein externer Angreifer durch ein Datenleck bei einem Drittanbieter an ein altes Passwort gelangt und damit Zugang zu internen Diensten erhält, wenn die betroffene Person dieses Passwort mehrfach genutzt hat. Auch im internen Umfeld kann die Wiederverwendung von Passwörtern dazu führen, dass unbefugte Dritte über abgefangene oder mitgehörte Anmeldedaten Zugang zu sensiblen Bereichen erhalten. Die Anforderung zielt also auf eine Reduzierung der Angriffsfläche durch Verhinderung von Kettenreaktionen, die aus nur einem kompromittierten Passwort entstehen können. Mit „Wiederverwendung“ ist sowohl die Verwendung desselben Passworts an verschiedenen Zugangskonten oder IT-Systemen, also auch eine zeitlich wiederholte Nutzung früherer Passwörter gemeint.
+
+#### SENS.4.1.3 – Wahl von Passwörtern
+
+**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.30, G 0.36, G 0.23
+
+> Sensibilisierung für Nutzende SOLLTE zur Wahl ausreichend komplexer Passwörter sensibilisieren.
+
+Ein Passwort ist ein geheimes Zeichenfolgenkürzel, das als Authentisierungsmerkmal dient und typischerweise aus Buchstaben, Ziffern und Sonderzeichen bestehen kann. Komplexität bedeutet hierbei, dass die Passwortstruktur hinreichend schwer zu Erraten oder durch automatisierte Verfahren zu berechnen ist, etwa durch eine gewisse Länge und die Verwendung unterschiedlicher Zeichenarten. Die Komplexität ist ausreichend, wenn sie den festgelegten Qualitätskriterien für Passwörter entspricht. Einfache oder mehrfach genutzte Passwörter könnten durch erraten, Wörterbuchangriffe oder Datenleaks kompromittiert werden und so zu unautorisierten Zugriffen, Datenverlusten oder Identitätsdiebstahl führen. Die bewusste Wahl starker und einzigartiger Passwörter kann hingegen die Widerstandsfähigkeit gegen Angriffe deutlich erhöhen und so einen wesentlichen Beitrag zum Schutz von Daten und IT-Systemen leisten. Zur Umsetzung kann eine Institution verschiedene Maßnahmen einsetzen: (1) praxisnahe Schulungen und E-Learnings, die anschaulich erläutern, warum Passwörter wie „Sommer2023“ leicht angreifbar sein könnten und wie kreative Passphrasen gebildet werden können, (2) begleitende Tipps in Anmeldemasken, die Hinweise zur Passwortgestaltung geben, ohne konkrete Vorgaben zu erzwingen, (3) die Empfehlung von Passwortmanagern, die den Umgang mit langen und individuellen Kennwörtern erleichtern, (4) prozessuale Begleitung durch Erinnerungen oder kurze Awareness-Kampagnen, etwa durch Plakate, Newsletter oder interaktive Quizformate. Für mehr Details siehe auch Thema Passwortgebrauch in der Praktik Berechtigung.
+
+#### SENS.4.1.4 – Passwörter nur im Passwortmanager
+
+**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.30, G 0.36, G 0.23
+
+> Sensibilisierung für Nutzende SOLLTE das Speichern oder Aufschreiben von Passwörtern außerhalb von Passwort-Managern untersagen.
+
+Weil Passwörter komplex sind und an vielen Stellen verwendet werden kommt es immer wieder dazu, dass sie unbedacht auf Zetteln oder in unverschlüsselten Tabellen notiert werden. Werden Passwörter etwa in Office-Listen, im Browser oder auf programmierbaren Tastaturen und Mäusen gespeichert, so könnten Angreifer diese auslesen und zur Ausbreitung auf Systemen und im Netz verwenden. In einem verschlüsselten Passwort-Manager, der nur mit einem Master-Passwort oder Hardwaretoken entsperrt werden kann, können Zugangsdaten dagegen sicher gespeichert werden. Ein Passwortmanager erleichtert es zudem Passwörter zu erzeugen und den richtigen Webseiten und Anwendungen zuzuordnen.
+
+#### SENS.4.1.5 – Biometrische Authentifikation
+
+**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.30, G 0.36, G 0.23
+
+> Sensibilisierung für Nutzende SOLLTE gegen die Fälschbarkeit von biometrischen Authentifizierungsmerkmalen sensibilisieren.
+
+Ein Angreifer könnte z.B. einen Fingerabdruck von einer glatten Oberfläche abnehmen und damit ein Gerät missbräuchlich entsperren.
+
+#### SENS.4.1.6 – Keine Weitergabe personengebundener Authentisierungsmittel
+
+**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.30, G 0.36, G 0.23
+
+> Sensibilisierung für Nutzende SOLLTE die Weitergabe von personengebundenen Authentisierungsmitteln untersagen.
+
+Personengebundene Authentisierungsmittel sind z.B. Passwörter, Private PKI-Schlüssel oder Mehr-Faktor-Authentifizierungstoken wie Smartcards. Zur Definition von Authentisierungsmitteln siehe Glossar/Namensräume.
+
+### SENS.4.2 – Mehrfachnutzung von Zugängen
+
+**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.30, G 0.36, G 0.23
+
+> Sensibilisierung für Nutzende SOLLTE gegen die Nutzung eines Zugangskontos durch mehrere Personen sensibilisieren.
+
+Insbesondere ist die Nutzung eines Benutzerkontos auf einem Endgerät durch mehrere natürliche Personen problematisch.
+
+### SENS.4.3 – Abmelden nach Nutzung
+
+**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.30, G 0.36, G 0.23
+
+> Sensibilisierung für Nutzende SOLLTE zum Abmelden nach Nutzung sensibilisieren.
+
+Bleibt eine Sitzung unbeaufsichtigt angemeldet, könnte dies ausgenutzt werden, um Daten zu manipulieren, zu kopieren oder unbemerkt schädliche Aktionen auszuführen. Ein solches Risiko könnte z.B. in offenen Büroflächen, gemeinsam genutzten Arbeitsplätzen oder bei externen Einsätzen entstehen, etwa wenn jemand kurz den Platz verlässt und ein Dritter die Gelegenheit nutzt, um sensible Unterlagen herunterzuladen oder interne Kommunikationskanäle zu durchsuchen. Dies beinhaltet auch die Sperrung des genutzten IT-Systems nach Nutzung. „Abmelden“ bedeutet in diesem Kontext das gezielte Beenden einer aktiven Benutzeranmeldung – etwa durch Ausloggen aus einer Anwendung, Sperren des Betriebssystems oder Abmelden von einem Fernzugriff –, sodass keine offenen Berechtigungen mehr genutzt werden können. Technische Hinweise wie Tastenkombinationen zum schnellen Sperren des Bildschirms oder kurze Anleitungen für den Logout-Prozess in wichtigen Fachanwendungen können in der Nähe von Arbeitsplätzen, auf Intranetseiten oder in E-Learning-Modulen platziert werden, um die Erinnerung daran wachzuhalten.
+
+## SENS.5 Umgang mit Informationen
+
+### SENS.5.1 – Datenablage
+
+**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.19, G 0.38, G 0.22, G 0.45
+
+> Sensibilisierung für Nutzende SOLLTE zum Einhalten einer strukturierten Datenablage sensibilisieren.
+
+Eine strukturierte Datenablage ist eine systematische Organisation von Daten in einer definierten Struktur, z.B. Aktenbestandverzeichnis, Content-Management-System. Dies ist wichtig für eine zentrale Zugriffssteuerung, Datensicherung und effiziente Suche.
+
+### SENS.5.2 – Weitergabe von Informationen
+
+**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.19, G 0.38, G 0.22, G 0.45
+
+> Sensibilisierung für Nutzende von Informationen SOLLTE zu den Voraussetzungen der Weitergabe von Informationen sensibilisieren.
+
+Als "Voraussetzungen der Weitergabe" werden die rechtlichen, vertraglichen, technischen und organisatorischen Bedingungen verstanden, die vor der Übermittlung von Informationen an interne oder externe Empfänger erfüllt sein müssen, um Vertraulichkeit und Compliance zu gewährleisten. So werden unkontrollierte Informationslecks und Compliance-Verletzungen verhindert, indem ein Bewusstsein für die Voraussetzungen geschaffen wird, unter denen Informationen an Dritte übermittelt werden dürfen. Hierzu gehört insbesondere, welche Kategorien von Informationen (z.B. Kundendaten) welchen internen und externen Personengruppen (z.B. Dienstleister) über welche Kommunikationskanäle (z.B. E-Mail, telefonisch) unter welchen Voraussetzungen (z.B. Nennung des Kundenkennwortes) weitergegeben werden dürfen.
+
+### SENS.5.3 – Weitergabe von Erreichbarkeiten
+
+**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.19, G 0.38, G 0.22, G 0.42
+
+> Sensibilisierung für Nutzende KANN die Veröffentlichung oder Weitergabe von Erreichbarkeiten an unbefugte Dritte untersagen.
+
+Dient dem Schutz vor Social Engineering-Angriffen und der Minimierung von Angriffsflächen durch Informationspreisgabe. Erreichbarkeiten umfassen dabei alle Kontaktinformationen wie Telefonnummern, E-Mail-Adressen, Instant-Messaging-Handles, interne Durchwahlen oder physische Standortangaben von Mitarbeitenden, die Angreifer für gezielte Phishing-Kampagnen, Vishing-Anrufe oder physische Infiltrationsversuche nutzen könnten. Ein Vorfall könnte z.B. entstehen, wenn eine Direktwahl des IT-Betriebs in sozialen Netzwerken preisgegeben wird und Angreifer diese für Pretexting nutzen, um sich als IT-Support auszugeben und Zugangsdaten zu erschleichen, oder wenn durch die Veröffentlichung von Abteilungsstrukturen mit einzelnen Kontaktdaten Angreifer gezielt Führungskräfte für CEO-Fraud identifizieren könnten.
+
+### SENS.5.4 – Rest- und Zusatzdaten
+
+**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.19, G 0.38, G 0.22, G 0.45
+
+> Sensibilisierung für Nutzende SOLLTE zur Vermeidung oder Entfernung von Rest- und Zusatzdaten vor dem Versand sensibilisieren.
+
+Rest- und Zusatzinformationen sind z.B. die Metadatenfelder in Office- oder PDF-Dateien, sowie die Änderungshistorie.
+
+### SENS.5.5 – Löschfristen
+
+**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.38, G 0.45, G 0.19, G 0.22
+
+> Sensibilisierung für Nutzende SOLLTE zum Löschen oder Vernichten nach Ablauf der festgelegten Löschfristen anweisen.
+
+Werden sensible Informationen über die erforderliche Dauer hinaus gespeichert, könnte die Institution unnötigen Haftungsrisiken ausgesetzt sein – beispielsweise könnte eine Datenschutzbehörde Bußgelder verhängen, wenn personenbezogene Daten entgegen gesetzlicher Vorgaben zu lange vorgehalten werden. Darüber hinaus könnten nicht rechtzeitig gelöschte Geschäftsgeheimnisse oder Kundendaten bei einem Sicherheitsvorfall in falsche Hände geraten, was zu Reputationsschäden, Vertrauensverlust bei Kunden oder sogar zu Wirtschaftsspionage führen kann. Dies ist insbesondere wichtig bei sensiblen Daten wie Passwörtern im Passwortmanager oder Bankzugangsdaten in einer Kundendatenbank. Relevant ist dabei auch das Verständnis dafür, welche Löschfristen für welche Kategorien von Informationen konkret festgelegt sind und wie die Löschung oder Vernichtung vorzunehmen ist. Zu Details der Vorgehensweise siehe auch Praktik "Informations- und Assetmanagement". Dies gilt auch für den Umgang mit physischen Medien und auch an anderen Standorten, wie z.B. am Mobilen Arbeitsplatz.
+
+### SENS.5.6 – Papiervernichtung
+
+**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.19, G 0.38, G 0.22, G 0.45
+
+> Sensibilisierung für Nutzende SOLLTE zum Vernichten vertraulicher Dokumente nach Ablauf der Löschfrist sensibilisieren.
+
+Gemäß ISO/IEC 21964-2 existieren unterschiedliche Sicherheitsstufen für Vernichtung. Die Granularität der Vernichtung richtet sich dabei nach dem Schutzbedarf der Daten. Sinnvoll ist es daher, das Vorgehen zur Vernichtung an der Einstufung der Daten auszurichten.
+
+## SENS.6 Umgang mit Datenträgern
+
+### SENS.6.1 – Scan angenommener Wechseldatenträger
+
+**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.18
+
+> Sensibilisierung für Nutzende SOLLTE zum Virenscan angenommener Wechseldatenträger anweisen.
+
+Datenträger, wie USB-Sticks aus unbekannten oder externen Quellen, können Schadprogramme enthalten. Der Virenscan kann durch eine Datenträgerschleuse oder durch eine Virenprüfung im IT-System selbst umgesetzt werden.
+
+### SENS.6.2 – Verschlüsselung
+
+**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.18
+
+> Sensibilisierung für Nutzende SOLLTE zum Verschlüsseln von Wechseldatenträgern anweisen.
+
+Falls Wechseldatenträger zum Austausch vertraulicher Daten verwendet werden, so sind diese vor der ersten Verwendung vollständig zu verschlüsseln. Die Verschlüsselung kann in Hard- oder Software, oder auf Dateiebene erfolgen.
+
+## SENS.7 Umgang mit spezifischen Zielobjekten
+
+### SENS.7.1 – Spezifische Sensibilisierung
+
+**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.18
+
+> Sensibilisierung für Nutzende SOLLTE zu zielobjektspezifischen Schutzmaßnahmen zielgruppengerecht sensibilisieren.
+
+Kann dazu beitragen, dass Personen Risiken, die mit ihrer konkreten Tätigkeit, ihrem Arbeitsumfeld oder den von ihnen genutzten Systemen verbunden sind, frühzeitig erkennen und angemessen reagieren können. Ziel ist es auf die spezifischen Schutzbedarfe der jeweiligen Zielobjekte – wie z. B. bestimmte IT-Systeme, Produktionsanlagen, Forschungsdaten oder vertrauliche Kundeninformationen – aufmerksam zu machen. Dazu können sowohl technische als auch organisatorischen Schutzmaßnahmen gehören. Der Begriff „zielgruppengerecht“ meint dabei, dass Inhalte in einer Form, Tiefe und Sprache bereitgestellt werden, die für die jeweiligen Nutzenden verständlich, relevant und handlungsnah sind. Für die Zielgruppengerechtigkeit ist eine Zielgruppenanalyse zweckmäßig. Die Schutzmaßnahmen ergeben sich aus der konkreten Implementierung der Anforderungen durch die Institution.
+
+### SENS.7.2 – Virenscan
+
+**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.18
+
+> Sensibilisierung für Nutzende von Interpersoneller Kommunikation SOLLTE zum Virenscan von Dateien aus externen Quellen sensibilisieren.
+
+Dateien aus externen Quellen (z.B. per E-Mail oder Messenger) könnten Schadprogramme enthalten. Bevor diese Dateien geöffnet oder anderweitig verarbeitet werden, ist eine Überprüfung mit einem Virenschutzprogramm oder einem dafür vorgesehenen Prüfsystem (z.B. Datenträgerschleuse) vorzunehmen.
+
+### SENS.7.3 – Automatische Antworten
+
+**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.18
+
+> Sensibilisierung für Nutzende von Interpersoneller Kommunikation SOLLTE gegen die Ausgabe vertraulicher Daten durch AutoReply-Funktionen sensibilisieren.
+
+AutoReply-Funktionen – etwa automatische Abwesenheitsnotizen oder Standardantworten in E-Mail- oder Messaging-Systemen – könnten unbeabsichtigt vertrauliche Informationen an unberechtigte Empfänger preisgeben. In der Praxis könnte dies dazu führen, dass sensible Projektdetails, interne Kontaktdaten oder Hinweise auf Abwesenheiten an Angreifer gelangen, die solche Informationen gezielt zur Planung von Social-Engineering-Angriffen oder zur Umgehung von Sicherheitsmaßnahmen nutzen. Im Kontext dieser Anforderung bezeichnet „AutoReply“ die automatische Generierung und Versendung von Nachrichten durch Kommunikationssysteme ohne aktives Zutun der nutzenden Person, typischerweise ausgelöst durch eingehende Nachrichten.
+
+### SENS.7.4 – SPAM - Löschen oder Melden
+
+**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.18
+
+> Sensibilisierung für Nutzende von Interpersoneller Kommunikation SOLLTE zum Löschen oder Melden von SPAM sensibilisieren.
+
+Spam – also unerwünschte, oft massenhaft versendete Nachrichten – könnte nicht nur den Posteingang überfluten und Arbeitszeit binden, sondern häufig auch Schadsoftware, Phishing-Links oder betrügerische Inhalte enthalten. Werden solche Nachrichten unbeachtet geöffnet oder beantwortet, könnte dies beispielsweise zu einer unbemerkten Offenlegung vertraulicher Informationen, zur Infektion von Endgeräten oder zur Kompromittierung von Benutzerkonten führen. Spam in E-Mails, Chat-Apps oder SMS kann oft an einer Kombination auffälliger Merkmale erkannt werden: (1) unerwartete oder anonyme Absender, (2) untypische Schreibweisen des Namens oder der Adresse, (3) drängender oder alarmierender Tonfall („sofort handeln“), (4) Links mit ungewöhnlichen oder verkürzten Domains, (5) fehlerhafte oder maschinell wirkende Sprache, (6) unpassende Dateianhänge oder Bilddateien sowie (7) Inhalte, die nicht zum bisherigen Kontext der Kommunikation passen. In Chat-Apps und SMS können zudem (8) fremdsprachige Nachrichten ohne Bezug, (9) Einladungen zu unbekannten Gruppen oder (10) Aufforderungen, auf externe Links zu klicken, verdächtig wirken. Das bewusste Hinterfragen solcher Signale kann helfen, Spam frühzeitig zu erkennen und unschädlich zu machen.
+
+### SENS.7.5 – SPAM - Nichtbeantwortung
+
+**Stufe:** `normal-SdT` · **Aufwand:** 1 · **Gefährdungen:** G 0.18
+
+> Sensibilisierung für Nutzende von Interpersoneller Kommunikation SOLLTE zum Nichtbeantworten von SPAM sensibilisieren.
+
+Das Nichtbeantworten von Spam kann dazu beitragen, die eigene Angriffsfläche zu verringern und das Risiko von Folgeschäden zu minimieren. Spam – im Kontext hier als unerwünschte, massenhaft versendete elektronische Nachrichten verstanden, die oft mit betrügerischen oder schädigenden Absichten einhergehen – kann als Einfallstor für Phishing, Schadsoftware oder Betrugsversuche dienen. Eine Antwort, selbst in Form einer scheinbar harmlosen Rückfrage, kann Angreifenden bestätigen, dass die Adresse aktiv genutzt wird, was zu einer Zunahme der Spam-Flut oder gezielten Social-Engineering-Angriffen führen könnte. Spammer erraten Zieladressen oft nur und erhalten durch die Antwort weitere Hinweise auf Angriffsmöglichkeiten (z.B. Schema gültiger Mailadressen, E-Mail-Signaturen, aktive Server).
+
+### SENS.7.6 – SPAM - Links
+
+**Stufe:** `normal-SdT` · **Aufwand:** 1 · **Gefährdungen:** G 0.18
+
+> Sensibilisierung für Nutzende von Interpersoneller Kommunikation SOLLTE gegen das Öffnen von Links in SPAM sensibilisieren.
+
+Spam kann Phishing-Versuche enthalten, die zur Preisgabe sensibler Zugangsdaten verleiten, oder auf Webseiten führen, die Schadsoftware ausliefern. Angreifer versuchen oft, ihre Opfer zum unerwarteten Aufruf von Internetseiten zu drängen und nutzen täuschend echt aussehende Webseiten um Zugangsdaten oder IBAN-Nummern abzufischen. Im Zweifelsfall ist es sinnvoll stattdessen sinnvoll, Rücksprache über andere, bereits bekannte Erreichbarkeiten (z.B. Telefonnummer, bekannter Link im Intranet) zu halten und die Echtheit der Nachricht zu verifizieren, oder über die Meldewege einen potenziellen Vorfall zu melden.
+
+### SENS.7.7 – SPAM - Anhänge
+
+**Stufe:** `normal-SdT` · **Aufwand:** 1 · **Gefährdungen:** G 0.18
+
+> Sensibilisierung für Nutzende von Interpersoneller Kommunikation SOLLTE gegen das Öffnen von Anhängen in SPAM sensibilisieren.
+
+Das Öffnens von Anhängen in unerwünschten oder verdächtigen Nachrichten könnte dazu führen, dass Schadsoftware in die Systeme einer Institution gelangt oder vertrauliche Informationen abfließen. Angreifer versuchen oft, ihre Opfer zum Öffnen von Dateien zu drängen und nutzen diese dann, um Schadprogramme auszuführen. Im Zweifelsfall ist es sinnvoll stattdessen sinnvoll, Rücksprache über andere, bereits bekannte Erreichbarkeiten (z.B. Telefonnummer, bekannter Link im Intranet) zu halten und die Echtheit der Nachricht zu verifizieren, oder über die Meldewege einen potenziellen Vorfall zu melden. Nützlich sind zudem kompakte Checklisten, die die wichtigsten Prüfkriterien vor dem Öffnen eines Anhangs aufführen, wie z. B. die Überprüfung der Absenderadresse, die Plausibilität des Inhalts und die Art der Datei.
+
+### SENS.7.8 – Gefälschte E-Mails
+
+**Stufe:** `normal-SdT` · **Aufwand:** 1 · **Gefährdungen:** G 0.18
+
+> Sensibilisierung für Nutzende von E-Mailn SOLLTE zum Erkennen von gefälschten E-Mails sensibilisieren.
+
+Spam in E-Mails kann oft an einer Kombination auffälliger Merkmale erkannt werden: (1) unerwartete oder anonyme Absender, (2) untypische Schreibweisen des Namens oder der Adresse, (3) Absendernamen, der nicht zur Absender-Mailadresse passt, (4) drängender oder alarmierender Tonfall („sofort handeln“), (5) Links mit ungewöhnlichen oder verkürzten Domains, (6) fehlerhafte oder maschinell wirkende Sprache, (7) unpassende Dateianhänge oder Bilddateien sowie (8) Inhalte, die nicht zum bisherigen Kontext der Kommunikation passen.
+
+### SENS.7.9 – Aktive Inhalte
+
+**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.18
+
+> Sensibilisierung für Nutzende von Office-Anwendungen SOLLTE zur Überprüfung aktiver Inhalte vor der Aktivierung sensibilisieren.
+
+Office-Dateien mit aktiven Inhalten (z.B. Makros) können Schadprogramme enthalten. In diesem Kontext bedeutet „aktive Inhalte“ jegliche Funktionen in Office-Dokumenten, die über reine Text- oder Datenanzeige hinaus eigenständig Code ausführen oder externe Ressourcen ansprechen können. Bei unbekannten oder unerwarteten Dokumenten mit solchen Inhalten ist es sinnvoll, zunächst Rücksprache mit der absendenden Person zu halten, um die Echtheit des Dokumentes zu bestätigen und zu klären, ob die aktiven Inhalte für die Kommunikation zwingend erforderlich sind. Werden aktive Inhalte tatsächlich benötigt, so ist eine Prüfung des Quellcodes vor der Ausführung sinnvoll, die über die Meldewege angestoßen werden kann. Wurde für bestimmte aktive Inhalte bereits eine Freigabe erteilt, so kann deren erneute Prüfung bei jedem Öffnen des Dokumenten entfallen.
+
+### SENS.7.10 – Trennen nicht benötigter Anschlüsse
+
+**Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.18
+
+> Sensibilisierung für Nutzende von Virtualisierungslösungen SOLLTE zum Trennen nicht benötigter Verbindungen zwischen Host und virtuellem Gast sensibilisieren.
+
+Werden unnötige Verbindungen zwischen Host und Gast nicht getrennt, könnte dies zu unautorisiertem Zugriff auf Daten oder Systeme führen, etwa wenn eine Malware aus dem Gast Zugriff auf Host-Ressourcen erhält oder wenn sensible Dateien versehentlich zwischen beiden Umgebungen ausgetauscht werden. Durch eine saubere Trennung kann das Risiko seitlicher Bewegungen innerhalb der IT-Infrastruktur verringert werden und die Integrität einzelner Arbeitsumgebungen kann erhalten bleiben. Dies betrifft z.B. angeschlossene Geräte und Schnittstellen wie Drucker, USB-Sticks oder auch die Netzanbindung. Auch einfache Checklisten für IT-Personal und Nutzende können helfen, das Bewusstsein zu stärken, dass Komfortfunktionen wie „Drag & Drop“ zwischen Host und Gast zwar praktisch erscheinen, aber potenziell eine unnötige Angriffsfläche eröffnen können.
+
+### SENS.7.11 – Heimliche Aufzeichnung
+
+**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.18
+
+> Sensibilisierung für Nutzende von VK-Anwendungen SOLLTE gegen die heimliche Bild- oder Tonaufzeichnung bei einer Videokonferenz sensibilisieren.
+
+Heimliche Aufzeichnungen verletzen die Vertraulichkeit der Kommunikation. Eine Aufzeichnung von Wort und Bild ohne den Willen der Aufgezeichneten kann zudem eine Persönlichkeitsrechtverletzung bis hin zur Straftat (§ 201 StGB) darstellen. Dies gilt auch für Aufzeichnungen, die KI-gestützt ausgewertet werden.
+
+### SENS.7.12 – Öffentliche WLANs
+
+**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.18
+
+> Sensibilisierung für Nutzende von Endgeräten SOLLTE gegen die Risiken der Nutzung öffentlicher WLANs sensibilisieren.
+
+„Öffentliches WLAN“ meint frei zugängliche oder nur schwach kontrollierte Funknetze, deren Betreiber, Konfiguration und Schutzmechanismen unbekannt sind. In öffentlichen WLANs übertragenen Datenverkehr könnte von Dritten abgefangen werden. Angriffe wie Man-in-the-Middle, gefälschte Hotspots (Evil Twins), Session-Hijacking oder Phishing über Captive Portals könnten zu Kontoübernahmen, Datenabfluss oder Schadsoftware führen. Dies gilt auch dann, wenn das WLAN verschlüsselt ist.
+
+### SENS.7.13 – Unverschlüsselte WLANs
+
+**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.18
+
+> Sensibilisierung für Nutzende von Endgeräten SOLLTE gegen die Risiken der Nutzung unverschlüsselter WLANs sensibilisieren.
+
+Ohne Verschlüsselung könnten die über WLAN übertragenen Daten abgehört werden, z.B. Zugangsdaten, Session-Hijacking, Umleitungen durch DNS-Spoofing oder „Evil-Twins“. Ebenso könnte Schadcode über manipulierte Update-Kanäle oder Portalseiten eingeschleust werden. Im Kontext dieser Anforderung bedeutet „unverschlüsseltes WLAN“ offene Wi-Fi-Netze ohne WPA2/WPA3-Schutz, bei denen ein Captive Portal allein keine Funkstreckenverschlüsselung bereitstellt.
+
+### SENS.7.14 – Unautorisierte WLANs
+
+**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.18
+
+> Sensibilisierung für Nutzende von Endgeräten KANN die Nutzung unautorisierter WLANs untersagen.
+
+Zwar sind immer mehr Verbindungen automatisch verschlüsselt, dennoch bergen WLAN-Verbindungen außerhalb der Institution das Risiko, dass Verbindungsdaten abgefangen oder IT-Systeme angegriffen werden.
+
+### SENS.7.15 – Social Engineering Anrufe
+
+**Stufe:** `normal-SdT` · **Aufwand:** 1 · **Gefährdungen:** G 0.42
+
+> Sensibilisierung für Nutzende von TK-Anwendungen SOLLTE gegen Social Engineering Anrufe sensibilisieren.
+
+Social Engineering bezeichnet in diesem Zusammenhang die bewusste Täuschung oder Beeinflussung einer Person, um sie zu Handlungen zu bewegen, die im Interesse des Angreifenden liegen, beispielsweise das Preisgeben von Passwörtern, internen Abläufen oder technischen Zugangsdaten. Ein Angriff könnte sich etwa darin äußern, dass sich eine Person am Telefon glaubhaft als IT-Support, Vorgesetzte oder externe Partnerin ausgibt, um den Eindruck einer legitimen Anfrage zu erwecken. Solche Vorfälle könnten zu unbefugtem Zugriff auf interne Systeme, zum Auslösen von Störungen oder zur Vorbereitung weiterer Angriffe führen. Typischerweise sind solche Anrufe daran zu erkennen, dass von unbekannten Personen zu unüberlegten Handlungen gedrängt wird. Hiergegen hilft es, den Gesprächspartner zunächst zu authentifizieren, bevor über Vertrauliches gesprochen oder Handlungen angestoßen werden. Angezeigte Rufnummern oder Nutzernamen könnten dagegen manipuliert sein (Caller ID Spoofing) - sie sind zur Authentifizierung des Gesprächspartners eher nicht geeignet. Das Mithören Dritter ist hier insbesondere im öffentlichen Raum zu bedenken, kann aber auch bei unverschlüsselten Verbindungen auftreten oder beim Gesprächspartner.
+
+### SENS.7.16 – Mailbox-PIN und Co.
+
+**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.18
+
+> Sensibilisierung für Nutzende von TK-Anwendungen SOLLTE zur Vergabe eigener Zugangsdaten zum Zugriff auf Aufzeichnungen sensibilisieren.
+
+Der Begriff Zugangsdaten bezeichnet in diesem Kontext die für den Zugriff auf gespeicherte Aufzeichnungen notwendigen Authentisierungsinformationen, wie Passwörter, PINs oder Zugangstokens. Aufzeichnungen sind hierbei gespeicherte Mitschnitte oder Protokolle von Kommunikationssitzungen in TK-Anwendungen (z. B. Mailbox, Sprach-, Video- oder Chat-Verläufe), sofern deren Speicherung aktiviert wurde. Verfügt der Server über keine Funktion zum Speichern von Sprachaufzeichnungen (z.B. Voice-Mailbox mit PIN oder Gesprächsaufzeichnung bei Tastendruck) oder ist diese deaktiviert, so ist die Anforderung entbehrlich.
+
+### SENS.7.17 – Unverschlüsseltes Telefonieren
+
+**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.18
+
+> Sensibilisierung für Nutzende von TK-Anwendungen SOLLTE gegen die Kommunikation über unverschlüsselte Telekommunikationsverbindungen sensibilisieren.
+
+Hilfreich ist es hierbei darüber zu informieren, zu welchen Empfängerkreisen mit welchem Schutzniveau über welche Anwendungen kommuniziert werden kann. Telefonie über das öffentliche Telefonnetz ist noch immer häufig unverschlüsselt, während z.B. viele moderne Messenger-Apps eine Ende-zu-Ende-Verschlüsselung ermöglichen. Relevant ist dabei auch der Aufbau von Konferenzschaltungen: Wählt sich z.B. ein Teilnehmer über das öffentliche Telefonnetz ein, so ist diese Verbindung typischerweise unverschlüsselt, wodurch die Gespräche aller Konferenzteilnehmer abgehört werden können, auch wenn die anderen Teilnehmer über eine verschlüsselte Verbindung in der Konferenz sind.
+
+### SENS.7.18 – Mobile Endgeräte in Sicherheitsbereichen
+
+**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.18
+
+> Sensibilisierung für Nutzende von Endgeräten KANN das Mitführen von Endgeräten in Sicherheitsbereichen untersagen.
+
+Das Mitführen von Endgeräten in besonders geschützten Bereichen kann untersagt werden, um das Risiko unbefugter Informationsabflüsse, unbeabsichtigter Datenaufzeichnungen oder unkontrollierter Funkübertragungen zu reduzieren. Mitführen meint hier, dass dort Endgeräte eingeführt werden, die nicht explizit für diesen Sicherheitsbereich autorisiert wurden, z.B. durch Smartphones in der Tasche, Smartwatches am Handgelenk oder Notebooks in einer Tragetasche. Mobile Endgeräte verfügen heute fast immer über hochauflösende Kameras, Mikrofone, GPS-Module und vielfältige Funktechnologien (z. B. LTE, WLAN, Bluetooth), die sowohl gezielt als auch unbeabsichtigt vertrauliche Informationen erfassen und weitergeben können. So könnte etwa ein Besuchender in einem Forschungsbereich versehentlich sensible Projektdaten fotografieren, oder ein infiziertes Gerät könnte über eine Funkverbindung Schadsoftware ins interne Netz einschleusen. Auch unbeabsichtigte Sprachaufzeichnungen in Besprechungen, die durch Assistenzfunktionen aktiviert werden, könnten sicherheitskritische Informationen in Cloud-Dienste übertragen. Das Verbot oder die Einschränkung des Mitführens in bestimmten Bereichen kann daher ein wirksames Mittel sein, um die Angriffsfläche für Spionage, Sabotage oder unkontrollierte Datenverbreitung deutlich zu verringern.
+
+### SENS.7.19 – Unverschlüsselte SMS oder MMS
+
+**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.18
+
+> Sensibilisierung für Nutzende von Endgeräten KANN die Kommunikation über SMS oder MMS untersagen.
+
+SMS und MMS werden in der Regel unverschlüsselt übertragen und sind daher nicht für sensible Informationen geeignet. Stattdessen kann oft auf verschlüsselte Anwendungen wie Messenger oder VoIP zurückgegriffen werden.
+
+### SENS.7.20 – Authentifzierung von Gesprächspartnern
+
+**Stufe:** `normal-SdT` · **Aufwand:** 1 · **Gefährdungen:** G 0.42, G 0.36
+
+> Sensibilisierung für Nutzende von Informationen SOLLTE zur Authentifizierung von Gesprächspartnern vor der Weitergabe von Informationen sensibilisieren.
+
+Die Authentifizierung von Gesprächspartnern ist die verlässliche Verifikation der Identität einer Person, bevor vertrauliche oder schützenswerte Informationen mündlich, telefonisch oder über andere elektronische Kommunikationsmittel weitergegeben werden. Dazu gehört es insbesondere sicherzustellen, dass die anfragende Person tatsächlich diejenige ist, für die sie sich ausgibt („authentication of interlocutors“). Ziel ist es zu verhindern, dass unberechtigte Dritte durch Täuschung an vertrauliche Inhalte gelangen. Ohne diese Überprüfung könnten Angriffe wie Social Engineering, CEO-Fraud oder Phishing erfolgreich sein – ein Angreifer könnte sich z. B. am Telefon als interner Kollege, vertrauter Dienstleister oder sogar als Behördenvertreter ausgeben, um Zugang zu Kundenlisten, Zugangsdaten oder Projektplänen zu erhalten. Dies gilt insbesondere am Telefon, aber auch in persönlichen Gesprächen mit Unbekannten. Sinnvoll ist es, hierzu ein einheitliches Verfahren zu etablieren, bei dem vor Auskunftserteilung anfragende Personen durch gezielte Rückfragen oder Vergleich mit bekannten Kontaktdaten überprüft werden. Beispiele können sein: (1) Rückruf unter der im internen Verzeichnis hinterlegten Telefonnummer, (2) Abgleich spezifischer interner Referenzen oder Codes, (3) Nachfrage nach Details, die nur legitim Berechtigte kennen können (z.B. Aktenzeichen), oder (4) die Nutzung anderer sicherer Kommunikationskanäle, die bereits für die jeweilige Person verifiziert wurden.
+
+### SENS.7.21 – Rechtsunsicherheit von Faxen
+
+**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.18
+
+> Sensibilisierung für Nutzende von Faxen SOLLTE gegen die Rechtsunsicherheit bei Empfang oder Versand von Faxen sensibilisieren.
+
+Faxe enthalten nicht die originale, eigenhändige Unterschrift und erfüllen daher nicht die gesetzliche Schriftform (§ 126 BGB).
+
+### SENS.7.22 – Unverschlüsselte Faxleitungen
+
+**Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.18
+
+> Sensibilisierung für Nutzende von Faxen SOLLTE gegen die Risiken der unauthentisierten und unverschlüsselten Faxnutzung sensibilisieren.
+
+Da Faxverbindungen in der Regel weder eine Authentifikation des Empfängers noch eine Transportverschlüsselung vornehmen, können diese leicht abgefangen oder manipuliert werden. Dem kann durch eine Ankündigung sowie eine Sende- und Empfangsbestätigung entgegengewirkt werden.
+
+### SENS.7.23 – Geolokation
+
+**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.18
+
+> Sensibilisierung für Nutzende von Endgeräten SOLLTE über Standortbestimmungsfunktionen von mobilen Endgeräten sensibilisieren.
+
+Zum Beispiel könnten Webseiten über Schnittstellen von Webbrowsern auf Standort-Sensoren (GPS, Mobilfunk etc.) zugreifen. Auch Mobilfunkanbieter sind in der Lage, Geostandorte über das Mobilfunksignal zu erfassen.
+
+### SENS.7.24 – Zertifikatswarnungen
+
+**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.18
+
+> Sensibilisierung für Nutzende von Webbrowsern SOLLTE gegen das unautorisierte Übergehen einer Zertifikatswarnung bei der Webnutzung sensibilisieren.
+
+Zeigt der Browser oder eine andere Anwendung eine Zertifikatswarnung an, dann besteht das Risiko, dass es sich um einen Angriff handelt. Im Zweifel ist es hier angebracht, über die bekannten Meldewege nachzufragen und den Zugang zu bestimmten Seiten oder Anwendungen autorisieren zu lassen.
+
+## SENS.8 Physische Sicherheit
+
+### SENS.8.1 – Screen Lock
+
+**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.18
+
+> Sensibilisierung für Nutzende SOLLTE zum Sperren von IT-System vor dem Verlassen des Arbeitsplatzes anweisen.
+
+Diese Vorgehensweise hilft dabei, unbefugten Zugriff auf sensible Informationen zu verhindern, die auf dem Bildschirm angezeigt werden könnten. Ansonsten könnte es zu unbefugten Zugriffen auf Daten oder die Systeme selber kommen, wenn diese unbewacht und ungesperrt zurückgelassen werden.
+
+### SENS.8.2 – Clean Desk
+
+**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.18, G 0.29
+
+> Sensibilisierung für Nutzende SOLLTE zum Aufräumen von vertraulichen Dokumenten und Datenträgern vor dem Verlassen des Arbeitsplatzes anweisen.
+
+Ein aufgeräumter Arbeitplatz („Clean Desk Policy“) kann dazu beitragen, Informationssicherheit und Datenschutz am Arbeitsplatz zu stärken, indem sie verhindert, dass vertrauliche Unterlagen, Datenträger oder elektronische Geräte unbefugt eingesehen oder entwendet werden. Durch konsequentes Aufräumen am Ende des Arbeitstages oder bei längeren Abwesenheiten kann das Risiko von Datenlecks, Industriespionage oder versehentlicher Offenlegung sensibler Informationen minimiert werden. Gleichzeitig kann eine aufgeräumte Arbeitsumgebung die Konzentration und Effizienz der Mitarbeitenden fördern, da unnötige Ablenkungen reduziert werden und das Wiederfinden wichtiger Unterlagen beschleunigt wird. Hierzu gehören sowohl physische Unterlagen wie Akten, Notizzettel oder Ausdrucke mit personenbezogenen oder geschäftskritischen Daten, als auch elektronische Datenträger oder Bildschirminhalte.
+
+### SENS.8.3 – Risiken der Nutzung von mobilen Endgeräten
+
+**Stufe:** `normal-SdT` · **Aufwand:** 1 · **Gefährdungen:** G 0.18
+
+> Sensibilisierung für Nutzende von Endgeräten SOLLTE gegen Risiken der Nutzung von mobilen Endgeräten sensibilisieren.
+
+Bei der Nutzung mobiler Endgeräte wie Smartphones, Tablets und Laptops ist Vorsicht geboten, da diese Geräte häufig außerhalb gesicherter Umgebungen betrieben werden und dort typischerweise einer höheren Gefährdungslage ausgesetzt sind. Beispiele sind z.B. Abhandenkommen von Geräten oder Zugang von Unbefugten zu Informationen im öffentlichen Verkehr. Durch den konsequenten Einsatz von Gerätesperren, Verschlüsselung, vertrauenswürdigen Netzwerken sowie der geschützten Verwahrung von Geräten kann das Risiko einer unbefugten Nutzung erheblich reduziert werden.
+
+### SENS.8.4 – Schließen von Türen und Fenstern
+
+**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.44, G 0.2, G 0.3
+
+> Sensibilisierung für Nutzende von Gebäuden SOLLTE zum Verschließen von Fenstern und Türen beim Verlassen von Räumlichkeiten anweisen.
+
+Durch unverschlossene Türen und Fenster könnten Unbefugte Zutritt erlangen und (in Außenwänden) auch Umwelteinflüsse wirksam werden (Regen, Sturm, Frost), so dass IT, sensible Informationen und andere Werte in Gefahr geraten, zerstört, beschädigt, ausgespäht oder entfernt werden könnten. Sobald die Anwesenheit von Pesonen in einem Raum endet, sind Türen und Fenster daher so zu schließen, dass von Außen das unbefugte Öffnen und (in Außenwänden) das Eindringen von Umwelteinflüssen verhindert wird. Türen werden z.B. abgeschlossen oder Türschließsysteme in den entsprechenden Betriebszustand gebracht, Fenster ganz geschlossen und verriegelt. Nicht erforderlich ist das Verschließen der Türen von fensterlosen Innenräumen, in denen keine IT, sensible Informationen oder andere Werte aufbewahrt werden, oder wenn Risiken praktisch ausgeschlossen werden können (z.B. Kippen von Außenfenstern in höheren Geschossen bei gutem Wetter vor kurzer Abwesenheit). Dies gilt auch für Gemeinschaftsräume, in denen sich IT-Systeme oder Datenträger befinden, z.B. VK-Konferenzzimmer.
+
+### SENS.8.5 – Mitbringen von IT-Systemen
+
+**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.18
+
+> Sensibilisierung für Nutzende KANN das Mitbringen unautorisierter IT-Systeme untersagen.
+
+Fremde IT-Systeme sind ein Risiko, weil sie an das interne Netz angeschlossen, zum Mithören von Gesprächen oder zur Standortverfolgung missbraucht werden können. Relevant sind dabei sowohl Geräte der Mitarbeitenden, als auch von Externen. Dies kann auch durch eine Hinterlegung von Geräten an der Pforte oder in verschließbaren Fächern am Eingang umgesetzt werden.
+
+### SENS.8.6 – Begleitung Externer
+
+**Stufe:** `erhöht` · **Aufwand:** 4 · **Gefährdungen:** G 0.18
+
+> Sensibilisierung für Mitarbeitende von Standorten KANN zur Begleitung von Externen anweisen.
+
+Dies dient in erster Linie dazu, unbefugte oder unbeaufsichtigte Zugriffe auf sensible Bereiche, Informationen oder Systeme zu verhindern. Ohne eine solche Begleitung kann es leicht zu Situationen kommen, in denen Externe absichtlich oder versehentlich sicherheitskritische Bereiche betreten, vertrauliche Informationen einsehen oder technische Geräte unsachgemäß manipulieren. Die Begleitung Externer, die wie Interne sicherheitsüberprüft und geschult wurden, ist entbehrlich.
+
+### SENS.8.7 – Beaufsichtigung Externer
+
+**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.18
+
+> Sensibilisierung für Mitarbeitende von Standorten SOLLTE zur Beaufsichtigung von Externen in sensiblen Bereichen anweisen.
+
+Erhalten Externe wie z.B. IT-Dienstleister Zugang zu Standorten, an denen sensible Informationen verarbeitet werden, so stellt eine Beaufsichtigung sicher, dass Externe nur soweit Zugriff auf diese Informationen erhalten, wie für die Erledigung der Aufgabe erforderlich.
+
+### SENS.8.8 – Verwahrung Intern
+
+**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.18
+
+> Sensibilisierung für Nutzende von Räumen SOLLTE zur sicheren Verwahrung von IT-Systemen und Datenträgern sensibilisieren.
+
+Herumliegende vertrauliche Dokumente und Datenträger sind ein leichtes Ziel für Diebe und können versehentlich verloren gehen. Hiergegen hilft die Verwahrung in einem verschlossenen Schrank oder anderweitig entsprechend geschützt. Dies ist besonders wichtig in Räumlichkeiten, welche oft zusammen mit oder ausschließlich von externen Personen genutzt werden, z.B. Konferenz- oder Veranstaltungsräume.
+
+### SENS.8.9 – Rückgabe nicht mehr benötigter Assets
+
+**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.18
+
+> Sensibilisierung für Nutzende SOLLTE zur Rückgabe nicht mehr benötigter Assets anweisen.
+
+Dies gilt z.B. bei einem Wechsel der Aufgaben oder der Beendigung des Vertragsverhältnisses zwischen Nutzenden und der Institution.
+
+### SENS.8.10 – Vermeidung von Brandlasten
+
+**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.1, G 0.18
+
+> Sensibilisierung für Nutzende von Standorten SOLLTE das ungesicherte Hinterlassen von Brandlasten untersagen.
+
+Befinden sich Brandlasten wie Kartons, brennbare Dämmstoffe, Batterien oder Holzmöbel in der Nähe (oder sogar in) Räumen für technische Infrastruktur oder zentraler Versorgungseinrichtungen, so erhöhen sich Wahrscheinlichkeit und durchschnittliches Schadensausmaß von Bränden. Dies gilt auch für das Rauchen von Zigaretten oder Zigarren. Der einzuhaltende Abstand ergibt sich aus der Größe der Brandlast und dem Schutzbedarf des Ortes von dem Abstand zu halten ist - wenn möglich ist ein Abstand von mindestens einem Zwischenraum sinnvoll.
+
+### SENS.8.11 – Verwendung von Brandschutmitteln
+
+**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.1, G 0.18
+
+> Sensibilisierung für Mitarbeitende SOLLTE zur korrekten Verwendung bereitgestellter Brandschutz-Hilfsmittel sensibilisieren.
+
+Hierzu zählt z.B. die Einweisung in die korrekte Verwendung von Handfeuerlöschern, welche in Serverräumen oder Rechenzentren bereitgestellt werden.
+
+### SENS.8.12 – Verwendung von Wasserschutzmitteln
+
+**Stufe:** `erhöht` · **Aufwand:** 3 · **Gefährdungen:** G 0.3
+
+> Sensibilisierung für Mitarbeitende KANN zur korrekten Verwendung bereitgestellter Wasserschutz-Hilfsmittel sensibilisieren.
+
+Ohne ausreichende Kenntnisse könnte ein Mitarbeitender im Ernstfall zögern oder Hilfsmittel falsch anwenden, wodurch wertvolle Geräte ungeschützt bleiben oder unnötige Verzögerungen bei der Eindämmung eintreten könnten. Eine rechtzeitige und richtige Anwendung kann dagegen die Ausbreitung von Wasserschäden begrenzen, Datenverluste vermeiden und den Wiederanlauf kritischer Arbeitsprozesse erheblich erleichtern. Im Kontext dieser Anforderung bedeutet „Wasserschutz-Hilfsmittel“ einfache technische oder organisatorische Werkzeuge, die zur Eindämmung, Ableitung oder Beseitigung von Wasser im Notfall eingesetzt werden können, etwa Sandsäcke, Absperrschotten, Wassermelder oder Tauchpumpen. Konkrete Maßnahmen können sein: (1) Mitarbeitende regelmäßig in kurzen Übungen mit der Handhabung der vorhandenen Hilfsmittel vertraut machen, z. B. das Einsetzen von Absperrschotten an Türen oder den Betrieb einer Tauchpumpe an einem vorbereiteten Testbecken, (2) an den Aufbewahrungsorten der Hilfsmittel laminierte Schritt-für-Schritt-Anleitungen anbringen, die im Ernstfall sofort verständlich sind, (3) visuelle Markierungen oder QR-Codes platzieren, die auf kurze Videosequenzen zur Anwendung verweisen. Auch kleine Tipps können die Wirksamkeit erhöhen, etwa dass Hilfsmittel geordnet nach Dringlichkeit bereitliegen können oder dass bei Tauchpumpen vorab Kabel und Steckdosen auf sichere Reichweite geprüft werden können.
+
+## SENS.9 Mobiles Arbeiten
+
+### SENS.9.1 – Verarbeitung in der Öffentlichkeit
+
+**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.18, G 0.29
+
+> Sensibilisierung für Nutzende SOLLTE gegen die Verarbeitung von vertraulichen Informationen in der Öffentlichkeit sensibilisieren.
+
+Die Anforderung zielt darauf ab, das Risiko unbeabsichtigter Informationsabflüsse in öffentlichen Räumen zu reduzieren. Ohne entsprechende Aufmerksamkeit könnte etwa ein unbefugter Dritter vertrauliche Daten über die Schulter mitlesen, Fotos von Bildschirmen aufnehmen oder Gesprächsinhalte mithören, was im schlimmsten Fall zu Identitätsdiebstahl oder geschäftsschädigender Weitergabe von Insiderinformationen führen könnte. Unachtsamkeit könnte dabei z.B. einen Verstoß gegen Arbeitsanweisungen und das Gesetz zum Schutz von Geschäftsgeheimnissen (GeschGehG) darstellen. Im vorliegenden Kontext bedeutet „öffentliche Verarbeitung“ die Nutzung mobiler Geräte wie Laptops, Tablets oder Smartphones in frei zugänglichen Umgebungen, in denen unbekannte Personen mitlesen oder mithören könnten, zum Beispiel in Verkehrsmitteln, Cafés, Flughäfen oder Co-Working-Spaces. Zudem helfen Schutzmaßnahmen wie das Sitzen mit dem Rücken zur Wand oder die Verwendung von Displayschutzfolien und abdeckenden Kopfhörern.
+
+### SENS.9.2 – Vorsicht vor Mithören
+
+**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.18
+
+> Sensibilisierung für Nutzende SOLLTE gegen das Abhören von Gesprächen beim mobilen Arbeiten sensibilisieren.
+
+Das Abhören von Gesprächen bezeichnet im Kontext des mobilen Arbeitens das unbefugte Mithören vertraulicher oder sensibler Inhalte durch Dritte, sei es absichtlich (z. B. durch Spionage) oder unbeabsichtigt (z. B. durch zufällige Umstehende). Mobiles Arbeiten ist das Arbeiten an Orten außerhalb der Kontrolle der Institution, wie z. B. im Homeoffice, auf Reisen oder in öffentlichen Bereichen. Ohne entsprechende Vorsicht könnte die Preisgabe geschäftsrelevanter Daten über Produkte, interne Strategien oder persönliche Informationen erfolgen, was im schlimmsten Fall zu wirtschaftlichen Schäden oder Reputationsverlust führen könnte. Das betrifft insbesondere Anrufe und Videokonferenzen. Hierbei hilft es, Gespräche mit vertraulichem Inhalt nach Möglichkeit in geschützte Räume zu verlagern oder, falls dies nicht möglich ist, ihre Sprache bewusst zu kodieren bzw. zu abstrahieren. Technische Hilfsmittel wie Headsets mit Geräuschunterdrückung können die Verständlichkeit für autorisierte Gesprächspartner verbessern, während Umstehende weniger Details wahrnehmen. Auch einfache Verhaltenshinweise wie das Abwenden vom Publikumsverkehr, die Wahl einer Sitzposition mit Abstand zu anderen Personen oder die Nutzung digitaler Chatkanäle anstelle mündlicher Gespräche in unsicheren Umgebungen kann das Risiko verringern.
+
+### SENS.9.3 – Verwahrung außer Haus
+
+**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.18
+
+> Sensibilisierung für Nutzende SOLLTE zur Verwahrung von IT-Systemen und Datenträgern beim mobilen Arbeiten anweisen.
+
+Die Verwahrung von IT-Systemen und Datenträgern bedeutet, diese so zu sichern, dass sie nicht unbeabsichtigt verloren gehen, beschädigt oder unbefugt eingesehen werden können. An mobilen Arbeitsplätzen ist das Risiko eines Zugriffs Unbefugter oder Verlustes typischerweise höher als in Bürogebäuden. Dagegen hilft es, alle Hardware und Dokumente so aufzubewahren, dass unbefugter Zugang und unberechtigter Zugriff verhindert wird. Hierzu können z.B. Koffer mit Schloss oder Hotelsafes genutzt werden. Eine regelmäßige Überprüfung dieser Maßnahmen wird empfohlen.
+
+### SENS.9.4 – Mobile Arbeit mit Dokumenten
+
+**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.18
+
+> Sensibilisierung für Nutzende SOLLTE über den sicheren Umgang mit analogen Dokumenten beim mobilen Arbeiten sensibilisieren.
+
+Unter analogen Dokumenten sind hier alle physischen Informations- und Datenträger wie Ausdrucke, Notizbücher oder Verträge zu verstehen, die sensible oder vertrauliche Inhalte enthalten. Unbeaufsichtigte oder ungeschützte Dokumente könnten unterwegs leicht verloren gehen oder in unbefugte Hände gelangen, was zu ungewollter Preisgabe interner Informationen führt. Daher ist es sinnvoll (1) Unterlagen unterwegs stets in verschließbaren Taschen oder Mappen zu transportieren und so vor unbefugtem Zugriff zu schützen, (2) beim Arbeiten außerhalb der Institution nur die wirklich notwendigen Ausdrucke mitzunehmen und alle übrigen Dokumente in gesicherten Ablagen zu belassen. (3) Papierstapel durch neutrale Umschläge abzudecken oder in blickdichten Aktenhüllen mitzuführen, sodass neugierige Blicke verhindert werden, (4) temporäre Notizen nach Gebrauch einer sicheren Vernichtung zuzuführen, etwa durch mobile Reißwolf-Lösungen oder durch Rückgabe an eine zentrale Aktenvernichtung. Auch für mitgenommene analoge Dokumente gelten zudem die Regelungen und Verfahren zum Löschen und Vernichten.
+
+### SENS.9.5 – Mitnahme zur mobilen Arbeit
+
+**Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.18
+
+> Sensibilisierung für Nutzende SOLLTE gegen die Mitnahme nicht erforderlicher IT-Systeme und Datenträger sensibilisieren.
+
+Außerhalb der Institution sind die Möglichkeiten zum Schutz von IT-Systemen und Daten geringer. Es ist daher ratsam, die mitgenommenen Geräte und Dokumente auf das erforderliche Maß zu beschränken und stattdessen nach der Rückkehr intern weiter daran zu arbeiten. Welche IT-Systeme und Datenträger erforderlich sind, ergibt sich aus der Festlegung erlaubter Datenlokationen sowie den Aufgaben der Nutzenden.
+
+### SENS.9.6 – Mitnahme ins Ausland
+
+**Stufe:** `erhöht` · **Aufwand:** 3 · **Gefährdungen:** G 0.18
+
+> Sensibilisierung für Nutzende KANN die Mitnahme nicht erforderlicher IT-Systeme und Datenträger bei Auslandsreisen untersagen.
+
+Auf Auslandsreisen ist das Risiko für Spionage erhöht und der Rechtsschutz für Betroffene typischerweise geringer, insbesondere im EU-Ausland. Es ist daher ratsam, die mitgenommenen Geräte und sensiblen Informationen auf das für das Geschäft erforderliche Mindestmaß zu beschränken und stattdessen nach der Rückkehr an einem besser geschützten Standort weiter daran zu arbeiten. Welche IT-Systeme und Datenträger erforderlich sind, ergibt sich aus der Festlegung erlaubter Datenlokationen sowie den Aufgaben der Nutzenden. Ist die Nutzung von Informationen oder Assets der Institution im Ausland nicht vorgesehen (vgl. Anforderung Datenlokationen), dann ist die Anforderung entbehrlich.
+
+### SENS.9.7 – Reise- und Sicherheitshinweise
+
+**Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.18, G 0.5
+
+> Sensibilisierung für Nutzende SOLLTE zu Reise- und Sicherheitshinweisen des Auswärtigen Amtes bei Auslandsreisen ins außereuropäische Ausland sensibilisieren.
+
+Dies kann dazu beitragen, frühzeitig potenzielle Gefahren zu erkennen und das Verhalten an die spezifischen Risiken des Ziellandes anzupassen. Dies umfasst unter anderem Hinweise zu politischen Unruhen, Naturkatastrophen, Kriminalitätslagen oder besonderen Einreise- und Sicherheitsbestimmungen. Ohne solche Kenntnisse könnten Reisende unvorbereitet in Situationen geraten, in denen dienstliche Geräte kompromittiert werden, wenn unsichere Netzwerke genutzt werden. Ebenso könnten fehlende Kenntnisse über lokale Gesetze dazu führen, dass mitgeführte elektronische Geräte bei der Einreise beschlagnahmt oder inspiziert werden. Sinnvoll ist es, sich vor der Arbeitsreisen in das außereuropäische Ausland über aktuelle Reise- und Sicherheitshinweise beim [Auswärtigen Amt](https://www.auswaertiges-amt.de/de/reiseundsicherheit/reise-und-sicherheitshinweise) zu informieren. Ist die Nutzung von Informationen oder Assets der Institution im Ausland nicht vorgesehen (vgl. Anforderung Datenlokationen), dann ist die Anforderung entbehrlich.
+
+## SENS.10 Administration
+
+### SENS.10.1 – Grundprinzipien der Systemadministration
+
+**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.31, G 0.30, G 0.32
+
+> Sensibilisierung für Administrierende SOLLTE zu den Grundprinzipien der sicheren Administration sensibilisieren.
+
+Administriende sind durch ihre weitreichenden Zugangs- und Zugriffsberechtigungen, sowie ihre Verantwortung für die Aufrechterhaltung der Infrastruktur von besonderer Bedeutung für die Informations- und Cybersicherheit. Hier bedeutet „sichere Administration“, dass administrative Tätigkeiten so gestaltet werden, dass Vertraulichkeit, Integrität und Verfügbarkeit der Systeme möglichst gewahrt bleiben. Dazu zählen etwa Zugriffskontrolle und Rechtevergabe nach dem Least-Privilege-Prinzip, Netzwerksegmentierung, Systemhärtung, Loganalyse, Datensicherungen und Monitoring sowie die Vorbereitung für Notfälle. Um dies sicherzustellen ist es wichtig, die festgelegten Regeln (z.B. IT-Betriebskonzept) zu kennen und auf deren Einhaltung zu achten.
+
+### SENS.10.2 – Umgang mit privilegierten Berechtigungen
+
+**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.31, G 0.30, G 0.32, G 0.42
+
+> Sensibilisierung für Administrierende SOLLTE zum Umgang mit privilegierten Berechtigungen sensibilisieren.
+
+Privilegierte Berechtigungen (auch „administrative Rechte“, „Root-Berechtigungen“ oder „elevated privileges“ genannt) ermöglichen weitreichende Systemeingriffe und können bei unsachgemäßer Verwendung schwerwiegende Sicherheitsvorfälle verursachen. Beispielsweise könnte ein Administrator mit Root-Zugriff versehentlich kritische Systemdateien löschen, sensible Daten einsehen, oder Angreifer könnten solche Zugangsdaten abgreifen und mit diesen durch Lateral Movement ungehindert im Netzwerk agieren. Dies wird besonders deutlich an realen Vorfällen, bei denen Administratoren durch Social Engineering zum Einsatz ihrer Berechtigungen manipuliert wurden oder durch mangelndes Bewusstsein für Sicherheitsimplikationen ihrer Handlungen Schwachstellen selbst geschaffen haben. Stattdessen ist es sinnvoll, solche Berechtigungen nur dann zu verwenden, wenn sie für die aktuelle Aktion erforderlich sind, z.B. durch sudo. Zudem ist es bei diesen Zugangsdaten besonders wichtig, dass sie nicht ungeschützt abgelegt werden. Das betrifft auch Zugangsdaten, die in Skripten oder Anwendungen hinterlegt werden um diese auszuführen: Werden diese beim Aufruf von Kommandozeilenbefehlen oder in Skripten mitgespeichert, könnten sie in Protokollen oder im Prozessspeicher sichtbar sein und missbraucht werden. Sinnvoll ist stattdessen die Verwendung von Passwort-Managern, Umgebungsvariablen oder speziellen Secrets-Management-Lösungen. Dazu gehört auch die regelmäßige Rotation solcher Zugangsdaten bei Dienstekonten (Service Accounts).
+
+### SENS.10.3 – Systemadministration - Sicherheitsvorfälle
+
+**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.31, G 0.30, G 0.32
+
+> Sensibilisierung für Administrierende SOLLTE zu Verfahren und Regelungen bei Sicherheitsvorfällen sensibilisieren.
+
+Für die Behandlung und Nachsorge bei Sicherheitsvorfällen sind die festgelegten Verfahren und Regelungen einzuhalten. Hierzu gehört etwa das Erkennen auffälliger Logeinträge, der Umgang mit kompromittierten Administratorpasswörtern oder das strukturierte Sammeln erster Fakten, bevor ein Incident-Response-Team übernimmt. Effektiv kann auch ein klar dokumentiertes Ablaufdiagramm sein, das den Meldeweg und zulässige Sofortmaßnahmen visuell darstellt und in Administrationshandbüchern oder direkt im Ticket-System hinterlegt ist.
+
+### SENS.10.4 – Systemadministration - Strukturierte Verkabelung
+
+**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.31, G 0.30, G 0.32
+
+> Sensibilisierung für Administrierende von Netzen SOLLTE zur strukturierten Verkabelung sensibilisieren.
+
+Eine strukturierte Verkabelung kann die Übersichtlichkeit, Fehlertoleranz und Betriebssicherheit von Netzwerken erheblich verbessern. Sie dient dazu, Kabelwege und -anschlüsse einheitlich zu planen, zu dokumentieren und physisch so zu gestalten, dass Fehlverkabelungen, Kabelschäden oder unbefugte Eingriffe erschwert werden. Ohne solche Maßnahmen kann es zu chaotischen Verkabelungen kommen, die Fehlerdiagnosen erschweren, längere Ausfallzeiten verursachen oder im schlimmsten Fall unbemerkt unautorisierte Geräte ins Netz einschleusen lassen. So könnte etwa ein unbeschriftetes Patchkabel versehentlich abgezogen werden, wodurch kritische Systeme offline gehen, oder ein Kabelbündel könnte bei einer unachtsamen Bewegung beschädigt werden, was zu intermittierenden Netzwerkausfällen führt. Im konkreten Kontext bezeichnet „strukturierte Verkabelung“ ein einheitlich aufgebautes und dokumentiertes System von Kabeln, Anschlüssen und Patchfeldern, das nach anerkannten Standards (z. B. nach DIN EN 50173 und 50174) geplant und umgesetzt wird. Dazu gehören die Auswahl geeigneter Kabel, normgerechte Verlegungswege unter Berücksichtigung von EN 50310 sowie die Einhaltung von Mindestbiegeradien und Trennungsabständen zu elektrischen Leitungen. Administrierende können durch klare Kabelführung, Farbcodierungen, eindeutige Beschriftungen und eine nachvollziehbare Dokumentation ihre Arbeitsumgebung übersichtlicher und sicherer gestalten.
+
+### SENS.10.5 – Systemadministration - Internetnutzung
+
+**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.31, G 0.30, G 0.32
+
+> Sensibilisierung für Administrierende SOLLTE gegen den Internetzugriff über ein Administrationskonto sensibilisieren.
+
+Administrationskonten sind im konkreten Kontext privilegierte Benutzerkonten, die erweiterte Rechte für Konfigurations-, Installations- oder Wartungsaufgaben besitzen. Internetzugriff bezeichnet dabei das Herstellen von Verbindungen zu externen Diensten oder Webseiten außerhalb der institutionseigenen Netze. Ein solcher Zugriff mit einem Administrationskonto stellt ein erhebliches Risiko dar: Schadsoftware könnte mit denselben hohen Rechten ausgeführt werden oder Anmeldedaten könnten über unsichere Webseiten abgegriffen werden. Hiervon können Zugriffe ausgenommen werden, die zur Administration des Systems mit diesen Rechten erforderlich sind, z.B. Download von Sicherheitsupdates durch Applikationen, die zur Ausführung administrative Rechte benötigen.
+
+## SENS.11 Sensibilisierung der Leitungsebene
+
+### SENS.11.1 – Sensibilisierung der Institutionsleitung
+
+**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.18
+
+> Sensibilisierung für Institutionsleitung SOLLTE zur Bedeutung der Informationssicherheit für den Schutz der Geschäftsprozesse sensibilisieren.
+
+Informationssicherheit ist kein Selbstzweck, sondern soll die Verarbeitung von Informationen in Geschäftsprozessen zur Erreichung der Geschäftsziele schützen. Weil Umfang und Integration von Informationsverarbeitungen in Geschäftsprozessen zunehmen, sind Datenverluste, Cyberangriffe und andere elementare Gefährdungen eine zunehmend ernste Bedrohung.
+
+### SENS.11.2 – Führen als Vorbild
+
+**Stufe:** `normal-SdT` · **Aufwand:** 1 · **Gefährdungen:** G 0.18
+
+> Sensibilisierung für Führungskräfte SOLLTE zu ihrer Vorbildfunktion bei der Informationssicherheit sensibilisieren.
+
+Die Vorbildfunktion von Führungskräften ist entscheidend, um eine robuste Sicherheitskultur zu etablieren und die Einhaltung der geschulten Inhalte im Arbeitsalltag zu gewährleisten.
+
+### SENS.11.3 – Whaling
+
+**Stufe:** `normal-SdT` · **Aufwand:** 1 · **Gefährdungen:** G 0.42
+
+> Sensibilisierung für Führungskräfte SOLLTE gegen gezielte Angriffe auf Führungskräfte sensibilisieren.
+
+Gezielte Angriffe auf Führungskräfte, auch Whaling genannt, sind eine besondere Form des Social Engineering, bei der Täter sehr spezifisch auf leitende Personen einer Institution abzielen. Im Gegensatz zu herkömmlichem Phishing sind diese Angriffe stark personalisiert, häufig inhaltlich gut recherchiert und auf die Entscheidungsbefugnisse und den Einfluss der Führungsperson zugeschnitten. Die Täter setzen dabei häufig auf die jeweilige Situation zugeschnittene Social Engineering Techniken wie Spear Phishing (z.B. anhand von Angaben in sozialen Netzwerken), CEO-Fraud oder Deepfakes ein. Ein Vorfall könnte z.B. dazu führen, dass ein CFO durch eine täuschend echte E-Mail zur Freigabe von Überweisungen verleitet wird oder Aktivisten sich eine Videokonferenz mit bekannten Persönlichkeiten erschleichen, um diese bloßzustellen. Zur Verringerung des Risikos können konkrete Hinweise im Alltag beachtet werden: (1) Besonders aufmerksam sollte auf Nachrichten reagiert werden, die Dringlichkeit betonen, ungewöhnliche Geldtransfers verlangen oder auf streng vertrauliche Projekte Bezug nehmen. (2) Absenderadressen sollten sorgfältig geprüft werden – bereits kleine Abweichungen in Domainnamen können Manipulation anzeigen. (3) Zur Bestätigung verdächtiger Anfragen kann ein zweiter, unabhängiger Kommunikationskanal wie ein Rückruf unter offiziell bekannter Nummer genutzt werden. Zusätzlich kann darauf geachtet werden, keine sensiblen Informationen über öffentliche Plattformen preiszugeben, da solche Details als Grundlage für Angriffe dienen könnten. Auch eine feste Routine – etwa keine Zahlungen ausschließlich aufgrund einer E-Mail freizugeben – kann dazu beitragen, auch unter Zeitdruck resilient zu bleiben.
+
+## SENS.12 Spezifische Risiken
+
+### SENS.12.1 – Hohe Risiken
+
+**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.42
+
+> Sensibilisierung für Nutzende KANN gegen die in der Risikoanalyse festgestellten hohen Risiken sensibilisieren.
+
+Werden in einer Risikoanalyse bei hohem Schutzbedarf spezielle hohe Risiken festgestellt, so sind betroffene Nutzende auf diese Risiken hinzuweisen. Praktische Maßnahmen können (1) interaktive Trainings zu den jeweils relevanten Angriffsmethoden wie Social Engineering oder Ransomware umfassen, (2) Fallbeispiele aus der eigenen Branche einbeziehen, die konkrete Handlungsweisen aufzeigen, oder (3) wiederkehrende Awareness-Impulse wie Übungen einsetzen, die das Gelernte im Alltag verankern.

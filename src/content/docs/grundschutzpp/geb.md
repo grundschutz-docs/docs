@@ -1,0 +1,627 @@
+---
+title: "GEB – Gebäudemanagement"
+---
+
+# GEB Gebäudemanagement
+
+Das Gebäudemanagement sorgt für die Implementierung von physischen Sicherheitsmaßnahmen in und um das Gebäude. Dazu gehören insbesondere Zutrittskontrollen, Überwachungsmechanismen und die Sicherstellung geeigneter Umgebungsbedingungen, um sensible IT-Systeme und Informationen vor physischen Bedrohungen zu schützen. Diese Praktik fokussiert sich auf den Schutz der physischen Umgebung (z.B. Gebäude, Räume), während andere Praktiken wie IT-Betrieb oder Berechtigungen sich mit systemseitigen und personellen Sicherheitsmaßnahmen beschäftigen. Das Gebäudemanagement stellt sicher, dass die physische Infrastruktur so gestaltet ist, dass sie IT-Systeme und sensible Daten bestmöglich schützt.
+
+## GEB.1 Grundlagen
+
+### GEB.1.1 – Verfahren und Regelungen
+
+**Stufe:** `normal-SdT` · **Aufwand:** 0 · **Gefährdungen:** G 0.18
+
+> Gebäudemanagement für Standorte MUSS Verfahren und Regelungen zum physischen Schutz von Standorten, an denen schützenswerte Informationen verarbeitet oder gespeichert werden, verankern.
+
+Ein Verfahren zum Gebäudemanagement stellt sicher, dass die zum Betrieb von Geschäftsprozessen erforderliche Infrastruktur vorhanden ist und schützt Zielobjekte dort vor dem Zugriff Unbefugter und vor Elementarschäden wie Feuer, Wind und Wetter. Die bei der Festlegung des Verfahrens im Einzelnen zu berücksichtigenden Inhalte ergeben sich aus den Anforderungen dieser Praktik.
+
+#### GEB.1.1.1 – Dokumentation
+
+**Stufe:** `normal-SdT` · **Aufwand:** 0 · **Gefährdungen:** G 0.18, G 0.37
+
+> Gebäudemanagement für Standorte MUSS die Verfahren und Regelungen dokumentieren.
+
+Ohne eine Dokumentation könnte die Einhaltung der Verfahren und Regelungen von der Tagesform oder dem individuellen Wissen einzelner Mitarbeiter abhängen, was zu inkonsistenten Entscheidungen und Fehlern führen könnte; insbesondere beim Ausscheiden eines langjährigen Administrators könnte wertvolles prozessuales Wissen verloren gehen. Eine klare Dokumentation sichert die Verbindlichkeit und Wiederholbarkeit und dient als unverzichtbare Grundlage für die Einarbeitung neuer Kollegen, für die Durchführung von Audits und zur einheitlichen Anwendung der Regeln in der gesamten Institution. Die Dokumentation kann in einem eigenständigen Dokument als Richtlinie erfolgen, aber auch als Abschnitt in einem bereits bestehenden Dokument oder über die digital strukturiere Erfassung von Maßnahmen zur Umsetzung der Anforderungen, etwa über eine Software zum Management der Informationssicherheit. Sinnvoll ist es Ort und Struktur der Dokumentation an der jeweiligen Zielgruppe, d.h. den für das Management und die Umsetzung verantwortlichen Personen oder Rollen, auszurichten.
+
+#### GEB.1.1.2 – Zuweisung der Aufgaben
+
+**Stufe:** `normal-SdT` · **Aufwand:** 0 · **Gefährdungen:** G 0.18, G 0.31
+
+> Gebäudemanagement für Standorte MUSS die mit den Verfahren und Regelungen verbundenen Aufgaben *[zuständigen Personen oder Rollen]* zuweisen.
+
+Die Zuweisung von Aufgaben bezeichnet die eindeutige und verbindliche Übertragung von konkreten Tätigkeiten und Verantwortlichkeiten des Änderungsprozesses, wie etwa die Risikobewertung, die technische Umsetzung oder die finale Freigabe, an definierte Stellen in der Institution. Der Sinn dieser Vorschrift ist es, die Verantwortlichkeit ("Accountability") für jeden einzelnen Schritt im Prozess klarzustellen. Ohne eine solche Zuweisung könnten kritische Prüfungen unterbleiben, weil sich niemand explizit zuständig fühlt, was wiederum die Wahrscheinlichkeit fehlgeschlagener Änderungen erhöht. Eine klare Regelung kann sicherstellen, dass keine Aufgaben übersehen werden und jede Tätigkeit von einer dafür qualifizierten und befugten Stelle ausgeführt wird, was die Prozesssicherheit signifikant erhöht. Eine bewährte Methode zur Umsetzung ist die Erstellung einer RACI-Matrix (Responsible, Accountable, Consulted, Informed), die tabellarisch für jeden Prozessschritt darstellt, wer für die Durchführung verantwortlich ist, wer die Gesamtverantwortung trägt, wer zu konsultieren und wer zu informieren ist. Diese Zuständigkeiten können auch direkt in einem Workflow- oder Ticketsystem abgebildet werden, sodass Aufgaben, wie beispielsweise Genehmigungsschritte, automatisch an die richtige Gruppe oder Person weitergeleitet werden. Sinnvoll ist es, die Zuweisung anhand von Rollen (z. B. "Anwendungsverantwortlicher", "Netzwerkadministrator", "Change Manager") vorzunehmen, statt an konkrete Personen. Dieser Ansatz stellt sicher, dass die Prozesse auch bei Personalwechseln stabil weiterlaufen, da die Zuständigkeit an die Funktion und nicht an das Individuum gebunden ist.
+
+#### GEB.1.1.3 – Bekanntgabe
+
+**Stufe:** `normal-SdT` · **Aufwand:** 0 · **Gefährdungen:** G 0.18, G 0.31
+
+> Gebäudemanagement für Standorte MUSS die zuständigen Personen oder Rollen über die Verfahren und Regelungen informieren.
+
+Wenn die Zuständigen die etablierten Verfahren nicht kennen, besteht die Gefahr, dass diese – sei es aus Unwissenheit oder Bequemlichkeit – umgangen werden, was die Schutzwirkung des gesamten Managementsystems untergräbt. So könnte ein neuer Systemadministrator eine weitreichende Konfigurationsänderung vornehmen, ohne den vorgeschriebenen Genehmigungsprozess zu durchlaufen, was zu einem unbemerkten Sicherheitsrisiko führen könnte. Eine gezielte Information kann hingegen die Akzeptanz der Regelungen fördern und sicherstellen, dass alle Beteiligten ihre Rolle im Prozess verstehen und die Abläufe korrekt anwenden. Zur Umsetzung ist es sinnvoll die Dokumentation im Rahmen eines Onboarding-Prozesses bekanntzugeben und bei allen Änderungen eine automtatische Benachrichtigung aller zuständigen Personen oder Rollen anzustoßen.
+
+### GEB.1.2 – Regelmäßige Überprüfung
+
+**Stufe:** `normal-SdT` · **Aufwand:** 0 · **Gefährdungen:** G 0.18
+
+> Gebäudemanagement für Standorte MUSS die Verfahren und Regelungen *[regelmäßig]* und anlassbezogen auf Aktualität überprüfen.
+
+Eine geplante der etablierten Verfahren und Regelungen dient dazu festzustellen, ob diese noch wirksam, effizient und an die aktuellen Gegebenheiten angepasst sind. Eine anlassbezogene Überprüfung wird durch spezifische Ereignisse ausgelöst, wie etwa einen schwerwiegenden Sicherheitsvorfall, eine strategische Neuausrichtung der IT oder neue gesetzliche Anforderungen. Der Zweck dieser Anforderung ist es, die kontinuierliche Verbesserung und Anpassungsfähigkeit des Prozesses sicherzustellen, da veraltete Regelungen neuen technologischen Entwicklungen oder Bedrohungen nicht mehr gerecht werden könnten; ein vor Jahren für monolithische Anwendungen konzipierter Prozess ist beispielsweise für agile Entwicklungsmethoden oder Microservice-Architekturen ungeeignet. Die regelmäßige Überprüfung kann die Effektivität des Sicherheitsmanagements langfristig aufrechterhalten und die Resilienz der Institution stärken.
+
+### GEB.1.3 – Autorisierung von Standorten
+
+**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.18, G 0.29
+
+> Gebäudemanagement für Standorte SOLLTE Standorte für die Stationierung von Assets autorisieren.
+
+Die gezielte Autorisierung von Standorten für die Stationierung von Assets kann dazu beitragen, dass Informationen und Systeme nur an physischen Orten verarbeitet oder aufbewahrt werden, die zuvor auf ihre Sicherheitsanforderungen hin geprüft wurden. So kann beispielsweise verhindert werden, dass sensible Server in unkontrollierten Räumen ohne Zutrittskontrolle oder redundante Stromversorgung betrieben werden – ein Fehlen dieser Maßnahmen könnte im Ernstfall zu Datenverlust bei einem Kurzschluss oder unbefugtem Zugriff durch Dritte führen. Ebenso kann die Prüfung und Freigabe durch eine zuständige Rolle dafür sorgen, dass neue Außenstellen erst dann in den Betrieb gehen, wenn etwa Brandmelde‑, Videoüberwachungs‑ oder Netzwerksicherheitsanforderungen erfüllt sind; andernfalls könnte eine unerkannte technische Schwachstelle in einem Zweigstellenrechner dazu führen, dass Schadcode sich ins gesamte Unternehmensnetz ausbreitet. Auch bei der Nutzung von Cloud‑ oder Colocation‑Rechenzentren kann eine formale Freigabe sicherstellen, dass vorab vertraglich vereinbarte Sicherheits- und Compliance‑Anforderungen – wie beispielsweise ISO‑27001‑Zertifizierung oder Verschlüsselung im Ruhezustand – tatsächlich gegeben sind, andernfalls könnte es zu Datenschutzverletzungen oder Regulierungsstrafen kommen. Zur praktischen Umsetzung kann ein Standort‑Freigabeprozess definiert werden, der folgende Elemente enthält: eine Checkliste für physische Sicherheitskriterien (Zutrittskontrolle, Umwelt‑ und Brandschutz), eine technische Abnahmematrix (Netzwerksegmentierung, Monitoring, Backup‑Anbindung) sowie die Benennung einer verantwortlichen Person oder Rolle, die das Go‑No‑Go‑Entscheidungsrecht hält. Bei Änderungen am Standort oder an den Assets kann diese Rolle regelmäßige Reviews anstoßen, wodurch nachträgliche Kontrollen möglich werden. Automatisierte Workflow‑Tools können dabei unterstützen, Prüf‑ und Genehmigungsschritte nachvollziehbar zu dokumentieren und Eskalationspfade abzubilden.
+
+#### GEB.1.3.1 – Abnahme von Standorten
+
+**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.18, G 0.26
+
+> Gebäudemanagement für Standorte SOLLTE Standorte vor Autorisierung anhand von *[Kriterien]* testen.
+
+Eine Abnahme anhand von Sicherheitskriterien stellt sicher, dass Sicherheitsaspekte bereits in der Planungsphase vor der ersten Nutzung eines Standortes berücksichtigt werden. Die Kriterien ergeben sich aus den weiteren Anforderungen dieser Praktik, sowie aus Compliance-Verpflichtungen. Denken Sie hierbei an den Schutz vor Elementarschäden, den Zutrittsschutz, den voraussichtlichen Versorgungsbedarf mit Strom, Netzanbindung, eine strukturierte Verkabelung und Wasserleitungen, sowie die Gebäudeautomatisierung. Kann z.B. mit Building Information Modeling (BIM) umgesetzt werden. Wurde ein Standort bereits bezogen, so gilt die Anforderung als umgesetzt, wenn die Erfüllung der Kriterien nachträglich (z.B. durch eine Begehung) sichergestellt wurde.
+
+### GEB.1.4 – Exponierte Bereiche
+
+**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.5, G 0.6, G 0.7, G 0.18
+
+> Gebäudemanagement für Standorte SOLLTE schützenswerte Assets oder zugehörige Infrastrukturen nur außerhalb exponierter oder besonders gefährdeter Bereiche platzieren.
+
+Wenn schützenswerte Räume wie Datenträgerarchive, Hostsysteme oder zentrale Infrastrukturen wie die Strom- und Netzversorgung in besonders exponierten Gebäudeteilen oder unter freiem Himmel lokalisiert werden, erhöht dies das Risiko für Ausfälle. Beispiele für gefährdete Bereiche sind ein überflutungsgefährdeter Keller, an der Gebäudekante direkt neben einer Bundesstraße oder an einer von Außen leicht einsehbaren Stelle. Welche Bereiche gefährdet sind kann oft von lokalen oder nationalen staatlichen Stellen bezogen werden. Wenn der gesamte Standort besonders exponiert oder gefährdet ist, kann dies nur durch die Nutzung anderer Standorte umgesetzt werden.
+
+### GEB.1.5 – Strukturpläne
+
+**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.18
+
+> Gebäudemanagement für Standorte SOLLTE Strukturpläne dokumentieren.
+
+Strukturpläne enthalten Grundrisse und Verlaufswege für physische Perimeter oder Versorgungseinrichtungen. Beispielsweise enthalten Gebäudepläne üblicherweise Zeichnungen der einzelnen Etagen und der Gebäudestrukturen darin. Diese Pläne sind hilfreich um Schwachstellen oder Störquellen aufzudecken und zielgerichtet zu behandeln. Dazu gehören Versorgungsleitungen, Netzanschlüsse, sowie Aus- und Zugänge für den regulären Betrieb und für Notfälle.
+
+## GEB.2 Physischer Perimeter
+
+### GEB.2.1 – Installation von Perimetern
+
+**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.18, G 0.44, G 0.16, G 0.24, G 0.34, G 0.41
+
+> Gebäudemanagement für Standorte SOLLTE Sicherheitsperimeter installieren.
+
+Die Installation physischer Sicherheitsperimeter dient dem grundlegenden Schutz von Informationsressourcen und kritischer Infrastruktur vor unbefugtem Zugriff und physischen Bedrohungen. Ein effektiver Sicherheitsperimeter kann als mehrschichtige Barriere fungieren, die sensible Bereiche vor verschiedenen Risiken wie Einbruch, Diebstahl oder Sabotage schützt. Ohne angemessene physische Sicherheitsmaßnahmen könnten unbefugte Personen z.B. Zugang zu Serverräumen erlangen und dort Datenträger entwenden, Schadcode installieren oder Hardwarekomponenten manipulieren. Auch Naturereignisse wie Überschwemmungen oder Brände könnten ohne geeignete Perimeter leichter zu Datenverlust oder Betriebsunterbrechungen führen. Bei der Implementierung physischer Sicherheitsperimeter kann eine Kombination verschiedener Sicherheitsebenen erwogen werden, beginnend mit äußeren Barrieren wie Zäunen, Schranken oder gesicherten Eingangsbereichen, die den Zugang zum Gelände regulieren. Im Gebäudeinneren können Zugangskontrollsysteme mit unterschiedlichen Authentifizierungsmethoden (Chipkarten, biometrische Verfahren, PIN-Codes) eingesetzt werden, um den Zutritt zu sensiblen Bereichen auf autorisierte Mitarbeiter zu beschränken. Die Effektivität dieser Maßnahmen kann durch ergänzende Systeme wie Videoüberwachung, Alarmanlagen oder Bewegungsmelder verstärkt werden, wobei ein ausgewogenes Verhältnis zwischen Sicherheitsanforderungen und Praktikabilität für den Arbeitsalltag zu finden ist. Bei der Planung kann eine Risikobewertung helfen, um festzulegen, welche Bereiche besonders schutzbedürftig sind und entsprechend abgesichert werden, etwa durch Sicherheitszonen mit gestaffelten Zugangsrechten oder spezielle Brandschutzbereiche für kritische IT-Infrastruktur.
+
+### GEB.2.2 – Dokumentation öffentlicher Bereiche
+
+**Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.18, G 0.44, G 0.16, G 0.24
+
+> Gebäudemanagement für Gebäude SOLLTE Bereiche, die ohne Authentifizierung zugänglich sind, mit Begründung dokumentieren.
+
+Gebäude sind als stabiler und klar ersichtlicher Sicherheitsperimeter besonders geeignet. Viele Institutionen benötigen für ihre Aufgaben jedoch Bereiche, die ohne Authentifizierung zugänglich sind, z.B. Empfangs- oder Lieferzonen, Bürgerbüros, Kundenräume. Hierdurch könnte es leicht zu versehentlichen oder zielgerichteten Schäden an Assets, unbefugten Zutritten oder dem Abfluss vertraulicher Daten kommen. Daher ist es sinnvoll, diese Bereiche zu dokumentieren und die Gründe für ihre Bereitstellung nachzuhalten, um sicherzustellen, dass der Sicherheitsperimeter auch im Gebäude korrekt verläuft und geschützt ist.
+
+### GEB.2.3 – Erkundung aus dem öffentlichen Raum
+
+**Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.44, G 0.16, G 0.24, G 0.19
+
+> Gebäudemanagement für Standorte SOLLTE Hör- und Sehschutz gegen den öffentlichen Raum testen.
+
+Erkundung aus dem öffentlichen Raum ist die systematische Sammlung von Informationen, die ausschließlich von öffentlich zugänglichen Bereichen aus durchgeführt wird, um die Schwachstellen eines Standortes zu bewerten, ohne in Sperrzonen einzudringen. Hierbei könnten z.B. Sicherheitssysteme, Zugangspunkte und Personalroutinen ausgeforscht werden; Gespräche in offenen Bereichen wie Lobbys oder Raucherzonen aufgezeichnet werden, in denen sensible Informationen versehentlich preisgegeben werden könnten; zusätzliche Techniken wie das Durchsuchen von Mülltonnen (Dumpster Diving), drahtlose Signalanalyse und Social Engineering von öffentlichen Aussichtspunkten aus könnten zahlreiche Informationen ungewollt preisgeben. Hierbei sind sowohl Einblicke von öffentlichen Straßen, Plätzen oder sonstigen Flächen außerhalb des Perimeters relevant, als auch die Erkundung von höher gelegenen Positionen, z.B. gegenüberliegenden Hochhäusern oder Flugmaschinen wie Drohnen, bis hin zu Satellitenaufnahmen. Maßnahmen können z.B. Begehungen des Perimeters oder von höher gelegenen Räumlichkeiten, die Auswertung öffentlicher Sattelitenbilder oder eigene Drohnenflüge sein. Kann auch durch einen physischen Penetration Test sichergestellt werden.
+
+### GEB.2.4 – Elektromagnetische Abschirmung
+
+**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.19, G 0.13, G 0.12
+
+> Gebäudemanagement für Standorte KANN die Elektromagnetische Abschirmung testen.
+
+Die elektromagnetische Abschirmung von Standorten dient dem Schutz vertraulicher Informationen vor unbefugter Erfassung durch elektromagnetische Abstrahlung. Computersysteme, Netzwerkgeräte und andere elektronische Ausrüstungen senden elektromagnetische Signale aus, die außerhalb des Gebäudes abgefangen werden könnten. Dies könnte zur ungewollten Offenlegung sensibler Daten führen, wie etwa bei Van-Eck-Phreaking, bei dem Bildschirminhalte aus der Ferne rekonstruiert werden können. Ein Angreifer könnte beispielsweise mit speziellem Equipment die ausgesendeten Signale eines Monitors oder Netzwerkkabels abfangen und daraus Passwörter, Finanzdaten oder Geschäftsgeheimnisse extrahieren, ohne physischen Zugang zum Gebäude zu benötigen. Bei der Umsetzung kann eine mehrstufige Strategie verfolgt werden. Die Räumlichkeiten können mit speziellen abschirmenden Materialien wie metallischen Geweben, leitfähigen Farben oder Folienbeschichtungen ausgekleidet werden, die als "Faradayscher Käfig" wirken. Fenster können mit metallbeschichteten Gläsern oder speziellen Folien versehen werden, die elektromagnetische Strahlung blockieren. Sicherheitsbereiche können nach Sensitivität der dort verarbeiteten Daten in verschiedene Zonen eingeteilt werden, wobei nur die kritischsten Bereiche vollständig abgeschirmt werden.
+
+## GEB.3 Physischer Zutritt
+
+### GEB.3.1 – Überwachung von Zutrittspunkten
+
+**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.44, G 0.16, G 0.24, G 0.19, G 0.34
+
+> Gebäudemanagement für Standorte SOLLTE Zutrittspunkte auf unbefugte Zutritte überwachen.
+
+Eine kontinuierliche Überwachung der Zugangsmöglichkeiten, z.B. verschlossener Türen und Fenster an der Gebäudeaußenseite, verhindert, dass sich Unbefugte Zutritt verschaffen. Der hierzu erforderliche Personalbedarf hängt von Gebäudegröße und Schutzbedarf ab. Um den für eine kontinuierliche Überwachung erforderlichen Personalbedarf wirtschaftlich zu decken ist es zweckmäßig, Unterstützungssysteme wie Videokameras oder Einbruchsalarme einzusetzen. Die Umsetzung kann z.B. erfolgen durch Umzäunung, Kameraüberwachung, Bewegungsmelder und einen Wachdienst.
+
+#### GEB.3.1.1 – Videoüberwachung
+
+**Stufe:** `erhöht` · **Aufwand:** 4 · **Gefährdungen:** G 0.44, G 0.16, G 0.24
+
+> Gebäudemanagement für Standorte KANN Zutritte per Video überwachen.
+
+Die Auswertung der Videoaufzeichnungen kann je nach Risikoprofil und Geschäftsprozessen anlassbezogen und stichpunktartig, kontinuierlich durch Wachpersonal oder durch Verwendung von KI-Videoanalyse, z.B. zur Erkennung von „tail-gating“ oder zurückgelassenen Gegenständen, erfolgen. Hier besteht ein enger Zusammenhang zu Compliance-Verpflichtungen zum Datenschutz (z.B. Informationspflichten), insbesondere im öffentlichen Raum.
+
+#### GEB.3.1.2 – Überprüfung mitgeführter Gegenstände
+
+**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.44, G 0.16, G 0.24, G 0.19, G 0.34, G 0.41
+
+> Gebäudemanagement für Standorte KANN das Mitführen von Gegenständen überwachen.
+
+Die Überwachung des Mitführens von Gegenständen (z.B. am Empfang) kann an Standorten mit besonderen Sicherheitsrisiken dazu beitragen, unerlaubtes Einschleusen von Diebstahlwerkzeugen, schädlichen Datenträgern oder gefährlichen Gegenständen zu verhindern. Durch eine stichprobenartige Kontrolle von Taschen, Rucksäcken oder Paketlieferungen kann erkannt werden, ob unbeaufsichtigt Materialien wie USB‑Sticks, externe Festplatten oder andere Speichermedien ins Gebäude gelangen, die vertrauliche Informationen unbemerkt abziehen könnten. Ebenso kann das Verfahren auf Metallgegenstände oder Flüssigkeiten ausgeweitet werden, um das Risiko von Diebstahl, Sabotage oder physischen Angriffen zu reduzieren. Beispielsweise könnte ein nicht registrierter Besucher eine Videokamera einschleusen und damit sensible Produktionsprozesse filmen, oder ein unbeaufsichtigter Paketbote könnte Malware‑belastete Hardware mitliefern – durch die Kontrolle am Empfang kann solchen Szenarien vorgebeugt werden. Die Umsetzung kann stichprobenartig oder durchgehend erfolgen: Einmal täglich kann eine Auswahl von Taschen stichprobenartig geöffnet und mit einer Liste erlaubter Gegenstände abgeglichen werden; hierbei kann ein einfaches Check‑in‑Formular eingesetzt werden, in das Besucherinnen und Besucher freiwillig ihre mitgeführten Gegenstände eintragen können. Ergänzend kann ein abschließender Scan mit einem Metalldetektor oder ein kurzer Blick in unverschlossene Fächer erfolgen, was den Aufwand gering hält und den Durchfluss am Empfang weniger beeinträchtigt. Hier besteht ein enger Bezug zu den Persönlichkeitsrechten der Betroffenen. Eine klar kommunizierte Hausordnung oder ein Informationsblatt kann helfen die Maßnahmen zu erläutern, sodass Besucher erkennen, dass die Kontrollen dem Schutz aller Beteiligten dienen. Gegenstände, die vorübergehend nicht mitgeführt werden dürfen, können gegen Quittung sicher deponiert werden. Auf diese Weise entsteht eine nachvollziehbare Historie, die im Fall eines Vorfalls als Nachweis dienen kann.
+
+### GEB.3.2 – Anmelde- und Empfangsbereiche
+
+**Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.44, G 0.16, G 0.24, G 0.34
+
+> Gebäudemanagement für Standorte SOLLTE Anmelde- und Empfangsbereiche installieren.
+
+Die Einrichtung definierter Anmelde- und Empfangsbereiche dient der Kontrolle des physischen Zugangs zum Standort. Diese Bereiche können als erste Verteidigungslinie fungieren, indem sie einen klaren Trennpunkt zwischen öffentlichen und geschützten Zonen etablieren. Durch die strukturierte Implementierung solcher Bereiche können unbefugte Zutritte vermieden werden, die andernfalls zu Sicherheitsverletzungen führen könnten. Ein fehlendes oder unzureichendes Empfangsmanagement könnte beispielsweise dazu führen, dass nicht autorisierte Personen unkontrolliert Zugang zu sensiblen Bereichen erhalten, vertrauliche Dokumente einsehen, Firmengeheimnisse entwenden oder sogar physische Sabotageakte durchführen. Bei der Umsetzung können verschiedene Ansätze verfolgt werden, die je nach Institution und sonstigen angewendeten Sicherheitsanforderungen variieren. Der Anmeldebereich kann mit einem digitalen Besuchermanagementsystem ausgestattet werden, welches die Authentifizierung und Registrierung von Besuchern erleichtert und eine lückenlose Dokumentation ermöglicht. Ergänzend hierzu kann die räumliche Gestaltung durch klare Beschilderung, bauliche Trennung mittels Schranken oder Drehkreuzen sowie die strategische Positionierung des Empfangsbereichs optimiert werden. Zudem kann die Schulung des Empfangspersonals in Sicherheitsprotokollen und die Einführung von Besucherausweisen mit temporären Zugriffsrechten die Effektivität dieser Sicherheitsmaßnahme verstärken. Die Integration mit anderen Sicherheitssystemen wie Videoüberwachung oder elektronischen Zutrittskontrollsystemen kann ebenfalls in Betracht gezogen werden, um ein umfassendes Sicherheitskonzept zu gewährleisten.
+
+### GEB.3.3 – Authentifizierung vor Zutritt
+
+**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.44, G 0.16, G 0.24, G 0.19, G 0.34, G 0.41
+
+> Gebäudemanagement für Standorte SOLLTE Zutritte im Einklang mit den Festlegungen des Identitäts- und Berechtigungsmanagements authentifizieren.
+
+Der Zweck der Authentifizierung von Zutritten liegt in der grundlegenden Absicherung physischer Zugänge gegen unbefugte Nutzung. Dies kann verhindern, dass Unbefugte Zugang zu sensiblen Bereichen oder Informationen erhalten. Ohne angemessene Zutrittskontrolle könnte beispielsweise ein nicht autorisierter Besucher in einen Serverraum gelangen und dort Hardware manipulieren, Datenträger entwenden oder Netzwerkkabel umstecken. Ebenso könnte ein ehemaliger Mitarbeiter ohne wirksame Authentifizierung weiterhin auf Systeme zugreifen und vertrauliche Daten entwenden oder geschäftskritische Informationen kompromittieren. Bei der Umsetzung kann ein mehrstufiger Ansatz verfolgt werden, der verschiedene Authentifizierungsfaktoren kombiniert: Wissen (z.B. PIN-Codes, Passwörter), Besitz (z.B. Chipkarten, Tokens, Schlüssel) und biometrische Merkmale (z.B. Fingerabdruck, Gesichtserkennung). Die Stärke der Authentifizierung kann dabei an die Schutzbedürftigkeit des zu schützenden Bereichs angepasst werden – für hochsensible Bereiche können Zwei- oder Mehr-Faktor-Authentifizierungen implementiert werden. Als ergänzende Maßnahme kann ein Monitoring der Zutrittsereignisse eingerichtet werden, das ungewöhnliche Zugriffsversuche erkennt und meldet. Zudem kann die regelmäßige Überprüfung und Aktualisierung der Zutrittsberechtigungen dazu beitragen, dass nur aktuell berechtigte Personen Zugang erhalten. Die Formulierung "im Einklang mit den Festlegungen des Identitäts- und Berechtigungsmanagements" bedeutet, dass die Authentifizierung so erfolgt, wie in der Praktik IDM festgelegt. Hierzu gehört insbesondere die Verwendung aktueller kryptographischer Verfahren, wie sie im Thema Kryptographie zu finden ist.
+
+#### GEB.3.3.1 – Zugangskontrollanlage
+
+**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.44, G 0.16, G 0.24, G 0.19
+
+> Gebäudemanagement für Standorte KANN Zutritte durch *[einen automatiserten Mechanismus]* im Einklang mit den Festlegungen des Identitäts- und Berechtigungsmanagements authentifizieren.
+
+Der Einsatz einer automatischen Zugangskontrollanlage zur Authentifizierung von Personen dient primär dem Schutz von sensiblen Bereichen, vertraulichen Informationen und kritischer Infrastruktur. Durch diese Maßnahme kann sichergestellt werden, dass nur autorisierte Personen Zutritt zu geschützten Bereichen erhalten, wodurch das Risiko von Industriespionage, Datendiebstahl oder Sabotage erheblich reduziert werden kann. Ohne eine solche Kontrolle könnte es beispielsweise zu unbefugtem Zutritt durch Fremde kommen, die sich als Mitarbeiter ausgeben, oder zu einem "Tailgating"-Vorfall, bei dem Unbefugte autorisierten Personen unbemerkt folgen und sich so Zugang verschaffen. Bei der Implementierung einer automatischen Zugangskontrollanlage kann eine mehrfaktorielle Authentifizierung in Betracht gezogen werden, die auf einer Kombination aus Besitz (z.B. Chipkarte, Token), Wissen (PIN-Code, Passwort) und/oder biometrischen Merkmalen (Fingerabdruck, Gesichtserkennung) basiert. Die Zugangsrechte können granular nach Personengruppen, Zeitfenstern und Bereichen differenziert werden, was die Sicherheit weiter erhöht. Für eine effektive Umsetzung kann die regelmäßige Überprüfung der Protokolle der Zugangskontrollanlage auf ungewöhnliche Aktivitäten hilfreich sein, ebenso wie regelmäßige Sensibilisierungsmaßnahmen für Mitarbeiter bezüglich der korrekten Nutzung der Anlage und der Vermeidung von Sicherheitslücken wie dem gemeinsamen Nutzen von Zugangsmitteln. Die Formulierung "im Einklang mit den Festlegungen des Identitäts- und Berechtigungsmanagements" bedeutet, dass die Authentifizierung so erfolgt, wie in der Praktik IDM festgelegt. Hierzu gehört insbesondere die Verwendung aktueller kryptographischer Verfahren, wie sie im Thema Kryptographie zu finden ist.
+
+#### GEB.3.3.2 – Dokumentation von Zutritten
+
+**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.18, G 0.44, G 0.16, G 0.24
+
+> Gebäudemanagement für Standorte KANN Zutritte und Austritte mit Identität und Zeitpunkt dokumentieren.
+
+Im Kontext dieser Anforderung bedeutet Identität die eindeutige Zuordnung einer Person zu einem Zutritt oder Austritt, etwa durch Namensangabe, Personalnummer oder ein elektronisches Identifikationsmerkmal wie eine Chipkarte. Der Zeitpunkt ist die präzise Erfassung von Datum und Uhrzeit, an dem ein Zutritts- oder Austrittsvorgang stattfindet. Diese beiden Informationen können so kombiniert werden, dass nachvollziehbar wird, wer zu welchem Zeitpunkt ein Gebäude oder einen bestimmten Bereich betreten oder verlassen hat. Dies gilt sowohl für Mitarbeitende als auch für Besuchende. Für die Umsetzung kann eine Institution z.B. elektronische Zutrittskontrollsysteme einsetzen, die beim Karten- oder Transpondereinsatz automatisch Identität und Zeitpunkt speichern. Auch ein biometrisches Terminal kann die Anforderung erfüllen, wenn es die Daten mit Zeitstempel dokumentiert. Als einfachere Variante kann ein digital geführtes Besucherbuch genutzt werden, in das Namen und Uhrzeit bei Ein- und Austritt eingetragen werden. Eine Institution kann ergänzend festlegen, dass Daten regelmäßig exportiert und manipulationssicher archiviert werden, sodass spätere Prüfungen möglich sind. Hilfreich kann zudem sein, bei Zutrittskarten eine Schnittstelle zur HR-Verwaltung einzurichten, damit Identitäten bei Austritt von Mitarbeitenden automatisch deaktiviert werden und die Dokumentation lückenfrei bleibt. Diese Protokolle dienen als wichtige Grundlage für forensische Analysen und können zur Aufklärung von Diebstahl, Sabotage oder unbefugtem Datenzugriff beitragen.
+
+#### GEB.3.3.3 – Besucheranmeldung
+
+**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.44, G 0.16, G 0.24, G 0.19
+
+> Gebäudemanagement für Standorte SOLLTE Besuche durch *[eine zuständige Person oder Rolle]* autorisieren.
+
+Der Begriff „Besuche“ bezeichnet in diesem Kontext physische Zutritte externer Personen wie Dienstleister, Lieferanten oder Gäste, die sich nicht dauerhaft im Gebäude aufhalten und daher besondere Anforderungen an die Zutrittsregelung stellen. Die Autorisierung von Besuchen meint hier, dass ein Besuch vor Betreten der Räumlichkeiten durch eine verantwortliche Stelle vorab geprüft, freigegeben und dokumentiert wird – dies kann formell (z. B. digitaler Antrag) oder informell (z. B. Genehmigung per E-Mail) erfolgen. Der Zweck dieser Vorschrift liegt darin, unkontrollierten Zutritt und damit verbundene Risiken zu verhindern: Unangemeldete Besucher könnten beispielsweise unbefugt vertrauliche Informationen einsehen oder technische Anlagen manipulieren. Eine klare Autorisierung kann dagegen sicherstellen, dass nur berechtigte Personen Zutritt erhalten und gleichzeitig nachvollziehbar bleibt, wer sich wann und aus welchem Grund im Gebäude aufgehalten hat. Für die Umsetzung kann eine Institution etwa ein digitales Besuchermanagementsystem einsetzen, das Einladungen erstellt, Genehmigungen einholt und Einlasscodes zeitlich begrenzt vergibt. Alternativ kann ein analoges Verfahren genutzt werden, bei dem Besucherausweise am Empfang ausgegeben und gegen Vorlage eines Ausweisdokuments registriert werden. Um Warteschlangen am Empfang zu verringern, kann die Autorisierung des Besuchs auch im Voraus abgewickelt werden, z.B. über eine mobile QR-Vorregistrierung mit Verifizierung der Identität über den digitalen Ausweis. Eine einfache, aber wirksame Maßnahme kann auch die Vorabstimmung über Besuchslisten sein, die tagesaktuell an Empfang oder Sicherheitspersonal übermittelt werden.
+
+### GEB.3.4 – Berechtigungsmarkierung
+
+**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.44, G 0.16, G 0.24
+
+> Gebäudemanagement für Nutzende von Standorten KANN zum Tragen von gut sichtbaren Berechtigungsmarkierungen innerhalb des Sicherheitsperimeters anweisen.
+
+Unter Berechtigungsmarkierungen sind physische Kennzeichen wie Ausweise, Badges, Namensschilder oder Kartenhalter zu verstehen, die eine eindeutige Zuordnung einer Person zu ihrer Zugangsberechtigung ermöglichen. Sie können zudem farblich, mit Fotos oder Barcodes gestaltet sein, um unterschiedliche Zutrittsrechte auf einfache Weise erkennbar zu machen. Der Sinn einer solchen Vorgabe liegt darin, dass unbefugte Personen leichter auffallen und damit potenzielle Gefährdungen frühzeitig erkannt werden. So könnte ein Vorfall entstehen, wenn sich Unbefugte unbemerkt Zutritt zu kritischen Bereichen verschaffen, indem sie sich in einer Gruppe mit berechtigten Personen bewegen. Dagegen kann eine sichtbare Berechtigungsmarkierung helfen, Anomalien rasch zu erkennen und eine unauffällige, aber effektive Zugangskontrolle im Alltag zu unterstützen. Dies gilt sowohl für Mitarbeitende als auch für Besuchende. Für die Umsetzung kann eine Institution beispielsweise darauf achten, dass Markierungen gut sichtbar an Kleidung oder einem Schlüsselband getragen werden können. Sie kann auch unterschiedliche Farbkennungen nutzen, um klar zwischen Besuchenden, Dienstleistern und Mitarbeitenden zu unterscheiden. Für Besuche kann ein einfaches Verfahren eingeführt werden, mit dem Besuchende beim Betreten des Gebäudes ein temporäres Ausweisdokument erhalten, das bei Verlassen wieder zurückzugeben ist. Um die Akzeptanz zu erhöhen, kann das Gebäudemanagement praktikable Trageoptionen wie Clips, Lanyards oder magnetische Halterungen bereitstellen, die den Alltag nicht behindern.
+
+### GEB.3.5 – Einbruchhemmung
+
+**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.44, G 0.16, G 0.24, G 0.19, G 0.34, G 0.41
+
+> Gebäudemanagement für Standorte KANN einbruchhemmende Bauteile nach *[einer entsprechenden Norm]* installieren.
+
+Befinden sich am Standort Assets oder Geschäftsprozesse mit erhöhtem Schutzbedarf, so ist es sinnvoll, diese auch gegen hartnäckigere Einbruchsversuche zu schützen, z.B. größere Serverräume oder Datenträgerarchive, sowie Standorte im Fokus der Öffentlichkeit oder von ideologischen Gewalttätern. Die passenden Maßnahmen richten sich nach dem Risikoprofil der zu schützenden Assets, sowie der potenziellen Täter. So kann der Einbau rundum einbruchsicherer Bauteile wie Wände und Türen nach DIN EN 1627 RC3 oder besser sinnvoll sein. Für massive Bedrohungen von Außen bieten sich Poller oder hydraulische Straßensperren, ausgelegt für ein bestimmtes Gewicht bei einer bestimmten Geschwindigkeit, an. Die Anforderung ist auch dann erfüllt, wenn der Standort bereits von Dritten nach Normen wie DIN EN 1627 RC3 erbaut und abgenommen wurde.
+
+### GEB.3.6 – Einbruchmeldeanlagen
+
+**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.44, G 0.16, G 0.24, G 0.19, G 0.41
+
+> Gebäudemanagement für Standorte KANN Einbrüche nach *[einer entsprechenden Norm]* überwachen.
+
+Für Standorte mit erhöhtem Schutzbedarf ist eine Einbruchmeldeanlage sinnvoll. Die Anforderung gilt erst dann als umgesetzt, wenn alle vorhandenen Türen, Fenster und sonstige geschützte Öffnungen über die Einbruchmeldeanlage auf Verschluss, Verriegelung und Durchbruch überwacht werden.
+
+### GEB.3.7 – Kontrolle der Zutrittskontrolle
+
+**Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.44, G 0.16, G 0.24, G 0.34
+
+> Gebäudemanagement für Standorte SOLLTE die angewendeten Zutrittskontrollmaßnahmen *[regelmäßig]* überprüfen.
+
+Die Funktionsfähigkeit von Zugangkontrollen wie Wachdiensten und Schließanlagen ist essenziell, um den Zutritt Unbefugter wirksam verhindern zu können. Regelmäßige Überprüfungen können beispielsweise durch angekündigte oder unangekündigte Rundgänge, die stichprobenartige Auswertung von Kameraaufzeichnungen und Logbüchern oder die Analyse verschiedener Kennzahlen erfolgen.
+
+## GEB.4 Sicherheitsbereiche
+
+### GEB.4.1 – Einrichtung
+
+**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.44, G 0.16, G 0.24, G 0.19, G 0.34, G 0.41
+
+> Gebäudemanagement für Standorte KANN geschlossene Sicherheitsbereiche installieren.
+
+Ein Sicherheitsbereich ist ein klar abgegrenzter physischer Raum, für die ein eigener Perimeter eingerichtet wird und dessen Betreten ausschließlich autorisiertem Personal oder unter engen Voraussetzungen gestattet wird. Solche Bereiche dienen dem Schutz von Personen, Anlagen, sensiblen Informationen oder betriebskritischen Prozessen. Standorte oder Teile eines Standortes mit erhöhtem Schutzbedarf können so vor unbefugten Eingriffen geschützt werden, z.B. Serverräume, Arbeitsplätze für Administrierende oder die Institutionsleitung. Zur Umsetzung können z.B. Zutrittskontrollanlagen oder Bewachung eingesetzt werden. Wenn es sich um Hochsicherheitsbereiche handelt, kann der Zutritt mit einem Mehr-Faktor-Verfahren (z.B. Smartcard mit PIN) davor geschützt werden, dass Unbefugte sich durch entwendete Schlüssel oder Authentifizierungstoken Zugang verschaffen.
+
+### GEB.4.2 – Gesonderte Autorisierung
+
+**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.44, G 0.16, G 0.24, G 0.32
+
+> Gebäudemanagement für Standorte KANN die Zutrittsberechtigung zu diesem Sicherheitsbereich durch *[eine zuständige Person oder Rolle]* autorisieren.
+
+Eine zuständige Person oder Rolle kann beispielsweise die Sicherheitsbeauftragte, der Standortleiter, eine definierte Facility-Management-Rolle oder ein zentrales Berechtigungsmanagement sein. Die Anforderung bedeutet, dass der Zutritt zu einem definierten Sicherheitsbereich – also einem räumlich abgegrenzten Bereich, in dem sensible Werte wie IT-Systeme, Netzwerktechnik oder vertrauliche Unterlagen geschützt werden – nicht automatisch, sondern nur durch eine bewusste Autorisierung erteilt werden kann. Sinn und Zweck dieser Regelung liegt darin, unbefugte Zugriffe zu verhindern, die etwa durch unkontrollierte Weitergabe von Schlüsseln oder Zutrittskarten entstehen könnten. Ein Vorfall könnte sein, dass ein ehemaliger Mitarbeiter noch Zugang erhält und vertrauliche Unterlagen entwendet; durch eine klare Autorisierung kann sichergestellt werden, dass nur tatsächlich berechtigte Personen Zutritt erhalten. Zur Umsetzung kann eine Institution ein abgestuftes Verfahren einrichten, bei dem die Autorisierung dokumentiert und nachvollziehbar erfolgt. Dies kann z. B. durch ein zentrales elektronisches Zutrittskontrollsystem erfolgen, bei dem eine zuständige Rolle die Rechte gezielt freischalten und zeitlich begrenzen kann. Auch eine papierbasierte Liste mit Zutrittsberechtigungen kann sinnvoll sein, solange sie regelmäßig geprüft und aktualisiert wird. Praktisch hilfreich kann es sein, wenn (1) jede Berechtigung mit einem Enddatum versehen wird, (2) der Widerruf von Berechtigungen in die Prozesse für Personaländerungen integriert wird, und (3) das Gebäudemanagement regelmäßig Berichte über aktive Berechtigungen an die zuständige Person liefert. So kann sichergestellt werden, dass Zutrittsrechte nicht veralten und jederzeit eine klare Zuordnung von Personen zu Sicherheitsbereichen besteht.
+
+### GEB.4.3 – Schleusen
+
+**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.44, G 0.16, G 0.24
+
+> Gebäudemanagement für Standorte KANN Schleusen an Zugangspunkten installieren.
+
+Eine Schleuse bezeichnet im Gebäudemanagement eine bauliche oder technische Einrichtung, die den Zutritt an einem Zugangspunkt so regelt, dass jeweils nur eine Person oder ein definiertes Objekt kontrolliert den Bereich passieren kann. Typische Formen sind Personenvereinzelungsanlagen wie Drehkreuze, Sicherheitsschleusen mit zwei Türen, die nie gleichzeitig geöffnet sind, oder Materialschleusen für Lieferungen. Der Sinn einer solchen Einrichtung liegt darin, unkontrolliertes Eindringen oder das Einschleusen unbefugter Personen zu verhindern. Ohne Schleusen könnte etwa jemand einer berechtigten Person unbemerkt folgen („Tailgating“) oder mehrere Personen gleichzeitig eine Zugangskarte verwenden. Mit Schleusen kann dagegen sichergestellt werden, dass jede Person oder jedes Transportgut einzeln überprüft wird und Manipulationsversuche erkannt werden. Für die Umsetzung kann eine Institution verschiedene Maßnahmen wählen: (1) Eine Schleuse kann mit Zutrittskontrollsystemen gekoppelt werden, sodass Türen erst nach erfolgreicher Authentifizierung (z. B. Kartenleser oder biometrische Erkennung) freigegeben werden. (2) Sensoren wie Gewichtssensoren oder 3D-Kameras können zusätzlich eingesetzt werden, um das Mitführen weiterer Personen zu erkennen. (3) Bei Material- oder Lieferantenschleusen kann ein Zwei-Personen-Prinzip implementiert werden, sodass ein Mitarbeiter der Institution den Vorgang begleitet. Auch prozessuale Ergänzungen wie regelmäßige Tests der Schleusenfunktionen, klare Regelungen zum Verhalten bei Fehlalarmen oder Hinweisschilder für Besucher können die Wirksamkeit erhöhen. So kann der Zugang zum Gebäude an kritischen Punkten kontrolliert und ein hohes Maß an physischer Sicherheit erzielt werden.
+
+### GEB.4.4 – Vereinzelungsanlage
+
+**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.44, G 0.16, G 0.24, G 0.19, G 0.34
+
+> Gebäudemanagement für Standorte KANN Vereinzelungsanlagen an Zugangspunkten installieren.
+
+Eine Vereinzelungsanlage ist eine technische Einrichtung, die den gleichzeitigen Zutritt mehrerer Personen verhindert und so den Zugang zu besonders sensiblen Bereichen kontrolliert. Typische Beispiele sind Drehkreuze, Personenschleusen oder Sicherheitsschleusen mit Gewichtssensoren. Der Sinn dieser Maßnahme liegt darin, unbefugtes Betreten durch sogenanntes „Tailgating“ (eine Person folgt unberechtigt einer berechtigten Person) oder durch Einschleusen mehrerer Personen mit einem Zugangsausweis zu verhindern. Ohne solche Einrichtungen könnte es passieren, dass fremde Personen unerkannt in Serverräume oder Entwicklungsbereiche gelangen. Mit einer Vereinzelungsanlage kann hingegen zuverlässig sichergestellt werden, dass nur eine eindeutig identifizierte Person Zutritt erhält. Für die Umsetzung kann eine Institution mehrere Möglichkeiten nutzen: (1) Drehkreuze oder Sensorschleusen können an Hauptzugängen zu Bereichen mit kritischen Informationen eingesetzt werden, wobei sie mit Zutrittskontrollsystemen wie Chipkarten- oder Biometrie-Lesern kombiniert werden können. (2) Eine Zwei-Türen-Schleuse kann eingerichtet werden, die erst die zweite Tür freigibt, wenn die erste korrekt geschlossen ist und die Person authentifiziert wurde. (3) Sensorische Zusatzkontrollen wie Gewichtserkennung oder Volumendetektion können dabei helfen, dass keine zweite Person unerkannt mit hindurchgeht. Zudem kann die Wirksamkeit erhöht werden, wenn diese Systeme mit klaren Nutzungsregeln, wie Schulungen zum richtigen Durchschreiten und Hinweisschildern, ergänzt werden. Auch ein regelmäßiger Funktionstest der Anlagen kann helfen, Manipulation oder Fehlfunktionen frühzeitig zu erkennen.
+
+## GEB.5 Gemeinsame Arbeitsbereiche
+
+### GEB.5.1 – Lieferzugang
+
+**Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.44, G 0.19, G 0.21
+
+> Gebäudemanagement für Standorte SOLLTE einen Zugang für die Abwicklung von Lieferungen ohne unbefugten Zugang zum restlichen Standort installieren.
+
+Ein Zugang für die Abwicklung von Lieferungen ist ein baulich abgegrenzter Bereich (engl. delivery access point), der es ermöglicht, Waren, Material oder technische Geräte geschützt vor sonstigen äußeren Einflüssen anzunehmen bzw. abzugeben, ohne dass Lieferpersonal oder externe Dienstleister unkontrollierten Zutritt zu sicherheitsrelevanten Bereichen in der Institution erhalten. Unbefugter Zugang meint hierbei jeden Zutritt durch Personen, die für den betroffenen Standort oder bestimmte Schutzbereiche keine Zutrittsberechtigung besitzen (engl. unauthorized access). Der Sinn dieser Vorgabe liegt darin, Risiken durch unkontrollierte physische Zugänge zu minimieren: Ein Lieferant könnte etwa versehentlich oder absichtlich in interne Büro- oder Technikbereiche gelangen und dadurch vertrauliche Informationen, IT-Geräte oder Zugangsdaten einsehen oder entwenden. Eine bauliche und organisatorische Trennung kann dagegen gewährleisten, dass Lieferungen gesteuert angenommen, geprüft und weiterverarbeitet werden, ohne sicherheitskritische Bereiche zu gefährden. Beispielsweise kann es je nach Standort sinnvoll sein: (1) separate Schleusen- oder Annahmebereiche mit kontrollierter Türverriegelung, (2) Gegensprechanlagen oder Kameraeinrichtungen zur Identifikation von Lieferanten, (3) zeitlich begrenzte oder zonenbeschränkte Zutrittsberechtigungen über elektronische Zugangssysteme, sowie (4) baulich getrennte Lieferzonen mit Sichtschutz und gesichertem Übergabepunkt einzurichten.
+
+### GEB.5.2 – Schutz gegen Manipulation
+
+**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.44, G 0.19, G 0.21
+
+> Gebäudemanagement für IT-Systeme KANN Manipulationsschutzvorkehrungen installieren.
+
+Manipulationsschutzvorkehrungen sind physische oder technische Schutzmaßnahmen („tamper protection measures“), die darauf ausgelegt sind, unbefugte Eingriffe, Veränderungen oder Beschädigungen an IT-Systemen oder deren Infrastruktur frühzeitig zu verhindern oder zumindest erkennbar zu machen. Der Begriff „gemeinsame Arbeitsbereiche“ („shared workspaces“) umfasst Räumlichkeiten, in denen mehrere Personen, Teams oder Abteilungen gleichzeitig arbeiten, wodurch sich naturgemäß ein erhöhtes Risiko unkontrollierter Zugriffe auf technische Einrichtungen ergibt. Der Zweck dieser Anforderung liegt darin, die Integrität und Verfügbarkeit der eingesetzten Systeme zu wahren und Manipulationen vorzubeugen, die durch unbeaufsichtigte physische Zugriffe oder verdeckte Eingriffe erfolgen könnten. Ein ungeschütztes Gerät in einem frei zugänglichen Raum könnte beispielsweise durch das unbemerkte Einstecken manipulierter USB-Geräte oder das Entfernen von Netzwerkkabeln kompromittiert werden, während ein gezielter Eingriff in eine Serversteckdose zu Systemausfällen führen könnte. Eine Manipulationsschutzvorkehrung kann hier den Nachweis eines Eingriffs ermöglichen oder diesen bereits im Ansatz verhindern. Beispielsweise kann sinnvoll sein: (1) die Verwendung manipulationssicherer Gehäuse oder Gehäusesiegel, (2) der Einsatz von abschließbaren IT-Racks oder gesicherten Anschlussfeldern, (3) die Integration physischer Sensoren, die bei Gehäuseöffnung Alarmmeldungen erzeugen, oder (4) die Kennzeichnung und regelmäßige Sichtprüfung von Geräten auf Manipulationsspuren. Auch der gezielte Einbau von IT-Komponenten in erhöhten, kameragesicherten oder besonders einsehbaren Bereichen kann eine praktikable Schutzwirkung entfalten.
+
+### GEB.5.3 – Physische Mikrosegmentierung
+
+**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.44, G 0.21
+
+> Gebäudemanagement für IT-Systeme KANN eine physische Mikrosegmentierung installieren.
+
+Bei der physischen Mikrosegmentierung in der Sicherheitsarchitektur geht es darum, unterschiedliche physische Grenzen innerhalb gemeinsam genutzter Einrichtungen zu schaffen, um verschiedene Sicherheitsbereiche zu isolieren und zu schützen. Dies ist besonders wichtig für Umgebungen, in denen Assets mit verschiedenen Sicherheitseigenschaften nebeneinander existieren. Bei dieser Strategie werden bauliche Maßnahmen eingesetzt, wie z. B. getrennte Eingänge, dedizierte Versorgungssysteme, Fallen, abgeschottete HLK-Anlagen, physisch getrennte Netzwerkinfrastrukturen und zugangskontrollierte Zonen, um die seitliche Bewegung von Bedrohungen zu verhindern und gleichzeitig die Einhaltung von Vorschriften zu gewährleisten. Zu den üblichen Anwendungen gehören Bürogebäude mit mehreren Mietparteien, in denen verschiedene Institutionen eine Trennung benötigen, Colocation-Rechenzentren mit kundenspezifischer Geräteisolierung, gemeinsam genutzte Regierungseinrichtungen mit unterschiedlichen Klassifizierungsanforderungen und Campus-Umgebungen, in denen miteinander verbundene Gebäude unterschiedliche Sicherheitsperimeter aufrechterhalten müssen - all dies unterstützt ein umfassendes Risikomanagement und die Eindämmung von Vorfällen. Maßnahmen können z.B. intelligenten Schlössern an Käfigtüren und Sensoren an den Seitenwänden von Serverracks sein.
+
+## GEB.6 Platzierung von Assets
+
+### GEB.6.1 – Zugang zu Ausgabesystemen
+
+**Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.18
+
+> Gebäudemanagement für IT-Systeme SOLLTE den Zugang zu nicht-öffentlichen Ausgabesystemen einschränken.
+
+Ausgabesysteme sind z.B. Monitore oder Drucker. Nicht-öffentlich sind diese, wenn darauf schützenswerte Inhalte ausgegeben werden, z.B. Arbeitsplätze von internen Sachbearbeitern, Netzdrucker der Personalabteilung.
+
+### GEB.6.2 – Geschützte Aufstellung
+
+**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.18
+
+> Gebäudemanagement für IT-Systeme SOLLTE diese geschützt vor dem Zugriff von Unbefugten platzieren.
+
+„Unbefugter Zugriff“ bedeutet in diesem Kontext jeder physische Zutritt oder jede Manipulation durch Personen, die keine rechtmäßige Berechtigung für die Nutzung, Wartung oder Überwachung dieser Systeme besitzen. Der Sinn und Zweck dieser Vorgabe liegt im Schutz vor Verlust, Manipulation oder Unterbrechung des Betriebs durch unkontrollierte physische Einwirkungen. Ohne geeignete Schutzmaßnahmen könnte ein unbefugter Dritter Systeme entwenden, manipulieren oder absichtlich beschädigen; ebenso könnte durch unkontrollierten Zutritt das Risiko von Stromausfällen oder Fehlbedienungen entstehen. Eine angemessene bauliche Platzierung kann hingegen sicherstellen, dass nur autorisierte Personen Zugang erhalten und die Verfügbarkeit sowie Integrität der Systeme langfristig gewährleistet bleibt. Eine Umsetzung kann durch baulich-technische Maßnahmen wie verschließbare Serverschränke mit dokumentierter Schlüsselverwaltung oder den Einsatz von Zugangskontrollen mit elektronischen Schließsystemen erfolgen.
+
+#### GEB.6.2.1 – Hostsysteme
+
+**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.18
+
+> Gebäudemanagement für Hostsysteme SOLLTE diese ausschließlich in Serverräumen platzieren.
+
+Sinn und Zweck dieser Anforderung liegt darin, die Risiken durch unkontrollierten physischen Zugriff oder Umwelteinflüsse zu reduzieren: Ohne räumliche Trennung könnte ein Mitarbeiter versehentlich gegen ein frei im Büro aufgestelltes Hostsystem stoßen und es beschädigen, oder ein Besucher könnte unbemerkt Manipulationen vornehmen. Durch Platzierung in einem Serverraum kann hingegen erreicht werden, dass Geräte vor unbefugtem Zugriff geschützt sind und kontrollierte Umgebungsbedingungen wie Temperatur oder Luftfeuchtigkeit den zuverlässigen Betrieb fördern. Praktisch kann es hilfreich sein, Hostsysteme in standardisierten Serverschränken unterzubringen, die zusätzlich verschließbar sind, und regelmäßig zu prüfen, ob keine Fremdgeräte unautorisiert im Serverraum abgestellt wurden. Auf diese Weise kann die Institution sicherstellen, dass Hostsysteme physisch geschützt und unter stabilen Betriebsbedingungen betrieben werden.
+
+### GEB.6.3 – Netzkomponenten
+
+**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.18
+
+> Gebäudemanagement für Netze SOLLTE für die Funktionsfähigkeit des Netzes erforderliche Systeme ausschließlich in Räumen für technische Infrastruktur platzieren.
+
+„Für die Funktionsfähigkeit des Netzes erforderliche Systeme“ sind in diesem Kontext alle physischen und logischen Komponenten, deren Betrieb direkt die Verfügbarkeit, Integrität oder Steuerbarkeit von Netzwerken beeinflusst — etwa aktive Netzwerkkomponenten (engl. network devices) wie Router, Switches, Firewalls oder Netzwerkmanagementsysteme (engl. Network Management Systems, NMS). Die Definition von „Räumen für technische Infrastruktur“ ist in den Definitionen für Zielobjekte zu finden. Diese Räume sind typischerweise mit einer kontrollierten physischen Zugangsbeschränkung, Klimatisierung, Brandfrüherkennung und einer stabilen Stromversorgung (z. B. über USV-Anlagen) ausgestattet. Die Anforderung gewährleistet somit, dass netzkritische Systeme räumlich von allgemeinen Arbeits- oder Aufenthaltsbereichen getrennt sind, um deren Sicherheit und Stabilität zu gewährleisten.
+
+### GEB.6.4 – Normgerechte Rechenzentren
+
+**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.2, G 0.1
+
+> Gebäudemanagement für Serverräume KANN diese ausschließlich in Rechenzentren nach *[einer anerkannten Norm]* platzieren.
+
+Rechenzentren entsprechen einer anerkannten Norm, wenn sie nach den einschlägigen technischen, sicherheitsrelevanten und organisatorischen Standards für Rechenzentren errichtet und erhalten werden, wie sie etwa in ISO/IEC 22237, EN 50600 oder vergleichbaren Vorgaben beschrieben sind. In der Fachsprache wird häufig von „compliant data centers“ gesprochen. Solche Rechenzentren verfügen über definierte Schutzklassen hinsichtlich physischer Sicherheit, Energieversorgung, Klimatisierung, Brandfrüherkennung und Zutrittskontrolle. Sie gewährleisten kontrollierte Umgebungsbedingungen und eine hohe Verfügbarkeit (Availability Class) für serverbasierte IT-Systeme. Die Platzierung von Serverräumen ausschließlich in diesen Umgebungen kann sicherstellen, dass physische und infrastrukturelle Risiken minimiert werden, etwa durch den Wegfall von unsicheren Eigenbauten oder provisorischen Standorten. Der Zweck dieser Vorgabe liegt in der Risikoreduktion durch Standardisierung und geprüfte baulich-technische Schutzmaßnahmen. Ohne solche Umgebungen könnte beispielsweise ein Stromausfall, eine unzureichende Klimatisierung oder ein lokaler Brand unbemerkt zum Ausfall kritischer Systeme führen, während ein unzureichend gesicherter Standort auch unbefugten physischen Zugriff ermöglichen könnte. Die Nutzung normgerechter Rechenzentren kann demgegenüber die Verfügbarkeit und Integrität der Systeme erhöhen, da Ausfälle und Umwelteinflüsse frühzeitig erkannt und kontrolliert behandelt werden können. Eine Institution kann dies etwa durch die Unterbringung ihrer Server in einem zertifizierten Colocation-Rechenzentrum (z. B. ISO/IEC 27001 und EN 50600-konform), durch die Nutzung eines Tier III- oder Tier IV-Datacenters nach Uptime Institute-Standard oder durch den Umzug bestehender Systeme in eine baulich und betrieblich geprüfte Hosting-Umgebung umsetzen.
+
+## GEB.7 Schlüsselverwaltung
+
+### GEB.7.1 – Schlüsselbeauftragte
+
+**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.18
+
+> Gebäudemanagement für Standorte SOLLTE die Verwaltung von Schlüsseln *[zuständigen Personen oder Rollen]* zuweisen.
+
+Bei der Verwaltung von Schlüsseln werden physische Schlüssel und digitale Zugangsmittel wie RFIDs für Gebäude, Räume oder Schränke ausgegeben, zurückgenommen und deren Nutzung dokumentiert. Mögliche Ausprägungen für zuständige Personen oder Rollen können (1) Facility-Management, (2) IT-Sicherheitsbeauftragte, (3) Empfangs- oder Pförtnerdienste oder (4) ein zentrales Schlüsselmanagement-Team sein. Der Zweck der Vorschrift liegt darin, Risiken durch unkontrollierte Schlüsselvergabe zu reduzieren. Ohne klare Zuweisung könnte es zu unbefugtem Zutritt, Diebstahl oder Manipulation an kritischen Bereichen kommen. Durch eine geregelte Schlüsselverwaltung kann hingegen nachvollziehbar und kontrolliert gesteuert werden, wer physischen Zugang zu sicherheitsrelevanten Bereichen erhält. Zur Umsetzung können Institutionen (1) Schlüssellisten auf Papier oder in Form einer Berechtigungsmatrix führen, die regelmäßig gepflegt und abgeglichen wird, (2) Reserveschlüssel zentral und sicher verwahren, damit im Verlustfall ein geregelter Ersatz möglich ist, und (3) sicherstellen, dass nicht mehr benötigte Schlüssel zeitnah zurückgenommen und dokumentiert werden. Technisch kann die Verwaltung durch nummerierte Schlüsselanhänger oder anonymisierte Kennzeichnungen unterstützt werden, sodass keine Rückschlüsse auf den Einsatzort möglich sind. Auch ein einfaches Verfahren, bei dem die Rücknahme von Schlüsseln mit Datum und Unterschrift bestätigt wird, kann Transparenz schaffen und spätere Unklarheiten verhindern.
+
+### GEB.7.2 – Verwahrung von Schlüsseln
+
+**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.18
+
+> Gebäudemanagement für Nutzende von Standorten SOLLTE zur Verwahrung von Schlüsseln anweisen.
+
+Eine Verwahrung ist eine Aufbewahrung von Zugangssschlüsseln derart, dass Unbefugte keinen Zugriff hierauf haben. Dies kann durch das Mitführen der Schlüssel, oder durch eine verschlossene Aufbewahrung, z.B. in einem Schlüsselschrank, umgesetzt werden.
+
+### GEB.7.3 – Schlüsselaudit
+
+**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.18
+
+> Gebäudemanagement für Standorte SOLLTE die vorhandenen Schlüssel *[regelmäßig]* überprüfen.
+
+Ohne eine solche Kontrolle könnten z. B. verlorene, vergessene oder unregistrierte Schlüssel im Umlauf bleiben, was zu einem unerkannten Sicherheitsrisiko führt. Ein Vorfall könnte darin bestehen, dass ein ehemaliger externer Dienstleister noch Zugang zu Räumen hat, in denen vertrauliche Unterlagen oder wertvolle Geräte aufbewahrt werden, oder dass ein entwendeter Schlüssel später unbemerkt für Einbruch und Diebstahl genutzt wird. Praktisch kann eine Institution dies umsetzen, indem sie ein aktuelles Schlüsselinventar führt und dieses in festgelegten Abständen mit den tatsächlich im Umlauf befindlichen Schlüsseln abgleicht. Sinnvoll ist auch, bei der Überprüfung nicht nur auf Vollständigkeit, sondern auf Plausibilität zu achten – beispielsweise ob Schlüssel für inzwischen nicht mehr genutzte Räume weiterhin im Umlauf sind. Bei normalen Schutzbedarf genügt eine stichprobenartige Kontrolle, Schlüssel mit höherem Schutzbedarf (z.B. für Sicherheitsbereiche) dagegen bedürfen in der Regel einer häufigeren, vollständigen Kontrolle.
+
+## GEB.8 Verwahrung von Speichermedien
+
+### GEB.8.1 – Gesonderte Aufbewahrung
+
+**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.16
+
+> Gebäudemanagement für Standorte SOLLTE geschäftskritische Speichermedien in verschließbaren Schutzeinrichtungen platzieren.
+
+Vertrauliche Speichermedien, die ungesichert herumliegen (sowohl analoge Dokumente als auch digitale Datenträger) sind ein leichtes Ziel für Diebstahl und können versehentlich verloren gehen oder beschädigt werden; eine angemessene Sicherung erfolgt durch Aufbewahrung in abschließbaren Schränken, in Safes oder in dedizierten, gesicherten Räumlichkeiten, wobei die Anforderung auch dann als erfüllt gilt, wenn ein fest verbautes Behältnis genutzt wird, beispielsweise ein Safe-Raum.
+
+#### GEB.8.1.1 – Archiv
+
+**Stufe:** `erhöht` · **Aufwand:** 4 · **Gefährdungen:** G 0.18
+
+> Gebäudemanagement für Standorte KANN geschäftskritische Speichermedien in Datenträgerarchiven platzieren.
+
+Geschäftskritische Datenträger lagern in gesicherten, klimatisierten Archiven mit Zugriffskontrolle, Brandschutz und nachvollziehbarer Aus-/Rückgabedokumentation.
+
+### GEB.8.2 – Staub und Schmutz
+
+**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.2, G 0.4
+
+> Gebäudemanagement für Datenträgerarchiv KANN Maßnahmen zum Schutz der Datenträger vor Staub und Schmutz verankern.
+
+Werden analoge und digitale Datenträger länger im Archiv aufbewahrt, so besteht das Risiko der schleichenden Zersetzung durch Staub und Schmutz. Maßnahmen sind z.B. staubdichte und antistatische Lagerung in Schutzschränken, Klimatisierung, Schutzkleidung, trockene Reinigung.
+
+### GEB.8.3 – Schutz der Datenträger vor Brandschäden
+
+**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.1, G 0.18
+
+> Gebäudemanagement für Standorte KANN feuerfeste Behältnisse nach *[einem anerkannten Standard]* installieren.
+
+Datenträgerarchive sind bei Bränden besonders schützenswert, da hier häufig die langzeitig kritischen Daten gelagert werden. Kann durch Brandschutzschränke oder Datensafes umgesetzt werden, die nach DIN EN 1047-1 oder ISO 11799 zertifiziert sind.
+
+### GEB.8.4 – Überwachung schonender Klimatisierung
+
+**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.2
+
+> Gebäudemanagement für Datenträgerarchiv KANN für die Datenträger schonende Temperatur und Luftfeuchtigkeit anhand von *[Schwellwerten]* überwachen.
+
+IT-Infrastruktur benötigt typischerweise eine Umwelttemperatur von nicht viel mehr als 25°C und eine Luftfeuchtigkeit von nicht über 60%. Bei höheren Werten altern Komponenten schneller und das Risiko von Ausfällen durch Abwärme oder Spannungsüberschläge steigt. Grenzwerte können anhand der Herstellerangaben der im Raum eingesetzten Datenträger ermittelt werden. Die Überwachung kann mit klimatechnischen Sensoren im Raum realisiert werden.
+
+## GEB.9 Versorgungseinrichtungen
+
+### GEB.9.1 – Normgerechte Stromversorgung
+
+**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.25, G 0.8, G 0.10
+
+> Gebäudemanagement für Standorte SOLLTE eine norm- und bedarfsgerechte Stromversorgung und -verkabelung installieren.
+
+Eine Stromversorgung ist normgerecht, wenn Normen zur Bereitstellung und Verkabelung wie DIN VDE 0100 eingehalten werden. Bedarfsgerecht ist eine Stromversorgung, wenn sie den Strombedarf der IT-Systeme und anderen Geräte im Gebäude deckt und Reserven für Erweiterungen oder Notfälle bietet. Das betrifft sowohl zentrale Versorgungsanschlüsse, Unterverteilungen als auch die Zuleitung in die einzelnen Räume. Die Anforderung ist auch dann erfüllt, wenn eine den Compliance-Vorschriften für Strom entsprechende Versorgung bereits im Gebäude vorhanden ist. Im Fall von Rechenzentren ist auch auf die Möglichkeit der Notabschaltung der Stromversorgung (für einzelne elektrische Verbraucher) zu achten. Hier ist eine sinnvolle Parzellierung und Zielgerichtetheit bei der Notabschaltung von Bedeutung.
+
+#### GEB.9.1.1 – Vorausschauende Lastanalyse
+
+**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.25
+
+> Gebäudemanagement für Standorte KANN die bedarfsgerechte Stromversorgung *[regelmäßig]* vorausschauend überprüfen.
+
+Die prädiktive Lastanalyse in Stromversorgungssystemen bezieht sich auf die ausgefeilte Analyse von elektrischen Lastmustern, einschließlich Oberschwingungen der Stromqualität, um den zukünftigen Stromverbrauch und Qualitätsprobleme vorherzusagen, bevor sie auftreten. Sie kann in Bereichen, in denen die Stromversorgung von höchster Bedeutung ist, helfen, die kontinuierliche Verfügbarkeit der IT-Infrastruktur durch Überwachung und Vorhersage potenzieller Stromanomalien sicherzustellen, die die Systemintegrität gefährden könnten. Im Gegensatz zu reaktiven Ansätzen, die Probleme erst nach ihrem Auftreten angehen, werden bei der vorausschauenden Lastanalyse fortschrittliche Algorithmen zur Analyse historischer Stromverbrauchsdaten, harmonischer Verzerrungen und Spannungsschwankungen eingesetzt, um Muster zu erkennen, die auf bevorstehende Stromversorgungsprobleme hinweisen. Die Implementierung kann mit Netzqualitätsanalysatoren an kritischen Infrastrukturpunkten, Integration mit SCADA-Systemen und durch Analyse mit Algorithmen des maschinellen Lernens, die Netzanomalien mit bestimmten Betriebsbedingungen korrelieren, geschehen. Eine regelmäßige Validierung der Vorhersagemodelle anhand tatsächlicher Vorfälle hilft die Analyse zu verbessern, während die Integration mit automatisierten Energieverwaltungssystemen einen dynamischen Lastausgleich während vorhergesagter Stressperioden ermöglichen kann, wodurch sowohl die Stromqualität, als auch die Systemverfügbarkeit ohne menschliches Eingreifen aufrechterhalten werden.
+
+#### GEB.9.1.2 – Dedizierte Elektrounterverteilung
+
+**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.18
+
+> Gebäudemanagement für Standorte KANN eine ausschließlich für diesen Standort bestimmte Elektrounterverteilung die direkt von der Niederspannungshauptverteilung (NSHV) versorgt wird installieren.
+
+Eine eigene, direkt aus der NSHV gespeiste Unterverteilung trennt kritische Abgänge (IT/USV/Kälte), stellt Selektivität und eindeutige Kennzeichnung sicher, ermöglicht Zustandsüberwachung und hält Ausbaureserven vor.
+
+#### GEB.9.1.3 – Redundante Stromversorgung
+
+**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.8, G 0.25, G 0.10
+
+> Gebäudemanagement für Standorte KANN eine redundante Stromversorgung für *[eine Stützzeit]* installieren.
+
+Wenn die Stromzufuhr ausfällt, könnten geschäftskritische Anwendungen unerwartet ausfallen oder Daten verlorengehen. Die Redundanz der Stromquelle kann z.B. durch einen im System integrierten Akku, durch eine eigenständige unterbrechungsfreie Stromversorgung (USV) oder durch die Anbindung an ein sekundäres Stromnetz gewährleistet werden. Bei Bedarf kann sie auch die Übergangszeit bis zum Anlauf einer längerfristigen Netzersatzanlage überbrücken. Beim Betrieb einer USV ist auf die Einhaltung eines akzeptablen Temperaturbereichs der Batterie zu achten. Bei relevanten Änderungen an den Verbrauchern könnte es vorkommen, dass die USV-Systeme nicht mehr ausreichend dimensioniert sind. Da der Leistungsbedarf von Klimaanlagen oft zu hoch für eine USV ist, empfiehlt es sich zumindest die Steuerung der Anlagen an die unterbrechungsfreie Stromversorgung anzuschließen. Eine regelmäßige Wartung (u.U. nach Vorgabe des Herstellers) der USV und eine Trennung der Leistungselektronik von der Batterie ist empfohlen. Bei sehr hohem Schutzbedarf empfiehlt sich eine redundante Auslegung der USV. Die minimale Stützzeit (Autonomiezeit) ergibt sich als Stützzeit = Wartezeit auf mögliche Wiederkehr der Stromversorung + 2 * Zeit zum Herunterfahren der Komponenten. Bei sehr hohem Schutzbedarf empfiehlt sich eine redundante Auslegung der USV. Die Verkabelungswege sind redundant, wenn die Leitungen über verschiedene Wege geführt sind, sodass z.B. eine versehentliche Trennung nicht beide Leitungen betrifft.
+
+#### GEB.9.1.4 – Langanhaltende Sekundärversorgung
+
+**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.25
+
+> Gebäudemanagement für Standorte KANN eine redundante Stromversorgung für *[eine längere Stützzeit]* installieren.
+
+Eine längere Stützzeit bezeichnet im Kontext der Stromversorgung die Fähigkeit, elektrische Energie über einen Zeitraum von mehreren Stunden oder sogar Tagen aufrechtzuerhalten, typischerweise durch den Einsatz einer Netzersatzanlage (NEA) oder vergleichbarer Infrastruktur. Während eine kurzzeitige Überbrückung durch unterbrechungsfreie Stromversorgungen (USV) lediglich Sekunden bis Minuten abdeckt, kann eine NEA längere Stromausfälle abfangen und die Betriebsfähigkeit kritischer Systeme dauerhaft sicherstellen. Risiken bestehen darin, dass ein Standort bei einem längerfristigen Netzausfall ohne redundante Stromversorgung seine sicherheitskritischen Prozesse nicht mehr betreiben könnte, was etwa zu Datenverlusten, Produktionsstillständen oder Ausfällen der Zutrittskontrolle führen könnte. Eine redundante Stromversorgung kann dem entgegenwirken, indem sie kritische Infrastrukturen wie Rechenzentren, Kommunikationssysteme oder Zutrittssysteme auch bei großflächigen Netzstörungen handlungsfähig hält. Zur Betriebsfähigkeit gehört auch die regelmäßige Wartung und Überprüfung des Betriebsmittelvorrats. Eine Institution kann die Anforderung umsetzen, indem sie geeignete technische Maßnahmen einplant: (1) Installation einer Netzersatzanlage mit automatischer Umschaltung auf Diesel- oder Gasgeneratoren, (2) Bereitstellung von Kraftstoffvorräten für eine definierte Stützzeit von beispielsweise 24, 48 oder 72 Stunden, (3) regelmäßige Lasttests, um sicherzustellen, dass die Anlage die notwendige Kapazität unter Realbedingungen liefern kann. Ergänzend kann eine Institution durch redundante Einspeisungen vom Energieversorger oder die Kombination mehrerer NEA-Module eine Ausfallsicherheit erhöhen. Prozessual kann sie Wartungspläne etablieren, die auch die Prüfung von Kraftstoffqualität, Starterbatterien und Umschalteinrichtungen umfassen. Praktische Umsetzungstipps sind etwa, NEA-Anlagen in geschützten Gebäudebereichen mit ausreichender Belüftung und Brandschutz vorzusehen, die Abgasführung nach außen zu gewährleisten und einen sicheren, vor Manipulation geschützten Tankstandort zu wählen.
+
+### GEB.9.2 – Lasttest
+
+**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.8, G 0.25, G 0.18
+
+> Gebäudemanagement für Standorte KANN die Belastbarkeit der Stromversorgung *[regelmäßig]* überprüfen.
+
+Die Maßnahmen richten sich nach den geltenden Anforderungen an die Stromversorgung. Beispiele sind ein monatlicher USV-Selbsttest oder ein halbjährlicher Volllastbetrieb des Generators für mindestens 30 Minuten.
+
+### GEB.9.3 – Notaus
+
+**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.1, G 0.8, G 0.10, G 0.25
+
+> Gebäudemanagement für Standorte KANN eine Notausschaltung für die Versorgungseinrichtungen installieren.
+
+Eine Notausschaltung bezeichnet in diesem Kontext eine zentral verfügbare, technisch implementierte Vorrichtung, mit der im Gefahrenfall die Energieversorgung kritischer Versorgungseinrichtungen wie Strom, Gas oder Klimaanlagen unmittelbar und vollständig unterbrochen werden kann. Der Sinn und Zweck einer solchen Einrichtung liegt darin, Gefahren für Menschen, Technik und Informationen schnell eingrenzen zu können: Ein unkontrollierter Brand könnte sich durch weiterlaufende Klimageräte verstärken, ein Stromschlag durch beschädigte Leitungen könnte Menschen gefährden, oder ein Wasserschaden durch defekte Kühlung könnte weitere Systeme zerstören. Gleichzeitig kann eine sofortige Unterbrechung der Energiezufuhr Folgeschäden eindämmen, indem Brandlast reduziert oder die Ausbreitung toxischer Gase verhindert werden kann. Zur Umsetzung kann eine Institution beispielsweise (1) physische Notausschalter an klar gekennzeichneten, jederzeit zugänglichen Stellen nahe den Ausgängen oder im Leitstand installieren, (2) die Schalter so konzipieren, dass sie nur für definierte Versorgungskreise wie IT-Serverräume oder Technikzonen wirken und nicht die gesamte Einrichtung unkontrolliert lahmlegen, und (3) ergänzende visuelle Hinweise oder Leitsymbole anbringen, die die Bedienung im Ernstfall erleichtern.
+
+### GEB.9.4 – Überspannungsschutz
+
+**Stufe:** `erhöht` · **Aufwand:** 4 · **Gefährdungen:** G 0.25, G 0.8
+
+> Gebäudemanagement für Standorte KANN Überspannungsschutzeinrichtungen installieren.
+
+Überspannungsschutzeinrichtungen sind technische Komponenten, die elektrische und elektronische Systeme vor plötzlich auftretenden Spannungsspitzen im Stromnetz oder in Datenleitungen schützen. Sie wirken, indem sie kurzzeitig auftretende Energie in sichere Bahnen ableiten oder begrenzen, sodass angeschlossene Geräte nicht beschädigt werden. Der Sinn und Zweck liegt darin, sensible IT- und Kommunikationssysteme sowie die Infrastruktur der Institution vor Schäden zu bewahren. Ohne Schutz könnte ein Spannungssprung aus dem Stromnetz eine zentrale Serveranlage zerstören oder den Ausfall von Brandmelde- und Zutrittskontrollsystemen verursachen, wohingegen ein korrekt eingesetzter Überspannungsschutz kann die Betriebsfähigkeit und Datenintegrität sicherstellen. Diese Anforderung bezieht sich ausschließlich auf Überspannungen aus dem Netzbetrieb oder aus benachbarten Stromkreisen; für den äußeren Blitzschutz gilt eine verwandte Anforderung. Zur Umsetzung können an kritischen Punkten Überspannungsschutzeinrichtungen installiert werden: (1) in zentralen Verteilungen, um das gesamte Gebäude gegen Netzstörungen abzusichern, (2) in Unterverteilungen oder einzelnen Stromkreisen, die besonders sensible IT-Systeme versorgen, und (3) an Kommunikations- oder Datenleitungen, etwa für Netzwerk- oder Telefonverkabelungen. Eine Institution kann durch gestufte Schutzkonzepte („Grobschutz“ im Hauptverteiler, „Feinschutz“ in Nähe der Endgeräte) eine höhere Wirksamkeit erreichen. Es kann sinnvoll sein, bei Neubauten Steckdosen mit integriertem Feinschutz vorzusehen oder bei Bestandsanlagen nachträglich modulare Schutzgeräte in die Verteilungen einzusetzen. Prozessual kann regelmäßige Prüfung der eingebauten Schutzmodule helfen, da viele Modelle nach einem Ereignis verbraucht sind und ausgetauscht werden müssen. Auch eine Dokumentation der Einbauorte kann den Überblick erleichtern und gewährleisten, dass keine kritischen Systeme ungeschützt bleiben.
+
+### GEB.9.5 – Strukturierte Datenverkabelung
+
+**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.18
+
+> Gebäudemanagement für Standorte SOLLTE eine norm- und bedarfsgerechte Datenverkabelung installieren.
+
+Normgerecht ist eine Datenverkabelung, wenn Normen für Verkabelungssysteme wie DIN EN 50173 und DIN EN 50174, sowie bei Glasfaser DIN EN 60794 eingehalten werden. Sie ist auch bedarfsgerecht, wenn die verwendete Verkabelung ausreicht, um festgelegte Bandbreite und Antwortzeit zu erreichen. Das betrifft sowohl zentrale Netzanschlüsse, als auch Unterverteiler und die Zuleitung in die einzelnen Räume. Zur Umsetzung ist es sinnvoll ein Kabelverlegungsdiagramm und eine standortspezifische Inspektionscheckliste zu erstellen oder erstellen zu lassen.
+
+#### GEB.9.5.1 – Physisch geschützte Verlegung
+
+**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.18
+
+> Gebäudemanagement für Standorte SOLLTE eine geschützte Kabelverlegung installieren.
+
+Freigelegte Glasfaser- oder Kupferleitungen könnten angezapft oder durchtrennt werden. Die Implementierung kann z.B. Erfolgen durch: Das Verlegen von Backbone-Kabeln in Metallrohren oder verschlossenen Kabelschränken; manipulationssichere Siegel an Stellen, an denen die Kabel die Sicherheitsbereiche verlassen.
+
+### GEB.9.6 – Zugang zu Räumen für technische Infrastruktur
+
+**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.18
+
+> Gebäudemanagement für Räume für technische Infrastruktur SOLLTE den Zugang zu Räumen für technische Infrastruktur auf *[für den Betrieb zuständige Personen oder Rollen]* einschränken.
+
+HIerzu gehören insbesondere Versorgungsverteiler, z.B. für Netzverteilung, Frischwasser, Abwasser, Stromversorgung und andere zentrale Versorgungseinrichtungen. sind essenziell für die Einsatzfähigkeit und den Schutz des Gebäudes. Der Zugang zu diesen Verteilern kann z.B. durch Schließanlagen, Bewachung und Einbruchmeldesysteme realisiert werden.
+
+### GEB.9.7 – Zweckentfremdung
+
+**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.18
+
+> Gebäudemanagement für Räume für technische Infrastruktur SOLLTE die Verwendung der Räume zu anderen Zwecken untersagen.
+
+Werden Räume für technische Infrastruktur zu weiteren Zwecken, z.B. als Arbeitsplatz, Durchgangsraum oder Abstellraum genutzt, so erhöht dies das Risiko versehentlicher Schäden oder des Zugriffs Unbefugter auf die Infrastruktur.
+
+## GEB.10 Schutz vor Elementarschäden
+
+### GEB.10.1 – Klimatisierung
+
+**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.2
+
+> Gebäudemanagement für Standorte SOLLTE eine ausreichende Klimatisierung von Räumlichkeiten anhand von *[Schwellwerten]* installieren.
+
+Klimatisierung meint das Erzeugen und Aufrechterhalten von Temperatur und Luftfeuchtigkeit innerhalb bestimmter Schwellwerte. Zur Bestimmung der Schwellwerte können verschiedene Angaben herangezogen werden, u.a. Herstellerangaben für die am Standort betriebenen Systeme, Compliance-Vorgaben zur Arbeitsplatzsicherheit, branchenspezifische Normen und Standards (z.B. DIN EN ISO 7730), Energieeffizienzrichtlinien und Umweltvorschriften, sowie wissenschaftliche Erkenntnisse zu optimalen Arbeitsbedingungen. Die Implementierung kann umfassen: Die Gestaltung von Räumen mit klarer Trennung von Zu- und Abluftwegen, um Innenzirkulation zu vermeiden; Beseitigung von Hindernissen in kritischen Luftstromwegen; Implementierung geeigneter Einschlusslösungen für bestimmte Anwendungsfälle (z. B. heiße/kalte Servergänge oder Reinräume in der Fertigung); Optimierung der Geräteplatzierung zur Maximierung einer effizienten Luftverteilung; regelmäßige Wartung der Belüftungssysteme, einschließlich Filteraustausch und Kanalreinigung; strategische Platzierung von Ablenkblechen oder Deflektoren zur Lenkung des Luftstroms; saisonale Anpassung der HLK-Einstellungen an sich ändernde äußere Bedingungen; Einsatz drehzahlvariabler Ventilatoren und intelligenter Steuerungen, um dynamisch auf sich ändernde Lasten zu reagieren; regelmäßige Wärmebildaufnahmen, um entstehende Probleme zu erkennen. Den größen Nutzen bringt es in der Regel zunächst die größten Hindernisse zu beseitigen, sowie die Abdichtung unerwünschter Luftwege und die Optimierung der wichtigsten lufttechnischen Anlagen zu beachten. In Serverräumen empfiehlt sich oft eine gedrehte Rack-Ausrichtung, sodass die Luftzufuhr der Geräte aus kalten Gängen erfolgt, während die Abluft direkt in warmen Gänge geleitet wird, wodurch eine Rezirkulation verhindert und die Kühlung aufrechterhalten wird. Gleichzeitig verbessert diese Konfiguration die Betriebspraktikabilität durch die Positionierung der Kabelanschlüsse für einen bequemen Zugang der Techniker, ohne die Luftstrommuster zu unterbrechen.
+
+#### GEB.10.1.1 – Luftstrom-Analyse
+
+**Stufe:** `erhöht` · **Aufwand:** 4 · **Gefährdungen:** G 0.18
+
+> Gebäudemanagement für Serverräume KANN den Klimatisierungsbedarf anhand einer Luftstrom-Analyse *[regelmäßig]* überprüfen.
+
+Luftstromanalyse ist die systematische Bewertung von Luftbewegungsmustern zur Optimierung der Kühleffizienz und zur Vermeidung von Geräteausfällen. Dabei wird untersucht, wie die kalte Luft in der Einrichtung verteilt wird, es werden potenzielle Hotspots oder Bereiche mit Stagnation identifiziert, und es wird ein ordnungsgemäßer Wärmeaustausch durch die Überwachung der Einlass- und Auslasstemperaturen in den Serverracks sichergestellt. Zu den möglichen Methoden gehören CFD-Modelle (Computational Fluid Dynamics) zur Simulation von Luftströmungsmustern vor der Implementierung, der Einsatz von Temperatur- und Luftströmungssensoren an strategischen Stellen, Rauchtests zur visuellen Verfolgung der Luftbewegungspfade und Druckdifferenzmessungen zur Überprüfung der Integrität des Containments. Ein gut ausgeführtes Luftstrommanagement steht außerdem in direktem Zusammenhang mit geringeren Kühlkosten (oft 20-30 % Einsparungen), einer längeren Lebensdauer der Geräte und einer höheren Rechendichte pro Quadratmeter. Zu den bewährten Lösungen zur besseren Zirkulation gehören die Eingrenzung von Warm- und Kaltgängen, um eine Vermischung der Luftströme zu verhindern, die Aufrechterhaltung optimaler Rack-Einlasstemperaturen, die Sicherstellung einer angemessenen Perforation der Bodenfliesen in Doppelbodenumgebungen, die Optimierung der Serverplatzierung, um einen Bypass-Luftstrom zu vermeiden, und die Durchführung regelmäßiger Wärmebilduntersuchungen, um sich entwickelnde Probleme zu erkennen. Besonderer Aufmerksamkeit bedarf das Kabelmanagement, da eine ungeordnete Verkabelung den Luftstrom um bis zu 60 % behindern kann; ebenso ist es sinnvoll Abdeckplatten aller ungenutzten Rack-Räume abzudichten, um eine innere Zirkulation heißer Luft zu verhindern.
+
+#### GEB.10.1.2 – Klimamessung
+
+**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.2
+
+> Gebäudemanagement für Serverräume SOLLTE Lufttemperatur und Luftfeuchtigkeit anhand von *[Schwellwerten]* überwachen.
+
+IT-Infrastruktur benötigt typischerweise eine Umwelttemperatur von nicht viel mehr als 25°C und eine Luftfeuchtigkeit von nicht über 60%. Bei höheren Werten altern Komponenten schneller und das Risiko von Ausfällen durch Abwärme oder Spannungsüberschläge steigt. Ermitteln Sie Grenzwerte anhand der Herstellerangaben der im Raum eingesetzten Komponenten. Die Überwachung kann mit klimatechnischen Sensoren in den Geräten selbst oder im Raum realisiert werden. Eine saisonale Anpassung der Lüftungsanlagen kann erforderlich sein, insbesondere in Einrichtungen, die mit Eco-Modus arbeiten.
+
+#### GEB.10.1.3 – Redundante Klimatisierung
+
+**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.18
+
+> Gebäudemanagement für Standorte KANN redundante Klimasysteme installieren.
+
+Redundant ist eine Klimatisierung, wenn alle zu ihrer Funktionsfähigkeit erforderlichen Komponenten und Anbindungen redundant sind, d.h. kein einzelner Fehlerpunkt zu einem Ausfall führen würde (Single Point of Failure).
+
+### GEB.10.2 – Brandschutz
+
+**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.18, G 0.29, G 0.1
+
+> Gebäudemanagement für Standorte SOLLTE Brandschutz nach den entsprechenden Normen verankern.
+
+Maßnahmen können z.B. die Verwendung nicht brennbarer Baumaterialien (u.a. DIN 4102, DIN EN 13501), brandsichere Elektroinstallation, Feuerlöscher (DIN 14406), Rauchabzugsanlagen (DIN 18232) sowie Brandmelde- (DIN EN 54) und Löschanlagen (DIN EN 671) sein. Bei der Planung kann die örtliche Feuerwehr hinzugezogen werden. Gesetzliche Anforderungen hierzu sind in der Praktik Compliance zu berücksichtigen.
+
+#### GEB.10.2.1 – Baulicher Brandschutz
+
+**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.1, G 0.18
+
+> Gebäudemanagement für Räume SOLLTE bauliche Brandschutzeinrichtungen nach den entsprechenden Normen installieren.
+
+Relevant ist für das Brandverhalten von Bauprodukten und Bauarten die europäische Normenreihe DIN EN 13501 mit ihren sieben Klassen (A1, A2, B, C, D, E, F).
+
+#### GEB.10.2.2 – Brandabschnitte
+
+**Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.1, G 0.18
+
+> Gebäudemanagement für Räume SOLLTE Brandabschnitte nach den entsprechenden Normen installieren.
+
+Brandabschnitte sind baulich abgegrenzte Bereiche in Gebäuden, die im Brandfall verhindern sollen, dass das Feuer auf andere Bereiche übergreift. Sie werden durch feuerfeste Wände, Decken und andere raumabschließende Bauteile voneinander getrennt. Hier besteht ein enger Zusammenhang zu Compliance-Anforderungen: Größe und Anzahl von Brandabschnitten werden auch durch die Bauordnung und andere Vorschriften festgelegt, abhängig von der Nutzung und Größe des Gebäudes. Für die Informationssicherheit relevant ist darüber hinaus, ob die Auswahl der Brandabschnitte den darin befindlichen Informationen und damit verbundenen Assets ausreichenden Schutz gewährt, um deren Verfügbarkeit aufrechtzuerhalten.
+
+#### GEB.10.2.3 – Rauchdichtheit
+
+**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.1, G 0.18
+
+> Gebäudemanagement für Räume KANN alle raumbildende Teile rauchdicht installieren.
+
+Hierunter ist zu verstehen, dass alle raumbildenden Teile (Wände, Türen und falls benötigt Fenster) rauchdicht sind.
+
+#### GEB.10.2.4 – Brandwiderstandsklassen
+
+**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.1
+
+> Gebäudemanagement für Räume KANN feuerfeste Materialen für alle raumbildenden Teile , sodass sie Feuern für *[eine bestimmte Frist]* standhalten, installieren.
+
+Der Einsatz feuerfester Materialien für raumbildende Teile – also Wände, Decken, Türen und gegebenenfalls auch Bodenaufbauten – kann das Risiko erheblich reduzieren, dass sich ein Brand innerhalb eines Gebäudes schnell ausbreitet oder sicherheitsrelevante Bereiche in kurzer Zeit unbenutzbar werden könnten. Ohne geeignete Materialien könnte ein kleiner Kabelbrand beispielsweise binnen Minuten auf benachbarte Räume mit Servern, Schaltanlagen oder Dokumenten übergreifen und kritische Infrastruktur unbrauchbar machen. Mit feuerfesten Materialien kann eine Institution die Zeitspanne verlängern, in der Personen evakuiert, Brandbekämpfungsmaßnahmen eingeleitet oder Systeme geordnet heruntergefahren werden können. Der Begriff „feuerfest“ bedeutet im baulichen Kontext nicht absolute Unzerstörbarkeit, sondern eine definierte Widerstandsfähigkeit gegen Feuer über eine bestimmte Frist (z. B. 30, 60 oder 90 Minuten), die durch Normen wie die europäische Klassifizierung REI angegeben wird. Diese Frist beschreibt, wie lange ein Bauteil seine tragende Funktion (R), Dichtheit (E) und Wärmedämmung (I) im Brandfall aufrechterhalten kann. Zur praktischen Umsetzung können im Gebäudemanagement verschiedene Maßnahmen berücksichtigt werden: Wände und Decken können aus nicht brennbaren Baustoffen wie Beton oder speziellen Gipsfaserplatten ausgeführt werden, Türen können durch Brandschutztüren mit entsprechender Klassifizierung ersetzt werden, und Kabel- sowie Rohrdurchführungen können mit geprüften Brandschutzmanschetten oder -schotts ausgestattet werden. Auch abgehängte Decken oder Zwischenwände in Leichtbauweise können mit feuerhemmenden Platten verkleidet werden, um die Widerstandsdauer zu erhöhen. Eine Institution kann bei Umbauten oder Neubauten frühzeitig auf geprüfte Baustoffe achten und im Bestand gezielt besonders gefährdete Räume wie Serverräume, Archive oder Batterieräume nachrüsten.
+
+#### GEB.10.2.5 – Brandmeldeanlagen
+
+**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.1, G 0.18
+
+> Gebäudemanagement für Standorte SOLLTE das Entstehen von Bränden überwachen.
+
+Die Umsetzung kann durch Brandmeldezentralen oder dezentrale Brandmeldealarmierung erfolgen, siehe DIN EN 54 und DIN VDE 0833-2.
+
+#### GEB.10.2.6 – Brandunterdrückung
+
+**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.1, G 0.18
+
+> Gebäudemanagement für Serverräume KANN Brandunterdrückungssysteme installieren.
+
+Kann z.B. durch eine Anlage zur Sauerstoffreduktion unter 15 Volumenprozent umgesetzt werden, da Feuer sich so kaum entzünden kann. Siehe ISO 20338. Denken Sie dabei auch an den Schutz des Personals, siehe Arbeitstättenverordnung (ArbStättV).
+
+#### GEB.10.2.7 – Brandschutzprüfung
+
+**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.1, G 0.18
+
+> Gebäudemanagement für Standorte SOLLTE die Wirksamkeit der Brandschutzmaßnahmen *[regelmäßig]* überprüfen.
+
+Eine regelmäßige Überprüfung von Brandmeldeanlagen, Rauchmeldern und organisatorische Maßnahmen stellt sicher, dass diese weiterhin funktionieren. Hier besteht ein enger Zusammenhang zu Compliance-Verpflichtungen, die Brandschutzprüfungen fordern.
+
+### GEB.10.3 – Wasserschutz
+
+**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.3, G 0.5
+
+> Gebäudemanagement für Standorte SOLLTE zwischen Assets und Witterungs- sowie Wassergefahrenstellen mindestens eine physische Schutzmaßnahme vor Wasser nach den entsprechenden Normen installieren.
+
+Relevant ist hierbei sowohl Wasser von oben (Regen und Schnee), als auch von unten (Überflutungen, gesammeltes Regenwasser). Maßnahmen können z.B. witterungsbeständige Baumaterialien, Abdichtungen, Überdachungen, Entwässerungssysteme oder eine erhöhte Positionierung, die eher nicht in überfluteten Bereichen liegen wird, sein. Schränke und Gehäuse können auch mit einer geeigneten IP-Schutzklasse (z.B. IP65) gegen Wasser geschützt werden.
+
+#### GEB.10.3.1 – Doppelter baulicher Wasserschutz
+
+**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.3
+
+> Gebäudemanagement für Standorte KANN zwischen Wassergefahrenstellen und Assets mindestens zwei bauliche Schutzmaßnahmen vor Wasser nach den entsprechenden Normen installieren.
+
+Relevant ist hierbei sowohl Wasser von oben (Regen und Schnee), als auch von unten (Überflutungen, gesammeltes Regenwasser). Maßnahmen können z.B. witterungsbeständige Baumaterialien, Abdichtungen, Abkofferungen, Überdachungen, oder Entwässerungssysteme sein. Schränke und Gehäuse können auch mit einer geeigneten IP-Schutzklasse (z.B. IP65) gegen Wasser geschützt werden.
+
+#### GEB.10.3.2 – Leckagesensor
+
+**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.3, G 0.18
+
+> Gebäudemanagement für Standorte KANN Wassereinbrüche überwachen.
+
+Maßnahmen können z.B. Wassersensorstreifen unter Doppelböden sein, die SNMP-Traps an ein Building Management System (BMS) senden.
+
+### GEB.10.4 – Blitzschutzeinrichtungen
+
+**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.1, G 0.18
+
+> Gebäudemanagement für Standorte SOLLTE Blitzschutzeinrichtungen nach *[einem anerkannten Standard]* installieren.
+
+Blitzschutzeinrichtungen sind bauliche oder technische Maßnahmen, die Gebäude, Anlagen und darin befindliche Systeme vor den direkten und indirekten Auswirkungen eines Blitzeinschlags schützen. Der Zweck dieser Regelung liegt darin, Risiken durch Blitzeinschläge zu reduzieren: Ein direkter Einschlag könnte Gebäudestrukturen beschädigen, Brände verursachen oder elektrische Systeme zerstören. Indirekte Einschläge könnten durch Überspannungen Datenverluste oder den Ausfall kritischer Systeme hervorrufen. Die Installation nach anerkannten Standards kann hier Schäden an Bausubstanz, Stromversorgung und Informationssystemen verhindern und die Verfügbarkeit sensibler Infrastruktur sichern. Ein anerkannter Standard ist hier die DIN EN 62305, die Anforderungen an Planung, Errichtung und Prüfung von Einrichtungen wie Fangstangen oder Erdungsanlagen definiert. Sie kennt verschiedene Schutzklassen. Für Standorte mit normalem Schutzbedarf wird Schutzklasse II oder besser gemäß DIN EN 62305 empfohlen. Für Räume für technische Infrastruktur oder Rechenzentren ist mindestens die Blitzschutzzone 2 (LPZ 2) sinnvoll.
+
+#### GEB.10.4.1 – Niederohmigkeit
+
+**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.18
+
+> Gebäudemanagement für Standorte KANN Blitzschutzeinrichtungen *[regelmäßig]* auf Niederohmigkeit überprüfen.
+
+Eine niedrige Ohmzahl in Erdungs- und Potentialausgleichseinrichtungen gewährleistet, dass Blitzströme schnell und wirksam abgeleitet werden. Siehe DIN VDE 0100-443 u. -534. Beachten Sie dabei auch die Prüfpflicht aus der Betriebssicherheitsverordnung (BetrSichV).
+
+### GEB.10.5 – Ableitfähiger Fußbodenbelag
+
+**Stufe:** `erhöht` · **Aufwand:** 4 · **Gefährdungen:** G 0.18
+
+> Gebäudemanagement für Räume für technische Infrastruktur KANN im Nahfeld von Systemen einen ableitfähigen Fußbodenbelag installieren.
+
+Ein ableitfähiger Boden ist ein Fußbodenbelag, der es ermöglicht, statische Aufladungen abzuleiten, beispielsweise durch eine geerdete Verbindung. Er zeichnet sich durch einen elektrischen Widerstand zwischen 10^6 und 10^9 Ohm aus. Ableitfähige Böden werden in Bereichen eingesetzt, in denen elektrostatische Entladungen (ESD) vermieden werden müssen. Die Umsetzung kann nach DIN EN 14041 oder DIN IEC 61340-4-1 erfolgen.

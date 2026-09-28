@@ -1,0 +1,137 @@
+---
+title: "STM – Strukturmodellierung"
+---
+
+# STM Strukturmodellierung
+
+Die Praktik Strukturmodellierung bildet die Grundlage für eine systematische Analyse der Informationssicherheit einer Institution. Ziel der Strukturmodellierung ist aus dem Stand-der-Technik-Kompendium ein individuelles Anforderungspaket für die Institution zu generieren. Auf Basis der Geschäftsprozesse und Informationen wird der individuelle Schutzbedarf festgelegt. Mit der Zuordnung einzelner Praktiken und Zielobjekte erfolgen eine Auswahl von Anforderungen auf der Grundlage des vorgegebenen Schutzniveaus. Blaupausen unterstützen die Filterung der Anforderungen. Eine Klassifizierung des Schutzbedarfs der Zielobjekte erfolgt auf Anforderungsebene. Die individuelle Anpassung der Anforderungen durch Auswahlmöglichkeiten erleichtern eine Skalierung. Eine Erweiterung des Anforderungspakets durch spezifische Anforderungen erhöht die Flexibilität. Für diese Anforderungen ist eine Risikobetrachtung erforderlich. Die Strukturmodellierung liefert essentielle Eingangsdaten für die nachgelagerten Praktiken wie Umsetzung und Monitoring-Evaluation und ermöglicht eine zielgerichtete und risikoorientierte Planung von Anforderungen und Sicherheitsmaßnahmen.
+
+## STM.1 Informationsverbund
+
+### STM.1.1 – Definition und Abgrenzung des Informationsverbunds
+
+**Stufe:** `normal-SdT` · **Aufwand:** 0
+
+> Strukturmodellierung MUSS den nachvollziehbar abgegrenzten Informationsverbund auf Basis des Geltungsbereichs festlegen.
+
+Im Informationsverbund werden die informationsverarbeitenden Systeme, Prozesse, Personen und Komponenten innerhalb des festgelegten Geltungsbereichs des ISMS betrachtet. Hierbei wird festgelegt welche organisatorischen, technischen und infrastrukturellen Anteile intern betrieben werden und welche an externe Parteien ausgelagert werden; welche Institutionsbereiche zum Informationsverbund gehören; welche Anwendungen, Systeme und Netze Bestandteil des Informationsverbundes sind; wo die technischen Grenzen verlaufen und wenn zutreffend welche Cloud-Dienste genutzt werden; welche Standorte, Gebäude und Räumlichkeiten zum Informationsverbund gehören.
+
+### STM.1.2 – Dokumentation der externen Schnittstellen
+
+**Stufe:** `normal-SdT` · **Aufwand:** 0
+
+> Strukturmodellierung MUSS Schnittstellen des Informationsverbunds zu externen Prozessen festlegen.
+
+Zum Informationsverbund werden die organisatorischen, technischen und infrastrukturellen Schnittstellen dargestellt. Wie bei der Beschreibung des Informationsverbunds selbst, werden auch hier organisatorische, technische sowie infrastrukturelle Schnittstellen berücksichtigt.
+
+## STM.2 Anforderungspaket
+
+### STM.2.1 – Erstellung eines Anforderungspakets
+
+**Stufe:** `normal-SdT` · **Aufwand:** 0
+
+> Strukturmodellierung MUSS ein Anforderungspaket für den betrachteten Informationsverbund modellieren.
+
+Das Anforderungspaket enthält alle Anforderungen, die für den betrachteten Informationsverbund und den priorisierten Geschäftsprozess relevant sind. Diese stammen zum Großteil aus dem GS++, können jedoch bei Bedarf durch individuelle Anforderungen ergänzt werden. Diese Anforderung dient der grundsätzlichen Vorgabe ein Anforderungspaket zu erstellen. Weitere Details sind den folgenden Anforderungen dieser Praktik zu entnehmen.
+
+#### STM.2.1.1 – ISMS-Anforderungen
+
+**Stufe:** `normal-SdT` · **Aufwand:** 0
+
+> Strukturmodellierung MUSS alle Anforderungen der ISMS-Praktiken auf den vorliegenden Informationsverbund modellieren.
+
+Neben den zielobjektkategoriegebundenen Anforderungen enthält der GS++ auch Anforderungen ohne explizite Zuordnung zu Zielobjektkategorien. Diese werden im Anforderungspaket ergänzend berücksichtigt. Für die Anforderungen der ISMS-Praktiken (GC, STM, PERF, VRB, UMS) gilt dabei Folgendes: Die Anforderungen der ISMS-Praktiken sind übergreifend und keiner einzelnen Zielobjektkategorie zugewiesen. Sie bauen den PDCA-Zyklus des Managementsystems auf und gelten deshalb einmalig für den gesamten Informationsverbund. Alle Anforderungen der ISMS-Praktiken werden ohne weitere Selektion auf den Informationsverbund modelliert. Sie werden als „verbundweite Anforderungen“ im Anforderungspaket geführt, da sie Governance-, Steuerungs-, Kontroll- und Verbesserungsprozesse definieren.
+
+#### STM.2.1.2 – Erfassung relevanter Assets
+
+**Stufe:** `normal-SdT` · **Aufwand:** 0
+
+> Strukturmodellierung MUSS alle relevanten Assets für die betrachteten Geschäftsprozesse festlegen.
+
+Die Asset-Modellierung ist der zentrale Schritt, um den zuvor festgelegten Informationsverbund strukturiert und nachvollziehbar in sicherheitsrelevante Bestandteile zu zerlegen. Im ersten Durchgang des PDCA-Zyklus ist es ausreichend, die Assets zu erfassen, die für den wichtigsten Geschäftsprozess erforderlich sind. Weitere Geschäftsprozesse und zugehörige Assets können iterativ in nachfolgenden Zyklen oder parallel ergänzt werden. Relevante Assets können insbesondere Informationen, Systeme und Anwendungen (System Assets), Netz- und Kommunikationskomponenten, Infrastrukturelle und physische Assets, Personelle und organisatorische Assets. Für jedes Asset wird eine eindeutige Bezeichnung/ID, eine kurze Beschreibung und ihr Zweck sowie eine Zuordnung zu Geschäftsprozess(en) festgehalten. Zuletzt wird jedem Asset eine verantwortliche Rolle bzw. ein Asset-Owner zugewiesen. Ggfs. ist ebenfalls der Standort bzw. die logische Einordnung (Netz, Anwendungskontext etc.) des Assets festzuhalten. Abhängigkeiten zwischen Assets werden ebenfalls notiert.
+
+#### STM.2.1.3 – Mapping der Assets auf Zielobjektkategorien
+
+**Stufe:** `normal-SdT` · **Aufwand:** 0
+
+> Strukturmodellierung MUSS allen relevanten Assets eine oder mehrere Zielobjektkategorien zuweisen.
+
+Zielobjektkategorien sind standardisierte Klassen für die im GS++ beschriebenen Anforderungen. Durch das Mapping werden Assets damit in die Systematik des GS++ überführt. Für jedes Asset wird geprüft, welche Kategorie(n) seine Funktion und seinen Einsatz im Geschäftsprozess am besten abbilden. Die Zuordnung erfolgt funktionsorientiert, nicht nur nach technischen Merkmalen. Entscheidend ist, wie das Asset im Geschäftsprozess wirkt. Schwer zuordenbare Assets werden im Rahmen der Risikobetrachtung analysiert, um sicherzustellen, dass auch hierfür Anforderungen bzw. Maßnahmen abgeleitet werden können.
+
+#### STM.2.1.4 – Modellierung der Anforderungen mit Zielobjektkategorie
+
+**Stufe:** `normal-SdT` · **Aufwand:** 0
+
+> Strukturmodellierung MUSS die den Zielobjektkategorien zugehörigen Anforderungen auf die zugewiesenen Assets modellieren.
+
+Nun werden die Anforderungen aus dem GS++ auf die identifizierten Zielobjektkategorien modelliert. Die modellierten Anforderungen bilden das individuelle Anforderungspaket des festgelegten Informationsverbunds in Bezug auf den ausgewählten Geschäftsprozess.
+
+##### STM.2.1.4.1 – Vererbung von Zielobjektkategorien
+
+**Stufe:** `normal-SdT` · **Aufwand:** 0
+
+> Strukturmodellierung MUSS die in der Hierarchie übergeordneten Zielobjektkategorien ebenfalls dem jeweiligen Asset die in der Zielobjekthierarchie übergeordnet sind zuweisen.
+
+Hier werden die zuvor zugeordneten Zielobjektkategorien um diejenigen Kategorien erweitert, die in der Zielobjekthierarchie übergeordnet sind. Anforderungen werden einmalig für die passende Zielobjektkategorie definiert und dann auf alle nachgeordneten Kategorien vererbt. Eine automatisierte Verarbeitung der Vererbungshierarchie kann den Umsetzungsaufwand erheblich reduzieren, ohne dass Themen außen vor bleiben. Die Vererbung erfolgt entlang der Zielobjekthierarchie, indem für jede zugeordnete Zielobjektkategorie alle Elternknoten bis zur Wurzel einbezogen werden. Die Vererbung ist deterministisch, da die Zielobjekthierarchie fest definiert ist. Eine Automatisierung der Vererbung ist möglich und wird empfohlen, wenn die Hierarchie maschinenlesbar vorliegt.
+
+##### STM.2.1.4.2 – Konsolidierung und Redundanzprüfung
+
+**Stufe:** `normal-SdT` · **Aufwand:** 0
+
+> Strukturmodellierung MUSS eine Konsolidierung und Redundanzprüfung des Anforderungspakets ausführen.
+
+Wenn Anforderungen durch mehrere vererbte Zielobjekte identisch auf ein Asset wirken, werden sie nur einmal geführt. So bleibt das Anforderungspaket schlank und umsetzbar. Ergebnis ist pro Asset ein vollständiger Satz an Anforderungen, der alle organisatorischen, technischen, personellen und infrastrukturellen Vorgaben enthält, die zur Erreichung des Sicherheitsniveaus erforderlich sind. Diese Anforderungen ergänzen das Anforderungspaket.
+
+#### STM.2.1.5 – Modellierung der Anforderungen ohne Zielobjektkategorie
+
+**Stufe:** `normal-SdT` · **Aufwand:** 0
+
+> Strukturmodellierung MUSS alle weiteren Anforderungen denen keine Zielobjektkategorie zugeordnet ist modellieren.
+
+Für jede zielobjektkategorielose Anforderung in den vorliegenden Geschäftsprozessen ist eine Relevanzentscheidung vorzunehmen. Für jede Anforderung ohne Zielobjektkategorie wird entschieden, ob sie für den Geschäftsprozess bzw. die zugehörigen Assets erforderlich ist. Maßstab ist hier wiederum das Sicherheitsniveau sowie die konkrete Nutzung für den Geschäftsprozess. Daraufhin erfolgt eine Zuordnung auf die betroffenenen Geschäftsprozesse: Hierbei werden diese Anforderungen auch federführend zuständigen Personen oder Rollen (sog. Prozess-Owner) zugewiesen. Für die vorliegenden Geschäftsprozesse nicht relevante Anforderungen werden aus dem Anforderungspaket gestrichen, was mit einer Begründung zu dokumentieren ist, um Nachvollziehbarkeit bei einem späteren Audit bzw. Zertifizierung zu sichern.
+
+#### STM.2.1.6 – Aufgrund anforderungsloser Assets
+
+**Stufe:** `normal-SdT` · **Aufwand:** 0
+
+> Strukturmodellierung MUSS für Assets, für die es noch keine passenden GS++-Anforderungen gibt, zusätzliche Anforderungen dem Anforderungspaket zuweisen.
+
+Falls es für Assets oder Themen im GS++ derzeit noch keine Anforderungen gibt, können diese von der Institution erstellt werden. Möglicherweise befinden sich in der SdT-Bibliothek Anforderungen, die diese Lücke schließen können. Die Anforderungsmodellierung für Assets ohne Anforderungen umfasst folgende Schritte: Zuerst erfolgt die Identifikation und Dokumentation von Assets, für die es keine Anforderungen im Anforderungskatalog-GS++ gibt. Daraufhin ist nachvollziehbar zu begründen, warum die Anforderungen aus dem GS++ nicht ausreichen. Dann erfolgt (ggfs.) die Erstellung von neuen Anforderungen in Bezug auf die Schutzziele (Vertraulichkeit, Integrität und Verfügbarkeit), für diese Assets. Zuletzt wird das Anforderungspaket um die neuen Anforderungen erweitert. Im Ergebnis liegen individuelle und bedarfsgerechte Anforderungen für die Assets, für die der GS++ keine Anforderungen enthält, vor. Diese werden als fester Bestandteil in das Anforderungspaket integriert und dem BSI zugestellt. Zur Formulierung der Anforderungen ist die Durchführung einer Risikobetrachtung hinsichtlich ebendieser Assets hilfreich.
+
+#### STM.2.1.7 – Aufgrund externer Verpflichtungen
+
+**Stufe:** `normal-SdT` · **Aufwand:** 0
+
+> Strukturmodellierung MUSS für das individuelle Compliance-Umfeld der Institution zusätzliche Anforderungen dem Anforderungspaket zuweisen.
+
+Dieser Schritt ergänzt das Anforderungspaket, um Anforderungen, die sich aus dem individuellen Compliance-Umfeld der Institution ergeben. Die Integration von externen Compliance-Verpflichtungen stellt sicher, dass alle relevanten gesetzlichen und vertraglichen Pflichten berücksichtigt werden, die erfasst wurden. Hierzu zählen z.B. gesetzliche Verpflichtungen, welche die Verarbeitung von Informationen durch die Institution betreffen oder auch vertragliche Verpflichtungen mit Relevanz für die Informationsverarbeitung. Vor eigener Erstellung von Anforderungen empfiehlt sich ein Blick in die SdT-Bibliothek.
+
+## STM.3 Sicherheitsniveau
+
+### STM.3.1 – Überprüfung des gesetzten Sicherheitsniveaus
+
+**Stufe:** `normal-SdT` · **Aufwand:** 2
+
+> Strukturmodellierung SOLLTE die initiale Einstufung der Sicherheitsniveaus der Anforderungen im Anforderungspaket bei Abweichungen des Kontextes der Institution überprüfen.
+
+Diese Anforderung ist besonders dann erforderlich, wenn Geschäftsprozesse oder die darin verarbeiteten Informationen einen hohen Schutzbedarf aufweisen. In diesem Teilschritt der Anforderungsanalyse´wird die initiale Einstellung des Sicherheitsniveaus überprüft und bei Bedarf, auch bei einzelnen Assets, geändert.
+
+## STM.4 Risiko
+
+### STM.4.1 – Durchführung der Risikobetrachtung
+
+**Stufe:** `normal-SdT` · **Aufwand:** 0
+
+> Strukturmodellierung MUSS eine Risikobetrachtung bei durch die GS++-Methodik festgeleger Notwendigkeit ausführen.
+
+Diese Anforderung beschreibt Szenarien, die einen Aussprung in eine separate Risikobetrachtung erfordern. Eine Risikobetrachtung ist insbesondere notwendig bei Geschäftsprozessen oder Assets mit hohem Schutzbedarf, bei Herabstufung des Sicherheitsniveaus (von erhöht auf normal- SdT) oder bei Nicht-Umsetzung von Anforderungen. Zuletzt ist eine Risikobetrachtung zur Ergänzung des Anforderungspakets z.B. bei Assets ohne passende Anforderungen im GS++ erforderlich.
+
+## STM.5 Parametrisierung
+
+### STM.5.1 – Setzen von Parametern
+
+**Stufe:** `normal-SdT` · **Aufwand:** 0
+
+> Strukturmodellierung MUSS bei Anforderungen mit Parametern konkrete Werte zuweisen.
+
+Ausgewählte Anforderungen enthalten Parameter zur Belegung mit individuellen Angaben. Diese können z.B. durch Normen und Standards belegt werden oder enthalten Platzhalter für Rollen und Zuständigkeiten in der eigenen Institution. Beispielsweise enthält jede technische oder organisatorische Praktik im Abschnitt „Grundlagen“ eine Anforderung zur Zuweisung einer Zuständigkeit zu bestimmten Personen oder Rollen. Durch das Setzen dieser Parameter wird festgelegt, welche Personen oder Rollen die führende Zuständigkeit für den zugeordneten Prozess erhalten. Dies wirkt sich auch auf das Anforderungspaket für Zielobjekte aus: Hier ist die Zuständigkeit für jede Anforderung anhand ihrer Praktik erkennbar. Ein anderer beispielhafter Typ sind zeitliche Parameter, z.B. kann das Wort "regelmäßig" durch Parametrisierung konkretisiert werden (z.B. täglich, wöchentlich, monatlich). Parametrisierung kann in Form von Auswahlfeldern oder aber von Freitextbelegung erfolgen.

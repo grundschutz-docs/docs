@@ -1,0 +1,259 @@
+---
+title: "PERS – Personal"
+---
+
+# PERS Personal
+
+Die Praktik Personal fokussiert sich auf die Integration von Sicherheitsanforderungen über den gesamten Beschäftigungs- oder Vertragszyklus von Mitarbeitenden sowie externen Partnern hinweg. Ziel ist es, einen sicheren Umgang mit Informationen während der gesamten Dauer der Beschäftigung oder Zusammenarbeit zu gewährleisten. Diese Praktik fokussiert auf den sicheren Umgang mit Personen, während Praktiken, wie Berechtigungen, den systemseitigen Zugriff regeln.
+
+## PERS.1 Grundlagen
+
+### PERS.1.1 – Verfahren und Regelungen
+
+**Stufe:** `normal-SdT` · **Aufwand:** 0 · **Gefährdungen:** G 0.18
+
+> Personal MUSS Verfahren und Regelungen zum Personalmanagement verankern.
+
+Der Prozess stellt sicher, dass qualifiziertes und zuverlässiges Personal für alle Aufgaben zur Verfügung steht und allen Beteiligten ihre Aufgaben und Zuständigkeiten bekannt sind. Hierbei sind Einstellung, Einarbeitung, Weiterbildung und Austritt von Mitarbeitenden zu berücksichtigen. Die bei der Festlegung des Verfahrens im Einzelnen zu berücksichtigenden Inhalte ergeben sich aus den Anforderungen dieser Praktik.
+
+#### PERS.1.1.1 – Dokumentation
+
+**Stufe:** `normal-SdT` · **Aufwand:** 0 · **Gefährdungen:** G 0.18, G 0.37
+
+> Personal MUSS die Verfahren und Regelungen dokumentieren.
+
+Ohne eine Dokumentation könnte die Einhaltung der Verfahren und Regelungen von der Tagesform oder dem individuellen Wissen einzelner Mitarbeiter abhängen, was zu inkonsistenten Entscheidungen und Fehlern führen könnte; insbesondere beim Ausscheiden eines langjährigen Administrators könnte wertvolles prozessuales Wissen verloren gehen. Eine klare Dokumentation sichert die Verbindlichkeit und Wiederholbarkeit und dient als unverzichtbare Grundlage für die Einarbeitung neuer Kollegen, für die Durchführung von Audits und zur einheitlichen Anwendung der Regeln in der gesamten Institution. Die Dokumentation kann in einem eigenständigen Dokument als Richtlinie erfolgen, aber auch als Abschnitt in einem bereits bestehenden Dokument oder über die digital strukturiere Erfassung von Maßnahmen zur Umsetzung der Anforderungen, etwa über eine Software zum Management der Informationssicherheit. Sinnvoll ist es Ort und Struktur der Dokumentation an der jeweiligen Zielgruppe, d.h. den für das Management und die Umsetzung verantwortlichen Personen oder Rollen, auszurichten.
+
+#### PERS.1.1.2 – Zuweisung der Aufgaben
+
+**Stufe:** `normal-SdT` · **Aufwand:** 0 · **Gefährdungen:** G 0.18, G 0.31
+
+> Personal MUSS die mit den Verfahren und Regelungen verbundenen Aufgaben *[zuständigen Personen oder Rollen]* zuweisen.
+
+Die Zuweisung von Aufgaben bezeichnet die eindeutige und verbindliche Übertragung von konkreten Tätigkeiten und Verantwortlichkeiten des Änderungsprozesses, wie etwa die Risikobewertung, die technische Umsetzung oder die finale Freigabe, an definierte Stellen in der Institution. Der Sinn dieser Vorschrift ist es, die Verantwortlichkeit ("Accountability") für jeden einzelnen Schritt im Prozess klarzustellen. Ohne eine solche Zuweisung könnten kritische Prüfungen unterbleiben, weil sich niemand explizit zuständig fühlt, was wiederum die Wahrscheinlichkeit fehlgeschlagener Änderungen erhöht. Eine klare Regelung kann sicherstellen, dass keine Aufgaben übersehen werden und jede Tätigkeit von einer dafür qualifizierten und befugten Stelle ausgeführt wird, was die Prozesssicherheit signifikant erhöht. Eine bewährte Methode zur Umsetzung ist die Erstellung einer RACI-Matrix (Responsible, Accountable, Consulted, Informed), die tabellarisch für jeden Prozessschritt darstellt, wer für die Durchführung verantwortlich ist, wer die Gesamtverantwortung trägt, wer zu konsultieren und wer zu informieren ist. Diese Zuständigkeiten können auch direkt in einem Workflow- oder Ticketsystem abgebildet werden, sodass Aufgaben, wie beispielsweise Genehmigungsschritte, automatisch an die richtige Gruppe oder Person weitergeleitet werden. Sinnvoll ist es die Zuweisung anhand von Rollen (z.B. "Anwendungsverantwortlicher", "Netzwerkadministrator", "Change Manager") vorzunehmen, statt an konkrete Personen. Dieser Ansatz stellt sicher, dass die Prozesse auch bei Personalwechseln stabil weiterlaufen, da die Zuständigkeit an die Funktion und nicht an das Individuum gebunden ist.
+
+#### PERS.1.1.3 – Bekanntgabe
+
+**Stufe:** `normal-SdT` · **Aufwand:** 0 · **Gefährdungen:** G 0.18, G 0.31
+
+> Personal MUSS die zuständigen Personen oder Rollen über die Verfahren und Regelungen informieren.
+
+Wenn die Zuständigen die etablierten Verfahren nicht kennen, besteht die Gefahr, dass diese – sei es aus Unwissenheit oder Bequemlichkeit – umgangen werden, was die Schutzwirkung des gesamten Managementsystems untergräbt. So könnte ein neuer Systemadministrator eine weitreichende Konfigurationsänderung vornehmen, ohne den vorgeschriebenen Genehmigungsprozess zu durchlaufen, was zu einem unbemerkten Sicherheitsrisiko führen könnte. Eine gezielte Information kann hingegen die Akzeptanz der Regelungen fördern und sicherstellen, dass alle Beteiligten ihre Rolle im Prozess verstehen und die Abläufe korrekt anwenden. Zur Umsetzung ist es sinnvoll die Dokumentation im Rahmen eines Onboarding-Prozesses bekanntzugeben und bei allen Änderungen eine automtatische Benachrichtigung aller zuständigen Personen oder Rollen anzustoßen.
+
+### PERS.1.2 – Regelmäßige Überprüfung
+
+**Stufe:** `normal-SdT` · **Aufwand:** 0 · **Gefährdungen:** G 0.18
+
+> Personal MUSS die Verfahren und Regelungen *[regelmäßig]* und anlassbezogen auf Aktualität überprüfen.
+
+Eine geplante der etablierten Verfahren und Regelungen dient dazu festzustellen, ob diese noch wirksam, effizient und an die aktuellen Gegebenheiten angepasst sind. Eine anlassbezogene Überprüfung wird durch spezifische Ereignisse ausgelöst, wie etwa einen schwerwiegenden Sicherheitsvorfall, eine strategische Neuausrichtung der IT oder neue gesetzliche Anforderungen. Der Zweck dieser Anforderung ist es, die kontinuierliche Verbesserung und Anpassungsfähigkeit des Prozesses sicherzustellen, da veraltete Regelungen neuen technologischen Entwicklungen oder Bedrohungen nicht mehr gerecht werden könnten; ein vor Jahren für monolithische Anwendungen konzipierter Prozess ist beispielsweise für agile Entwicklungsmethoden oder Microservice-Architekturen ungeeignet. Die regelmäßige Überprüfung kann die Effektivität des Sicherheitsmanagements langfristig aufrechterhalten und die Resilienz der Institution stärken.
+
+## PERS.2 Aufgaben, Rollen, Zuständigkeiten
+
+### PERS.2.1 – Aufgaben
+
+**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.18, G 0.33, G 0.31
+
+> Personal SOLLTE für alle Tätigkeiten im Geltungsbereich Aufgaben mit Abgrenzungen und Schnittstellen verankern.
+
+Aufgaben sind die konkreten Tätigkeiten, die für die Errichtung und Aufrechterhaltung des ISMS erforderlich sind, z.B. Netz überwachen, Pentest durchführen, Administration einer bestimmten Fachanwendung. Definieren Sie die Aufgaben so, dass Abgrenzung und Schnittstellen untereinander klar sind. Hierzu kann auf die Praktiken, Zielobjekte und deren Anforderungen zurückgegriffen werden.
+
+### PERS.2.2 – Rollen
+
+**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.18, G 0.33, G 0.31
+
+> Personal SOLLTE für alle Tätigkeiten im Geltungsbereich Rollen mit Zielen, Aufgaben, erforderlichen Kompetenzen und Qualifikationen verankern.
+
+Eine Rolle beschreibt eine Stelle oder Personalposition innerhalb des ISMS. Sie benennt die Aufgaben der Position und die dazu erforderlichen Qualifikationsvoraussetzungen. Beispiele: Teamleiter, Entwickler, Admin, Sicherheitsanalyst, Fachaufgabenverantwortlicher.
+
+### PERS.2.3 – Rollentrennung
+
+**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.18, G 0.33, G 0.31
+
+> Personal SOLLTE für unvereinbare Aufgaben eine Rollentrennung verankern.
+
+Bei einer Aufgabentrennung (Separation of Duties) werden miteinander in Konflikt stehende Aufgaben und Verantwortlichkeitsbereiche getrennt, um die Möglichkeiten zu unbefugter oder unbeabsichtigter Änderung oder zum Missbrauch zu reduzieren. Unvereinbar sind zwei Aufgaben insbesondere, wenn zwischen ihnen (1.) ein Interessenkonflikt oder (2.) ein erhöhtes Risiko für Datenmissbrauch vorliegt. (1.) Interessenkonflikte können z.B. die Auditierung der eigenen Aufgaben oder der Ergebnisse von Vorgesetzten sein. (2.) Ein erhöhtes Risiko für Datenmissbrauch liegt z.B. vor, wenn sowohl Rechnungsstellung als auch -genehmigung in einer Hand liegen.
+
+#### PERS.2.3.1 – Rollentrennung - Verzeichnisdienst
+
+**Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.18, G 0.33, G 0.31
+
+> Personal SOLLTE zwischen Administration von Verzeichnisdiensten und Pflege der verwalteten Daten eine Rollentrennung verankern.
+
+Administrierende von Verzeichnisdiensten haben sehr weitreichende Rechte, einschließlich der Möglichkeit, Zugangskontrollen zu ändern. Durch eine Rollentrennung wird verhindert, dass eine Person die vollständige Kontrolle über die angebundene Infrastruktur und die Dateninhalte übernimmt. Dies reduziert das Risiko vorsätzlicher und fahrlässiger Schäden an zentraler Stelle.
+
+#### PERS.2.3.2 – Rollentrennung - Virtualisierung
+
+**Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.18, G 0.33, G 0.31
+
+> Personal SOLLTE zwischen Administration von virtuellen Systemen und Virtualisierungslösungen eine Rollentrennung verankern.
+
+Die Administration von virtuellen Systemen bezeichnet im hier relevanten Kontext die operative Verwaltung einzelner virtueller Gastsysteme (VMs, Container, etc.), einschließlich ihrer Bereitstellung, Konfiguration, Wartung und Zugriffskontrolle. Die Virtualisierungslösung hingegen ist hier die übergeordnete Plattform oder Hypervisor-Ebene, welche physische Ressourcen virtualisiert und mehreren virtuellen Gastsystemen bereitstellt. Diese Differenzierung entspricht dem Prinzip der Rollen- bzw. Funktionstrennung (separation of duties bzw. role separation), bei dem Aufgabenbereiche so abgegrenzt werden, dass keine Person gleichzeitig über kritische Systemebenen hinweg vollumfängliche Kontrolle besitzt. Damit wird ein wesentliches Sicherheitsprinzip technischer Infrastruktur auf die Virtualisierungsschichten übertragen. Der Zweck dieser Trennung liegt in der Begrenzung von Fehlerrisiken und der Prävention von Missbrauch – sowohl vorsätzlich als auch unbeabsichtigt. Eine Person, die zugleich die Virtualisierungsebene und virtuelle Systeme verwaltet, könnte durch Fehlkonfiguration, Nachlässigkeit oder Manipulation unbeabsichtigt erhebliche Auswirkungen auf eine Vielzahl von Systemen haben oder deren Nachvollziehbarkeit beeinträchtigen. Eine klare Rollentrennung kann dem vorbeugen, indem sie Kontrollmechanismen stärkt, die Integrität der Umgebung wahrt und Fehler früher erkennen lässt.
+
+#### PERS.2.3.3 – Rollentrennung - Audits
+
+**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.18, G 0.33, G 0.31
+
+> Personal SOLLTE zwischen Implementierung von Sicherheitsanforderungen und deren Überprüfung eine Rollentrennung verankern.
+
+Fehlt eine Rollentrennung zwischen Umsetzung und Überprüfung von Sicherheitsmaßnahmen, so besteht ein Interessenkonflikt zwischen der Aufgabe korrekter Implementierung und dem Finden von weiterem Verbesserungspotenzial oder Mängeln bei einer Überprüfung.
+
+#### PERS.2.3.4 – Rollentrennung - Änderungen und Tests
+
+**Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.18, G 0.26, G 0.33, G 0.28
+
+> Personal SOLLTE zwischen Implementierung und Test eine Rollentrennung verankern.
+
+Liegen Implementierung von Funktionen und Änderungen, sowie deren Test in derselben Hand, so werden Probleme durch Nachlässigkeit oder Versehen leicht übersehen.
+
+### PERS.2.4 – Zuständigkeiten
+
+**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.18, G 0.33, G 0.31
+
+> Personal SOLLTE Zuständigkeiten für die Rollen zuweisen.
+
+Damit die mit jeder Rolle verbundenen Aufgaben auch tatsächlich bearbeitet werden, ist es erforderlich, jeder Rolle eine oder mehrere Personen oder Organisationseinheiten zuzuweisen, die für die mit der Rolle verbundenen Aufgaben zuständig sind. Hierbei ist es wichtig darauf zu achten, dass alle Rollen von ausreichenden Personalressourcen abgedeckt werden. Je nach Rolle können dafür auch Vertretungsregelungen erforderlich sein.
+
+## PERS.3 Personalzugang
+
+### PERS.3.1 – Dienst- oder Arbeitsvertrag
+
+**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.31, G 0.33, G 0.32, G 0.35
+
+> Personal für Mitarbeitende SOLLTE die vertrauliche Behandlung von Betriebs- und Geschäftsgeheimnissen vereinbaren.
+
+Die vertrauliche Behandlung meint hierbei die arbeits-, dienst- oder statusbezogene Festlegung, dass solche Informationen nur für berechtigte Zwecke, nur gegenüber befugten Personen und nicht privat, öffentlich oder gegenüber Dritten verwendet werden dürfen; bei Beamtinnen und Beamten ist dies nicht primär als privatrechtliche Nebenabrede zu verstehen, sondern regelmäßig als Konkretisierung bestehender beamtenrechtlicher Verschwiegenheits-, Treue- und Wohlverhaltenspflichten, die etwa durch Belehrung, Verpflichtungserklärung, Empfangsbestätigung oder dokumentierte Unterweisung nachvollziehbar gemacht werden kann. Sinn und Zweck der Anforderung ist, Vertraulichkeitserwartungen bereits im Personalverhältnis eindeutig zu machen und spätere Unklarheiten darüber zu verringern, welche internen Informationen geschützt zu behandeln sind. Ohne eine solche Klarstellung könnte eine Person vertrauliche Angebotsdaten an einen Wettbewerber weitergeben, Projektdetails in sozialen Medien veröffentlichen, interne Sicherheitsinformationen im privaten Umfeld besprechen oder Unterlagen nach einem Rollenwechsel unzulässig weiterverwenden; eine nachvollziehbare Vereinbarung oder Belehrung kann demgegenüber die persönliche Verantwortlichkeit stärken, Abschreckungswirkung entfalten und die Durchsetzung von Schutz- und Reaktionsmaßnahmen erleichtern. Genuzt werden können etwa eine Vertraulichkeitsklausel im Arbeitsvertrag, eine gesonderte Geheimhaltungsvereinbarung (Non-Disclosure Agreement, NDA), eine dienstrechtliche Verschwiegenheitsbelehrung für Beamte, oder eine Verpflichtungserklärung bei Tätigkeitsbegin. Zu beachten ist hierbei auch, dass eine erneute Bestätigung bei Rollen mit besonderem Geheimniszugang oder eine dokumentierte Belehrung beim Wechsel in vertraulichkeitskritische Aufgaben erforderlich sein kann.
+
+### PERS.3.2 – Verfahrensanweisungen
+
+**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.31, G 0.33, G 0.32, G 0.35
+
+> Personal für Mitarbeitende SOLLTE explizit zur Einhaltung von Verfahrensanweisungen bei Neuzugang anweisen.
+
+Wenn neue Mitarbeitende keine explizite Anweisung erhalten, dass Sicherheitsanweisungen existieren und einzuhalten sind, könnte es zu verspäteter Kenntnisnahme der Regelungen und dadurch zu Mängeln in der Einhaltung kommen. Das ist insbesondere bei Mitarbeitenden der Fall, die in manche Informationsverarbeitungsprozesse eingebunden sind, aber keinen Zugang zu Plattformen wie dem Intranet erhalten: Werden Verfahrensanweisungen nur im Intranet abgelegt, aber nicht bei Neuzugang explizit bekannt gegeben, so können diese Personen keine Kenntnis davon nehmen. Die Menge der Verfahrensanweisungen ergibt sich aus den für die jeweilige Tätigkeit relevanten gesetzlichen Anforderungen, sowie den Anforderungen zu den Handlungsworten „anweisen“ und „verbieten“.
+
+### PERS.3.3 – Betriebs- und Geschäftsgeheimnisse
+
+**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.31, G 0.33, G 0.32, G 0.35
+
+> Personal für Mitarbeitende SOLLTE zum Umgang mit definierten Betriebs- und Geschäftsgeheimnissen bei Neuzugang anweisen.
+
+Eine Dienst- oder Arbeitsanweisung, die zu wahrende Betriebs- und Geschäftsgeheimnisse klar definiert, stellt sicher, dass Mitarbeitende ihre Pflichten genau kennen. Hierbei geht es insbesondere darum, klar zu definieren welche Informationen als Betriebs- und Geschäftsgeheimnisse zu behandeln sind, z.B. Kundendaten, Patente, alle nicht zur Veröffentlichung bestimmten oder mit bestimmten Schutzklassifizierungen versehene Dokumente. Außerdem relevant ist, dass diese Geheimnisse auch über das Ende des Vertragsverhältnisses hinaus zu wahren sind. Hier besteht ein enger Zusammenhang zum Informationsmanagement, wo z.B. auch geregelt wird, welche Anweisungen zum Schutz im Einzelnen einzuhalten sind (z.B. Markierung, Verwahrung). Damit die dort festgelegten Regelungen den Mitarbeitenden auch bekannt sind wird eine entsprechende Anweisung bei Neuzugang benötigt.
+
+### PERS.3.4 – Stellenbeschreibungen
+
+**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.31, G 0.33, G 0.32, G 0.35
+
+> Personal SOLLTE Stellenbeschreibungen vor Ausschreibung zu besetzender Stellen dokumentieren.
+
+Eine Stellenbeschreibung ist hier ein Dokument, das die zentralen Aufgaben, Verantwortlichkeiten, Befugnisse und fachlichen sowie sicherheitsrelevanten Kriterien einer Position vor deren Ausschreibung festhält. Der Zweck dieser Anforderung liegt darin, klare Rollen und Verantwortlichkeiten zu definieren, um sowohl Fehlbesetzungen als auch unklare Zuständigkeiten zu vermeiden. Ohne eine dokumentierte Stellenbeschreibung könnte eine Institution Personen einstellen, deren Qualifikation oder Vertrauenswürdigkeit nicht den tatsächlichen sicherheitsrelevanten Kriterien entsprechen, was zu erhöhtem Missbrauchsrisiko oder unzureichender Aufgabenerfüllung führen könnte. Eine sauber ausgearbeitete Stellenbeschreibung kann dagegen Transparenz schaffen, spätere Konflikte reduzieren und die Sicherheit erhöhen, indem bereits im Auswahlprozess klar wird, welche Fachkenntnisse und Integritätsanforderungen benötigt werden. Beachten Sie dabei auch rechtliche Anforderungen wie das AGG. Zur Umsetzung kann eine Institution zunächst ein standardisiertes Format für Stellenbeschreibungen verwenden, in dem u.a. Aufgabenbereiche, Verantwortlichkeiten, sowie erforderliche fachliche und sicherheitsrelevante Qualifikationen erfasst werden. Eine abgestufte Vorlage kann bei unterschiedlichen Rollenarten (z.B. operative Mitarbeitende, Teamleitungen, Fachspezialisten) helfen, die Konsistenz zu wahren. Prozessual kann eine interne Prüfschleife eingerichtet werden, in der HR und die jeweilige Fachabteilung die Beschreibung autorisieren, bevor eine Stelle öffentlich ausgeschrieben wird. Außerdem kann es hilfreich sein, regelmäßig zu prüfen, ob bestehende Stellenbeschreibungen noch zu aktuellen Prozessen und eingesetzten Technologien passen, sodass keine veralteten oder unvollständigen Kriterien in die Rekrutierung einfließen.
+
+### PERS.3.5 – Prüfung der Bewerbungsunterlagen
+
+**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.31, G 0.33, G 0.32, G 0.35
+
+> Personal SOLLTE die Qualifikation von Bewerbenden anhand der Bewerbungsunterlagen vor der Besetzung von Stellen testen.
+
+Die Prüfung von Unterlagen zur Qualifikation ist essenziell, um sicherzustellen, dass nur fachlich geeignete Personen Zugang zu sensiblen IT-Systemen und Daten erhalten. Fehlende Qualifikationen erhöhen das Risiko für Bedienfehler oder mangelndes Sicherheitsbewusstsein, was Schwachstellen und Angriffsflächen für Bedrohungen eröffnet. Zudem wird so das Risiko von gezielter Einschleusung von Angreifern verringert. Berücksichtigen Sie dabei die Persönlichkeitsrechte der Bewerbenden.
+
+### PERS.3.6 – Vertrauenswürdigkeit von Bewerbenden
+
+**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.31, G 0.33, G 0.32, G 0.35
+
+> Personal SOLLTE die Vertrauenswürdigkeit von Bewerbenden vor der Besetzung von Stellen testen.
+
+Hierbei sind sowohl die Identität der Person, als auch ihre Qualifikation anhand von Nachweisen zu verifizieren. Insbesondere ist zu prüfen, ob der vorgelegte Lebenslauf korrekt, plausibel und vollständig ist. Bei Unklarheiten oder Widersprüchen können die Angaben durch Rückfragen bei der Quelle der Qualifikationsnachweise verifiziert werden.
+
+#### PERS.3.6.1 – Sicherheitsüberprüfung (intern)
+
+**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.31, G 0.33, G 0.32, G 0.35
+
+> Personal KANN eine Sicherheitsüberprüfung vor der Besetzung von sicherheitsrelevanten Stellen ausführen.
+
+Eine Sicherheitsüberprüfung meint die Verifikation von Identität, beruflicher Qualifikation und Verlässlichkeit von allen Personen mit Zugriff auf schützenswerte Informationen, hier konkret der Mitarbeitenden. Bei einer Sicherheitsüberprüfung kann je nach Art der Tätigkeit ein Polizeiliches Führungszeugnis, eine finanzielle Hintergrundprüfung, ein Sicherheitsinterview, eine psychologische Eignungsprüfung, sowie eine Überprüfung von sozialen Beziehungen und Netzwerken sinnvoll sein. Hierbei besteht ein enger Bezug zum Persönlichkeits- und Datenschutzrecht der Betroffenen. Eine sicherheitsrelevante Stelle ist eine Funktion oder Rolle innerhalb einer Institution, die direkt Zugang zu sicherheitskritischen Informationen, IT-Systemen oder Konfigurationen hat und deren Handlungen die Vertraulichkeit, Integrität oder Verfügbarkeit dieser Systeme maßgeblich beeinflussen könnten. Dazu zählen insbesondere (1) der bzw. die Informationssicherheitsbeauftragte, (2) System-, Netzwerk- und Serveradministratoren sowie (3) weitere Administrator*innen mit erhöhten Rechten wie Domain-Admins, Datenbank-Admins oder Security-Engineers, ebenso wie (4) Personen mit Zugriff auf sicherheitskritische Schlüsselmaterialien etwa im Kryptografie- oder Identitätsmanagement. Nicht darunter fallen hingegen Tätigkeiten ohne sicherheitskritischen Systemzugang oder ohne Einfluss auf Sicherheitsfunktionen, etwa Reinigungs- oder Empfangstätigkeiten.
+
+### PERS.3.7 – Einarbeitung
+
+**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.31, G 0.33, G 0.32, G 0.35
+
+> Personal für Mitarbeitende SOLLTE eine Einarbeitung bei Neuzugang ausführen.
+
+Eine Einarbeitung ist eine strukturierte Vorgehensweise, bei der neue Mitarbeitende mit den relevanten Aufgaben, Zuständigkeiten, Systemen und Sicherheitsanforderungen ihrer Tätigkeit vertraut gemacht werden. Ziel ist es, ihnen nicht nur fachliche Grundlagen, sondern auch die spezifischen Abläufe und Schutzmaßnahmen der Institution zu vermitteln, sodass sie von Beginn an korrekt und sicher arbeiten können. Ohne eine solche Einarbeitung könnte es zu Fehlbedienungen von IT-Systemen kommen, die Sicherheitsvorfälle begünstigen, oder zu Verzögerungen bei der Umsetzung von Aufgaben, die die Verfügbarkeit kritischer Prozesse beeinträchtigen. Eine sorgfältige Einführung kann dagegen das Verständnis für Sicherheitsregeln fördern, den verantwortungsvollen Umgang mit sensiblen Informationen stärken und die Bindung der Mitarbeitenden an die Institution erhöhen. Um die Anforderung umzusetzen, kann die Institution verschiedene Maßnahmen kombinieren: (1) ein strukturiertes Onboarding-Dokument, das die wichtigsten Systeme, Zugriffsrechte und Sicherheitsrichtlinien erklärt, (2) eine begleitende Einführung durch erfahrene Kolleginnen und Kollegen, die praxisnahes Wissen vermitteln, (3) die direkte Integration sicherheitsrelevanter Hinweise in den Arbeitsalltag, etwa durch kurze Erläuterungen beim erstmaligen Zugriff auf sensible Anwendungen oder beim Anlegen von Berechtigungen. Ergänzend kann eine Checkliste genutzt werden, um sicherzustellen, dass alle relevanten Schritte nachvollziehbar abgeschlossen werden. Auch ein „Paten-System“ kann eingesetzt werden, bei dem neue Mitarbeitende für die ersten Wochen eine feste Ansprechperson haben, die Fragen klärt und auf mögliche sicherheitsrelevante Stolperfallen hinweist.
+
+## PERS.4 Personalentwicklung
+
+### PERS.4.1 – Qualifikationsbedarf
+
+**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.18
+
+> Personal für Mitarbeitende SOLLTE den Bedarf an Qualifikationsmaßnahmen anhand der Aufgaben *[regelmäßig]* überprüfen.
+
+Qualifikationsmaßnahmen sind z.B. Zertifizierte Weiterbildungen, interne Schulungen oder universitäre Kurse. Prüfen Sie den Bedarf anhand der Aufgaben der Mitarbeitenden und berücksichtigen Sie dabei die in den Geschäftsprozessen verwendeten IT-Produkte. Zweckmäßig ist es hierzu in jedem Team einen Jahresplan zur Teilnahme an Qualifikationsmaßnahmen zu erstellen.
+
+### PERS.4.2 – Rollenspezifische Schulungen und Sensibilisierungen
+
+**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.42
+
+> Personal für Nutzende SOLLTE rollenspezifische Schulungen und Sensibilisierungen im Einklang mit den Anforderungen der Praktik Sensibilisierung bei Neuzugang und *[regelmäßig]* ausführen.
+
+Neue Mitarbeitende könnten ohne gezielte Einführung unbewusst vertrauliche Informationen preisgeben, unsichere Passwörter wählen oder Phishing-Mails öffnen, da ihnen relevante Schutzprinzipien oder Gefährdungen im Kontext ihrer Tätigkeit nicht bekannt sind. Ebenso könnte es bei länger Beschäftigten zu einer „Routineblindheit“ kommen, sodass beispielsweise ungewöhnliche Systemmeldungen nicht mehr ernst genommen oder sensible Daten versehentlich an unberechtigte Personen weitergegeben werden. „Rollenspezifisch“ bedeutet in diesem Zusammenhang, dass die Inhalte der Schulung auf die jeweilige Tätigkeit zugeschnitten werden – eine Person im IT-Bereich benötigt z. B. andere Sicherheitskenntnisse als jemand im Vertrieb oder in der Verwaltung. Beispiele für rollenspezifische Schulungen sind Kurse zum sicheren IT-Betrieb für Administrierende, OWASP® Top 10 Training für Webentwickler und Social Engineering Abwehrtraining für die Institutionsleitung. Eine Institution kann diese Anforderung etwa umsetzen, indem sie standardisierte E-Learning-Module bereitstellt, die durch kurze Praxisszenarien ergänzt werden. Hilfreich ist, die Dauer der Formate überschaubar zu halten, um die Akzeptanz hoch zu halten, und die Wirksamkeit regelmäßig durch Feedback oder kleine Tests zu prüfen. Ebenso kann es sinnvoll sein, Fachbereiche in die Ausgestaltung einzubinden, damit Beispiele und Szenarien aus dem tatsächlichen Arbeitsalltag stammen. Mitarbeitende, die bereits eine passende Qualifikation erworben haben, können von der Schulung ausgenommen werden.
+
+#### PERS.4.2.1 – Produktspezifische Schulungen und Sensibilisierungen
+
+**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.18
+
+> Personal für Administrierende SOLLTE produktspezifische Schulungen zum Umgang mit administrativen Werkzeugen bei Neuzugang und dem Einsatz neuer IT-Produkte ausführen.
+
+Ziel ist es, den sicheren Umgang mit den in der Institution genutzten administrativen Werkzeugen zu erlernen (z.B. dem genutzten Verzeichnisdienst, Kommandozeilenbefehlen der genutzten Betriebssysteme, Wireshark oder Netzmanagement-Software). Hierzu gehört die Bedienung der jeweiligen Werkzeuge, Aspekte der sicheren Nutzung wie Verschlüsselung und Authentifizierung, die Vermeidung typischer Fehler, sowie der Umgang mit typischen Problemstellungen (Bugfixing). Verfügt die jeweilige Person bereits nachweislich über die Kenntnisse (z.B. passendes Zertifikat) so ist die Schulung für diese Person entbehrlich.
+
+## PERS.5 Personalbetreuung
+
+### PERS.5.1 – Maßregelung
+
+**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.18
+
+> Personal SOLLTE ein Verfahren zur Maßregelung verankern.
+
+Legen Sie fest unter welchen Voraussetzungen (z.B. Benennung konkreter Pflicht, Nachweis des Verstoßes) welche Maßregelungsmaßnahmen zu ergreifen sind, wenn Mitarbeitende gegen Anweisungen zur Informationssicherheit verstoßen. Maßnahmen können von Mitarbeitergesprächen über der Entzug der Berechtigung zum Zugriff auf vertrauliche Daten bis hin zu Abmahnungen oder Kündigungen reichen. Für arbeitsrechtliche Maßnahmen gilt der Grundsatz der Verhältnismäßigkeit und das Verbot der Maßregelung bei zulässiger Rechtsausübung. Aufgrund des engen Bezugs zum Arbeitsrecht ist im Zweifel eine Rechtsberatung empfehlenswert.
+
+### PERS.5.2 – Innentäter
+
+**Stufe:** `normal-SdT` · **Aufwand:** 5 · **Gefährdungen:** G 0.18
+
+> Personal SOLLTE ein interdisziplinäres Verfahren zum Umgang mit potenziellen Innentätern verankern.
+
+Ein interdisziplinäres Verfahren zum Umgang mit potenziellen Innentätern integriert technische Aspekte und organisatorische Aspekte um zielgerichtete Verstöße durch Innentäter so früh wie möglich aufzuspüren und umfassend zu behandeln. Hierzu können beispielsweise die Analyse von Protokollen sowie der Einsatz technischer Detektionssysteme zur Identifikation unerlaubter Nutzung herangezogen werden. Ergänzend dazu dienen organisatorische Meldewege dazu, frühzeitig auf Anzeichen einer länger andauernden systemischen Unzufriedenheit bei Mitarbeitenden reagieren zu können. Maßnahmen bei Aufdeckung können von Mitarbeitergesprächen über den Entzug der Berechtigung zum Zugriff auf vertrauliche Daten bis hin zu Abmahnungen oder Kündigungen reichen. Berücksichtigen Sie bei der Festlegung die Persönlichkeitsrechte der Mitarbeitenden, insbesondere hinsichtlich Arbeitsüberwachung. Aufgrund des engen Bezugs zum Arbeitsrecht ist im Zweifel eine Rechtsberatung empfehlenswert.
+
+### PERS.5.3 – Vertrauens-Check sicherheitskritischer Rollen
+
+**Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.18
+
+> Personal SOLLTE die Vertrauenswürdigkeit für *[definierte sicherheitskritische Rollen]* *[regelmäßig]* und anlassbezogen überprüfen.
+
+Die Vertrauenswürdigkeit bezeichnet im hier relevanten Kontext die Eignung und persönliche Integrität von Personen, die in besonders sicherheitskritischen Rollen tätig sind – also Funktionen mit erweiterten Zugriffsrechten, administrativen Befugnissen oder Zugang zu sensiblen Informationen und Systemen. Sicherheitskritische Rollen können beispielsweise Systemadministratoren, Personal mit privilegierten Rechten in Cloud-Diensten oder Mitarbeitende im Finanz- und Abrechnungswesen sein. Regelmäßig bedeutet in diesem Zusammenhang, dass eine Überprüfung nicht nur einmalig bei Einstellung, sondern in sinnvollen zeitlichen Abständen erfolgen kann – etwa alle zwei bis drei Jahre oder anlassbezogen, zum Beispiel bei Beförderungen oder einem Wechsel in eine sicherheitsrelevante Funktion. Der Sinn dieser Anforderung liegt darin, Risiken wie Insider-Bedrohungen, Manipulationen oder unbefugte Informationsweitergabe frühzeitig zu reduzieren. So könnte ein Mitarbeiter mit verschuldeten privaten Verhältnissen erpressbar werden und vertrauliche Daten weitergeben, wohingegen eine erneute Vertrauensprüfung kann frühzeitig auffällige Entwicklungen sichtbar machen und das Sicherheitsniveau stabilisieren. Eine Umsetzung kann durch verschiedene Maßnahmen erfolgen, die sowohl technische als auch prozessuale Ansätze kombinieren. Institutionen können beispielsweise (1) Selbstauskünfte oder aktuelle Führungszeugnisse anfordern, (2) regelmäßige Abgleiche mit internen HR-Daten wie Abmahnungen oder Compliance-Verstößen durchführen und (3) strukturierte Interviews oder Fragebögen einsetzen, die Veränderungen in der Lebenssituation mit Relevanz für die Vertrauenswürdigkeit adressieren. Ergänzend kann eine technische Unterstützung durch revisionssichere Dokumentation in HR-Systemen erfolgen, sodass jede Überprüfung nachvollziehbar bleibt. Ein pragmatischer Tipp ist es, Überprüfungen an ohnehin bestehende HR-Prozesse – etwa jährliche Mitarbeitergespräche oder Rezertifizierungen von Zugriffsrechten – anzubinden, um sie effizient und konsistent in den Betriebsablauf zu integrieren. Auf diese Weise kann die Institution die Anforderung praxisnah erfüllen und gleichzeitig den administrativen Aufwand geringhalten.
+
+## PERS.6 Weggang von Mitarbeitenden
+
+### PERS.6.1 – Vorgehensweise für den Weggang
+
+**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.18
+
+> Personal für Nutzende SOLLTE eine Vorgehensweise für den Weggang verankern.
+
+Wenn Nutzende ohne gesteuertes Vorgehen aus dem Informationsverbund ausscheiden, könnten Zugänge oder Aufgaben unkontrolliert zurückgelassen werden, oder Informationen ungewollt an Dritte abfließen. Hierzu gehört z.B. Mitarbeitende an die Wahrung von Betriebs- und Geschäftsgeheimnissen zu erinnern. Außerdem sind von ausscheidenden Mitarbeitenden alle im Rahmen ihrer Tätigkeit erhaltenen Unterlagen, Schlüssel und Geräte sowie Ausweise und Zutrittsberechtigungen einzuziehen. Hierbei besteht ein enger Zusammenhang zum Berechtigungsmanagement.
+
+#### PERS.6.1.1 – Entzug von Berechtigungen gemäß BER
+
+**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.18
+
+> Personal für Nutzende SOLLTE bei Weggang den unverzüglichen Entzug aller Zugriffsrechte im Einklang mit den Regelungen und Verfahren zum Berechtigungs- und Identitätsmanagement verankern.
+
+Der unverzügliche Entzug bedeutet in diesem Kontext die sofortige und vollständige Deaktivierung aller Zugriffsrechte, sowohl auf physische Ressourcen (z. B. Gebäude, Serverräume, Schränke mit vertraulichen Unterlagen) als auch auf logische Systeme (z. B. Benutzerkonten in E-Mail-Diensten, ERP-Systemen, Cloud-Speichern). Physische Zugriffsrechte umfassen Schlüssel, Zugangskarten oder Codes, die eine Person nutzen kann, um in geschützte Bereiche zu gelangen. Logische Zugriffsrechte beziehen sich auf digitale Berechtigungen wie Passwörter, Tokens, VPN-Profile oder Single-Sign-On-Zugänge. Der Sinn dieser Vorgabe liegt darin, das Risiko unbefugter Zugriffe nach dem Ausscheiden von Mitarbeitenden oder externen Nutzenden zu minimieren. Ein entlassener Mitarbeitender könnte ansonsten noch Daten aus einer Cloud-Anwendung kopieren oder mit einer Zutrittskarte ein Rechenzentrum betreten. Werden die Rechte dagegen sofort entzogen, kann die Institution die Vertraulichkeit und Integrität sensibler Informationen sichern und zugleich Haftungsrisiken reduzieren. Eine Institution kann diese Anforderung durch abgestimmte technische und prozessuale Maßnahmen umsetzen. Dazu kann ein standardisierter Offboarding-Prozess etabliert werden, der mit der Personalabteilung synchronisiert ist und automatisch IT und Facility-Management informiert.
+
+#### PERS.6.1.2 – Neubesetzung
+
+**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.18
+
+> Personal für Mitarbeitende SOLLTE bei Weggang frei gewordene Zuständigkeiten zuweisen.
+
+Stellen Sie sicher, dass durch den Weggang von Mitarbeitenden keine Aufgaben des ISMS verwaisen – auch nicht bis zu einer geplanten Neueinstellung. Ordnen Sie stattdessen die Zuständigkeit für die Aufgaben/Rollenunverzüglich bestehendem Personal zu. Achten Sie dabei auch darauf, dass die festgelegten Rollentrennungen dabei nicht aufgehoben, bzw. durchbrochen werden. Um eine kontinuierliche Bearbeitung von Aufgaben sicherzustellen, ist eine Übergabe sinnvoll.

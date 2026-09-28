@@ -1,0 +1,193 @@
+---
+title: "REA – Sicherheitsvorfallsbehandlung"
+---
+
+# REA Sicherheitsvorfallsbehandlung
+
+Die Praktik Sicherheitsvorfallsbehandlung sorgt dafür, dass Informationssicherheitsvorfälle effizient erkannt, gemeldet, analysiert und behoben werden, um Schäden zu minimieren und den Normalbetrieb so schnell wie möglich wiederherzustellen. Diese Praktik ist reaktiv und konzentriert sich darauf, die Auswirkungen von Sicherheitsvorfällen zu minimieren. Sie stellt sicher, dass bei einem Sicherheitsvorfall schnell und effizient gehandelt wird, um den Schaden zu begrenzen. Andere Praktiken, wie z.B. Architektur, Personal, Sensibilisierung wirken proaktiv und versuchen, Sicherheitsvorfälle durch präventive Maßnahmen zu verhindern oder deren Häufigkeit zu reduzieren.
+
+## REA.1 Grundlagen
+
+### REA.1.1 – Verfahren und Regelungen
+
+**Stufe:** `normal-SdT` · **Aufwand:** 0 · **Gefährdungen:** G 0.18
+
+> Sicherheitsvorfallsbehandlung MUSS Verfahren und Regelungen zur Behandlung von Sicherheitsvorfällen verankern.
+
+Bei Sicherheitsvorfällen gilt es, schnell und systematisch zu reagieren, um weitere Schäden von Daten, Assets oder Personen abzuwenden. Auch erfahrene Experten benötigen dafür klare Anleitungen, um keine Arbeitsschritte zu vergessen oder rechtlichen Unsicherheiten bei der Ermittlung von Ursachen und Ergreifung von Gegenmaßnahmen ausgesetzt zu sein. Die bei der Festlegung des Verfahrens im Einzelnen zu berücksichtigenden Inhalte ergeben sich aus den Anforderungen dieser Praktik.
+
+#### REA.1.1.1 – Dokumentation
+
+**Stufe:** `normal-SdT` · **Aufwand:** 0 · **Gefährdungen:** G 0.18, G 0.37
+
+> Sicherheitsvorfallsbehandlung MUSS die Verfahren und Regelungen dokumentieren.
+
+Ohne eine Dokumentation könnte die Einhaltung der Verfahren und Regelungen von der Tagesform oder dem individuellen Wissen einzelner Mitarbeiter abhängen, was zu inkonsistenten Entscheidungen und Fehlern führen könnte; insbesondere beim Ausscheiden eines langjährigen Administrators könnte wertvolles prozessuales Wissen verloren gehen. Eine klare Dokumentation sichert die Verbindlichkeit und Wiederholbarkeit und dient als unverzichtbare Grundlage für die Einarbeitung neuer Kollegen, für die Durchführung von Audits und zur einheitlichen Anwendung der Regeln in der gesamten Institution. Die Dokumentation kann in einem eigenständigen Dokument als Richtlinie erfolgen, aber auch als Abschnitt in einem bereits bestehenden Dokument oder über die digital strukturiere Erfassung von Maßnahmen zur Umsetzung der Anforderungen, etwa über eine Software zum Management der Informationssicherheit. Sinnvoll ist es Ort und Struktur der Dokumentation an der jeweiligen Zielgruppe, d.h. den für das Management und die Umsetzung verantwortlichen Personen oder Rollen, auszurichten.
+
+#### REA.1.1.2 – Zuweisung der Aufgaben
+
+**Stufe:** `normal-SdT` · **Aufwand:** 0 · **Gefährdungen:** G 0.18, G 0.31
+
+> Sicherheitsvorfallsbehandlung MUSS die mit den Verfahren und Regelungen verbundenen Aufgaben *[zuständigen Personen oder Rollen]* zuweisen.
+
+Die Zuweisung von Aufgaben bezeichnet die eindeutige und verbindliche Übertragung von konkreten Tätigkeiten und Verantwortlichkeiten des Änderungsprozesses, wie etwa die Risikobewertung, die technische Umsetzung oder die finale Freigabe, an definierte Stellen in der Institution. Der Sinn dieser Vorschrift ist es, die Verantwortlichkeit ("Accountability") für jeden einzelnen Schritt im Prozess klarzustellen. Ohne eine solche Zuweisung könnten kritische Prüfungen unterbleiben, weil sich niemand explizit zuständig fühlt, was wiederum die Wahrscheinlichkeit fehlgeschlagener Änderungen erhöht. Eine klare Regelung kann sicherstellen, dass keine Aufgaben übersehen werden und jede Tätigkeit von einer dafür qualifizierten und befugten Stelle ausgeführt wird, was die Prozesssicherheit signifikant erhöht. Eine bewährte Methode zur Umsetzung ist die Erstellung einer RACI-Matrix (Responsible, Accountable, Consulted, Informed), die tabellarisch für jeden Prozessschritt darstellt, wer für die Durchführung verantwortlich ist, wer die Gesamtverantwortung trägt, wer zu konsultieren und wer zu informieren ist. Diese Zuständigkeiten können auch direkt in einem Workflow- oder Ticketsystem abgebildet werden, sodass Aufgaben, wie beispielsweise Genehmigungsschritte, automatisch an die richtige Gruppe oder Person weitergeleitet werden. Sinnvoll ist es, die Zuweisung anhand von Rollen (z. B. "Anwendungsverantwortlicher", "Netzwerkadministrator", "Change Manager") vorzunehmen, statt an konkrete Personen. Dieser Ansatz stellt sicher, dass die Prozesse auch bei Personalwechseln stabil weiterlaufen, da die Zuständigkeit an die Funktion und nicht an das Individuum gebunden ist.
+
+#### REA.1.1.3 – Bekanntgabe
+
+**Stufe:** `normal-SdT` · **Aufwand:** 0 · **Gefährdungen:** G 0.18, G 0.31
+
+> Sicherheitsvorfallsbehandlung MUSS die zuständigen Personen oder Rollen über die Verfahren und Regelungen informieren.
+
+Wenn die Zuständigen die etablierten Verfahren nicht kennen, besteht die Gefahr, dass diese – sei es aus Unwissenheit oder Bequemlichkeit – umgangen werden, was die Schutzwirkung des gesamten Managementsystems untergräbt. So könnte ein neuer Systemadministrator eine weitreichende Konfigurationsänderung vornehmen, ohne den vorgeschriebenen Genehmigungsprozess zu durchlaufen, was zu einem unbemerkten Sicherheitsrisiko führen könnte. Eine gezielte Information kann hingegen die Akzeptanz der Regelungen fördern und sicherstellen, dass alle Beteiligten ihre Rolle im Prozess verstehen und die Abläufe korrekt anwenden. Zur Umsetzung ist es sinnvoll die Dokumentation im Rahmen eines Onboarding-Prozesses bekanntzugeben und bei allen Änderungen eine automatische Benachrichtigung aller zuständigen Personen oder Rollen anzustoßen.
+
+### REA.1.2 – Regelmäßige Überprüfung
+
+**Stufe:** `normal-SdT` · **Aufwand:** 0 · **Gefährdungen:** G 0.18
+
+> Sicherheitsvorfallsbehandlung MUSS die Verfahren und Regelungen *[regelmäßig]* und anlassbezogen auf Aktualität überprüfen.
+
+Eine geplante der etablierten Verfahren und Regelungen dient dazu festzustellen, ob diese noch wirksam, effizient und an die aktuellen Gegebenheiten angepasst sind. Eine anlassbezogene Überprüfung wird durch spezifische Ereignisse ausgelöst, wie etwa einen schwerwiegenden Sicherheitsvorfall, eine strategische Neuausrichtung der IT oder neue gesetzliche Anforderungen. Der Zweck dieser Anforderung ist es, die kontinuierliche Verbesserung und Anpassungsfähigkeit des Prozesses sicherzustellen, da veraltete Regelungen neuen technologischen Entwicklungen oder Bedrohungen nicht mehr gerecht werden könnten; ein vor Jahren für monolithische Anwendungen konzipierter Prozess ist beispielsweise für agile Entwicklungsmethoden oder Microservice-Architekturen ungeeignet. Die regelmäßige Überprüfung kann die Effektivität des Sicherheitsmanagements langfristig aufrechterhalten und die Resilienz der Institution stärken.
+
+### REA.1.3 – Übungen zur Vorfallsbehandlung
+
+**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.18
+
+> Sicherheitsvorfallsbehandlung KANN die Abwehrfähigkeit durch Übungen *[regelmäßig]* überprüfen.
+
+Komplexere Sicherheitsvorfälle treten auch in größeren Institutionen relativ selten auf. Gleichzeitig erfordern sie dann eine schnelle und kompetente Beurteilung und Behandlung. Um diese sicherzustellen, bietet sich eine regelmäßige Übung an, bei welcher der gesamte Lebenszyklus eines Vorfalls (von der Alarmierung über die Beweissicherung bis zur Nachbehandlung) geübt wird. Beispiele sind Simulationen von Datenleaks, Hacking-Angriffen oder des Ausfalls eines Rechenzentrums. Hierbei sind Übungen effektiver, wenn sie nicht nur theoretisch („nach Papierlage“) vorgenommen werden, sondern soweit wie möglich unter Realbedingungen, z.B. durch das Schwenken auf einen Ausweichsitz zu Zeiten, in denen dadurch keine Geschäftsprozesse beeinträchtigt werden. Zu einer Übung kann sowohl der Umgang mit technischen Werkzeugen als auch mit Verfahrensweisen, Zuständigkeiten im Team und Vertretungsregelungen gehören.
+
+## REA.2 Reaktion
+
+### REA.2.1 – Triage und Erstreaktion
+
+**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.39, G 0.47, G 0.23, G 0.40
+
+> Sicherheitsvorfallsbehandlung SOLLTE Meldungen einer Priorität zuweisen.
+
+Triage ist ein strukturiertes Vorgehen zur Priorisierung und Ersteinschätzung von Sicherheitsvorfällen, mit dem Ziel, rasch und effizient auf Bedrohungen zu reagieren, Ressourcen gezielt einzusetzen und weitere Schäden zu minimieren. Dabei wird festgestellt, welche Vorfälle sofortige Aufmerksamkeit benötigen, welche weiter analysiert oder beobachtet werden oder irrelevante Fehlalarme sind. Kritische Vorfälle können z.B. ein Virenfund auf einem Server, Ransomwarevorfälle oder Spionage durch professionelle Täter sein. Die Umsetzung kann auch automatisiert durch EDR/SOAR geschehen. Eine Erstreaktion ist eine schnelle Handlung, die dazu dient, weitere Schäden wie eine Ausbreitung von Angriffen oder Störungen in Geschäftsprozessen zu vermeiden. Sie kann z.B. in der Abschaltung betroffener Systeme, der Deaktivierung eines Zugangskonto, der Information Nutzender über eine Störung oder der Aktivierung eines Ausweichrechenzentrums bestehen.
+
+### REA.2.2 – Automatische Erstreaktion
+
+**Stufe:** `erhöht` · **Aufwand:** 4 · **Gefährdungen:** G 0.39, G 0.47, G 0.23, G 0.40
+
+> Sicherheitsvorfallsbehandlung KANN eine automatische Erstreaktion aktivieren.
+
+Die automatische Erstreaktion kann je nach Risikoprofil durch institutionseigene Host- oder Network Intrusion Prevention Systeme (HIPS / NIPS) oder eine vergleichbare Cloud-Lösung umgesetzt werden.
+
+### REA.2.3 – Dokumentation von Vorfällen
+
+**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.39, G 0.47, G 0.37, G 0.23
+
+> Sicherheitsvorfallsbehandlung SOLLTE den Vorfall dokumentieren.
+
+Dokumentation des Vorfalls meint hier die nachvollziehbare, strukturierte und revisionssichere Aufzeichnung aller für eine spätere Auswertung relevanten Informationen zu einem Sicherheitsvorfall („security incident“). Dazu gehören insbesondere Zeitpunkt, Art, Ausmaß, betroffene Systeme oder Daten sowie eingeleitete Sofortmaßnahmen. Sie dient nicht allein der internen Nachvollziehbarkeit, sondern potenziell auch der rechtlichen Beweissicherung („evidence preservation“) und Verbesserung des Sicherheitsmanagements. Eine lückenhafte oder unvollständige Dokumentation könnte dazu führen, dass Ursachenanalysen fehlschlagen, Wiederholungen nicht verhindert werden oder rechtliche Nachweispflichten – etwa im Rahmen von Datenschutzvorfällen – nicht erfüllt werden könnten. Eine sorgfältig geführte Aufzeichnung kann dagegen die Transparenz im Incident-Handling erhöhen, interne Lernprozesse fördern und Verantwortlichkeiten eindeutig nachvollziehbar machen. Sinnvolle Varianten der Umsetzung können in Form von (1) standardisierten Incident-Report-Templates, (2) elektronischen Ticket- oder Case-Management-Systemen zur Vorfallserfassung oder (3) forensischen Protokollen mit Zeitstempeln und Beweismitteln erfolgen.
+
+### REA.2.4 – Diagnosedaten
+
+**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.39, G 0.47, G 0.23, G 0.40
+
+> Sicherheitsvorfallsbehandlung SOLLTE Diagnosemethoden für den Fall, dass der Vorfall sich mit den standardisiert erfassten Informationen nicht ausreichend analysieren lässt, verankern.
+
+Der Begriff Diagnosemethoden bezeichnet in diesem Kontext strukturierte Verfahren, Werkzeuge oder Analyseansätze, die eingesetzt werden können, um bei Sicherheitsvorfällen zusätzliche Informationen zu gewinnen, wenn die standardisierten Erstinformationen nicht ausreichen. Der Sinn der Vorschrift liegt darin, die Gefahr zu reduzieren, dass ein Vorfall unvollständig verstanden bleibt und dadurch falsche Entscheidungen getroffen werden. Eine Institution kann die Anforderung durch verschiedene technische und prozessuale Maßnahmen abbilden. So kann sie (1) erweiterte Protokollierungsoptionen aktivieren, etwa durch temporäres Erhöhen von Log-Levels in relevanten Systemen, (2) Datensicherungen einzelner betroffener Systeme, Anwendungen oder Netzwerksegmente vornehmen, um die Nachvollziehbarkeit zu gewährleisten, und (3) spezielle Analysewerkzeuge einsetzen, beispielsweise für Speicherabbilder oder Netzwerkanomalien. Ergänzend kann es sinnvoll sein, ein Playbook mit typischen Diagnosepfaden für häufige Vorfallarten bereitzuhalten, sodass Mitarbeitende bei Bedarf gezielt auf tiefergehende Analysen zurückgreifen können.
+
+### REA.2.5 – IT-Forensik
+
+**Stufe:** `erhöht` · **Aufwand:** 3 · **Gefährdungen:** G 0.39, G 0.47, G 0.18
+
+> Sicherheitsvorfallsbehandlung SOLLTE eine forensische Analyse bei Vorfällen, die *[bestimmte Kriterien]* erfüllen, ausführen.
+
+Bei einer forensischen Analyse werden Beweise gesichert und Erkenntnisse zur Verbesserung von Schutzmaßnahmen gegen künftige Vorfälle gewonnen. Die Kriterien richten sich nach dem Schutzbedarf der betroffenen Informationen, Compliance-Verpflichtungen und dem Risikoprofil der Institution als Ganzes. Kriterien können, z.B. Anzeichen für einen (auch teilweise) erfolgreichen, gezielten Angriff, eine Straftat im Zusammenhang mit der Informationsverarbeitung oder eine Kompromittierung schützenswerter Informationen sein. Die Forensik kann durch eigenes qualifiziertes Personal oder durch einen im Vorfeld festgelegten, im Ernstfall zu beauftragenden Dienstleister geschehen. Zur Vorgehensweise können sowohl technische Werkzeuge, als auch rechtliche Rahmenbedingungen und Dokumentationsvorgaben gehören. Für Details siehe BSI-Leitfaden „IT-Forensik“.
+
+#### REA.2.5.1 – Rechtssichere Beweissicherung
+
+**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.39, G 0.47
+
+> Sicherheitsvorfallsbehandlung SOLLTE rechtlich relevante Beweise rechtssicher dokumentieren.
+
+Rechtlich relevant sind Beweise, wenn Anzeichen dafür vorliegen, dass bei einem Sicherheitsvorfall gegen Compliance-Verpflichtungen oder interne Arbeitsanweisungen verstoßen wurde. Beispiele sind Vorfälle wie z.B. unberechtigten Zugriffen oder Manipulationen von Daten. Beweise sind rechtssicher dokumentiert, wenn nachvollziehbar ist, wie sie erhoben wurden und sie außerdem sowohl gegen unautorisierte Einsicht als auch Veränderung geschützt aufbewahrt werden. Die Nachvollziehbarkeit von Veränderungen kann z.B. durch eine kryptografische Signatur oder getrennt aufbewahrte Checksummen sichergestellt werden. Außerdem ist es sinnvoll, die Originaldaten aufzubewahren, z.B. als Originaldatenträger oder Sicherungskopie. Für Details siehe BSI-Leitfaden „IT-Forensik“.
+
+#### REA.2.5.2 – Vier-Augen-Prinzip
+
+**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.39, G 0.47
+
+> Sicherheitsvorfallsbehandlung KANN zur Forensik ein Vier-Augen-Prinzip verankern.
+
+Wenn IT-Forensische Untersuchungen alleine vorgenommen werden, könnte das dokumentierte Vorgehen und damit die Stichhaltigkeit der Beweise bei einer gerichtlichen Überprüfung angezweifelt werden. Besser ist es, solche Untersuchungen gemeinsam mit einem Zeugen vorzunehmen, der qualifiziert ist zu beurteilen, welche Arbeitsschritte dabei vorgenommen wurden. Der Zeuge beglaubigt insbesondere die Prüfsummen der Dokumentation. Allerdings ist es auch ohne Vier-Augen-Prinzip möglich Belege für ein korrektes Vorgehen zu erbringen, beispielsweise durch Vorlage der unveränderten originalen Speichermedien.
+
+#### REA.2.5.3 – Forensik-Dienstleister
+
+**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.39, G 0.47
+
+> Sicherheitsvorfallsbehandlung KANN die Bereitschaft eines Forensik-Dienstleisters binnen *[einer Frist]* vereinbaren.
+
+Um im Ernstfall eine schnelle Untersuchung von Sicherheitsvorfällen zu ermöglichen, kann die Institution bereits unabhängig von einem Vorfall einen Vertrag mit einem qualifizierten Forensik-Dienstleister abschließen. Die Anforderung ist erst umgesetzt, wenn der Dienstleister für den Ernstfall eine Erstreaktion innerhalb einer bestimmten Frist garantiert. Die Untersuchung aller Ergebnisse kann die Frist überschreiten.
+
+### REA.2.6 – Ursachenanalyse und Behandlung
+
+**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.39, G 0.47, G 0.23, G 0.40
+
+> Sicherheitsvorfallsbehandlung SOLLTE eine Vorgehensweise zur Ursachenanalyse und Behandlung verankern.
+
+Um einen Vorfall vollständig beheben zu können, ist es zweckmäßig, zunächst zu analysieren, wie der Vorfall zustande kam (Root Cause Analysis): Welche Personen und Systeme sind betroffen? Welche systematischen Schwachstellen haben zu dem Vorfall geführt? Die Behebung des Vorfalls orientiert sich dann an diesen Erkenntnissen, z.B. durch Schließen der Sicherheitslücken und Wiederherstellung von Daten und Anwendungen. Je nach Vorfall kann die Behandlung durch das Schließen ausgenutzter Sicherheitslücken, einem Test anderer IT-Systeme auf vergleichbare Schwachstellen oder dem Austausch betroffener IT-Systeme, Anwendungen oder Datenbestände umgesetzt werden. Sind die Originaldaten oder -Systeme nicht mehr zu retten, so kann die Neuinstallation betroffener Systeme und die Wiederherstellung von Daten aus Backups eine Möglichkeit der Behandlung sein.
+
+#### REA.2.6.1 – Dokumentation des Vorgehens
+
+**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.39, G 0.47, G 0.18, G 0.37
+
+> Sicherheitsvorfallsbehandlung SOLLTE die zur Behandlung durchgeführten Tätigkeiten dokumentieren.
+
+#### REA.2.6.2 – Kommunikation bei Vorfällen
+
+**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.39, G 0.47
+
+> Sicherheitsvorfallsbehandlung SOLLTE eine Vorgehensweise zur Kommunikation bei Vorfällen unter Berücksichtigung von Compliance-Verpflichtungen, Bedürfnissen der interessierten Parteien und der Geschäftsziele verankern.
+
+Hierzu gehören beispielsweise Meldepflichten gegenüber Aufsichts- oder Ermittlungsbehörden oder die Information Betroffener. Für personenbezogene Daten siehe auch Art. 34 DSGVO. Für weitere Details siehe ISO/IEC 27035. Bei den Compliance-Verpflichtungen sind einerseits Verpflichtungen zu beachten, die eine Meldung oder einen bestimmten Umfang für Meldungen fordern (z.B. Art. 33 DSGVO), andererseits aber auch Verpflichtungen zur Wahrung der Vertraulichkeit, z.B. aus dem Datenschutz, vertraglicher Pflichten zur Wahrung fremder Geschäftsgeheimnisse oder der staatlichen Geheimhaltung. Im Zweifelsfall ist hier die Inanspruchnahme interner oder externer Rechtsberatung hier empfehlenswert.
+
+##### REA.2.6.2.1 – Information zuständiger Behörden
+
+**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.39, G 0.47
+
+> Sicherheitsvorfallsbehandlung SOLLTE bei Vorfällen die zuständigen Behörden im Einklang mit den Compliance-Verpflichtungen informieren.
+
+#### REA.2.6.3 – Koordinierung
+
+**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.39, G 0.47, G 0.23, G 0.40
+
+> Sicherheitsvorfallsbehandlung SOLLTE die Koordinierung bei Vorfällen verankern.
+
+Die Koordinierung der Behandlung von Sicherheitsvorfällen dient dazu, die Auswirkungen auf Daten, Systeme oder Personen zu minimieren, Compliance-Verpflichtungen zu erfüllen und die Wirksamkeit von Gegenmaßnahmen zu verstärken. Hierzu gehören interessierte Parteien wie Aufsichts- und Ermittlungsbehörden, Lieferanten oder Kunden. Für weitere Details siehe ISO/IEC 27035.
+
+#### REA.2.6.4 – Service Level
+
+**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.39, G 0.47
+
+> Sicherheitsvorfallsbehandlung KANN Service Level verankern.
+
+Service Level bei der Sicherheitsvorfallsbehandlung legen verbindliche Zielvorgaben für Reaktions- und Bearbeitungszeiten fest, z. B. wie schnell ein Sicherheitsvorfall erkannt, bestätigt, eingestuft und gelöst werden muss. Damit wird sichergestellt, dass alle Beteiligten klare Erwartungen an Schnelligkeit und Qualität der Reaktion haben.
+
+#### REA.2.6.5 – Eskalation
+
+**Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.39, G 0.47, G 0.23, G 0.40
+
+> Sicherheitsvorfallsbehandlung SOLLTE eine Eskalationsleiter verankern.
+
+Eine Eskalationsleiter (engl. escalation matrix oder escalation path) bezeichnet in diesem Kontext eine festgelegte Reihenfolge von Melde- und Entscheidungsstufen, die im Falle eines Sicherheitsvorfalls eingehalten wird, um eine zeitgerechte und angemessene Reaktion sicherzustellen. Sie definiert, welche Rollen oder Funktionen bei bestimmten Schweregraden eines Vorfalls informiert, einbezogen oder zur Entscheidung befugt sind. Der Begriff ist hier prozessual zu verstehen, also nicht als hierarchische Personalstruktur, sondern als abgestufter Kommunikations- und Entscheidungsmechanismus innerhalb des Sicherheitsvorfallsprozesses. Der Zweck einer solchen Eskalationsleiter liegt darin, dass sicherheitsrelevante Ereignisse nicht auf operativer Ebene „steckenbleiben“, sondern in ihrer Kritikalität und potenziellen Auswirkung auf höhere Entscheidungsebenen eskaliert werden können. Dadurch kann verhindert werden, dass etwa ein anhaltender Systemausfall, ein möglicher Datenabfluss oder ein Angriff auf kritische Systeme unbemerkt bleibt oder verspätet adressiert wird. Eine wirksam verankerte Eskalationsleiter kann somit sicherstellen, dass die Reaktionszeit kurz, die Zuständigkeiten eindeutig und die Kommunikation nachvollziehbar bleiben. Hier empfiehlt es sich die Anforderung im Zusammenhang mit Notfallplänen, Krisenmanagement und Business Continuity Management zu betrachten – siehe auch Praktik Notfallplanung. Beispiele für Eskalationsstufen: (1) Ereignis, (2) sicherheitsrelevantes Ereignis, (3) sicherheitskritisches Ereignis, (4) Sicherheitsvorfall, (5) Notfall (siehe Notfallplanung), (6) Krise. Die Einstufung erfolgt entsprechend der Definition, die jede Institution für sich festlegt.
+
+## REA.3 Nachbereitung
+
+### REA.3.1 – Verbesserung durch Erkenntnisse
+
+**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.18
+
+> Sicherheitsvorfallsbehandlung SOLLTE bisherige Maßnahmen anhand von Erkenntnissen aus Informationssicherheitsvorfällen *[regelmäßig]* überprüfen.
+
+Erkenntnisse meint hier sowohl technische Aspekte („technical findings“), organisatorische Schwachstellen („process deficiencies“) als auch menschliche Faktoren („human factors“). Dabei ist es zielführend, sich nicht nur auf die unmittelbaren Ursachen zu beschränken (z.B. „Administrierende haben vergessen eine abhängige Komponente zu aktualisieren“), sondern nach den tieferen prozessualen oder technischen Ursachen zu suchen (sog. Root Cause Analyse), z.B. „Abhängigkeiten wurden bislang nicht dokumentiert“. Dabei kann es helfen, wenn alle Beteiligten verstehen, dass es nicht um Schuldzuweisungen geht, sondern um kontinuierliche Verbesserung der Informationssicherheit. Neben technischen Verbesserungen sind dabei auch organisatorische Maßnahmen sinnvoll. Beispielsweise können reale Beispiele in Schulungen verwendet werden, was die Bedeutung für die tägliche Arbeit der Teilnehmenden verdeutlicht und ähnliche Vorfälle in Zukunft vermeiden hilft. Ein regelmäßiger Überprüfungsrhythmus – regelmäßig kann hier je nach Kritikalität der Systeme etwa quartalsweise, halbjährlich oder nach jedem relevanten Vorfall bedeuten – dient dazu, bestehende sicherheitsrelevante Maßnahmen anhand der aus Vorfällen gewonnenen Erkenntnisse neu zu bewerten. Die regelmäßige Überprüfung kann verhindern, dass sich Schwachstellen verfestigen, die sonst unentdeckt bleiben könnten, beispielsweise unerkannte Fehlkonfigurationen oder wiederkehrende Bedienfehler, die bei zukünftigen Angriffen ausgenutzt werden könnten. Gleichzeitig kann sie dazu beitragen, dass eingeführte Verbesserungen nachhaltig wirken und im Alltag nicht wieder verwässern, was die Resilienz der Institution erhöhen kann. Mögliche Optionen reichen von strukturierten Lessons-Learned-Sitzungen über die Pflege eines Katalogs wiederkehrender Ursachen bis hin zur Integration von Anpassungen in technische Härtungsmaßnahmen oder Arbeitsanweisungen.
+
+#### REA.3.1.1 – Quantitative Analyse
+
+**Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.18
+
+> Sicherheitsvorfallsbehandlung SOLLTE Erkenntnisse einschließlich Art, Umfang und Schäden des Vorfalls dokumentieren.
+
+Die Erkenntnisse (findings) umfassen hier eine systematisch strukturierte Auswertung eines Informationssicherheitsvorfalls (security incident), wobei Art die konkrete Typisierung des Ereignisses meint (z.B. unbefugter Zugriff, Fehlkonfiguration, Manipulation), Umfang die tatsächlich betroffenen IT-Systeme, Daten oder Prozesse beschreibt (impact scope) und Schäden sowohl technische als auch betriebswirtschaftliche Beeinträchtigungen bezeichnet (damage bzw. loss). Solch strukturierte Informationen können helfen, wiederkehrende Angriffsmuster oder Probleme zu erkennen und so die Eintrittswahrscheinlichkeit oder das Schadensausmaß zukünftiger Vorfälle zu verringern, während unzureichend dokumentierte Erkenntnisse dazu führen könnte, dass Ursachen im Dunkeln bleiben oder Gegenmaßnahmen nicht auch auf zukünftige Vorfälle wirken können. In der praktischen Umsetzungbietet bietet es sich dazu an Incident-Reports zu erstellen, die sowohl eine quantiative Einordnung anhand von Klassifikationsschemata, als auch eine qualitative Beschreibung von Ursache und Gegenmaßnamen erfasst wird. Diese Berichte können beispielsweise in ein zentrales, revisionssicheres Register für Vorfallsdokumentationen oder herstellerneutralen Ticket- oder IR-Tools abgelegt werden.
