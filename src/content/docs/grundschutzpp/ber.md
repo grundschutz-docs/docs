@@ -423,7 +423,7 @@ Innerhalb der Institution ist ein Prozess etabliert, mit dem Berechtigungen syst
 
 **Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.36
 
-**Vorgänger:** [APP.4.2.A14-UA.2](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/06_APP_Anwendungen/APP_4_2_SAP_ERP_System_Edition_2023.pdf?__blob=publicationFile&v=4#download=1) (Teilmenge von)
+**Vorgänger:** [APP.4.2.A14-UA.2](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/06_APP_Anwendungen/APP_4_2_SAP_ERP_System_Edition_2023.pdf?__blob=publicationFile&v=4#download=1) (Teilbereich von)
 
 > Berechtigung SOLLTE eine Vorgehensweise zur initialen Ausgabe von Authentifizierungsmitteln verankern.
 

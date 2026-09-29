@@ -11,7 +11,7 @@ Die Notfallplanung stellt sicher, dass bei schwerwiegenden Störungen oder Krise
 
 **Pflicht:** MUSS · **Stufe:** `normal-SdT` · **Aufwand:** 0 · **Gefährdungen:** G 0.18
 
-**Vorgänger:** [APP.4.2.A28-UA.3](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/06_APP_Anwendungen/APP_4_2_SAP_ERP_System_Edition_2023.pdf?__blob=publicationFile&v=4#download=1) (überschneidet sich mit) · [IND.1.A13-UA.1](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/08_IND_Industrielle_IT/IND_1_Prozessleit_und_Automatisierungstechnik_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (Teilmenge von) · [OPS.1.1.1.A17-UA.3](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/04_OPS_Betrieb/OPS_1_1_1_Allgemeiner_IT_Betrieb_Edition_2023.pdf?__blob=publicationFile&v=4#download=1) (überschneidet sich mit)
+**Vorgänger:** [APP.4.2.A28-UA.3](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/06_APP_Anwendungen/APP_4_2_SAP_ERP_System_Edition_2023.pdf?__blob=publicationFile&v=4#download=1) (überschneidet sich mit) · [IND.1.A13-UA.1](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/08_IND_Industrielle_IT/IND_1_Prozessleit_und_Automatisierungstechnik_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (Teilbereich von) · [OPS.1.1.1.A17-UA.3](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/04_OPS_Betrieb/OPS_1_1_1_Allgemeiner_IT_Betrieb_Edition_2023.pdf?__blob=publicationFile&v=4#download=1) (überschneidet sich mit)
 
 > Notfallplanung MUSS Verfahren und Regelungen zur Vorsorge für Notfälle der Informationssicherheit verankern.
 
@@ -99,7 +99,7 @@ Damit der Stab der BAO im Schadensereignis handlungsfähig ist, benötigt er ein
 
 **Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.1
 
-**Vorgänger:** [IND.1.A13-UA.1](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/08_IND_Industrielle_IT/IND_1_Prozessleit_und_Automatisierungstechnik_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (Teilmenge von)
+**Vorgänger:** [IND.1.A13-UA.1](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/08_IND_Industrielle_IT/IND_1_Prozessleit_und_Automatisierungstechnik_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (Teilbereich von)
 
 > Notfallplanung KANN die Funktionsfähigkeit der BAO *[regelmäßig]* durch Stabsübungen überprüfen.
 
@@ -135,7 +135,7 @@ Eine Sensibilisierung für die Vorgehensweise in Notfällen und Krisen (Continge
 
 **Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.18
 
-**Vorgänger:** [IND.1.A13-UA.1](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/08_IND_Industrielle_IT/IND_1_Prozessleit_und_Automatisierungstechnik_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (Teilmenge von)
+**Vorgänger:** [IND.1.A13-UA.1](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/08_IND_Industrielle_IT/IND_1_Prozessleit_und_Automatisierungstechnik_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (Teilbereich von)
 
 > Notfallplanung KANN die tatsächliche Funktionstüchtigkeit von Notfallplänen *[regelmäßig]* überprüfen.
 

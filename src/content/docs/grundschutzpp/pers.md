@@ -209,7 +209,7 @@ Neue Mitarbeitende könnten ohne gezielte Einführung unbewusst vertrauliche Inf
 
 **Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.18
 
-**Vorgänger:** [APP.3.4.A12-UA.1](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/06_APP_Anwendungen/APP_3_4_Samba_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (Teilmenge von)
+**Vorgänger:** [APP.3.4.A12-UA.1](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/06_APP_Anwendungen/APP_3_4_Samba_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (Teilbereich von)
 
 > Personal für Administrierende SOLLTE produktspezifische Schulungen zum Umgang mit administrativen Werkzeugen bei Neuzugang und dem Einsatz neuer IT-Produkte ausführen.
 

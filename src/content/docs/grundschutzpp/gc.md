@@ -161,7 +161,7 @@ Der Geltungsbereich legt den formalen und organisatorischen Umfang (Scope) fest,
 
 **Pflicht:** MUSS · **Stufe:** `normal-SdT` · **Aufwand:** 0
 
-**Vorgänger:** [APP.3.2.A7-UA.1](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/06_APP_Anwendungen/APP_3_2_Webserver_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (Teilmenge von)
+**Vorgänger:** [APP.3.2.A7-UA.1](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/06_APP_Anwendungen/APP_3_2_Webserver_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (Teilbereich von)
 
 > Governance und Compliance MUSS ein Verfahren für die Festlegung von Geschäftsprozessen und die Einstufung des Schutzbedarfs dieser Geschäftsprozesse oder den hierbei verarbeiteten Informationen verankern.
 

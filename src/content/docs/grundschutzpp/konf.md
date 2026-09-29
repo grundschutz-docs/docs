@@ -137,7 +137,7 @@ Hierbei ist insbesondere an die vom Betriebssystem als vertrauenswürdig eingest
 
 **Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.19, G 0.23
 
-**Vorgänger:** [APP.1.1.A12-UA.1](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/06_APP_Anwendungen/APP_1_1_Office_Produkte_Edition_2023.pdf?__blob=publicationFile&v=4#download=1) (Teilmenge von)
+**Vorgänger:** [APP.1.1.A12-UA.1](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/06_APP_Anwendungen/APP_1_1_Office_Produkte_Edition_2023.pdf?__blob=publicationFile&v=4#download=1) (Teilbereich von)
 
 > Konfiguration für IT-Systeme SOLLTE nicht benötigte Cloud-Anbindungen deaktivieren.
 
@@ -147,7 +147,7 @@ Eine Cloud-Anbindung ist eine technische Schnittstelle, über die ein IT-System 
 
 **Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.22, G 0.21, G 0.46, G 0.31
 
-**Vorgänger:** [INF.13.A6-UA.4](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/10_INF_Infrastruktur/INF_13_Technisches_Gebaeudemanagement_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (Teilmenge von) · [OPS.1.1.1.A5-UA.6](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/04_OPS_Betrieb/OPS_1_1_1_Allgemeiner_IT_Betrieb_Edition_2023.pdf?__blob=publicationFile&v=4#download=1) (überschneidet sich mit)
+**Vorgänger:** [INF.13.A6-UA.4](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/10_INF_Infrastruktur/INF_13_Technisches_Gebaeudemanagement_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (Teilbereich von) · [OPS.1.1.1.A5-UA.6](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/04_OPS_Betrieb/OPS_1_1_1_Allgemeiner_IT_Betrieb_Edition_2023.pdf?__blob=publicationFile&v=4#download=1) (überschneidet sich mit)
 
 > Konfiguration für IT-Systeme SOLLTE die Übereinstimmung der tatsächlichen Konfiguration mit dem Referenzzustand *[regelmäßig]* überprüfen.
 
@@ -319,7 +319,7 @@ Unter Fernwartungsfunktionen versteht man technische Zugänge, die es ermöglich
 
 **Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.30, G 0.32
 
-**Vorgänger:** [IND.2.4.A1-UA.5](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/08_IND_Industrielle_IT/IND_2_4_Maschine_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (Teilmenge von)
+**Vorgänger:** [IND.2.4.A1-UA.5](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/08_IND_Industrielle_IT/IND_2_4_Maschine_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (Teilbereich von)
 
 > Konfiguration für IT-Systeme SOLLTE Fernwartungsfunktionen im Einklang mit den zugehörigen Anforderungen zum Identitäts- und Berechtigungsmanagement einschränken.
 
@@ -395,7 +395,7 @@ Bei der Datenkapselung, im Englischen als data encapsulation bekannt, handelt es
 
 **Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.39, G 0.23
 
-**Vorgänger:** [APP.4.4.A15-UA.1](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/06_APP_Anwendungen/APP_4_4_Kubernetes_Edition_2023.pdf?__blob=publicationFile&v=4#download=1) (Teilmenge von)
+**Vorgänger:** [APP.4.4.A15-UA.1](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/06_APP_Anwendungen/APP_4_4_Kubernetes_Edition_2023.pdf?__blob=publicationFile&v=4#download=1) (Teilbereich von)
 
 > Konfiguration für IT-Systeme KANN die Isolierung von *[bestimmten Anwendungen]* aktivieren.
 
@@ -683,7 +683,7 @@ Nachladbarer Code im Kernelmodus verfügt typischerweise über weitreichende Ber
 
 **Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.23, G 0.18
 
-**Vorgänger:** [CON.7.A7-UA.6](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/03_CON_Konzepte_und_Vorgehensweisen/CON_7_Informationssicherheit_auf_Auslandsreisen_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (Teilmenge von)
+**Vorgänger:** [CON.7.A7-UA.6](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/03_CON_Konzepte_und_Vorgehensweisen/CON_7_Informationssicherheit_auf_Auslandsreisen_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (Teilbereich von)
 
 > Konfiguration für IT-Systeme SOLLTE ein- und ausgehende Netzverbindungen einschränken.
 
@@ -783,7 +783,7 @@ Die Versionierung bezeichnet hier die strukturierte Nachvollziehbarkeit von Änd
 
 **Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.18, G 0.29
 
-**Vorgänger:** [APP.1.1.A16-UA.2](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/06_APP_Anwendungen/APP_1_1_Office_Produkte_Edition_2023.pdf?__blob=publicationFile&v=4#download=1) (Teilmenge von)
+**Vorgänger:** [APP.1.1.A16-UA.2](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/06_APP_Anwendungen/APP_1_1_Office_Produkte_Edition_2023.pdf?__blob=publicationFile&v=4#download=1) (Teilbereich von)
 
 > Konfiguration für Anwendungen SOLLTE kryptographische Verfahren nach *[anerkannten Standards]* im Einklang mit den zugehörigen Anforderungen zum Identitäts- und Berechtigungsmanagement aktivieren.
 
@@ -801,7 +801,7 @@ Hiermit sind Default-Passwörter, als auch vertrauenswürdige Authentisierungs-S
 
 **Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.28, G 0.23
 
-**Vorgänger:** [APP.1.1.A12-UA.1](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/06_APP_Anwendungen/APP_1_1_Office_Produkte_Edition_2023.pdf?__blob=publicationFile&v=4#download=1) (überschneidet sich mit) · [APP.3.1.A12-UA.2](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/06_APP_Anwendungen/APP_3_1_Webanwendungen_und_Webservices_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (Übermenge von)
+**Vorgänger:** [APP.1.1.A12-UA.1](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/06_APP_Anwendungen/APP_1_1_Office_Produkte_Edition_2023.pdf?__blob=publicationFile&v=4#download=1) (überschneidet sich mit) · [APP.3.1.A12-UA.2](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/06_APP_Anwendungen/APP_3_1_Webanwendungen_und_Webservices_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (umfasst)
 
 > Konfiguration für Anwendungen SOLLTE nicht benötigte Anwendungsfunktionen deaktivieren.
 
@@ -849,7 +849,7 @@ Viele TK-Anwendungen bieten geplante Konversationen, z.B. in virtuellen Meeting-
 
 **Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.43, G 0.36
 
-**Vorgänger:** [APP.3.1.A1-UA.2](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/06_APP_Anwendungen/APP_3_1_Webanwendungen_und_Webservices_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (überschneidet sich mit) · [APP.3.1.A11-UA.2](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/06_APP_Anwendungen/APP_3_1_Webanwendungen_und_Webservices_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (Übermenge von)
+**Vorgänger:** [APP.3.1.A1-UA.2](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/06_APP_Anwendungen/APP_3_1_Webanwendungen_und_Webservices_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (überschneidet sich mit) · [APP.3.1.A11-UA.2](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/06_APP_Anwendungen/APP_3_1_Webanwendungen_und_Webservices_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (umfasst)
 
 > Konfiguration für Anwendungen SOLLTE die Gegenstelle vor dem Datenaustausch im Einklang mit den zugehörigen Anforderungen zum Identitäts- und Berechtigungsmanagement authentifizieren.
 
@@ -1035,7 +1035,7 @@ Beim Journaling werden Änderungen an Dateien zunächst in einem speziellen Prot
 
 **Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.28, G 0.23
 
-**Vorgänger:** [APP.3.1.A21-UA.1](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/06_APP_Anwendungen/APP_3_1_Webanwendungen_und_Webservices_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (überschneidet sich mit) · [APP.3.1.A21-UA.2](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/06_APP_Anwendungen/APP_3_1_Webanwendungen_und_Webservices_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (Teilmenge von)
+**Vorgänger:** [APP.3.1.A21-UA.1](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/06_APP_Anwendungen/APP_3_1_Webanwendungen_und_Webservices_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (überschneidet sich mit) · [APP.3.1.A21-UA.2](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/06_APP_Anwendungen/APP_3_1_Webanwendungen_und_Webservices_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (Teilbereich von)
 
 > Konfiguration für Webanwendungen SOLLTE HTTP-Response-Header aktivieren.
 
@@ -1185,7 +1185,7 @@ Unter Zustellung unerwünschter Nachrichten ist das Blockieren oder Filtern von 
 
 **Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.39, G 0.23
 
-**Vorgänger:** [APP.1.1.A2-UA.1](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/06_APP_Anwendungen/APP_1_1_Office_Produkte_Edition_2023.pdf?__blob=publicationFile&v=4#download=1) (überschneidet sich mit) · [APP.5.3.A1-UA.8](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/06_APP_Anwendungen/APP_5_3_Allgemeiner_E-Mail_Client_und_Server_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (Teilmenge von)
+**Vorgänger:** [APP.1.1.A2-UA.1](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/06_APP_Anwendungen/APP_1_1_Office_Produkte_Edition_2023.pdf?__blob=publicationFile&v=4#download=1) (überschneidet sich mit) · [APP.5.3.A1-UA.8](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/06_APP_Anwendungen/APP_5_3_Allgemeiner_E-Mail_Client_und_Server_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (Teilbereich von)
 
 > Konfiguration für Interpersonelle Kommunikation SOLLTE die automatische Interpretation aktiver Inhalte deaktivieren.
 
@@ -1243,7 +1243,7 @@ Dies wird typischerweise über spezielle DNS-Einträge wie den Sender Policy Fra
 
 **Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.36, G 0.42
 
-**Vorgänger:** [APP.5.3.A9-UA.4](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/06_APP_Anwendungen/APP_5_3_Allgemeiner_E-Mail_Client_und_Server_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (Teilmenge von)
+**Vorgänger:** [APP.5.3.A9-UA.4](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/06_APP_Anwendungen/APP_5_3_Allgemeiner_E-Mail_Client_und_Server_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (Teilbereich von)
 
 > Konfiguration für E-Mail SOLLTE eine strenge Senderpolicy aktivieren.
 
@@ -1305,7 +1305,7 @@ Die Mail Transfer Agent Strict Transport Security (MTA-STS) ist ein wichtiger St
 
 **Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.43, G 0.15
 
-**Vorgänger:** [APP.1.1.A15-UA.1](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/06_APP_Anwendungen/APP_1_1_Office_Produkte_Edition_2023.pdf?__blob=publicationFile&v=4#download=1) (überschneidet sich mit) · [APP.1.2.A2-UA.2](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/06_APP_Anwendungen/APP_1_2_Webbrowser_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (überschneidet sich mit) · [APP.3.4.A15-UA.1](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/06_APP_Anwendungen/APP_3_4_Samba_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (Teilmenge von) · [IND.2.1.A2-UA.2](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/08_IND_Industrielle_IT/IND_2_1_Allgemeine_ICS_Komponente_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (entspricht)
+**Vorgänger:** [APP.1.1.A15-UA.1](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/06_APP_Anwendungen/APP_1_1_Office_Produkte_Edition_2023.pdf?__blob=publicationFile&v=4#download=1) (überschneidet sich mit) · [APP.1.2.A2-UA.2](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/06_APP_Anwendungen/APP_1_2_Webbrowser_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (überschneidet sich mit) · [APP.3.4.A15-UA.1](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/06_APP_Anwendungen/APP_3_4_Samba_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (Teilbereich von) · [IND.2.1.A2-UA.2](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/08_IND_Industrielle_IT/IND_2_1_Allgemeine_ICS_Komponente_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (entspricht)
 
 > Konfiguration für Anwendungen SOLLTE Kommunikation beim Transport über Netze nach *[einem anerkannten Standard]* verschlüsseln.
 

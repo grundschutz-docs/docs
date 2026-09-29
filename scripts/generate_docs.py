@@ -134,10 +134,15 @@ def baustein_id_from_itgs_id(itgs_id):
 # Standard-Vokabular (internationales Format) -- auf einer sonst
 # durchgehend deutschen Seite übersetzt anzeigen. Interner Wert (für
 # Sortierung o. ä.) bleibt englisch, nur die Anzeige wird übersetzt.
+# Richtung nach der offiziellen OSCAL-Mapping-Spezifikation (NIST, $schema
+# in der Mapping-Datei): "source [relationship] target" -- hier ist die
+# Quelle immer die alte, das Ziel die neue Anforderung. subset-of: die
+# alte ist Teilbereich der neuen (neue deckt mehr ab). superset-of: die
+# alte deckte mehr ab als die neue (neue ist enger gefasst).
 RELATIONSHIP_LABELS = {
     "equivalent-to": "entspricht",
-    "subset-of": "Teilmenge von",
-    "superset-of": "Übermenge von",
+    "subset-of": "Teilbereich von",
+    "superset-of": "umfasst",
     "intersects-with": "überschneidet sich mit",
 }
 
