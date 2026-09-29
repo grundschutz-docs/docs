@@ -248,6 +248,60 @@ def render_timeline():
     return "\n".join(lines)
 
 
+def build_all_mappings(mapping_data):
+    mappings = []
+    for group in mapping_data["mapping-collection"]["mappings"]:
+        for m in group.get("maps", []):
+            rel = m.get("relationship")
+            sources = m.get("sources", [])
+            targets = m.get("targets", [])
+            if not sources or not targets or not rel:
+                continue
+            old_id = sources[0].get("id-ref")
+            new_id = targets[0].get("id-ref")
+            if not old_id or not new_id:
+                continue
+            mappings.append((old_id, rel, new_id))
+    return mappings
+
+
+def render_vergleich_page(all_mappings, group_titles, baustein_links):
+    by_group = {}
+    for old_id, rel, new_id in all_mappings:
+        group_id = new_id.split(".")[0]
+        by_group.setdefault(group_id, []).append((old_id, rel, new_id))
+
+    lines = [
+        "---\n",
+        f"title: {yaml_quote('Vergleich: Altes Kompendium ↔ Grundschutz++')}\n",
+        f"description: {yaml_quote('Alle Zuordnungen zwischen dem alten IT-Grundschutz-Kompendium (Edition 2023) und dem neuen Grundschutz++-Katalog.')}\n",
+        "---\n",
+        "\n",
+        "Alle Zuordnungen aus der offiziellen BSI-Mapping-Datei "
+        "(`ITGS-to-GS++-mapping_collection.json`) — kein alter Volltext, nur "
+        "Struktur und echte Links zu BSI's eigenen Baustein-PDFs (siehe "
+        "ADR-0005 im Hosted-Repo). Mit Strg+F/Cmd+F nach einer bekannten "
+        "alten ID suchen, z. B. `OPS.1.1.5`.\n",
+        "\n",
+    ]
+    for group_id in sorted(by_group, key=lambda gid: group_titles.get(gid, gid)):
+        entries = by_group[group_id]
+        title = group_titles.get(group_id, group_id)
+        slug = group_id.lower()
+        lines.append(f"## {group_id} {title}\n")
+        lines.append("\n")
+        lines.append("| Alte Anforderung | Beziehung | Neue Anforderung |\n")
+        lines.append("|---|---|---|\n")
+        for old_id, rel, new_id in sorted(entries, key=lambda e: e[2]):
+            baustein_id = baustein_id_from_itgs_id(old_id)
+            link = baustein_links.get(baustein_id) if baustein_id else None
+            old_cell = f"[{old_id}]({link})" if link else old_id
+            new_cell = f"[{new_id}](/grundschutzpp/{slug}/)"
+            lines.append(f"| {old_cell} | {rel} | {new_cell} |\n")
+        lines.append("\n")
+    return "".join(lines)
+
+
 def render_index_section(heading, intro, entries):
     lines = [f"## {heading}\n", f"{intro}\n", '<ul class="practice-index">']
     for gid, title, slug, summary in entries:
@@ -272,8 +326,10 @@ def main():
         old.unlink()
 
     management, themenfelder = [], []
+    group_titles = {}
     for group in catalog["groups"]:
         slug = group["id"].lower()
+        group_titles[group["id"]] = group["title"]
         # include_heading=False: Starlight rendert die Seiten-Überschrift bereits
         # automatisch aus der Frontmatter — sonst stünde sie doppelt auf der Seite.
         body = render_group(
@@ -323,6 +379,10 @@ def main():
         render_timeline(),
     ]
     (OUT_DIR / "zeitplan.md").write_text("\n".join(zeitplan_lines))
+
+    all_mappings = build_all_mappings(mapping_data)
+    vergleich_body = render_vergleich_page(all_mappings, group_titles, baustein_links)
+    (OUT_DIR.parent / "vergleich.md").write_text(vergleich_body)
 
     total = len(management) + len(themenfelder)
     print(f"{total} Gruppen-Seiten erzeugt in {OUT_DIR}")

@@ -53,6 +53,7 @@ export default defineConfig({
 					items: [
 						{ label: 'Übersicht', slug: 'grundschutzpp' },
 						{ label: 'Status & Zeitplan', slug: 'grundschutzpp/zeitplan' },
+						{ label: 'Vergleich: Alt ↔ Neu', slug: 'vergleich' },
 						{
 							label: 'Managementsystem',
 							items: [

@@ -71,13 +71,15 @@ h6,
 
 /* Liquid-Glass-Chrome: nur auf UI-Rahmen, nie auf Fließtext */
 
+/* Erhöht ggü. vorher (ADR-0006, Hosted-Repo): der Banner hat jetzt zwei
+   Zeilen (Status + Quick-Nav) statt einer. */
 :root {
-	--banner-height: 3.5rem;
+	--banner-height: 5.25rem;
 }
 
 @media (min-width: 50rem) {
 	:root {
-		--banner-height: 2.5rem;
+		--banner-height: 3.75rem;
 	}
 }
 
