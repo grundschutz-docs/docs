@@ -3,7 +3,12 @@ title: Impressum
 template: splash
 ---
 
-Angaben gemäß § 5 Digitale-Dienste-Gesetz (DDG).
+**Hinweis für Self-Hoster:innen:** Dies ist eine Vorlage, kein fertiges
+Impressum. Wer diese Website in Deutschland öffentlich betreibt
+(geschäftsmäßig, d. h. nicht rein privat/familiär), braucht nach § 5
+Digitale-Dienste-Gesetz (DDG) ein eigenes Impressum mit den *eigenen*
+Angaben — nicht denen des Projekt-Maintainers. Ersetze die Platzhalter
+unten durch deine Daten, bevor du live gehst.
 
 ## Betreiber
 

@@ -3,7 +3,11 @@ title: Datenschutzerklärung
 template: splash
 ---
 
-Stand: September 2026.
+**Hinweis für Self-Hoster:innen:** Dies ist eine Vorlage, keine fertige
+Datenschutzerklärung. Passe sie an deinen tatsächlichen Betrieb an —
+Hosting-Anbieter/-Standort, ob du Cookies/Tracking einsetzt, und die für
+*dich* zuständige Datenschutz-Aufsichtsbehörde (richtet sich nach deinem
+Sitz, nicht nach dem des Projekt-Maintainers).
 
 ## 1. Verantwortlicher
 
@@ -13,7 +17,7 @@ E-Mail: [E-Mail-Adresse]
 
 ## 2. Hosting
 
-Diese Website wird auf einem Server eines deutschen Hosting-Anbieters (Hetzner oder Strato) am Standort Frankfurt am Main betrieben. Die Datenverarbeitung findet ausschließlich innerhalb der Bundesrepublik Deutschland statt.
+[Beschreibe hier deinen Hosting-Anbieter und Serverstandort.]
 
 ## 3. Server-Logfiles
 
@@ -29,11 +33,11 @@ Diese Daten dienen ausschließlich dem sicheren und stabilen Betrieb der Website
 
 ## 4. Cookies und Tracking
 
-Diese Website setzt aktuell **keine Cookies** und **keine Analyse- oder Tracking-Werkzeuge** ein.
+[Beschreibe hier, ob und welche Cookies/Analyse-/Tracking-Werkzeuge du einsetzt.]
 
 ## 5. Schriftarten
 
-Die auf dieser Website verwendeten Schriftarten (Fraunces, Karla, JetBrains Mono) werden lokal von diesem Server ausgeliefert. Es findet **keine Verbindung zu Google Fonts oder anderen externen Schriftarten-Diensten** statt, wodurch keine Daten an Dritte übertragen werden.
+Die auf dieser Website verwendeten Schriftarten (Fraunces, Karla, JetBrains Mono) werden standardmäßig lokal ausgeliefert. Es findet **keine Verbindung zu Google Fonts oder anderen externen Schriftarten-Diensten** statt, sofern du daran nichts geändert hast.
 
 ## 6. Suchfunktion
 
@@ -54,9 +58,4 @@ Wende dich dazu an die oben genannte Kontakt-E-Mail-Adresse.
 
 ## 8. Beschwerderecht bei der Aufsichtsbehörde
 
-Du hast das Recht, dich bei einer Datenschutz-Aufsichtsbehörde über die Verarbeitung deiner personenbezogenen Daten zu beschweren. Zuständig ist:
-
-Landesbeauftragter für den Datenschutz Sachsen-Anhalt<br />
-Otto-von-Guericke-Straße 34a<br />
-39104 Magdeburg<br />
-E-Mail: poststelle@lfd.sachsen-anhalt.de
+Du hast das Recht, dich bei einer Datenschutz-Aufsichtsbehörde über die Verarbeitung deiner personenbezogenen Daten zu beschweren. Zuständig ist die für **deinen** Sitz zuständige Landesdatenschutzbehörde — [trage hier die für dich zuständige Behörde ein].
