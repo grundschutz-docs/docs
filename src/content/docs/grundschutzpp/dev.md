@@ -9,7 +9,7 @@ Die Praktik Entwicklung stellt sicher, dass Sicherheitsanforderungen bereits von
 
 ### DEV.1.1 – Verfahren und Regelungen
 
-**Stufe:** `normal-SdT` · **Aufwand:** 0 · **Gefährdungen:** G 0.18
+**Pflicht:** MUSS · **Stufe:** `normal-SdT` · **Aufwand:** 0 · **Gefährdungen:** G 0.18
 
 > Entwicklung MUSS Verfahren und Regelungen zur Entwicklung von IT-Produkten verankern.
 
@@ -17,7 +17,7 @@ Für ein Verfahren zur Softwareentwicklung siehe BSI TR-03185. Entwickelt die In
 
 #### DEV.1.1.1 – Dokumentation
 
-**Stufe:** `normal-SdT` · **Aufwand:** 0 · **Gefährdungen:** G 0.18, G 0.37, G 0.29, G 0.31
+**Pflicht:** MUSS · **Stufe:** `normal-SdT` · **Aufwand:** 0 · **Gefährdungen:** G 0.18, G 0.37, G 0.29, G 0.31
 
 > Entwicklung MUSS die Verfahren und Regelungen dokumentieren.
 
@@ -25,7 +25,7 @@ Ohne eine Dokumentation könnte die Einhaltung der Verfahren und Regelungen von 
 
 #### DEV.1.1.2 – Zuweisung der Aufgaben
 
-**Stufe:** `normal-SdT` · **Aufwand:** 0 · **Gefährdungen:** G 0.18, G 0.31
+**Pflicht:** MUSS · **Stufe:** `normal-SdT` · **Aufwand:** 0 · **Gefährdungen:** G 0.18, G 0.31
 
 > Entwicklung MUSS die mit den Verfahren und Regelungen verbundenen Aufgaben *[zuständigen Personen oder Rollen]* zuweisen.
 
@@ -33,7 +33,7 @@ Die Zuweisung von Aufgaben bezeichnet die eindeutige und verbindliche Übertragu
 
 #### DEV.1.1.3 – Bekanntgabe
 
-**Stufe:** `normal-SdT` · **Aufwand:** 0 · **Gefährdungen:** G 0.18
+**Pflicht:** MUSS · **Stufe:** `normal-SdT` · **Aufwand:** 0 · **Gefährdungen:** G 0.18
 
 > Entwicklung MUSS die zuständigen Personen oder Rollen über die Verfahren und Regelungen informieren.
 
@@ -41,7 +41,7 @@ Wenn die Zuständigen die etablierten Verfahren nicht kennen, besteht die Gefahr
 
 ### DEV.1.2 – Regelmäßige Überprüfung
 
-**Stufe:** `normal-SdT` · **Aufwand:** 0 · **Gefährdungen:** G 0.18, G 0.29
+**Pflicht:** MUSS · **Stufe:** `normal-SdT` · **Aufwand:** 0 · **Gefährdungen:** G 0.18, G 0.29
 
 > Entwicklung MUSS die Verfahren und Regelungen *[regelmäßig]* und anlassbezogen auf Aktualität überprüfen.
 
@@ -51,7 +51,7 @@ Eine geplante Überprüfung der etablierten Verfahren und Regelungen dient dazu 
 
 ### DEV.2.1 – Security by Design Architektur
 
-**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.28, G 0.46, G 0.18
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.28, G 0.46, G 0.18
 
 > Entwicklung SOLLTE die Architektur nach dem Prinzip "Security by Design" verankern.
 
@@ -59,7 +59,7 @@ Unter "Security by Design" ist zu verstehen, dass Sicherheitsprinzipien und -mec
 
 ### DEV.2.2 – Dokumentation der (Software-)Architektur
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.18
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.18
 
 > Entwicklung für Anwendungen SOLLTE die Architektur dokumentieren.
 
@@ -67,7 +67,7 @@ Die Architektur bezeichnet im konkreten Kontext die strukturierte Beschreibung d
 
 ### DEV.2.3 – Ausführbarkeit mit minimalen Rechten
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.28, G 0.32, G 0.21
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.28, G 0.32, G 0.21
 
 > Entwicklung für Anwendungen SOLLTE die fehlerfreie Ausführung mit den geringst möglichen Berechtigungen verankern.
 
@@ -75,7 +75,7 @@ Die Anwendung ermöglicht die Ausführung mit den geringst möglichen Berechtigu
 
 ### DEV.2.4 – Einschränkung Zugriffs auf Quellcode
 
-**Stufe:** `normal-SdT` · **Aufwand:** 1 · **Gefährdungen:** G 0.22, G 0.46
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 1 · **Gefährdungen:** G 0.22, G 0.46
 
 > Entwicklung SOLLTE den schreibenden Zugriff auf Quellcode einschränken.
 
@@ -83,7 +83,7 @@ Eine Einschränkung des schreibenden Zugriffes auf den Quellcode auf die zur Auf
 
 ### DEV.2.5 – Einschränkung des Zugriffs auf Zugangsdaten
 
-**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.28, G 0.21, G 0.22, G 0.19
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.28, G 0.21, G 0.22, G 0.19
 
 > Entwicklung für Anwendungen SOLLTE den lesenden und schreibenden Zugriff auf Zugangsdaten einschränken.
 
@@ -91,7 +91,7 @@ Von der Anwendung verwendete Zugangsdaten können z.B. API-Schlüssel oder Daten
 
 ### DEV.2.6 – Widerstandsfähigkeit gegen gängige Angriffsmuster
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.28, G 0.21, G 0.22, G 0.46
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.28, G 0.21, G 0.22, G 0.46
 
 > Entwicklung für Anwendungen SOLLTE Schutzfunktionen gegen gängige Angriffsmuster installieren.
 
@@ -99,7 +99,7 @@ Gängige Angriffsmuster sind wiederkehrende Vorgehensweisen von Angreifenden, di
 
 #### DEV.2.6.1 – Eingabevalidierung
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.28
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.28
 
 > Entwicklung für Anwendungen SOLLTE Eingabedaten auf eingeschleuste Befehle testen.
 
@@ -107,7 +107,7 @@ Bei der Eingabevalidierung (Input Validation) wird getestet, ob die Eingabedaten
 
 #### DEV.2.6.2 – Ausgabekodierung
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.28
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.28
 
 > Entwicklung für Anwendungen SOLLTE eine Ausgabekodierung ausführen.
 
@@ -117,7 +117,7 @@ Ausgabekodierung (Output Encoding) ist wichtig, da sie spezielle Zeichen neutral
 
 ### DEV.3.1 – Replay-Angriffe
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.43
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.43
 
 > Entwicklung für Anwendungen SOLLTE Replay-Angriffe blockieren.
 
@@ -125,7 +125,7 @@ Wenn die Anwendung Anfragen von anderen Anwendungen oder IT-Systemen entgegennim
 
 ### DEV.3.2 – Routinen zur Fehlerbehandlung
 
-**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.28, G 0.21
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.28, G 0.21
 
 > Entwicklung für Anwendungen SOLLTE spezifische und allgemeine Routinen zur Fehlerbehandlung ausführen.
 
@@ -133,7 +133,7 @@ Behandeln Sie Fehler (Exceptions) möglichst nahe an der Quelle (z.B. Buffer Ove
 
 ### DEV.3.3 – Deaktivierung der Ausgabe schützenswerter Daten durch Fehlermeldungen
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.28, G 0.19
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.28, G 0.19
 
 > Entwicklung für Anwendungen SOLLTE die Ausgabe schützenswerter Daten durch Fehlermeldungen deaktivieren.
 
@@ -141,7 +141,7 @@ Werden sensible Daten in Fehlermeldungen oder Log-Einträgen verwendet, kommt es
 
 ### DEV.3.4 – Passwort-Hashing
 
-**Stufe:** `normal-SdT` · **Aufwand:** 1 · **Gefährdungen:** G 0.28, G 0.19
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 1 · **Gefährdungen:** G 0.28, G 0.19
 
 > Entwicklung für Anwendungen SOLLTE das Hashing von Passwörtern, die zur Authentifizierung an der Anwendung verwendet werden vor der Verarbeitung oder Speicherung aktivieren.
 
@@ -151,7 +151,7 @@ Ziel ist der Schutz vor Angriffen, welche Passwörter beim Transport oder aus de
 
 ### DEV.4.1 – Nutzerinformation bei kritischen Ereignissen
 
-**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.36, G 0.29
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.36, G 0.29
 
 > Entwicklung für Anwendungen SOLLTE bei sicherheitskritischen Ereignissen die betroffenen Nutzenden informieren.
 
@@ -159,7 +159,7 @@ Z.B. bei Anmeldung von neuen Geräten, Zurücksetzen des Passwortes, ungewöhnli
 
 ### DEV.4.2 – Einbindung externer Software
 
-**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.28, G 0.46, G 0.20
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.28, G 0.46, G 0.20
 
 > Entwicklung für Anwendungen SOLLTE die Einbindung externer Softwareartefakte und -Schnittstellen aus unzuverlässigen oder unbekannten Quellen untersagen.
 
@@ -167,7 +167,7 @@ Externe Softwareartefakte sind in diesem Kontext nicht von der Institution entwi
 
 ### DEV.4.3 – Softwarebestandteile (SBOM)
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.18, G 0.28
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.18, G 0.28
 
 > Entwicklung für Anwendungen SOLLTE die Bestandteile mit Hilfe einer Software Bill of Materials (SBOM) vor dem Release dokumentieren.
 
@@ -175,7 +175,7 @@ Details siehe BSI TR-03183-2. Anwendungen zur Modulverwaltung und Software Compo
 
 ### DEV.4.4 – Integrität externer Software
 
-**Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.22, G 0.46
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.22, G 0.46
 
 > Entwicklung für Anwendungen SOLLTE die Integrität externer Softwareartefakte und -Schnittstellen vor dem Release testen.
 
@@ -183,7 +183,7 @@ Gemeint ist damit sowohl die technische Unversehrtheit (z. B. durch kryptografis
 
 ### DEV.4.5 – Updates externer Software
 
-**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.28
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.28
 
 > Entwicklung für Anwendungen SOLLTE externe Softwareartefakte auf Sicherheitsupdates vor dem Release testen.
 
@@ -191,7 +191,7 @@ Werden veraltete Softwareartefakte (z.B. Bibliotheken oder Container) in eine ve
 
 ### DEV.4.6 – Compileroptionen
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.28
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.28
 
 > Entwicklung für Anwendungen SOLLTE Compileroptionen für Sicherheitsfunktionen vor dem Release aktivieren.
 
@@ -199,7 +199,7 @@ Compileroptionen wie Stack Canaries, PIE, PIE, CFI können automatisch Schutzmec
 
 ### DEV.4.7 – Deterministischer Binärcode
 
-**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.18, G 0.22, G 0.46
+**Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.18, G 0.22, G 0.46
 
 > Entwicklung für Anwendungen KANN eine reproduzierbare Vorgehensweise zur Erstellung eines bestimmten Binärcodes aus dem Quellcode dokumentieren.
 
@@ -207,7 +207,7 @@ Ein bestimmter Binärcode meint hier eine reproduzierbare Anwendung (Reproducibl
 
 ### DEV.4.8 – Default-Zugangsdaten
 
-**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.18, G 0.30
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.18, G 0.30
 
 > Entwicklung für Anwendungen SOLLTE Default-Zugangsdaten vor dem Release dokumentieren.
 
@@ -215,7 +215,7 @@ Falls die Software Default-Zugangsdaten wie Passwörter oder Zertifikate enthäl
 
 ### DEV.4.9 – Voreinstellungen nach dem Prinzip "Security by Default"
 
-**Stufe:** `normal-SdT` · **Aufwand:** 1 · **Gefährdungen:** G 0.18, G 0.30
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 1 · **Gefährdungen:** G 0.18, G 0.30
 
 > Entwicklung für Anwendungen SOLLTE Voreinstellungen nach dem Prinzip "Security by Default" aktivieren.
 
@@ -223,7 +223,7 @@ Voreinstellungen sind die Parameter der Anwendung, mit denen diese im Auslieferu
 
 ### DEV.4.10 – Protokollierung von Codeänderungen
 
-**Stufe:** `normal-SdT` · **Aufwand:** 1 · **Gefährdungen:** G 0.37, G 0.22
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 1 · **Gefährdungen:** G 0.37, G 0.22
 
 > Entwicklung für Anwendungen SOLLTE Änderungen am Quellcode einschließlich Zeitpunkt, Inhalt der Änderung, ändernder Person und der Begründung der Änderung protokollieren.
 
@@ -231,7 +231,7 @@ Im Kontext dieser Anforderung bezeichnet Quellcode den in einer Programmiersprac
 
 ### DEV.4.11 – Test bei Änderungen am Quellcode
 
-**Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.28, G 0.18
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.28, G 0.18
 
 > Entwicklung für Anwendungen SOLLTE Änderungen am Quellcode im Einklang mit den Verfahren und Regelungen für Änderungen und Tests testen.
 
@@ -241,7 +241,7 @@ Im Kontext dieser Anforderung bezeichnet Quellcode den in einer Programmiersprac
 
 ### DEV.5.1 – Verankerung des Zeitraums für Updates
 
-**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.28, G 0.18
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.28, G 0.18
 
 > Entwicklung für Anwendungen SOLLTE die Bereitstellung von Sicherheitsupdates mindestens für *[einen bestimmten Zeitraum]* verankern.
 
@@ -249,7 +249,7 @@ Hierbei wird festgelegt, für welchen konkreten Zeitraum Sicherheitsaktualisieru
 
 ### DEV.5.2 – Information über Zeitraum für Updates
 
-**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.18, G 0.29
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.18, G 0.29
 
 > Entwicklung für Anwendungen SOLLTE Auftraggeber über den festgelegten Zeitraum für Sicherheitsupdates informieren.
 
@@ -257,7 +257,7 @@ Stellen Sie den Empfängern der Software Informationen darüber bereit, wie lang
 
 ### DEV.5.3 – Integritätsprüfung
 
-**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.20, G 0.22, G 0.46
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.20, G 0.22, G 0.46
 
 > Entwicklung für Anwendungen SOLLTE Nutzende über Möglichkeiten zur Verifikation der Integrität von Installations-, Update- und Patchdateien informieren.
 
@@ -267,7 +267,7 @@ Dies kann z.B. durch die Veröffentlichung von Prüfsummen über einen authentif
 
 ### DEV.6.1 – Freigabe nach Änderungen und Tests
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.18, G 0.25, G 0.26
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.18, G 0.25, G 0.26
 
 > Entwicklung SOLLTE die Freigabe zur Nutzung im Einklang mit den entsprechenden Verfahren und Regelungen für Änderungen und Tests autorisieren.
 
@@ -277,7 +277,7 @@ Eine Freigabe zur Nutzung (Release) meint hier die formelle und autorisierte Üb
 
 ### DEV.7.1 – Sichere Bereitstellung
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.18, G 0.25, G 0.26
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.18, G 0.25, G 0.26
 
 > Entwicklung SOLLTE die Bereitstellung im Einklang mit den entsprechenden Verfahren und Regelungen für Änderungen und Tests verankern.
 
@@ -285,7 +285,7 @@ Die Bereitstellung ist der Prozessschritt, durch den eine neu entwickelte oder g
 
 ### DEV.7.2 – Zertifikatsmonitoring
 
-**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.36, G 0.43
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.36, G 0.43
 
 > Entwicklung für Anwendungen SOLLTE die Ausstellung neuer Zertifikate für die von der Anwendung verwendeten Domains überwachen.
 

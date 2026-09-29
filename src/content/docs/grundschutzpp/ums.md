@@ -9,7 +9,7 @@ Die Praktik Umsetzung sorgt für die systematische Planung, Implementierung und 
 
 ### UMS.1.1 – Ermittlung des Umsetzungsstatus
 
-**Stufe:** `normal-SdT` · **Aufwand:** 0
+**Pflicht:** MUSS · **Stufe:** `normal-SdT` · **Aufwand:** 0
 
 > Umsetzung MUSS den Umsetzungsstatus der Anforderungen im Anforderungspaket vollständig *[regelmäßig]* überprüfen.
 
@@ -17,7 +17,7 @@ Der Umsetzungsstatus einer Anforderung kann grundsätzlich nur „umgesetzt“ (
 
 ### UMS.1.2 – Bewertung des Restrisikos
 
-**Stufe:** `normal-SdT` · **Aufwand:** 2
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2
 
 > Umsetzung SOLLTE das bestehende Restrisiko durch die nicht umgesetzten Anforderungen festlegen.
 
@@ -27,7 +27,7 @@ Die Risiken der Nichtumsetzung von Anforderungen können auch konsolidiert werde
 
 ### UMS.2.1 – Umsetzungsplanung
 
-**Stufe:** `normal-SdT` · **Aufwand:** 0
+**Pflicht:** MUSS · **Stufe:** `normal-SdT` · **Aufwand:** 0
 
 > Umsetzung MUSS Maßnahmen für die Umsetzung der bisher nicht umgesetzten Anforderungen des Anforderungspakets gemäß einer strukturierten Vorgehensweise festlegen.
 
@@ -35,7 +35,7 @@ Je nach Organisation ist eine strukturierte Vorgehensweise festzulegen. Dabei em
 
 ### UMS.2.2 – Priorisierung von Maßnahmen
 
-**Stufe:** `normal-SdT` · **Aufwand:** 0
+**Pflicht:** MUSS · **Stufe:** `normal-SdT` · **Aufwand:** 0
 
 > Umsetzung MUSS eine Priorisierung der festgelegten Maßnahmen auf Basis der Risikobewertung, Abhängigkeiten und Ressourcenverfügbarkeit festlegen.
 
@@ -45,7 +45,7 @@ Es ist eine geeignete Priorisierung der Anforderungen und Maßnahmenumsetzung vo
 
 ### UMS.3.1 – Benennung von Umsetzungszuständigen
 
-**Stufe:** `normal-SdT` · **Aufwand:** 0
+**Pflicht:** MUSS · **Stufe:** `normal-SdT` · **Aufwand:** 0
 
 > Umsetzung MUSS Zuständige für die Umsetzung der bisher nicht erfüllten Anforderungen eindeutig zuweisen.
 
@@ -55,7 +55,7 @@ Die Zuständigen für die Umsetzung der Priorisierungen müssen eindeutig zugewi
 
 ### UMS.4.1 – Festlegung von Umsetzungsfristen
 
-**Stufe:** `normal-SdT` · **Aufwand:** 0
+**Pflicht:** MUSS · **Stufe:** `normal-SdT` · **Aufwand:** 0
 
 > Umsetzung MUSS ein realistisches Zieldatum für die Umsetzung der bisher nicht umgesetzten Anforderungen festlegen.
 
@@ -65,7 +65,7 @@ Für jede umzusetzende Maßnahme muss ein realistisches Zieldatum festgelegt wer
 
 ### UMS.5.1 – Autorisierung von Ausnahmen
 
-**Stufe:** `normal-SdT` · **Aufwand:** 0
+**Pflicht:** MUSS · **Stufe:** `normal-SdT` · **Aufwand:** 0
 
 > Umsetzung MUSS Ausnahmegenehmigungen für Verpflichtungen durch *[eine zuständige Person oder Rolle]* autorisieren.
 
@@ -73,7 +73,7 @@ Bei Zielkonflikten zwischen Verpflichtungen müssen diese gegeneinander abgewoge
 
 ### UMS.5.2 – Dokumentation von Ausnahmen
 
-**Stufe:** `normal-SdT` · **Aufwand:** 0
+**Pflicht:** MUSS · **Stufe:** `normal-SdT` · **Aufwand:** 0
 
 > Umsetzung MUSS Ausnahmegenehmigungen mit Begründung dokumentieren.
 
@@ -83,7 +83,7 @@ Um rechtlich bedeutsame Entscheidungen zur Informationsverarbeitung später nach
 
 ### UMS.6.1 – Nachverfolgung des Umsetzungsfortschritts
 
-**Stufe:** `normal-SdT` · **Aufwand:** 0
+**Pflicht:** MUSS · **Stufe:** `normal-SdT` · **Aufwand:** 0
 
 > Umsetzung MUSS ein Verfahren für die Nachverfolgung der Umsetzung von Maßnahmen verankern.
 
@@ -91,7 +91,7 @@ Es wird empfohlen, dass der Prozess zur Fortschrittsverfolgung der Umsetzung von
 
 ### UMS.6.2 – Fortschreibung des Umsetzungsplans
 
-**Stufe:** `normal-SdT` · **Aufwand:** 0
+**Pflicht:** MUSS · **Stufe:** `normal-SdT` · **Aufwand:** 0
 
 > Umsetzung MUSS ein Verfahren zur Fortschreibung des Umsetzungsplans verankern.
 
@@ -101,7 +101,7 @@ Die Fortschreibung sollte die Anpassung von Zeitplänen und Ressourcenzuweisunge
 
 ### UMS.7.1 – Wahrung von Compliance in der Umsetzung
 
-**Stufe:** `normal-SdT` · **Aufwand:** 0
+**Pflicht:** MUSS · **Stufe:** `normal-SdT` · **Aufwand:** 0
 
 > Umsetzung MUSS ein Verfahren zur Überprüfung von Compliance im Umsetzungsprozess verankern.
 

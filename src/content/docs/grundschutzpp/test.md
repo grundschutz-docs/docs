@@ -9,7 +9,7 @@ Die Praktik "Änderungen und Tests" stellt sicher, dass alle geplanten Veränder
 
 ### TEST.1.1 – Verfahren und Regelungen
 
-**Stufe:** `normal-SdT` · **Aufwand:** 0 · **Gefährdungen:** G 0.18
+**Pflicht:** MUSS · **Stufe:** `normal-SdT` · **Aufwand:** 0 · **Gefährdungen:** G 0.18
 
 > Änderungen und Tests MUSS Verfahren und Regelungen zum Management von Neueinführungen, Änderungen oder der Entfernung von Komponenten *[für den Informationsverbund, pro Geschäftsprozess oder pro IT-System]* verankern.
 
@@ -17,7 +17,7 @@ Verfahren und Regelungen beschreiben die formalisierten Abläufe, nach denen Än
 
 #### TEST.1.1.1 – Dokumentation
 
-**Stufe:** `normal-SdT` · **Aufwand:** 0 · **Gefährdungen:** G 0.18
+**Pflicht:** MUSS · **Stufe:** `normal-SdT` · **Aufwand:** 0 · **Gefährdungen:** G 0.18
 
 > Änderungen und Tests MUSS die Verfahren und Regelungen dokumentieren.
 
@@ -25,7 +25,7 @@ Ohne eine Dokumentation könnte die Einhaltung der Verfahren und Regelungen von 
 
 #### TEST.1.1.2 – Zuweisung der Aufgaben
 
-**Stufe:** `normal-SdT` · **Aufwand:** 0 · **Gefährdungen:** G 0.18
+**Pflicht:** MUSS · **Stufe:** `normal-SdT` · **Aufwand:** 0 · **Gefährdungen:** G 0.18
 
 > Änderungen und Tests MUSS die mit den Verfahren und Regelungen verbundenen Aufgaben *[zuständigen Personen oder Rollen]* zuweisen.
 
@@ -33,7 +33,7 @@ Die Zuweisung von Aufgaben bezeichnet die eindeutige und verbindliche Übertragu
 
 #### TEST.1.1.3 – Bekanntgabe
 
-**Stufe:** `normal-SdT` · **Aufwand:** 0 · **Gefährdungen:** G 0.18, G 0.29
+**Pflicht:** MUSS · **Stufe:** `normal-SdT` · **Aufwand:** 0 · **Gefährdungen:** G 0.18, G 0.29
 
 > Änderungen und Tests MUSS die zuständigen Personen oder Rollen über die Verfahren und Regelungen informieren.
 
@@ -41,7 +41,7 @@ Wenn die Zuständigen die etablierten Verfahren nicht kennen, besteht die Gefahr
 
 ### TEST.1.2 – Regelmäßige Überprüfung
 
-**Stufe:** `normal-SdT` · **Aufwand:** 0 · **Gefährdungen:** G 0.18
+**Pflicht:** MUSS · **Stufe:** `normal-SdT` · **Aufwand:** 0 · **Gefährdungen:** G 0.18
 
 > Änderungen und Tests MUSS die Verfahren und Regelungen *[regelmäßig]* und anlassbezogen auf Aktualität überprüfen.
 
@@ -49,7 +49,7 @@ Eine geplante Überprüfung der etablierten Verfahren und Regelungen dient dazu 
 
 ### TEST.1.3 – Einschränkung von Änderungen
 
-**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.18, G 0.30, G 0.23
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.18, G 0.30, G 0.23
 
 > Änderungen und Tests SOLLTE die Durchführung von Änderungen auf Administrierende einschränken.
 
@@ -59,7 +59,7 @@ Ziel ist es, zu verhindern, dass unautorisierte Personen Eingriffe in produktive
 
 ### TEST.2.1 – Versionshistorie
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.18
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.18
 
 > Änderungen und Tests SOLLTE eine Versionshistorie wesentlicher Änderungen protokollieren.
 
@@ -67,7 +67,7 @@ Wesentlich sind Änderungen, wenn sie Auswirkungen auf die Informationssicherhei
 
 ### TEST.2.2 – Folgenabschätzung
 
-**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.18
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.18
 
 > Änderungen und Tests für Administrierende SOLLTE zu einer strukturierten Folgenabschätzung vor wesentlichen Änderungen anweisen.
 
@@ -75,7 +75,7 @@ Sinnvoll ist es die Ausführlichkeit der Folgenabschätzung an Umfang und Reichw
 
 #### TEST.2.2.1 – Kategorisierung von Änderungen
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.18
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.18
 
 > Änderungen und Tests SOLLTE Änderungsvorhaben einer Kategorie zuweisen.
 
@@ -83,7 +83,7 @@ Dabei werden Änderungen je nach Abschätzung der Folgen in Kategorien einsortie
 
 #### TEST.2.2.2 – Anpassung der Dokumentation
 
-**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.18
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.18
 
 > Änderungen und Tests SOLLTE die geplanten Änderungen dokumentieren.
 
@@ -91,7 +91,7 @@ Je nach Inhalt der Änderung können hierzu Konfigurationsdateien, Sicherheitsri
 
 #### TEST.2.2.3 – Dokumentation der Abhängigkeiten
 
-**Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.18, G 0.28, G 0.25
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.18, G 0.28, G 0.25
 
 > Änderungen und Tests SOLLTE von der Änderung betroffene Abhängigkeiten dokumentieren.
 
@@ -101,7 +101,7 @@ Betroffene Abhängigkeiten sind sowohl alle Systeme und Anwendungen, die durch d
 
 ### TEST.3.1 – Sicherheitstest
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.26, G 0.28, G 0.27
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.26, G 0.28, G 0.27
 
 > Änderungen und Tests SOLLTE vor wesentlichen Änderungen die Einhaltung der Sicherheitsanforderungen testen.
 
@@ -109,7 +109,7 @@ Betroffene Abhängigkeiten sind sowohl alle Systeme und Anwendungen, die durch d
 
 #### TEST.3.1.1 – Dokumentation von Testergebnissen
 
-**Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.18, G 0.37, G 0.28, G 0.26
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.18, G 0.37, G 0.28, G 0.26
 
 > Änderungen und Tests SOLLTE Tests einschließlich Prüfschritte, Ergebnissen und ggf. vorgenommenen Korrekturen dokumentieren.
 
@@ -117,7 +117,7 @@ Die Dokumentation von Tests zielt primär darauf ab, Transparenz und Nachvollzie
 
 #### TEST.3.1.2 – Verwendung externer Software
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.28, G 0.46, G 0.20
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.28, G 0.46, G 0.20
 
 > Änderungen und Tests SOLLTE die Einbindung externer Softwareartefakte und -Schnittstellen aus unzuverlässigen oder unbekannten Quellen untersagen.
 
@@ -125,7 +125,7 @@ Externe Softwareartefakte sind in diesem Kontext nicht von der Institution entwi
 
 #### TEST.3.1.3 – Integritätstest
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.28, G 0.20, G 0.23
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.28, G 0.20, G 0.23
 
 > Änderungen und Tests SOLLTE die Integrität von Softwareartefakten testen.
 
@@ -133,7 +133,7 @@ Softwareartefakte sind in diesem Kontext Anwendungen oder ihre Bestandteile wie 
 
 #### TEST.3.1.4 – Testdaten
 
-**Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.26, G 0.28
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.26, G 0.28
 
 > Änderungen und Tests SOLLTE die Testfälle abdeckende, aber unkritische Testdaten verankern.
 
@@ -141,7 +141,7 @@ Testdaten (engl. test data) sind synthetisch erstellte oder abstrahierte Daten, 
 
 #### TEST.3.1.5 – Testumgebung
 
-**Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.28, G 0.18
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.28, G 0.18
 
 > Änderungen und Tests SOLLTE eine dedizierte Testumgebung installieren.
 
@@ -149,7 +149,7 @@ Eine dedizierte Testumgebung (auch Entwicklungsumgebung oder Laborumgebung genan
 
 #### TEST.3.1.6 – Kontinuierliche Tests
 
-**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.28, G 0.18
+**Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.28, G 0.18
 
 > Änderungen und Tests KANN die Auswirkungen bei jeder Änderung automatisch testen.
 
@@ -157,7 +157,7 @@ Eine dedizierte Testumgebung (auch Entwicklungsumgebung oder Laborumgebung genan
 
 #### TEST.3.1.7 – Chaos Engineering
 
-**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.28, G 0.26
+**Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.28, G 0.26
 
 > Änderungen und Tests KANN die Resilienz bei Simulation verschiedenartiger Störungen testen.
 
@@ -165,7 +165,7 @@ Chaos Engineering kann helfen, die Zuverlässigkeit von Systemen oder Anwendunge
 
 #### TEST.3.1.8 – Analyse der Zusammensetzung
 
-**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.23, G 0.46
+**Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.23, G 0.46
 
 > Änderungen und Tests KANN die Zusammensetzung der Änderungen testen.
 
@@ -173,7 +173,7 @@ Eine Analyse der Zusammensetzung (Composition Analysis) ist die systematische Un
 
 #### TEST.3.1.9 – Fuzzing
 
-**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.23, G 0.28
+**Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.23, G 0.28
 
 > Änderungen und Tests KANN die Stabilität gegen Fehlerzustände oder Abstürze bei der Eingabe großer Mengen an Zufallsdaten testen.
 
@@ -181,7 +181,7 @@ Fuzzing ist eine automatisierte Softwaretestmethode, mit der unerwartete Schwach
 
 #### TEST.3.1.10 – Lasttest
 
-**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.28, G 0.18
+**Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.28, G 0.18
 
 > Änderungen und Tests KANN die Belastbarkeit bei hoher Auslastung testen.
 
@@ -189,7 +189,7 @@ Ziel ist es, die Dimensionierung der Ressourcen zu verifizieren und Fehler zu en
 
 #### TEST.3.1.11 – Penetrationstest bei Änderungen
 
-**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.28, G 0.18, G 0.23
+**Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.28, G 0.18, G 0.23
 
 > Änderungen und Tests KANN bekannte Schwachstellen bei kritischen Änderungen testen.
 
@@ -197,7 +197,7 @@ Bei einem Penetrationstest führen qualifizierte Sicherheitsexperten kontrollier
 
 ### TEST.3.2 – Testabdeckung
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.28, G 0.18, G 0.27
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.28, G 0.18, G 0.27
 
 > Änderungen und Tests SOLLTE die Testabdeckung *[regelmäßig]* überprüfen.
 
@@ -207,7 +207,7 @@ Ein ungenügendes Testverfahren könnte beispielsweise dazu führen, dass Schwac
 
 ### TEST.4.1 – Autorisierung von Änderungen
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.18
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.18
 
 > Änderungen und Tests SOLLTE kritische Änderungen anhand von Kriterien einschließlich der Sicherheitsanforderungen autorisieren.
 
@@ -215,7 +215,7 @@ Ein ungenügendes Testverfahren könnte beispielsweise dazu führen, dass Schwac
 
 #### TEST.4.1.1 – Unabhängigkeit der Autorisierung
 
-**Stufe:** `erhöht` · **Aufwand:** 4 · **Gefährdungen:** G 0.18
+**Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 4 · **Gefährdungen:** G 0.18
 
 > Änderungen und Tests KANN kritische Änderungen auch durch eine von der Implementierung unabhängige Person autorisieren.
 
@@ -223,7 +223,7 @@ Eine Freigabe durch eine unabhängige Person ist die nachweisliche Bestätigung 
 
 #### TEST.4.1.2 – Staging
 
-**Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.25, G 0.26, G 0.18
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.25, G 0.26, G 0.18
 
 > Änderungen und Tests SOLLTE die freizugebenden Änderungen in einer von der Produktumgebung getrennten Staging-Umgebung, deren Komponenten so weit wie möglich der Produktivumgebung entsprechen, testen.
 
@@ -231,7 +231,7 @@ Eine Staging-Umgebung ist von der Produktivumgebung getrennt, wenn sie keine IT-
 
 #### TEST.4.1.3 – Dokumentation der Freigabe
 
-**Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.18, G 0.37
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.18, G 0.37
 
 > Änderungen und Tests SOLLTE die Freigabe einschließlich Zeitpunkt, Vorhaben, Freigabekriterien und freigebender Personen dokumentieren.
 
@@ -239,7 +239,7 @@ Je nach Organisationstruktur kann es sinnvoll sein, weitere Angaben aufzuführen
 
 ### TEST.4.2 – Signatur
 
-**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.26, G 0.25
+**Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.26, G 0.25
 
 > Änderungen und Tests KANN eine Signatur der Freigabeerklärung ausführen.
 
@@ -247,7 +247,7 @@ Die Signatur der Freigabeerklärung ist hier als eine digitale oder handschriftl
 
 ### TEST.4.3 – Rückfallösung
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.18
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.18
 
 > Änderungen und Tests SOLLTE eine Rückfallösung verankern.
 
@@ -255,7 +255,7 @@ Kritisch sind administrative Änderungen an geschäftskritischen Systemen, da ih
 
 ### TEST.4.4 – Geregelte Notfalländerungen
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.18, G 0.27
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.18, G 0.27
 
 > Änderungen und Tests SOLLTE Regelungen für Notfalländerungen einschließlich Vorgehensweise, Zuständigkeiten, erforderlicher Ressourcen und minimaler Prüfschritte verankern.
 
@@ -265,7 +265,7 @@ Ein Notfall-Deployment-Prozess ermöglicht eine schnelle Reaktion auf akute Bedr
 
 ### TEST.5.1 – Information betroffener Kreise
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.18, G 0.25
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.18, G 0.25
 
 > Änderungen und Tests SOLLTE von der Änderung betroffene Kreise informieren.
 
@@ -273,7 +273,7 @@ Betroffene Kreise können je nach Vorhaben z.B. interne oder externe Nutzende, I
 
 ### TEST.5.2 – Verschlüsselte Bereitstellung
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.23, G 0.14, G 0.41, G 0.21
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.23, G 0.14, G 0.41, G 0.21
 
 > Änderungen und Tests SOLLTE die Bereitstellung verschlüsseln.
 
@@ -281,7 +281,7 @@ Das Konzept der Bereitstellung (engl. Deployment oder Provisioning) bezieht sich
 
 ### TEST.5.3 – Schrittweiser Rollout
 
-**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.18
+**Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.18
 
 > Änderungen und Tests KANN die Inbetriebnahme stufenweise ausführen.
 
@@ -289,7 +289,7 @@ Inbetriebnahme (engl. deployment oder rollout) meint hier die technische und org
 
 ### TEST.5.4 – Persistenz
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.23, G 0.22, G 0.43, G 0.18
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.23, G 0.22, G 0.43, G 0.18
 
 > Änderungen und Tests SOLLTE die Persistenz nach wesentlichen Änderungen testen.
 
@@ -297,7 +297,7 @@ Persistenz bedeutet hier, dass eine wesentliche Änderung nach ihrer Einführung
 
 ### TEST.5.5 – Rückblick
 
-**Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.18
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.18
 
 > Änderungen und Tests SOLLTE die Erreichung der Bereitstellungsziele *[regelmäßig]* überprüfen.
 

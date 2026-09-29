@@ -9,7 +9,7 @@ Die Praktik Architektur definiert die grundlegende Struktur sowie die Sicherheit
 
 ### ARCH.1.1 – Verfahren und Regelungen
 
-**Stufe:** `normal-SdT` · **Aufwand:** 0 · **Gefährdungen:** G 0.18, G 0.29, G 0.30
+**Pflicht:** MUSS · **Stufe:** `normal-SdT` · **Aufwand:** 0 · **Gefährdungen:** G 0.18, G 0.29, G 0.30
 
 > Architektur MUSS Verfahren und Regelungen zur Architektur des Netzes und damit verbundener Infrastrukturen verankern.
 
@@ -17,7 +17,7 @@ Die Netzarchitektur ist der strukturierte Entwurf einer Netzinfrastruktur, einsc
 
 #### ARCH.1.1.1 – Dokumentation
 
-**Stufe:** `normal-SdT` · **Aufwand:** 0 · **Gefährdungen:** G 0.18, G 0.37, G 0.29
+**Pflicht:** MUSS · **Stufe:** `normal-SdT` · **Aufwand:** 0 · **Gefährdungen:** G 0.18, G 0.37, G 0.29
 
 > Architektur MUSS die Verfahren und Regelungen dokumentieren.
 
@@ -25,7 +25,7 @@ Ohne eine Dokumentation könnte die Einhaltung der Verfahren und Regelungen von 
 
 #### ARCH.1.1.2 – Zuweisung der Aufgaben
 
-**Stufe:** `normal-SdT` · **Aufwand:** 0 · **Gefährdungen:** G 0.18, G 0.31
+**Pflicht:** MUSS · **Stufe:** `normal-SdT` · **Aufwand:** 0 · **Gefährdungen:** G 0.18, G 0.31
 
 > Architektur MUSS die mit den Verfahren und Regelungen verbundenen Aufgaben *[zuständigen Personen oder Rollen]* zuweisen.
 
@@ -33,7 +33,7 @@ Die Zuweisung von Aufgaben bezeichnet die eindeutige und verbindliche Übertragu
 
 #### ARCH.1.1.3 – Bekanntgabe
 
-**Stufe:** `normal-SdT` · **Aufwand:** 0 · **Gefährdungen:** G 0.18, G 0.29
+**Pflicht:** MUSS · **Stufe:** `normal-SdT` · **Aufwand:** 0 · **Gefährdungen:** G 0.18, G 0.29
 
 > Architektur MUSS die zuständigen Personen oder Rollen über die Verfahren und Regelungen informieren.
 
@@ -41,7 +41,7 @@ Wenn die Zuständigen die etablierten Verfahren nicht kennen, besteht die Gefahr
 
 ### ARCH.1.2 – Regelmäßige Überprüfung
 
-**Stufe:** `normal-SdT` · **Aufwand:** 0 · **Gefährdungen:** G 0.18, G 0.29, G 0.31
+**Pflicht:** MUSS · **Stufe:** `normal-SdT` · **Aufwand:** 0 · **Gefährdungen:** G 0.18, G 0.29, G 0.31
 
 > Architektur MUSS die Verfahren und Regelungen *[regelmäßig]* und anlassbezogen auf Aktualität überprüfen.
 
@@ -51,7 +51,7 @@ Eine geplante Überprüfung der etablierten Verfahren und Regelungen dient dazu 
 
 ### ARCH.2.1 – Netzsegmente
 
-**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.23, G 0.19, G 0.30, G 0.47
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.23, G 0.19, G 0.30, G 0.47
 
 > Architektur für Netze SOLLTE eine Unterteilung des internen Netzes in Netzsegmente unter Berücksichtigung der Anforderungen der Institution und des Schutzbedarfes verankern.
 
@@ -59,7 +59,7 @@ Die Aufteilung in Netzsegmente (auch Netzdomänen oder Subnetze genannt) ermögl
 
 ### ARCH.2.2 – Einschränkung von Verbindungen zwischen Segmenten
 
-**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.23, G 0.47, G 0.40
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.23, G 0.47, G 0.40
 
 > Architektur für Netze SOLLTE Verbindungen zwischen Netzsegmenten anhand von *[Kriterien]* einschränken.
 
@@ -67,7 +67,7 @@ Dient dem Ziel, die Angriffsfläche innerhalb interner und externer Netze zu red
 
 #### ARCH.2.2.1 – Externe Netzanschlüsse
 
-**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.14, G 0.23, G 0.39, G 0.40, G 0.9, G 0.47
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.14, G 0.23, G 0.39, G 0.40, G 0.9, G 0.47
 
 > Architektur für Netze SOLLTE Verbindungen über externe Netzanschlüsse einschränken.
 
@@ -75,7 +75,7 @@ Dient dazu, die Angriffsfläche zu reduzieren, unerwünschte Ein- und Ausleitung
 
 #### ARCH.2.2.2 – Gastnetz
 
-**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.23
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.23
 
 > Architektur für Netze SOLLTE Verbindungen zwischen Gastnetz und internem Netz einschränken.
 
@@ -83,7 +83,7 @@ Wenn Gäste der Institution sich mit dem internen Netz verbinden, könnten Schad
 
 #### ARCH.2.2.3 – Segmentierung von Servern und Clients
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.23, G 0.9, G 0.40
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.23, G 0.9, G 0.40
 
 > Architektur für Netze SOLLTE Verbindungen zwischen Hostsystemen und Clients einschränken.
 
@@ -91,7 +91,7 @@ Die Anforderung gilt auch, wenn die IT-Systeme nur noch als VMs oder Container 
 
 #### ARCH.2.2.4 – VoIP-Netz
 
-**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.23, G 0.9, G 0.40
+**Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.23, G 0.9, G 0.40
 
 > Architektur für Netze KANN Verbindungen zwischen Daten- und VoIP-Systemen einschränken.
 
@@ -99,7 +99,7 @@ Werden sowohl Telefonie als auch andere Daten über dasselbe Netz geführt, so k
 
 #### ARCH.2.2.5 – OT-Systeme
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.23, G 0.9, G 0.40
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.23, G 0.9, G 0.40
 
 > Architektur für Netze SOLLTE Verbindungen zwischen OT-Systemen und anderen IT-Systemen einschränken.
 
@@ -107,7 +107,7 @@ IT- und OT-Systeme haben typischerweise sehr unterschiedliche Risikoprofile (IT:
 
 #### ARCH.2.2.6 – Demilitarisierte Zone
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.23, G 0.47
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.23, G 0.47
 
 > Architektur für Netze SOLLTE eine demilitarisierte Zone installieren.
 
@@ -115,7 +115,7 @@ Unter einer Demilitarisierten Zone versteht man in diesem Kontext ein logisch od
 
 #### ARCH.2.2.7 – Management-Netz
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.30, G 0.23, G 0.32, G 0.19
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.30, G 0.23, G 0.32, G 0.19
 
 > Architektur für Netze SOLLTE ein oder mehrere Management-Netze installieren.
 
@@ -123,7 +123,7 @@ Ein Management-Netz ist ein physisch oder durch Netzfilter separiertes Netzsegme
 
 #### ARCH.2.2.8 – Segmentierung von Test und Betrieb
 
-**Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.23, G 0.26, G 0.20, G 0.28
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.23, G 0.26, G 0.20, G 0.28
 
 > Architektur für Netze SOLLTE Verbindungen zwischen Testumgebungen und Betrieb einschränken.
 
@@ -131,7 +131,7 @@ Entwicklungs-, Staging- und Testumgebungen haben oft geringere Sicherheitsvorkeh
 
 #### ARCH.2.2.9 – Segmentierung von IPv4 und IPv6
 
-**Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.23, G 0.18, G 0.39
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.23, G 0.18, G 0.39
 
 > Architektur für Netze SOLLTE Verbindungen zwischen IPv4 und IPv6 einschränken.
 
@@ -139,7 +139,7 @@ IPv4 und IPv6 sind grundlegende Netzprotokolle, die unterschiedliche Protokollst
 
 #### ARCH.2.2.10 – Drucker-Netz
 
-**Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.30, G 0.18, G 0.39
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.30, G 0.18, G 0.39
 
 > Architektur für Netze SOLLTE Verbindungen zwischen Druckern und anderen Systemen einschränken.
 
@@ -147,7 +147,7 @@ Drucker können Schwachstellen aufweisen, die Angreifer ausnutzen, z.B. veraltet
 
 #### ARCH.2.2.11 – Physische Segmentierung
 
-**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.18, G 0.29, G 0.23, G 0.9
+**Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.18, G 0.29, G 0.23, G 0.9
 
 > Architektur für Netze KANN den physischen Zugang auf diese einschränken.
 
@@ -155,7 +155,7 @@ Obwohl sich eine virtuelle Vernetzung immer größerer Beliebtheit erfreut, kön
 
 #### ARCH.2.2.12 – Sprungserver
 
-**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.23, G 0.30, G 0.15
+**Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.23, G 0.30, G 0.15
 
 > Architektur KANN Sprungserver installieren.
 
@@ -163,7 +163,7 @@ Ein Sprungserver (englisch „jump server“ oder „jump host“) ist ein spezi
 
 ### ARCH.2.3 – Mikrosegmentierung
 
-**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.23, G 0.30, G 0.15
+**Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.23, G 0.30, G 0.15
 
 > Architektur für IT-Systeme KANN Verbindungen zu allen anderen IT-Systemen einschränken.
 
@@ -171,7 +171,7 @@ Mikrosegmentierung ist die Unterteilung des Netzes in möglichst kleine Segmente
 
 ### ARCH.2.4 – Inventar der Netze
 
-**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.18, G 0.23, G 0.30
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.18, G 0.23, G 0.30
 
 > Architektur SOLLTE ein Inventar der Netze einschließlich interner Segmente, externer Netzanschlüsse und deren Verwendungszweck dokumentieren.
 
@@ -179,7 +179,7 @@ Die Erfassung externer Netzanschlüsse – etwa zu Partnernetzen, Cloud-Diensten
 
 ### ARCH.2.5 – Netzplan
 
-**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.23, G 0.30, G 0.18, G 0.37
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.23, G 0.30, G 0.18, G 0.37
 
 > Architektur für Netze SOLLTE einen Netzplan dokumentieren.
 
@@ -187,7 +187,7 @@ Ein Netzplan (engl. network diagram) stellt eine schematische Darstellung der lo
 
 ### ARCH.2.6 – Topologieüberwachung
 
-**Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.19, G 0.30, G 0.22, G 0.41
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.19, G 0.30, G 0.22, G 0.41
 
 > Architektur für Netze SOLLTE die Einhaltung der Netzarchitektur *[regelmäßig]* überprüfen.
 
@@ -197,7 +197,7 @@ Unbeabsichtigte Netzverbindungen können z.B. über falsch gesteckte Kabel, WLAN
 
 ### ARCH.3.1 – Netzabdeckung
 
-**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.18, G 0.43
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.18, G 0.43
 
 > Architektur für WLANs SOLLTE die Netzabdeckung testen.
 
@@ -205,7 +205,7 @@ Drahtlose Netzanbindungen sind schwerer zu schützen als kabelgebundene Netze, d
 
 ### ARCH.3.2 – Einschränkung in Sicherheitsbereichen
 
-**Stufe:** `erhöht` · **Aufwand:** 4 · **Gefährdungen:** G 0.18, G 0.16
+**Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 4 · **Gefährdungen:** G 0.18, G 0.16
 
 > Architektur für WLANs KANN in Sicherheitsbereichen die Ausstrahlung einschränken.
 
@@ -213,7 +213,7 @@ Hierzu gehören beispielsweise abhörsichere Räume oder Serverräume, von denen
 
 ### ARCH.3.3 – SSIDs
 
-**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.18, G 0.23
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.18, G 0.23
 
 > Architektur für WLANs SOLLTE institutionsspezifische SSIDs aktivieren.
 
@@ -221,7 +221,7 @@ Viele WLAN-Geräte bringen ab Werk eingestellte Netznamen (Default SSID) mit, au
 
 ### ARCH.3.4 – Verschlüsselte Netzanbindung
 
-**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.23, G 0.15, G 0.43
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.23, G 0.15, G 0.43
 
 > Architektur für WLANs SOLLTE die Netzanbindung *[nach einem anerkannten Standard]* verschlüsseln.
 
@@ -231,7 +231,7 @@ Ohne eine sichere Verschlüsselung könnte ein Angreifer durch „Sniffing“ se
 
 ### ARCH.4.1 – Netzzugangskontrolle
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.18, G 0.23
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.18, G 0.23
 
 > Architektur für Interne Netzsegmente SOLLTE den Zugriff von IT-Systemen auf das Netzsegment im Einklang mit den zugehörigen Anforderungen des Identitäts- und Berechtigungsmanagements authentifizieren.
 
@@ -239,7 +239,7 @@ Unautorisierte Systeme könnten Ausgangspunkt von Angriffen sein oder zu unbeabs
 
 #### ARCH.4.1.1 – Dynamische Netzzugangskontrolle
 
-**Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.18, G 0.36
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.18, G 0.36
 
 > Architektur für Interne Netzsegmente SOLLTE den Zugriff von IT-Systemen auf das Netzsegment anhand *[dynamischer Kriterien]* im Einklang mit den zugehörigen Anforderungen des Identitäts- und Berechtigungsmanagements authentifizieren.
 
@@ -247,7 +247,7 @@ Bei der dynamischen Netzzugangskontrolle (Posturing oder Dynamic NAC) wird vor d
 
 #### ARCH.4.1.2 – Quarantäne
 
-**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.18
+**Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.18
 
 > Architektur für Interne Netzsegmente KANN ein Quarantänenetz für nicht authentifizierte IT-Systeme installieren.
 
@@ -255,7 +255,7 @@ Wenn Systeme aufgrund bestimmter Voraussetzungen sich nicht authentifizieren (z.
 
 ### ARCH.4.2 – Autorisiertes Routing
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.18, G 0.22
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.18, G 0.22
 
 > Architektur für Netze SOLLTE Routing-Verbindungen durch *[eine zuständige Person oder Rolle]* autorisieren.
 
@@ -263,7 +263,7 @@ Dient der Kontrolle von Netzarchitekturen, um unbeabsichtigte oder böswillige �
 
 ### ARCH.4.3 – Authentifizierung von Routingprotokollen
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.18, G 0.23
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.18, G 0.23
 
 > Architektur für Netze SOLLTE Änderungen an Routing-Tabellen im Einklang mit den zugehörigen Anforderungen des Identitäts- und Berechtigungsmanagements authentifizieren.
 
@@ -273,7 +273,7 @@ Hierzu zählt z.B. die Authentifizierung von BGP/OSPF-Sitzungen zur Verhinderung
 
 ### ARCH.5.1 – Einschränkung und Inspektion von Verbindungen
 
-**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.23, G 0.14, G 0.30
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.23, G 0.14, G 0.30
 
 > Architektur für Netze SOLLTE Verbindungen zwischen IT-Systemen einschränken.
 
@@ -281,7 +281,7 @@ Hierzu zählt z.B. die Authentifizierung von BGP/OSPF-Sitzungen zur Verhinderung
 
 #### ARCH.5.1.1 – Blockieren anfälliger Netzprotokolle
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.23
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.23
 
 > Architektur für Netze SOLLTE anfällige Netzwerkprotokolle blockieren.
 
@@ -289,7 +289,7 @@ Anfällig sind Netzprotokolle, wenn sie veraltete oder gar keine Algorithmen zur
 
 #### ARCH.5.1.2 – Netzbasierte Angriffe
 
-**Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.23, G 0.40
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.23, G 0.40
 
 > Architektur für Netze SOLLTE bekannte netzbasierte Angriffsmethoden blockieren.
 
@@ -297,7 +297,7 @@ Netzbasierte Angriffe verwenden Netzwerktechnologien (typischerweise auf OSI Lay
 
 #### ARCH.5.1.3 – TCP-basierte Angriffe
 
-**Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.23, G 0.40
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.23, G 0.40
 
 > Architektur für Netze SOLLTE bekannte TCP-basierte Angriffsmethoden blockieren.
 
@@ -305,7 +305,7 @@ TCP ist das am meisten verwendete Protokoll für die zuverlässige Datenübertra
 
 #### ARCH.5.1.4 – UDP-basierte Angriffe
 
-**Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.23, G 0.40
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.23, G 0.40
 
 > Architektur für Netze SOLLTE bekannte UDP-basierte Angriffsmethoden blockieren.
 
@@ -313,7 +313,7 @@ UDP-basierte Angriffsmethoden (englisch: known UDP-based attack vectors) sind hi
 
 #### ARCH.5.1.5 – Deaktivierung von Split Tunneling
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.23, G 0.14
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.23, G 0.14
 
 > Architektur für Externe Netzanschlüsse SOLLTE Split Tunneling blockieren.
 
@@ -321,7 +321,7 @@ Um eine durchgehende Kontrolle und Absicherung des Netzverkehrs zu gewährleiste
 
 #### ARCH.5.1.6 – Blockieren direkter Management-Verbindungen
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.23, G 0.40
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.23, G 0.40
 
 > Architektur für Externe Netzanschlüsse SOLLTE Verbindungen zu Management-Schnittstellen blockieren.
 
@@ -329,7 +329,7 @@ Zum Internet offene Management-Schnittstellen werden von Angreifern durch Scans 
 
 #### ARCH.5.1.7 – Edge-Routing
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.23, G 0.30, G 0.43
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.23, G 0.30, G 0.43
 
 > Architektur für Externe Netzanschlüsse SOLLTE dynamische Routingprotokolle blockieren.
 
@@ -337,7 +337,7 @@ Dynamische Routingprotokolle könnten versehentlich oder durch Angriffe unerwün
 
 #### ARCH.5.1.8 – Inspektion verschlüsselter Verbindungen
 
-**Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.23, G 0.39, G 0.30
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.23, G 0.39, G 0.30
 
 > Architektur für Externe Netzanschlüsse SOLLTE den Inhalt unverschlüsselter und verschlüsselter Verbindungen basierend auf der Art des Inhalts einschränken.
 
@@ -345,7 +345,7 @@ Verschlüsselte Verbindungen wie VoIP über TLS oder HTTPS-Anfragen können übe
 
 #### ARCH.5.1.9 – Filterung von DNS
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.23, G 0.14, G 0.39
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.23, G 0.14, G 0.39
 
 > Architektur für Externe Netzanschlüsse SOLLTE unerwünschte Inhalte in DNS-Verbindungen einschränken.
 
@@ -353,7 +353,7 @@ Unerwünschte Inhalte sind DNS-Anfragen oder -Antworten, die für Geschäftsproz
 
 #### ARCH.5.1.10 – Webfilterung
 
-**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.39, G 0.28, G 0.14, G 0.23
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.39, G 0.28, G 0.14, G 0.23
 
 > Architektur für Externe Netzanschlüsse SOLLTE den Zugriff auf Webinhalte anhand von *[Kriterien]* einschränken.
 
@@ -361,7 +361,7 @@ Das World Wide Web ist für zahlreiche Geschäftsprozesse essenziell. Anderersei
 
 ##### ARCH.5.1.10.1 – Bekannte schädliche Inhalte
 
-**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.39, G 0.28, G 0.14, G 0.23
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.39, G 0.28, G 0.14, G 0.23
 
 > Architektur für Externe Netzanschlüsse SOLLTE bekannte schädliche Inhalte einschränken.
 
@@ -369,7 +369,7 @@ Hierzu gehören beispielsweise Schadprogramme, Phishing, Malware Command & Contr
 
 ##### ARCH.5.1.10.2 – Bekannte illegale Inhalte
 
-**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.39, G 0.28, G 0.14, G 0.23
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.39, G 0.28, G 0.14, G 0.23
 
 > Architektur für Externe Netzanschlüsse SOLLTE bekannte illegale Inhalte einschränken.
 
@@ -377,7 +377,7 @@ Gerade bei größeren Webdiensten kann es vorkommen, dass hierüber immer wieder
 
 ##### ARCH.5.1.10.3 – Speicherdienste
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.39, G 0.28, G 0.14, G 0.23
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.39, G 0.28, G 0.14, G 0.23
 
 > Architektur für Externe Netzanschlüsse SOLLTE Speicherdienste einschränken.
 
@@ -385,7 +385,7 @@ Ausnahmen können sinnvoll sein, wenn es nach den Geschäftsprozessen erforderli
 
 #### ARCH.5.1.11 – P-A-P-Struktur
 
-**Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.19, G 0.30, G 0.40
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.19, G 0.30, G 0.40
 
 > Architektur für Externe Netzanschlüsse SOLLTE eine P-A-P-Struktur für eingehende und ausgehende Verbindungen installieren.
 
@@ -393,7 +393,7 @@ Die P-A-P-Struktur besteht aus 2 Paketfiltern (P) und einem Filter auf Anwendung
 
 #### ARCH.5.1.12 – Software-definierte Verbindungen
 
-**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.19, G 0.30
+**Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.19, G 0.30
 
 > Architektur für Netze KANN Verbindungen zwischen IT-Systemen anhand dynamischer Kriterien einschränken.
 
@@ -401,7 +401,7 @@ Software-definierte Verbindungen sind logisch kontrollierte Netzwerkpfade, deren
 
 #### ARCH.5.1.13 – Produktdiversität
 
-**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.19, G 0.30
+**Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.19, G 0.30
 
 > Architektur für Externe Netzanschlüsse KANN für die Filterung diverse Produkte unterschiedlicher Hersteller für eingehende und ausgehende Verbindungen installieren.
 
@@ -409,7 +409,7 @@ Wenn nur gleichartige Filtersysteme verwendet werden, könnten Angreifer eine Sc
 
 ### ARCH.5.2 – Blockieren direkter öffentlicher Verbindungen
 
-**Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.23, G 0.14
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.23, G 0.14
 
 > Architektur für IT-Systeme SOLLTE direkte Verbindungen von diesen ins öffentliche Netz blockieren.
 
@@ -419,7 +419,7 @@ Direkte Verbindungen sind hier alle Verbindungen, die nicht von der Filterung er
 
 ### ARCH.6.1 – Kontrollierte Verbindungsführung
 
-**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.23, G 0.14
+**Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.23, G 0.14
 
 > Architektur für Externe Netzanschlüsse KANN eine *[physisch oder logisch]* kontrollierte Verbindungsführung für Weitverkehrsverbindungen aktivieren.
 
@@ -427,7 +427,7 @@ Unter einer physisch kontrollierten Verbindungsführung kann in diesem Kontext d
 
 ### ARCH.6.2 – Verschlüsselung von Weiterverkehrsverbindungen
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.15, G 0.14, G 0.18
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.15, G 0.14, G 0.18
 
 > Architektur für Externe Netzanschlüsse SOLLTE Verbindungen ins Weitverkehrsnetz nach *[einem anerkannten Standard]* verschlüsseln.
 
@@ -437,7 +437,7 @@ Ohne ein etabliertes Verschlüsselungsverfahren könnte sensible Kommunikation i
 
 ### ARCH.7.1 – Dedizierte Hostsysteme für Server
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.25, G 0.28, G 0.23
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.25, G 0.28, G 0.23
 
 > Architektur für Anwendungen SOLLTE Serverdienste ausschließlich auf für die Anwendung dedizierten *[virtuellen oder physischen]* Hostsystemen platzieren.
 
@@ -445,7 +445,7 @@ Ohne ein etabliertes Verschlüsselungsverfahren könnte sensible Kommunikation i
 
 ### ARCH.7.2 – Dedizierte Hardware
 
-**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.27, G 0.18
+**Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.27, G 0.18
 
 > Architektur für Hostsysteme KANN diese auf dedizierter Hardware platzieren.
 
@@ -453,7 +453,7 @@ Um die Verfügbarkeit ausreichender Ressourcen sicherzustellen und zyklische Abh
 
 ### ARCH.7.3 – Entwicklungs- und Testumgebungen
 
-**Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.18, G 0.46, G 0.19
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.18, G 0.46, G 0.19
 
 > Architektur für Virtualisierungslösungen SOLLTE Entwicklungs- und Testumgebungen nicht auf produktiven Hostsystemen platzieren.
 
@@ -463,7 +463,7 @@ Entwicklungs- und Testumgebungen sind dabei Umgebungen, in denen Software noch n
 
 ### ARCH.8.1 – Redundanz im Kernnetz
 
-**Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.25, G 0.11, G 0.9, G 0.18
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.25, G 0.11, G 0.9, G 0.18
 
 > Architektur für Netze SOLLTE für das Kernnetz redundante Netzkomponenten installieren.
 
@@ -471,7 +471,7 @@ Ziel hierbei ist es, dass beim Ausfall eines Systems oder einer Systemkomponente
 
 ### ARCH.8.2 – Redundante TK-Anbindung
 
-**Stufe:** `erhöht` · **Aufwand:** 4 · **Gefährdungen:** G 0.9, G 0.27, G 0.25, G 0.11
+**Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 4 · **Gefährdungen:** G 0.9, G 0.27, G 0.25, G 0.11
 
 > Architektur für Externe Netzanschlüsse KANN redundante TK-Anbindungen für eingehende und ausgehende Verbindungen installieren.
 
@@ -479,7 +479,7 @@ Telekommunikationsanbindungen sind z.B. SIP-Trunks zum öffentlichen Telefonnetz
 
 ### ARCH.8.3 – Redundante Server
 
-**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.25, G 0.9, G 0.40, G 0.27
+**Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.25, G 0.9, G 0.40, G 0.27
 
 > Architektur für Anwendungen KANN für die Funktionsfähigkeit der Anwendung erforderliche Hostsysteme redundant installieren.
 
@@ -489,7 +489,7 @@ Redundanz ist gegeben, wenn sowohl das System als auch seine Netzanbindung redun
 
 ### ARCH.9.1 – Dimensionierung der Netzanbindung
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.18, G 0.27
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.18, G 0.27
 
 > Architektur für Netze SOLLTE eine bedarfsgerechte Netzanbindung installieren.
 
@@ -497,7 +497,7 @@ Für die Verfügbarkeit und Leistungsfähigkeit kritischer Geschäfts‑ und Fac
 
 ### ARCH.9.2 – Lastverteilung
 
-**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.18, G 0.27
+**Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.18, G 0.27
 
 > Architektur für Anwendungen KANN eine *[netzbasierte oder serverbasierte]* automatische Lastverteilung aktivieren.
 
@@ -505,7 +505,7 @@ Netzbasierte Lastverteilung bedeutet hier, dass ein dedizierter Netzwerkdienst �
 
 ### ARCH.9.3 – Automatische Skalierung
 
-**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.27
+**Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.27
 
 > Architektur für Anwendungen KANN eine automatische Skalierung der von der Anwendung verwendeten Computerinstanzen anhand von *[Schwellwerten]* aktivieren.
 
@@ -513,7 +513,7 @@ Automatische Skalierung ist die Fähigkeit einer Anwendungsarchitektur, die Anza
 
 ### ARCH.9.4 – Content Delivery Network
 
-**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.18, G 0.27, G 0.25
+**Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.18, G 0.27, G 0.25
 
 > Architektur für Anwendungen KANN ein Content Delivery Network installieren.
 
@@ -521,7 +521,7 @@ Ein Content Delivery Network (CDN) ist ein Netz geographisch verteilter Server, 
 
 ### ARCH.9.5 – Schutz gegen volumetrische DoS-Angriffe
 
-**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.27, G 0.40, G 0.25
+**Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.27, G 0.40, G 0.25
 
 > Architektur für Netze KANN Schutzmaßnahmen gegen volumetrische DoS-Angriffe aktivieren.
 

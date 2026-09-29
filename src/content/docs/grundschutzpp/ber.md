@@ -9,7 +9,7 @@ Die Praktik Berechtigung stellt sicher, dass ausschließlich autorisierte Person
 
 ### BER.1.1 – Verfahren und Regelungen
 
-**Stufe:** `normal-SdT` · **Aufwand:** 0 · **Gefährdungen:** G 0.18
+**Pflicht:** MUSS · **Stufe:** `normal-SdT` · **Aufwand:** 0 · **Gefährdungen:** G 0.18
 
 > Berechtigung MUSS Verfahren und Regelungen zum Identitäts- und Berechtigungsmanagement verankern.
 
@@ -17,7 +17,7 @@ Ziel ist einen dokumentierten Prozess einzurichten, der die Vergabe, Verwaltung 
 
 #### BER.1.1.1 – Dokumentation
 
-**Stufe:** `normal-SdT` · **Aufwand:** 0 · **Gefährdungen:** G 0.18, G 0.37
+**Pflicht:** MUSS · **Stufe:** `normal-SdT` · **Aufwand:** 0 · **Gefährdungen:** G 0.18, G 0.37
 
 > Berechtigung MUSS die Verfahren und Regelungen dokumentieren.
 
@@ -25,7 +25,7 @@ Ohne eine Dokumentation könnte die Einhaltung der Verfahren und Regelungen von 
 
 #### BER.1.1.2 – Zuweisung der Aufgaben
 
-**Stufe:** `normal-SdT` · **Aufwand:** 0 · **Gefährdungen:** G 0.18, G 0.31
+**Pflicht:** MUSS · **Stufe:** `normal-SdT` · **Aufwand:** 0 · **Gefährdungen:** G 0.18, G 0.31
 
 > Berechtigung MUSS die mit den Verfahren und Regelungen verbundenen Aufgaben *[zuständigen Personen oder Rollen]* zuweisen.
 
@@ -33,7 +33,7 @@ Die Zuweisung von Aufgaben bezeichnet die eindeutige und verbindliche Übertragu
 
 #### BER.1.1.3 – Bekanntgabe
 
-**Stufe:** `normal-SdT` · **Aufwand:** 0 · **Gefährdungen:** G 0.18, G 0.31
+**Pflicht:** MUSS · **Stufe:** `normal-SdT` · **Aufwand:** 0 · **Gefährdungen:** G 0.18, G 0.31
 
 > Berechtigung MUSS die zuständigen Personen oder Rollen über die Verfahren und Regelungen informieren.
 
@@ -41,7 +41,7 @@ Wenn die Zuständigen die etablierten Verfahren nicht kennen, besteht die Gefahr
 
 ### BER.1.2 – Regelmäßige Überprüfung
 
-**Stufe:** `normal-SdT` · **Aufwand:** 0 · **Gefährdungen:** G 0.18
+**Pflicht:** MUSS · **Stufe:** `normal-SdT` · **Aufwand:** 0 · **Gefährdungen:** G 0.18
 
 > Berechtigung MUSS die Verfahren und Regelungen *[regelmäßig]* und anlassbezogen auf Aktualität überprüfen.
 
@@ -49,7 +49,7 @@ Eine geplante Überprüfung der etablierten Verfahren und Regelungen dient dazu 
 
 ### BER.1.3 – Inventar Authentifizierungs- und Autorisierungssysteme
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.18
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.18
 
 > Berechtigung SOLLTE ein Inventar der Systeme zur Authentifizierung und Autorisierung dokumentieren.
 
@@ -57,7 +57,7 @@ Ein dokumentiertes Inventar der Authentifizierungs- und Autorisierungssysteme ka
 
 ### BER.1.4 – Inventar der Berechtigungen
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.18
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.18
 
 > Berechtigung SOLLTE ein Inventar der Berechtigungen mit Personen, Identitäten, Zugangskonten, Berechtigungen und deren jeweiliger Zuordnung dokumentieren.
 
@@ -67,7 +67,7 @@ Ein Inventar der Berechtigungen kann helfen, Zugriffsrechte innerhalb einer Inst
 
 ### BER.2.1 – Person-Identität
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.36, G 0.30, G 0.32
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.36, G 0.30, G 0.32
 
 > Berechtigung SOLLTE eine eindeutige Identität zu genau einer natürlichen Person oder einem IT-System zuweisen.
 
@@ -75,7 +75,7 @@ Hier wird eine Identität ("muellera") genau einer natürlichen Person ("Andrea 
 
 ### BER.2.2 – Einschränkung
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.36, G 0.30, G 0.32
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.36, G 0.30, G 0.32
 
 > Berechtigung SOLLTE die Einrichtung, Änderung oder Löschung einer Identität einschränken.
 
@@ -83,7 +83,7 @@ Das Identitäts- und Berechtigungsmanagement ist entscheidend für die sichere A
 
 ### BER.2.3 – Stammdatenprüfung
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.36, G 0.30, G 0.32
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.36, G 0.30, G 0.32
 
 > Berechtigung SOLLTE Stammdaten einer Identität anhand allgemeiner Stammdaten *[regelmäßig]* überprüfen.
 
@@ -91,7 +91,7 @@ Allgemeine Stammdaten können z.B. sein: Unterlagen der Personalabteilung, Ergeb
 
 ### BER.2.4 – Protokollierung von Stammdatenänderungen
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.36, G 0.30, G 0.32, G 0.37
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.36, G 0.30, G 0.32, G 0.37
 
 > Berechtigung SOLLTE Änderungen von Identitäts-Stammdaten protokollieren.
 
@@ -99,7 +99,7 @@ Zu einem Ereignisprotokoll gehört der Zeitpunkt, das Zugangskonto, sowie welche
 
 ### BER.2.5 – Deaktivierung bei Weggang
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.36, G 0.30, G 0.32
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.36, G 0.30, G 0.32
 
 > Berechtigung SOLLTE die zugeordnete Identität bei Weggang von Nutzenden deaktivieren.
 
@@ -107,7 +107,7 @@ Weggang meint hier die nicht nur kurzfristige Beendigung der Aktivitäten der Id
 
 ### BER.2.6 – Löschen nach Fristablauf
 
-**Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.36, G 0.30, G 0.32
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.36, G 0.30, G 0.32
 
 > Berechtigung SOLLTE nicht mehr benötigte Identitäten nach Ablauf der Löschfristen löschen.
 
@@ -117,7 +117,7 @@ Gesetzliche Aufbewahrungs- und Löschfristen ergeben sich aus dem Compliance-Man
 
 ### BER.3.1 – Zentrales Management
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.36, G 0.30, G 0.32
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.36, G 0.30, G 0.32
 
 > Berechtigung SOLLTE ein zentrales Managementsystem für Zugangskonten installieren.
 
@@ -125,7 +125,7 @@ Wenn Zugangskonten lokal auf jedem Gerät einzeln verwaltet werden, könnte es z
 
 ### BER.3.2 – Autorisierung neuer Zugangskonten
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.36, G 0.30, G 0.32
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.36, G 0.30, G 0.32
 
 > Berechtigung SOLLTE die Einrichtung von Zugangskonten durch *[bestimmte Personen oder Rollen]* autorisieren.
 
@@ -133,7 +133,7 @@ Gemeint ist hier die Entscheidungsbefugnis für die Freigabe neuer Zugangskonten
 
 ### BER.3.3 – Einschränkung des Managements
 
-**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.36, G 0.30, G 0.32
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.36, G 0.30, G 0.32
 
 > Berechtigung SOLLTE das Management von Zugangskonten auf Administrierende einschränken.
 
@@ -141,7 +141,7 @@ Management meint hier Aktionen wie z.B. das Erstellen oder Ändern von Metadaten
 
 ### BER.3.4 – Protokollierung von Änderungen
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.36, G 0.30, G 0.32, G 0.37
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.36, G 0.30, G 0.32, G 0.37
 
 > Berechtigung SOLLTE Aktionen an Zugangskonten revisionsfähig protokollieren.
 
@@ -149,7 +149,7 @@ Werden Aktionen an Zugangskonten wie die Erstellung, Veränderung von Metadaten 
 
 ### BER.3.5 – Identität-Zugangskonto
 
-**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.36, G 0.30, G 0.32
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.36, G 0.30, G 0.32
 
 > Berechtigung SOLLTE ein Zugangskonto zu genau einer Identität zuweisen.
 
@@ -157,7 +157,7 @@ Wenn ein Zugangskonto genau einer Identität zugewiesen ist erleichtert dies die
 
 ### BER.3.6 – Privilegierte Zugangskonten
 
-**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.36, G 0.30, G 0.32
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.36, G 0.30, G 0.32
 
 > Berechtigung für Administrierende SOLLTE separate Zugangskonten für administrative Tätigkeiten (Administrationskonten) verankern.
 
@@ -165,7 +165,7 @@ Zugangskonten mit privilegierten Rechten (Superuser wie z.B. root) könnten durc
 
 ### BER.3.7 – Single-Sign-On
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.36, G 0.30, G 0.32
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.36, G 0.30, G 0.32
 
 > Berechtigung für Anwendungen SOLLTE die Anmeldung über einen zentralen Identitätsprovider aktivieren.
 
@@ -173,7 +173,7 @@ Bei Single Sign-on authentifizieren sich Nutzende bei einem zentralen Identity P
 
 ### BER.3.8 – Hinweise bei Anmeldefehlern
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.36, G 0.30, G 0.32
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.36, G 0.30, G 0.32
 
 > Berechtigung für Anwendungen SOLLTE Hinweise darauf, ob ein Zugangskonto existiert bei erfolglosen Anmeldeversuchen deaktivieren.
 
@@ -181,7 +181,7 @@ Den Hinweis, dass bei erfolglosen Anmeldeversuchen das Passwort oder die Kennung
 
 ### BER.3.9 – Ereignisgesteuerte Deaktivierung
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.36, G 0.30, G 0.32
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.36, G 0.30, G 0.32
 
 > Berechtigung SOLLTE Zugangskonten ereignisgesteuert deaktivieren.
 
@@ -189,7 +189,7 @@ Ungenutzte Zugangskonten stellen ein unnötiges Risiko für unberechtigte Zugrif
 
 ### BER.3.10 – Anmeldeversuchsgrenze am System
 
-**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.36, G 0.30, G 0.32
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.36, G 0.30, G 0.32
 
 > Berechtigung für IT-Systeme SOLLTE weitere Anmeldeversuche nach Erreichen von *[einem maximalen Schwellwert an]* fehlgeschlagenen Versuchen vorübergehend blockieren.
 
@@ -197,7 +197,7 @@ Betrifft sowohl die lokale Anmeldung über eine Benutzeroberfläche als auch den
 
 ### BER.3.11 – Anmeldeversuchsgrenze an der Anwendung
 
-**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.36, G 0.30, G 0.32
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.36, G 0.30, G 0.32
 
 > Berechtigung für Anwendungen SOLLTE weitere Anmeldeversuche nach Erreichen von *[einem maximalen Schwellwert an]* fehlgeschlagenen Versuchen vorübergehend blockieren.
 
@@ -205,7 +205,7 @@ Häufen sich Anmeldeversuche, so könnte ein Angreifer Zugangsdaten durchprobier
 
 ### BER.3.12 – Systemsperre bei Inaktivität
 
-**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.36, G 0.30, G 0.32
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.36, G 0.30, G 0.32
 
 > Berechtigung für IT-Systeme SOLLTE eine Sperre bei Inaktivität nach *[einer Frist]* aktivieren.
 
@@ -213,7 +213,7 @@ Kann durch eine Bildschirmsperre oder Abmeldung (Automatic Session Locking) umge
 
 ### BER.3.13 – Sperre der Anwendung bei Inaktivität
 
-**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.36, G 0.30, G 0.32
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.36, G 0.30, G 0.32
 
 > Berechtigung für Anwendungen SOLLTE eine Sperre bei Inaktivität nach *[einer Frist]* aktivieren.
 
@@ -221,7 +221,7 @@ Kann je nach Anmeldeweg durch eine Abmeldung (Automatic Session Locking) direkt 
 
 ### BER.3.14 – Kein Recycling von Zugängen
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.30, G 0.32, G 0.36
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.30, G 0.32, G 0.36
 
 > Berechtigung SOLLTE die Wiederverwendung von Zugangskonten für *[einen bestimmten Zeitraum]* blockieren.
 
@@ -229,7 +229,7 @@ Wiederverwendung von Zugangskonten meint hier die erneute Vergabe oder Reaktivie
 
 ### BER.3.15 – Zugang löschen nach Fristablauf
 
-**Stufe:** `normal-SdT` · **Aufwand:** 1 · **Gefährdungen:** G 0.36, G 0.30, G 0.32
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 1 · **Gefährdungen:** G 0.36, G 0.30, G 0.32
 
 > Berechtigung SOLLTE nicht mehr benötigte Zugangskonten nach Ablauf der Löschfristen löschen.
 
@@ -237,7 +237,7 @@ Die Löschfristen ergeben sich aus gesetzlichen Aufbewahrungs- und Löschfristen
 
 ### BER.3.16 – Keine Gruppenkonten
 
-**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.36, G 0.30, G 0.32
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.36, G 0.30, G 0.32
 
 > Berechtigung SOLLTE Gruppenkonten im Regelbetrieb untersagen.
 
@@ -245,7 +245,7 @@ Ein Gruppenkonto (englisch shared account) bezeichnet hier ein Zugangskonto, das
 
 ### BER.3.17 – Gruppenkonten - MFA
 
-**Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.36, G 0.30, G 0.32
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.36, G 0.30, G 0.32
 
 > Berechtigung SOLLTE für Gruppenkonten die Mehr-Faktor-Authentisierung aktivieren.
 
@@ -253,7 +253,7 @@ Werden trotz des damit verbundenen Risikos Gruppenkonten genutzt, so kann mit Me
 
 ### BER.3.18 – Gruppenkonten - Wechsel dokumentieren
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.36, G 0.30, G 0.32
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.36, G 0.30, G 0.32
 
 > Berechtigung SOLLTE für Gruppenkonten die Identitäten, welche die Möglichkeit zum Zugriff haben, zum Wechselzeitpunkt dokumentieren.
 
@@ -261,7 +261,7 @@ Es kann z.B. anhand von Dienst- oder Anwesenheitsplänen nachvollzogen werden, w
 
 ### BER.3.19 – Gruppenkonten - Passwortwechsel bei Weggang
 
-**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.36, G 0.30, G 0.32
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.36, G 0.30, G 0.32
 
 > Berechtigung SOLLTE für Gruppenkonten die Änderung von Zugangsdaten bei Weggang von Nutzenden ausführen.
 
@@ -269,7 +269,7 @@ Gruppenkonten werden von mehreren Nutzenden (z.B. Schichtdienst) verwendet. Verl
 
 ### BER.3.20 – Zwischenspeicherung von Zugangsdaten
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.36, G 0.30, G 0.32
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.36, G 0.30, G 0.32
 
 > Berechtigung für IT-Systeme SOLLTE die Zwischenspeicherung der Zugangsdaten von Nutzern deaktivieren.
 
@@ -277,7 +277,7 @@ Wird die Zwischenspeicherung von Zugangsdaten auf IT-Systemen deaktiviert, so wi
 
 ### BER.3.21 – Dienstekonten
 
-**Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.36, G 0.30, G 0.32
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.36, G 0.30, G 0.32
 
 > Berechtigung für Hostsysteme SOLLTE eine automatische Verwaltung der Zugangsdaten von Dienste-Konten aktivieren.
 
@@ -285,7 +285,7 @@ Eine automatische Verwaltung der Zugangsdaten von Dienste-Konten bezeichnet in d
 
 ### BER.3.22 – Notfallzugang
 
-**Stufe:** `erhöht` · **Aufwand:** 1 · **Gefährdungen:** G 0.36, G 0.30, G 0.32
+**Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 1 · **Gefährdungen:** G 0.36, G 0.30, G 0.32
 
 > Berechtigung KANN Notfallzugangskonten installieren.
 
@@ -293,7 +293,7 @@ Ein Notfallzugangskonto (sog. Break Glass Account) ist ein Zugang mit privilegie
 
 ### BER.3.23 – Notfallzugang Verzeichnisdienst
 
-**Stufe:** `normal-SdT` · **Aufwand:** 5 · **Gefährdungen:** G 0.36, G 0.30, G 0.32
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 5 · **Gefährdungen:** G 0.36, G 0.30, G 0.32
 
 > Berechtigung für Verzeichnisdienste SOLLTE ein Notfallzugangskonto installieren.
 
@@ -301,7 +301,7 @@ Ein Notfallzugangskonto (sog. Break Glass Account) ist ein Zugang mit privilegie
 
 ### BER.3.24 – Alternative Authentifizierung am IT-System
 
-**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.36, G 0.30
+**Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.36, G 0.30
 
 > Berechtigung für IT-Systeme KANN ein ebenso vertrauenswürdiges, alternatives Verfahren zur Authentifizierung verankern.
 
@@ -309,7 +309,7 @@ Wenn Nutzende ein für die reguläre Authentisierung erforderliches Authentisier
 
 ### BER.3.25 – Alternative Authentifizierung an der Anwendung
 
-**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.36, G 0.30
+**Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.36, G 0.30
 
 > Berechtigung für Anwendungen KANN ein ebenso vertrauenswürdiges, alternatives Verfahren zur Authentifizierung verankern.
 
@@ -319,7 +319,7 @@ Wenn Nutzende ihren Primärzugang (z.B. Passwort, Smartphone mit Authentifizieru
 
 ### BER.4.1 – Prinzip der geringsten Berechtigungen
 
-**Stufe:** `normal-SdT` · **Aufwand:** 1 · **Gefährdungen:** G 0.36, G 0.30, G 0.32, G 0.18
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 1 · **Gefährdungen:** G 0.36, G 0.30, G 0.32, G 0.18
 
 > Berechtigung SOLLTE die Vergabe von Berechtigungen nach dem Prinzip der geringsten Berechtigungen einschränken.
 
@@ -327,7 +327,7 @@ Das Prinzip der geringsten Berechtigungen, im Englischen als Principle of Least 
 
 #### BER.4.1.1 – Rollenbasierte Berechtigung
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.36, G 0.30, G 0.32
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.36, G 0.30, G 0.32
 
 > Berechtigung SOLLTE Berechtigungen rollenbasiert zuweisen.
 
@@ -335,7 +335,7 @@ Aus Gründen der Nachvollziehbarkeit und des administrativen Aufwands wird die d
 
 #### BER.4.1.2 – JIT‑/JEA‑Berechtigungen
 
-**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.32, G 0.30, G 0.36
+**Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.32, G 0.30, G 0.36
 
 > Berechtigung KANN die Berechtigung zum Zeitpunkt des Zugriffs für *[besonders kritische Ressourcen oder Zugänge]* aktivieren.
 
@@ -343,7 +343,7 @@ Aus Gründen der Nachvollziehbarkeit und des administrativen Aufwands wird die d
 
 ### BER.4.2 – Autorisierung von Berechtigungen
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.36, G 0.30, G 0.32
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.36, G 0.30, G 0.32
 
 > Berechtigung SOLLTE die Zuweisung von Berechtigungen durch *[bestimmte Personen oder Rollen]* autorisieren.
 
@@ -351,7 +351,7 @@ Mit „bestimmte Personen oder Rollen“ sind hier vorab festgelegte, nachvollzi
 
 ### BER.4.3 – Begründung von Berechtigungen
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.36, G 0.30, G 0.32
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.36, G 0.30, G 0.32
 
 > Berechtigung SOLLTE die Vergabe von Berechtigungen und Änderungen an Berechtigungen mit einer Begründung dokumentieren.
 
@@ -359,7 +359,7 @@ Zweck ist die Nachvollziehbarkeit der Vergabe von Berechtigungen. Die Dokumentat
 
 ### BER.4.4 – Überprüfung von Berechtigungen
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.36, G 0.30, G 0.32
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.36, G 0.30, G 0.32
 
 > Berechtigung SOLLTE vergebene Berechtigungen *[regelmäßig]* auf Erforderlichkeit überprüfen.
 
@@ -367,7 +367,7 @@ Erforderlichkeit bedeutet in diesem Kontext, dass eine vergebene Berechtigung nu
 
 #### BER.4.4.1 – Überprüfung tatsächlicher Berechtigungen
 
-**Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.36, G 0.30, G 0.32
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.36, G 0.30, G 0.32
 
 > Berechtigung SOLLTE dokumentierte und tatsächlich vergebene Berechtigungen *[regelmäßig]* auf Übereinstimmung überprüfen.
 
@@ -375,7 +375,7 @@ Der Sinn und Zweck der Vorgabe liegt darin, eine unbemerkte Abweichung zwischen 
 
 ### BER.4.5 – Systemfunktionen ohne Authentifizierung
 
-**Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.36, G 0.30, G 0.32
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.36, G 0.30, G 0.32
 
 > Berechtigung für IT-Systeme SOLLTE Funktionen, auf die ohne vorherige Authentifizierung zugegriffen werden kann, dokumentieren.
 
@@ -383,7 +383,7 @@ Funktionen ohne Authentifizierung sind alle Zugriffsmöglichkeiten auf Schnittst
 
 ### BER.4.6 – Anwendungsfunktionen ohne Authentifizierung
 
-**Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.36, G 0.30, G 0.32
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.36, G 0.30, G 0.32
 
 > Berechtigung für Anwendungen SOLLTE Funktionen, auf die ohne vorherige Authentifizierung zugegriffen werden kann, dokumentieren.
 
@@ -391,7 +391,7 @@ Hierzu gehören z.B. der Zugriff auf öffentliche Inhalte oder Funktionen zum Zu
 
 ### BER.4.7 – IT-System-Zugangskonto
 
-**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.36, G 0.30, G 0.32
+**Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.36, G 0.30, G 0.32
 
 > Berechtigung für IT-Systeme KANN diese genau einem Zugangskonto zuweisen.
 
@@ -399,7 +399,7 @@ Wenn ein besonders schützenswertes IT-System nur von einer Person oder Identit�
 
 ### BER.4.8 – Entzug von Berechtigungen
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.36, G 0.30, G 0.32
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.36, G 0.30, G 0.32
 
 > Berechtigung SOLLTE eine Vorgehensweise zum Entzug von Berechtigungen verankern.
 
@@ -409,7 +409,7 @@ Innerhalb der Institution ist ein Prozess etabliert, mit dem Berechtigungen syst
 
 ### BER.5.1 – Vorgehensweise zur Ausgabe
 
-**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.36
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.36
 
 > Berechtigung SOLLTE eine Vorgehensweise zur initialen Ausgabe von Authentifizierungsmitteln verankern.
 
@@ -417,7 +417,7 @@ Die initiale Ausgabe von Authentifizierungsmitteln ist die erstmalige, kontrolli
 
 #### BER.5.1.1 – Initiale Ausgabe
 
-**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.36
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.36
 
 > Berechtigung SOLLTE vor der Verteilung von Authentifizierungsmitteln die Identität authentifizieren.
 
@@ -425,7 +425,7 @@ Identität meint hier die natürliche Person, Gruppe, Rolle, Anwendung oder das 
 
 ### BER.5.2 – Vorgehensweise zur Zurücksetzung
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.36
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.36
 
 > Berechtigung SOLLTE eine Vorgehensweise zur Zurücksetzung von Authentifizierungsmitteln verankern.
 
@@ -433,7 +433,7 @@ Zurücksetzung meint hier die geregelte Wiederherstellung, Erneuerung, Sperrung 
 
 ### BER.5.3 – Vorgehensweise zum Widerruf
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.36
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.36
 
 > Berechtigung SOLLTE eine Vorgehensweise zum Widerruf von Authentifizierungsmitteln verankern.
 
@@ -441,7 +441,7 @@ Der Widerruf meint hier die gezielte Ungültigsetzung, Sperrung, Deaktivierung o
 
 ### BER.5.4 – Nur etablierte Kryptographie
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.36
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.36
 
 > Berechtigung SOLLTE bei kryptografischen Authentifizierungsmitteln die ausschließliche Verwendung etablierter kryptografischer Algorithmen nach *[einem oder mehreren anerkannten Standards]* verankern.
 
@@ -449,7 +449,7 @@ Kryptografische Authentifizierungsmittel sind Authentisierungsnachweise, deren S
 
 ### BER.5.5 – Deaktivierung einfacher Biometrie auf IT-Systemen
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.36, G 0.30
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.36, G 0.30
 
 > Berechtigung für IT-Systeme SOLLTE die Authentifizierung nur anhand von Biometrie deaktivieren.
 
@@ -457,7 +457,7 @@ Wenn die Authentifizierung nur biometrisch vorgenommen wird (z.B. anhand von Fin
 
 ### BER.5.6 – Vorkonfigurierte Authentisierungsmittel von IT-Systemen
 
-**Stufe:** `normal-SdT` · **Aufwand:** 1 · **Gefährdungen:** G 0.36, G 0.30
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 1 · **Gefährdungen:** G 0.36, G 0.30
 
 > Berechtigung für IT-Systeme SOLLTE vorkonfigurierte Authentisierungsmittel deaktivieren.
 
@@ -465,7 +465,7 @@ Herstellerseitige Standardkonten und Default-Passwörter stellen ein beliebtes E
 
 ### BER.5.7 – Vorkonfigurierte Authentisierungsmittel von Anwendungen
 
-**Stufe:** `normal-SdT` · **Aufwand:** 1 · **Gefährdungen:** G 0.36, G 0.30
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 1 · **Gefährdungen:** G 0.36, G 0.30
 
 > Berechtigung für Anwendungen SOLLTE vorkonfigurierte Authentisierungsmittel deaktivieren.
 
@@ -473,7 +473,7 @@ Herstellerseitige Standardkonten und Default-Passwörter stellen ein beliebtes E
 
 ### BER.5.8 – Mehr-Faktor-Authentisierung am Perimeter
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.36, G 0.30, G 0.42
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.36, G 0.30, G 0.42
 
 > Berechtigung für Anwendungen von Externe Netzanschlüssen SOLLTE Phishing-resistente Mehr-Faktor-Authentisierung für alle Schnittstellen, auf die von Extern zugegriffen werden könnte, aktivieren.
 
@@ -481,7 +481,7 @@ Phishing-resistente Mehr-Faktor-Authentisierung bezeichnet Verfahren zur Anmeldu
 
 ### BER.5.9 – Mehr-Faktor-Authentisierung für weitreichende Berechtigungen
 
-**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.36, G 0.30
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.36, G 0.30
 
 > Berechtigung SOLLTE Mehr-Faktor-Authentisierung für weitreichende Berechtigungen aktivieren.
 
@@ -489,7 +489,7 @@ Eine Mehr-Faktor-Authentifizierung bei Zugängen mit weitreichenden Berechtigung
 
 ### BER.5.10 – Zugriffsbeschränkung pro IT-System
 
-**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.36
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.36
 
 > Berechtigung für IT-Systeme SOLLTE den lesenden und schreibenden Zugriff auf Authentifizierungsmittel einschränken.
 
@@ -497,7 +497,7 @@ Lesender Zugriff bezeichnet in diesem Kontext jede Möglichkeit, Authentifizieru
 
 ### BER.5.11 – Zugriffsbeschränkung pro Anwendung
 
-**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.36
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.36
 
 > Berechtigung für Anwendungen SOLLTE den lesenden und schreibenden Zugriff auf Authentifizierungsmittel einschränken.
 
@@ -505,7 +505,7 @@ Lesender Zugriff bezeichnet in diesem Kontext jede Möglichkeit, Authentifizieru
 
 ### BER.5.12 – Zugang nur durch zwei Personen
 
-**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.36, G 0.30, G 0.32
+**Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.36, G 0.30, G 0.32
 
 > Berechtigung KANN die Aufteilung von Authentisierungsmitteln auf mehrere Personen verankern.
 
@@ -513,7 +513,7 @@ Dient zur Absicherung des Zugriffs auf Daten, deren Vertraulichkeit oder Integri
 
 ### BER.5.13 – Identitätsüberprüfung
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.18
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.18
 
 > Berechtigung SOLLTE vor dem Zurücksetzen von Berechtigungsmitteln eine Identitätsüberprüfung verankern.
 
@@ -521,7 +521,7 @@ Unter einer Identitätsüberprüfung ist hier die Verifikation zu verstehen, ob 
 
 ### BER.5.14 – Kompromittierte Authentifizierungsmittel
 
-**Stufe:** `normal-SdT` · **Aufwand:** 1 · **Gefährdungen:** G 0.36, G 0.30, G 0.32
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 1 · **Gefährdungen:** G 0.36, G 0.30, G 0.32
 
 > Berechtigung SOLLTE die Sperrung kompromittierter Authentifizierungsmittel verankern.
 
@@ -531,7 +531,7 @@ Ein Authentifizierungsmittel gilt als kompromittiert, wenn Anzeichen bestehen, d
 
 ### BER.6.1 – Passwortmanager
 
-**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.36, G 0.30, G 0.42
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.36, G 0.30, G 0.42
 
 > Berechtigung für Nutzende SOLLTE einen Passwortmanager installieren.
 
@@ -539,7 +539,7 @@ Der Einsatz eines Passwortmanagers, der von der Institution den Nutzenden zur Ve
 
 ### BER.6.2 – Blockieren von Passwort Recycling
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.36, G 0.30, G 0.42
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.36, G 0.30, G 0.42
 
 > Berechtigung für Nutzende SOLLTE die Wiederverwendung von Passwörtern blockieren.
 
@@ -547,7 +547,7 @@ Die Wiederverwendung von Passwörtern („password reuse“) ist die Nutzung ide
 
 ### BER.6.3 – Trivialpasswörter
 
-**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.36, G 0.30, G 0.42
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.36, G 0.30, G 0.42
 
 > Berechtigung für Nutzende SOLLTE die Verwendung von Trivialpassworten blockieren.
 
@@ -555,7 +555,7 @@ Trivialpasswörter sind leicht zu erratende oder zu diesem Zugangskonto bereits 
 
 ### BER.6.4 – Kriterien für die Qualität von Passwörtern
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.36, G 0.30
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.36, G 0.30
 
 > Berechtigung SOLLTE Kriterien für die Qualität von Passwörtern anhand von Lebensdauer und Angriffsmöglichkeiten verankern.
 
@@ -563,7 +563,7 @@ Kriterien für die Qualität von Passwörtern können z.B. eine minimale Entropi
 
 ### BER.6.5 – Anlassbezogene Passwortwechsel
 
-**Stufe:** `normal-SdT` · **Aufwand:** 1 · **Gefährdungen:** G 0.36, G 0.30, G 0.42
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 1 · **Gefährdungen:** G 0.36, G 0.30, G 0.42
 
 > Berechtigung SOLLTE einen Passwortwechsel ausschließlich anlassbezogen ausführen.
 
@@ -571,7 +571,7 @@ Ein ausschließlich anlassbezogener Passwortwechsel bedeutet, dass Passwörter n
 
 ### BER.6.6 – Monitoring von Zugangsdaten
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.36, G 0.30, G 0.18, G 0.47
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.36, G 0.30, G 0.18, G 0.47
 
 > Berechtigung SOLLTE Zugangsdaten auf Kompromittierung durch *[einen automatisierten Mechanismus]* überwachen.
 
@@ -581,7 +581,7 @@ Eine Kompromittierung meint hier, dass Zugangsdaten wie Benutzername und Passwor
 
 ### BER.7.1 – Etablierte Algorithmen bei der Schlüsselerzeugung
 
-**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.36
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.36
 
 > Berechtigung SOLLTE die ausschließliche Verwendung etablierter kryptografischer Algorithmen bei der Schlüsselerzeugung nach *[einem anerkannten Standard]* verankern.
 
@@ -589,7 +589,7 @@ Etablierte kryptografische Algorithmen sind mathematisch fundierte Verschlüssel
 
 ### BER.7.2 – Schlüssellänge
 
-**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.36
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.36
 
 > Berechtigung SOLLTE die Schlüssellängen nach *[einem anerkannten Standard]* bei der Schlüsselerzeugung zuweisen.
 
@@ -597,7 +597,7 @@ Für die Sicherheit von Schlüsseln wie Passwörter oder PINs ist die Länge von
 
 ### BER.7.3 – Verzeichnis öffentlicher Schlüssel
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.36
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.36
 
 > Berechtigung SOLLTE zu jedem öffentlichen Schlüssel die dazugehörige Identität, das Ablaufdatum, den Nutzungszweck, die Schlüsselart und den Algorithmus bei der Schlüsselbeglaubigung dokumentieren.
 
@@ -605,7 +605,7 @@ Im Verzeichnis öffentlicher Schlüssel werden die öffentlichen Schlüssel, die
 
 ### BER.7.4 – Erzeugung auf sicheren IT-Systemen
 
-**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.36
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.36
 
 > Berechtigung SOLLTE die Verwendung eines IT-Systems, welches mindestens dasselbe Schutzniveau bietet, für das der Schlüssel eingesetzt werden soll, bei der Schlüsselerzeugung verankern.
 
@@ -613,7 +613,7 @@ Wird ein Schlüssel auf einem System erzeugt, dass einen geringeren Schutz biete
 
 ### BER.7.5 – Kriterien für die Qualität von Zufallszahlen
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.36
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.36
 
 > Berechtigung SOLLTE *[Kriterien]* für die Qualität von Zufallszahlen bei der Schlüsselerzeugung verankern.
 
@@ -621,7 +621,7 @@ Wenn bei der Schlüsselerzeugung ein ungeeigneter Zufallszahlengenerator verwend
 
 ### BER.7.6 – Etablierte Algorithmen beim Transport
 
-**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.36
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.36
 
 > Berechtigung SOLLTE die ausschließliche Verwendung etablierter kryptografischer Algorithmen beim Transport geheimer Schlüssel verankern.
 
@@ -629,7 +629,7 @@ Aktuelle etablierte Algorithmen sind in BSI TR-02102 zu finden. Der Transport ka
 
 ### BER.7.7 – Kein Transport privater Schlüssel
 
-**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.36
+**Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.36
 
 > Berechtigung KANN den Export privater Schlüssel durch *[eine zuständige Person oder Rolle]* autorisieren.
 
@@ -637,7 +637,7 @@ Im Allgemeinen ist es sinnvoll, private Schlüssel nur dort zu erzeugen, wo sie 
 
 ### BER.7.8 – Etablierte Algorithmen bei der Schlüsselnutzung
 
-**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.36
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.36
 
 > Berechtigung SOLLTE die ausschließliche Verwendung etablierter Algorithmen bei der Schlüsselnutzung verankern.
 
@@ -645,7 +645,7 @@ Aktuelle etablierte Algorithmen sind in BSI TR-02102 zu finden. Für weitere Det
 
 ### BER.7.9 – Zweckbindung
 
-**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.36
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.36
 
 > Berechtigung SOLLTE Verstöße gegen die Zweckbindung bei der Schlüsselnutzung untersagen.
 
@@ -653,7 +653,7 @@ Zweckbindung bedeutet, dass der Schlüssel ausschließlich zu dem im Verzeichnis
 
 ### BER.7.10 – Abgelaufene Schlüssel
 
-**Stufe:** `normal-SdT` · **Aufwand:** 1 · **Gefährdungen:** G 0.36, G 0.19, G 0.22
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 1 · **Gefährdungen:** G 0.36, G 0.19, G 0.22
 
 > Berechtigung SOLLTE die Nutzung des Schlüssels zur Verschlüsselung oder Signierung nach Ablauf der Nutzungszeit untersagen.
 
@@ -661,7 +661,7 @@ Schlüssel dürfen nach Ablauf der Nutzungszeit nur noch zur Entschlüsselung od
 
 ### BER.7.11 – Integrität
 
-**Stufe:** `normal-SdT` · **Aufwand:** 1 · **Gefährdungen:** G 0.36, G 0.19, G 0.22
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 1 · **Gefährdungen:** G 0.36, G 0.19, G 0.22
 
 > Berechtigung SOLLTE die Verifikation der Integrität geheimer Schlüssel vor jeder Nutzung verankern.
 
@@ -669,7 +669,7 @@ Wird die Integrität von Schlüsseln vor der Verwendung nicht geprüft, so könn
 
 ### BER.7.12 – Authentizität
 
-**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.36
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.36
 
 > Berechtigung SOLLTE die Verifikation der Authentizität öffentlicher Schlüssel vor jeder Nutzung verankern.
 
@@ -677,7 +677,7 @@ Für die Implementierung genügt es, wenn die eingesetzten IT-Produkte bereits s
 
 ### BER.7.13 – Gültigkeit
 
-**Stufe:** `normal-SdT` · **Aufwand:** 1 · **Gefährdungen:** G 0.36
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 1 · **Gefährdungen:** G 0.36
 
 > Berechtigung SOLLTE die Verifikation der Gültigkeit des Schlüssels vor jeder Nutzung verankern.
 
@@ -685,7 +685,7 @@ Die Gültigkeit ergibt sich aus Nutzungszeit und Revocation-Status. Für die Imp
 
 ### BER.7.14 – Schlüssel vor Ablauf prüfen
 
-**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.19, G 0.22, G 0.36
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.19, G 0.22, G 0.36
 
 > Berechtigung SOLLTE Schlüssel auf das baldige Auslaufen der Nutzungszeit *[regelmäßig]* überprüfen.
 
@@ -693,7 +693,7 @@ Wird die Gültigkeit von Schlüsseln vor dem Auslaufen nicht überwacht, so kön
 
 ### BER.7.15 – Vorgehensweise nach Nutzung
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.19, G 0.22, G 0.36
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.19, G 0.22, G 0.36
 
 > Berechtigung SOLLTE eine Vorgehensweise zur Außerbetriebnahme geheimer Schlüssel , sobald sie nicht mehr benötigt werden, verankern.
 
@@ -701,7 +701,7 @@ Werden Schlüssen nicht mehr benötigt, so ist es sinnvoll diese im Einklang mit
 
 ### BER.7.16 – Vorgaben für die Schlüsselbeglaubigung
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.36
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.36
 
 > Berechtigung SOLLTE Vorgaben für die Schlüsselbeglaubigung verankern.
 
@@ -709,7 +709,7 @@ Je nach Umfang der Beglaubigungstätigkeit gehören hierzu z.B. Algorithmen, Zwe
 
 #### BER.7.16.1 – Zertifizierungsstelle
 
-**Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.36
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.36
 
 > Berechtigung SOLLTE die Beglaubigung von Schlüsseln *[einer zuständigen Person oder Rolle]* zuweisen.
 
@@ -717,7 +717,7 @@ Die Beglaubigung von Schlüsseln ist technisch komplex. Gleichzeitig hängt von 
 
 #### BER.7.16.2 – Beglaubigung
 
-**Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.36, G 0.19, G 0.22
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.36, G 0.19, G 0.22
 
 > Berechtigung SOLLTE den Schlüssel anhand der Vorgaben für die Schlüsselbeglaubigung bei Beantragung einer Beglaubigung testen.
 
@@ -725,7 +725,7 @@ Schlüsselbeglaubigung (engl. key certification) ist der kryptographische Nachwe
 
 #### BER.7.16.3 – Erneuerung
 
-**Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.36
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.36
 
 > Berechtigung SOLLTE den Schlüssel anhand der Vorgaben für die Schlüsselbeglaubigung bei Erneuerung einer Beglaubigung testen.
 
@@ -733,7 +733,7 @@ Die Erneuerung einer Beglaubigung beschreibt den Vorgang, bei dem ein ablaufende
 
 #### BER.7.16.4 – Revocation
 
-**Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.19, G 0.22, G 0.36
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.19, G 0.22, G 0.36
 
 > Berechtigung SOLLTE den Schlüssel anhand der Vorgaben für die Schlüsselbeglaubigung bei Revocation einer Beglaubigung testen.
 
@@ -741,7 +741,7 @@ Die Revocation einer Beglaubigung (engl. revocation of attestation) ist die nach
 
 #### BER.7.16.5 – Beglaubigungsstatus
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.36
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.36
 
 > Berechtigung SOLLTE den Beglaubigungsstatus des Schlüssels im Verzeichnis öffentlicher Schlüssel dokumentieren.
 
@@ -749,7 +749,7 @@ Der Beglaubigungsstatus erfasst, ob der Schlüssel von der Beglaubigungs- oder Z
 
 #### BER.7.16.6 – Revocationstatus
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.36
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.36
 
 > Berechtigung SOLLTE den Revocationstatus des Schlüssels im Verzeichnis öffentlicher Schlüssel dokumentieren.
 

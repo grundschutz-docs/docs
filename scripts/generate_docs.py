@@ -85,14 +85,26 @@ def part_text(control, name):
     return None
 
 
+def part_prop_value(control, part_name, prop_name):
+    for part in control.get("parts", []):
+        if part.get("name") == part_name:
+            for p in part.get("props", []):
+                if p.get("name") == prop_name:
+                    return p.get("value")
+    return None
+
+
 def render_control(control, level, params_by_id):
     heading = "#" * min(level, 6)
     lines = [f"{heading} {control['id']} – {control['title']}\n"]
 
+    modal_verb = part_prop_value(control, "statement", "modal_verb")
     sec_level = prop_value(control, "sec_level")
     effort = prop_value(control, "effort_level")
     threats = prop_value(control, "threats")
     badges = []
+    if modal_verb:
+        badges.append(f"**Pflicht:** {modal_verb}")
     if sec_level:
         badges.append(f"**Stufe:** `{sec_level}`")
     if effort:

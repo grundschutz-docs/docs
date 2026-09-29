@@ -9,7 +9,7 @@ Die Praktik Sensibilisierung sorgt dafür, dass alle Mitarbeitenden über die Le
 
 ### SENS.1.1 – Verfahren und Regelungen
 
-**Stufe:** `normal-SdT` · **Aufwand:** 0 · **Gefährdungen:** G 0.18
+**Pflicht:** MUSS · **Stufe:** `normal-SdT` · **Aufwand:** 0 · **Gefährdungen:** G 0.18
 
 > Sensibilisierung MUSS Verfahren und Regelungen zur rollenspezifischen Schulung und Sensibilisierung verankern.
 
@@ -17,7 +17,7 @@ Zweck ist es, internen und externen Nutzenden die korrekte Verarbeitung von sch�
 
 #### SENS.1.1.1 – Dokumentation
 
-**Stufe:** `normal-SdT` · **Aufwand:** 0 · **Gefährdungen:** G 0.18, G 0.37
+**Pflicht:** MUSS · **Stufe:** `normal-SdT` · **Aufwand:** 0 · **Gefährdungen:** G 0.18, G 0.37
 
 > Sensibilisierung MUSS die Verfahren und Regelungen dokumentieren.
 
@@ -25,7 +25,7 @@ Ohne eine Dokumentation könnte die Einhaltung der Verfahren und Regelungen von 
 
 #### SENS.1.1.2 – Zuweisung der Aufgaben
 
-**Stufe:** `normal-SdT` · **Aufwand:** 0 · **Gefährdungen:** G 0.18, G 0.31
+**Pflicht:** MUSS · **Stufe:** `normal-SdT` · **Aufwand:** 0 · **Gefährdungen:** G 0.18, G 0.31
 
 > Sensibilisierung MUSS die mit den Verfahren und Regelungen verbundenen Aufgaben *[zuständigen Personen oder Rollen]* zuweisen.
 
@@ -33,7 +33,7 @@ Die Zuweisung von Aufgaben bezeichnet die eindeutige und verbindliche Übertragu
 
 #### SENS.1.1.3 – Bekanntgabe
 
-**Stufe:** `normal-SdT` · **Aufwand:** 0 · **Gefährdungen:** G 0.18, G 0.31
+**Pflicht:** MUSS · **Stufe:** `normal-SdT` · **Aufwand:** 0 · **Gefährdungen:** G 0.18, G 0.31
 
 > Sensibilisierung MUSS die zuständigen Personen oder Rollen über die Verfahren und Regelungen informieren.
 
@@ -41,7 +41,7 @@ Wenn die Zuständigen die etablierten Verfahren nicht kennen, besteht die Gefahr
 
 ### SENS.1.2 – Erfolgsmessung
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.18
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.18
 
 > Sensibilisierung SOLLTE den Erfolg der Sensibilisierung anhand *[objektivierter Kriterien]* *[regelmäßig]* überprüfen.
 
@@ -51,7 +51,7 @@ Zur Erfolgsmessung sind sowohl quantitative als auch qualitative Kriterien heran
 
 ### SENS.2.1 – Schutzziele
 
-**Stufe:** `normal-SdT` · **Aufwand:** 1 · **Gefährdungen:** G 0.31, G 0.42
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 1 · **Gefährdungen:** G 0.31, G 0.42
 
 > Sensibilisierung für Nutzende SOLLTE zu den Schutzzielen Verfügbarkeit, Vertraulichkeit und Integrität sensibilisieren.
 
@@ -59,7 +59,7 @@ Für die grundlegende Schulung kann z.B. auf den Online-Kurs des BSI zum IT-Grun
 
 ### SENS.2.2 – Meldewege
 
-**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.31, G 0.42
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.31, G 0.42
 
 > Sensibilisierung für Nutzende SOLLTE zu den Meldewegen und Informationsquellen bei Fragen informieren.
 
@@ -67,7 +67,7 @@ Zur Bekanntgabe von Meldewegen gehört, welche Meldewege (z.B. Adresse, Rufnumme
 
 ### SENS.2.3 – Verschlüsselung und Signatur
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.31, G 0.42
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.31, G 0.42
 
 > Sensibilisierung für Nutzende von Anwendungen SOLLTE zur Bedienung von Verschlüsselungs- und Signaturfunktionen sensibilisieren.
 
@@ -75,7 +75,7 @@ Viele Anwendungen zur Kommunikation bieten Funktionen zur Verschlüsselung oder 
 
 ### SENS.2.4 – Nutzung unautorisierter Assets
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.31, G 0.42
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.31, G 0.42
 
 > Sensibilisierung für Nutzende SOLLTE die Nutzung unautorisierter Assets untersagen.
 
@@ -83,7 +83,7 @@ Die Nutzung unautorisierter Assets bezeichnet hier den Einsatz von IT-Systemen, 
 
 #### SENS.2.4.1 – Verbindung unautorisierter IT-Systeme
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.31, G 0.42
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.31, G 0.42
 
 > Sensibilisierung für Nutzende SOLLTE die Verbindung unautorisierter IT-Systeme mit internen Netzen oder Schnittstellen untersagen.
 
@@ -91,7 +91,7 @@ Unautorisierte IT-Systeme sind solche, die von der Institution nicht für den Ei
 
 ### SENS.2.5 – Zuständigkeitsbereiche
 
-**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.31, G 0.42
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.31, G 0.42
 
 > Sensibilisierung für Nutzende SOLLTE zu Schutzbedarf und Schnittstellen in ihrem Zuständigkeitssbereich sensibilisieren.
 
@@ -99,7 +99,7 @@ Hiermit ist der Schutzbedarf des Zuständigkeitsbereichs des jeweiligen Nutzende
 
 ### SENS.2.6 – Umgehung von Sicherheitsfunktionen
 
-**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.31, G 0.42
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.31, G 0.42
 
 > Sensibilisierung für Nutzende SOLLTE gegen die Umgehung von Sicherheitsfunktionen sensibilisieren.
 
@@ -107,7 +107,7 @@ Selbst die ausgefeiltesten Sicherheitssysteme werden wirkungslos, wenn Anwender 
 
 ### SENS.2.7 – Änderung von Konfigurationen
 
-**Stufe:** `normal-SdT` · **Aufwand:** 1 · **Gefährdungen:** G 0.31, G 0.42
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 1 · **Gefährdungen:** G 0.31, G 0.42
 
 > Sensibilisierung für Nutzende SOLLTE gegen die unautorisierte Änderung sicherheitsrelevanter Konfigurationen sensibilisieren.
 
@@ -115,7 +115,7 @@ Sicherheitsrelevante Konfigurationen umfassen dabei alle Einstellungen, die dire
 
 ### SENS.2.8 – Melden von Ereignissen
 
-**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.31, G 0.42
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.31, G 0.42
 
 > Sensibilisierung für Nutzende SOLLTE zum Melden von sicherheitsrelevanten Ereignissen anweisen.
 
@@ -123,7 +123,7 @@ Ohne ein Bewusstsein für die Bedeutung solcher Meldungen könnte ein Vorfall wi
 
 #### SENS.2.8.1 – Melden von Fehler- und Warnmeldungen
 
-**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.31, G 0.42
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.31, G 0.42
 
 > Sensibilisierung für Nutzende SOLLTE zum Melden von Fehler- und Warnmeldungen sensibilisieren.
 
@@ -133,7 +133,7 @@ Unerwartete Fehler- oder Warnmeldungen könnten ein Indiz für weitreichendere S
 
 ### SENS.3.1 – Schadprogramme
 
-**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.18
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.18
 
 > Sensibilisierung für Nutzende SOLLTE gegen die Risiken von Schadprogrammen sensibilisieren.
 
@@ -141,7 +141,7 @@ Viele Dateitypen, wie z. B. Office-Dateien mit Makros, Adobe PDF, .exe, .ps1, od
 
 ### SENS.3.2 – Öffnen in der Sandbox
 
-**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.18
+**Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.18
 
 > Sensibilisierung für Nutzende KANN zum Öffnen verdächtiger Dateien ausschließlich auf einem isolierten IT-System (Sandbox) sensibilisieren.
 
@@ -149,7 +149,7 @@ Eine Sandbox ist ein isoliertes IT-System, das bewusst so gestaltet ist, dass Da
 
 ### SENS.3.3 – Umwandeln verdächtiger Dateien
 
-**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.18
+**Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.18
 
 > Sensibilisierung für Nutzende KANN zum Umwandeln verdächtiger Dateien in ein nicht-ausführbares Format vor der weiteren Verwendung sensibilisieren.
 
@@ -159,7 +159,7 @@ Das gezielte Umwandeln potenziell schadhafter Dateien in ein nicht-ausführbares
 
 ### SENS.4.1 – Personengebundene Authentisierungsmittel
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.30, G 0.36, G 0.23
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.30, G 0.36, G 0.23
 
 > Sensibilisierung für Nutzende SOLLTE zum Umgang mit Authentisierungsmitteln im Einklang mit den zugehörigen Anforderungen des Identitäts- und Berechtigungsmanagements sensibilisieren.
 
@@ -167,7 +167,7 @@ Zur Definition von Authentisierungsmitteln siehe Glossar/Namensräume. Um Missbr
 
 #### SENS.4.1.1 – Verdeckte Eingabe
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.30, G 0.36, G 0.23
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.30, G 0.36, G 0.23
 
 > Sensibilisierung für Nutzende SOLLTE zur verdeckten Eingabe von Zugangsdaten sensibilisieren.
 
@@ -175,7 +175,7 @@ Werden Zugangsdaten unverdeckt eingegeben, so könnten diese durch Shoulder Surf
 
 #### SENS.4.1.2 – Untersagung von Passwort Recycling
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.30, G 0.36, G 0.23
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.30, G 0.36, G 0.23
 
 > Sensibilisierung für Nutzende SOLLTE die Wiederverwendung von Passwörtern untersagen.
 
@@ -183,7 +183,7 @@ Wiederverwendung von Passwörtern bezeichnet die Nutzung identischer Zugangsdate
 
 #### SENS.4.1.3 – Wahl von Passwörtern
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.30, G 0.36, G 0.23
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.30, G 0.36, G 0.23
 
 > Sensibilisierung für Nutzende SOLLTE zur Wahl ausreichend komplexer Passwörter sensibilisieren.
 
@@ -191,7 +191,7 @@ Ein Passwort ist ein geheimes Zeichenfolgenkürzel, das als Authentisierungsmerk
 
 #### SENS.4.1.4 – Passwörter nur im Passwortmanager
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.30, G 0.36, G 0.23
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.30, G 0.36, G 0.23
 
 > Sensibilisierung für Nutzende SOLLTE das Speichern oder Aufschreiben von Passwörtern außerhalb von Passwort-Managern untersagen.
 
@@ -199,7 +199,7 @@ Weil Passwörter komplex sind und an vielen Stellen verwendet werden kommt es im
 
 #### SENS.4.1.5 – Biometrische Authentifikation
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.30, G 0.36, G 0.23
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.30, G 0.36, G 0.23
 
 > Sensibilisierung für Nutzende SOLLTE gegen die Fälschbarkeit von biometrischen Authentifizierungsmerkmalen sensibilisieren.
 
@@ -207,7 +207,7 @@ Ein Angreifer könnte z.B. einen Fingerabdruck von einer glatten Oberfläche abn
 
 #### SENS.4.1.6 – Keine Weitergabe personengebundener Authentisierungsmittel
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.30, G 0.36, G 0.23
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.30, G 0.36, G 0.23
 
 > Sensibilisierung für Nutzende SOLLTE die Weitergabe von personengebundenen Authentisierungsmitteln untersagen.
 
@@ -215,7 +215,7 @@ Personengebundene Authentisierungsmittel sind z.B. Passwörter, Private PKI-Schl
 
 ### SENS.4.2 – Mehrfachnutzung von Zugängen
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.30, G 0.36, G 0.23
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.30, G 0.36, G 0.23
 
 > Sensibilisierung für Nutzende SOLLTE gegen die Nutzung eines Zugangskontos durch mehrere Personen sensibilisieren.
 
@@ -223,7 +223,7 @@ Insbesondere ist die Nutzung eines Benutzerkontos auf einem Endgerät durch mehr
 
 ### SENS.4.3 – Abmelden nach Nutzung
 
-**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.30, G 0.36, G 0.23
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.30, G 0.36, G 0.23
 
 > Sensibilisierung für Nutzende SOLLTE zum Abmelden nach Nutzung sensibilisieren.
 
@@ -233,7 +233,7 @@ Bleibt eine Sitzung unbeaufsichtigt angemeldet, könnte dies ausgenutzt werden, 
 
 ### SENS.5.1 – Datenablage
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.19, G 0.38, G 0.22, G 0.45
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.19, G 0.38, G 0.22, G 0.45
 
 > Sensibilisierung für Nutzende SOLLTE zum Einhalten einer strukturierten Datenablage sensibilisieren.
 
@@ -241,7 +241,7 @@ Eine strukturierte Datenablage ist eine systematische Organisation von Daten in 
 
 ### SENS.5.2 – Weitergabe von Informationen
 
-**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.19, G 0.38, G 0.22, G 0.45
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.19, G 0.38, G 0.22, G 0.45
 
 > Sensibilisierung für Nutzende von Informationen SOLLTE zu den Voraussetzungen der Weitergabe von Informationen sensibilisieren.
 
@@ -249,7 +249,7 @@ Als "Voraussetzungen der Weitergabe" werden die rechtlichen, vertraglichen, tech
 
 ### SENS.5.3 – Weitergabe von Erreichbarkeiten
 
-**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.19, G 0.38, G 0.22, G 0.42
+**Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.19, G 0.38, G 0.22, G 0.42
 
 > Sensibilisierung für Nutzende KANN die Veröffentlichung oder Weitergabe von Erreichbarkeiten an unbefugte Dritte untersagen.
 
@@ -257,7 +257,7 @@ Dient dem Schutz vor Social Engineering-Angriffen und der Minimierung von Angrif
 
 ### SENS.5.4 – Rest- und Zusatzdaten
 
-**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.19, G 0.38, G 0.22, G 0.45
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.19, G 0.38, G 0.22, G 0.45
 
 > Sensibilisierung für Nutzende SOLLTE zur Vermeidung oder Entfernung von Rest- und Zusatzdaten vor dem Versand sensibilisieren.
 
@@ -265,7 +265,7 @@ Rest- und Zusatzinformationen sind z.B. die Metadatenfelder in Office- oder PDF-
 
 ### SENS.5.5 – Löschfristen
 
-**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.38, G 0.45, G 0.19, G 0.22
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.38, G 0.45, G 0.19, G 0.22
 
 > Sensibilisierung für Nutzende SOLLTE zum Löschen oder Vernichten nach Ablauf der festgelegten Löschfristen anweisen.
 
@@ -273,7 +273,7 @@ Werden sensible Informationen über die erforderliche Dauer hinaus gespeichert, 
 
 ### SENS.5.6 – Papiervernichtung
 
-**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.19, G 0.38, G 0.22, G 0.45
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.19, G 0.38, G 0.22, G 0.45
 
 > Sensibilisierung für Nutzende SOLLTE zum Vernichten vertraulicher Dokumente nach Ablauf der Löschfrist sensibilisieren.
 
@@ -283,7 +283,7 @@ Gemäß ISO/IEC 21964-2 existieren unterschiedliche Sicherheitsstufen für Verni
 
 ### SENS.6.1 – Scan angenommener Wechseldatenträger
 
-**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.18
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.18
 
 > Sensibilisierung für Nutzende SOLLTE zum Virenscan angenommener Wechseldatenträger anweisen.
 
@@ -291,7 +291,7 @@ Datenträger, wie USB-Sticks aus unbekannten oder externen Quellen, können Scha
 
 ### SENS.6.2 – Verschlüsselung
 
-**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.18
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.18
 
 > Sensibilisierung für Nutzende SOLLTE zum Verschlüsseln von Wechseldatenträgern anweisen.
 
@@ -301,7 +301,7 @@ Falls Wechseldatenträger zum Austausch vertraulicher Daten verwendet werden, so
 
 ### SENS.7.1 – Spezifische Sensibilisierung
 
-**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.18
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.18
 
 > Sensibilisierung für Nutzende SOLLTE zu zielobjektspezifischen Schutzmaßnahmen zielgruppengerecht sensibilisieren.
 
@@ -309,7 +309,7 @@ Kann dazu beitragen, dass Personen Risiken, die mit ihrer konkreten Tätigkeit, 
 
 ### SENS.7.2 – Virenscan
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.18
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.18
 
 > Sensibilisierung für Nutzende von Interpersoneller Kommunikation SOLLTE zum Virenscan von Dateien aus externen Quellen sensibilisieren.
 
@@ -317,7 +317,7 @@ Dateien aus externen Quellen (z.B. per E-Mail oder Messenger) könnten Schadprog
 
 ### SENS.7.3 – Automatische Antworten
 
-**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.18
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.18
 
 > Sensibilisierung für Nutzende von Interpersoneller Kommunikation SOLLTE gegen die Ausgabe vertraulicher Daten durch AutoReply-Funktionen sensibilisieren.
 
@@ -325,7 +325,7 @@ AutoReply-Funktionen – etwa automatische Abwesenheitsnotizen oder Standardantw
 
 ### SENS.7.4 – SPAM - Löschen oder Melden
 
-**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.18
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.18
 
 > Sensibilisierung für Nutzende von Interpersoneller Kommunikation SOLLTE zum Löschen oder Melden von SPAM sensibilisieren.
 
@@ -333,7 +333,7 @@ Spam – also unerwünschte, oft massenhaft versendete Nachrichten – könnte n
 
 ### SENS.7.5 – SPAM - Nichtbeantwortung
 
-**Stufe:** `normal-SdT` · **Aufwand:** 1 · **Gefährdungen:** G 0.18
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 1 · **Gefährdungen:** G 0.18
 
 > Sensibilisierung für Nutzende von Interpersoneller Kommunikation SOLLTE zum Nichtbeantworten von SPAM sensibilisieren.
 
@@ -341,7 +341,7 @@ Das Nichtbeantworten von Spam kann dazu beitragen, die eigene Angriffsfläche zu
 
 ### SENS.7.6 – SPAM - Links
 
-**Stufe:** `normal-SdT` · **Aufwand:** 1 · **Gefährdungen:** G 0.18
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 1 · **Gefährdungen:** G 0.18
 
 > Sensibilisierung für Nutzende von Interpersoneller Kommunikation SOLLTE gegen das Öffnen von Links in SPAM sensibilisieren.
 
@@ -349,7 +349,7 @@ Spam kann Phishing-Versuche enthalten, die zur Preisgabe sensibler Zugangsdaten 
 
 ### SENS.7.7 – SPAM - Anhänge
 
-**Stufe:** `normal-SdT` · **Aufwand:** 1 · **Gefährdungen:** G 0.18
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 1 · **Gefährdungen:** G 0.18
 
 > Sensibilisierung für Nutzende von Interpersoneller Kommunikation SOLLTE gegen das Öffnen von Anhängen in SPAM sensibilisieren.
 
@@ -357,7 +357,7 @@ Das Öffnens von Anhängen in unerwünschten oder verdächtigen Nachrichten kön
 
 ### SENS.7.8 – Gefälschte E-Mails
 
-**Stufe:** `normal-SdT` · **Aufwand:** 1 · **Gefährdungen:** G 0.18
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 1 · **Gefährdungen:** G 0.18
 
 > Sensibilisierung für Nutzende von E-Mailn SOLLTE zum Erkennen von gefälschten E-Mails sensibilisieren.
 
@@ -365,7 +365,7 @@ Spam in E-Mails kann oft an einer Kombination auffälliger Merkmale erkannt werd
 
 ### SENS.7.9 – Aktive Inhalte
 
-**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.18
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.18
 
 > Sensibilisierung für Nutzende von Office-Anwendungen SOLLTE zur Überprüfung aktiver Inhalte vor der Aktivierung sensibilisieren.
 
@@ -373,7 +373,7 @@ Office-Dateien mit aktiven Inhalten (z.B. Makros) können Schadprogramme enthalt
 
 ### SENS.7.10 – Trennen nicht benötigter Anschlüsse
 
-**Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.18
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.18
 
 > Sensibilisierung für Nutzende von Virtualisierungslösungen SOLLTE zum Trennen nicht benötigter Verbindungen zwischen Host und virtuellem Gast sensibilisieren.
 
@@ -381,7 +381,7 @@ Werden unnötige Verbindungen zwischen Host und Gast nicht getrennt, könnte die
 
 ### SENS.7.11 – Heimliche Aufzeichnung
 
-**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.18
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.18
 
 > Sensibilisierung für Nutzende von VK-Anwendungen SOLLTE gegen die heimliche Bild- oder Tonaufzeichnung bei einer Videokonferenz sensibilisieren.
 
@@ -389,7 +389,7 @@ Heimliche Aufzeichnungen verletzen die Vertraulichkeit der Kommunikation. Eine A
 
 ### SENS.7.12 – Öffentliche WLANs
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.18
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.18
 
 > Sensibilisierung für Nutzende von Endgeräten SOLLTE gegen die Risiken der Nutzung öffentlicher WLANs sensibilisieren.
 
@@ -397,7 +397,7 @@ Heimliche Aufzeichnungen verletzen die Vertraulichkeit der Kommunikation. Eine A
 
 ### SENS.7.13 – Unverschlüsselte WLANs
 
-**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.18
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.18
 
 > Sensibilisierung für Nutzende von Endgeräten SOLLTE gegen die Risiken der Nutzung unverschlüsselter WLANs sensibilisieren.
 
@@ -405,7 +405,7 @@ Ohne Verschlüsselung könnten die über WLAN übertragenen Daten abgehört werd
 
 ### SENS.7.14 – Unautorisierte WLANs
 
-**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.18
+**Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.18
 
 > Sensibilisierung für Nutzende von Endgeräten KANN die Nutzung unautorisierter WLANs untersagen.
 
@@ -413,7 +413,7 @@ Zwar sind immer mehr Verbindungen automatisch verschlüsselt, dennoch bergen WLA
 
 ### SENS.7.15 – Social Engineering Anrufe
 
-**Stufe:** `normal-SdT` · **Aufwand:** 1 · **Gefährdungen:** G 0.42
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 1 · **Gefährdungen:** G 0.42
 
 > Sensibilisierung für Nutzende von TK-Anwendungen SOLLTE gegen Social Engineering Anrufe sensibilisieren.
 
@@ -421,7 +421,7 @@ Social Engineering bezeichnet in diesem Zusammenhang die bewusste Täuschung ode
 
 ### SENS.7.16 – Mailbox-PIN und Co.
 
-**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.18
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.18
 
 > Sensibilisierung für Nutzende von TK-Anwendungen SOLLTE zur Vergabe eigener Zugangsdaten zum Zugriff auf Aufzeichnungen sensibilisieren.
 
@@ -429,7 +429,7 @@ Der Begriff Zugangsdaten bezeichnet in diesem Kontext die für den Zugriff auf g
 
 ### SENS.7.17 – Unverschlüsseltes Telefonieren
 
-**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.18
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.18
 
 > Sensibilisierung für Nutzende von TK-Anwendungen SOLLTE gegen die Kommunikation über unverschlüsselte Telekommunikationsverbindungen sensibilisieren.
 
@@ -437,7 +437,7 @@ Hilfreich ist es hierbei darüber zu informieren, zu welchen Empfängerkreisen m
 
 ### SENS.7.18 – Mobile Endgeräte in Sicherheitsbereichen
 
-**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.18
+**Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.18
 
 > Sensibilisierung für Nutzende von Endgeräten KANN das Mitführen von Endgeräten in Sicherheitsbereichen untersagen.
 
@@ -445,7 +445,7 @@ Das Mitführen von Endgeräten in besonders geschützten Bereichen kann untersag
 
 ### SENS.7.19 – Unverschlüsselte SMS oder MMS
 
-**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.18
+**Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.18
 
 > Sensibilisierung für Nutzende von Endgeräten KANN die Kommunikation über SMS oder MMS untersagen.
 
@@ -453,7 +453,7 @@ SMS und MMS werden in der Regel unverschlüsselt übertragen und sind daher nich
 
 ### SENS.7.20 – Authentifzierung von Gesprächspartnern
 
-**Stufe:** `normal-SdT` · **Aufwand:** 1 · **Gefährdungen:** G 0.42, G 0.36
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 1 · **Gefährdungen:** G 0.42, G 0.36
 
 > Sensibilisierung für Nutzende von Informationen SOLLTE zur Authentifizierung von Gesprächspartnern vor der Weitergabe von Informationen sensibilisieren.
 
@@ -461,7 +461,7 @@ Die Authentifizierung von Gesprächspartnern ist die verlässliche Verifikation 
 
 ### SENS.7.21 – Rechtsunsicherheit von Faxen
 
-**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.18
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.18
 
 > Sensibilisierung für Nutzende von Faxen SOLLTE gegen die Rechtsunsicherheit bei Empfang oder Versand von Faxen sensibilisieren.
 
@@ -469,7 +469,7 @@ Faxe enthalten nicht die originale, eigenhändige Unterschrift und erfüllen dah
 
 ### SENS.7.22 – Unverschlüsselte Faxleitungen
 
-**Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.18
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.18
 
 > Sensibilisierung für Nutzende von Faxen SOLLTE gegen die Risiken der unauthentisierten und unverschlüsselten Faxnutzung sensibilisieren.
 
@@ -477,7 +477,7 @@ Da Faxverbindungen in der Regel weder eine Authentifikation des Empfängers noch
 
 ### SENS.7.23 – Geolokation
 
-**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.18
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.18
 
 > Sensibilisierung für Nutzende von Endgeräten SOLLTE über Standortbestimmungsfunktionen von mobilen Endgeräten sensibilisieren.
 
@@ -485,7 +485,7 @@ Zum Beispiel könnten Webseiten über Schnittstellen von Webbrowsern auf Standor
 
 ### SENS.7.24 – Zertifikatswarnungen
 
-**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.18
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.18
 
 > Sensibilisierung für Nutzende von Webbrowsern SOLLTE gegen das unautorisierte Übergehen einer Zertifikatswarnung bei der Webnutzung sensibilisieren.
 
@@ -495,7 +495,7 @@ Zeigt der Browser oder eine andere Anwendung eine Zertifikatswarnung an, dann be
 
 ### SENS.8.1 – Screen Lock
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.18
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.18
 
 > Sensibilisierung für Nutzende SOLLTE zum Sperren von IT-System vor dem Verlassen des Arbeitsplatzes anweisen.
 
@@ -503,7 +503,7 @@ Diese Vorgehensweise hilft dabei, unbefugten Zugriff auf sensible Informationen 
 
 ### SENS.8.2 – Clean Desk
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.18, G 0.29
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.18, G 0.29
 
 > Sensibilisierung für Nutzende SOLLTE zum Aufräumen von vertraulichen Dokumenten und Datenträgern vor dem Verlassen des Arbeitsplatzes anweisen.
 
@@ -511,7 +511,7 @@ Ein aufgeräumter Arbeitplatz („Clean Desk Policy“) kann dazu beitragen, Inf
 
 ### SENS.8.3 – Risiken der Nutzung von mobilen Endgeräten
 
-**Stufe:** `normal-SdT` · **Aufwand:** 1 · **Gefährdungen:** G 0.18
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 1 · **Gefährdungen:** G 0.18
 
 > Sensibilisierung für Nutzende von Endgeräten SOLLTE gegen Risiken der Nutzung von mobilen Endgeräten sensibilisieren.
 
@@ -519,7 +519,7 @@ Bei der Nutzung mobiler Endgeräte wie Smartphones, Tablets und Laptops ist Vors
 
 ### SENS.8.4 – Schließen von Türen und Fenstern
 
-**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.44, G 0.2, G 0.3
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.44, G 0.2, G 0.3
 
 > Sensibilisierung für Nutzende von Gebäuden SOLLTE zum Verschließen von Fenstern und Türen beim Verlassen von Räumlichkeiten anweisen.
 
@@ -527,7 +527,7 @@ Durch unverschlossene Türen und Fenster könnten Unbefugte Zutritt erlangen und
 
 ### SENS.8.5 – Mitbringen von IT-Systemen
 
-**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.18
+**Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.18
 
 > Sensibilisierung für Nutzende KANN das Mitbringen unautorisierter IT-Systeme untersagen.
 
@@ -535,7 +535,7 @@ Fremde IT-Systeme sind ein Risiko, weil sie an das interne Netz angeschlossen, z
 
 ### SENS.8.6 – Begleitung Externer
 
-**Stufe:** `erhöht` · **Aufwand:** 4 · **Gefährdungen:** G 0.18
+**Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 4 · **Gefährdungen:** G 0.18
 
 > Sensibilisierung für Mitarbeitende von Standorten KANN zur Begleitung von Externen anweisen.
 
@@ -543,7 +543,7 @@ Dies dient in erster Linie dazu, unbefugte oder unbeaufsichtigte Zugriffe auf se
 
 ### SENS.8.7 – Beaufsichtigung Externer
 
-**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.18
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.18
 
 > Sensibilisierung für Mitarbeitende von Standorten SOLLTE zur Beaufsichtigung von Externen in sensiblen Bereichen anweisen.
 
@@ -551,7 +551,7 @@ Erhalten Externe wie z.B. IT-Dienstleister Zugang zu Standorten, an denen sensib
 
 ### SENS.8.8 – Verwahrung Intern
 
-**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.18
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.18
 
 > Sensibilisierung für Nutzende von Räumen SOLLTE zur sicheren Verwahrung von IT-Systemen und Datenträgern sensibilisieren.
 
@@ -559,7 +559,7 @@ Herumliegende vertrauliche Dokumente und Datenträger sind ein leichtes Ziel fü
 
 ### SENS.8.9 – Rückgabe nicht mehr benötigter Assets
 
-**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.18
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.18
 
 > Sensibilisierung für Nutzende SOLLTE zur Rückgabe nicht mehr benötigter Assets anweisen.
 
@@ -567,7 +567,7 @@ Dies gilt z.B. bei einem Wechsel der Aufgaben oder der Beendigung des Vertragsve
 
 ### SENS.8.10 – Vermeidung von Brandlasten
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.1, G 0.18
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.1, G 0.18
 
 > Sensibilisierung für Nutzende von Standorten SOLLTE das ungesicherte Hinterlassen von Brandlasten untersagen.
 
@@ -575,7 +575,7 @@ Befinden sich Brandlasten wie Kartons, brennbare Dämmstoffe, Batterien oder Hol
 
 ### SENS.8.11 – Verwendung von Brandschutmitteln
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.1, G 0.18
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.1, G 0.18
 
 > Sensibilisierung für Mitarbeitende SOLLTE zur korrekten Verwendung bereitgestellter Brandschutz-Hilfsmittel sensibilisieren.
 
@@ -583,7 +583,7 @@ Hierzu zählt z.B. die Einweisung in die korrekte Verwendung von Handfeuerlösch
 
 ### SENS.8.12 – Verwendung von Wasserschutzmitteln
 
-**Stufe:** `erhöht` · **Aufwand:** 3 · **Gefährdungen:** G 0.3
+**Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 3 · **Gefährdungen:** G 0.3
 
 > Sensibilisierung für Mitarbeitende KANN zur korrekten Verwendung bereitgestellter Wasserschutz-Hilfsmittel sensibilisieren.
 
@@ -593,7 +593,7 @@ Ohne ausreichende Kenntnisse könnte ein Mitarbeitender im Ernstfall zögern ode
 
 ### SENS.9.1 – Verarbeitung in der Öffentlichkeit
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.18, G 0.29
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.18, G 0.29
 
 > Sensibilisierung für Nutzende SOLLTE gegen die Verarbeitung von vertraulichen Informationen in der Öffentlichkeit sensibilisieren.
 
@@ -601,7 +601,7 @@ Die Anforderung zielt darauf ab, das Risiko unbeabsichtigter Informationsabflüs
 
 ### SENS.9.2 – Vorsicht vor Mithören
 
-**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.18
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.18
 
 > Sensibilisierung für Nutzende SOLLTE gegen das Abhören von Gesprächen beim mobilen Arbeiten sensibilisieren.
 
@@ -609,7 +609,7 @@ Das Abhören von Gesprächen bezeichnet im Kontext des mobilen Arbeitens das unb
 
 ### SENS.9.3 – Verwahrung außer Haus
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.18
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.18
 
 > Sensibilisierung für Nutzende SOLLTE zur Verwahrung von IT-Systemen und Datenträgern beim mobilen Arbeiten anweisen.
 
@@ -617,7 +617,7 @@ Die Verwahrung von IT-Systemen und Datenträgern bedeutet, diese so zu sichern, 
 
 ### SENS.9.4 – Mobile Arbeit mit Dokumenten
 
-**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.18
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.18
 
 > Sensibilisierung für Nutzende SOLLTE über den sicheren Umgang mit analogen Dokumenten beim mobilen Arbeiten sensibilisieren.
 
@@ -625,7 +625,7 @@ Unter analogen Dokumenten sind hier alle physischen Informations- und Datenträg
 
 ### SENS.9.5 – Mitnahme zur mobilen Arbeit
 
-**Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.18
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.18
 
 > Sensibilisierung für Nutzende SOLLTE gegen die Mitnahme nicht erforderlicher IT-Systeme und Datenträger sensibilisieren.
 
@@ -633,7 +633,7 @@ Außerhalb der Institution sind die Möglichkeiten zum Schutz von IT-Systemen un
 
 ### SENS.9.6 – Mitnahme ins Ausland
 
-**Stufe:** `erhöht` · **Aufwand:** 3 · **Gefährdungen:** G 0.18
+**Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 3 · **Gefährdungen:** G 0.18
 
 > Sensibilisierung für Nutzende KANN die Mitnahme nicht erforderlicher IT-Systeme und Datenträger bei Auslandsreisen untersagen.
 
@@ -641,7 +641,7 @@ Auf Auslandsreisen ist das Risiko für Spionage erhöht und der Rechtsschutz fü
 
 ### SENS.9.7 – Reise- und Sicherheitshinweise
 
-**Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.18, G 0.5
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.18, G 0.5
 
 > Sensibilisierung für Nutzende SOLLTE zu Reise- und Sicherheitshinweisen des Auswärtigen Amtes bei Auslandsreisen ins außereuropäische Ausland sensibilisieren.
 
@@ -651,7 +651,7 @@ Dies kann dazu beitragen, frühzeitig potenzielle Gefahren zu erkennen und das V
 
 ### SENS.10.1 – Grundprinzipien der Systemadministration
 
-**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.31, G 0.30, G 0.32
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.31, G 0.30, G 0.32
 
 > Sensibilisierung für Administrierende SOLLTE zu den Grundprinzipien der sicheren Administration sensibilisieren.
 
@@ -659,7 +659,7 @@ Administriende sind durch ihre weitreichenden Zugangs- und Zugriffsberechtigunge
 
 ### SENS.10.2 – Umgang mit privilegierten Berechtigungen
 
-**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.31, G 0.30, G 0.32, G 0.42
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.31, G 0.30, G 0.32, G 0.42
 
 > Sensibilisierung für Administrierende SOLLTE zum Umgang mit privilegierten Berechtigungen sensibilisieren.
 
@@ -667,7 +667,7 @@ Privilegierte Berechtigungen (auch „administrative Rechte“, „Root-Berechti
 
 ### SENS.10.3 – Systemadministration - Sicherheitsvorfälle
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.31, G 0.30, G 0.32
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.31, G 0.30, G 0.32
 
 > Sensibilisierung für Administrierende SOLLTE zu Verfahren und Regelungen bei Sicherheitsvorfällen sensibilisieren.
 
@@ -675,7 +675,7 @@ Für die Behandlung und Nachsorge bei Sicherheitsvorfällen sind die festgelegte
 
 ### SENS.10.4 – Systemadministration - Strukturierte Verkabelung
 
-**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.31, G 0.30, G 0.32
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.31, G 0.30, G 0.32
 
 > Sensibilisierung für Administrierende von Netzen SOLLTE zur strukturierten Verkabelung sensibilisieren.
 
@@ -683,7 +683,7 @@ Eine strukturierte Verkabelung kann die Übersichtlichkeit, Fehlertoleranz und B
 
 ### SENS.10.5 – Systemadministration - Internetnutzung
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.31, G 0.30, G 0.32
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.31, G 0.30, G 0.32
 
 > Sensibilisierung für Administrierende SOLLTE gegen den Internetzugriff über ein Administrationskonto sensibilisieren.
 
@@ -693,7 +693,7 @@ Administrationskonten sind im konkreten Kontext privilegierte Benutzerkonten, di
 
 ### SENS.11.1 – Sensibilisierung der Institutionsleitung
 
-**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.18
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.18
 
 > Sensibilisierung für Institutionsleitung SOLLTE zur Bedeutung der Informationssicherheit für den Schutz der Geschäftsprozesse sensibilisieren.
 
@@ -701,7 +701,7 @@ Informationssicherheit ist kein Selbstzweck, sondern soll die Verarbeitung von I
 
 ### SENS.11.2 – Führen als Vorbild
 
-**Stufe:** `normal-SdT` · **Aufwand:** 1 · **Gefährdungen:** G 0.18
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 1 · **Gefährdungen:** G 0.18
 
 > Sensibilisierung für Führungskräfte SOLLTE zu ihrer Vorbildfunktion bei der Informationssicherheit sensibilisieren.
 
@@ -709,7 +709,7 @@ Die Vorbildfunktion von Führungskräften ist entscheidend, um eine robuste Sich
 
 ### SENS.11.3 – Whaling
 
-**Stufe:** `normal-SdT` · **Aufwand:** 1 · **Gefährdungen:** G 0.42
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 1 · **Gefährdungen:** G 0.42
 
 > Sensibilisierung für Führungskräfte SOLLTE gegen gezielte Angriffe auf Führungskräfte sensibilisieren.
 
@@ -719,7 +719,7 @@ Gezielte Angriffe auf Führungskräfte, auch Whaling genannt, sind eine besonder
 
 ### SENS.12.1 – Hohe Risiken
 
-**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.42
+**Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.42
 
 > Sensibilisierung für Nutzende KANN gegen die in der Risikoanalyse festgestellten hohen Risiken sensibilisieren.
 

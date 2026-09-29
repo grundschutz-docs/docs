@@ -9,7 +9,7 @@ Die Praktik Konfiguration stellt sicher, dass IT-Komponenten – wie Anwendungen
 
 ### KONF.1.1 – Verfahren und Regelungen
 
-**Stufe:** `normal-SdT` · **Aufwand:** 0 · **Gefährdungen:** G 0.18
+**Pflicht:** MUSS · **Stufe:** `normal-SdT` · **Aufwand:** 0 · **Gefährdungen:** G 0.18
 
 > Konfiguration MUSS Verfahren und Regelungen zum Konfigurationsmanagement verankern.
 
@@ -17,7 +17,7 @@ Die Umsetzung kann in einem eigenen Prozess, oder integriert in andere Prozesse 
 
 #### KONF.1.1.1 – Dokumentation
 
-**Stufe:** `normal-SdT` · **Aufwand:** 0 · **Gefährdungen:** G 0.18
+**Pflicht:** MUSS · **Stufe:** `normal-SdT` · **Aufwand:** 0 · **Gefährdungen:** G 0.18
 
 > Konfiguration MUSS die Verfahren und Regelungen dokumentieren.
 
@@ -25,7 +25,7 @@ Ohne eine Dokumentation könnte die Einhaltung der Verfahren und Regelungen von 
 
 #### KONF.1.1.2 – Zuweisung der Aufgaben
 
-**Stufe:** `normal-SdT` · **Aufwand:** 0 · **Gefährdungen:** G 0.18
+**Pflicht:** MUSS · **Stufe:** `normal-SdT` · **Aufwand:** 0 · **Gefährdungen:** G 0.18
 
 > Konfiguration MUSS die mit den Verfahren und Regelungen verbundenen Aufgaben *[zuständigen Personen oder Rollen]* zuweisen.
 
@@ -33,7 +33,7 @@ Die Zuweisung von Aufgaben bezeichnet die eindeutige und verbindliche Übertragu
 
 #### KONF.1.1.3 – Bekanntgabe
 
-**Stufe:** `normal-SdT` · **Aufwand:** 0 · **Gefährdungen:** G 0.18, G 0.31
+**Pflicht:** MUSS · **Stufe:** `normal-SdT` · **Aufwand:** 0 · **Gefährdungen:** G 0.18, G 0.31
 
 > Konfiguration MUSS die zuständigen Personen oder Rollen über die Verfahren und Regelungen informieren.
 
@@ -41,7 +41,7 @@ Wenn die Zuständigen die etablierten Verfahren nicht kennen, besteht die Gefahr
 
 ### KONF.1.2 – Regelmäßige Überprüfung
 
-**Stufe:** `normal-SdT` · **Aufwand:** 0 · **Gefährdungen:** G 0.18, G 0.29
+**Pflicht:** MUSS · **Stufe:** `normal-SdT` · **Aufwand:** 0 · **Gefährdungen:** G 0.18, G 0.29
 
 > Konfiguration MUSS die Verfahren und Regelungen *[regelmäßig]* und anlassbezogen auf Aktualität überprüfen.
 
@@ -49,7 +49,7 @@ Eine geplante der etablierten Verfahren und Regelungen dient dazu festzustellen,
 
 ### KONF.1.3 – Management von Werkzeugen
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.18, G 0.20
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.18, G 0.20
 
 > Konfiguration SOLLTE verwendete Konfigurationswerkzeuge einschließlich Verwendungszweck und Herkunft dokumentieren.
 
@@ -57,7 +57,7 @@ Der Begriff Konfigurationswerkzeuge bezeichnet in diesem Zusammenhang alle techn
 
 ### KONF.1.4 – Einschränkung des Zugriffs auf Dokumentation
 
-**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.19, G 0.22, G 0.46
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.19, G 0.22, G 0.46
 
 > Konfiguration SOLLTE den Zugriff auf dokumentierte Konfigurationen einschränken.
 
@@ -65,7 +65,7 @@ Der Begriff Konfigurationswerkzeuge bezeichnet in diesem Zusammenhang alle techn
 
 ### KONF.1.5 – Verschlüsselung von Konfigurationsgeheimnissen
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.19
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.19
 
 > Konfiguration SOLLTE Konfigurationsgeheimnisse verschlüsseln.
 
@@ -75,7 +75,7 @@ Konfigurationsgeheimnissen sind sensitive, nicht-öffentliche Daten, die von Sys
 
 ### KONF.2.1 – Grundkonfiguration für Systeme
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.18
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.18
 
 > Konfiguration für IT-Systeme SOLLTE eine Grundkonfiguration dokumentieren.
 
@@ -83,7 +83,7 @@ Eine Grundkonfiguration (engl. baseline configuration) bezeichnet hier einen dok
 
 #### KONF.2.1.1 – Versionierung der Systemkonfiguration
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.18, G 0.45
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.18, G 0.45
 
 > Konfiguration für IT-Systeme SOLLTE eine Versionierung vorheriger Konfigurationen verankern.
 
@@ -91,7 +91,7 @@ Die Versionierung bezeichnet hier die strukturierte Nachvollziehbarkeit von Änd
 
 ### KONF.2.2 – Kryptographische Verfahren in IT-Systemen
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.18, G 0.29
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.18, G 0.29
 
 > Konfiguration für IT-Systeme SOLLTE kryptographische Verfahren nach *[anerkannten Standards]* im Einklang mit den zugehörigen Anforderungen zum Identitäts- und Berechtigungsmanagement aktivieren.
 
@@ -99,7 +99,7 @@ Kryptographie wird für die Authentifizierung, Verschlüsselung und Integritätp
 
 ### KONF.2.3 – Änderung von Default-Zugangsdaten
 
-**Stufe:** `normal-SdT` · **Aufwand:** 1 · **Gefährdungen:** G 0.30, G 0.23
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 1 · **Gefährdungen:** G 0.30, G 0.23
 
 > Konfiguration für IT-Systeme SOLLTE die Änderung von Default-Zugangsdaten ausführen.
 
@@ -107,7 +107,7 @@ Kryptographie wird für die Authentifizierung, Verschlüsselung und Integritätp
 
 ### KONF.2.4 – Deaktivierung nicht benötigter Systemfunktionen
 
-**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.23, G 0.28
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.23, G 0.28
 
 > Konfiguration für IT-Systeme SOLLTE nicht benötigte Systemfunktionen deaktivieren.
 
@@ -115,7 +115,7 @@ Die Deaktivierung von Funktionen, die für Betrieb oder aus Sicherheitssicht nic
 
 #### KONF.2.4.1 – Nicht benötigte Zertifikate
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.23, G 0.14
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.23, G 0.14
 
 > Konfiguration für IT-Systeme SOLLTE nicht benötigte Zertifikate deaktivieren.
 
@@ -123,7 +123,7 @@ Hierbei ist insbesondere an die vom Betriebssystem als vertrauenswürdig eingest
 
 #### KONF.2.4.2 – Externe Cloud-Anbindungen
 
-**Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.19, G 0.23
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.19, G 0.23
 
 > Konfiguration für IT-Systeme SOLLTE nicht benötigte Cloud-Anbindungen deaktivieren.
 
@@ -131,7 +131,7 @@ Eine Cloud-Anbindung ist eine technische Schnittstelle, über die ein IT-System 
 
 ### KONF.2.5 – Überprüfung der Konfiguration
 
-**Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.22, G 0.21, G 0.46, G 0.31
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.22, G 0.21, G 0.46, G 0.31
 
 > Konfiguration für IT-Systeme SOLLTE die Übereinstimmung der tatsächlichen Konfiguration mit dem Referenzzustand *[regelmäßig]* überprüfen.
 
@@ -139,7 +139,7 @@ Referenzzustand („baseline configuration“) bezeichnet hier die dokumentierte
 
 #### KONF.2.5.1 – Automatische Konfigurationsverwaltung
 
-**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.31, G 0.23, G 0.21, G 0.22
+**Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.31, G 0.23, G 0.21, G 0.22
 
 > Konfiguration für IT-Systeme KANN die Überprüfung der Konfiguration durch *[einen automatisierten Mechanismus]* aktivieren.
 
@@ -147,7 +147,7 @@ Eine automatische Konfigurationsverwaltung ermöglicht eine einheitliche Konfigu
 
 ### KONF.2.6 – Automatische Konfigurationsverwaltung
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.31, G 0.30, G 0.18
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.31, G 0.30, G 0.18
 
 > Konfiguration für Endgeräte SOLLTE die Verwaltung durch ein Mobile Device Management (MDM) aktivieren.
 
@@ -155,7 +155,7 @@ Die Konfigurationsanforderungen für Mobile Device Management (MDM) sind im BSI-
 
 ### KONF.2.7 – Souveräne Werkzeuge
 
-**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.11, G 0.18
+**Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.11, G 0.18
 
 > Konfiguration für IT-Systeme KANN Souveräne Werkzeuge installieren.
 
@@ -163,7 +163,7 @@ Die Konfigurationsanforderungen für Mobile Device Management (MDM) sind im BSI-
 
 ### KONF.2.8 – Alternative Administrationszugänge
 
-**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.27, G 0.18
+**Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.27, G 0.18
 
 > Konfiguration für IT-Systeme KANN alternative Administrationszugänge installieren.
 
@@ -171,7 +171,7 @@ Das ist zum Beispiel von Bedeutung bei zentralen Systemen wie Firewalls und Rout
 
 ### KONF.2.9 – Abgesicherter und authentisierter Bootprozess
 
-**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.21, G 0.39
+**Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.21, G 0.39
 
 > Konfiguration für IT-Systeme KANN einen abgesicherten und authentisierten Bootprozess aktivieren.
 
@@ -181,7 +181,7 @@ Dies empfiehlt sich für eingebettete Systeme (Embedded Systems), indem z.B. der
 
 ### KONF.3.1 – Kryptographischer Hardwarespeicher
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.19, G 0.21
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.19, G 0.21
 
 > Konfiguration für IT-Systeme SOLLTE einen kryptographischen Hardwarespeicher aktivieren.
 
@@ -189,7 +189,7 @@ Ein kryptographischer Hardwarespeicher bezeichnet in diesem Kontext eine gesiche
 
 ### KONF.3.2 – Speicherverschlüsselung
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.19, G 0.14
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.19, G 0.14
 
 > Konfiguration für IT-Systeme SOLLTE integrierte Festspeichermedien verschlüsseln.
 
@@ -197,7 +197,7 @@ Die Verschlüsselung von Datenträgern erschwert es Angreifern, Daten von verlor
 
 ### KONF.3.3 – SIM-PIN
 
-**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.30, G 0.16, G 0.17
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.30, G 0.16, G 0.17
 
 > Konfiguration für IT-Systeme SOLLTE bei Mobilfunkanschluss eine SIM-PIN aktivieren.
 
@@ -205,7 +205,7 @@ Eine SIM-PIN ist eine persönliche Identifikationsnummer, die direkt auf der SIM
 
 ### KONF.3.4 – Physischer Diebstahlschutz
 
-**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.16
+**Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.16
 
 > Konfiguration für Endgeräte KANN einen physischen Diebstahlschutz installieren.
 
@@ -213,7 +213,7 @@ Ein physischer Diebstahlschutz bezeichnet im vorliegenden Kontext sämtliche Vor
 
 ### KONF.3.5 – Standortbestimmung
 
-**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.16, G 0.17
+**Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.16, G 0.17
 
 > Konfiguration für IT-Systeme KANN eine Funktion zur Bestimmung des Standortes aus der Ferne *[durch einen automatisierten Mechanismus]* aktivieren.
 
@@ -221,7 +221,7 @@ Der Begriff automatisierter Mechanismus bezeichnet im gegebenen Kontext ein tech
 
 ### KONF.3.6 – Fernlöschung oder -sperre
 
-**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.16, G 0.17, G 0.30, G 0.19
+**Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.16, G 0.17, G 0.30, G 0.19
 
 > Konfiguration für Endgeräte KANN eine Funktion zur Fernlöschung oder -sperre aktivieren.
 
@@ -229,7 +229,7 @@ Eine automatische Fernlöschung meint hier die technische Möglichkeit, gespeich
 
 #### KONF.3.6.1 – Automatische Fernlöschung oder -sperre
 
-**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.16, G 0.30, G 0.19, G 0.17
+**Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.16, G 0.30, G 0.19, G 0.17
 
 > Konfiguration für Endgeräte KANN eine automatische Fernlöschung oder -sperre bei Inaktivität nach *[einer längeren Frist]* aktivieren.
 
@@ -237,7 +237,7 @@ Beide Mechanismen können bei längerer Inaktivität ausgelöst werden, also wen
 
 ### KONF.3.7 – Einschränkung angeschlossener Peripherie
 
-**Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.23, G 0.39, G 0.19
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.23, G 0.39, G 0.19
 
 > Konfiguration für IT-Systeme SOLLTE angeschlossene Peripherie einschränken.
 
@@ -245,7 +245,7 @@ Peripherie bezeichnet angeschlossene Geräte, die über Schnittstellen wie USB, 
 
 ### KONF.3.8 – Einschränkung von Wechselmedien
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.39, G 0.23
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.39, G 0.23
 
 > Konfiguration für IT-Systeme SOLLTE das automatische Einbinden von Wechselmedien einschränken.
 
@@ -255,7 +255,7 @@ Funktionen, die Wechselmedien automatisch einbinden und Inhalte darauf öffnen o
 
 ### KONF.4.1 – Anbindung an Verzeichnisdienst
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.18, G 0.30
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.18, G 0.30
 
 > Konfiguration für IT-Systeme SOLLTE die Anbindung an einen Verzeichnisdienst aktivieren.
 
@@ -263,7 +263,7 @@ Anbindung meint hier die Authentifizierung und Autorisierungsprüfung von Zugang
 
 #### KONF.4.1.1 – Weiterleitung von Anmeldeinformationen
 
-**Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.43, G 0.36
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.43, G 0.36
 
 > Konfiguration für IT-Systeme SOLLTE die Weiterleitung mehrfach verwendbarer Anmeldeinformationen deaktivieren.
 
@@ -271,7 +271,7 @@ Anbindung meint hier die Authentifizierung und Autorisierungsprüfung von Zugang
 
 ### KONF.4.2 – DNS-Anbindung
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.22, G 0.43
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.22, G 0.43
 
 > Konfiguration für IT-Systeme SOLLTE die vom System verwendeten DNS-Server autorisieren.
 
@@ -279,7 +279,7 @@ Autorisierte DNS-Server sind hier Resolving-Server, die von der Institution auto
 
 #### KONF.4.2.1 – DNS-Verschlüsselung
 
-**Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.22, G 0.19, G 0.15
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.22, G 0.19, G 0.15
 
 > Konfiguration für IT-Systeme SOLLTE DNS-Verbindungen durch *[einen anerkannten kryptographischen Algorithmus]* verschlüsseln.
 
@@ -287,7 +287,7 @@ DNS-Verschlüsselung, im Englischen oft als DNS over TLS (DoT) oder DNS over HTT
 
 ### KONF.4.3 – Authentifizierung von Fernwartungsfunktionen
 
-**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.23, G 0.30
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.23, G 0.30
 
 > Konfiguration für IT-Systeme SOLLTE Fernwartungsfunktionen im Einklang mit den zugehörigen Anforderungen zum Identitäts- und Berechtigungsmanagement authentifizieren.
 
@@ -295,7 +295,7 @@ Unter Fernwartungsfunktionen versteht man technische Zugänge, die es ermöglich
 
 ### KONF.4.4 – Einschränkung von Fernwartungsfunktionen
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.30, G 0.32
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.30, G 0.32
 
 > Konfiguration für IT-Systeme SOLLTE Fernwartungsfunktionen im Einklang mit den zugehörigen Anforderungen zum Identitäts- und Berechtigungsmanagement einschränken.
 
@@ -303,7 +303,7 @@ Fernwartungszugänge, etwa über RDP, SNMP oder Anwendungen zur Fernsteuerung de
 
 ### KONF.4.5 – Zeitquellen
 
-**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.22, G 0.43
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.22, G 0.43
 
 > Konfiguration für IT-Systeme SOLLTE Zeitquellen autorisieren.
 
@@ -313,7 +313,7 @@ Eine einheitliche Zeitquelle für die Systemuhr (meist über NTP oder PTP) ist e
 
 ### KONF.5.1 – Authentifizierung am System
 
-**Stufe:** `normal-SdT` · **Aufwand:** 1 · **Gefährdungen:** G 0.18
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 1 · **Gefährdungen:** G 0.18
 
 > Konfiguration für IT-Systeme SOLLTE den Zugriff auf das System im Einklang mit den zugehörigen Anforderungen zum Identitäts- und Berechtigungsmanagement authentifizieren.
 
@@ -321,7 +321,7 @@ Betrifft sowohl die lokale Anmeldung über eine Benutzeroberfläche als auch den
 
 #### KONF.5.1.1 – Authentifizierung an der Firmware
 
-**Stufe:** `normal-SdT` · **Aufwand:** 1 · **Gefährdungen:** G 0.30, G 0.21
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 1 · **Gefährdungen:** G 0.30, G 0.21
 
 > Konfiguration für IT-Systeme SOLLTE den Zugriff auf die Firmware im Einklang mit den zugehörigen Anforderungen zum Identitäts- und Berechtigungsmanagement authentifizieren.
 
@@ -329,7 +329,7 @@ Durch unautorisierte Änderungen an Einstellungen der Firmware (UEFI oder Embedd
 
 #### KONF.5.1.2 – Pre-Boot-Authentifizierung
 
-**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.30, G 0.19
+**Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.30, G 0.19
 
 > Konfiguration für Endgeräte KANN den Zugriff vor dem Start des Betriebssystems authentifizieren.
 
@@ -337,7 +337,7 @@ Diese Authentifizierung vor dem Start, oft als "Pre-Boot Authentication" (PBA) o
 
 ### KONF.5.2 – Keine Mehrfachanmeldung
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.30, G 0.32
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.30, G 0.32
 
 > Konfiguration für IT-Systeme SOLLTE die gleichzeitige Anmeldung mehrerer Zugangskonten deaktivieren.
 
@@ -347,7 +347,7 @@ Wenn Nutzende mit verschiedenen Identitäten simultan im System angemeldet sind,
 
 ### KONF.6.1 – Minimal erforderliche Berechtigungen für Anwendungen
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.32, G 0.30
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.32, G 0.30
 
 > Konfiguration für IT-Systeme SOLLTE erforderliche Berechtigungen für Anwendungen einschränken.
 
@@ -355,7 +355,7 @@ Ziel ist es, Angriffsflächen zu minimieren und unerwünschte Seiteneffekte zu v
 
 #### KONF.6.1.1 – Datenkapselung
 
-**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.19, G 0.22
+**Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.19, G 0.22
 
 > Konfiguration für IT-Systeme KANN Datenkapselung aktivieren.
 
@@ -363,7 +363,7 @@ Bei der Datenkapselung, im Englischen als data encapsulation bekannt, handelt es
 
 #### KONF.6.1.2 – Isolierung von Anwendungen
 
-**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.39, G 0.23
+**Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.39, G 0.23
 
 > Konfiguration für IT-Systeme KANN die Isolierung von *[bestimmten Anwendungen]* aktivieren.
 
@@ -371,7 +371,7 @@ Die Isolation von Anwendungen (auch Application Sandboxing oder Application Conf
 
 #### KONF.6.1.3 – Isolierte Arbeitsumgebungen
 
-**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.19, G 0.31
+**Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.19, G 0.31
 
 > Konfiguration für Endgeräte KANN die Isolation verschiedener Arbeitsumgebungen für verschiedene Verwendungen aktivieren.
 
@@ -379,7 +379,7 @@ Verschiedene Verwendungen sind z.B. die berufliche und private Nutzung, oder die
 
 ### KONF.6.2 – Gemeinsam genutzte Verzeichnisse
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.19, G 0.30
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.19, G 0.30
 
 > Konfiguration für Dateiserver SOLLTE die Zugriffsrechte gemeinsam verwendeter Verzeichnisse einschränken.
 
@@ -387,7 +387,7 @@ Relevant sind hierbei sowohl speziell eingerichtete Verzeichnisse für die gemei
 
 ### KONF.6.3 – Kiosk-Modus
 
-**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.19, G 0.46
+**Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.19, G 0.46
 
 > Konfiguration für Endgeräte KANN das automatische Zurücksetzen auf einen definierten Zustand nach der Nutzung aktivieren.
 
@@ -395,7 +395,7 @@ Ein Kiosk‑Modus (auch als Gast-Zugang bezeichnet) kann dazu dienen, die Integr
 
 ### KONF.6.4 – Privilegierte Systemfunktionen
 
-**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.32, G 0.30
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.32, G 0.30
 
 > Konfiguration für IT-Systeme SOLLTE privilegierte Funktionen einschränken.
 
@@ -403,7 +403,7 @@ Sind privilegierte Funktionen nicht eingeschränkt, so könnten Innentäter oder
 
 #### KONF.6.4.1 – Rollenbasierte Privilegierung
 
-**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.30, G 0.32
+**Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.30, G 0.32
 
 > Konfiguration für IT-Systeme KANN rollenbasiertes Berechtigungsmanagement aktivieren.
 
@@ -411,7 +411,7 @@ Rollenbasierte Administration schränkt die Berechtigungen administrativer Zugan
 
 ### KONF.6.5 – Dynamische Zugriffskontrolle im System
 
-**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.32, G 0.30
+**Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.32, G 0.30
 
 > Konfiguration für IT-Systeme KANN dynamische Zugriffskontrolle im System aktivieren.
 
@@ -419,7 +419,7 @@ Eine dynamische Zugriffskontrolle (engl. Dynamic Access Control, DAC) bezeichnet
 
 ### KONF.6.6 – Getrennte Datenhaltung
 
-**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.19, G 0.30
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.19, G 0.30
 
 > Konfiguration für Anwendungen SOLLTE Zugriffe eines Zugangskontos auf Daten anderer Zugangskonten einschränken.
 
@@ -427,7 +427,7 @@ Dies kann je nach Anwendung z.B. durch eine in der Anwendung integrierte Rollen-
 
 #### KONF.6.6.1 – Mandantenfähigkeit
 
-**Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.19, G 0.22
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.19, G 0.22
 
 > Konfiguration für Anwendungen SOLLTE wenn die Anwendung mehrere Mandaten bedient, für jeden Mandanten eine eigene Berechtigungskonfiguration aktivieren.
 
@@ -435,7 +435,7 @@ Der Ausdruck "mehrere Mandanten" (im Englischen auch multi-tenancy genannt) bezi
 
 ### KONF.6.7 – Privilegierte Funktionen der Anwendung
 
-**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.32, G 0.30
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.32, G 0.30
 
 > Konfiguration für Anwendungen SOLLTE privilegierte Funktionen einschränken.
 
@@ -443,7 +443,7 @@ Sind privilegierte Funktionen nicht eingeschränkt, so könnten Innentäter oder
 
 ### KONF.6.8 – Berechtigungen des Webserver-Prozesses
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.32, G 0.30
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.32, G 0.30
 
 > Konfiguration für Webserver SOLLTE die Berechtigungen des Webserver-Prozesses einschränken.
 
@@ -451,7 +451,7 @@ Wird der laufende Prozess über das Web kompromittiert, so verhindert eine Einsc
 
 ### KONF.6.9 – Zugriff auf Code
 
-**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.19, G 0.22
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.19, G 0.22
 
 > Konfiguration für Webserver SOLLTE den Zugriff auf Quelldateien einschränken.
 
@@ -459,7 +459,7 @@ Quelldateien sind in diesem Zusammenhang alle Dateien, die zur Funktionsweise ei
 
 ### KONF.6.10 – Auflistung von Verzeichnisinhalten
 
-**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.19
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.19
 
 > Konfiguration für Webserver SOLLTE die Auflistung von Verzeichnisinhalten einschränken.
 
@@ -467,7 +467,7 @@ Quelldateien sind in diesem Zusammenhang alle Dateien, die zur Funktionsweise ei
 
 ### KONF.6.11 – Einschränkung von Uploads
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.39, G 0.40
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.39, G 0.40
 
 > Konfiguration für Webserver SOLLTE Uploads einschränken.
 
@@ -475,7 +475,7 @@ Uploads sind Dateien, die von Nutzenden auf den Server übertragen werden. Diese
 
 ### KONF.6.12 – Konferenzmoderation
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.19, G 0.30
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.19, G 0.30
 
 > Konfiguration für VK-Anwendungen SOLLTE bei öffentlichen Konferenzschaltungen eine Konferenzmoderation aktivieren.
 
@@ -483,7 +483,7 @@ Bei Konferenzen kann es vorkommen, dass ungewollt Teilnehmende zu hören sind. D
 
 ### KONF.6.13 – Dynamische Zugriffskontrolle in der Anwendung
 
-**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.32, G 0.30
+**Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.32, G 0.30
 
 > Konfiguration für Anwendungen KANN dynamische Zugriffskontrolle in der Anwendung aktivieren.
 
@@ -491,7 +491,7 @@ Dynamische Zugriffskontrolle („dynamic access control“, DAC) bezeichnet hier
 
 ### KONF.6.14 – Browser Sandboxing
 
-**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.39, G 0.23
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.39, G 0.23
 
 > Konfiguration für Webbrowser SOLLTE Browser Sandboxing aktivieren.
 
@@ -499,7 +499,7 @@ Sandboxing bedeutet, dass jede Instanz und jeder Verarbeitungsprozess nur auf di
 
 ### KONF.6.15 – Virtualisierte Browser-Umgebung
 
-**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.39, G 0.23
+**Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.39, G 0.23
 
 > Konfiguration für Webbrowser KANN Virtualisierte Browser-Umgebung aktivieren.
 
@@ -507,7 +507,7 @@ Eine Browser-Umgebung ist virtualisiert, wenn der Code des Browser nicht im Betr
 
 ### KONF.6.16 – Datenaustausch in der Virtualisierung
 
-**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.19, G 0.23
+**Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.19, G 0.23
 
 > Konfiguration für Virtualisierungslösungen KANN den Datenaustausch zwischen virtualisierten Client einschränken.
 
@@ -517,7 +517,7 @@ Der Datenaustausch zwischen virtualisierten Anwendungen umfasst jegliche direkte
 
 ### KONF.7.1 – Echtzeitscanner
 
-**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.39, G 0.23
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.39, G 0.23
 
 > Konfiguration für IT-Systeme SOLLTE eine automatische Prüfung auf Schadcode bei Installation oder Öffnung von Dateien aktivieren.
 
@@ -525,7 +525,7 @@ Schadcode kann sich sowohl auf lokalen Speichermedien, als auch auf Netzlaufwerk
 
 ### KONF.7.2 – Regelmäßige Scans
 
-**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.39, G 0.23
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.39, G 0.23
 
 > Konfiguration für IT-Systeme SOLLTE einen regelmäßigen Scan von Dateien auf dem System nach potenziellem Schadcode aktivieren.
 
@@ -533,7 +533,7 @@ Schadcode kann sich sowohl auf lokalen Speichermedien, als auch auf Netzlaufwerk
 
 ### KONF.7.3 – Host-basierte Angriffserkennung
 
-**Stufe:** `erhöht` · **Aufwand:** 3 · **Gefährdungen:** G 0.39, G 0.23
+**Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 3 · **Gefährdungen:** G 0.39, G 0.23
 
 > Konfiguration für IT-Systeme KANN Host-basierte Angriffserkennung aktivieren.
 
@@ -541,7 +541,7 @@ Host-basierte Angriffserkennung, im Englischen auch als Host-based Intrusion Det
 
 ### KONF.7.4 – Angriffserkennung anhand von Netzverkehr
 
-**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.39, G 0.23
+**Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.39, G 0.23
 
 > Konfiguration für IT-Systeme KANN Angriffserkennung anhand von Netzverkehr aktivieren.
 
@@ -549,7 +549,7 @@ Hierbei wird eine netzwerkbasierte Bedrohungsanalyse direkt auf dem IT-System du
 
 ### KONF.7.5 – Alarmierung
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.39, G 0.18
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.39, G 0.18
 
 > Konfiguration für IT-Systeme SOLLTE eine Benachrichtigung bei potenziellem Schadcode aktivieren.
 
@@ -557,7 +557,7 @@ Durch die Aktivierung einer Benachrichtigung kann eine Institution schnell auf v
 
 ### KONF.7.6 – Automatische Updates
 
-**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.39, G 0.18
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.39, G 0.18
 
 > Konfiguration für IT-Systeme SOLLTE Automatische Updates der Mechanismen zur Schadcodeerkennung aktivieren.
 
@@ -565,7 +565,7 @@ Da Schadprogramme und Angriffsmethoden ständig abgeändert werden um bekannte E
 
 ### KONF.7.7 – Regelmäßiger Funktionstest
 
-**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.39, G 0.18
+**Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.39, G 0.18
 
 > Konfiguration für IT-Systeme KANN die Funktionsfähigkeit des Schadcodeschutzes *[regelmäßig]* überprüfen.
 
@@ -573,7 +573,7 @@ Die Funktionsfähigkeit des Schadcodeschutzes beschreibt den operativen Zustand 
 
 ### KONF.7.8 – Dual-Engine-Strategie
 
-**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.39, G 0.18
+**Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.39, G 0.18
 
 > Konfiguration für IT-Systeme KANN für die Erkennung von Schadcode unterschiedliche Scan-Engines aktivieren.
 
@@ -581,7 +581,7 @@ Hiermit ist gemeint, dass die Angriffserkennung mittels (zwei oder mehr) verschi
 
 ### KONF.7.9 – Einschränkung der Installation
 
-**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.39, G 0.20
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.39, G 0.20
 
 > Konfiguration für IT-Systeme SOLLTE die Installation von Anwendungen einschränken.
 
@@ -589,7 +589,7 @@ Es empfiehlt sich z.B. die zu installierende Software nicht unkontrolliert in da
 
 ### KONF.7.10 – Einschränkung der Ausführung
 
-**Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.30, G 0.39
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.30, G 0.39
 
 > Konfiguration für IT-Systeme SOLLTE die Ausführung nicht autorisierter Anwendungen einschränken.
 
@@ -597,7 +597,7 @@ Wenn Anwendungen an beliebigen Speicherorten installiert und ausgeführt werden,
 
 ### KONF.7.11 – Einschränkung von Softwarebibliotheken
 
-**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.30, G 0.39
+**Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.30, G 0.39
 
 > Konfiguration für IT-Systeme KANN die Ausführung nicht autorisierter Softwarebibliotheken einschränken.
 
@@ -605,7 +605,7 @@ Softwarebibliotheken sind wiederverwendbare Codesammlungen, die Entwicklern fert
 
 ### KONF.7.12 – Einschränkung von Skripten
 
-**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.30, G 0.39
+**Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.30, G 0.39
 
 > Konfiguration für IT-Systeme KANN die Ausführung nicht autorisierter Skripte einschränken.
 
@@ -613,7 +613,7 @@ Skripte könnten Schadcode enthalten oder zu Fehlerzuständen auf dem System fü
 
 ### KONF.7.13 – Einschränkung von Systemaufrufen
 
-**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.30, G 0.39
+**Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.30, G 0.39
 
 > Konfiguration für IT-Systeme KANN Systemaufrufe pro Anwendung einschränken.
 
@@ -621,7 +621,7 @@ Ein Systemaufruf (engl. system call) ist dabei die Methode, mit der eine Anwendu
 
 ### KONF.7.14 – Code-Signierung im Betriebssystemkern
 
-**Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.39, G 0.21
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.39, G 0.21
 
 > Konfiguration für IT-Systeme SOLLTE die Signaturprüfung für nachladbaren Code im Kernelmodus aktivieren.
 
@@ -629,7 +629,7 @@ Nachladbarer Code im Kernelmodus verfügt typischerweise über weitreichende Ber
 
 ### KONF.7.15 – Lokale Firewall
 
-**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.23, G 0.18
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.23, G 0.18
 
 > Konfiguration für IT-Systeme SOLLTE ein- und ausgehende Netzverbindungen einschränken.
 
@@ -637,7 +637,7 @@ Eine lokale Firewall ist eine Anwendung, welche nur die zum Betrieb und zur Wart
 
 ### KONF.7.16 – Anti-Exploit
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.28, G 0.23
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.28, G 0.23
 
 > Konfiguration für IT-Systeme SOLLTE Systemfunktionen zum Schutz des Systems vor der Ausnutzung bekannter Sicherheitslücken aktivieren.
 
@@ -645,7 +645,7 @@ Angreifer versuchen häufig, bekannte Sicherheitslücken oder offene Systemfunkt
 
 #### KONF.7.16.1 – Anti-Exploit für den Arbeitsspeicher
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.28, G 0.23
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.28, G 0.23
 
 > Konfiguration für IT-Systeme SOLLTE den Schutz des Arbeitsspeichers vor der Ausnutzung bekannter Sicherheitslücken aktivieren.
 
@@ -655,7 +655,7 @@ Gelingt es Angreifern Code auf dem System auszuführen, so könnten sie versuche
 
 ### KONF.8.1 – Automatische Überprüfung
 
-**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.18, G 0.28
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.18, G 0.28
 
 > Konfiguration für IT-Systeme SOLLTE das Vorliegen von Sicherheitsupdates überwachen.
 
@@ -663,7 +663,7 @@ Eine Überwachung von Sicherheitsupdates bedeutet, dass die IT-Systeme selbsttä
 
 #### KONF.8.1.1 – Automatische Sicherheitsupdates
 
-**Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.18, G 0.28
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.18, G 0.28
 
 > Konfiguration für IT-Systeme SOLLTE Sicherheitsupdates automatisch installieren.
 
@@ -671,7 +671,7 @@ Dies kann durch direkten Download vom Hersteller oder einen eigenen Verteilerser
 
 ### KONF.8.2 – Automatische Updates der Anwendung
 
-**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.18, G 0.28
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.18, G 0.28
 
 > Konfiguration für Anwendungen SOLLTE die automatische Installation von Sicherheitsupdates aktivieren.
 
@@ -681,7 +681,7 @@ Dies kann durch direkten Download vom Hersteller oder einen eigenen Verteilerser
 
 ### KONF.9.1 – Speicherplatzbegrenzung
 
-**Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.27, G 0.40
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.27, G 0.40
 
 > Konfiguration für IT-Systeme SOLLTE den Speicherplatz für die Nutzerumgebung einschränken.
 
@@ -689,7 +689,7 @@ Nutzerumgebung meint hier alle Anwendungen und Dienste, die auf dem System betri
 
 ### KONF.9.2 – Begrenzung der Rechenleistung
 
-**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.27, G 0.40
+**Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.27, G 0.40
 
 > Konfiguration für Hostsysteme KANN die zur Verfügung stehende Rechenleistung anhand von *[Schwellwerten]* einschränken.
 
@@ -697,7 +697,7 @@ Dies kann durch eine Beschränkung der Anzahl verwendeter Rechenkerne, der Reche
 
 ### KONF.9.3 – Alternative Komponenten für kritische Funktionen
 
-**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.18, G 0.25
+**Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.18, G 0.25
 
 > Konfiguration für IT-Systeme KANN alternative Komponenten für *[bestimmte kritische Funktionen]* installieren.
 
@@ -707,7 +707,7 @@ Beispiele sind redundante Stromnetzteile, Ethernet-Anschlüsse oder eine Mobilfu
 
 ### KONF.10.1 – Grundkonfiguration für Anwendungen
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.18
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.18
 
 > Konfiguration für Anwendungen SOLLTE eine Grundkonfiguration dokumentieren.
 
@@ -715,7 +715,7 @@ Eine Grundkonfiguration (engl. baseline configuration) bezeichnet in diesem Kont
 
 #### KONF.10.1.1 – Versionierung der Anwendungskonfiguration
 
-**Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.18, G 0.45
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.18, G 0.45
 
 > Konfiguration für Anwendungen SOLLTE eine Versionierung vorheriger Konfigurationen verankern.
 
@@ -723,7 +723,7 @@ Die Versionierung bezeichnet hier die strukturierte Nachvollziehbarkeit von Änd
 
 ### KONF.10.2 – Kryptographische Verfahren in Anwendungen
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.18, G 0.29
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.18, G 0.29
 
 > Konfiguration für Anwendungen SOLLTE kryptographische Verfahren nach *[anerkannten Standards]* im Einklang mit den zugehörigen Anforderungen zum Identitäts- und Berechtigungsmanagement aktivieren.
 
@@ -731,7 +731,7 @@ Kryptographie wird für die Authentifizierung, Verschlüsselung und Integritätp
 
 ### KONF.10.3 – Änderung von Default-Zugangsdaten
 
-**Stufe:** `normal-SdT` · **Aufwand:** 1 · **Gefährdungen:** G 0.30, G 0.23
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 1 · **Gefährdungen:** G 0.30, G 0.23
 
 > Konfiguration für Anwendungen SOLLTE die Änderung von Default-Zugangsdaten ausführen.
 
@@ -739,7 +739,7 @@ Hiermit sind Default-Passwörter, als auch vertrauenswürdige Authentisierungs-S
 
 ### KONF.10.4 – Deaktivierung nicht benötigter Anwendungsfunktionen
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.28, G 0.23
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.28, G 0.23
 
 > Konfiguration für Anwendungen SOLLTE nicht benötigte Anwendungsfunktionen deaktivieren.
 
@@ -747,7 +747,7 @@ Funktionen die für den Betrieb nicht benötigt werden stellen ein unnötiges Si
 
 ### KONF.10.5 – Überprüfung der Konfiguration
 
-**Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.31, G 0.23, G 0.21, G 0.22
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.31, G 0.23, G 0.21, G 0.22
 
 > Konfiguration für Anwendungen SOLLTE die Übereinstimmung der tatsächlichen Konfiguration mit dem Referenzzustand *[regelmäßig]* überprüfen.
 
@@ -755,7 +755,7 @@ Referenzzustand („baseline configuration“) bezeichnet hier die dokumentierte
 
 #### KONF.10.5.1 – Automatisierte Überprüfung der Konfiguration
 
-**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.31, G 0.23, G 0.21, G 0.22
+**Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.31, G 0.23, G 0.21, G 0.22
 
 > Konfiguration für Anwendungen KANN die Überprüfung der Konfiguration durch *[einen automatisierten Mechanismus]* aktivieren.
 
@@ -765,7 +765,7 @@ Die automatische Auditierung der Systemkonfiguration ermöglicht eine kontinuier
 
 ### KONF.11.1 – Authentifizierung vor dem Zugriff
 
-**Stufe:** `normal-SdT` · **Aufwand:** 1 · **Gefährdungen:** G 0.19, G 0.30
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 1 · **Gefährdungen:** G 0.19, G 0.30
 
 > Konfiguration für Anwendungen SOLLTE Zugriffe auf schützenswerte Daten im Einklang mit den zugehörigen Anforderungen zum Identitäts- und Berechtigungsmanagement authentifizieren.
 
@@ -773,7 +773,7 @@ Ziel ist es, vertrauliche Daten vor dem Zugriff von Unbefugten zu schützen. Rel
 
 #### KONF.11.1.1 – Authentifizierung von geplanten Konversationen
 
-**Stufe:** `normal-SdT` · **Aufwand:** 1 · **Gefährdungen:** G 0.19, G 0.30
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 1 · **Gefährdungen:** G 0.19, G 0.30
 
 > Konfiguration für TK-Anwendungen SOLLTE den Zugriff auf geplante Konversationen im Einklang mit den zugehörigen Anforderungen zum Identitäts- und Berechtigungsmanagement authentifizieren.
 
@@ -781,7 +781,7 @@ Viele TK-Anwendungen bieten geplante Konversationen, z.B. in virtuellen Meeting-
 
 #### KONF.11.1.2 – Authentifizierung von Netzverbindungen - clientseitig
 
-**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.43, G 0.36
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.43, G 0.36
 
 > Konfiguration für Anwendungen SOLLTE die Gegenstelle vor dem Datenaustausch im Einklang mit den zugehörigen Anforderungen zum Identitäts- und Berechtigungsmanagement authentifizieren.
 
@@ -789,7 +789,7 @@ Stellt eine Anwendung Anfragen über das Netz oder nimmt eine Anwendung Anfragen
 
 ### KONF.11.2 – Warteraum
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.19, G 0.30
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.19, G 0.30
 
 > Konfiguration für VK-Anwendungen SOLLTE bei Konferenzschaltungen alle Teilnehmenden authentifizieren.
 
@@ -797,7 +797,7 @@ Dies kann z.B. Über eine explizite Gruppenmitgliedschaft von Zugangskonten, die
 
 ### KONF.11.3 – Veröffentlichung von Domain-Infomationen
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.19, G 0.14
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.19, G 0.14
 
 > Konfiguration für DNS-Server SOLLTE die Veröffentlichung von Domain-Infomationen anhand von *[Kriterien]* einschränken.
 
@@ -805,7 +805,7 @@ Angreifer nutzen häufig DNS um das Netz zu erkunden (DNS-Reconnaissance). Verö
 
 ### KONF.11.4 – Erraten von Zugriffslinks
 
-**Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.23, G 0.19
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.23, G 0.19
 
 > Konfiguration für Webanwendungen SOLLTE das Durchprobieren von Zugriffslinks durch *[einen automatisierten Mechanismus]* blockieren.
 
@@ -813,7 +813,7 @@ Ermöglichen Links den Zugriff auf vertrauliche Daten ohne Authentifizierung, so
 
 ### KONF.11.5 – Einschränkung unauthentifizierter Anschlüsse
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.23, G 0.30
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.23, G 0.30
 
 > Konfiguration für TK-Anwendungen SOLLTE von unauthentifizierten Anschlüssen erreichbare Gegenstellen einschränken.
 
@@ -821,7 +821,7 @@ Als unauthentifizierte Anschlüsse (engl. unauthenticated connections) sind hier
 
 ### KONF.11.6 – Übersicht angemeldeter Verbindungen
 
-**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.23, G 0.30
+**Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.23, G 0.30
 
 > Konfiguration für Anwendungen KANN eine Übersicht angemeldeter Verbindungen aktivieren.
 
@@ -829,7 +829,7 @@ Je nach Anwendung können dabei Informationen wie Gerätename, Betriebssystemtyp
 
 ### KONF.11.7 – Einschränkung von Schnittstellen
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.23, G 0.19
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.23, G 0.19
 
 > Konfiguration für Anwendungen SOLLTE aktivierte Schnittstellen einschließlich denen zu anderen Anwendungen, Cloud-Funktionen oder Erweiterungen einschränken.
 
@@ -837,7 +837,7 @@ Die Einschränkung von Schnittstellen hilft, ungewollte oder böswillige Zugriff
 
 #### KONF.11.7.1 – Einschränkung von Zonentransfers
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.30, G 0.19
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.30, G 0.19
 
 > Konfiguration für DNS-Server SOLLTE Zonentransfers einschränken.
 
@@ -845,7 +845,7 @@ Zum Schutz vor DNS-Reconnaissance und DNS-Spoofing, da Zonendaten alle DNS-Eintr
 
 #### KONF.11.7.2 – Einschränkung von TK-Verbindungen
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.23, G 0.30
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.23, G 0.30
 
 > Konfiguration für TK-Anwendungen SOLLTE unerwünschte TK-Verbindungen einschränken.
 
@@ -853,7 +853,7 @@ Kann durch Session Border Controller (SBC) oder Filterung innerhalb von Anwendun
 
 ##### KONF.11.7.2.1 – Einschränkung der TK-Gegenstellen
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.23, G 0.30
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.23, G 0.30
 
 > Konfiguration für TK-Anwendungen SOLLTE Verbindungen mit externen Gegenstellen einschränken.
 
@@ -861,7 +861,7 @@ Telekommunikation mit externen Stellen ist essenziell für viele Geschäftsproze
 
 ### KONF.11.8 – Verschlüsselung schützenswerter Daten (at-rest)
 
-**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.19, G 0.14
+**Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.19, G 0.14
 
 > Konfiguration für Anwendungen KANN schützenswerte Daten bei der Speicherung (at-rest) verschlüsseln.
 
@@ -871,7 +871,7 @@ Hierbei ist insbesondere an Zugangsdaten zu denken. Die Anforderung ist auch dan
 
 ### KONF.12.1 – Eingabevalidierung
 
-**Stufe:** `normal-SdT` · **Aufwand:** 1 · **Gefährdungen:** G 0.28, G 0.23
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 1 · **Gefährdungen:** G 0.28, G 0.23
 
 > Konfiguration für Anwendungen SOLLTE die Validierung von Eingabedaten durch *[einen automatisierten Mechanismus]* aktivieren.
 
@@ -879,7 +879,7 @@ Eingabevalidierung (engl. input validation) ist die technische und logische Übe
 
 #### KONF.12.1.1 – Zertifikatsprüfung
 
-**Stufe:** `normal-SdT` · **Aufwand:** 1 · **Gefährdungen:** G 0.43
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 1 · **Gefährdungen:** G 0.43
 
 > Konfiguration für Webbrowser SOLLTE die automatische Validierung des Zertifikates einschließlich der vollständigen Zertifikatskette aktivieren.
 
@@ -887,7 +887,7 @@ Zertifikatsprüfung (Certificate Validation) ist eine Funktion, bei der ein Brow
 
 #### KONF.12.1.2 – Content Security Policy (CSP)
 
-**Stufe:** `normal-SdT` · **Aufwand:** 1 · **Gefährdungen:** G 0.28, G 0.23
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 1 · **Gefährdungen:** G 0.28, G 0.23
 
 > Konfiguration für Webbrowser SOLLTE aufgerufene Inhalte anhand der von der Webseite bereitgestellten Content Security Policy einschränken.
 
@@ -895,7 +895,7 @@ Eine Content Security Policy (CSP) ist ein Sicherheitsmechanismus, der es einer 
 
 #### KONF.12.1.3 – Same-Origin-Policy
 
-**Stufe:** `normal-SdT` · **Aufwand:** 1 · **Gefährdungen:** G 0.19, G 0.28
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 1 · **Gefährdungen:** G 0.19, G 0.28
 
 > Konfiguration für Webbrowser SOLLTE aufgerufene Inhalte anhand der von der Webseite bereitgestellten Same-Origin-Policy einschränken.
 
@@ -903,7 +903,7 @@ Die Same-Origin-Policy, oft auch als SOP bekannt, ist ein fundamentaler Sicherhe
 
 #### KONF.12.1.4 – Subresource Integrity-Prüfung
 
-**Stufe:** `normal-SdT` · **Aufwand:** 1 · **Gefährdungen:** G 0.22, G 0.46
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 1 · **Gefährdungen:** G 0.22, G 0.46
 
 > Konfiguration für Webbrowser SOLLTE aufgerufene Inhalte anhand der von der Webseite bereitgestellten Subresource Integrity-Prüfung einschränken.
 
@@ -911,7 +911,7 @@ Unter Subresource Integrity (SRI), zu Deutsch etwa „Integrität von Unterresso
 
 #### KONF.12.1.5 – HTTP Strict Transport Security (HSTS)
 
-**Stufe:** `normal-SdT` · **Aufwand:** 1 · **Gefährdungen:** G 0.15, G 0.43
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 1 · **Gefährdungen:** G 0.15, G 0.43
 
 > Konfiguration für Webbrowser SOLLTE aufgerufene Inhalte anhand der von der Webseite bereitgestellten HTTP Strict Transport Security (HSTS) Richtlinie einschränken.
 
@@ -919,7 +919,7 @@ Die HTTP Strict Transport Security (HSTS) ist ein Web-Sicherheitsmechanismus –
 
 #### KONF.12.1.6 – JavaScript
 
-**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.39, G 0.28
+**Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.39, G 0.28
 
 > Konfiguration für Webbrowser KANN JavaScript einschränken.
 
@@ -927,7 +927,7 @@ Schadcode in JavaScript kann unbefugt auf sensible Daten zugreifen oder die ange
 
 #### KONF.12.1.7 – Filtern schädlicher Webinhalte
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.39, G 0.28
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.39, G 0.28
 
 > Konfiguration für Webanwendungen SOLLTE eine Filterung schädlicher Webinhalte aktivieren.
 
@@ -935,7 +935,7 @@ Anfragen an Webanwendungen könnten dazu führen, dass diese sich anders verhalt
 
 #### KONF.12.1.8 – Duplikate im Verzeichnisbaum
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.46
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.46
 
 > Konfiguration für Verzeichnisdienste SOLLTE Duplikate im Verzeichnisbaum blockieren.
 
@@ -943,7 +943,7 @@ Da jedes Zugangskonto nur einmal benötigt wird können Duplikate von Attributen
 
 #### KONF.12.1.9 – Journaling
 
-**Stufe:** `normal-SdT` · **Aufwand:** 1 · **Gefährdungen:** G 0.46, G 0.45
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 1 · **Gefährdungen:** G 0.46, G 0.45
 
 > Konfiguration für Dateiserver SOLLTE Dateisystem-Journaling aktivieren.
 
@@ -951,7 +951,7 @@ Beim Journaling werden Änderungen an Dateien zunächst in einem speziellen Prot
 
 #### KONF.12.1.10 – HTTP-Response-Header
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.28, G 0.23
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.28, G 0.23
 
 > Konfiguration für Webanwendungen SOLLTE HTTP-Response-Header aktivieren.
 
@@ -959,7 +959,7 @@ Hierzu können z.B. Content-Security-Policy (CSP), X-Frame-Options, X-XSS-Protec
 
 #### KONF.12.1.11 – Aktive Dateiinhalte
 
-**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.39, G 0.23
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.39, G 0.23
 
 > Konfiguration für Office-Anwendungen SOLLTE aktive Inhalte in Office-Dateien deaktivieren.
 
@@ -967,7 +967,7 @@ Aktive Inhalte (Makros) in Office-Dokumenten können Schadcode enthalten oder zu
 
 ### KONF.12.2 – Verschlüsselungsstatus der aktuellen Verbindung
 
-**Stufe:** `normal-SdT` · **Aufwand:** 1 · **Gefährdungen:** G 0.15, G 0.43
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 1 · **Gefährdungen:** G 0.15, G 0.43
 
 > Konfiguration für Webbrowser SOLLTE eine Anzeige der Verschlüsselung der aktuellen Verbindung aktivieren.
 
@@ -975,7 +975,7 @@ Die Anzeige der Verschlüsselung der aktuellen Verbindung im Webbrowser, auch be
 
 ### KONF.12.3 – Cookies
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.19, G 0.14
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.19, G 0.14
 
 > Konfiguration für Webbrowser SOLLTE Cookies einschränken.
 
@@ -983,7 +983,7 @@ Cookies sind Dateien, in denen Webseiten Daten auf dem System speichern. Sie kö
 
 ### KONF.12.4 – Speicherung von Zugangsdaten
 
-**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.19, G 0.30
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.19, G 0.30
 
 > Konfiguration für Webbrowser SOLLTE die Speicherung von Zugangsdaten *[in einem dedizierten Passwort-Manager mit Browser-Integration oder direkt im Browser durch ein Master-Passwort geschützt]* aktivieren.
 
@@ -991,7 +991,7 @@ Werden Zugangsdaten gespeichert, so könnten Angreifer diese auslesen und missbr
 
 ### KONF.12.5 – Auto-Vervollständigung von Daten
 
-**Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.19, G 0.30
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.19, G 0.30
 
 > Konfiguration für Webbrowser SOLLTE die Auto-Vervollständigung von Daten einschränken.
 
@@ -999,7 +999,7 @@ Webseiten können Eingaben auch auslesen, bevor diese abgesendet werden. Die Dea
 
 ### KONF.12.6 – Browser-Historie
 
-**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.19, G 0.14
+**Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.19, G 0.14
 
 > Konfiguration für Webbrowser KANN die dauerhafte Browser-Historie deaktivieren.
 
@@ -1007,7 +1007,7 @@ Kann durch das Löschen der Historie beim Beenden oder durch Deaktivierung der H
 
 ### KONF.12.7 – Erweiterte Attribute
 
-**Stufe:** `normal-SdT` · **Aufwand:** 1 · **Gefährdungen:** G 0.30, G 0.22
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 1 · **Gefährdungen:** G 0.30, G 0.22
 
 > Konfiguration für Dateiserver SOLLTE erweiterte Attribute aktivieren.
 
@@ -1015,7 +1015,7 @@ Erweiterte Attribute ermöglichen die Speicherung von Metadaten zu Dateien zur S
 
 ### KONF.12.8 – Teilnahme per Default ohne Bild und Ton
 
-**Stufe:** `normal-SdT` · **Aufwand:** 1 · **Gefährdungen:** G 0.19, G 0.14
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 1 · **Gefährdungen:** G 0.19, G 0.14
 
 > Konfiguration für VK-Anwendungen SOLLTE beim Beitritt zu Konferenzschaltungen Bild und Ton per Default deaktivieren.
 
@@ -1023,7 +1023,7 @@ Eine Konfiguration, bei der die Standardeinstellung (per default) für Bild und 
 
 ### KONF.12.9 – Keine heimliche Aufzeichnung
 
-**Stufe:** `normal-SdT` · **Aufwand:** 1 · **Gefährdungen:** G 0.19, G 0.29
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 1 · **Gefährdungen:** G 0.19, G 0.29
 
 > Konfiguration für VK-Anwendungen SOLLTE heimliche Aufzeichnungen deaktivieren.
 
@@ -1031,7 +1031,7 @@ Heimliche Aufzeichnungen verletzen die Vertraulichkeit der Kommunikation. Eine A
 
 ### KONF.12.10 – Cookie-Attribute
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.19, G 0.43
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.19, G 0.43
 
 > Konfiguration für Webanwendungen SOLLTE Cookie-Attribute aktivieren.
 
@@ -1039,7 +1039,7 @@ Heimliche Aufzeichnungen verletzen die Vertraulichkeit der Kommunikation. Eine A
 
 ### KONF.12.11 – Anonyme oder Pseudonyme Kommunikation
 
-**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.19, G 0.14
+**Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.19, G 0.14
 
 > Konfiguration für TK-Anwendungen KANN die Übermittlung *[eines Pseudonyms oder gar keiner Anzeigekennung]* zur Gegenstelle aktivieren.
 
@@ -1047,7 +1047,7 @@ Wenn eine persönliche Identifikation von Kommunikationspartnern erforderlich is
 
 ### KONF.12.12 – Verbindungsprotokoll
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.37, G 0.23
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.37, G 0.23
 
 > Konfiguration für TK-Anwendungen SOLLTE ein für Nutzende verfügbares Verbindungsprotokoll protokollieren.
 
@@ -1055,7 +1055,7 @@ Ein solches Protokoll, oft auch als Call Detail Record (CDR) oder Connection Log
 
 ### KONF.12.13 – Sendebericht
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.18, G 0.37
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.18, G 0.37
 
 > Konfiguration für Faxe SOLLTE einen Sendebericht protokollieren.
 
@@ -1063,7 +1063,7 @@ Ein Sendebericht ermöglicht es bei der Verwendung von Faxen nachzuweisen, dass 
 
 ### KONF.12.14 – DNS-Falschinformationen
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.43, G 0.22
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.43, G 0.22
 
 > Konfiguration für DNS-Server SOLLTE DNS-Antworten, die falsche Domain-Informationen liefern, deaktivieren.
 
@@ -1073,7 +1073,7 @@ Falsch sind Domain-Informationen, wenn sie nicht der tatsächlichen Erreichbarke
 
 ### KONF.13.1 – Filtern schädlicher Nachrichten
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.39, G 0.23
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.39, G 0.23
 
 > Konfiguration für Interpersonelle Kommunikation SOLLTE eine Filterung schädlicher Nachrichteninhalte aktivieren.
 
@@ -1081,7 +1081,7 @@ Unter Filterung schädlicher Nachrichteninhalte versteht man Verfahren, die Inha
 
 #### KONF.13.1.1 – SPAM-Filter
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.39, G 0.42
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.39, G 0.42
 
 > Konfiguration für Interpersonelle Kommunikation SOLLTE die Zustellung unerwünschter Nachrichten blockieren.
 
@@ -1089,7 +1089,7 @@ Unter Zustellung unerwünschter Nachrichten ist das Blockieren oder Filtern von 
 
 #### KONF.13.1.2 – Interpretation aktiver Inhalte
 
-**Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.39, G 0.23
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.39, G 0.23
 
 > Konfiguration für Interpersonelle Kommunikation SOLLTE die automatische Interpretation aktiver Inhalte deaktivieren.
 
@@ -1097,7 +1097,7 @@ Unter aktiven Inhalten sind hier Elemente zu verstehen, die beim Empfang automat
 
 ### KONF.13.2 – Authentizität von Nachrichten
 
-**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.36, G 0.22
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.36, G 0.22
 
 > Konfiguration für Interpersonelle Kommunikation SOLLTE eine automatische Verifikation der Authentizität von Nachrichten aktivieren.
 
@@ -1105,7 +1105,7 @@ Die Authentizität von Nachrichten bezeichnet in diesem Zusammenhang die nachwei
 
 #### KONF.13.2.1 – Verifikation der Sendeberechtigung
 
-**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.43, G 0.36
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.43, G 0.36
 
 > Konfiguration für E-Mail SOLLTE eine automatische Verifikation der Sendeberechtigung aktivieren.
 
@@ -1113,7 +1113,7 @@ Mit dem Sender Policy Framework (SPF) kann geprüft werden, ob der Sender zum Ve
 
 #### KONF.13.2.2 – Verifikation der Serversignatur
 
-**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.36, G 0.46
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.36, G 0.46
 
 > Konfiguration für E-Mail SOLLTE die Serversignatur eingehender E-Mails automatisch authentifizieren.
 
@@ -1121,7 +1121,7 @@ Die DKIM-Signatur ist zu unterscheiden von einer PGP-Signatur, die in der Regel 
 
 ### KONF.13.3 – Kryptographische Signatur des Mailservers
 
-**Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.36, G 0.46
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.36, G 0.46
 
 > Konfiguration für E-Mail SOLLTE die Kryptographische Signatur des Mailservers aktivieren.
 
@@ -1129,7 +1129,7 @@ Die kryptographischen Signatur des Mailservers ist ein digitaler Stempel des ver
 
 ### KONF.13.4 – Kryptographische Signatur durch Nutzende
 
-**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.36, G 0.37
+**Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.36, G 0.37
 
 > Konfiguration für E-Mail KANN die kryptographische Signatur durch Nutzende aktivieren.
 
@@ -1137,7 +1137,7 @@ Wird eine vom E-Mail vom Sendenden signiert, so können bei Empfang die Authenti
 
 ### KONF.13.5 – Publikation der Sendeberechtigung
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.36, G 0.43
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.36, G 0.43
 
 > Konfiguration für E-Mail SOLLTE die Publikation der eigenen Sendeberechtigung im DNS aktivieren.
 
@@ -1145,7 +1145,7 @@ Dies wird typischerweise über spezielle DNS-Einträge wie den Sender Policy Fra
 
 #### KONF.13.5.1 – Strenge Senderpolicy
 
-**Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.36, G 0.42
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.36, G 0.42
 
 > Konfiguration für E-Mail SOLLTE eine strenge Senderpolicy aktivieren.
 
@@ -1153,7 +1153,7 @@ Ein strenger Senderpolicy-Eintrag, auch "hard fail" (-all) genannt, weist empfan
 
 ### KONF.13.6 – Publikation der Serversignatur
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.36, G 0.46
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.36, G 0.46
 
 > Konfiguration für E-Mail SOLLTE die Publikation der Serversignatur im DNS aktivieren.
 
@@ -1161,7 +1161,7 @@ Eine Serversignatur, auch bekannt als DKIM (DomainKeys Identified Mail), ist ein
 
 ### KONF.13.7 – TLS-Reports
 
-**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.43, G 0.15
+**Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.43, G 0.15
 
 > Konfiguration für E-Mail KANN TLS-Reports *[regelmäßig]* überprüfen.
 
@@ -1169,7 +1169,7 @@ TLS-Reports, auch TLS-RPT (Transport Layer Security Reporting) genannt, sind Ber
 
 ### KONF.13.8 – DMARC-Reports
 
-**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.36, G 0.42
+**Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.36, G 0.42
 
 > Konfiguration für E-Mail KANN DMARC-Reports *[regelmäßig oder bei Eingang]* überprüfen.
 
@@ -1177,7 +1177,7 @@ Mit DMARC kann der Empfänger dem Sender automatische Berichte über den DMARC-S
 
 ### KONF.13.9 – Publikation der DMARC-Richtlinie
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.36, G 0.42
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.36, G 0.42
 
 > Konfiguration für E-Mail SOLLTE die Publikation der DMARC-Richtlinie aktivieren.
 
@@ -1185,7 +1185,7 @@ Eine DMARC-Richtlinie legt fest, welchen Umgang sie sich von Empfängern wünsch
 
 ### KONF.13.10 – Authentifizierung der Server-Zertifikate über DNS
 
-**Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.43, G 0.36
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.43, G 0.36
 
 > Konfiguration für E-Mail SOLLTE die Authentifizierung der Server-Zertifikate über das DNS aktivieren.
 
@@ -1193,7 +1193,7 @@ Die Authentifizierung der Server-Zertifikate über das DNS (Domain Name System) 
 
 ### KONF.13.11 – MTA-STS
 
-**Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.43, G 0.15
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.43, G 0.15
 
 > Konfiguration für E-Mail SOLLTE MTA-STS aktivieren.
 
@@ -1203,7 +1203,7 @@ Die Mail Transfer Agent Strict Transport Security (MTA-STS) ist ein wichtiger St
 
 ### KONF.14.1 – Verschlüsselung beim Transport
 
-**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.43, G 0.15
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.43, G 0.15
 
 > Konfiguration für Anwendungen SOLLTE Kommunikation beim Transport über Netze nach *[einem anerkannten Standard]* verschlüsseln.
 
@@ -1211,7 +1211,7 @@ Werden Daten unverschlüsselt übertragen, so könnten sie abgehört oder unbeme
 
 #### KONF.14.1.1 – Obligatorische Verschlüsselung
 
-**Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.43, G 0.15
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.43, G 0.15
 
 > Konfiguration für Anwendungen SOLLTE unverschlüsselte und anfällige Verbindungen über Netze deaktivieren.
 
@@ -1219,7 +1219,7 @@ Obligatorische Verschlüsselung bedeutet, dass die Anwendung ausschließlich nac
 
 #### KONF.14.1.2 – Ende-zu-Ende-Verschlüsselung
 
-**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.19, G 0.15
+**Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.19, G 0.15
 
 > Konfiguration für Anwendungen KANN die Kommunikation Ende-zu-Ende über Netze verschlüsseln.
 
@@ -1227,7 +1227,7 @@ Eine Ende-zu-Ende-Verschlüsselung stellt sicher, dass auch Server auf dem Weg z
 
 ### KONF.14.2 – Source Port Randomisierung
 
-**Stufe:** `normal-SdT` · **Aufwand:** 1 · **Gefährdungen:** G 0.43, G 0.22
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 1 · **Gefährdungen:** G 0.43, G 0.22
 
 > Konfiguration für DNS-Server SOLLTE Source Port Randomisierung aktivieren.
 
@@ -1235,7 +1235,7 @@ Die mehrfache Verwendung gleicher Source Ports erleichtert Angreifern das Errate
 
 ### KONF.14.3 – Iterative Beantwortung
 
-**Stufe:** `normal-SdT` · **Aufwand:** 1 · **Gefährdungen:** G 0.40, G 0.30
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 1 · **Gefährdungen:** G 0.40, G 0.30
 
 > Konfiguration für DNS-Server SOLLTE die iterative Beantwortung von DNS-Anfragen aus dem Internet aktivieren.
 
@@ -1243,7 +1243,7 @@ Bei iterativen Anfragen kommt die Antwort direkt vom autoritativen Server, statt
 
 ### KONF.14.4 – Caching
 
-**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.27, G 0.40
+**Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.27, G 0.40
 
 > Konfiguration für Anwendungen von Endgeräten KANN eine Zwischenspeicherung häufig verwendeter Daten aktivieren.
 
@@ -1251,7 +1251,7 @@ Caches sind lokale Zwischenspeicher, die Zugriffe beschleunigen oder bei Netzst�
 
 ### KONF.14.5 – Zeitüberschreitung von Netzverbindungen
 
-**Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.27, G 0.40
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.27, G 0.40
 
 > Konfiguration für Anwendungen SOLLTE Netzverbindungen bei Zeitüberschreitung blockieren.
 
@@ -1261,7 +1261,7 @@ Dauerhaft aufrecht erhaltene, ungenutzte Verbindungen erhöhen die Gefahr unbefu
 
 ### KONF.15.1 – Begrenzung des Speicherplatzes
 
-**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.27, G 0.40
+**Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.27, G 0.40
 
 > Konfiguration für Anwendungen von Hostsystemen KANN in der Anwendung zur Verfügung stehenden Speicherplatz pro *[Zugangskonto oder Mandant]* anhand von *[Schwellwerten]* einschränken.
 
@@ -1269,7 +1269,7 @@ Dies ist besonders in Multi-Tenant-Architekturen relevant, wie sie häufig bei C
 
 ### KONF.15.2 – Begrenzung der Rechenleistung
 
-**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.27, G 0.40
+**Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.27, G 0.40
 
 > Konfiguration für Anwendungen von Hostsystemen KANN die Rechenleistung einschränken.
 
@@ -1277,7 +1277,7 @@ Kann durch eine Beschränkung der Anzahl verwendeter Rechenkerne, der Rechenleis
 
 ### KONF.15.3 – Denial of Service
 
-**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.27, G 0.40
+**Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.27, G 0.40
 
 > Konfiguration für Anwendungen von Hostsystemen KANN Schutzmaßnahmen gegen Denial of Service aktivieren.
 
@@ -1285,7 +1285,7 @@ Denial-of-Service-Angriffe zielen darauf ab, die Webanwendung für legitime Nutz
 
 ### KONF.15.4 – Überbuchung von virtualisierten Ressourcen
 
-**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.27, G 0.40
+**Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.27, G 0.40
 
 > Konfiguration für Virtualisierungslösungen KANN die Überbuchung von virtualisierten Ressourcen deaktivieren.
 

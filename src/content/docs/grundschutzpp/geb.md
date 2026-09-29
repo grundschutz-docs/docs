@@ -9,7 +9,7 @@ Das Gebäudemanagement sorgt für die Implementierung von physischen Sicherheits
 
 ### GEB.1.1 – Verfahren und Regelungen
 
-**Stufe:** `normal-SdT` · **Aufwand:** 0 · **Gefährdungen:** G 0.18
+**Pflicht:** MUSS · **Stufe:** `normal-SdT` · **Aufwand:** 0 · **Gefährdungen:** G 0.18
 
 > Gebäudemanagement für Standorte MUSS Verfahren und Regelungen zum physischen Schutz von Standorten, an denen schützenswerte Informationen verarbeitet oder gespeichert werden, verankern.
 
@@ -17,7 +17,7 @@ Ein Verfahren zum Gebäudemanagement stellt sicher, dass die zum Betrieb von Ges
 
 #### GEB.1.1.1 – Dokumentation
 
-**Stufe:** `normal-SdT` · **Aufwand:** 0 · **Gefährdungen:** G 0.18, G 0.37
+**Pflicht:** MUSS · **Stufe:** `normal-SdT` · **Aufwand:** 0 · **Gefährdungen:** G 0.18, G 0.37
 
 > Gebäudemanagement für Standorte MUSS die Verfahren und Regelungen dokumentieren.
 
@@ -25,7 +25,7 @@ Ohne eine Dokumentation könnte die Einhaltung der Verfahren und Regelungen von 
 
 #### GEB.1.1.2 – Zuweisung der Aufgaben
 
-**Stufe:** `normal-SdT` · **Aufwand:** 0 · **Gefährdungen:** G 0.18, G 0.31
+**Pflicht:** MUSS · **Stufe:** `normal-SdT` · **Aufwand:** 0 · **Gefährdungen:** G 0.18, G 0.31
 
 > Gebäudemanagement für Standorte MUSS die mit den Verfahren und Regelungen verbundenen Aufgaben *[zuständigen Personen oder Rollen]* zuweisen.
 
@@ -33,7 +33,7 @@ Die Zuweisung von Aufgaben bezeichnet die eindeutige und verbindliche Übertragu
 
 #### GEB.1.1.3 – Bekanntgabe
 
-**Stufe:** `normal-SdT` · **Aufwand:** 0 · **Gefährdungen:** G 0.18, G 0.31
+**Pflicht:** MUSS · **Stufe:** `normal-SdT` · **Aufwand:** 0 · **Gefährdungen:** G 0.18, G 0.31
 
 > Gebäudemanagement für Standorte MUSS die zuständigen Personen oder Rollen über die Verfahren und Regelungen informieren.
 
@@ -41,7 +41,7 @@ Wenn die Zuständigen die etablierten Verfahren nicht kennen, besteht die Gefahr
 
 ### GEB.1.2 – Regelmäßige Überprüfung
 
-**Stufe:** `normal-SdT` · **Aufwand:** 0 · **Gefährdungen:** G 0.18
+**Pflicht:** MUSS · **Stufe:** `normal-SdT` · **Aufwand:** 0 · **Gefährdungen:** G 0.18
 
 > Gebäudemanagement für Standorte MUSS die Verfahren und Regelungen *[regelmäßig]* und anlassbezogen auf Aktualität überprüfen.
 
@@ -49,7 +49,7 @@ Eine geplante der etablierten Verfahren und Regelungen dient dazu festzustellen,
 
 ### GEB.1.3 – Autorisierung von Standorten
 
-**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.18, G 0.29
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.18, G 0.29
 
 > Gebäudemanagement für Standorte SOLLTE Standorte für die Stationierung von Assets autorisieren.
 
@@ -57,7 +57,7 @@ Die gezielte Autorisierung von Standorten für die Stationierung von Assets kann
 
 #### GEB.1.3.1 – Abnahme von Standorten
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.18, G 0.26
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.18, G 0.26
 
 > Gebäudemanagement für Standorte SOLLTE Standorte vor Autorisierung anhand von *[Kriterien]* testen.
 
@@ -65,7 +65,7 @@ Eine Abnahme anhand von Sicherheitskriterien stellt sicher, dass Sicherheitsaspe
 
 ### GEB.1.4 – Exponierte Bereiche
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.5, G 0.6, G 0.7, G 0.18
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.5, G 0.6, G 0.7, G 0.18
 
 > Gebäudemanagement für Standorte SOLLTE schützenswerte Assets oder zugehörige Infrastrukturen nur außerhalb exponierter oder besonders gefährdeter Bereiche platzieren.
 
@@ -73,7 +73,7 @@ Wenn schützenswerte Räume wie Datenträgerarchive, Hostsysteme oder zentrale I
 
 ### GEB.1.5 – Strukturpläne
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.18
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.18
 
 > Gebäudemanagement für Standorte SOLLTE Strukturpläne dokumentieren.
 
@@ -83,7 +83,7 @@ Strukturpläne enthalten Grundrisse und Verlaufswege für physische Perimeter od
 
 ### GEB.2.1 – Installation von Perimetern
 
-**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.18, G 0.44, G 0.16, G 0.24, G 0.34, G 0.41
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.18, G 0.44, G 0.16, G 0.24, G 0.34, G 0.41
 
 > Gebäudemanagement für Standorte SOLLTE Sicherheitsperimeter installieren.
 
@@ -91,7 +91,7 @@ Die Installation physischer Sicherheitsperimeter dient dem grundlegenden Schutz 
 
 ### GEB.2.2 – Dokumentation öffentlicher Bereiche
 
-**Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.18, G 0.44, G 0.16, G 0.24
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.18, G 0.44, G 0.16, G 0.24
 
 > Gebäudemanagement für Gebäude SOLLTE Bereiche, die ohne Authentifizierung zugänglich sind, mit Begründung dokumentieren.
 
@@ -99,7 +99,7 @@ Gebäude sind als stabiler und klar ersichtlicher Sicherheitsperimeter besonders
 
 ### GEB.2.3 – Erkundung aus dem öffentlichen Raum
 
-**Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.44, G 0.16, G 0.24, G 0.19
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.44, G 0.16, G 0.24, G 0.19
 
 > Gebäudemanagement für Standorte SOLLTE Hör- und Sehschutz gegen den öffentlichen Raum testen.
 
@@ -107,7 +107,7 @@ Erkundung aus dem öffentlichen Raum ist die systematische Sammlung von Informat
 
 ### GEB.2.4 – Elektromagnetische Abschirmung
 
-**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.19, G 0.13, G 0.12
+**Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.19, G 0.13, G 0.12
 
 > Gebäudemanagement für Standorte KANN die Elektromagnetische Abschirmung testen.
 
@@ -117,7 +117,7 @@ Die elektromagnetische Abschirmung von Standorten dient dem Schutz vertraulicher
 
 ### GEB.3.1 – Überwachung von Zutrittspunkten
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.44, G 0.16, G 0.24, G 0.19, G 0.34
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.44, G 0.16, G 0.24, G 0.19, G 0.34
 
 > Gebäudemanagement für Standorte SOLLTE Zutrittspunkte auf unbefugte Zutritte überwachen.
 
@@ -125,7 +125,7 @@ Eine kontinuierliche Überwachung der Zugangsmöglichkeiten, z.B. verschlossener
 
 #### GEB.3.1.1 – Videoüberwachung
 
-**Stufe:** `erhöht` · **Aufwand:** 4 · **Gefährdungen:** G 0.44, G 0.16, G 0.24
+**Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 4 · **Gefährdungen:** G 0.44, G 0.16, G 0.24
 
 > Gebäudemanagement für Standorte KANN Zutritte per Video überwachen.
 
@@ -133,7 +133,7 @@ Die Auswertung der Videoaufzeichnungen kann je nach Risikoprofil und Geschäftsp
 
 #### GEB.3.1.2 – Überprüfung mitgeführter Gegenstände
 
-**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.44, G 0.16, G 0.24, G 0.19, G 0.34, G 0.41
+**Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.44, G 0.16, G 0.24, G 0.19, G 0.34, G 0.41
 
 > Gebäudemanagement für Standorte KANN das Mitführen von Gegenständen überwachen.
 
@@ -141,7 +141,7 @@ Die Überwachung des Mitführens von Gegenständen (z.B. am Empfang) kann an Sta
 
 ### GEB.3.2 – Anmelde- und Empfangsbereiche
 
-**Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.44, G 0.16, G 0.24, G 0.34
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.44, G 0.16, G 0.24, G 0.34
 
 > Gebäudemanagement für Standorte SOLLTE Anmelde- und Empfangsbereiche installieren.
 
@@ -149,7 +149,7 @@ Die Einrichtung definierter Anmelde- und Empfangsbereiche dient der Kontrolle de
 
 ### GEB.3.3 – Authentifizierung vor Zutritt
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.44, G 0.16, G 0.24, G 0.19, G 0.34, G 0.41
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.44, G 0.16, G 0.24, G 0.19, G 0.34, G 0.41
 
 > Gebäudemanagement für Standorte SOLLTE Zutritte im Einklang mit den Festlegungen des Identitäts- und Berechtigungsmanagements authentifizieren.
 
@@ -157,7 +157,7 @@ Der Zweck der Authentifizierung von Zutritten liegt in der grundlegenden Absiche
 
 #### GEB.3.3.1 – Zugangskontrollanlage
 
-**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.44, G 0.16, G 0.24, G 0.19
+**Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.44, G 0.16, G 0.24, G 0.19
 
 > Gebäudemanagement für Standorte KANN Zutritte durch *[einen automatiserten Mechanismus]* im Einklang mit den Festlegungen des Identitäts- und Berechtigungsmanagements authentifizieren.
 
@@ -165,7 +165,7 @@ Der Einsatz einer automatischen Zugangskontrollanlage zur Authentifizierung von 
 
 #### GEB.3.3.2 – Dokumentation von Zutritten
 
-**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.18, G 0.44, G 0.16, G 0.24
+**Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.18, G 0.44, G 0.16, G 0.24
 
 > Gebäudemanagement für Standorte KANN Zutritte und Austritte mit Identität und Zeitpunkt dokumentieren.
 
@@ -173,7 +173,7 @@ Im Kontext dieser Anforderung bedeutet Identität die eindeutige Zuordnung einer
 
 #### GEB.3.3.3 – Besucheranmeldung
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.44, G 0.16, G 0.24, G 0.19
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.44, G 0.16, G 0.24, G 0.19
 
 > Gebäudemanagement für Standorte SOLLTE Besuche durch *[eine zuständige Person oder Rolle]* autorisieren.
 
@@ -181,7 +181,7 @@ Der Begriff „Besuche“ bezeichnet in diesem Kontext physische Zutritte extern
 
 ### GEB.3.4 – Berechtigungsmarkierung
 
-**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.44, G 0.16, G 0.24
+**Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.44, G 0.16, G 0.24
 
 > Gebäudemanagement für Nutzende von Standorten KANN zum Tragen von gut sichtbaren Berechtigungsmarkierungen innerhalb des Sicherheitsperimeters anweisen.
 
@@ -189,7 +189,7 @@ Unter Berechtigungsmarkierungen sind physische Kennzeichen wie Ausweise, Badges,
 
 ### GEB.3.5 – Einbruchhemmung
 
-**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.44, G 0.16, G 0.24, G 0.19, G 0.34, G 0.41
+**Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.44, G 0.16, G 0.24, G 0.19, G 0.34, G 0.41
 
 > Gebäudemanagement für Standorte KANN einbruchhemmende Bauteile nach *[einer entsprechenden Norm]* installieren.
 
@@ -197,7 +197,7 @@ Befinden sich am Standort Assets oder Geschäftsprozesse mit erhöhtem Schutzbed
 
 ### GEB.3.6 – Einbruchmeldeanlagen
 
-**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.44, G 0.16, G 0.24, G 0.19, G 0.41
+**Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.44, G 0.16, G 0.24, G 0.19, G 0.41
 
 > Gebäudemanagement für Standorte KANN Einbrüche nach *[einer entsprechenden Norm]* überwachen.
 
@@ -205,7 +205,7 @@ Für Standorte mit erhöhtem Schutzbedarf ist eine Einbruchmeldeanlage sinnvoll.
 
 ### GEB.3.7 – Kontrolle der Zutrittskontrolle
 
-**Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.44, G 0.16, G 0.24, G 0.34
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.44, G 0.16, G 0.24, G 0.34
 
 > Gebäudemanagement für Standorte SOLLTE die angewendeten Zutrittskontrollmaßnahmen *[regelmäßig]* überprüfen.
 
@@ -215,7 +215,7 @@ Die Funktionsfähigkeit von Zugangkontrollen wie Wachdiensten und Schließanlage
 
 ### GEB.4.1 – Einrichtung
 
-**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.44, G 0.16, G 0.24, G 0.19, G 0.34, G 0.41
+**Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.44, G 0.16, G 0.24, G 0.19, G 0.34, G 0.41
 
 > Gebäudemanagement für Standorte KANN geschlossene Sicherheitsbereiche installieren.
 
@@ -223,7 +223,7 @@ Ein Sicherheitsbereich ist ein klar abgegrenzter physischer Raum, für die ein e
 
 ### GEB.4.2 – Gesonderte Autorisierung
 
-**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.44, G 0.16, G 0.24, G 0.32
+**Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.44, G 0.16, G 0.24, G 0.32
 
 > Gebäudemanagement für Standorte KANN die Zutrittsberechtigung zu diesem Sicherheitsbereich durch *[eine zuständige Person oder Rolle]* autorisieren.
 
@@ -231,7 +231,7 @@ Eine zuständige Person oder Rolle kann beispielsweise die Sicherheitsbeauftragt
 
 ### GEB.4.3 – Schleusen
 
-**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.44, G 0.16, G 0.24
+**Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.44, G 0.16, G 0.24
 
 > Gebäudemanagement für Standorte KANN Schleusen an Zugangspunkten installieren.
 
@@ -239,7 +239,7 @@ Eine Schleuse bezeichnet im Gebäudemanagement eine bauliche oder technische Ein
 
 ### GEB.4.4 – Vereinzelungsanlage
 
-**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.44, G 0.16, G 0.24, G 0.19, G 0.34
+**Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.44, G 0.16, G 0.24, G 0.19, G 0.34
 
 > Gebäudemanagement für Standorte KANN Vereinzelungsanlagen an Zugangspunkten installieren.
 
@@ -249,7 +249,7 @@ Eine Vereinzelungsanlage ist eine technische Einrichtung, die den gleichzeitigen
 
 ### GEB.5.1 – Lieferzugang
 
-**Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.44, G 0.19, G 0.21
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.44, G 0.19, G 0.21
 
 > Gebäudemanagement für Standorte SOLLTE einen Zugang für die Abwicklung von Lieferungen ohne unbefugten Zugang zum restlichen Standort installieren.
 
@@ -257,7 +257,7 @@ Ein Zugang für die Abwicklung von Lieferungen ist ein baulich abgegrenzter Bere
 
 ### GEB.5.2 – Schutz gegen Manipulation
 
-**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.44, G 0.19, G 0.21
+**Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.44, G 0.19, G 0.21
 
 > Gebäudemanagement für IT-Systeme KANN Manipulationsschutzvorkehrungen installieren.
 
@@ -265,7 +265,7 @@ Manipulationsschutzvorkehrungen sind physische oder technische Schutzmaßnahmen 
 
 ### GEB.5.3 – Physische Mikrosegmentierung
 
-**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.44, G 0.21
+**Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.44, G 0.21
 
 > Gebäudemanagement für IT-Systeme KANN eine physische Mikrosegmentierung installieren.
 
@@ -275,7 +275,7 @@ Bei der physischen Mikrosegmentierung in der Sicherheitsarchitektur geht es daru
 
 ### GEB.6.1 – Zugang zu Ausgabesystemen
 
-**Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.18
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.18
 
 > Gebäudemanagement für IT-Systeme SOLLTE den Zugang zu nicht-öffentlichen Ausgabesystemen einschränken.
 
@@ -283,7 +283,7 @@ Ausgabesysteme sind z.B. Monitore oder Drucker. Nicht-öffentlich sind diese, we
 
 ### GEB.6.2 – Geschützte Aufstellung
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.18
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.18
 
 > Gebäudemanagement für IT-Systeme SOLLTE diese geschützt vor dem Zugriff von Unbefugten platzieren.
 
@@ -291,7 +291,7 @@ Ausgabesysteme sind z.B. Monitore oder Drucker. Nicht-öffentlich sind diese, we
 
 #### GEB.6.2.1 – Hostsysteme
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.18
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.18
 
 > Gebäudemanagement für Hostsysteme SOLLTE diese ausschließlich in Serverräumen platzieren.
 
@@ -299,7 +299,7 @@ Sinn und Zweck dieser Anforderung liegt darin, die Risiken durch unkontrollierte
 
 ### GEB.6.3 – Netzkomponenten
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.18
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.18
 
 > Gebäudemanagement für Netze SOLLTE für die Funktionsfähigkeit des Netzes erforderliche Systeme ausschließlich in Räumen für technische Infrastruktur platzieren.
 
@@ -307,7 +307,7 @@ Sinn und Zweck dieser Anforderung liegt darin, die Risiken durch unkontrollierte
 
 ### GEB.6.4 – Normgerechte Rechenzentren
 
-**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.2, G 0.1
+**Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.2, G 0.1
 
 > Gebäudemanagement für Serverräume KANN diese ausschließlich in Rechenzentren nach *[einer anerkannten Norm]* platzieren.
 
@@ -317,7 +317,7 @@ Rechenzentren entsprechen einer anerkannten Norm, wenn sie nach den einschlägig
 
 ### GEB.7.1 – Schlüsselbeauftragte
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.18
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.18
 
 > Gebäudemanagement für Standorte SOLLTE die Verwaltung von Schlüsseln *[zuständigen Personen oder Rollen]* zuweisen.
 
@@ -325,7 +325,7 @@ Bei der Verwaltung von Schlüsseln werden physische Schlüssel und digitale Zuga
 
 ### GEB.7.2 – Verwahrung von Schlüsseln
 
-**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.18
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.18
 
 > Gebäudemanagement für Nutzende von Standorten SOLLTE zur Verwahrung von Schlüsseln anweisen.
 
@@ -333,7 +333,7 @@ Eine Verwahrung ist eine Aufbewahrung von Zugangssschlüsseln derart, dass Unbef
 
 ### GEB.7.3 – Schlüsselaudit
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.18
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.18
 
 > Gebäudemanagement für Standorte SOLLTE die vorhandenen Schlüssel *[regelmäßig]* überprüfen.
 
@@ -343,7 +343,7 @@ Ohne eine solche Kontrolle könnten z. B. verlorene, vergessene oder unregistrie
 
 ### GEB.8.1 – Gesonderte Aufbewahrung
 
-**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.16
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.16
 
 > Gebäudemanagement für Standorte SOLLTE geschäftskritische Speichermedien in verschließbaren Schutzeinrichtungen platzieren.
 
@@ -351,7 +351,7 @@ Vertrauliche Speichermedien, die ungesichert herumliegen (sowohl analoge Dokumen
 
 #### GEB.8.1.1 – Archiv
 
-**Stufe:** `erhöht` · **Aufwand:** 4 · **Gefährdungen:** G 0.18
+**Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 4 · **Gefährdungen:** G 0.18
 
 > Gebäudemanagement für Standorte KANN geschäftskritische Speichermedien in Datenträgerarchiven platzieren.
 
@@ -359,7 +359,7 @@ Geschäftskritische Datenträger lagern in gesicherten, klimatisierten Archiven 
 
 ### GEB.8.2 – Staub und Schmutz
 
-**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.2, G 0.4
+**Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.2, G 0.4
 
 > Gebäudemanagement für Datenträgerarchiv KANN Maßnahmen zum Schutz der Datenträger vor Staub und Schmutz verankern.
 
@@ -367,7 +367,7 @@ Werden analoge und digitale Datenträger länger im Archiv aufbewahrt, so besteh
 
 ### GEB.8.3 – Schutz der Datenträger vor Brandschäden
 
-**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.1, G 0.18
+**Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.1, G 0.18
 
 > Gebäudemanagement für Standorte KANN feuerfeste Behältnisse nach *[einem anerkannten Standard]* installieren.
 
@@ -375,7 +375,7 @@ Datenträgerarchive sind bei Bränden besonders schützenswert, da hier häufig 
 
 ### GEB.8.4 – Überwachung schonender Klimatisierung
 
-**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.2
+**Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.2
 
 > Gebäudemanagement für Datenträgerarchiv KANN für die Datenträger schonende Temperatur und Luftfeuchtigkeit anhand von *[Schwellwerten]* überwachen.
 
@@ -385,7 +385,7 @@ IT-Infrastruktur benötigt typischerweise eine Umwelttemperatur von nicht viel m
 
 ### GEB.9.1 – Normgerechte Stromversorgung
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.25, G 0.8, G 0.10
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.25, G 0.8, G 0.10
 
 > Gebäudemanagement für Standorte SOLLTE eine norm- und bedarfsgerechte Stromversorgung und -verkabelung installieren.
 
@@ -393,7 +393,7 @@ Eine Stromversorgung ist normgerecht, wenn Normen zur Bereitstellung und Verkabe
 
 #### GEB.9.1.1 – Vorausschauende Lastanalyse
 
-**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.25
+**Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.25
 
 > Gebäudemanagement für Standorte KANN die bedarfsgerechte Stromversorgung *[regelmäßig]* vorausschauend überprüfen.
 
@@ -401,7 +401,7 @@ Die prädiktive Lastanalyse in Stromversorgungssystemen bezieht sich auf die aus
 
 #### GEB.9.1.2 – Dedizierte Elektrounterverteilung
 
-**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.18
+**Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.18
 
 > Gebäudemanagement für Standorte KANN eine ausschließlich für diesen Standort bestimmte Elektrounterverteilung die direkt von der Niederspannungshauptverteilung (NSHV) versorgt wird installieren.
 
@@ -409,7 +409,7 @@ Eine eigene, direkt aus der NSHV gespeiste Unterverteilung trennt kritische Abg�
 
 #### GEB.9.1.3 – Redundante Stromversorgung
 
-**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.8, G 0.25, G 0.10
+**Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.8, G 0.25, G 0.10
 
 > Gebäudemanagement für Standorte KANN eine redundante Stromversorgung für *[eine Stützzeit]* installieren.
 
@@ -417,7 +417,7 @@ Wenn die Stromzufuhr ausfällt, könnten geschäftskritische Anwendungen unerwar
 
 #### GEB.9.1.4 – Langanhaltende Sekundärversorgung
 
-**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.25
+**Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.25
 
 > Gebäudemanagement für Standorte KANN eine redundante Stromversorgung für *[eine längere Stützzeit]* installieren.
 
@@ -425,7 +425,7 @@ Eine längere Stützzeit bezeichnet im Kontext der Stromversorgung die Fähigkei
 
 ### GEB.9.2 – Lasttest
 
-**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.8, G 0.25, G 0.18
+**Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.8, G 0.25, G 0.18
 
 > Gebäudemanagement für Standorte KANN die Belastbarkeit der Stromversorgung *[regelmäßig]* überprüfen.
 
@@ -433,7 +433,7 @@ Die Maßnahmen richten sich nach den geltenden Anforderungen an die Stromversorg
 
 ### GEB.9.3 – Notaus
 
-**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.1, G 0.8, G 0.10, G 0.25
+**Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.1, G 0.8, G 0.10, G 0.25
 
 > Gebäudemanagement für Standorte KANN eine Notausschaltung für die Versorgungseinrichtungen installieren.
 
@@ -441,7 +441,7 @@ Eine Notausschaltung bezeichnet in diesem Kontext eine zentral verfügbare, tech
 
 ### GEB.9.4 – Überspannungsschutz
 
-**Stufe:** `erhöht` · **Aufwand:** 4 · **Gefährdungen:** G 0.25, G 0.8
+**Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 4 · **Gefährdungen:** G 0.25, G 0.8
 
 > Gebäudemanagement für Standorte KANN Überspannungsschutzeinrichtungen installieren.
 
@@ -449,7 +449,7 @@ Eine Notausschaltung bezeichnet in diesem Kontext eine zentral verfügbare, tech
 
 ### GEB.9.5 – Strukturierte Datenverkabelung
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.18
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.18
 
 > Gebäudemanagement für Standorte SOLLTE eine norm- und bedarfsgerechte Datenverkabelung installieren.
 
@@ -457,7 +457,7 @@ Normgerecht ist eine Datenverkabelung, wenn Normen für Verkabelungssysteme wie 
 
 #### GEB.9.5.1 – Physisch geschützte Verlegung
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.18
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.18
 
 > Gebäudemanagement für Standorte SOLLTE eine geschützte Kabelverlegung installieren.
 
@@ -465,7 +465,7 @@ Freigelegte Glasfaser- oder Kupferleitungen könnten angezapft oder durchtrennt 
 
 ### GEB.9.6 – Zugang zu Räumen für technische Infrastruktur
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.18
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.18
 
 > Gebäudemanagement für Räume für technische Infrastruktur SOLLTE den Zugang zu Räumen für technische Infrastruktur auf *[für den Betrieb zuständige Personen oder Rollen]* einschränken.
 
@@ -473,7 +473,7 @@ HIerzu gehören insbesondere Versorgungsverteiler, z.B. für Netzverteilung, Fri
 
 ### GEB.9.7 – Zweckentfremdung
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.18
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.18
 
 > Gebäudemanagement für Räume für technische Infrastruktur SOLLTE die Verwendung der Räume zu anderen Zwecken untersagen.
 
@@ -483,7 +483,7 @@ Werden Räume für technische Infrastruktur zu weiteren Zwecken, z.B. als Arbeit
 
 ### GEB.10.1 – Klimatisierung
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.2
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.2
 
 > Gebäudemanagement für Standorte SOLLTE eine ausreichende Klimatisierung von Räumlichkeiten anhand von *[Schwellwerten]* installieren.
 
@@ -491,7 +491,7 @@ Klimatisierung meint das Erzeugen und Aufrechterhalten von Temperatur und Luftfe
 
 #### GEB.10.1.1 – Luftstrom-Analyse
 
-**Stufe:** `erhöht` · **Aufwand:** 4 · **Gefährdungen:** G 0.18
+**Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 4 · **Gefährdungen:** G 0.18
 
 > Gebäudemanagement für Serverräume KANN den Klimatisierungsbedarf anhand einer Luftstrom-Analyse *[regelmäßig]* überprüfen.
 
@@ -499,7 +499,7 @@ Luftstromanalyse ist die systematische Bewertung von Luftbewegungsmustern zur Op
 
 #### GEB.10.1.2 – Klimamessung
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.2
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.2
 
 > Gebäudemanagement für Serverräume SOLLTE Lufttemperatur und Luftfeuchtigkeit anhand von *[Schwellwerten]* überwachen.
 
@@ -507,7 +507,7 @@ IT-Infrastruktur benötigt typischerweise eine Umwelttemperatur von nicht viel m
 
 #### GEB.10.1.3 – Redundante Klimatisierung
 
-**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.18
+**Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.18
 
 > Gebäudemanagement für Standorte KANN redundante Klimasysteme installieren.
 
@@ -515,7 +515,7 @@ Redundant ist eine Klimatisierung, wenn alle zu ihrer Funktionsfähigkeit erford
 
 ### GEB.10.2 – Brandschutz
 
-**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.18, G 0.29, G 0.1
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.18, G 0.29, G 0.1
 
 > Gebäudemanagement für Standorte SOLLTE Brandschutz nach den entsprechenden Normen verankern.
 
@@ -523,7 +523,7 @@ Maßnahmen können z.B. die Verwendung nicht brennbarer Baumaterialien (u.a. DIN
 
 #### GEB.10.2.1 – Baulicher Brandschutz
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.1, G 0.18
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.1, G 0.18
 
 > Gebäudemanagement für Räume SOLLTE bauliche Brandschutzeinrichtungen nach den entsprechenden Normen installieren.
 
@@ -531,7 +531,7 @@ Relevant ist für das Brandverhalten von Bauprodukten und Bauarten die europäis
 
 #### GEB.10.2.2 – Brandabschnitte
 
-**Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.1, G 0.18
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.1, G 0.18
 
 > Gebäudemanagement für Räume SOLLTE Brandabschnitte nach den entsprechenden Normen installieren.
 
@@ -539,7 +539,7 @@ Brandabschnitte sind baulich abgegrenzte Bereiche in Gebäuden, die im Brandfall
 
 #### GEB.10.2.3 – Rauchdichtheit
 
-**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.1, G 0.18
+**Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.1, G 0.18
 
 > Gebäudemanagement für Räume KANN alle raumbildende Teile rauchdicht installieren.
 
@@ -547,7 +547,7 @@ Hierunter ist zu verstehen, dass alle raumbildenden Teile (Wände, Türen und fa
 
 #### GEB.10.2.4 – Brandwiderstandsklassen
 
-**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.1
+**Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.1
 
 > Gebäudemanagement für Räume KANN feuerfeste Materialen für alle raumbildenden Teile , sodass sie Feuern für *[eine bestimmte Frist]* standhalten, installieren.
 
@@ -555,7 +555,7 @@ Der Einsatz feuerfester Materialien für raumbildende Teile – also Wände, Dec
 
 #### GEB.10.2.5 – Brandmeldeanlagen
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.1, G 0.18
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.1, G 0.18
 
 > Gebäudemanagement für Standorte SOLLTE das Entstehen von Bränden überwachen.
 
@@ -563,7 +563,7 @@ Die Umsetzung kann durch Brandmeldezentralen oder dezentrale Brandmeldealarmieru
 
 #### GEB.10.2.6 – Brandunterdrückung
 
-**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.1, G 0.18
+**Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.1, G 0.18
 
 > Gebäudemanagement für Serverräume KANN Brandunterdrückungssysteme installieren.
 
@@ -571,7 +571,7 @@ Kann z.B. durch eine Anlage zur Sauerstoffreduktion unter 15 Volumenprozent umge
 
 #### GEB.10.2.7 – Brandschutzprüfung
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.1, G 0.18
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.1, G 0.18
 
 > Gebäudemanagement für Standorte SOLLTE die Wirksamkeit der Brandschutzmaßnahmen *[regelmäßig]* überprüfen.
 
@@ -579,7 +579,7 @@ Eine regelmäßige Überprüfung von Brandmeldeanlagen, Rauchmeldern und organis
 
 ### GEB.10.3 – Wasserschutz
 
-**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.3, G 0.5
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.3, G 0.5
 
 > Gebäudemanagement für Standorte SOLLTE zwischen Assets und Witterungs- sowie Wassergefahrenstellen mindestens eine physische Schutzmaßnahme vor Wasser nach den entsprechenden Normen installieren.
 
@@ -587,7 +587,7 @@ Relevant ist hierbei sowohl Wasser von oben (Regen und Schnee), als auch von unt
 
 #### GEB.10.3.1 – Doppelter baulicher Wasserschutz
 
-**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.3
+**Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.3
 
 > Gebäudemanagement für Standorte KANN zwischen Wassergefahrenstellen und Assets mindestens zwei bauliche Schutzmaßnahmen vor Wasser nach den entsprechenden Normen installieren.
 
@@ -595,7 +595,7 @@ Relevant ist hierbei sowohl Wasser von oben (Regen und Schnee), als auch von unt
 
 #### GEB.10.3.2 – Leckagesensor
 
-**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.3, G 0.18
+**Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.3, G 0.18
 
 > Gebäudemanagement für Standorte KANN Wassereinbrüche überwachen.
 
@@ -603,7 +603,7 @@ Maßnahmen können z.B. Wassersensorstreifen unter Doppelböden sein, die SNMP-T
 
 ### GEB.10.4 – Blitzschutzeinrichtungen
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.1, G 0.18
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.1, G 0.18
 
 > Gebäudemanagement für Standorte SOLLTE Blitzschutzeinrichtungen nach *[einem anerkannten Standard]* installieren.
 
@@ -611,7 +611,7 @@ Blitzschutzeinrichtungen sind bauliche oder technische Maßnahmen, die Gebäude,
 
 #### GEB.10.4.1 – Niederohmigkeit
 
-**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.18
+**Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.18
 
 > Gebäudemanagement für Standorte KANN Blitzschutzeinrichtungen *[regelmäßig]* auf Niederohmigkeit überprüfen.
 
@@ -619,7 +619,7 @@ Eine niedrige Ohmzahl in Erdungs- und Potentialausgleichseinrichtungen gewährle
 
 ### GEB.10.5 – Ableitfähiger Fußbodenbelag
 
-**Stufe:** `erhöht` · **Aufwand:** 4 · **Gefährdungen:** G 0.18
+**Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 4 · **Gefährdungen:** G 0.18
 
 > Gebäudemanagement für Räume für technische Infrastruktur KANN im Nahfeld von Systemen einen ableitfähigen Fußbodenbelag installieren.
 

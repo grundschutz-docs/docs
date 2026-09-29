@@ -9,7 +9,7 @@ Die Praktik Monitoring-Evaluation stellt durch kontinuierliche Überwachung und 
 
 ### PERF.1.1 – Verfahren und Regelungen
 
-**Stufe:** `normal-SdT` · **Aufwand:** 0
+**Pflicht:** MUSS · **Stufe:** `normal-SdT` · **Aufwand:** 0
 
 > Monitoring-Evaluation MUSS Verfahren und Regelungen zur Messung und Bewertung der Leistung des ISMS verankern.
 
@@ -17,7 +17,7 @@ Die bei der Festlegung des Verfahrens und der Regelungen im Einzelnen zu berück
 
 ### PERF.1.2 – Evaluation des Umsetzungsplans
 
-**Stufe:** `normal-SdT` · **Aufwand:** 0
+**Pflicht:** MUSS · **Stufe:** `normal-SdT` · **Aufwand:** 0
 
 > Monitoring-Evaluation MUSS die *[regelmäßige]* Überprüfung und Fortschreibung des Umsetzungsplans in Bezug auf Fortschritt, Fristeinhaltung und inhaltlicher Korrektheit verankern.
 
@@ -25,7 +25,7 @@ Die Überprüfung eines Umsetzungsplans beinhaltet, ob Sicherheitsmaßnahmen vol
 
 ### PERF.1.3 – Aktualität der Anforderungen
 
-**Stufe:** `normal-SdT` · **Aufwand:** 0
+**Pflicht:** MUSS · **Stufe:** `normal-SdT` · **Aufwand:** 0
 
 > Monitoring-Evaluation MUSS die Aktualität der Anforderungen *[regelmäßig]* überprüfen.
 
@@ -35,7 +35,7 @@ Die Aktualitätsprüfung umfasst folgende Aspekte: Das Anforderungspaket wird re
 
 ### PERF.2.1 – Überprüfung der Einhaltung von Verpflichtungen
 
-**Stufe:** `normal-SdT` · **Aufwand:** 2
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2
 
 > Monitoring-Evaluation SOLLTE die Einhaltung von Verpflichtungen *[regelmäßig]* sowie anlassbezogen überprüfen.
 
@@ -45,7 +45,7 @@ Die Compliance-Überwachung umfasst regelmäßige Kontrollen zur Überprüfung d
 
 ### PERF.3.1 – Aufbau und Pflege eines Auditprogramms
 
-**Stufe:** `normal-SdT` · **Aufwand:** 0
+**Pflicht:** MUSS · **Stufe:** `normal-SdT` · **Aufwand:** 0
 
 > Monitoring-Evaluation MUSS ein Verfahren zum Aufbau und zur Pflege eines oder mehrerer Auditprogramme verankern.
 
@@ -53,7 +53,7 @@ Ein Audit kann in unterschiedlichen Formen durchgeführt werden – beispielswei
 
 #### PERF.3.1.1 – Erstellen eines Auditsplans
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3
 
 > Monitoring-Evaluation SOLLTE für jedes durchzuführende Audit einen Auditplan festlegen.
 
@@ -61,7 +61,7 @@ Der Auditplan (audit plan) legt vorab die Ziele, den Umfang (Geltungsbereich, Zi
 
 #### PERF.3.1.2 – Planen von internen Audits
 
-**Stufe:** `normal-SdT` · **Aufwand:** 0
+**Pflicht:** MUSS · **Stufe:** `normal-SdT` · **Aufwand:** 0
 
 > Monitoring-Evaluation MUSS die Planung der internen Audits im Auditprogramm risikoorientiert ausführen.
 
@@ -69,7 +69,7 @@ Ziel ist es, die Einhaltung von Sicherheitsanforderungen, die Wirksamkeit von Ma
 
 #### PERF.3.1.3 – Auswahl des Auditteams
 
-**Stufe:** `normal-SdT` · **Aufwand:** 0
+**Pflicht:** MUSS · **Stufe:** `normal-SdT` · **Aufwand:** 0
 
 > Monitoring-Evaluation MUSS fachlich geeignete und unabhängige Auditoren zur Gewährleistung der Objektivität und Qualität der Audits anweisen.
 
@@ -77,7 +77,7 @@ Bei der Auswahl von Auditoren ist zu empfehlen insbesondere Fachkompetenz, Unabh
 
 #### PERF.3.1.4 – Umfang von Audits
 
-**Stufe:** `normal-SdT` · **Aufwand:** 0
+**Pflicht:** MUSS · **Stufe:** `normal-SdT` · **Aufwand:** 0
 
 > Monitoring-Evaluation MUSS in angemessenem Umfang Audits ausführen.
 
@@ -85,7 +85,7 @@ Der Umfang eines Audits beschreibt, was, wie und in welchem Rahmen geprüft wird
 
 ### PERF.3.2 – Dokumentation von Auditergebnissen
 
-**Stufe:** `normal-SdT` · **Aufwand:** 0
+**Pflicht:** MUSS · **Stufe:** `normal-SdT` · **Aufwand:** 0
 
 > Monitoring-Evaluation MUSS ein Verfahren zur Erstellung aussagekräftiger Auditberichte verankern.
 
@@ -93,7 +93,7 @@ Ein Auditbericht muss nachvollziehbar, vollständig und strukturiert dokumentier
 
 #### PERF.3.2.1 – Einheitliches Bewertungsschema
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3
 
 > Monitoring-Evaluation SOLLTE für Feststellungen in Audits ein einheitliches Bewertungsschema festlegen.
 
@@ -101,7 +101,7 @@ Das Bewertungsschema soll die einheitliche Bewertung, die Wirksamkeit der Auditp
 
 #### PERF.3.2.2 – Kommunikation an Stakeholder
 
-**Stufe:** `normal-SdT` · **Aufwand:** 0
+**Pflicht:** MUSS · **Stufe:** `normal-SdT` · **Aufwand:** 0
 
 > Monitoring-Evaluation MUSS alle relevanten Stakeholder über die Auditergebnisse informieren.
 
@@ -111,7 +111,7 @@ Eine angemessene Kommunikation der Auditergebnisse an alle relevanten Stakeholde
 
 ### PERF.4.1 – Eignungsprüfung
 
-**Stufe:** `normal-SdT` · **Aufwand:** 0
+**Pflicht:** MUSS · **Stufe:** `normal-SdT` · **Aufwand:** 0
 
 > Monitoring-Evaluation MUSS Ergebnisse der Überprüfungen der Eignung, Angemessenheit und Wirksamkeit des ISMS der Institution *[regelmäßig]* sowie anlassbezogen in einem Managementbericht dokumentieren.
 
@@ -119,7 +119,7 @@ Damit die Institutionsleitung fundierte Entscheidungen zur Steuerung des Informa
 
 #### PERF.4.1.1 – Ergebnisse von Folgemaßnahmen
 
-**Stufe:** `normal-SdT` · **Aufwand:** 1
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 1
 
 > Monitoring-Evaluation SOLLTE den Status von Folgemaßnahmen vorangegangener Managementbewertungen als Ergebnis der Überprüfung in einem Managementbericht dokumentieren.
 
@@ -127,7 +127,7 @@ Die Evaluierung von Folgemaßnahmen früherer Managementbewertungen dient der Pr
 
 #### PERF.4.1.2 – Geänderte Rahmenbedingungen
 
-**Stufe:** `normal-SdT` · **Aufwand:** 1
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 1
 
 > Monitoring-Evaluation SOLLTE veränderte Rahmenbedingungen mit Auswirkungen auf das Informationssicherheitsmanagement als Ergebnis der Überprüfung in einem Managementbericht dokumentieren.
 
@@ -135,7 +135,7 @@ Die Ergebnisse der Überprüfung der Rahmenbedingungen – wie rechtliche, organ
 
 #### PERF.4.1.3 – Erfolge und Probleme
 
-**Stufe:** `normal-SdT` · **Aufwand:** 1
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 1
 
 > Monitoring-Evaluation SOLLTE bisherige Erfolge und Probleme (z. B. Sicherheitsvorfälle) beim Informationssicherheitsprozess als Ergebnis der Überprüfung in einem Managementbericht dokumentieren.
 
@@ -143,7 +143,7 @@ Die Ergebnisse müssen im ISMS-Prozess berücksichtigt werden, um daraus gezielt
 
 #### PERF.4.1.4 – Interne Überprüfungen und Audits
 
-**Stufe:** `normal-SdT` · **Aufwand:** 1
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 1
 
 > Monitoring-Evaluation SOLLTE Auditberichte als Ergebnis der Überprüfung in einem Managementbericht dokumentieren.
 
@@ -151,7 +151,7 @@ Bei der Evaluierung müssen die Ergebnisse interner Überprüfungen und Audits d
 
 #### PERF.4.1.5 – Eignungsprüfung bisheriger Sicherheitsmaßnahmen
 
-**Stufe:** `normal-SdT` · **Aufwand:** 1
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 1
 
 > Monitoring-Evaluation SOLLTE eine Evaluation der Eignung umgesetzter Sicherheitsmaßnahmen zur Erreichung der Sicherheitsziele oder ob Maßnahmen geändert oder ergänzt werden müssen als Ergebnis der Überprüfung in einem Managementbericht dokumentieren.
 
@@ -159,7 +159,7 @@ Zur Bewertung, ob Sicherheitsmaßnahmen zur Erreichung der Sicherheitsziele geei
 
 #### PERF.4.1.6 – Rückmeldung von Stakeholdern
 
-**Stufe:** `normal-SdT` · **Aufwand:** 1
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 1
 
 > Monitoring-Evaluation SOLLTE die Bewertung von Rückmeldungen von Kunden, Geschäftspartnern, Mitarbeitern oder der Öffentlichkeit zu Sicherheitsaspekten als Ergebnis der Überprüfung in einem Managementbericht dokumentieren.
 
@@ -167,7 +167,7 @@ Betroffene Personen wie z. B. Kunden, Geschäftspartner und die Öffentlichkeit 
 
 #### PERF.4.1.7 – Status des Realisierungsplans
 
-**Stufe:** `normal-SdT` · **Aufwand:** 1
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 1
 
 > Monitoring-Evaluation SOLLTE die erfolgreiche Umsetzung von Maßnahmen und des damit verringerten Risikos (Status des Umsetzungsplans) als Ergebnis der Überprüfung in einem Managementbericht dokumentieren.
 
@@ -175,7 +175,7 @@ Die Überprüfung von Umsetzungsdefiziten und Risiken ist im ISMS ein zentraler 
 
 #### PERF.4.1.8 – Verbesserungen
 
-**Stufe:** `normal-SdT` · **Aufwand:** 1
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 1
 
 > Monitoring-Evaluation SOLLTE die aufgrund der Überprüfung abgeleitete Verbesserungen des ISMS als Ergebnis der Überprüfung in einem Managementbericht dokumentieren.
 
@@ -183,7 +183,7 @@ Hier ist zu dokumentieren, 1. ob identifizierte Verbesserungsmaßnahmen tatsäch
 
 #### PERF.4.1.9 – Maßnahmenvorschläge
 
-**Stufe:** `normal-SdT` · **Aufwand:** 0
+**Pflicht:** MUSS · **Stufe:** `normal-SdT` · **Aufwand:** 0
 
 > Monitoring-Evaluation MUSS priorisierte Maßnahmenvorschläge mit realistischen Abschätzungen zum erwarteten Umsetzungsaufwand als Ergebnis der Überprüfung in einem Managementbericht dokumentieren.
 
@@ -191,7 +191,7 @@ Maßnahmenvorschläge müssen daraufhin überprüft werden, ob sie wirksam zur R
 
 ### PERF.4.2 – Bericht an die Institutionsleitung
 
-**Stufe:** `normal-SdT` · **Aufwand:** 0
+**Pflicht:** MUSS · **Stufe:** `normal-SdT` · **Aufwand:** 0
 
 > Monitoring-Evaluation MUSS die Institutionsleitung über den Stand des Managementsystems *[regelmäßig]* anhand des Managementberichtes informieren.
 
@@ -201,7 +201,7 @@ Sinn und Zweck der Anforderung liegt darin, die Leitungsebene regelmäßig und n
 
 ### PERF.5.1 – Methoden und Tools
 
-**Stufe:** `normal-SdT` · **Aufwand:** 0
+**Pflicht:** MUSS · **Stufe:** `normal-SdT` · **Aufwand:** 0
 
 > Monitoring-Evaluation MUSS effektive Monitoring-Methoden und -tools zur *[regelmäßigen]* Überwachung der Informationssicherheit verankern.
 

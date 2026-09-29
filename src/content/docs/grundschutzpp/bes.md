@@ -9,7 +9,7 @@ Die Praktik Beschaffungsmanagement sorgt für die frühzeitige Integration von I
 
 ### BES.1.1 – Verfahren und Regelungen
 
-**Stufe:** `normal-SdT` · **Aufwand:** 0 · **Gefährdungen:** G 0.18
+**Pflicht:** MUSS · **Stufe:** `normal-SdT` · **Aufwand:** 0 · **Gefährdungen:** G 0.18
 
 > Beschaffungsmanagement MUSS Verfahren und Regelungen zur Beschaffung von IT-Produkten und Dienstleistungen verankern.
 
@@ -17,7 +17,7 @@ Relevant sind hierbei sowohl Beschaffungen von Produkten und Dienstleistungen f�
 
 #### BES.1.1.1 – Dokumentation
 
-**Stufe:** `normal-SdT` · **Aufwand:** 0 · **Gefährdungen:** G 0.18, G 0.37
+**Pflicht:** MUSS · **Stufe:** `normal-SdT` · **Aufwand:** 0 · **Gefährdungen:** G 0.18, G 0.37
 
 > Beschaffungsmanagement MUSS die Verfahren und Regelungen dokumentieren.
 
@@ -25,7 +25,7 @@ Ohne eine Dokumentation könnte die Einhaltung der Verfahren und Regelungen von 
 
 #### BES.1.1.2 – Zuweisung der Aufgaben
 
-**Stufe:** `normal-SdT` · **Aufwand:** 0 · **Gefährdungen:** G 0.18, G 0.31
+**Pflicht:** MUSS · **Stufe:** `normal-SdT` · **Aufwand:** 0 · **Gefährdungen:** G 0.18, G 0.31
 
 > Beschaffungsmanagement MUSS die mit den Verfahren und Regelungen verbundenen Aufgaben *[zuständigen Personen oder Rollen]* zuweisen.
 
@@ -33,7 +33,7 @@ Die Zuweisung von Aufgaben bezeichnet die eindeutige und verbindliche Übertragu
 
 #### BES.1.1.3 – Bekanntgabe
 
-**Stufe:** `normal-SdT` · **Aufwand:** 0 · **Gefährdungen:** G 0.18, G 0.31
+**Pflicht:** MUSS · **Stufe:** `normal-SdT` · **Aufwand:** 0 · **Gefährdungen:** G 0.18, G 0.31
 
 > Beschaffungsmanagement MUSS die zuständigen Personen oder Rollen über die Verfahren und Regelungen informieren.
 
@@ -41,7 +41,7 @@ Wenn die Zuständigen die etablierten Verfahren nicht kennen, besteht die Gefahr
 
 ### BES.1.2 – Regelmäßige Überprüfung
 
-**Stufe:** `normal-SdT` · **Aufwand:** 0 · **Gefährdungen:** G 0.18
+**Pflicht:** MUSS · **Stufe:** `normal-SdT` · **Aufwand:** 0 · **Gefährdungen:** G 0.18
 
 > Beschaffungsmanagement MUSS die Verfahren und Regelungen *[regelmäßig]* und anlassbezogen auf Aktualität überprüfen.
 
@@ -49,7 +49,7 @@ Eine geplante Überprüfung der etablierten Verfahren und Regelungen dient dazu 
 
 ### BES.1.3 – Lieferanten- und Dienstleisterverzeichnis
 
-**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.18
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.18
 
 > Beschaffungsmanagement für Einkäufe SOLLTE alle direkten Zulieferer und Dienstleister inklusive der jeweiligen Kontaktdaten und den bezogenen Lieferungen dokumentieren.
 
@@ -57,7 +57,7 @@ Direkte Zulieferer sind hier alle Vertragspartner, von denen IT-Produkte bezogen
 
 #### BES.1.3.1 – Gesamte Lieferkette
 
-**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.18
+**Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.18
 
 > Beschaffungsmanagement für Einkäufe KANN die gesamte Lieferkette inklusive der jeweiligen Unterauftragnehmer und deren Kontaktdaten dokumentieren.
 
@@ -65,7 +65,7 @@ Sicherheitsvorfälle können nicht nur auf direkter Ebene entstehen, sondern wer
 
 ### BES.1.4 – Outsourcing-Strategie
 
-**Stufe:** `erhöht` · **Aufwand:** 4 · **Gefährdungen:** G 0.11
+**Pflicht:** SOLLTE · **Stufe:** `erhöht` · **Aufwand:** 4 · **Gefährdungen:** G 0.11
 
 > Beschaffungsmanagement für Outsourcing SOLLTE eine Strategie mit Zielen, Chancen und Risiken des Outsourcings verankern.
 
@@ -73,7 +73,7 @@ Outsourcing-Strategie bezeichnet hierbei die von der Institution festgelegten Gr
 
 #### BES.1.4.1 – Freigabe der Strategie
 
-**Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.18
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.18
 
 > Beschaffungsmanagement für Outsourcing SOLLTE die Strategie durch die Institutionsleitung autorisieren.
 
@@ -81,7 +81,7 @@ Ziel ist es sicherzustellen, dass Auslagerungen dem Risikoverständnis, den gese
 
 ### BES.1.5 – Autorisierung des Bereitstellungsmodells
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.18
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.18
 
 > Beschaffungsmanagement für Cloud-Dienste SOLLTE für jeden Cloud-Dienst das Bereitstellungsmodell durch *[eine zuständige Person oder Rolle]* autorisieren.
 
@@ -89,7 +89,7 @@ Hiermit ist die bewusste Entscheidung für ein Modell und die konzeptionelle Ums
 
 ### BES.1.6 – Dokumentation des Bereitstellungsmodells
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.18, G 0.37
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.18, G 0.37
 
 > Beschaffungsmanagement für Cloud-Dienste SOLLTE für jeden Cloud-Dienst das gewünschte Bereitstellungsmodell mit Ausführung der geteilten Verantwortlichkeiten dokumentieren.
 
@@ -97,7 +97,7 @@ Hiermit ist die bewusste Entscheidung für ein Modell und die konzeptionelle Ums
 
 ### BES.1.7 – Vereinbarung der geteilten Verantwortung
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.18
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.18
 
 > Beschaffungsmanagement für Cloud-Dienste SOLLTE für jeden Cloud-Dienst mit dem Anbieter die geteilte Verantwortung vereinbaren.
 
@@ -107,7 +107,7 @@ Die Anforderung ist erst dann umgesetzt, wenn auch zwischen den Vertragspartnern
 
 ### BES.2.1 – Erfassung des Bedarfes
 
-**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.18
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.18
 
 > Beschaffungsmanagement für Einkäufe SOLLTE den Bedarf anhand einer Leistungsbeschreibung oder einer Umsetzungsstrategie dokumentieren.
 
@@ -115,7 +115,7 @@ Dies umfasst sowohl Bedürfnisse für eine sichere Funktionalität als auch nich
 
 #### BES.2.1.1 – Verwendungszweck
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.18
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.18
 
 > Beschaffungsmanagement für IT-Produkte SOLLTE den Verwendungszweck dokumentieren.
 
@@ -123,7 +123,7 @@ Relevant kann hierbei beispielsweise sein, ob es verschiedene Einsatzszenarien (
 
 #### BES.2.1.2 – Geschäftsprozessprofile
 
-**Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.18
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.18
 
 > Beschaffungsmanagement für Outsourcing SOLLTE Geschäftsprozessprofile für (Teil-)Prozesse, die ausgelagert werden, mit Funktion, verarbeiteten Informationen, einzuhaltenden rechtlichen und organisatorischen Rahmenbedingungen, prozessualen Schnittstellen, Abhängigkeiten zwischen Prozessen, sowie ihren Schutzbedarfen und Kritikalitäten dokumentieren.
 
@@ -131,7 +131,7 @@ Ist bereits eine Business-Impact-Analyse (BIA) vorhanden, welche die Angaben ent
 
 #### BES.2.1.3 – Systemvoraussetzungen
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.18
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.18
 
 > Beschaffungsmanagement für IT-Produkte SOLLTE Systemvoraussetzungen dokumentieren.
 
@@ -139,7 +139,7 @@ Hierzu können sowohl Hardwareparameter gehören (z.B. 8 GB RAM, TPM 2.0), als a
 
 #### BES.2.1.4 – Kompatibilität
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.18
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.18
 
 > Beschaffungsmanagement für Einkäufe SOLLTE den Bedarf für die Kompatibilität mit der bestehenden Infrastruktur dokumentieren.
 
@@ -147,7 +147,7 @@ Werden Beschaffungen ohne Betrachtung der Kompatibilität zur angebundenen Infra
 
 ##### BES.2.1.4.1 – Kompatibilität der Schnittstellen
 
-**Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.18
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.18
 
 > Beschaffungsmanagement für Einkäufe SOLLTE den Bedarf für die Kompatibilität im Hinblick auf Schnittstellen dokumentieren.
 
@@ -155,7 +155,7 @@ Kompatibilität im Hinblick auf Schnittstellen meint die Fähigkeit eines zu bes
 
 ##### BES.2.1.4.2 – Kompatibilität der Netzanbindung
 
-**Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.18
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.18
 
 > Beschaffungsmanagement für Einkäufe SOLLTE den Bedarf für die Kompatibilität im Hinblick auf die Netzanbindung dokumentieren.
 
@@ -163,7 +163,7 @@ Kompatibilität im Hinblick auf die Netzanbindung ist hier die technische und lo
 
 ##### BES.2.1.4.3 – Kompatibilität des Administrationsmodells
 
-**Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.37
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.37
 
 > Beschaffungsmanagement für Einkäufe SOLLTE den Bedarf für die Kompatibilität im Hinblick auf das Administrationsmodell dokumentieren.
 
@@ -171,7 +171,7 @@ Unter „Kompatibilität im Hinblick auf das Administrationsmodell“ ist hier d
 
 ##### BES.2.1.4.4 – Kompatibilität des Datenmanagementmodells
 
-**Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.18
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.18
 
 > Beschaffungsmanagement für Einkäufe SOLLTE den Bedarf für die Kompatibilität im Hinblick auf das Datenmanagementmodell dokumentieren.
 
@@ -179,7 +179,7 @@ Unter „Kompatibilität im Hinblick auf das Datenmanagementmodell“ ist im Kon
 
 #### BES.2.1.5 – Lizenzierung
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.18
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.18
 
 > Beschaffungsmanagement für IT-Produkte SOLLTE für den geplanten Einsatzzeitraum erforderliche Lizenzen dokumentieren.
 
@@ -187,7 +187,7 @@ Lizenzen sind erforderlich, wenn sie für den Einsatz des geplanten IT-Produktes
 
 #### BES.2.1.6 – Support- und Wartungsverträge
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.18
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.18
 
 > Beschaffungsmanagement für IT-Produkte SOLLTE den Bedarf an Support- und Wartungsverträgen basierend auf dem Schutzbedarf für Verfügbarkeit dokumentieren.
 
@@ -195,7 +195,7 @@ Dies zielt auf den Abschluss von Support- und Wartungsverträgen für alle IT-Pr
 
 ### BES.2.2 – Dokumentation des Rechtsraums und der Datenlokation
 
-**Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.18, G 0.37
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.18, G 0.37
 
 > Beschaffungsmanagement für Cloud-Dienste SOLLTE Rechtsraum und Datenlokation dokumentieren.
 
@@ -203,7 +203,7 @@ Beispielsweise könnte die Datenlokation auf europäische Standorte eingeschrän
 
 ### BES.2.3 – Vereinbarung des Rechtsraums und der Datenlokation
 
-**Stufe:** `erhöht` · **Aufwand:** 4 · **Gefährdungen:** G 0.18
+**Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 4 · **Gefährdungen:** G 0.18
 
 > Beschaffungsmanagement für Cloud-Dienste KANN Rechtsraum und Datenlokation mit dem Anbieter vereinbaren.
 
@@ -211,7 +211,7 @@ Beispielsweise könnte die Datenlokation auf europäische Standorte eingeschrän
 
 ### BES.2.4 – Anhörung Nutzender
 
-**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.18
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.18
 
 > Beschaffungsmanagement für Einkäufe SOLLTE Nutzende bei der Bedarfserfassung anhören.
 
@@ -219,7 +219,7 @@ Werden IT-Produkte oder Dienstleistungen für eine Zielgruppe beschafft, so ist 
 
 ### BES.2.5 – Anhörung Administrierender
 
-**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.18
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.18
 
 > Beschaffungsmanagement für Einkäufe SOLLTE Administrierende bei der Bedarfserfassung anhören.
 
@@ -227,7 +227,7 @@ Ohne diese Einbindung könnte etwa eine Fachabteilung Systeme einkaufen, die kei
 
 ### BES.2.6 – Outsourcing auf Grundlage der Geschäftsprozessprofile
 
-**Stufe:** `erhöht` · **Aufwand:** 4 · **Gefährdungen:** G 0.18
+**Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 4 · **Gefährdungen:** G 0.18
 
 > Beschaffungsmanagement für Outsourcing KANN Outsourcingverträge auf Grundlage der Geschäftsprozessprofile durch die Leitung autorisieren.
 
@@ -237,7 +237,7 @@ Das Outsourcing eigener (Teil-)Prozesse ist eine bewusste und häufig folgenreic
 
 ### BES.3.1 – Klassifizierung von Lieferantenbeziehungen
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.18
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.18
 
 > Beschaffungsmanagement für Einkäufe SOLLTE Lieferantenbeziehungen einer Klasse zuweisen.
 
@@ -245,7 +245,7 @@ Klasse meint hier eine Einstufung der Lieferantenbeziehung aus dem Blickwinkel d
 
 ### BES.3.2 – Auswahlkriterien
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.18
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.18
 
 > Beschaffungsmanagement für Einkäufe SOLLTE die Auswahl von Lieferanten anhand von Kriterien zu ihrer Verlässlichkeit verankern.
 
@@ -253,7 +253,7 @@ Beispielsweise durch Marktanalysen, Kundenreferenzen, Zertifizierungen, Begutach
 
 #### BES.3.2.1 – Zertifizierte Lieferanten
 
-**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.18
+**Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.18
 
 > Beschaffungsmanagement für Einkäufe KANN die Auswahl von Lieferanten anhand von Zertifikaten, Testaten oder Vergleichbarem verankern.
 
@@ -261,7 +261,7 @@ Ein „Zertifikat“ ist in diesem Kontext ein formaler Nachweis durch eine akkr
 
 #### BES.3.2.2 – Quellendiversifikation
 
-**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.11
+**Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.11
 
 > Beschaffungsmanagement für Einkäufe KANN die Auswahl von Lieferanten anhand ihrer Fähigkeit, ihre Bezugsquellen zu diversifizieren und die Bindung an bestimmte Lieferanten zu begrenzen, verankern.
 
@@ -269,7 +269,7 @@ Die Fähigkeit zur Diversifizierung von Bezugsquellen bedeutet in diesem Kontext
 
 ### BES.3.3 – Unzuverlässige Lieferanten
 
-**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.18
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.18
 
 > Beschaffungsmanagement für Einkäufe SOLLTE die Beschaffung aus einer unbekannten oder unzuverlässigen Quelle untersagen.
 
@@ -279,7 +279,7 @@ Eine Quelle (z.B. ein Softwarelieferant) ist unzuverlässig, wenn zukünftig mit
 
 ### BES.4.1 – Klassifizierung von Beschaffungsvorhaben
 
-**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.20
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.20
 
 > Beschaffungsmanagement für Einkäufe SOLLTE dem Beschaffungsvorhaben eine Klasse zuweisen.
 
@@ -287,7 +287,7 @@ Hierzu kann auf die Klassifizierung von Informationen zurückgegriffen werden, d
 
 ### BES.4.2 – Dokumentation der Beschaffungskriterien
 
-**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.20, G 0.18, G 0.37
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.20, G 0.18, G 0.37
 
 > Beschaffungsmanagement für Einkäufe SOLLTE *[Kriterien]* für die Beschaffung dokumentieren.
 
@@ -295,7 +295,7 @@ Beschaffungskriterien sind nachvollziehbare Bewertungsmaßstäbe, die bei der An
 
 ### BES.4.3 – Beschaffung anhand der Kriterien
 
-**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.20
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.20
 
 > Beschaffungsmanagement für Einkäufe SOLLTE die Beschaffung anhand der festgelegten Kriterien verankern.
 
@@ -303,7 +303,7 @@ Werden Waren, Systeme oder Dienstleistungen ohne überprüfbare Kriterien bescha
 
 ### BES.4.4 – Vertragsvorlage für Outsourcing
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.20
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.20
 
 > Beschaffungsmanagement für Outsourcing SOLLTE Kriterien für Outsourcing-Dienstleistungen in einer standardisierten Richtlinie für Verträge dokumentieren.
 
@@ -311,7 +311,7 @@ Eine standardisierte Richtlinie für Verträge enthält klare grundlegende Krite
 
 ### BES.4.5 – Security by Design
 
-**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.20
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.20
 
 > Beschaffungsmanagement für Einkäufe SOLLTE Security by Design vereinbaren.
 
@@ -319,7 +319,7 @@ Security by Design gilt als vereinbart, wenn eine Vorgehensweise nach diesem Pri
 
 #### BES.4.5.1 – Entwicklung nach einem Sicherheitslebenszyklus
 
-**Stufe:** `erhöht` · **Aufwand:** 4 · **Gefährdungen:** G 0.20
+**Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 4 · **Gefährdungen:** G 0.20
 
 > Beschaffungsmanagement für IT-Produkte KANN Nachweise zur Entwicklung nach einem Sicherheitslebenszyklus vereinbaren.
 
@@ -327,7 +327,7 @@ Ein Sicherheitslebenszyklus (engl. security development lifecycle, kurz SDL) bes
 
 #### BES.4.5.2 – Mandantentrennung
 
-**Stufe:** `erhöht` · **Aufwand:** 4 · **Gefährdungen:** G 0.20, G 0.14, G 0.19, G 0.29
+**Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 4 · **Gefährdungen:** G 0.20, G 0.14, G 0.19, G 0.29
 
 > Beschaffungsmanagement für Outsourcing KANN eine festgelegte Mandantentrennung vereinbaren.
 
@@ -335,7 +335,7 @@ Eine Mandantentrennung bezeichnet die Trennung schützenswerter Daten und Verarb
 
 ### BES.4.6 – Security by Default
 
-**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.20, G 0.22, G 0.23
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.20, G 0.22, G 0.23
 
 > Beschaffungsmanagement für Einkäufe SOLLTE Security by Default vereinbaren.
 
@@ -343,7 +343,7 @@ Der Detaillierungsgrad der Kriterien kann sich hierbei nach Umfang und Klassifiz
 
 #### BES.4.6.1 – Authentifizierung des Kunden
 
-**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.20, G 0.21, G 0.22
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.20, G 0.21, G 0.22
 
 > Beschaffungsmanagement für Dienstleistungen SOLLTE eine Authentifizierung vor dem Zugriff auf schützenswerte Informationen oder Dienste vereinbaren.
 
@@ -351,7 +351,7 @@ Sinnvoll ist es sich hierbei sich auf konkrete Authentifizierungsmethoden (z.B. 
 
 #### BES.4.6.2 – Verschlüsselung durch den Anbieter
 
-**Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.20, G 0.21, G 0.22
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.20, G 0.21, G 0.22
 
 > Beschaffungsmanagement für Outsourcing SOLLTE die Verschlüsselung schützenswerter Informationen durch den Anbieter vereinbaren.
 
@@ -359,7 +359,7 @@ Hiermit ist die Ablageverschlüsselung (at rest) und die Transportverschlüsselu
 
 #### BES.4.6.3 – Manipulationsschutz
 
-**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.21, G 0.22, G 0.20
+**Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.21, G 0.22, G 0.20
 
 > Beschaffungsmanagement für IT-Produkte KANN Schutzmechanismen gegen Manipulationen auf dem Lieferweg vereinbaren.
 
@@ -367,7 +367,7 @@ Bei physischen Produkten können hierfür Siegel oder schwer fälschbare Kennzei
 
 ### BES.4.7 – ISMS beim Dienstleister
 
-**Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.20, G 0.11, G 0.25
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.20, G 0.11, G 0.25
 
 > Beschaffungsmanagement für Outsourcing SOLLTE ein Managementsystem für Informationssicherheit (ISMS) vereinbaren.
 
@@ -375,7 +375,7 @@ Ohne klare Vorgaben zum Managementsystem könnte ein Anbieter vertrauliche Daten
 
 ### BES.4.8 – Konformitätsnachweise
 
-**Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.20
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.20
 
 > Beschaffungsmanagement für Einkäufe SOLLTE Nachweise des Lieferanten zur Erfüllung der Sicherheitskriterien vereinbaren.
 
@@ -383,7 +383,7 @@ Nachweise können z.B. durch eine passende Zertifizierung (etwa nach IT-Grundsch
 
 #### BES.4.8.1 – Zertifizierung
 
-**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.20
+**Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.20
 
 > Beschaffungsmanagement für Einkäufe KANN ein Zertifikat oder Testat nach *[einem passenden Sicherheitsstandard]* vereinbaren.
 
@@ -391,7 +391,7 @@ Ein Zertifikat ist eine unabhängige Bestätigung der Konformität, die von eine
 
 #### BES.4.8.2 – Cloud-Konformität
 
-**Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.20, G 0.18
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.20, G 0.18
 
 > Beschaffungsmanagement für Cloud-Dienste SOLLTE einen Konformitätsnachweis durch Dritte vereinbaren.
 
@@ -399,7 +399,7 @@ Beispielsweise durch ein C5 Testat. Hierbei ist zu prüfen, ob der Geltungsberei
 
 #### BES.4.8.3 – IT-Grundschutz-Analyse der Infrastruktur
 
-**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.20
+**Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.20
 
 > Beschaffungsmanagement für Outsourcing KANN eine IT-Grundschutz-Analyse der potenziell zu nutzenden Infrastruktur des Dienstleisters vereinbaren.
 
@@ -407,7 +407,7 @@ Bei einer IT-Grundschutz-Analyse im Rahmen des Outsourcings wird an der potenzie
 
 #### BES.4.8.4 – Offenlegung der Risikoanalyse
 
-**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.20
+**Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.20
 
 > Beschaffungsmanagement für Outsourcing KANN eine Offenlegung der Risikoanalyse aus dem ISMS des Dienstleisters, soweit eine Risikoanalyse nach IT-Grundschutz-Vorgehensweise notwendig ist, vereinbaren.
 
@@ -415,7 +415,7 @@ Eine Offenlegung ist hierzu nur erforderlich, soweit die Informationen für die 
 
 ### BES.4.9 – Sicherheitsüberprüfung (extern)
 
-**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.20
+**Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.20
 
 > Beschaffungsmanagement für Einkäufe KANN Sicherheitsüberprüfungen für Personen, die vom Lieferanten mit der Vertragsdurchführung beauftragt werden, vereinbaren.
 
@@ -425,7 +425,7 @@ Eine Sicherheitsüberprüfung meint die Verifikation von Identität, beruflicher
 
 ### BES.5.1 – Kompetenzen
 
-**Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.20
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.20
 
 > Beschaffungsmanagement für Dienstleistungen SOLLTE Kompetenzen in Informationssicherheit, die von den Mitarbeitern des Lieferanten verlangt werden, vereinbaren.
 
@@ -433,7 +433,7 @@ Dient dem Ziel, Risiken durch unzureichend geschultes Personal zu minimieren. Oh
 
 ### BES.5.2 – Service Level Agreement
 
-**Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.20
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.20
 
 > Beschaffungsmanagement für Outsourcing SOLLTE die Einhaltung einer bestimmten Dienstgüte anhand von *[Kriterien]* vereinbaren.
 
@@ -441,7 +441,7 @@ Dienstgüte (engl. Service Quality oder Service Level) beschreibt das messbare L
 
 ### BES.5.3 – Compliance-Verpflichtungen
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.20
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.20
 
 > Beschaffungsmanagement für Einkäufe SOLLTE die Übereinstimmung mit Compliance-Verpflichtungen vereinbaren.
 
@@ -449,7 +449,7 @@ Hierzu gehören beispielsweise der Schutz personenbezogener Daten, geistige Eige
 
 ### BES.5.4 – Informationssicherheitskontrollmechanismen
 
-**Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.20
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.20
 
 > Beschaffungsmanagement für Einkäufe SOLLTE Informationssicherheitskontrollmechanismen vereinbaren.
 
@@ -457,7 +457,7 @@ Genaue und vollständige Beschreibung der Mechanismen, insbesondere zur Zugriffs
 
 ### BES.5.5 – Nutzungsregelungen
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.20
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.20
 
 > Beschaffungsmanagement für Dienstleistungen SOLLTE Regelungen zur Nutzung der Daten und damit verbundenen Assets vereinbaren.
 
@@ -465,7 +465,7 @@ Hierzu zählen z.B. Zugriffsregelungen und Regelungen darüber unter welchen Bed
 
 #### BES.5.5.1 – Datenlokationen
 
-**Stufe:** `erhöht` · **Aufwand:** 4 · **Gefährdungen:** G 0.20
+**Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 4 · **Gefährdungen:** G 0.20
 
 > Beschaffungsmanagement für Dienstleistungen KANN die Verarbeitung von Daten ausschließlich an von der Institution erlaubten Datenlokationen vereinbaren.
 
@@ -473,7 +473,7 @@ Ziel ist es zu verhindern, dass vertrauliche Informationen in Staaten mit schwac
 
 #### BES.5.5.2 – Autorisierung der Zugriffsberechtigung
 
-**Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.20
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.20
 
 > Beschaffungsmanagement für Dienstleistungen SOLLTE Regelungen zur Autorisierung der Zugriffsberechtigung für Personal des Lieferanten anhand von *[Kriterien]* vereinbaren.
 
@@ -481,7 +481,7 @@ Dies kann beispielsweise durch eine explizite Liste der Personen oder Rollen des
 
 ### BES.5.6 – Vergabe von Unteraufträgen
 
-**Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.20
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.20
 
 > Beschaffungsmanagement für Einkäufe SOLLTE Regelungen für die Vergabe von Unteraufträgen vereinbaren.
 
@@ -489,7 +489,7 @@ Unter einem „Unterauftrag“ versteht man in diesem Kontext die vollständige 
 
 #### BES.5.6.1 – Weitergabe der Beschaffungskriterien
 
-**Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.20
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.20
 
 > Beschaffungsmanagement für Einkäufe SOLLTE die Weitergabe der Beschaffungskriterien an Unterauftragnehmer vereinbaren.
 
@@ -497,7 +497,7 @@ Dient dazu, sicherzustellen, dass die bei der Auswahl von Produkten, Dienstleist
 
 #### BES.5.6.2 – Autorisierung von Unterauftragnehmern
 
-**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.20
+**Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.20
 
 > Beschaffungsmanagement für Einkäufe KANN die Autorisierung von Unterauftragnehmern durch den Auftraggeber vereinbaren.
 
@@ -505,7 +505,7 @@ Unterauftragnehmer sind in diesem Zusammenhang Dritte, die vom beauftragten Haup
 
 #### BES.5.6.3 – Nachverfolgbarkeit der Lieferkette
 
-**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.20
+**Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.20
 
 > Beschaffungsmanagement für IT-Produkte KANN die Nachverfolgbarkeit der gesamten Lieferkette bis zum Hersteller für *[kritische Komponenten]* vereinbaren.
 
@@ -513,7 +513,7 @@ Kritische Komponenten sind in diesem Kontext Bauteile oder Softwareelemente, der
 
 ### BES.5.7 – Schulung
 
-**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.20
+**Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.20
 
 > Beschaffungsmanagement für Einkäufe KANN eine Schulung zur Nutzung gelieferter Sicherheitsmechanismen vereinbaren.
 
@@ -521,7 +521,7 @@ Sicherheitsmechanismen sind in diesem Kontext technische oder organisatorische S
 
 ### BES.5.8 – Rechte für geistges Eigentum
 
-**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.20
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.20
 
 > Beschaffungsmanagement für Dienstleistungen SOLLTE für geistiges Eigentum, das während der Vertragslaufzeit entwickelt wird, die Eigentumsrechte vereinbaren.
 
@@ -529,7 +529,7 @@ Geistiges Eigentum meint hier alle während der Vertragslaufzeit entstehenden im
 
 ### BES.5.9 – Umgang mit Änderungen
 
-**Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.20
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.20
 
 > Beschaffungsmanagement für Dienstleistungen SOLLTE Regelungen für den Umgang mit Änderungen vereinbaren.
 
@@ -537,7 +537,7 @@ Unkontrollierte oder unklare Änderungen bringen Risiken für die Verfügbarkeit
 
 #### BES.5.9.1 – Autorisierung von Änderungen
 
-**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.20, G 0.18
+**Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.20, G 0.18
 
 > Beschaffungsmanagement für Dienstleistungen KANN die Autorisierung von Änderungen durch den Auftraggeber vereinbaren.
 
@@ -545,7 +545,7 @@ Die Autorisierung von Änderungen bedeutet in diesem Kontext, dass die Instituti
 
 ### BES.5.10 – Behandlung von Vorfällen
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.20, G 0.18
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.20, G 0.18
 
 > Beschaffungsmanagement für Einkäufe SOLLTE Regelungen für die Behandlung von Vorfällen vereinbaren.
 
@@ -553,7 +553,7 @@ Ein Vorfall bezeichnet in diesem Zusammenhang jedes sicherheitsrelevante Ereigni
 
 #### BES.5.10.1 – Erreichbarkeit über Meldewege
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.20
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.20
 
 > Beschaffungsmanagement für Einkäufe SOLLTE die Erreichbarkeit des Lieferanten über bestimmte Meldewege vereinbaren.
 
@@ -561,7 +561,7 @@ Die Meldewege bezeichnen in diesem Zusammenhang klar definierte Kommunikationska
 
 #### BES.5.10.2 – Melden von Vorfällen
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.20
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.20
 
 > Beschaffungsmanagement für Einkäufe SOLLTE eine Verpflichtung zur unverzüglichen Information des Auftraggebers über ihn betreffende Vorfälle vereinbaren.
 
@@ -569,7 +569,7 @@ Der Sinn dieser Regelung liegt darin, dass der Auftraggeber seine Handlungsfähi
 
 #### BES.5.10.3 – Schwachstellenbehebung
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.20
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.20
 
 > Beschaffungsmanagement für Einkäufe SOLLTE eine Verpflichtung für Lieferanten, die den Auftraggeber betreffende Schwachstelle zeitnah zu beheben, vereinbaren.
 
@@ -577,7 +577,7 @@ Die Verpflichtung bezieht sich hierbei auf die gesamte Lebensdauer der Dienstlei
 
 ##### BES.5.10.3.1 – Schwachstellenmeldeprozess
 
-**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.20
+**Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.20
 
 > Beschaffungsmanagement für IT-Produkte KANN einen Schwachstellenmeldeprozess nach *[einem anerkannten Standard]* vereinbaren.
 
@@ -585,7 +585,7 @@ Die Anforderung ist erfüllt, wenn der Prozess zur Meldung und Behandlung von Sc
 
 #### BES.5.10.4 – Konfliktlösungsprozesse
 
-**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.20
+**Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.20
 
 > Beschaffungsmanagement für Einkäufe KANN Prozesse zur Lösung von Konflikten zwischen den Vertragsparteien vereinbaren.
 
@@ -593,7 +593,7 @@ Ein „Konflikt zwischen den Vertragsparteien“ bedeutet hier jede Form von Une
 
 #### BES.5.10.5 – Konsequenzen bei Verstößen
 
-**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.20
+**Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.20
 
 > Beschaffungsmanagement für Einkäufe KANN Abhilfemaßnahmen für den Fall von Verstößen durch den Lieferanten vereinbaren.
 
@@ -601,7 +601,7 @@ Hierzu können Abhilfemaßnahmen wie die Abschaltung angreifbarer Systeme, die I
 
 ### BES.5.11 – Recht auf Audit
 
-**Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.29, G 0.20, G 0.18, G 0.37
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.29, G 0.20, G 0.18, G 0.37
 
 > Beschaffungsmanagement für Outsourcing SOLLTE ein Recht des Auftraggebers zur Überprüfung der Sicherheitsprozesse und -maßnahmen, die im Zusammenhang mit dem Vertrag stehen, vereinbaren.
 
@@ -609,7 +609,7 @@ Je nach Vereinbarung kann die Umsetzung durch ein vom Auftraggeber durchgeführt
 
 ### BES.5.12 – Informationspflichten
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.20
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.20
 
 > Beschaffungsmanagement für Dienstleistungen SOLLTE eine Pflicht des Lieferanten, den Auftraggeber regelmäßig über die Wirksamkeit der Sicherheitsmaßnahmen zu informieren, vereinbaren.
 
@@ -617,7 +617,7 @@ Im konkreten Kontext bedeutet Wirksamkeit, dass die vereinbarten Sicherheitsmaß
 
 ### BES.5.13 – Bereitstellung von Datensicherungen
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.20
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.20
 
 > Beschaffungsmanagement für Dienstleistungen SOLLTE eine Verpflichtung des Lieferanten, Sicherungskopien regelmäßig bereitzustellen, vereinbaren.
 
@@ -625,7 +625,7 @@ Der Zweck dieser Anforderung liegt in der Absicherung gegen Datenverlust durch t
 
 #### BES.5.13.1 – Datenbereitstellung
 
-**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.20, G 0.25
+**Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.20, G 0.25
 
 > Beschaffungsmanagement für Outsourcing KANN die Bereitstellung der beim Dienstleister verarbeiteten Daten in einem standardisierten Format vereinbaren.
 
@@ -633,7 +633,7 @@ Kann das Risiko verringern, dass im Falle eines Anbieterwechsels, einer Vertrags
 
 ### BES.5.14 – Löschregeln
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.20
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.20
 
 > Beschaffungsmanagement für Outsourcing SOLLTE die Löschung von Daten während der Vertragslaufzeit im Einklang mit den Compliance-Verpflichtungen der Institution vereinbaren.
 
@@ -643,7 +643,7 @@ Compliance-Verpflichtungen werden in der Praktik GC ermittelt. Die Umsetzung kan
 
 ### BES.6.1 – Entziehung der Zugangsberechtigungen
 
-**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.20
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.20
 
 > Beschaffungsmanagement für Dienstleistungen SOLLTE die Entziehung der für den Vertrag relevanten Zugangsberechtigungen für den Fall einer Kündigung vereinbaren.
 
@@ -651,7 +651,7 @@ Compliance-Verpflichtungen werden in der Praktik GC ermittelt. Die Umsetzung kan
 
 ### BES.6.2 – Löschung von Daten
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.20
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.20
 
 > Beschaffungsmanagement für Dienstleistungen SOLLTE die Löschung aller beim Dienstleister vorhandenen Daten für den Fall einer Kündigung vereinbaren.
 
@@ -659,7 +659,7 @@ Kündigung meint hier sowohl ordentliche als auch außerordentliche Kündigungen
 
 #### BES.6.2.1 – Löschverfahren
 
-**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.20, G 0.18
+**Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.20, G 0.18
 
 > Beschaffungsmanagement für Dienstleistungen KANN ein Verfahren zur nicht wiederherstellbaren Löschung für den Fall einer Kündigung vereinbaren.
 
@@ -667,7 +667,7 @@ Ein Verfahren zur nicht wiederherstellbaren Löschung bedeutet in diesem Kontext
 
 ### BES.6.3 – Übertragbarkeit von Daten
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.20
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.20
 
 > Beschaffungsmanagement für Dienstleistungen SOLLTE die Übertragbarkeit von Daten, Konfigurationen und der Funktionalität für den Fall einer Kündigung vereinbaren.
 
@@ -675,7 +675,7 @@ Ohne eine solche Regelung kann es zu erheblichen Betriebsstörungen kommen, etwa
 
 ### BES.6.4 – Übertragung von Supportdienstleistungen
 
-**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.20
+**Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.20
 
 > Beschaffungsmanagement für Dienstleistungen KANN die Übergabe der Supportdienstleistungen für den Fall einer Kündigung vereinbaren.
 
@@ -683,7 +683,7 @@ Die Übergabe der Supportdienstleistungen beschreibt in diesem Kontext die geord
 
 ### BES.6.5 – Behandlung aufzubewahrender Aufzeichnungen
 
-**Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.20
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.20
 
 > Beschaffungsmanagement für Dienstleistungen SOLLTE Kontrollmechanismen zur Behandlung aufzubewahrender Aufzeichnungen für den Fall einer Kündigung vereinbaren.
 
@@ -691,7 +691,7 @@ Der Begriff Kontrollmechanismen kann in diesem Kontext verstanden werden als ver
 
 ### BES.6.6 – Rückgewähr von Assets
 
-**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.20
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.20
 
 > Beschaffungsmanagement für Dienstleistungen SOLLTE die Rückgewähr von Assets für den Fall einer Kündigung vereinbaren.
 
@@ -701,7 +701,7 @@ Rückgewähr bedeutet hier, dass sämtliche von der Institution bereitgestellte 
 
 ### BES.7.1 – Eingangskontrolle
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.26, G 0.18
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.26, G 0.18
 
 > Beschaffungsmanagement für Einkäufe SOLLTE erbrachte oder gelieferte Leistungen anhand von *[Kriterien zur Akzeptanz]* vor der ersten Verwendung testen.
 
@@ -709,7 +709,7 @@ Durch eine Prüfung anhand von Akzeptanzkriterien wird sichergestellt, dass die 
 
 #### BES.7.1.1 – Test der Kompatibilität
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.26, G 0.18, G 0.28
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.26, G 0.18, G 0.28
 
 > Beschaffungsmanagement für Outsourcing SOLLTE die Kompatibilität des Dienstes mit dem Informationsverbund im Hinblick auf die Schnittstellen, die Netzanbindung, das Administrationsmodell und das Datenmanagementmodell testen.
 
@@ -717,7 +717,7 @@ Die Regelung dient dazu, ungewollte Brüche oder Inkompatibilitäten zu vermeide
 
 #### BES.7.1.2 – Netzcheck
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.26, G 0.18
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.26, G 0.18
 
 > Beschaffungsmanagement für Outsourcing SOLLTE die Umsetzung der geforderten Beschaffungskriterien für die Netzanbindung vor der Netzanbindung testen.
 
@@ -725,7 +725,7 @@ Netzanbindung meint hier jede Form der logischen oder physischen Kopplung von Ne
 
 ### BES.7.2 – Prozesse vor Netzanbindung
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.18, G 0.26, G 0.28
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.18, G 0.26, G 0.28
 
 > Beschaffungsmanagement für Outsourcing SOLLTE vor Anbindung des Datennetzes der Nutzenden an das Datennetz der Anbietenden alle sicherheitsrelevanten Maßnahmen im Einklang mit den Regelungen und Verfahren des Managementsystems verankern.
 
@@ -733,7 +733,7 @@ Der Sinn der Vorschrift liegt darin, Risiken durch unkontrollierte Netzwerkanbin
 
 ### BES.7.3 – Anhörung Prozessbeteiligter
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.18, G 0.26
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.18, G 0.26
 
 > Beschaffungsmanagement für Outsourcing SOLLTE alle am ausgelagerten Prozess beteiligten Mitarbeiter oder Rollen anhören.
 
@@ -741,7 +741,7 @@ Je nach Prozess können hierzu z.B. IT-Betriebspersonal oder Cybersicherheitsexp
 
 ### BES.7.4 – Vollständigkeit der Unterlagen
 
-**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.26, G 0.18
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.26, G 0.18
 
 > Beschaffungsmanagement für Einkäufe SOLLTE Informationen, die für eine bestimmungsgemäße Verwendung im Informationsverbund erforderlich sind, dokumentieren.
 
@@ -749,7 +749,7 @@ Dient in erster Linie dazu, sicherheitsrelevante Eigenschaften, Abhängigkeiten 
 
 #### BES.7.4.1 – Beschreibung der Sicherheitsarchitektur
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.18, G 0.26, G 0.28
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.18, G 0.26, G 0.28
 
 > Beschaffungsmanagement für IT-Produkte SOLLTE eine Beschreibung der Sicherheitsarchitektur dokumentieren.
 
@@ -757,7 +757,7 @@ Die technische Sicherheitsarchitektur bezeichnet in diesem Kontext die strukturi
 
 #### BES.7.4.2 – Beschreibung von Sicherheitsmechanismen
 
-**Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.26, G 0.18
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.26, G 0.18
 
 > Beschaffungsmanagement für IT-Produkte SOLLTE eine Beschreibung der gelieferten Sicherheitsmechanismen dokumentieren.
 
@@ -765,7 +765,7 @@ Hierzu zählt z.B. eine Information des Herstellers, dass die Verschlüsselung n
 
 #### BES.7.4.3 – Empfohlene Konfiguration
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.28, G 0.31, G 0.26, G 0.18
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.28, G 0.31, G 0.26, G 0.18
 
 > Beschaffungsmanagement für IT-Produkte SOLLTE eine vom Hersteller oder Lieferanten für den sicheren Betrieb empfohlene Konfiguration dokumentieren.
 
@@ -773,7 +773,7 @@ Eine vom Hersteller oder Lieferanten empfohlene Konfiguration ist eine dokumenti
 
 #### BES.7.4.4 – Dokumentation der Komponenten
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.18, G 0.26, G 0.37
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.18, G 0.26, G 0.37
 
 > Beschaffungsmanagement für Einkäufe SOLLTE eine Beschreibung der verwendeten Hardware- und Softwarekomponenten dokumentieren.
 
@@ -781,7 +781,7 @@ Hierzu zählen Angaben zum Hersteller und der Leistungsfähigkeit und Zusammense
 
 ##### BES.7.4.4.1 – Software Bill of Materials (SBOM)
 
-**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.26, G 0.18, G 0.28
+**Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.26, G 0.18, G 0.28
 
 > Beschaffungsmanagement für IT-Produkte KANN für jede gelieferte Software die entsprechende Software Bill of Materials (SBOM) nach *[einem anerkannten Standard]* dokumentieren.
 
@@ -789,7 +789,7 @@ Je nach Produkt können hierzu auch die Firmware, das Betriebssystem oder mehrer
 
 #### BES.7.4.5 – Netzverbindungen ab Werk
 
-**Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.26, G 0.18, G 0.28
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.26, G 0.18, G 0.28
 
 > Beschaffungsmanagement für IT-Produkte SOLLTE eine Liste der Internetserver, mit denen das IT-Produkt von sich aus Verbindung aufnimmt, mit Zweck der Verbindung, Zieladresse(n), Port-Nummern dokumentieren.
 
@@ -797,7 +797,7 @@ Geräte und Software verbinden sich oft schon im Auslieferungszustand oder bei d
 
 #### BES.7.4.6 – Shared Responsibility
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.18, G 0.26
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.18, G 0.26
 
 > Beschaffungsmanagement für Dienstleistungen SOLLTE die Verteilung der Zuständigkeiten und deren Abgrenzung dokumentieren.
 
@@ -805,7 +805,7 @@ Beim Outsourcing gibt es verteilte Zuständigkeiten zwischen Dienstleister und I
 
 #### BES.7.4.7 – Organisatorische Schnittstellen
 
-**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.26, G 0.18
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.26, G 0.18
 
 > Beschaffungsmanagement für Dienstleistungen SOLLTE die organisatorischen Schnittstellen des Dienstleisters dokumentieren.
 
@@ -813,7 +813,7 @@ Beispielsweise Meldewege für Notfälle, Sicherheitsvorfälle, Eskalationsstufen
 
 #### BES.7.4.8 – Technische Schnittstellen
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.26, G 0.18
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.26, G 0.18
 
 > Beschaffungsmanagement für Dienstleistungen SOLLTE die vom Dienstleister bereitgestellten technischen Schnittstellen und deren Sicherheitsfunktionalität dokumentieren.
 
@@ -821,7 +821,7 @@ Die Dokumentation der vom Dienstleister bereitgestellten technischen Schnittstel
 
 #### BES.7.4.9 – Auslagerungsregister
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.26, G 0.18
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.26, G 0.18
 
 > Beschaffungsmanagement für Outsourcing SOLLTE Informationen über den Dienstleister, die Kritikalität des Prozesses, abgeschlossene Verträge und Vereinbarungen sowie Zeitpunkt und Inhalt von Änderungen an den Vereinbarungen nach Vertragsschluss dokumentieren.
 
@@ -829,7 +829,7 @@ Hierzu genügt ein zentrales Auslagerungsregister, welches zu allen ausgelagerte
 
 #### BES.7.4.10 – Serviceprofil
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.26, G 0.18
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.26, G 0.18
 
 > Beschaffungsmanagement für Cloud-Dienste SOLLTE für jeden geplanten oder genutzten Cloud-Dienst ein Serviceprofil mit dem Namen des Services und des Anbieters dokumentieren.
 
@@ -837,7 +837,7 @@ Mögliche Inhalte um zuvor identifizierte Anforderungen ergänzen : Bezeichnung,
 
 #### BES.7.4.11 – Dokumentierte Mandantentrennung
 
-**Stufe:** `erhöht` · **Aufwand:** 4 · **Gefährdungen:** G 0.18, G 0.26, G 0.28
+**Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 4 · **Gefährdungen:** G 0.18, G 0.26, G 0.28
 
 > Beschaffungsmanagement für Outsourcing KANN die beim Dienstleister implementierten Maßnahmen zur Mandantentrennung nach Vertragsschluss dokumentieren.
 
@@ -845,7 +845,7 @@ Die Dokumentation der beim Dienstleister implementierten Maßnahmen zur Mandante
 
 #### BES.7.4.12 – Software Bill of Materials (SBOM) - Cloud
 
-**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.26, G 0.18, G 0.28
+**Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.26, G 0.18, G 0.28
 
 > Beschaffungsmanagement für Cloud-Dienste KANN für jede gelieferte Software-as-a-Service (SaaS) die entsprechende Software Bill of Materials (SBOM) nach *[einem anerkannten Standard]* dokumentieren.
 
@@ -855,7 +855,7 @@ Ein anerkannter Standard für SBOM ist die BSI TR-03183-2.
 
 ### BES.8.1 – Bereithaltung alternativer Lieferanten
 
-**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.18, G 0.25
+**Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.18, G 0.25
 
 > Beschaffungsmanagement für Einkäufe KANN die Bereithaltung alternativer Lieferanten verankern.
 
@@ -863,7 +863,7 @@ Das Bereithalten alternativer Lieferanten kann dazu beitragen, Abhängigkeiten z
 
 ### BES.8.2 – Verfahren zur Übertragung von Geschäftsprozessen
 
-**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.18
+**Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.18
 
 > Beschaffungsmanagement für Outsourcing KANN Verfahren zur Übertragung von Geschäftsprozessen für den Fall einer geplanten oder ungeplanten Beendigung des Vertrages verankern.
 
@@ -871,7 +871,7 @@ Es empfiehlt sich diese Alternativen in einem Maßnahmenkatalog zu dokumentieren
 
 ### BES.8.3 – Ressourcensouveränität
 
-**Stufe:** `erhöht` · **Aufwand:** 4 · **Gefährdungen:** G 0.18
+**Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 4 · **Gefährdungen:** G 0.18
 
 > Beschaffungsmanagement für Outsourcing KANN ausreichende interne Ressourcen für den Fall einer geplanten oder ungeplanten Beendigung des Vertrages zuweisen.
 
@@ -879,7 +879,7 @@ Die Bereithaltung ausreichender interner Ressourcen zielt hier darauf ab, für d
 
 ### BES.8.4 – Individuelle Implementierung kritischer Komponenten
 
-**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.18
+**Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.18
 
 > Beschaffungsmanagement für IT-Produkte KANN eine eigens für die Institution entwickelte Implementierung kritischer Komponenten vereinbaren.
 
@@ -887,7 +887,7 @@ Dient dazu das Risiko zu mindern, dass sicherheitsrelevante Funktionen oder Inte
 
 ### BES.8.5 – Treuhand
 
-**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.18, G 0.29
+**Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.18, G 0.29
 
 > Beschaffungsmanagement für Dienstleistungen KANN ESCROW- bzw. Treuhandverträge vereinbaren.
 

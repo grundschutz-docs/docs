@@ -9,7 +9,7 @@ Die Praktik Dienstleistersteuerung regelt die kontinuierliche Überwachung und S
 
 ### DLS.1.1 – Verfahren und Regelungen
 
-**Stufe:** `normal-SdT` · **Aufwand:** 0 · **Gefährdungen:** G 0.18
+**Pflicht:** MUSS · **Stufe:** `normal-SdT` · **Aufwand:** 0 · **Gefährdungen:** G 0.18
 
 > Dienstleistersteuerung für Dienstleistungen MUSS ein Verfahren zur Steuerung und geordneten Beendigung von Dienstleistungsverträgen verankern.
 
@@ -17,7 +17,7 @@ Hierzu gehört die Kontrolle der Einhaltung von Vereinbarungen zur Sicherheit mi
 
 #### DLS.1.1.1 – Dokumentation
 
-**Stufe:** `normal-SdT` · **Aufwand:** 0 · **Gefährdungen:** G 0.18, G 0.37
+**Pflicht:** MUSS · **Stufe:** `normal-SdT` · **Aufwand:** 0 · **Gefährdungen:** G 0.18, G 0.37
 
 > Dienstleistersteuerung für Dienstleistungen MUSS die Verfahren und Regelungen dokumentieren.
 
@@ -25,7 +25,7 @@ Ohne eine Dokumentation könnte die Einhaltung der Verfahren und Regelungen von 
 
 #### DLS.1.1.2 – Zuweisung der Aufgaben
 
-**Stufe:** `normal-SdT` · **Aufwand:** 0 · **Gefährdungen:** G 0.18, G 0.31
+**Pflicht:** MUSS · **Stufe:** `normal-SdT` · **Aufwand:** 0 · **Gefährdungen:** G 0.18, G 0.31
 
 > Dienstleistersteuerung für Dienstleistungen MUSS die mit den Verfahren und Regelungen verbundenen Aufgaben *[zuständigen Personen oder Rollen]* zuweisen.
 
@@ -33,7 +33,7 @@ Die Zuweisung von Aufgaben bezeichnet die eindeutige und verbindliche Übertragu
 
 #### DLS.1.1.3 – Bekanntgabe
 
-**Stufe:** `normal-SdT` · **Aufwand:** 0 · **Gefährdungen:** G 0.18, G 0.31
+**Pflicht:** MUSS · **Stufe:** `normal-SdT` · **Aufwand:** 0 · **Gefährdungen:** G 0.18, G 0.31
 
 > Dienstleistersteuerung für Dienstleistungen MUSS die zuständigen Personen oder Rollen über die Verfahren und Regelungen informieren.
 
@@ -41,7 +41,7 @@ Wenn die Zuständigen die etablierten Verfahren nicht kennen, besteht die Gefahr
 
 ### DLS.1.2 – Regelmäßige Überprüfung
 
-**Stufe:** `normal-SdT` · **Aufwand:** 0 · **Gefährdungen:** G 0.18
+**Pflicht:** MUSS · **Stufe:** `normal-SdT` · **Aufwand:** 0 · **Gefährdungen:** G 0.18
 
 > Dienstleistersteuerung für Dienstleistungen MUSS die Verfahren und Regelungen *[regelmäßig]* und anlassbezogen auf Aktualität überprüfen.
 
@@ -51,7 +51,7 @@ Eine geplante Überprüfung der etablierten Verfahren und Regelungen dient dazu 
 
 ### DLS.2.1 – Mehr-Faktor-Authentifizierung
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.18, G 0.14
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.18, G 0.14
 
 > Dienstleistersteuerung für Dienstleistungen SOLLTE Mehr-Faktor-Authentifizierung bei Login in Online-Dienste aktivieren.
 
@@ -59,7 +59,7 @@ Online-Dienste wie die Verwaltung von TK-Rufnummern oder Cloud-Office-Anwendunge
 
 ### DLS.2.2 – Transportverschlüsselung
 
-**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.18, G 0.14
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.18, G 0.14
 
 > Dienstleistersteuerung für Daten SOLLTE den Transport bei der Übertragung zum Anbieter nach *[einem anerkannten Standard]* verschlüsseln.
 
@@ -67,7 +67,7 @@ Online-Dienste wie die Verwaltung von TK-Rufnummern oder Cloud-Office-Anwendunge
 
 ### DLS.2.3 – Vollverschlüsselung
 
-**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.18, G 0.14
+**Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.18, G 0.14
 
 > Dienstleistersteuerung für Daten KANN diese, wenn der Anbieter deren Inhalt zur Vertragserbringung nicht kennen muss, für diesen nicht entschlüsselbar vor der Übertragung zum Dienstleister verschlüsseln.
 
@@ -77,7 +77,7 @@ Hierbei handelt es sich um eine Verschlüsselung at-rest, bei welcher der Dienst
 
 ### DLS.3.1 – Einhaltung der Sicherheitsvorgaben
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.11, G 0.29, G 0.20
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.11, G 0.29, G 0.20
 
 > Dienstleistersteuerung für Dienstleistungen SOLLTE die Einhaltung der Sicherheitsvorgaben durch den Dienstleister *[regelmäßig]* überprüfen.
 
@@ -85,7 +85,7 @@ Hierzu ist zu prüfen, ob Anzeichen vorliegen, dass der Dienstleister die im Ver
 
 #### DLS.3.1.1 – Audit oder Zertifikat
 
-**Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.29, G 0.11, G 0.20, G 0.18
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.29, G 0.11, G 0.20, G 0.18
 
 > Dienstleistersteuerung für Outsourcing SOLLTE die Einhaltung der Sicherheitsvorgaben anhand eines *[Audits, Zertifikates oder vergleichbaren Sicherheitsnachweises]* *[regelmäßig]* überprüfen.
 
@@ -93,7 +93,7 @@ Hierzu ist zu prüfen, ob Anzeichen vorliegen, dass der Dienstleister die im Ver
 
 ### DLS.3.2 – Checkup
 
-**Stufe:** `erhöht` · **Aufwand:** 4 · **Gefährdungen:** G 0.11, G 0.20
+**Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 4 · **Gefährdungen:** G 0.11, G 0.20
 
 > Dienstleistersteuerung für Outsourcing KANN die risikoorientierte Entscheidung über Outsourcing auf Grundlage der Geschäftsprozessprofile auf Änderungen der Gefährdungslage oder Prozessinhalte *[regelmäßig]* überprüfen.
 
@@ -101,7 +101,7 @@ Die risikoorientierte Entscheidung über Outsourcing kann in diesem Kontext als 
 
 ### DLS.3.3 – Strategie-Check
 
-**Stufe:** `erhöht` · **Aufwand:** 4 · **Gefährdungen:** G 0.11, G 0.20
+**Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 4 · **Gefährdungen:** G 0.11, G 0.20
 
 > Dienstleistersteuerung für Outsourcing KANN die Strategie auf Vollständigkeit und Korrektheit in Bezug auf die betrachteten Geschäftsprozesse bei Änderungen der Geschäftsprozessprofile überprüfen.
 
@@ -109,7 +109,7 @@ Vollständigkeit bedeutet hier, dass die Gesamtheit der ausgelagerten Prozesse e
 
 ### DLS.3.4 – Anhörung
 
-**Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.11, G 0.20
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.11, G 0.20
 
 > Dienstleistersteuerung für Outsourcing SOLLTE den Dienstleister zu Sicherheitsmaßnahmen für betroffene Zielobjekte anhören.
 
@@ -117,7 +117,7 @@ Betroffen sind alle Zielobjekte, zu denen vom Dienstleister (Teil-)Leistungen er
 
 ### DLS.3.5 – Blockierung unzuverlässiger Dienstleister
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.11, G 0.19, G 0.20
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.11, G 0.19, G 0.20
 
 > Dienstleistersteuerung für Dienstleistungen SOLLTE unzuverlässige Dienstleister oder Subdienstleister blockieren.
 
@@ -125,7 +125,7 @@ Ein Dienstleister gilt als unzuverlässig, wenn zukünftig mit Verstößen gegen
 
 ### DLS.3.6 – Portabilität
 
-**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.11, G 0.20
+**Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.11, G 0.20
 
 > Dienstleistersteuerung für Outsourcing KANN die Portabilität des ausgelagerten Prozesses *[regelmäßig]* überprüfen.
 
@@ -135,7 +135,7 @@ Hierunter ist zu verstehen, dass regelmäßig ein Test durchgeführt wird, bei d
 
 ### DLS.4.1 – Dekomissionierung
 
-**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.18
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.18
 
 > Dienstleistersteuerung für Dienstleistungen SOLLTE eine Vorgehensweise zur Dekommissionierung vor Vertragsende verankern.
 
@@ -143,7 +143,7 @@ Der Begriff Dekommissionierung bezeichnet hier das strukturierte und nachweisbar
 
 #### DLS.4.1.1 – Unabhängigkeit
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.18
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.18
 
 > Dienstleistersteuerung für Outsourcing SOLLTE die Unabhängigkeit der Verarbeitung schützenswerter Informationen vor der Außerbetriebnahme testen.
 
@@ -151,7 +151,7 @@ Der Begriff Dekommissionierung bezeichnet hier das strukturierte und nachweisbar
 
 #### DLS.4.1.2 – Berechtigungen deaktivieren
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.18, G 0.29
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.18, G 0.29
 
 > Dienstleistersteuerung für Dienstleistungen SOLLTE für den Vertrag benötigte Berechtigungen bei Vertragsende unverzüglich deaktivieren.
 

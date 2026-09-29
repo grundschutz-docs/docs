@@ -9,7 +9,7 @@ Im Rahmen der IT-Komponenten stellt das Asset Management sicher, dass die IT-Kom
 
 ### ASST.1.1 – Verfahren und Regelungen
 
-**Stufe:** `normal-SdT` · **Aufwand:** 0 · **Gefährdungen:** G 0.18, G 0.19
+**Pflicht:** MUSS · **Stufe:** `normal-SdT` · **Aufwand:** 0 · **Gefährdungen:** G 0.18, G 0.19
 
 > Informationen und Assets MUSS Verfahren und Regelungen zum Management von Informationen und damit verbundener Assets verankern.
 
@@ -17,7 +17,7 @@ Informationsmanagement ist der systematische Umgang mit Informationen während i
 
 #### ASST.1.1.1 – Dokumentation
 
-**Stufe:** `normal-SdT` · **Aufwand:** 0 · **Gefährdungen:** G 0.18, G 0.37
+**Pflicht:** MUSS · **Stufe:** `normal-SdT` · **Aufwand:** 0 · **Gefährdungen:** G 0.18, G 0.37
 
 > Informationen und Assets MUSS die Verfahren und Regelungen dokumentieren.
 
@@ -25,7 +25,7 @@ Ohne eine Dokumentation könnte die Einhaltung der Verfahren und Regelungen von 
 
 #### ASST.1.1.2 – Zuweisung der Aufgaben
 
-**Stufe:** `normal-SdT` · **Aufwand:** 0 · **Gefährdungen:** G 0.18, G 0.31
+**Pflicht:** MUSS · **Stufe:** `normal-SdT` · **Aufwand:** 0 · **Gefährdungen:** G 0.18, G 0.31
 
 > Informationen und Assets MUSS die mit den Verfahren und Regelungen verbundenen Aufgaben *[zuständigen Personen oder Rollen]* zuweisen.
 
@@ -33,7 +33,7 @@ Die Zuweisung von Aufgaben bezeichnet die eindeutige und verbindliche Übertragu
 
 #### ASST.1.1.3 – Bekanntgabe
 
-**Stufe:** `normal-SdT` · **Aufwand:** 0 · **Gefährdungen:** G 0.18, G 0.31
+**Pflicht:** MUSS · **Stufe:** `normal-SdT` · **Aufwand:** 0 · **Gefährdungen:** G 0.18, G 0.31
 
 > Informationen und Assets MUSS die zuständigen Personen oder Rollen über die Verfahren und Regelungen informieren.
 
@@ -41,7 +41,7 @@ Wenn die Zuständigen die etablierten Verfahren nicht kennen, besteht die Gefahr
 
 ### ASST.1.2 – Regelmäßige Überprüfung
 
-**Stufe:** `normal-SdT` · **Aufwand:** 0 · **Gefährdungen:** G 0.18
+**Pflicht:** MUSS · **Stufe:** `normal-SdT` · **Aufwand:** 0 · **Gefährdungen:** G 0.18
 
 > Informationen und Assets MUSS die Verfahren und Regelungen *[regelmäßig]* und anlassbezogen auf Aktualität überprüfen.
 
@@ -51,7 +51,7 @@ Eine geplante Überprüfung der etablierten Verfahren und Regelungen dient dazu 
 
 ### ASST.2.1 – Inventar der Informationen
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.18, G 0.16, G 0.17, G 0.45
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.18, G 0.16, G 0.17, G 0.45
 
 > Informationen und Assets SOLLTE ein Inventar der Informationen und damit verbundener Assets dokumentieren.
 
@@ -59,7 +59,7 @@ Um die Informationssicherheit zu schützen ist es erforderlich, die zu schützen
 
 #### ASST.2.1.1 – Informationsverantwortung
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.18, G 0.16, G 0.17, G 0.45
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.18, G 0.16, G 0.17, G 0.45
 
 > Informationen und Assets für Daten SOLLTE die Zuständigkeit für deren Verarbeitung *[einer zuständigen Person oder Rolle]* zuweisen.
 
@@ -67,7 +67,7 @@ Hiermit ist das Eigentum oder die institutionsinterne Zuständigkeit für die Nu
 
 ### ASST.2.2 – Inventar der Systeme
 
-**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.16, G 0.18, G 0.17, G 0.45
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.16, G 0.18, G 0.17, G 0.45
 
 > Informationen und Assets SOLLTE ein Inventar der IT-Systeme einschließlich Identifikationsbezeichnung und letztem bekannten Verbleib dokumentieren.
 
@@ -75,7 +75,7 @@ Hierbei sind neben physischen Endgeräten auch Hostsysteme, virtuelle Systeme, I
 
 #### ASST.2.2.1 – Aufdecken unautorisierter IT-Systeme
 
-**Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.16, G 0.18, G 0.17, G 0.45
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.16, G 0.18, G 0.17, G 0.45
 
 > Informationen und Assets für Netze SOLLTE das Aufdecken unautorisierter IT-Systeme verankern.
 
@@ -83,7 +83,7 @@ Ziel ist sicherzustellen, dass keine unautorisierten Assets im Informationsverbu
 
 ### ASST.2.3 – Inventar der Anwendungen
 
-**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.18, G 0.16, G 0.17, G 0.45
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.18, G 0.16, G 0.17, G 0.45
 
 > Informationen und Assets SOLLTE ein Inventar der Anwendungen einschließlich Produktname, Versionsstand, Herkunft und Lizenzierung dokumentieren.
 
@@ -91,7 +91,7 @@ Ein zentrales Inventar der Anwendungen, oft auch als Application Inventory oder 
 
 #### ASST.2.3.1 – Autorisierung von Anwendungen
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.18, G 0.16, G 0.17, G 0.45
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.18, G 0.16, G 0.17, G 0.45
 
 > Informationen und Assets für IT-Systeme SOLLTE die Nutzung von Anwendungen auf diesen durch *[eine zuständige Person oder Rolle]* autorisieren.
 
@@ -99,7 +99,7 @@ Der Sinn dieser Regelung liegt in der Minimierung von Risiken, die durch unkontr
 
 #### ASST.2.3.2 – Software Bill of Materials (SBOM)
 
-**Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.18, G 0.16, G 0.17, G 0.45
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.18, G 0.16, G 0.17, G 0.45
 
 > Informationen und Assets für Anwendungen SOLLTE die Software Bill of Materials (SBOM) dokumentieren.
 
@@ -107,7 +107,7 @@ Eine Software Bill of Materials (SBOM) ist in diesem Zusammenhang eine strukturi
 
 ##### ASST.2.3.2.1 – Software Discovery
 
-**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.18, G 0.16, G 0.17, G 0.45
+**Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.18, G 0.16, G 0.17, G 0.45
 
 > Informationen und Assets KANN die Aktualität des Inventars der Anwendungen durch ein automatisiertes Verfahren *[regelmäßig oder bei Änderungen]* überprüfen.
 
@@ -115,7 +115,7 @@ Die automatische Aktualisierung des Anwendungsinventars (etwa bei Installationen
 
 ### ASST.2.4 – Klassifizierung
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.18, G 0.19, G 0.16, G 0.17
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.18, G 0.19, G 0.16, G 0.17
 
 > Informationen und Assets für Daten SOLLTE diese einer Schutzbedarfsklasse zuweisen.
 
@@ -125,7 +125,7 @@ Klassifizierung dient dazu, Daten entsprechend ihrer Schutzbedürftigkeit system
 
 ### ASST.3.1 – Nutzungsvereinbarungen
 
-**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.18
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.18
 
 > Informationen und Assets für Nutzende SOLLTE diese zu den Regelungen der Nutzung von Informationen und anderen Assets anweisen.
 
@@ -133,7 +133,7 @@ Wenn Nutzende nicht angewiesen werden bestimmte Nutzungsregelungen einzuhalten, 
 
 #### ASST.3.1.1 – Weitergabe nur bei Erforderlichkeit
 
-**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.18, G 0.29
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.18, G 0.29
 
 > Informationen und Assets für Nutzende SOLLTE zur Weitergabe von Informationen nur bei Erforderlichkeit anweisen.
 
@@ -141,7 +141,7 @@ Das Need-to-Know-Prinzip ist ein Sicherheitskonzept, das den Zugriff auf Informa
 
 ### ASST.3.2 – Entfernung nicht erforderlicher Rest- oder Zusatzdaten
 
-**Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.18
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.18
 
 > Informationen und Assets für Daten SOLLTE die Entfernung nicht erforderlicher Rest- oder Zusatzdaten verankern.
 
@@ -149,7 +149,7 @@ Hierunter können z.B. Metainformationen wie Bearbeitername oder Geostandort fal
 
 ### ASST.3.3 – Kennzeichnung
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.19
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.19
 
 > Informationen und Assets SOLLTE die Kennzeichnung von Informationen verankern.
 
@@ -157,7 +157,7 @@ Kennzeichnungen helfen dabei sicherzustellen, dass vertrauliche, personenbezogen
 
 ### ASST.3.4 – Kennzeichnung ohne vertrauliche Daten
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.18, G 0.19
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.18, G 0.19
 
 > Informationen und Assets für IT-Systeme SOLLTE Kennzeichnung ohne vertrauliche Daten verankern.
 
@@ -165,7 +165,7 @@ Enthalten Kennzeichnungen vertrauliche Daten wie den Namen des zugeordneten Mita
 
 ### ASST.3.5 – Tainting
 
-**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.18
+**Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.18
 
 > Informationen und Assets für Daten KANN eine Markierung durch eingebettete Daten oder Funktionen zur Wiedererkennung zuweisen.
 
@@ -173,7 +173,7 @@ Zielt darauf ab, die Nachverfolgbarkeit und Kontextbindung von Daten zu ermögli
 
 ### ASST.3.6 – Verifikation
 
-**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.18
+**Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.18
 
 > Informationen und Assets für Informationen KANN die Korrektheit anhand anderer Informationsquellen testen.
 
@@ -181,7 +181,7 @@ Wenn die Korrektheit bestimmter Informationen von hohen Bedeutung ist, hilft ein
 
 ### ASST.3.7 – Pseudonymisierung
 
-**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.18
+**Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.18
 
 > Informationen und Assets für Informationen KANN die Pseudonymisierung vor der Weitergabe verankern.
 
@@ -189,7 +189,7 @@ Bei der Pseudonymisierung werden Informationen so verändert, dass sie für den 
 
 ### ASST.3.8 – Anonymisierung
 
-**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.18
+**Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.18
 
 > Informationen und Assets für Informationen KANN die Anonymisierung vor der Weitergabe verankern.
 
@@ -197,7 +197,7 @@ Bei der Anonymisierung werden Informationen so verändert, dass sie für den Emp
 
 ### ASST.3.9 – Aktualisierung
 
-**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.18
+**Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.18
 
 > Informationen und Assets für Daten KANN deren Aktualisierung verankern.
 
@@ -205,7 +205,7 @@ Wenn gespeicherte Daten nicht regelmäßig mit Veränderungen abgeglichen werden
 
 ### ASST.3.10 – Autorisierung von Datenlokationen
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.18
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.18
 
 > Informationen und Assets für Daten SOLLTE Datenlokationen durch *[eine zuständige Person oder Rolle]* autorisieren.
 
@@ -213,7 +213,7 @@ Autorisierte Datenlokationen sind virtuelle oder physische Orte, an denen die Sp
 
 ### ASST.3.11 – Autorisierung von Systemen
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.18, G 0.30
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.18, G 0.30
 
 > Informationen und Assets für Daten SOLLTE für die Informationsverarbeitung verwendete Systeme durch *[eine zuständige Person oder Rolle]* autorisieren.
 
@@ -221,7 +221,7 @@ Autorisierte Systeme können einzeln oder als Kategorien von IT-Systemen und Per
 
 #### ASST.3.11.1 – Autorisierung von Peripheriegeräten
 
-**Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.18, G 0.30
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.18, G 0.30
 
 > Informationen und Assets für Daten SOLLTE auch Peripheriegeräte autorisieren.
 
@@ -229,7 +229,7 @@ Peripheriegeräte sind externe Hardware-Komponenten sowie virtuelle Geräte, die
 
 ### ASST.3.12 – Autorisierung von Personen oder Institutionen
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.18, G 0.30
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.18, G 0.30
 
 > Informationen und Assets für Daten SOLLTE den Zugriff von Personen oder Institutionen im Einklang mit den zugehörigen Anforderungen zum Identitäts- und Berechtigungsmanagement autorisieren.
 
@@ -237,7 +237,7 @@ Ziel dieser Regelung ist es, sicherzustellen, dass nur berechtigte Stellen auf s
 
 ### ASST.3.13 – Lagerung physischer Assets
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.18
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.18
 
 > Informationen und Assets für Administrierende SOLLTE zur Lagerung physischer Assets in einem dazu vorgesehenen Lager anweisen.
 
@@ -245,7 +245,7 @@ Lagerung meint hier die Aufbewahrung nicht an Nutzende ausgegebener physischer A
 
 ### ASST.3.14 – Reserve physischer Assets
 
-**Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.18
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.18
 
 > Informationen und Assets SOLLTE eine Reserve physischer Assets verankern.
 
@@ -253,7 +253,7 @@ Die Beschaffung und Installation von Systemen und deren Peripherie nimmt gewöhn
 
 ### ASST.3.15 – Ausleihe physischer Assets
 
-**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.18
+**Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.18
 
 > Informationen und Assets KANN einen ausreichenden Ausleihbestand verankern.
 
@@ -263,7 +263,7 @@ Wenn bei bestimmten Ereignissen wie Auslandsreisen, Veranstaltungen oder Sicherh
 
 ### ASST.4.1 – Autorisierung von Schnittstellen
 
-**Stufe:** `erhöht` · **Aufwand:** 4 · **Gefährdungen:** G 0.19, G 0.43, G 0.15
+**Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 4 · **Gefährdungen:** G 0.19, G 0.43, G 0.15
 
 > Informationen und Assets für Daten KANN Schnittstellen, über die Informationen ausgetauscht werden, durch *[eine zuständige Person oder Rolle]* autorisieren.
 
@@ -271,7 +271,7 @@ Schnittstellen können hier sowohl physikalisch (z.B. Briefversand, regelmäßig
 
 ### ASST.4.2 – Vertraulichkeit und Integrität beim Transport
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.19, G 0.18, G 0.43, G 0.15
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.19, G 0.18, G 0.43, G 0.15
 
 > Informationen und Assets für Daten SOLLTE Vertraulichkeit und Integrität beim Transport verankern.
 
@@ -279,7 +279,7 @@ Transport meint hier sowohl die Datenübertragung per Netz als auch auf physisch
 
 ### ASST.4.3 – Autorisierung von Veröffentlichungen
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.19, G 0.43, G 0.15
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.19, G 0.43, G 0.15
 
 > Informationen und Assets SOLLTE Veröffentlichungen durch *[eine zuständige Person oder Rolle]* autorisieren.
 
@@ -287,7 +287,7 @@ Transport meint hier sowohl die Datenübertragung per Netz als auch auf physisch
 
 ### ASST.4.4 – Nachweis des Zugangs
 
-**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.19, G 0.43, G 0.15
+**Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.19, G 0.43, G 0.15
 
 > Informationen und Assets für Daten KANN einen Nachweis des Zugangs protokollieren.
 
@@ -295,7 +295,7 @@ Ein Zugangsnachweis stellt sicher, dass bestimmte Nachrichten ihren Empfänger t
 
 ### ASST.4.5 – Vereinbarungen zum Austausch
 
-**Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.19, G 0.43, G 0.15
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.19, G 0.43, G 0.15
 
 > Informationen und Assets für Daten SOLLTE Regelungen zum Transfer verankern.
 
@@ -305,7 +305,7 @@ Beispielsweise kann es für Geschäfts- und Betriebsgeheimnisse wie Patente sinn
 
 ### ASST.5.1 – Wartungsbedarf dokumentieren
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.31, G 0.21, G 0.25, G 0.28
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.31, G 0.21, G 0.25, G 0.28
 
 > Informationen und Assets für IT-Systeme SOLLTE den Wartungsbedarf für Systemkomponenten und die zum Betrieb erforderliche Infrastruktur dokumentieren.
 
@@ -313,7 +313,7 @@ Wartungsbedarf meint die regelmäßig oder anlassbezogen erforderlichen Maßnahm
 
 ### ASST.5.2 – Geregelte Wartungen
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.31, G 0.25, G 0.28, G 0.21
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.31, G 0.25, G 0.28, G 0.21
 
 > Informationen und Assets für IT-Systeme SOLLTE die Wartung *[regelmäßig oder prädiktiv]* ausführen.
 
@@ -321,7 +321,7 @@ Wartungsbedarf meint die regelmäßig oder anlassbezogen erforderlichen Maßnahm
 
 ### ASST.5.3 – Autorisierung von Wartungen
 
-**Stufe:** `erhöht` · **Aufwand:** 4 · **Gefährdungen:** G 0.31, G 0.25, G 0.21, G 0.28
+**Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 4 · **Gefährdungen:** G 0.31, G 0.25, G 0.21, G 0.28
 
 > Informationen und Assets für IT-Systeme KANN Wartungen durch *[eine zuständige Person oder Rolle]* autorisieren.
 
@@ -329,7 +329,7 @@ Wartung ist die planbare oder anlassbezogene Änderung an Komponenten (z. B. Pat
 
 ### ASST.5.4 – Behandlung als Änderungen und Tests
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.28, G 0.31, G 0.25, G 0.26
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.28, G 0.31, G 0.25, G 0.26
 
 > Informationen und Assets für IT-Systeme SOLLTE zur Wartung erforderliche Änderungen im Einklang mit den Verfahren und Regelungen zum Management von Änderungen verankern.
 
@@ -337,7 +337,7 @@ Werden bei Wartungsarbeiten Änderungen vorgenommen, so sind die Verfahren und R
 
 ### ASST.5.5 – Wartungsfenster
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.31, G 0.25, G 0.28, G 0.21
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.31, G 0.25, G 0.28, G 0.21
 
 > Informationen und Assets für IT-Systeme SOLLTE bei voraussichtlichen Verfügbarkeiteinschränkungen durch bevorstehende Wartungen die Nutzenden über Dauer und Umfang der Einschränkungen informieren.
 
@@ -345,7 +345,7 @@ Wenn durch Wartungsarbeiten die Verfügbarkeit von Systemen, Anwendungen oder Da
 
 ### ASST.5.6 – Wartung durch Externe
 
-**Stufe:** `erhöht` · **Aufwand:** 4 · **Gefährdungen:** G 0.31, G 0.25, G 0.28, G 0.21
+**Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 4 · **Gefährdungen:** G 0.31, G 0.25, G 0.28, G 0.21
 
 > Informationen und Assets für Mitarbeitende KANN bei Wartungen, die von Externen ohne Sicherheitsüberprüfung vorgenommen werden, zur Beaufsichtigung durch internes Personal anweisen.
 
@@ -353,7 +353,7 @@ Eine Sicherheitsüberprüfung bezeichnet hier die systematische Bewertung der Ve
 
 ### ASST.5.7 – Dokumentation von Wartungen
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.31, G 0.37, G 0.18, G 0.25
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.31, G 0.37, G 0.18, G 0.25
 
 > Informationen und Assets für IT-Systeme SOLLTE Wartungen mit Asset, Anlass, Zeitpunkt, Beteiligten, durchgefürten Maßnahmen und Ergebnissen dokumentieren.
 
@@ -363,7 +363,7 @@ Die Dokumentation von Wartungen an IT-Systemen kann Nachvollziehbarkeit, Verantw
 
 ### ASST.6.1 – Abhandenkommen
 
-**Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.18
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.18
 
 > Informationen und Assets SOLLTE eine Vorgehensweise beim Abhandenkommen von Assets verankern.
 
@@ -371,7 +371,7 @@ Eine Vorgehensweise beim Abhandenkommen von Assets ist ein strukturierter, dokum
 
 ### ASST.6.2 – Rückkehr abhandengekommener Assets
 
-**Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.18
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.18
 
 > Informationen und Assets SOLLTE eine Vorgehensweise bei Rückkehr von abhandengekommenen Assets verankern.
 
@@ -379,7 +379,7 @@ Eine Vorgehensweise beim Abhandenkommen von Assets ist ein strukturierter, dokum
 
 ### ASST.6.3 – Konformitätsprüfung
 
-**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.18
+**Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.18
 
 > Informationen und Assets für IT-Systeme KANN bei Rücknahme die Konformität mit den einschlägigen Anforderungen testen.
 
@@ -387,7 +387,7 @@ Assets sind nicht konform, wenn Sie die für sie geltenden Anforderungen nicht o
 
 ### ASST.6.4 – Zurücksetzen auf Ausgangszustand
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.18
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.18
 
 > Informationen und Assets für IT-Systeme SOLLTE bei Rücknahme das Zurücksetzen in einen definierten Ausgangszustand ausführen.
 
@@ -397,7 +397,7 @@ Mit definierter Ausgangszustand ist hier ein Zustand gemeint, in dem alle währe
 
 ### ASST.7.1 – Nicht mehr benötigte Anwendungen
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.19, G 0.45, G 0.16, G 0.38
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.19, G 0.45, G 0.16, G 0.38
 
 > Informationen und Assets für Anwendungen SOLLTE eine Deinstallation nicht mehr benötigter Anwendungsinstanzen verankern.
 
@@ -405,7 +405,7 @@ Mit definierter Ausgangszustand ist hier ein Zustand gemeint, in dem alle währe
 
 ### ASST.7.2 – Aufbewahrungs- und Löschfristen
 
-**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.45, G 0.38, G 0.19, G 0.18
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.45, G 0.38, G 0.19, G 0.18
 
 > Informationen und Assets für Daten SOLLTE die Aufbewahrung für *[eine bestimmte Frist]* verankern.
 
@@ -413,7 +413,7 @@ Klar festgelegte und in Prozessen verankerte Löschfristen helfen Sicherheits- u
 
 #### ASST.7.2.1 – Langfristige Archivierung
 
-**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.45, G 0.19, G 0.16, G 0.38
+**Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.45, G 0.19, G 0.16, G 0.38
 
 > Informationen und Assets für Daten KANN die langfristige Archivierung mindestens für *[eine bestimmte Frist]* verankern.
 
@@ -421,7 +421,7 @@ Archivierung meint hier die langfristige Aufbewahrung derjenigen Daten, die übe
 
 ### ASST.7.3 – Geregeltes Löschen oder Vernichten
 
-**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.19, G 0.16, G 0.45, G 0.38
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.19, G 0.16, G 0.45, G 0.38
 
 > Informationen und Assets für Daten SOLLTE diese bei Erreichen der Aufbewahrungs- und Löschfrist durch *[kryptografisches löschen, überschreiben oder vernichten des Speichermediums]* löschen.
 
@@ -429,7 +429,7 @@ Ereignisse können z.B. der Ablauf der festgelegten Löschfrist, die Veräußeru
 
 #### ASST.7.3.1 – Standardisierte Vernichtung
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.19, G 0.45, G 0.16, G 0.38
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.19, G 0.45, G 0.16, G 0.38
 
 > Informationen und Assets für Daten SOLLTE ein standardisiertes Verfahren zur Vernichtung bei Veräußerung nach *[einem anerkannten Standard]* gemäß *[einer Sicherheitsstufe]* verankern.
 
@@ -437,7 +437,7 @@ Anerkannte Standards für die Vernichtung sind DIN 66399 sowie ISO/IEC 21964; di
 
 #### ASST.7.3.2 – Löschverfahren
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.45, G 0.19, G 0.16, G 0.38
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.45, G 0.19, G 0.16, G 0.38
 
 > Informationen und Assets für Daten SOLLTE ein Verfahren zur endgültigen Löschung verankern.
 
@@ -445,7 +445,7 @@ Hierunter ist ein nachvollziehbarer, dokumentierter technischer und prozessualer
 
 #### ASST.7.3.3 – Zugelassene Löschanwendungen
 
-**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.19, G 0.45, G 0.16, G 0.38
+**Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.19, G 0.45, G 0.16, G 0.38
 
 > Informationen und Assets für Daten KANN die Daten durch *[eine vom BSI zugelassene Löschanwendung]* löschen.
 
@@ -453,7 +453,7 @@ Für eine aktuelle Liste der zugelassenen Löschanwendungen siehe BSI-Schrift 71
 
 ### ASST.7.4 – Wiederherstelltest
 
-**Stufe:** `erhöht` · **Aufwand:** 4 · **Gefährdungen:** G 0.19, G 0.45, G 0.16, G 0.38
+**Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 4 · **Gefährdungen:** G 0.19, G 0.45, G 0.16, G 0.38
 
 > Informationen und Assets für Daten KANN den Erfolg des Löschvorgangs testen.
 
@@ -461,7 +461,7 @@ Der Test kann mit Software oder Hardware, die vermeintlich gelöschte Daten von 
 
 ### ASST.7.5 – Vernichtungseinrichtungen
 
-**Stufe:** `erhöht` · **Aufwand:** 4 · **Gefährdungen:** G 0.19, G 0.16, G 0.45, G 0.38
+**Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 4 · **Gefährdungen:** G 0.19, G 0.16, G 0.45, G 0.38
 
 > Informationen und Assets für Standorte KANN an allen Standorten, an denen körperliche Dokumente verarbeitet werden, Vernichtungseinrichtungen vor dem Zugriff unbefugter geschützt installieren.
 
@@ -469,7 +469,7 @@ Die Installation von Vernichtungseinrichtungen dient dem Schutz sensibler Daten 
 
 ### ASST.7.6 – Autorisierung von Veräußerungen
 
-**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.19, G 0.45, G 0.16, G 0.38
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.19, G 0.45, G 0.16, G 0.38
 
 > Informationen und Assets SOLLTE Veräußerungen von Assets durch *[eine zuständige Person oder Rolle]* autorisieren.
 
@@ -477,7 +477,7 @@ Veräußerung bezeichnet in diesem Kontext jede endgültige Abgabe oder Eigentum
 
 ### ASST.7.7 – Beschriftungen entfernen
 
-**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.19, G 0.45, G 0.16, G 0.38
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.19, G 0.45, G 0.16, G 0.38
 
 > Informationen und Assets SOLLTE alle der Institution zuzuordnenden Beschriftungen vor der Veräußerung von Assets löschen.
 

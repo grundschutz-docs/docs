@@ -9,7 +9,7 @@ Die Praktik Strukturmodellierung bildet die Grundlage für eine systematische An
 
 ### STM.1.1 – Definition und Abgrenzung des Informationsverbunds
 
-**Stufe:** `normal-SdT` · **Aufwand:** 0
+**Pflicht:** MUSS · **Stufe:** `normal-SdT` · **Aufwand:** 0
 
 > Strukturmodellierung MUSS den nachvollziehbar abgegrenzten Informationsverbund auf Basis des Geltungsbereichs festlegen.
 
@@ -17,7 +17,7 @@ Im Informationsverbund werden die informationsverarbeitenden Systeme, Prozesse, 
 
 ### STM.1.2 – Dokumentation der externen Schnittstellen
 
-**Stufe:** `normal-SdT` · **Aufwand:** 0
+**Pflicht:** MUSS · **Stufe:** `normal-SdT` · **Aufwand:** 0
 
 > Strukturmodellierung MUSS Schnittstellen des Informationsverbunds zu externen Prozessen festlegen.
 
@@ -27,7 +27,7 @@ Zum Informationsverbund werden die organisatorischen, technischen und infrastruk
 
 ### STM.2.1 – Erstellung eines Anforderungspakets
 
-**Stufe:** `normal-SdT` · **Aufwand:** 0
+**Pflicht:** MUSS · **Stufe:** `normal-SdT` · **Aufwand:** 0
 
 > Strukturmodellierung MUSS ein Anforderungspaket für den betrachteten Informationsverbund modellieren.
 
@@ -35,7 +35,7 @@ Das Anforderungspaket enthält alle Anforderungen, die für den betrachteten Inf
 
 #### STM.2.1.1 – ISMS-Anforderungen
 
-**Stufe:** `normal-SdT` · **Aufwand:** 0
+**Pflicht:** MUSS · **Stufe:** `normal-SdT` · **Aufwand:** 0
 
 > Strukturmodellierung MUSS alle Anforderungen der ISMS-Praktiken auf den vorliegenden Informationsverbund modellieren.
 
@@ -43,7 +43,7 @@ Neben den zielobjektkategoriegebundenen Anforderungen enthält der GS++ auch Anf
 
 #### STM.2.1.2 – Erfassung relevanter Assets
 
-**Stufe:** `normal-SdT` · **Aufwand:** 0
+**Pflicht:** MUSS · **Stufe:** `normal-SdT` · **Aufwand:** 0
 
 > Strukturmodellierung MUSS alle relevanten Assets für die betrachteten Geschäftsprozesse festlegen.
 
@@ -51,7 +51,7 @@ Die Asset-Modellierung ist der zentrale Schritt, um den zuvor festgelegten Infor
 
 #### STM.2.1.3 – Mapping der Assets auf Zielobjektkategorien
 
-**Stufe:** `normal-SdT` · **Aufwand:** 0
+**Pflicht:** MUSS · **Stufe:** `normal-SdT` · **Aufwand:** 0
 
 > Strukturmodellierung MUSS allen relevanten Assets eine oder mehrere Zielobjektkategorien zuweisen.
 
@@ -59,7 +59,7 @@ Zielobjektkategorien sind standardisierte Klassen für die im GS++ beschriebenen
 
 #### STM.2.1.4 – Modellierung der Anforderungen mit Zielobjektkategorie
 
-**Stufe:** `normal-SdT` · **Aufwand:** 0
+**Pflicht:** MUSS · **Stufe:** `normal-SdT` · **Aufwand:** 0
 
 > Strukturmodellierung MUSS die den Zielobjektkategorien zugehörigen Anforderungen auf die zugewiesenen Assets modellieren.
 
@@ -67,7 +67,7 @@ Nun werden die Anforderungen aus dem GS++ auf die identifizierten Zielobjektkate
 
 ##### STM.2.1.4.1 – Vererbung von Zielobjektkategorien
 
-**Stufe:** `normal-SdT` · **Aufwand:** 0
+**Pflicht:** MUSS · **Stufe:** `normal-SdT` · **Aufwand:** 0
 
 > Strukturmodellierung MUSS die in der Hierarchie übergeordneten Zielobjektkategorien ebenfalls dem jeweiligen Asset die in der Zielobjekthierarchie übergeordnet sind zuweisen.
 
@@ -75,7 +75,7 @@ Hier werden die zuvor zugeordneten Zielobjektkategorien um diejenigen Kategorien
 
 ##### STM.2.1.4.2 – Konsolidierung und Redundanzprüfung
 
-**Stufe:** `normal-SdT` · **Aufwand:** 0
+**Pflicht:** MUSS · **Stufe:** `normal-SdT` · **Aufwand:** 0
 
 > Strukturmodellierung MUSS eine Konsolidierung und Redundanzprüfung des Anforderungspakets ausführen.
 
@@ -83,7 +83,7 @@ Wenn Anforderungen durch mehrere vererbte Zielobjekte identisch auf ein Asset wi
 
 #### STM.2.1.5 – Modellierung der Anforderungen ohne Zielobjektkategorie
 
-**Stufe:** `normal-SdT` · **Aufwand:** 0
+**Pflicht:** MUSS · **Stufe:** `normal-SdT` · **Aufwand:** 0
 
 > Strukturmodellierung MUSS alle weiteren Anforderungen denen keine Zielobjektkategorie zugeordnet ist modellieren.
 
@@ -91,7 +91,7 @@ Für jede zielobjektkategorielose Anforderung in den vorliegenden Geschäftsproz
 
 #### STM.2.1.6 – Aufgrund anforderungsloser Assets
 
-**Stufe:** `normal-SdT` · **Aufwand:** 0
+**Pflicht:** MUSS · **Stufe:** `normal-SdT` · **Aufwand:** 0
 
 > Strukturmodellierung MUSS für Assets, für die es noch keine passenden GS++-Anforderungen gibt, zusätzliche Anforderungen dem Anforderungspaket zuweisen.
 
@@ -99,7 +99,7 @@ Falls es für Assets oder Themen im GS++ derzeit noch keine Anforderungen gibt, 
 
 #### STM.2.1.7 – Aufgrund externer Verpflichtungen
 
-**Stufe:** `normal-SdT` · **Aufwand:** 0
+**Pflicht:** MUSS · **Stufe:** `normal-SdT` · **Aufwand:** 0
 
 > Strukturmodellierung MUSS für das individuelle Compliance-Umfeld der Institution zusätzliche Anforderungen dem Anforderungspaket zuweisen.
 
@@ -109,7 +109,7 @@ Dieser Schritt ergänzt das Anforderungspaket, um Anforderungen, die sich aus de
 
 ### STM.3.1 – Überprüfung des gesetzten Sicherheitsniveaus
 
-**Stufe:** `normal-SdT` · **Aufwand:** 2
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2
 
 > Strukturmodellierung SOLLTE die initiale Einstufung der Sicherheitsniveaus der Anforderungen im Anforderungspaket bei Abweichungen des Kontextes der Institution überprüfen.
 
@@ -119,7 +119,7 @@ Diese Anforderung ist besonders dann erforderlich, wenn Geschäftsprozesse oder 
 
 ### STM.4.1 – Durchführung der Risikobetrachtung
 
-**Stufe:** `normal-SdT` · **Aufwand:** 0
+**Pflicht:** MUSS · **Stufe:** `normal-SdT` · **Aufwand:** 0
 
 > Strukturmodellierung MUSS eine Risikobetrachtung bei durch die GS++-Methodik festgeleger Notwendigkeit ausführen.
 
@@ -129,7 +129,7 @@ Diese Anforderung beschreibt Szenarien, die einen Aussprung in eine separate Ris
 
 ### STM.5.1 – Setzen von Parametern
 
-**Stufe:** `normal-SdT` · **Aufwand:** 0
+**Pflicht:** MUSS · **Stufe:** `normal-SdT` · **Aufwand:** 0
 
 > Strukturmodellierung MUSS bei Anforderungen mit Parametern konkrete Werte zuweisen.
 

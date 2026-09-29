@@ -9,7 +9,7 @@ Die Praktik Sicherheitsvorfallsbehandlung sorgt dafür, dass Informationssicherh
 
 ### REA.1.1 – Verfahren und Regelungen
 
-**Stufe:** `normal-SdT` · **Aufwand:** 0 · **Gefährdungen:** G 0.18
+**Pflicht:** MUSS · **Stufe:** `normal-SdT` · **Aufwand:** 0 · **Gefährdungen:** G 0.18
 
 > Sicherheitsvorfallsbehandlung MUSS Verfahren und Regelungen zur Behandlung von Sicherheitsvorfällen verankern.
 
@@ -17,7 +17,7 @@ Bei Sicherheitsvorfällen gilt es, schnell und systematisch zu reagieren, um wei
 
 #### REA.1.1.1 – Dokumentation
 
-**Stufe:** `normal-SdT` · **Aufwand:** 0 · **Gefährdungen:** G 0.18, G 0.37
+**Pflicht:** MUSS · **Stufe:** `normal-SdT` · **Aufwand:** 0 · **Gefährdungen:** G 0.18, G 0.37
 
 > Sicherheitsvorfallsbehandlung MUSS die Verfahren und Regelungen dokumentieren.
 
@@ -25,7 +25,7 @@ Ohne eine Dokumentation könnte die Einhaltung der Verfahren und Regelungen von 
 
 #### REA.1.1.2 – Zuweisung der Aufgaben
 
-**Stufe:** `normal-SdT` · **Aufwand:** 0 · **Gefährdungen:** G 0.18, G 0.31
+**Pflicht:** MUSS · **Stufe:** `normal-SdT` · **Aufwand:** 0 · **Gefährdungen:** G 0.18, G 0.31
 
 > Sicherheitsvorfallsbehandlung MUSS die mit den Verfahren und Regelungen verbundenen Aufgaben *[zuständigen Personen oder Rollen]* zuweisen.
 
@@ -33,7 +33,7 @@ Die Zuweisung von Aufgaben bezeichnet die eindeutige und verbindliche Übertragu
 
 #### REA.1.1.3 – Bekanntgabe
 
-**Stufe:** `normal-SdT` · **Aufwand:** 0 · **Gefährdungen:** G 0.18, G 0.31
+**Pflicht:** MUSS · **Stufe:** `normal-SdT` · **Aufwand:** 0 · **Gefährdungen:** G 0.18, G 0.31
 
 > Sicherheitsvorfallsbehandlung MUSS die zuständigen Personen oder Rollen über die Verfahren und Regelungen informieren.
 
@@ -41,7 +41,7 @@ Wenn die Zuständigen die etablierten Verfahren nicht kennen, besteht die Gefahr
 
 ### REA.1.2 – Regelmäßige Überprüfung
 
-**Stufe:** `normal-SdT` · **Aufwand:** 0 · **Gefährdungen:** G 0.18
+**Pflicht:** MUSS · **Stufe:** `normal-SdT` · **Aufwand:** 0 · **Gefährdungen:** G 0.18
 
 > Sicherheitsvorfallsbehandlung MUSS die Verfahren und Regelungen *[regelmäßig]* und anlassbezogen auf Aktualität überprüfen.
 
@@ -49,7 +49,7 @@ Eine geplante der etablierten Verfahren und Regelungen dient dazu festzustellen,
 
 ### REA.1.3 – Übungen zur Vorfallsbehandlung
 
-**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.18
+**Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.18
 
 > Sicherheitsvorfallsbehandlung KANN die Abwehrfähigkeit durch Übungen *[regelmäßig]* überprüfen.
 
@@ -59,7 +59,7 @@ Komplexere Sicherheitsvorfälle treten auch in größeren Institutionen relativ 
 
 ### REA.2.1 – Triage und Erstreaktion
 
-**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.39, G 0.47, G 0.23, G 0.40
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.39, G 0.47, G 0.23, G 0.40
 
 > Sicherheitsvorfallsbehandlung SOLLTE Meldungen einer Priorität zuweisen.
 
@@ -67,7 +67,7 @@ Triage ist ein strukturiertes Vorgehen zur Priorisierung und Ersteinschätzung v
 
 ### REA.2.2 – Automatische Erstreaktion
 
-**Stufe:** `erhöht` · **Aufwand:** 4 · **Gefährdungen:** G 0.39, G 0.47, G 0.23, G 0.40
+**Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 4 · **Gefährdungen:** G 0.39, G 0.47, G 0.23, G 0.40
 
 > Sicherheitsvorfallsbehandlung KANN eine automatische Erstreaktion aktivieren.
 
@@ -75,7 +75,7 @@ Die automatische Erstreaktion kann je nach Risikoprofil durch institutionseigene
 
 ### REA.2.3 – Dokumentation von Vorfällen
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.39, G 0.47, G 0.37, G 0.23
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.39, G 0.47, G 0.37, G 0.23
 
 > Sicherheitsvorfallsbehandlung SOLLTE den Vorfall dokumentieren.
 
@@ -83,7 +83,7 @@ Dokumentation des Vorfalls meint hier die nachvollziehbare, strukturierte und re
 
 ### REA.2.4 – Diagnosedaten
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.39, G 0.47, G 0.23, G 0.40
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.39, G 0.47, G 0.23, G 0.40
 
 > Sicherheitsvorfallsbehandlung SOLLTE Diagnosemethoden für den Fall, dass der Vorfall sich mit den standardisiert erfassten Informationen nicht ausreichend analysieren lässt, verankern.
 
@@ -91,7 +91,7 @@ Der Begriff Diagnosemethoden bezeichnet in diesem Kontext strukturierte Verfahre
 
 ### REA.2.5 – IT-Forensik
 
-**Stufe:** `erhöht` · **Aufwand:** 3 · **Gefährdungen:** G 0.39, G 0.47, G 0.18
+**Pflicht:** SOLLTE · **Stufe:** `erhöht` · **Aufwand:** 3 · **Gefährdungen:** G 0.39, G 0.47, G 0.18
 
 > Sicherheitsvorfallsbehandlung SOLLTE eine forensische Analyse bei Vorfällen, die *[bestimmte Kriterien]* erfüllen, ausführen.
 
@@ -99,7 +99,7 @@ Bei einer forensischen Analyse werden Beweise gesichert und Erkenntnisse zur Ver
 
 #### REA.2.5.1 – Rechtssichere Beweissicherung
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.39, G 0.47
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.39, G 0.47
 
 > Sicherheitsvorfallsbehandlung SOLLTE rechtlich relevante Beweise rechtssicher dokumentieren.
 
@@ -107,7 +107,7 @@ Rechtlich relevant sind Beweise, wenn Anzeichen dafür vorliegen, dass bei einem
 
 #### REA.2.5.2 – Vier-Augen-Prinzip
 
-**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.39, G 0.47
+**Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.39, G 0.47
 
 > Sicherheitsvorfallsbehandlung KANN zur Forensik ein Vier-Augen-Prinzip verankern.
 
@@ -115,7 +115,7 @@ Wenn IT-Forensische Untersuchungen alleine vorgenommen werden, könnte das dokum
 
 #### REA.2.5.3 – Forensik-Dienstleister
 
-**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.39, G 0.47
+**Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.39, G 0.47
 
 > Sicherheitsvorfallsbehandlung KANN die Bereitschaft eines Forensik-Dienstleisters binnen *[einer Frist]* vereinbaren.
 
@@ -123,7 +123,7 @@ Um im Ernstfall eine schnelle Untersuchung von Sicherheitsvorfällen zu ermögli
 
 ### REA.2.6 – Ursachenanalyse und Behandlung
 
-**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.39, G 0.47, G 0.23, G 0.40
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.39, G 0.47, G 0.23, G 0.40
 
 > Sicherheitsvorfallsbehandlung SOLLTE eine Vorgehensweise zur Ursachenanalyse und Behandlung verankern.
 
@@ -131,13 +131,13 @@ Um einen Vorfall vollständig beheben zu können, ist es zweckmäßig, zunächst
 
 #### REA.2.6.1 – Dokumentation des Vorgehens
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.39, G 0.47, G 0.18, G 0.37
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.39, G 0.47, G 0.18, G 0.37
 
 > Sicherheitsvorfallsbehandlung SOLLTE die zur Behandlung durchgeführten Tätigkeiten dokumentieren.
 
 #### REA.2.6.2 – Kommunikation bei Vorfällen
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.39, G 0.47
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.39, G 0.47
 
 > Sicherheitsvorfallsbehandlung SOLLTE eine Vorgehensweise zur Kommunikation bei Vorfällen unter Berücksichtigung von Compliance-Verpflichtungen, Bedürfnissen der interessierten Parteien und der Geschäftsziele verankern.
 
@@ -145,13 +145,13 @@ Hierzu gehören beispielsweise Meldepflichten gegenüber Aufsichts- oder Ermittl
 
 ##### REA.2.6.2.1 – Information zuständiger Behörden
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.39, G 0.47
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.39, G 0.47
 
 > Sicherheitsvorfallsbehandlung SOLLTE bei Vorfällen die zuständigen Behörden im Einklang mit den Compliance-Verpflichtungen informieren.
 
 #### REA.2.6.3 – Koordinierung
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.39, G 0.47, G 0.23, G 0.40
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.39, G 0.47, G 0.23, G 0.40
 
 > Sicherheitsvorfallsbehandlung SOLLTE die Koordinierung bei Vorfällen verankern.
 
@@ -159,7 +159,7 @@ Die Koordinierung der Behandlung von Sicherheitsvorfällen dient dazu, die Auswi
 
 #### REA.2.6.4 – Service Level
 
-**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.39, G 0.47
+**Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.39, G 0.47
 
 > Sicherheitsvorfallsbehandlung KANN Service Level verankern.
 
@@ -167,7 +167,7 @@ Service Level bei der Sicherheitsvorfallsbehandlung legen verbindliche Zielvorga
 
 #### REA.2.6.5 – Eskalation
 
-**Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.39, G 0.47, G 0.23, G 0.40
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.39, G 0.47, G 0.23, G 0.40
 
 > Sicherheitsvorfallsbehandlung SOLLTE eine Eskalationsleiter verankern.
 
@@ -177,7 +177,7 @@ Eine Eskalationsleiter (engl. escalation matrix oder escalation path) bezeichnet
 
 ### REA.3.1 – Verbesserung durch Erkenntnisse
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.18
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.18
 
 > Sicherheitsvorfallsbehandlung SOLLTE bisherige Maßnahmen anhand von Erkenntnissen aus Informationssicherheitsvorfällen *[regelmäßig]* überprüfen.
 
@@ -185,7 +185,7 @@ Erkenntnisse meint hier sowohl technische Aspekte („technical findings“), or
 
 #### REA.3.1.1 – Quantitative Analyse
 
-**Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.18
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.18
 
 > Sicherheitsvorfallsbehandlung SOLLTE Erkenntnisse einschließlich Art, Umfang und Schäden des Vorfalls dokumentieren.
 

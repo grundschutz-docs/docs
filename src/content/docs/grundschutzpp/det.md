@@ -9,7 +9,7 @@ Die Praktik Detektion sorgt dafür, dass sicherheitsrelevante Ereignisse rechtze
 
 ### DET.1.1 – Verfahren und Regelungen
 
-**Stufe:** `normal-SdT` · **Aufwand:** 0 · **Gefährdungen:** G 0.18, G 0.29
+**Pflicht:** MUSS · **Stufe:** `normal-SdT` · **Aufwand:** 0 · **Gefährdungen:** G 0.18, G 0.29
 
 > Detektion MUSS Verfahren und Regelungen zur Detektion von Sicherheitsvorfällen verankern.
 
@@ -17,7 +17,7 @@ Durch die steigende Menge und Komplexität von Datenverarbeitungen sind Sicherhe
 
 #### DET.1.1.1 – Dokumentation
 
-**Stufe:** `normal-SdT` · **Aufwand:** 0 · **Gefährdungen:** G 0.18, G 0.37
+**Pflicht:** MUSS · **Stufe:** `normal-SdT` · **Aufwand:** 0 · **Gefährdungen:** G 0.18, G 0.37
 
 > Detektion MUSS die Verfahren und Regelungen dokumentieren.
 
@@ -25,7 +25,7 @@ Ohne eine Dokumentation könnte die Einhaltung der Verfahren und Regelungen von 
 
 #### DET.1.1.2 – Zuweisung der Aufgaben
 
-**Stufe:** `normal-SdT` · **Aufwand:** 0 · **Gefährdungen:** G 0.18
+**Pflicht:** MUSS · **Stufe:** `normal-SdT` · **Aufwand:** 0 · **Gefährdungen:** G 0.18
 
 > Detektion MUSS die mit den Verfahren und Regelungen verbundenen Aufgaben *[zuständigen Personen oder Rollen]* zuweisen.
 
@@ -33,7 +33,7 @@ Die Zuweisung von Aufgaben bezeichnet die eindeutige und verbindliche Übertragu
 
 #### DET.1.1.3 – Bekanntgabe
 
-**Stufe:** `normal-SdT` · **Aufwand:** 0 · **Gefährdungen:** G 0.18, G 0.31
+**Pflicht:** MUSS · **Stufe:** `normal-SdT` · **Aufwand:** 0 · **Gefährdungen:** G 0.18, G 0.31
 
 > Detektion MUSS die zuständigen Personen oder Rollen über die Verfahren und Regelungen informieren.
 
@@ -41,7 +41,7 @@ Wenn die Zuständigen die etablierten Verfahren nicht kennen, besteht die Gefahr
 
 ### DET.1.2 – Regelmäßige Überprüfung
 
-**Stufe:** `normal-SdT` · **Aufwand:** 0 · **Gefährdungen:** G 0.18, G 0.27, G 0.29
+**Pflicht:** MUSS · **Stufe:** `normal-SdT` · **Aufwand:** 0 · **Gefährdungen:** G 0.18, G 0.27, G 0.29
 
 > Detektion MUSS die Verfahren und Regelungen *[regelmäßig]* und anlassbezogen auf Aktualität überprüfen.
 
@@ -51,7 +51,7 @@ Eine geplante Überprüfung der etablierten Verfahren und Regelungen dient dazu 
 
 ### DET.2.1 – Meldeverfahren
 
-**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.18, G 0.29, G 0.20, G 0.47
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.18, G 0.29, G 0.20, G 0.47
 
 > Detektion SOLLTE ein Meldeverfahren verankern.
 
@@ -59,7 +59,7 @@ Ein Meldeverfahren bezeichnet in diesem Kontext einen nachvollziehbaren und defi
 
 #### DET.2.1.1 – Sofortmaßnahmen Nutzender
 
-**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.39, G 0.41, G 0.47, G 0.25
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.39, G 0.41, G 0.47, G 0.25
 
 > Detektion SOLLTE Regelungen für Sofortmaßnahmen durch Nutzende verankern.
 
@@ -67,7 +67,7 @@ Beispiele für Sofortmaßnahmen sind der sofortige Stopp weiterer Tätigkeiten a
 
 #### DET.2.1.2 – Meldeformulare
 
-**Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.39, G 0.41, G 0.47
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.39, G 0.41, G 0.47
 
 > Detektion SOLLTE Meldeformulare für Vorfallsmeldungen installieren.
 
@@ -75,7 +75,7 @@ Die Angabe des Meldezeitpunktes oder der Name des Meldenden, kann auch durch ein
 
 #### DET.2.1.3 – Rückmeldungen
 
-**Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.29, G 0.18, G 0.33, G 0.47
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.29, G 0.18, G 0.33, G 0.47
 
 > Detektion SOLLTE ein Verfahren für Rückmeldungen verankern.
 
@@ -83,7 +83,7 @@ Rückmeldungen an Personen, die potenzielle Vorfälle gemeldet haben, sind hilfr
 
 ### DET.2.2 – Security Operations Center
 
-**Stufe:** `erhöht` · **Aufwand:** 4 · **Gefährdungen:** G 0.29, G 0.18, G 0.33, G 0.20
+**Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 4 · **Gefährdungen:** G 0.29, G 0.18, G 0.33, G 0.20
 
 > Detektion KANN die Erkennung, Beurteilung und initiale Behandlung von Vorfällen *[dediziertem Personal]* zuweisen.
 
@@ -91,7 +91,7 @@ Ein Security Operations Center (SOC) ist eine organisatorische Einheit, deren de
 
 ### DET.2.3 – Ständiger Bereitschaftsdienst
 
-**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.27, G 0.23, G 0.41, G 0.47
+**Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.27, G 0.23, G 0.41, G 0.47
 
 > Detektion KANN einen ständigen Bereitschaftsdienst verankern.
 
@@ -101,7 +101,7 @@ Dies erfordert, dass 24/7 eine Person bereitgehalten wird, welche bei sicherheit
 
 ### DET.3.1 – Protokollierung sicherheitsrelevanter Ereignisse
 
-**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.37, G 0.32, G 0.29
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.37, G 0.32, G 0.29
 
 > Detektion für Anwendungen SOLLTE Sicherheitsrelevante Ereignisse mindestens für *[eine bestimmte Frist]* protokollieren.
 
@@ -109,7 +109,7 @@ Für die Definition eines Sicherheitsrelevanten Ereignisses, siehe Glossar (Name
 
 #### DET.3.1.1 – Authentifizierungen
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.37, G 0.27, G 0.23
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.37, G 0.27, G 0.23
 
 > Detektion für IT-Systeme SOLLTE Authentifizierungen bei Erfolg und Fehlschlag protokollieren.
 
@@ -117,7 +117,7 @@ Relevant sind dabei z.B. die lokale Anmeldung, Anmeldung und Zugriffe auf Schnit
 
 #### DET.3.1.2 – Ausgeführte Kommandozeilenbefehle
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.31, G 0.32, G 0.30
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.31, G 0.32, G 0.30
 
 > Detektion für IT-Systeme SOLLTE ausgeführte Kommandozeilenbefehle protokollieren.
 
@@ -125,7 +125,7 @@ Angreifer nutzen Kommandozeilenfunktionen wie Bash oder Windows PowerShell, um m
 
 #### DET.3.1.3 – Anbindung von Peripheriegeräten
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.37, G 0.18, G 0.23
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.37, G 0.18, G 0.23
 
 > Detektion für IT-Systeme SOLLTE das Anschließen von Peripheriegeräten protokollieren.
 
@@ -133,7 +133,7 @@ Das Protokollieren der Anbindung von Peripheriegeräten kann helfen, Manipulatio
 
 #### DET.3.1.4 – Systemfehler
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.37, G 0.23, G 0.26, G 0.18
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.37, G 0.23, G 0.26, G 0.18
 
 > Detektion für IT-Systeme SOLLTE Fehlermeldungen des Systems protokollieren.
 
@@ -141,7 +141,7 @@ Die Protokollierung von Fehlermeldungen kann eine wesentliche Grundlage für die
 
 #### DET.3.1.5 – Störungen der Netzerreichbarkeit
 
-**Stufe:** `erhöht` · **Aufwand:** 3 · **Gefährdungen:** G 0.37, G 0.23, G 0.29
+**Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 3 · **Gefährdungen:** G 0.37, G 0.23, G 0.29
 
 > Detektion für IT-Systeme KANN Störungen der Netzerreichbarkeit protokollieren.
 
@@ -149,7 +149,7 @@ Eine Störung der Netzerreichbarkeit kann ein Indiz für Überlastungen, Fehler 
 
 #### DET.3.1.6 – Systemspezifische Ereignisse
 
-**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.37, G 0.23, G 0.29
+**Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.37, G 0.23, G 0.29
 
 > Detektion für IT-Systeme KANN *[bestimmte systemspezifische Ereignisse]* protokollieren.
 
@@ -157,7 +157,7 @@ Bestimmte systemspezifische Ereignisse meint hier, dass von der Instiution konkr
 
 #### DET.3.1.7 – Was, Wann, Wo
 
-**Stufe:** `normal-SdT` · **Aufwand:** 5 · **Gefährdungen:** G 0.37, G 0.18
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 5 · **Gefährdungen:** G 0.37, G 0.18
 
 > Detektion für Anwendungen SOLLTE zu jedem sicherheitsrelevanten Ereignis mindestens Zeitpunkt, die Quelle und das Zielobjekt protokollieren.
 
@@ -165,7 +165,7 @@ Für die Definition eines Sicherheitsrelevanten Ereignisses, siehe Glossar (Name
 
 #### DET.3.1.8 – Privilegierte Ereignisse
 
-**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.37, G 0.23, G 0.29
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.37, G 0.23, G 0.29
 
 > Detektion für Anwendungen SOLLTE privilegierte Ereignisse einschließlich der Aktivierung, Deaktivierung oder Blockierung privilegierter Funktionen protokollieren.
 
@@ -173,7 +173,7 @@ Privilegierte Ereignisse sind Vorgänge, bei denen besonders weitreichende Recht
 
 #### DET.3.1.9 – Fehler der Anwendung
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.37, G 0.23, G 0.32
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.37, G 0.23, G 0.32
 
 > Detektion für Anwendungen SOLLTE Fehlermeldungen der Anwendung protokollieren.
 
@@ -181,7 +181,7 @@ Fehlermeldungen können wichtige Hinweise auf technisches Versagen oder menschli
 
 #### DET.3.1.10 – Nutzungsstatistik
 
-**Stufe:** `erhöht` · **Aufwand:** 4 · **Gefährdungen:** G 0.37, G 0.23, G 0.29, G 0.27
+**Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 4 · **Gefährdungen:** G 0.37, G 0.23, G 0.29, G 0.27
 
 > Detektion für Anwendungen KANN eine Nutzungsstatistik protokollieren.
 
@@ -189,7 +189,7 @@ Bei der statistischen Protokollierung werden z.B. Anzahl oder Durchschnittswerte
 
 #### DET.3.1.11 – Anwendungsspezifische Ereignisse
 
-**Stufe:** `erhöht` · **Aufwand:** 4 · **Gefährdungen:** G 0.37, G 0.23, G 0.32, G 0.46
+**Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 4 · **Gefährdungen:** G 0.37, G 0.23, G 0.32, G 0.46
 
 > Detektion für Anwendungen KANN *[bestimmte anwendungsspezifische Ereignisse]* protokollieren.
 
@@ -197,7 +197,7 @@ Die Festlegung, welche spezifischen Ereignisse protokolliert werden, obliegt der
 
 #### DET.3.1.12 – Datenverarbeitungen
 
-**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.37
+**Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.37
 
 > Detektion für Daten KANN die Verarbeitung von Daten protokollieren.
 
@@ -205,7 +205,7 @@ Bei Daten mit hohem Schutzbedarf kann es sinnvoll sein, bestimmte Verarbeitungen
 
 ### DET.3.2 – Integration von Cloud-Diensten
 
-**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.14, G 0.23, G 0.18
+**Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.14, G 0.23, G 0.18
 
 > Detektion für Cloud-Dienste KANN Ereignisse in der Cloud im Audit Log der Institution protokollieren.
 
@@ -213,7 +213,7 @@ Daten in Cloud-Diensten könnten von Angreifern über das Internet angegriffen w
 
 ### DET.3.3 – Filterung nicht benötigter Inhalte
 
-**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.37, G 0.26, G 0.18, G 0.46
+**Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.37, G 0.26, G 0.18, G 0.46
 
 > Detektion KANN die Protokollierung nicht benötigter Inhalte anhand von *[Kriterien]* einschränken.
 
@@ -221,7 +221,7 @@ Je nach Anwendung und Konfigurationeinstellungen könnten Protokolle auch Daten 
 
 ### DET.3.4 – Speicherkapazität
 
-**Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.37, G 0.32, G 0.46
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.37, G 0.32, G 0.46
 
 > Detektion SOLLTE den für die Protokollierung zur Verfügung stehenden Speicherplatz *[bei Erreichen eines bestimmten Schwellwertes oder regelmäßig]* überprüfen.
 
@@ -229,7 +229,7 @@ Diese Vorschrift zielt darauf ab, die Verfügbarkeit der Protokolldaten sicherzu
 
 ### DET.3.5 – Revisionssicherheit
 
-**Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.18, G 0.37
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.18, G 0.37
 
 > Detektion SOLLTE Änderungen am Audit Log revisionssicher dokumentieren.
 
@@ -237,7 +237,7 @@ Wenn die Protokollaufzeichnung unzureichend vor Veränderung geschützt ist, kö
 
 ### DET.3.6 – Unbestreitbarkeit
 
-**Stufe:** `erhöht` · **Aufwand:** 3 · **Gefährdungen:** G 0.37, G 0.23, G 0.32, G 0.46
+**Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 3 · **Gefährdungen:** G 0.37, G 0.23, G 0.32, G 0.46
 
 > Detektion für Daten KANN Nachweise für den Zusammenhang *[bestimter Ereignisse]* mit *[einer bestimmten Person oder Rolle]* dokumentieren.
 
@@ -247,7 +247,7 @@ Für Handlungen, die eine besondere Bedeutung für die rechtliche Compliance ode
 
 ### DET.4.1 – Überwachung der Protokollierung
 
-**Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.32, G 0.37, G 0.27
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.32, G 0.37, G 0.27
 
 > Detektion SOLLTE die Funktionsfähigkeit der Protokollierung überwachen.
 
@@ -255,7 +255,7 @@ Zu den Kriterien kann beispielsweise die Aktivierung oder Deaktkvierung des Logg
 
 ### DET.4.2 – Automatische Angriffserkennung
 
-**Stufe:** `normal-SdT` · **Aufwand:** 5 · **Gefährdungen:** G 0.39, G 0.23, G 0.32
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 5 · **Gefährdungen:** G 0.39, G 0.23, G 0.32
 
 > Detektion für IT-Systeme SOLLTE diese auf Anzeichen für Angriffe durch *[einen automatisierten Mechanismus]* überwachen.
 
@@ -263,7 +263,7 @@ Wenn professionelle Tätergruppen Zugriff auf Systeme und Daten erhalten, nutzen
 
 ### DET.4.3 – Überwachung der Angriffserkennung
 
-**Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.39, G 0.32, G 0.28
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.39, G 0.32, G 0.28
 
 > Detektion SOLLTE die Funktionsfähigkeit der automatisierten Angriffserkennung überwachen.
 
@@ -271,7 +271,7 @@ Hierzu gehört insbesondere die Aktivierung oder Deaktivierung der Angriffserken
 
 ### DET.4.4 – Änderungen an Sicherheitsrichtlinien
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.39, G 0.32, G 0.28
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.39, G 0.32, G 0.28
 
 > Detektion SOLLTE Änderungen an Sicherheitsrichtlinien einschließlich deren Aktivierung oder Deaktivierung überwachen.
 
@@ -279,7 +279,7 @@ Wird die Aktivität von automatisierten Sicherheitswerkzeugen nicht überwacht, 
 
 ### DET.4.5 – Unerwünschte Datenabflüsse
 
-**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.37, G 0.19
+**Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.37, G 0.19
 
 > Detektion KANN unerwünschte Datenabflüsse überwachen.
 
@@ -287,7 +287,7 @@ Unerwünschte Datenabflüsse beziehen sich hier auf jede unautorisierte Übertra
 
 ### DET.4.6 – Anomale Nutzung der Anwendung
 
-**Stufe:** `erhöht` · **Aufwand:** 3 · **Gefährdungen:** G 0.32, G 0.28, G 0.23
+**Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 3 · **Gefährdungen:** G 0.32, G 0.28, G 0.23
 
 > Detektion für Anwendungen KANN die Nutzung der Anwendung auf Anomalien überwachen.
 
@@ -295,7 +295,7 @@ Beispiele sind massenhafte Downloads von Dateiservern oder Cloud-Diensten, Daten
 
 #### DET.4.6.1 – Verhaltensanalyse von Zugangskonten
 
-**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.32, G 0.39, G 0.37
+**Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.32, G 0.39, G 0.37
 
 > Detektion für Verzeichnisdienste KANN das Verhalten von Zugangskonten überwachen.
 
@@ -303,7 +303,7 @@ User and Entity Behaviour Analytics (UEBA) nutzt moderne Verfahren einschließli
 
 ### DET.4.7 – Auslaufen von Domains
 
-**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.25, G 0.26, G 0.27
+**Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.25, G 0.26, G 0.27
 
 > Detektion für Webserver KANN das Auslaufen von Domains überwachen.
 
@@ -311,7 +311,7 @@ Wenn Registrierungsfristen und Verlängerungszeiträume nicht im Blick behalten 
 
 ### DET.4.8 – Ausstellung neuer HTTPS-Zertifikate
 
-**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.15
+**Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.15
 
 > Detektion für Webserver KANN die rechtzeitige Ausstellung neuer HTTPS-Zertifikate für Hostsysteme, die im Internet erreichbar sind, überwachen.
 
@@ -319,7 +319,7 @@ Wenn Registrierungsfristen und Verlängerungszeiträume nicht im Blick behalten 
 
 ### DET.4.9 – Manipulations-Checkup
 
-**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.23, G 0.39, G 0.32, G 0.41
+**Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.23, G 0.39, G 0.32, G 0.41
 
 > Detektion für IT-Systeme KANN das System auf Manipulationsversuche *[regelmäßig]* überprüfen.
 
@@ -327,7 +327,7 @@ Falls Systeme einem erhöhten Manipulationsrisiko ausgesetzt sind (z.B. wegen ö
 
 ### DET.4.10 – Host-basierte Köder
 
-**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.21, G 0.23, G 0.40, G 0.32
+**Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.21, G 0.23, G 0.40, G 0.32
 
 > Detektion für IT-Systeme KANN Host-basierte Köder installieren.
 
@@ -335,7 +335,7 @@ Köder sind Anwendungen, Dateien oder Datensätze auf dem IT-System, welche die 
 
 ### DET.4.11 – Anomalien in Netzen und am Perimeter
 
-**Stufe:** `normal-SdT` · **Aufwand:** 5 · **Gefährdungen:** G 0.23, G 0.39, G 0.32
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 5 · **Gefährdungen:** G 0.23, G 0.39, G 0.32
 
 > Detektion für Netze SOLLTE den Netzwerkverkehr auf Anomalien überwachen.
 
@@ -343,7 +343,7 @@ Beispiele sind ausgehende Netzverbindungen zu als bösartig bekannten oder gänz
 
 #### DET.4.11.1 – Authentifizierungsversuche an externen Schnittstellen
 
-**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.23, G 0.32
+**Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.23, G 0.32
 
 > Detektion für Externe Netzanschlüsse KANN Authentifizierungsversuche auf unauthorisierte Verbindungen *[regelmäßig]* überprüfen.
 
@@ -351,7 +351,7 @@ Ohne solche Überprüfungen könnte ein Angreifer unbemerkt wiederholt Zugangsda
 
 #### DET.4.11.2 – Netzwerk-Honeypots
 
-**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.23, G 0.39
+**Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.23, G 0.39
 
 > Detektion für Netze KANN Netzwerk-Honeypots installieren.
 
@@ -359,7 +359,7 @@ Honeypots sind Systeme, die das Verhalten eines Betriebsservers simulieren, um b
 
 #### DET.4.11.3 – Netzverkehrsfluss
 
-**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.23, G 0.39, G 0.37
+**Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.23, G 0.39, G 0.37
 
 > Detektion für Netze KANN auf kritische Netzverkehrsflüsse anhand von *[Kriterien]* überwachen.
 
@@ -367,7 +367,7 @@ Ein Netzverkehrsfluss ist eine Aufzeichnung von Verkehrsdaten einer Netzwerkverb
 
 ### DET.4.12 – Monitoring der Netzverfügbarkeit
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.23, G 0.25, G 0.26, G 0.27
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.23, G 0.25, G 0.26, G 0.27
 
 > Detektion für Netze SOLLTE die Verfügbarkeit des Netzes anhand von *[Schwellwerten]* überwachen.
 
@@ -375,7 +375,7 @@ Die Verfügbarkeit von Netzen, insbesondere des Internetanschlusses, sowie im Ke
 
 #### DET.4.12.1 – Auslastung des Netzes
 
-**Stufe:** `erhöht` · **Aufwand:** 4 · **Gefährdungen:** G 0.25, G 0.26, G 0.27, G 0.18
+**Pflicht:** SOLLTE · **Stufe:** `erhöht` · **Aufwand:** 4 · **Gefährdungen:** G 0.25, G 0.26, G 0.27, G 0.18
 
 > Detektion für Netze SOLLTE die Auslastung des Netzes anhand von *[Schwellwerten]* überwachen.
 
@@ -383,7 +383,7 @@ Die Überwachung der Netzauslastung ermöglicht eine schnelle Reaktion bei Verf�
 
 ### DET.4.13 – Verfügbarkeit des Hostsystems
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.25, G 0.27, G 0.18, G 0.23
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.25, G 0.27, G 0.18, G 0.23
 
 > Detektion für Hostsysteme SOLLTE die Netzerreichbarkeit anhand von *[Schwellwerten]* überwachen.
 
@@ -391,7 +391,7 @@ Schwellwerte (engl. thresholds) sind hier Grenzwerte, die als Maßstab für die 
 
 ### DET.4.14 – Verfügbarkeit der Anwendung
 
-**Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.25, G 0.27, G 0.18, G 0.23
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.25, G 0.27, G 0.18, G 0.23
 
 > Detektion für Anwendungen SOLLTE die Netzerreichbarkeit anhand von *[Schwellwerten]* überwachen.
 
@@ -399,7 +399,7 @@ Dabei wird die Erreichbarkeit des Dienstes der Anwendung selbst, z.B. auf den be
 
 ### DET.4.15 – Ressourcenauslastung von Hostsystemen
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.25, G 0.27, G 0.18
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.25, G 0.27, G 0.18
 
 > Detektion für Hostsysteme SOLLTE die Ressourcenauslastung anhand von *[Schwellwerten]* überwachen.
 
@@ -407,7 +407,7 @@ Hierzu zählt z.B. die Auslastung der CPU, des Arbeitsspeichers, des Festspeiche
 
 ### DET.4.16 – Ressourcenauslastung der Server-Dienste
 
-**Stufe:** `erhöht` · **Aufwand:** 3 · **Gefährdungen:** G 0.27, G 0.25, G 0.18
+**Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 3 · **Gefährdungen:** G 0.27, G 0.25, G 0.18
 
 > Detektion für Anwendungen KANN die Ressourcenauslastung der für die Anwendung verwendeten Server-Dienste anhand von *[Schwellwerten]* überwachen.
 
@@ -415,7 +415,7 @@ Hierzu zählt z.B. die Auslastung der CPU, des Arbeitsspeichers, des Festspeiche
 
 ### DET.4.17 – Anwendungsbasiertes Kapazitätsmanagement
 
-**Stufe:** `erhöht` · **Aufwand:** 3 · **Gefährdungen:** G 0.27, G 0.25, G 0.18
+**Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 3 · **Gefährdungen:** G 0.27, G 0.25, G 0.18
 
 > Detektion für Anwendungen KANN die Ressourcenauslastung systemübergreifend anhand von *[Schwellwerten]* überwachen.
 
@@ -423,7 +423,7 @@ Hierbei kann nicht nur die aktuelle Auslastung einzelner Server, sondern die Aus
 
 ### DET.4.18 – Öffentliche Blocklisten
 
-**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.25
+**Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.25
 
 > Detektion für E-Mail KANN öffentliche Blocklisten auf Einträge für eigene E-Mail-Server *[regelmäßig]* überprüfen.
 
@@ -431,7 +431,7 @@ Die Überprüfung von E-Mail-Blocklisteneinträgen ist entscheidend, um sicherzu
 
 ### DET.4.19 – Unautorisierte Sendeanlagen
 
-**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.23, G 0.43, G 0.25
+**Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.23, G 0.43, G 0.25
 
 > Detektion für Räume KANN diesen nach unautorisierten Sendeanlagen durch *[einen automatisierten Mechanismus]* überwachen.
 
@@ -441,7 +441,7 @@ Bleiben unautorisierte Sendeanlagen unbemerkt, so könnten hierüber Abhörversu
 
 ### DET.5.1 – Zeitnahes Schwachstellenmanagement
 
-**Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.23, G 0.39, G 0.18
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.23, G 0.39, G 0.18
 
 > Detektion SOLLTE Verfahren und Regelungen zur Erkennung und Behandlung von Schwachstellen verankern.
 
@@ -449,7 +449,7 @@ Relevant können hierbei verschiedene Arten von Schwachstellen sein (z.B. Physis
 
 #### DET.5.1.1 – Risikobasierte Priorisierung
 
-**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.28, G 0.23, G 0.18
+**Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.28, G 0.23, G 0.18
 
 > Detektion KANN erkannte Schwachstellen anhand von *[risikobasierten Kriterien]* innerhalb *[einer Frist]* überprüfen.
 
@@ -457,7 +457,7 @@ Bei einer risikobasierten Priorisierung wird nicht nur die Ausnutzbarkeit der Sc
 
 ### DET.5.2 – Schwachstellenregister
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.28, G 0.23, G 0.18
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.28, G 0.23, G 0.18
 
 > Detektion SOLLTE Schwachstellen bei Entdeckung inklusive betroffener Komponenten, Kritikalität und Status dokumentieren.
 
@@ -465,7 +465,7 @@ Da die Aktualität des Schwachstellenregisters von großer Bedeutung ist, ist di
 
 ### DET.5.3 – Schwachstellenscans
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.28, G 0.23, G 0.18
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.28, G 0.23, G 0.18
 
 > Detektion SOLLTE eine Vorgehensweise zum Scan nach Schwachstellen einschließlich deren Auswertung und Behandlung verankern.
 
@@ -473,7 +473,7 @@ Da die Aktualität des Schwachstellenregisters von großer Bedeutung ist, ist di
 
 #### DET.5.3.1 – Autorisierung kritischer Scans
 
-**Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.39, G 0.18
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.39, G 0.18
 
 > Detektion SOLLTE kritische Scans durch *[zuständige Personen oder Rollen]* autorisieren.
 
@@ -481,7 +481,7 @@ Schwachstellenscans könnten aufgrund ihres Umfangs oder der breiten Abdeckung i
 
 #### DET.5.3.2 – Korrelation komplexer Angriffswege
 
-**Stufe:** `erhöht` · **Aufwand:** 3 · **Gefährdungen:** G 0.28, G 0.23
+**Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 3 · **Gefährdungen:** G 0.28, G 0.23
 
 > Detektion KANN Schwachstellen anhand eines Abgleichs mehrerer Scans miteinander überprüfen.
 
@@ -489,7 +489,7 @@ Fortschrittliche Angreifer könnten mehrere, scheinbar unkritische Schwachstelle
 
 #### DET.5.3.3 – Historische Analyse
 
-**Stufe:** `erhöht` · **Aufwand:** 3 · **Gefährdungen:** G 0.28, G 0.18, G 0.23
+**Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 3 · **Gefährdungen:** G 0.28, G 0.18, G 0.23
 
 > Detektion KANN Schwachstellen in öffentlich erreichbaren Systemen oder Anwendungen anhand bekannter Anzeichen im Audit Log testen.
 
@@ -497,7 +497,7 @@ Die historische Analyse von Logdateien ermöglicht es, vergangene Systemaktivit�
 
 ### DET.5.4 – Regelmäßige Penetrationstests
 
-**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.23
+**Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.23
 
 > Detektion für IT-Systeme KANN die tatsächliche Abwehrfähigkeit nach *[einer anerkannten Vorgehensweise]* *[regelmäßig]* überprüfen.
 
@@ -505,7 +505,7 @@ Ein Penetrationstest, oft auch als Pentest bezeichnet, ist eine von Sicherheitse
 
 ### DET.5.5 – Red Teaming
 
-**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.23, G 0.39, G 0.28
+**Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.23, G 0.39, G 0.28
 
 > Detektion für IT-Systeme KANN die tatsächliche Abwehrfähigkeit *[regelmäßig]* durch unabhängig agierende Sicherheitsexperten überprüfen.
 
@@ -513,7 +513,7 @@ Red Teaming ist ein strukturierter, realitätsnaher Sicherheitstest, bei dem ein
 
 ### DET.5.6 – Threat Hunting
 
-**Stufe:** `erhöht` · **Aufwand:** 4 · **Gefährdungen:** G 0.23, G 0.39
+**Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 4 · **Gefährdungen:** G 0.23, G 0.39
 
 > Detektion KANN den Informationsverbund durch Sicherheitsexperten auf Anzeichen für Angriffe *[regelmäßig]* überprüfen.
 
@@ -521,7 +521,7 @@ Threat Hunting bezeichnet eine proaktive Suche nach Anzeichen für Sicherheitsvo
 
 ### DET.5.7 – Analyse verdeckter Kanäle
 
-**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.39
+**Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.39
 
 > Detektion KANN den Informationsverbund auf verdeckte Kommunikationskanäle *[bei Sicherheitsvorfällen mit verdeckten Kanälen und regelmäßig]* überprüfen.
 
@@ -529,7 +529,7 @@ Ein verdeckter Kanal (Covert Channel) ist ein heimlicher Kommunikationskanal, mi
 
 ### DET.5.8 – Bedrohungsanalyse
 
-**Stufe:** `normal-SdT` · **Aufwand:** 5 · **Gefährdungen:** G 0.29, G 0.18
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 5 · **Gefährdungen:** G 0.29, G 0.18
 
 > Detektion SOLLTE verfügbare Informationen zu Bedrohungen, die für den Informationsverbund relevant sind, *[regelmäßig]* überprüfen.
 
@@ -537,7 +537,7 @@ Bedrohungsaufklärung (Threat Intelligence) dient dem Sammeln und Analysieren vo
 
 #### DET.5.8.1 – Auswertung öffentlicher Quellen
 
-**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.29, G 0.18, G 0.28, G 0.23
+**Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.29, G 0.18, G 0.28, G 0.23
 
 > Detektion KANN öffentliche Quellen auf Hinweise zu eigenen Schwachstellen anhand von *[Kriterien zur Suche]* *[regelmäßig]* überprüfen.
 
@@ -545,7 +545,7 @@ Bedrohungsaufklärung (Threat Intelligence) dient dem Sammeln und Analysieren vo
 
 ##### DET.5.8.1.1 – Unautorisierte Publikation
 
-**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.29
+**Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.29
 
 > Detektion KANN öffentliche Quellen automatisiert auf Hinweise zur unautorisierten Veröffentlichung vertraulicher Daten überwachen.
 
@@ -553,7 +553,7 @@ Unautorisierte Veröffentlichungen liegen vor, wenn vertrauliche Daten ohne Auto
 
 ### DET.5.9 – Externe Schwachstellenmeldungen
 
-**Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.28, G 0.23
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.28, G 0.23
 
 > Detektion SOLLTE eine Vorgehensweise zur Entgegennahme und Behandlung von externen Schwachstellenmeldungen verankern.
 
@@ -561,7 +561,7 @@ Ohne klar geregelten Umgang könnte eine Institution wertvolle Hinweise überseh
 
 #### DET.5.9.1 – Bonusprogramm
 
-**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.28, G 0.23
+**Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.28, G 0.23
 
 > Detektion KANN ein Bonusprogramm für externe Schwachstellenmeldungen verankern.
 
@@ -569,7 +569,7 @@ Ein Bonusprogramm für externe Schwachstellenmeldungen (englisch häufig Bug Bou
 
 ### DET.5.10 – Zeitnahes Patchmanagement
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.28, G 0.23
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.28, G 0.23
 
 > Detektion SOLLTE ein zeitnahes Patchmanagement verankern.
 
@@ -577,7 +577,7 @@ Patches (Updates oder Sicherheitsaktualisierungen) sind neue Versionen, die Sich
 
 #### DET.5.10.1 – Autorisierte Bezugsquellen
 
-**Stufe:** `normal-SdT` · **Aufwand:** 5 · **Gefährdungen:** G 0.28, G 0.20
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 5 · **Gefährdungen:** G 0.28, G 0.20
 
 > Detektion SOLLTE zuverlässige Bezugsquellen für Patches autorisieren.
 
@@ -585,7 +585,7 @@ Eine Quelle ist unzuverlässig, wenn zukünftig mit Verstößen gegen die Schutz
 
 #### DET.5.10.2 – Automatisierte Überwachung von Systemupdates
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.30, G 0.21, G 0.23, G 0.39
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.30, G 0.21, G 0.23, G 0.39
 
 > Detektion für IT-Systeme SOLLTE den Patchstatus durch *[einen automatisierten Mechanismus]* überwachen.
 
@@ -593,7 +593,7 @@ Der Patchsstatus des Informationsverbundes kann dabei durch Kennzahlen bestimmt 
 
 #### DET.5.10.3 – Automatisierte Überwachung von Anwendungsupdates
 
-**Stufe:** `erhöht` · **Aufwand:** 4 · **Gefährdungen:** G 0.28, G 0.23, G 0.39
+**Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 4 · **Gefährdungen:** G 0.28, G 0.23, G 0.39
 
 > Detektion für Anwendungen KANN den Patchstatus durch *[einen automatisierten Mechanismus]* überwachen.
 
@@ -601,7 +601,7 @@ Eine nicht gepatchte Anwendung könnte als Einfallstor für Angreifer dienen, di
 
 #### DET.5.10.4 – Integritätsprüfung von Patches
 
-**Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.28, G 0.23, G 0.39, G 0.20
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.28, G 0.23, G 0.39, G 0.20
 
 > Detektion SOLLTE Patches vor der Installation auf Integrität testen.
 
@@ -609,7 +609,7 @@ Wenn Patches durch Fehler bei der Übertragung oder sogar bewusst von Angreifern
 
 #### DET.5.10.5 – Test gemäß Änderungsmanagement
 
-**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.39, G 0.28, G 0.18
+**Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.39, G 0.28, G 0.18
 
 > Detektion KANN Patches entsprechend der Anforderungen der Praktik „Änderungen und Tests“ ausführen.
 
@@ -619,7 +619,7 @@ Stellt sicher, dass Patches zusammen mit anderen Änderungen geprüft werden und
 
 ### DET.6.1 – Beurteilung von Ereignissen
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.39, G 0.23, G 0.18
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.39, G 0.23, G 0.18
 
 > Detektion SOLLTE ein Verfahren zur Beurteilung von sicherheitsrelevanten Ereignissen anhand von *[Kriterien]* verankern.
 
@@ -627,7 +627,7 @@ Aus einer größeren Menge von sicherheitsrelevanten Ereignissen kann durch Filt
 
 #### DET.6.1.1 – Automatisierte Feststellung
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.39, G 0.23
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.39, G 0.23
 
 > Detektion SOLLTE kritische Vorfälle anhand von *[Kriterien]* durch *[einen automatisierten Mechanismus]* protokollieren.
 
@@ -635,7 +635,7 @@ Zur Erfüllung der Anforderung ist es nicht erforderlich, dass alle denkbaren Si
 
 #### DET.6.1.2 – Automatische Alarmierung
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.25, G 0.29, G 0.27
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.25, G 0.29, G 0.27
 
 > Detektion SOLLTE bei sicherheitskritischen Ereignissen eine Alarmierung von *[für die Vorfallsbehandlung zuständigen Personen oder Rollen]* durch *[einen automatisierten Mechanismus]* ausführen.
 
@@ -643,7 +643,7 @@ Für die Definition eines sicherheitskritischen Ereignisses, siehe Glossar (Name
 
 #### DET.6.1.3 – Dokumentation von Ergebnissen
 
-**Stufe:** `erhöht` · **Aufwand:** 4 · **Gefährdungen:** G 0.39, G 0.18, G 0.37
+**Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 4 · **Gefährdungen:** G 0.39, G 0.18, G 0.37
 
 > Detektion KANN Analyseergebnisse dokumentieren.
 
@@ -651,7 +651,7 @@ Die Aufzeichnung von Beurteilungsergebnissen und Entscheidungen bei Sicherheitsv
 
 ### DET.6.2 – Beurteilung von Eingängen
 
-**Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.18, G 0.39, G 0.23
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.18, G 0.39, G 0.23
 
 > Detektion SOLLTE ein Verfahren zur Beurteilung von Datei-Eingängen verankern.
 
@@ -659,7 +659,7 @@ Kann beispielsweise ein Virenscanner eine Datei nicht überprüfen, weil sie mit
 
 #### DET.6.2.1 – Dynamische Sandbox-Analyse
 
-**Stufe:** `erhöht` · **Aufwand:** 4 · **Gefährdungen:** G 0.23, G 0.39, G 0.22, G 0.19
+**Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 4 · **Gefährdungen:** G 0.23, G 0.39, G 0.22, G 0.19
 
 > Detektion KANN verdächtige Dateien in einer isolierten Umgebung mindestens anhand von aufgebauten Netzverbindungen, Systemaufrufen und Dateizugriffen testen.
 
@@ -667,7 +667,7 @@ Eine dynamische Sandbox Analyse ist die Ausführung des verdächtigen Codes in e
 
 #### DET.6.2.2 – Datenträgerschleuse
 
-**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.39, G 0.23, G 0.21, G 0.14
+**Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.39, G 0.23, G 0.21, G 0.14
 
 > Detektion KANN Datenträgerschleusen installieren.
 

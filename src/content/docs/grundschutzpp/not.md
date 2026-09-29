@@ -9,7 +9,7 @@ Die Notfallplanung stellt sicher, dass bei schwerwiegenden Störungen oder Krise
 
 ### NOT.1.1 – Verfahren und Regelungen
 
-**Stufe:** `normal-SdT` · **Aufwand:** 0 · **Gefährdungen:** G 0.18
+**Pflicht:** MUSS · **Stufe:** `normal-SdT` · **Aufwand:** 0 · **Gefährdungen:** G 0.18
 
 > Notfallplanung MUSS Verfahren und Regelungen zur Vorsorge für Notfälle der Informationssicherheit verankern.
 
@@ -17,7 +17,7 @@ Für ein Managementsystem der Informationssicherheit ist es erforderlich, dass a
 
 #### NOT.1.1.1 – Dokumentation
 
-**Stufe:** `normal-SdT` · **Aufwand:** 0 · **Gefährdungen:** G 0.18, G 0.37
+**Pflicht:** MUSS · **Stufe:** `normal-SdT` · **Aufwand:** 0 · **Gefährdungen:** G 0.18, G 0.37
 
 > Notfallplanung MUSS die Verfahren und Regelungen dokumentieren.
 
@@ -25,7 +25,7 @@ Ohne eine Dokumentation könnte die Einhaltung der Verfahren und Regelungen von 
 
 #### NOT.1.1.2 – Zuweisung der Aufgaben
 
-**Stufe:** `normal-SdT` · **Aufwand:** 0 · **Gefährdungen:** G 0.18, G 0.31
+**Pflicht:** MUSS · **Stufe:** `normal-SdT` · **Aufwand:** 0 · **Gefährdungen:** G 0.18, G 0.31
 
 > Notfallplanung MUSS die mit den Verfahren und Regelungen verbundenen Aufgaben *[zuständigen Personen oder Rollen]* zuweisen.
 
@@ -33,7 +33,7 @@ Die Zuweisung von Aufgaben bezeichnet die eindeutige und verbindliche Übertragu
 
 #### NOT.1.1.3 – Bekanntgabe
 
-**Stufe:** `normal-SdT` · **Aufwand:** 0 · **Gefährdungen:** G 0.18, G 0.31
+**Pflicht:** MUSS · **Stufe:** `normal-SdT` · **Aufwand:** 0 · **Gefährdungen:** G 0.18, G 0.31
 
 > Notfallplanung MUSS die zuständigen Personen oder Rollen über die Verfahren und Regelungen informieren.
 
@@ -41,7 +41,7 @@ Wenn die Zuständigen die etablierten Verfahren nicht kennen, besteht die Gefahr
 
 #### NOT.1.1.4 – Business Continuity Management System
 
-**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.18
+**Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.18
 
 > Notfallplanung KANN ein *[Reaktiv-, Aufbau- oder Standard-]*BCMS nach *[BSI-Standard 200-4]* verankern.
 
@@ -49,7 +49,7 @@ BCMS steht für Business Continuity Management System, ein Management-System, da
 
 ### NOT.1.2 – Regelmäßige Überprüfung
 
-**Stufe:** `normal-SdT` · **Aufwand:** 0 · **Gefährdungen:** G 0.18
+**Pflicht:** MUSS · **Stufe:** `normal-SdT` · **Aufwand:** 0 · **Gefährdungen:** G 0.18
 
 > Notfallplanung MUSS die Verfahren und Regelungen *[regelmäßig]* und anlassbezogen auf Aktualität überprüfen.
 
@@ -59,7 +59,7 @@ Eine geplante der etablierten Verfahren und Regelungen dient dazu festzustellen,
 
 ### NOT.2.1 – Verfahren und Regelungen zur BAO
 
-**Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.18
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.18
 
 > Notfallplanung SOLLTE Verfahren und Regelungen für eine Besondere Aufbauorganisation (BAO) zur Behandlung von Notfällen und Krisen verankern.
 
@@ -67,7 +67,7 @@ Eine BAO ermöglicht, in Notfällen und Krisen schnellstmöglich auf das Schaden
 
 #### NOT.2.1.1 – Rollen
 
-**Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.18
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.18
 
 > Notfallplanung SOLLTE Aufgaben für die BAO einschließlich BAO-Stab und Notfallteams *[zuständigen Personen oder Rollen]* zuweisen.
 
@@ -75,7 +75,7 @@ Die BAO besteht in der Regel aus einem Stab, der die Koordination und Entscheidu
 
 #### NOT.2.1.2 – Alarmierung
 
-**Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.18
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.18
 
 > Notfallplanung SOLLTE die Alarmierung der BAO verankern.
 
@@ -83,7 +83,7 @@ In einem Schadensereignis ist es entscheidend, dass die BAO schnellstmöglich al
 
 #### NOT.2.1.3 – Stabsraum
 
-**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.18
+**Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.18
 
 > Notfallplanung KANN einen Stabsraum für den Stab installieren.
 
@@ -91,7 +91,7 @@ Damit der Stab der BAO im Schadensereignis handlungsfähig ist, benötigt er ein
 
 #### NOT.2.1.4 – Stabsübung
 
-**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.1
+**Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.1
 
 > Notfallplanung KANN die Funktionsfähigkeit der BAO *[regelmäßig]* durch Stabsübungen überprüfen.
 
@@ -101,7 +101,7 @@ Da Notfälle nur selten vorkommen, die tatsächliche Funktionstüchtigkeit der B
 
 ### NOT.3.1 – Wiederanlaufplan
 
-**Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.18
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.18
 
 > Notfallplanung SOLLTE einen Wiederanlaufplan für zeitkritische Systeme und Anwendungen dokumentieren.
 
@@ -109,7 +109,7 @@ Ein Wiederanlaufplan legt fest, wie eine ausgefallene (IT)-Ressource auf ein vor
 
 ### NOT.3.2 – Geschäftsfortführungsplan
 
-**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.18
+**Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.18
 
 > Notfallplanung KANN einen Geschäftsfortführungsplan für zeitkritische Geschäftsprozesse dokumentieren.
 
@@ -117,7 +117,7 @@ Ein Geschäftsfortführungsplan (GFP) legt fest, wie ein Geschäftsprozess in ei
 
 ### NOT.3.3 – Sensibilisierung zum Vorgehen im Notfall
 
-**Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.25, G 0.27, G 0.40
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.25, G 0.27, G 0.40
 
 > Notfallplanung für Nutzende SOLLTE zur Vorgehensweise in Notfällen und Krisen sensibilisieren.
 
@@ -125,7 +125,7 @@ Eine Sensibilisierung für die Vorgehensweise in Notfällen und Krisen (Continge
 
 ### NOT.3.4 – Funktionstest
 
-**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.18
+**Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.18
 
 > Notfallplanung KANN die tatsächliche Funktionstüchtigkeit von Notfallplänen *[regelmäßig]* überprüfen.
 
@@ -133,7 +133,7 @@ Eine regelmäßige Überprüfung hilft zu erkennen, ob die verschiedenen Notfall
 
 ### NOT.3.5 – Ausweich-Telekommunikation
 
-**Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.18
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.18
 
 > Notfallplanung SOLLTE Ausweich-Telekommunikationsdienste verankern.
 
@@ -141,7 +141,7 @@ Eine regelmäßige Überprüfung hilft zu erkennen, ob die verschiedenen Notfall
 
 ### NOT.3.6 – Sicherheitsmechanismen
 
-**Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.18
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.18
 
 > Notfallplanung SOLLTE alternative Sicherheitsmechanismen , die in Notfällen greifen, verankern.
 
@@ -151,7 +151,7 @@ In Notfällen besteht das Risiko, dass manche Sicherheitsvorkehrungen nicht zur 
 
 ### NOT.4.1 – Dokumentation der Quellen
 
-**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.45, G 0.18, G 0.25, G 0.37
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.45, G 0.18, G 0.25, G 0.37
 
 > Notfallplanung SOLLTE die zu sichernden Daten dokumentieren.
 
@@ -159,7 +159,7 @@ Datensicherungen dienen der Wiederherstellung von Daten nach Vorfällen. Aufgrun
 
 ### NOT.4.2 – Sicherung des Systems
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.45, G 0.39, G 0.25
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.45, G 0.39, G 0.25
 
 > Notfallplanung für IT-Systeme SOLLTE deren Datensicherung *[regelmäßig]* ausführen.
 
@@ -167,7 +167,7 @@ Zu den erforderlichen Daten können z.B. Konfigurationsdateien des Betriebssyste
 
 ### NOT.4.3 – Sicherung der Anwendung
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.45, G 0.39, G 0.25
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.45, G 0.39, G 0.25
 
 > Notfallplanung für Anwendungen SOLLTE deren Datensicherung *[regelmäßig]* ausführen.
 
@@ -175,7 +175,7 @@ Hierzu können z.B. sowohl die Daten einer Backend-Datenbank, als auch Konfigura
 
 ### NOT.4.4 – Automatische Datensicherung
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.45, G 0.39
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.45, G 0.39
 
 > Notfallplanung für Daten SOLLTE die Datensicherung durch *[einen automatisierten Mechanismus]* ausführen.
 
@@ -183,7 +183,7 @@ Ein automatisierter Mechanismus (engl. automated mechanism) ist hier ein technis
 
 ### NOT.4.5 – Archivierung langfristig benötigter Daten
 
-**Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.45, G 0.39
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.45, G 0.39
 
 > Notfallplanung für Daten SOLLTE die Archivierung langfristig benötigter Daten *[regelmäßig]* ausführen.
 
@@ -191,7 +191,7 @@ Archivierung meint hier die langfristige Aufbewahrung derjenigen Daten, die übe
 
 #### NOT.4.5.1 – Zum Archiv gehörende Assets
 
-**Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.45, G 0.39, G 0.25
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.45, G 0.39, G 0.25
 
 > Notfallplanung für Daten SOLLTE die Archivierung von Assets, die zur Verwendung von archivierten Daten erforderlich sind, *[regelmäßig]* ausführen.
 
@@ -199,7 +199,7 @@ Je nach Art der Daten können zu deren Nutzung z.B. bestimmte (physische oder vi
 
 #### NOT.4.5.2 – Zum Archiv gehörende Dokumentation
 
-**Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.45, G 0.39, G 0.18, G 0.37
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.45, G 0.39, G 0.18, G 0.37
 
 > Notfallplanung für Daten SOLLTE die Archivierung von Dokumentationen, die zur Verwendung von archivierten Daten erforderlich sind, *[regelmäßig]* ausführen.
 
@@ -207,7 +207,7 @@ Hierbei geht es darum, nicht nur die Daten selbst, sondern auch alle begleitende
 
 ### NOT.4.6 – Geschützte Aufbewahrung
 
-**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.45, G 0.39, G 0.25, G 0.1, G 0.3
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.45, G 0.39, G 0.25, G 0.1, G 0.3
 
 > Notfallplanung SOLLTE eine geschützte Aufbewahrung von Datensicherungen verankern.
 
@@ -215,7 +215,7 @@ Eine geschützte Aufbewahrung von Datensicherungen bedeutet, dass Sicherungskopi
 
 ### NOT.4.7 – Versionierte Datensicherung
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.45, G 0.39
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.45, G 0.39
 
 > Notfallplanung SOLLTE eine Versionierung der Datensicherung verankern.
 
@@ -223,7 +223,7 @@ Versionierung ist die Aufbewahrung nach Zeitpunkten getrennter Versionen der Dat
 
 ### NOT.4.8 – Verschlüsselte Datensicherung
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.45, G 0.39, G 0.25, G 0.19
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.45, G 0.39, G 0.25, G 0.19
 
 > Notfallplanung SOLLTE die Datensicherung durch *[einen anerkannten kryptographischen Algorithmus]* verschlüsseln.
 
@@ -231,7 +231,7 @@ Die Datensicherung enthält typischerweise eine große Menge schützenswerter Da
 
 ### NOT.4.9 – Speichermedien
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.45, G 0.39, G 0.25
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.45, G 0.39, G 0.25
 
 > Notfallplanung SOLLTE dedizierte Speichermedien, die für den festgelegten Aufbewahrungszeitraum geeignet sind, installieren.
 
@@ -239,7 +239,7 @@ Dedizierte Speichermedien (engl. dedicated storage media) sind physische oder vi
 
 ### NOT.4.10 – Getrennte Aufbewahrung
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.45, G 0.39, G 0.1, G 0.25
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.45, G 0.39, G 0.1, G 0.25
 
 > Notfallplanung SOLLTE die Datensicherung getrennt von den Originaldaten platzieren.
 
@@ -247,7 +247,7 @@ Originaldaten (engl. primary data) sind die produktiven oder operativen Daten, d
 
 ### NOT.4.11 – Datenträgerarchiv
 
-**Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.45, G 0.39, G 0.1
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.45, G 0.39, G 0.1
 
 > Notfallplanung SOLLTE ein Datenträgerarchiv installieren.
 
@@ -255,7 +255,7 @@ Datenträgerarchive sind verschlossene Räume, die dediziert zur langfristigen A
 
 ### NOT.4.12 – Georedundanz
 
-**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.39, G 0.5, G 0.6, G 0.7, G 0.45
+**Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.39, G 0.5, G 0.6, G 0.7, G 0.45
 
 > Notfallplanung KANN die georedundante Aufbewahrung mindestens einer Kopie der Datensicherung verankern.
 
@@ -263,7 +263,7 @@ Werden Datensicherungen in der Nähe von Originaldaten aufbewahrt, so könnten b
 
 ### NOT.4.13 – Datensouveränität
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.45, G 0.39, G 0.25
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.45, G 0.39, G 0.25
 
 > Notfallplanung für Outsourcing SOLLTE die Datensicherung von Daten, die bei einem Dienstleister verarbeitet werden, nach *[einem anerkannten Standard]* *[regelmäßig]* ausführen.
 
@@ -271,7 +271,7 @@ Dies dient dazu bei einem Ausfall des Dienstleisters die Daten schnell bei einem
 
 ### NOT.4.14 – Offline-Kopie
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.45, G 0.39, G 0.25, G 0.1
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.45, G 0.39, G 0.25, G 0.1
 
 > Notfallplanung für Daten SOLLTE eine Offline-Kopie *[regelmäßig]* ausführen.
 
@@ -279,7 +279,7 @@ Eine Offline-Kopie ist eine Datensicherung, die physisch oder logisch von produk
 
 ### NOT.4.15 – Vorgehen zur Wiederherstellung
 
-**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.45, G 0.39, G 0.25
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.45, G 0.39, G 0.25
 
 > Notfallplanung SOLLTE die Vorgehensweise zur Wiederherstellung dokumentieren.
 
@@ -287,7 +287,7 @@ Die Dokumentation der Vorgehensweise zur Wiederherstellung dient dazu, im Notfal
 
 ### NOT.4.16 – Test der Datensicherung
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.45, G 0.39
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.45, G 0.39
 
 > Notfallplanung für Daten SOLLTE den Erfolg der Datensicherung *[regelmäßig]* überprüfen.
 
@@ -295,7 +295,7 @@ Die Überprüfung der Vollständigkeit kann durch Statistiken des Datenumfangs p
 
 #### NOT.4.16.1 – Test der Wiederherstellung
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.45, G 0.39, G 0.25
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.45, G 0.39, G 0.25
 
 > Notfallplanung für Daten SOLLTE die Wiederherstellung mindestens anhand von repräsentativen Stichproben *[regelmäßig]* überprüfen.
 
@@ -303,7 +303,7 @@ Unter „Erfolg der Datensicherung“ ist hier die Vollständigkeit („complete
 
 ### NOT.4.17 – Anwendungstest
 
-**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.45, G 0.39, G 0.25
+**Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.45, G 0.39, G 0.25
 
 > Notfallplanung für Anwendungen KANN deren Funktionsfähigkeit nach Wiederherstellung *[regelmäßig]* überprüfen.
 

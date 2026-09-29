@@ -9,7 +9,7 @@ Die Praktik Governance und Compliance stellt sicher, dass Informationssicherheit
 
 ### GC.1.1 – Errichtung und Aufrechterhaltung eines ISMS
 
-**Stufe:** `normal-SdT` · **Aufwand:** 0
+**Pflicht:** MUSS · **Stufe:** `normal-SdT` · **Aufwand:** 0
 
 > Governance und Compliance MUSS Verfahren und Regelungen zur Errichtung und Aufrechterhaltung eines ISMS nach *[BSI Grundschutz++]* verankern.
 
@@ -17,7 +17,7 @@ Diese Anforderung ist der Ausgangs- und Endpunkt für ein Informationssicherheit
 
 ### GC.1.2 – Freigabe des ISMS
 
-**Stufe:** `normal-SdT` · **Aufwand:** 0
+**Pflicht:** MUSS · **Stufe:** `normal-SdT` · **Aufwand:** 0
 
 > Governance und Compliance MUSS alle festgelegten Verfahren für das ISMS durch die Institutionsleitung autorisieren.
 
@@ -27,7 +27,7 @@ Die Freigabe des Prozesses der ISMS-Verfahren erfolgt durch die Institutionsleit
 
 ### GC.2.1 – Festlegung des externen Kontextes der Institution
 
-**Stufe:** `normal-SdT` · **Aufwand:** 0
+**Pflicht:** MUSS · **Stufe:** `normal-SdT` · **Aufwand:** 0
 
 > Governance und Compliance MUSS alle für das Informationssicherheitsmanagement relevanten externen Rahmenbedingungen analysieren.
 
@@ -35,7 +35,7 @@ Alle externen Faktoren, die einen Einfluss auf die Informationssicherheitsziele 
 
 ### GC.2.2 – Festlegung des internen Kontextes der Institution
 
-**Stufe:** `normal-SdT` · **Aufwand:** 0
+**Pflicht:** MUSS · **Stufe:** `normal-SdT` · **Aufwand:** 0
 
 > Governance und Compliance MUSS alle für das Informationssicherheitsmanagement relevanten internen Rahmenbedingungen analysieren.
 
@@ -45,7 +45,7 @@ Alle internen Faktoren, die einen Einfluss auf die Informationssicherheitsziele 
 
 ### GC.3.1 – Verfahren und Regelungen
 
-**Stufe:** `normal-SdT` · **Aufwand:** 0
+**Pflicht:** MUSS · **Stufe:** `normal-SdT` · **Aufwand:** 0
 
 > Governance und Compliance MUSS ein Verfahren zur systematischen Erfassung und Verwaltung von Compliance-Verpflichtungen unter Einbezug der jeweiligen Priorität für das ISMS verankern.
 
@@ -53,7 +53,7 @@ Die systematische Erfassung der informationssicherheitsrelevanten Compliance-Anf
 
 #### GC.3.1.1 – Gesetzliche Verpflichtungen
 
-**Stufe:** `normal-SdT` · **Aufwand:** 0
+**Pflicht:** MUSS · **Stufe:** `normal-SdT` · **Aufwand:** 0
 
 > Governance und Compliance MUSS gesetzliche Verpflichtungen, welche die Verarbeitung von Informationen durch die Institution betreffen, analysieren.
 
@@ -61,7 +61,7 @@ Gesetzliche Verpflichtungen, welche die Verarbeitung von Informationen durch die
 
 #### GC.3.1.2 – Anhörung zuständiger Stellen
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3
 
 > Governance und Compliance SOLLTE für die Einhaltung gesetzlicher Verpflichtungen in der Informationsverarbeitung zuständige Stellen in der Institution anhören.
 
@@ -69,7 +69,7 @@ Für die Einhaltung gesetzlicher Verpflichtungen in der Informationsverarbeitung
 
 #### GC.3.1.3 – Vertragliche Verpflichtungen
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3
 
 > Governance und Compliance SOLLTE vertragliche Verpflichtungen, welche die Verarbeitung von Informationen durch die Institution betreffen, analysieren.
 
@@ -77,7 +77,7 @@ Vertragliche Verpflichtungen, welche die Verarbeitung von Informationen durch di
 
 #### GC.3.1.4 – Prävention von Verstößen
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3
 
 > Governance und Compliance SOLLTE Verfahren zur Prävention gegen Verstöße verankern.
 
@@ -87,7 +87,7 @@ Verfahren können z. B. zielgruppengerechte Schulungen der für die Umsetzung un
 
 ### GC.4.1 – Analyse der externen interessierten Parteien
 
-**Stufe:** `normal-SdT` · **Aufwand:** 0
+**Pflicht:** MUSS · **Stufe:** `normal-SdT` · **Aufwand:** 0
 
 > Governance und Compliance MUSS alle externen interessierten Parteien sowie ihre Bedürfnisse und Erwartungen an das Informationssicherheitsmanagement der Institution analysieren.
 
@@ -95,7 +95,7 @@ Alle relevanten externen interessierten Parteien werden ermittelt. Die externen 
 
 ### GC.4.2 – Analyse der internen interessierten Parteien
 
-**Stufe:** `normal-SdT` · **Aufwand:** 0
+**Pflicht:** MUSS · **Stufe:** `normal-SdT` · **Aufwand:** 0
 
 > Governance und Compliance MUSS alle internen interessierten Parteien sowie ihre Bedürfnisse und Erwartungen an das Informationssicherheitsmanagement der Institution analysieren.
 
@@ -105,7 +105,7 @@ Alle relevanten internen interessierten Parteien werden ermittelt. Die internen 
 
 ### GC.5.1 – Festlegung von Zielen für die Informationssicherheit
 
-**Stufe:** `normal-SdT` · **Aufwand:** 0
+**Pflicht:** MUSS · **Stufe:** `normal-SdT` · **Aufwand:** 0
 
 > Governance und Compliance MUSS konkrete und messbare Ziele für die Informationssicherheit auf Basis der identifizierten Rahmenbedingungen festlegen.
 
@@ -113,7 +113,7 @@ Die Ziele sollten Bezug zu den Geschäftszielen der Institution aufweisen und m�
 
 #### GC.5.1.1 – Festlegung einer Sicherheitsstrategie
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3
+**Pflicht:** MUSS · **Stufe:** `normal-SdT` · **Aufwand:** 3
 
 > Governance und Compliance MUSS eine grundlegende Strategie zur Erreichung der Ziele für die Informationssicherheit gemeinsam mit der Institutionsleitung festlegen.
 
@@ -121,7 +121,7 @@ Die Sicherheitsstrategie legt fest, wie die Organisation die Ziele erreichen mö
 
 #### GC.5.1.2 – Verpflichtung der Institutionsleitung
 
-**Stufe:** `normal-SdT` · **Aufwand:** 0
+**Pflicht:** MUSS · **Stufe:** `normal-SdT` · **Aufwand:** 0
 
 > Governance und Compliance MUSS die Verpflichtung der Institutionsleitung zuweisen.
 
@@ -129,7 +129,7 @@ Die Verpflichtung der Institutionsleitung beinhaltet die Übernahme der Gesamtve
 
 #### GC.5.1.3 – Erstellung einer Sicherheitsleitlinie
 
-**Stufe:** `normal-SdT` · **Aufwand:** 0
+**Pflicht:** MUSS · **Stufe:** `normal-SdT` · **Aufwand:** 0
 
 > Governance und Compliance MUSS eine für die Institution passende Sicherheitsleitlinie festlegen.
 
@@ -137,7 +137,7 @@ Die Sicherheitsleitlinie dient als zentrale Weisung und als Orientierung für al
 
 #### GC.5.1.4 – Freigabe der Sicherheitsleitlinie
 
-**Stufe:** `normal-SdT` · **Aufwand:** 0
+**Pflicht:** MUSS · **Stufe:** `normal-SdT` · **Aufwand:** 0
 
 > Governance und Compliance MUSS die festgelegte Sicherheitsleitlinie durch die Institutionsleitung autorisieren.
 
@@ -147,7 +147,7 @@ Diese Autorisierung muss dokumentiert werden.
 
 ### GC.6.1 – Festlegung des Geltungsbereichs
 
-**Stufe:** `normal-SdT` · **Aufwand:** 0
+**Pflicht:** MUSS · **Stufe:** `normal-SdT` · **Aufwand:** 0
 
 > Governance und Compliance MUSS den nachvollziehbar abgegrenzten Geltungsbereich nach Freigabe der Institutionsleitung festlegen.
 
@@ -157,7 +157,7 @@ Der Geltungsbereich legt den formalen und organisatorischen Umfang (Scope) fest,
 
 ### GC.7.1 – Vorgehen bei der Informationssicherheitseinstufung
 
-**Stufe:** `normal-SdT` · **Aufwand:** 0
+**Pflicht:** MUSS · **Stufe:** `normal-SdT` · **Aufwand:** 0
 
 > Governance und Compliance MUSS ein Verfahren für die Festlegung von Geschäftsprozessen und die Einstufung des Schutzbedarfs dieser Geschäftsprozesse oder den hierbei verarbeiteten Informationen verankern.
 
@@ -165,7 +165,7 @@ Die Informationssicherheitseinstufung dient der systematischen Identifikation de
 
 #### GC.7.1.1 – Festlegung der Geschäftsprozesse
 
-**Stufe:** `normal-SdT` · **Aufwand:** 0
+**Pflicht:** MUSS · **Stufe:** `normal-SdT` · **Aufwand:** 0
 
 > Governance und Compliance MUSS die Geschäftsprozesse oder Informationen die für den Geltungsbereich relevant sind festlegen.
 
@@ -173,7 +173,7 @@ Hierbei kann oft auf bestehende Prozesslandkarten und Managementsysteme zurückg
 
 #### GC.7.1.2 – Festlegung des Schutzbedarfs
 
-**Stufe:** `normal-SdT` · **Aufwand:** 0
+**Pflicht:** MUSS · **Stufe:** `normal-SdT` · **Aufwand:** 0
 
 > Governance und Compliance MUSS eine Einstufung des Schutzbedarfs der relevanten Geschäftsprozesse oder Informationen unter Berücksichtigung der Geschäftsziele und in Absprache mit der Institutionsleitung festlegen.
 
@@ -181,7 +181,7 @@ Das Ergebnis der Schutzbedarfsfeststellung ist eine Übersicht des Schutzbedarfs
 
 ### GC.7.2 – Geschäftsprozesse mit hohem Schutzbedarf
 
-**Stufe:** `normal-SdT` · **Aufwand:** 0
+**Pflicht:** MUSS · **Stufe:** `normal-SdT` · **Aufwand:** 0
 
 > Governance und Compliance MUSS eine dedizierte Risikobetrachtung von Geschäftsprozessen oder Informationen mit hohem Schutzbedarf entsprechend der gewählten Methodik für das Informationssicherheitsrisikomanagement ausführen.
 
@@ -191,7 +191,7 @@ Diese Anforderung stellt den Aussprungpunkt in die Risikobetrachtung dar, deren 
 
 ### GC.8.1 – Verfahren zur Ressourcenplanung
 
-**Stufe:** `normal-SdT` · **Aufwand:** 0
+**Pflicht:** MUSS · **Stufe:** `normal-SdT` · **Aufwand:** 0
 
 > Governance und Compliance MUSS ein Verfahren zur kontinuierlichen, wirtschaftlichen Planung von Ressourcen für das ISMS verankern.
 
@@ -201,7 +201,7 @@ Die Ressourcenplanung berücksichtigt die personellen, finanziellen und materiel
 
 ### GC.9.1 – Festlegung einer Sicherheitsorganisation
 
-**Stufe:** `normal-SdT` · **Aufwand:** 0
+**Pflicht:** MUSS · **Stufe:** `normal-SdT` · **Aufwand:** 0
 
 > Governance und Compliance MUSS die Sicherheitsorganisation für das ISMS unter Einbezug von Rollen, Zuständigkeiten sowie Gremien festlegen.
 
@@ -209,7 +209,7 @@ Ziel der Sicherheitsorganisation ist es, die relevanten Bereiche eines ISMS sowi
 
 #### GC.9.1.1 – Festlegung von Rollen und Zuständigkeiten
 
-**Stufe:** `normal-SdT` · **Aufwand:** 0
+**Pflicht:** MUSS · **Stufe:** `normal-SdT` · **Aufwand:** 0
 
 > Governance und Compliance MUSS die *[Rollen und Zuständigkeiten]* im Rahmen des ISMS inklusive ihrer Kompetenzen bzw. Befugnisse zuweisen.
 
@@ -217,7 +217,7 @@ Im Rahmen des ISMS werden die Rollen hinsichtlich der Aufgaben, der dafür notwe
 
 ##### GC.9.1.1.1 – Informationssicherheitsbeauftragter
 
-**Stufe:** `normal-SdT` · **Aufwand:** 0
+**Pflicht:** MUSS · **Stufe:** `normal-SdT` · **Aufwand:** 0
 
 > Governance und Compliance MUSS die Zuständigkeit für Informationssicherheit *[einer unabhängigen Person]* , welche unmittelbar der Institutionsleitung unterstellt ist, zuweisen.
 
@@ -225,7 +225,7 @@ Informationssicherheit liegt in der Verantwortung der Institutionsleitung. Die o
 
 ###### GC.9.1.1.1.1 – Ressourcen für den Informationssicherheitsbeauftragten
 
-**Stufe:** `normal-SdT` · **Aufwand:** 0
+**Pflicht:** MUSS · **Stufe:** `normal-SdT` · **Aufwand:** 0
 
 > Governance und Compliance MUSS dem Informationssicherheitsbeauftragten hinreichende Ressourcen zuweisen.
 
@@ -233,7 +233,7 @@ Zu den Aufgaben des ISB gehören beispielsweise die Beratung der Institutionslei
 
 ###### GC.9.1.1.1.2 – Vorspracherecht
 
-**Stufe:** `normal-SdT` · **Aufwand:** 0
+**Pflicht:** MUSS · **Stufe:** `normal-SdT` · **Aufwand:** 0
 
 > Governance und Compliance MUSS das direkte Vorspracherecht des Informationssicherheitsbeauftragten bei der Institutionsleitung verankern.
 
@@ -241,7 +241,7 @@ Das Vorspracherecht trägt dazu bei, dass die Institutionsleitung ein vollständ
 
 ##### GC.9.1.1.2 – Stellvertreterregelungen
 
-**Stufe:** `normal-SdT` · **Aufwand:** 0
+**Pflicht:** MUSS · **Stufe:** `normal-SdT` · **Aufwand:** 0
 
 > Governance und Compliance MUSS Stellvertreterregelungen für alle relevanten Rollen und Zuständigkeiten im ISMS zuweisen.
 
@@ -249,7 +249,7 @@ Eine kontinuierliche Handlungsunfähigkeit der Sicherheitsorganisation kann nur 
 
 ##### GC.9.1.1.3 – Vermeidung von Interessenkonflikten
 
-**Stufe:** `normal-SdT` · **Aufwand:** 0
+**Pflicht:** MUSS · **Stufe:** `normal-SdT` · **Aufwand:** 0
 
 > Governance und Compliance MUSS Maßnahmen zur Vermeidung von Interessenkonflikten bei der Festlegung von Rollen und Zuständigkeiten des ISMS festlegen.
 
@@ -257,7 +257,7 @@ Für die Vermeidung von Interessenkonflikten wird insbesondere die Zuordnung kon
 
 ##### GC.9.1.1.4 – Sicherstellung der Qualifikation
 
-**Stufe:** `normal-SdT` · **Aufwand:** 0
+**Pflicht:** MUSS · **Stufe:** `normal-SdT` · **Aufwand:** 0
 
 > Governance und Compliance MUSS für jeden Rollen- und Verantwortungsträger die erforderlichen Anforderungen und Fähigkeiten festlegen.
 
@@ -267,7 +267,7 @@ Für jeden Rollen- und Verantwortungsträger werden die Anforderungen und Fähig
 
 ### GC.10.1 – Festlegung eines Verfahrens zum Kommunikationsmanagement
 
-**Stufe:** `normal-SdT` · **Aufwand:** 0
+**Pflicht:** MUSS · **Stufe:** `normal-SdT` · **Aufwand:** 0
 
 > Governance und Compliance MUSS ein Verfahren zum Kommunikationsmanagement hinsichtlich der internen und externen Kommunikation verankern.
 
@@ -275,7 +275,7 @@ Für die relevante Kommunikation im Rahmen eines ISMS werden die Eckpunkte (wer,
 
 #### GC.10.1.1 – Externer Austausch zur Informationssicherheit
 
-**Stufe:** `normal-SdT` · **Aufwand:** 4
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 4
 
 > Governance und Compliance SOLLTE einen externen Austausch zur Informationssicherheit verankern.
 
@@ -283,7 +283,7 @@ Um auch andere Perspektiven wahrzunehmen und Eindrücke zu erhalten, findet ein 
 
 #### GC.10.1.2 – Kommunikation im Projektmanagement
 
-**Stufe:** `normal-SdT` · **Aufwand:** 0
+**Pflicht:** MUSS · **Stufe:** `normal-SdT` · **Aufwand:** 0
 
 > Governance und Compliance MUSS bei sicherheitsrelevanten Projekten die Beteiligung *[der relevanten Sicherheitsorgane]* zu festgelegten Zeitpunkten im Projektverlauf verankern.
 
@@ -293,7 +293,7 @@ Bei allen Projekten, die Auswirkungen auf die Informationsverarbeitung haben erf
 
 ### GC.11.1 – Dokumentenlenkung
 
-**Stufe:** `normal-SdT` · **Aufwand:** 0
+**Pflicht:** MUSS · **Stufe:** `normal-SdT` · **Aufwand:** 0
 
 > Governance und Compliance MUSS ein Verfahren zur Lenkung der Dokumente im Rahmen des ISMS über ihren kompletten Lebenszyklus hinweg verankern.
 
@@ -303,7 +303,7 @@ Ziel eines Verfahrens zur Dokumentenlenkung ist die Sicherstellung der Nachvollz
 
 ### GC.12.1 – Methodik für das Risikomanagement
 
-**Stufe:** `normal-SdT` · **Aufwand:** 0
+**Pflicht:** MUSS · **Stufe:** `normal-SdT` · **Aufwand:** 0
 
 > Governance und Compliance MUSS *[eine einheitliche Methodik]* für das Informationssicherheitsrisikomanagement unter Berücksichtigungen von Kontext, Geschäftsprozessanalyse und interessierten Parteien verankern.
 

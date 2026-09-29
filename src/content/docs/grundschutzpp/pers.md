@@ -9,7 +9,7 @@ Die Praktik Personal fokussiert sich auf die Integration von Sicherheitsanforder
 
 ### PERS.1.1 – Verfahren und Regelungen
 
-**Stufe:** `normal-SdT` · **Aufwand:** 0 · **Gefährdungen:** G 0.18
+**Pflicht:** MUSS · **Stufe:** `normal-SdT` · **Aufwand:** 0 · **Gefährdungen:** G 0.18
 
 > Personal MUSS Verfahren und Regelungen zum Personalmanagement verankern.
 
@@ -17,7 +17,7 @@ Der Prozess stellt sicher, dass qualifiziertes und zuverlässiges Personal für 
 
 #### PERS.1.1.1 – Dokumentation
 
-**Stufe:** `normal-SdT` · **Aufwand:** 0 · **Gefährdungen:** G 0.18, G 0.37
+**Pflicht:** MUSS · **Stufe:** `normal-SdT` · **Aufwand:** 0 · **Gefährdungen:** G 0.18, G 0.37
 
 > Personal MUSS die Verfahren und Regelungen dokumentieren.
 
@@ -25,7 +25,7 @@ Ohne eine Dokumentation könnte die Einhaltung der Verfahren und Regelungen von 
 
 #### PERS.1.1.2 – Zuweisung der Aufgaben
 
-**Stufe:** `normal-SdT` · **Aufwand:** 0 · **Gefährdungen:** G 0.18, G 0.31
+**Pflicht:** MUSS · **Stufe:** `normal-SdT` · **Aufwand:** 0 · **Gefährdungen:** G 0.18, G 0.31
 
 > Personal MUSS die mit den Verfahren und Regelungen verbundenen Aufgaben *[zuständigen Personen oder Rollen]* zuweisen.
 
@@ -33,7 +33,7 @@ Die Zuweisung von Aufgaben bezeichnet die eindeutige und verbindliche Übertragu
 
 #### PERS.1.1.3 – Bekanntgabe
 
-**Stufe:** `normal-SdT` · **Aufwand:** 0 · **Gefährdungen:** G 0.18, G 0.31
+**Pflicht:** MUSS · **Stufe:** `normal-SdT` · **Aufwand:** 0 · **Gefährdungen:** G 0.18, G 0.31
 
 > Personal MUSS die zuständigen Personen oder Rollen über die Verfahren und Regelungen informieren.
 
@@ -41,7 +41,7 @@ Wenn die Zuständigen die etablierten Verfahren nicht kennen, besteht die Gefahr
 
 ### PERS.1.2 – Regelmäßige Überprüfung
 
-**Stufe:** `normal-SdT` · **Aufwand:** 0 · **Gefährdungen:** G 0.18
+**Pflicht:** MUSS · **Stufe:** `normal-SdT` · **Aufwand:** 0 · **Gefährdungen:** G 0.18
 
 > Personal MUSS die Verfahren und Regelungen *[regelmäßig]* und anlassbezogen auf Aktualität überprüfen.
 
@@ -51,7 +51,7 @@ Eine geplante der etablierten Verfahren und Regelungen dient dazu festzustellen,
 
 ### PERS.2.1 – Aufgaben
 
-**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.18, G 0.33, G 0.31
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.18, G 0.33, G 0.31
 
 > Personal SOLLTE für alle Tätigkeiten im Geltungsbereich Aufgaben mit Abgrenzungen und Schnittstellen verankern.
 
@@ -59,7 +59,7 @@ Aufgaben sind die konkreten Tätigkeiten, die für die Errichtung und Aufrechter
 
 ### PERS.2.2 – Rollen
 
-**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.18, G 0.33, G 0.31
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.18, G 0.33, G 0.31
 
 > Personal SOLLTE für alle Tätigkeiten im Geltungsbereich Rollen mit Zielen, Aufgaben, erforderlichen Kompetenzen und Qualifikationen verankern.
 
@@ -67,7 +67,7 @@ Eine Rolle beschreibt eine Stelle oder Personalposition innerhalb des ISMS. Sie 
 
 ### PERS.2.3 – Rollentrennung
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.18, G 0.33, G 0.31
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.18, G 0.33, G 0.31
 
 > Personal SOLLTE für unvereinbare Aufgaben eine Rollentrennung verankern.
 
@@ -75,7 +75,7 @@ Bei einer Aufgabentrennung (Separation of Duties) werden miteinander in Konflikt
 
 #### PERS.2.3.1 – Rollentrennung - Verzeichnisdienst
 
-**Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.18, G 0.33, G 0.31
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.18, G 0.33, G 0.31
 
 > Personal SOLLTE zwischen Administration von Verzeichnisdiensten und Pflege der verwalteten Daten eine Rollentrennung verankern.
 
@@ -83,7 +83,7 @@ Administrierende von Verzeichnisdiensten haben sehr weitreichende Rechte, einsch
 
 #### PERS.2.3.2 – Rollentrennung - Virtualisierung
 
-**Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.18, G 0.33, G 0.31
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.18, G 0.33, G 0.31
 
 > Personal SOLLTE zwischen Administration von virtuellen Systemen und Virtualisierungslösungen eine Rollentrennung verankern.
 
@@ -91,7 +91,7 @@ Die Administration von virtuellen Systemen bezeichnet im hier relevanten Kontext
 
 #### PERS.2.3.3 – Rollentrennung - Audits
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.18, G 0.33, G 0.31
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.18, G 0.33, G 0.31
 
 > Personal SOLLTE zwischen Implementierung von Sicherheitsanforderungen und deren Überprüfung eine Rollentrennung verankern.
 
@@ -99,7 +99,7 @@ Fehlt eine Rollentrennung zwischen Umsetzung und Überprüfung von Sicherheitsma
 
 #### PERS.2.3.4 – Rollentrennung - Änderungen und Tests
 
-**Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.18, G 0.26, G 0.33, G 0.28
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.18, G 0.26, G 0.33, G 0.28
 
 > Personal SOLLTE zwischen Implementierung und Test eine Rollentrennung verankern.
 
@@ -107,7 +107,7 @@ Liegen Implementierung von Funktionen und Änderungen, sowie deren Test in derse
 
 ### PERS.2.4 – Zuständigkeiten
 
-**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.18, G 0.33, G 0.31
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.18, G 0.33, G 0.31
 
 > Personal SOLLTE Zuständigkeiten für die Rollen zuweisen.
 
@@ -117,7 +117,7 @@ Damit die mit jeder Rolle verbundenen Aufgaben auch tatsächlich bearbeitet werd
 
 ### PERS.3.1 – Dienst- oder Arbeitsvertrag
 
-**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.31, G 0.33, G 0.32, G 0.35
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.31, G 0.33, G 0.32, G 0.35
 
 > Personal für Mitarbeitende SOLLTE die vertrauliche Behandlung von Betriebs- und Geschäftsgeheimnissen vereinbaren.
 
@@ -125,7 +125,7 @@ Die vertrauliche Behandlung meint hierbei die arbeits-, dienst- oder statusbezog
 
 ### PERS.3.2 – Verfahrensanweisungen
 
-**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.31, G 0.33, G 0.32, G 0.35
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.31, G 0.33, G 0.32, G 0.35
 
 > Personal für Mitarbeitende SOLLTE explizit zur Einhaltung von Verfahrensanweisungen bei Neuzugang anweisen.
 
@@ -133,7 +133,7 @@ Wenn neue Mitarbeitende keine explizite Anweisung erhalten, dass Sicherheitsanwe
 
 ### PERS.3.3 – Betriebs- und Geschäftsgeheimnisse
 
-**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.31, G 0.33, G 0.32, G 0.35
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.31, G 0.33, G 0.32, G 0.35
 
 > Personal für Mitarbeitende SOLLTE zum Umgang mit definierten Betriebs- und Geschäftsgeheimnissen bei Neuzugang anweisen.
 
@@ -141,7 +141,7 @@ Eine Dienst- oder Arbeitsanweisung, die zu wahrende Betriebs- und Geschäftsgehe
 
 ### PERS.3.4 – Stellenbeschreibungen
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.31, G 0.33, G 0.32, G 0.35
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.31, G 0.33, G 0.32, G 0.35
 
 > Personal SOLLTE Stellenbeschreibungen vor Ausschreibung zu besetzender Stellen dokumentieren.
 
@@ -149,7 +149,7 @@ Eine Stellenbeschreibung ist hier ein Dokument, das die zentralen Aufgaben, Vera
 
 ### PERS.3.5 – Prüfung der Bewerbungsunterlagen
 
-**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.31, G 0.33, G 0.32, G 0.35
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.31, G 0.33, G 0.32, G 0.35
 
 > Personal SOLLTE die Qualifikation von Bewerbenden anhand der Bewerbungsunterlagen vor der Besetzung von Stellen testen.
 
@@ -157,7 +157,7 @@ Die Prüfung von Unterlagen zur Qualifikation ist essenziell, um sicherzustellen
 
 ### PERS.3.6 – Vertrauenswürdigkeit von Bewerbenden
 
-**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.31, G 0.33, G 0.32, G 0.35
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.31, G 0.33, G 0.32, G 0.35
 
 > Personal SOLLTE die Vertrauenswürdigkeit von Bewerbenden vor der Besetzung von Stellen testen.
 
@@ -165,7 +165,7 @@ Hierbei sind sowohl die Identität der Person, als auch ihre Qualifikation anhan
 
 #### PERS.3.6.1 – Sicherheitsüberprüfung (intern)
 
-**Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.31, G 0.33, G 0.32, G 0.35
+**Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.31, G 0.33, G 0.32, G 0.35
 
 > Personal KANN eine Sicherheitsüberprüfung vor der Besetzung von sicherheitsrelevanten Stellen ausführen.
 
@@ -173,7 +173,7 @@ Eine Sicherheitsüberprüfung meint die Verifikation von Identität, beruflicher
 
 ### PERS.3.7 – Einarbeitung
 
-**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.31, G 0.33, G 0.32, G 0.35
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.31, G 0.33, G 0.32, G 0.35
 
 > Personal für Mitarbeitende SOLLTE eine Einarbeitung bei Neuzugang ausführen.
 
@@ -183,7 +183,7 @@ Eine Einarbeitung ist eine strukturierte Vorgehensweise, bei der neue Mitarbeite
 
 ### PERS.4.1 – Qualifikationsbedarf
 
-**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.18
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.18
 
 > Personal für Mitarbeitende SOLLTE den Bedarf an Qualifikationsmaßnahmen anhand der Aufgaben *[regelmäßig]* überprüfen.
 
@@ -191,7 +191,7 @@ Qualifikationsmaßnahmen sind z.B. Zertifizierte Weiterbildungen, interne Schulu
 
 ### PERS.4.2 – Rollenspezifische Schulungen und Sensibilisierungen
 
-**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.42
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.42
 
 > Personal für Nutzende SOLLTE rollenspezifische Schulungen und Sensibilisierungen im Einklang mit den Anforderungen der Praktik Sensibilisierung bei Neuzugang und *[regelmäßig]* ausführen.
 
@@ -199,7 +199,7 @@ Neue Mitarbeitende könnten ohne gezielte Einführung unbewusst vertrauliche Inf
 
 #### PERS.4.2.1 – Produktspezifische Schulungen und Sensibilisierungen
 
-**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.18
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.18
 
 > Personal für Administrierende SOLLTE produktspezifische Schulungen zum Umgang mit administrativen Werkzeugen bei Neuzugang und dem Einsatz neuer IT-Produkte ausführen.
 
@@ -209,7 +209,7 @@ Ziel ist es, den sicheren Umgang mit den in der Institution genutzten administra
 
 ### PERS.5.1 – Maßregelung
 
-**Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.18
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.18
 
 > Personal SOLLTE ein Verfahren zur Maßregelung verankern.
 
@@ -217,7 +217,7 @@ Legen Sie fest unter welchen Voraussetzungen (z.B. Benennung konkreter Pflicht, 
 
 ### PERS.5.2 – Innentäter
 
-**Stufe:** `normal-SdT` · **Aufwand:** 5 · **Gefährdungen:** G 0.18
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 5 · **Gefährdungen:** G 0.18
 
 > Personal SOLLTE ein interdisziplinäres Verfahren zum Umgang mit potenziellen Innentätern verankern.
 
@@ -225,7 +225,7 @@ Ein interdisziplinäres Verfahren zum Umgang mit potenziellen Innentätern integ
 
 ### PERS.5.3 – Vertrauens-Check sicherheitskritischer Rollen
 
-**Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.18
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.18
 
 > Personal SOLLTE die Vertrauenswürdigkeit für *[definierte sicherheitskritische Rollen]* *[regelmäßig]* und anlassbezogen überprüfen.
 
@@ -235,7 +235,7 @@ Die Vertrauenswürdigkeit bezeichnet im hier relevanten Kontext die Eignung und 
 
 ### PERS.6.1 – Vorgehensweise für den Weggang
 
-**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.18
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.18
 
 > Personal für Nutzende SOLLTE eine Vorgehensweise für den Weggang verankern.
 
@@ -243,7 +243,7 @@ Wenn Nutzende ohne gesteuertes Vorgehen aus dem Informationsverbund ausscheiden,
 
 #### PERS.6.1.1 – Entzug von Berechtigungen gemäß BER
 
-**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.18
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.18
 
 > Personal für Nutzende SOLLTE bei Weggang den unverzüglichen Entzug aller Zugriffsrechte im Einklang mit den Regelungen und Verfahren zum Berechtigungs- und Identitätsmanagement verankern.
 
@@ -251,7 +251,7 @@ Der unverzügliche Entzug bedeutet in diesem Kontext die sofortige und vollstän
 
 #### PERS.6.1.2 – Neubesetzung
 
-**Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.18
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.18
 
 > Personal für Mitarbeitende SOLLTE bei Weggang frei gewordene Zuständigkeiten zuweisen.
 

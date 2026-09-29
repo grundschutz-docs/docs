@@ -9,7 +9,7 @@ Die Praktik Verbesserung gewährleistet die kontinuierliche Weiterentwicklung un
 
 ### VRB.1.1 – Verfahren zur kontinuierlichen Verbesserung
 
-**Stufe:** `normal-SdT` · **Aufwand:** 0
+**Pflicht:** MUSS · **Stufe:** `normal-SdT` · **Aufwand:** 0
 
 > Verbesserung MUSS ein Verfahren zur kontinuierlichen Verbesserung des ISMS verankern.
 
@@ -19,7 +19,7 @@ Im Verfahren zur Verbesserung werden Erkenntnisse aus der Überwachung in konkre
 
 ### VRB.2.1 – Umgang mit Nicht-Konformitäten
 
-**Stufe:** `normal-SdT` · **Aufwand:** 0
+**Pflicht:** MUSS · **Stufe:** `normal-SdT` · **Aufwand:** 0
 
 > Verbesserung MUSS eine Methode zur Überprüfung von Nicht-Konformitäten hinsichtlich Ursachen und Wiederauftreten festlegen.
 
@@ -27,7 +27,7 @@ Die Methode sollte eine systematische Erfassung und Dokumentation aller identifi
 
 ### VRB.2.2 – Anpassung des ISMS
 
-**Stufe:** `normal-SdT` · **Aufwand:** 0
+**Pflicht:** MUSS · **Stufe:** `normal-SdT` · **Aufwand:** 0
 
 > Verbesserung MUSS die Notwendigkeit zur Anpassung des ISMS hinsichtlich der Nicht-Konformitäten *[regelmäßig]* überprüfen.
 
@@ -37,7 +37,7 @@ Hier erfolgt eine Bewertung der Wahrscheinlichkeit des Wiederauftretens von Nich
 
 ### VRB.3.1 – Identifikation von Verbesserungspotenzialen
 
-**Stufe:** `normal-SdT` · **Aufwand:** 0
+**Pflicht:** MUSS · **Stufe:** `normal-SdT` · **Aufwand:** 0
 
 > Verbesserung MUSS eine Methode zur Überprüfung und Bewertung von Verbesserungspotentialen unter Berücksichtigung der damit verbundenen Vor- und Nachteile festlegen.
 
@@ -47,7 +47,7 @@ Im Gegensatz zum reaktiven Umgang mit Nicht-Konformitäten zielt die Identifikat
 
 ### VRB.4.1 – Korrekturmaßnahmen
 
-**Stufe:** `normal-SdT` · **Aufwand:** 0
+**Pflicht:** MUSS · **Stufe:** `normal-SdT` · **Aufwand:** 0
 
 > Verbesserung MUSS angemessene Korrekturmaßnahmen zur Beseitigung der Ursachen von Fehlern festlegen.
 
@@ -55,7 +55,7 @@ Bei der Entwicklung von Korrekturvorschlägen zur Beseitigung von Fehlerursachen
 
 ### VRB.4.2 – Verbesserungsmaßnahmen
 
-**Stufe:** `normal-SdT` · **Aufwand:** 0
+**Pflicht:** MUSS · **Stufe:** `normal-SdT` · **Aufwand:** 0
 
 > Verbesserung MUSS angemessene Maßnahmen zur Nutzung von Verbesserungspotentialen unter Berücksichtigung der damit verbundenen Vor- und Nachteile festlegen.
 
@@ -65,7 +65,7 @@ Verbesserungen zielen nicht primär auf die Behebung von Problemen, sondern auf 
 
 ### VRB.5.1 – Priorisierung von Maßnahmen
 
-**Stufe:** `normal-SdT` · **Aufwand:** 0
+**Pflicht:** MUSS · **Stufe:** `normal-SdT` · **Aufwand:** 0
 
 > Verbesserung MUSS den Maßnahmen zur Korrektur und Verbesserung Prioritäten zuweisen.
 
@@ -75,7 +75,7 @@ Maßnahmen zur Verbesserung müssen in den Umsetzungsplan einfließen. Dort werd
 
 ### VRB.6.1 – Überprüfung der erreichten Verbesserung
 
-**Stufe:** `normal-SdT` · **Aufwand:** 0
+**Pflicht:** MUSS · **Stufe:** `normal-SdT` · **Aufwand:** 0
 
 > Verbesserung MUSS die Wirksamkeit der umgesetzten Korrektur- und Verbesserungsmaßnahmen *[regelmäßig]* testen.
 
@@ -83,7 +83,7 @@ Die Wirksamkeitsprüfung stellt sicher, dass der kontinuierliche Verbesserungspr
 
 ### VRB.6.2 – Bewertung der erreichten Verbesserung
 
-**Stufe:** `normal-SdT` · **Aufwand:** 2
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2
 
 > Verbesserung SOLLTE ein Verfahren zur Bewertung der erreichten Verbesserung unter Berücksichtigung der damit verbundenen Vor- und Nachteile verankern.
 
@@ -93,7 +93,7 @@ Die Bewertung kann beispielsweise durch interne Audits, die Messung von Key Perf
 
 ### VRB.7.1 – Behandlung von Compliance-Verstößen
 
-**Stufe:** `normal-SdT` · **Aufwand:** 2
+**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2
 
 > Verbesserung SOLLTE ein Verfahren zur Behandlung von Verstößen unter Berücksichtigung der Betroffenenrechte verankern.
 
