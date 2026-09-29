@@ -11,7 +11,7 @@ Das Gebäudemanagement sorgt für die Implementierung von physischen Sicherheits
 
 **Pflicht:** MUSS · **Stufe:** `normal-SdT` · **Aufwand:** 0 · **Gefährdungen:** G 0.18
 
-**Vorgänger:** [INF.1.A1-UA.1](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/10_INF_Infrastruktur/INF_1_Allgemeines_Gebaeude_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (intersects-with)
+**Vorgänger:** [INF.1.A1-UA.1](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/10_INF_Infrastruktur/INF_1_Allgemeines_Gebaeude_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (überschneidet sich mit)
 
 > Gebäudemanagement für Standorte MUSS Verfahren und Regelungen zum physischen Schutz von Standorten, an denen schützenswerte Informationen verarbeitet oder gespeichert werden, verankern.
 
@@ -193,7 +193,7 @@ Unter Berechtigungsmarkierungen sind physische Kennzeichen wie Ausweise, Badges,
 
 **Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.44, G 0.16, G 0.24, G 0.19, G 0.34, G 0.41
 
-**Vorgänger:** [INF.10.A1-UA.1](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/10_INF_Infrastruktur/INF_10_Besprechungs_Veranstaltungs_und_Schulungsraeume_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (intersects-with)
+**Vorgänger:** [INF.10.A1-UA.1](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/10_INF_Infrastruktur/INF_10_Besprechungs_Veranstaltungs_und_Schulungsraeume_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (überschneidet sich mit)
 
 > Gebäudemanagement für Standorte KANN einbruchhemmende Bauteile nach *[einer entsprechenden Norm]* installieren.
 
@@ -255,7 +255,7 @@ Eine Vereinzelungsanlage ist eine technische Einrichtung, die den gleichzeitigen
 
 **Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.44, G 0.19, G 0.21
 
-**Vorgänger:** [INF.8.A1-UA.3](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/10_INF_Infrastruktur/INF_8_Haeuslicher_Arbeitsplatz_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (intersects-with)
+**Vorgänger:** [INF.8.A1-UA.3](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/10_INF_Infrastruktur/INF_8_Haeuslicher_Arbeitsplatz_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (überschneidet sich mit)
 
 > Gebäudemanagement für Standorte SOLLTE einen Zugang für die Abwicklung von Lieferungen ohne unbefugten Zugang zum restlichen Standort installieren.
 
@@ -315,7 +315,7 @@ Sinn und Zweck dieser Anforderung liegt darin, die Risiken durch unkontrollierte
 
 **Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.2, G 0.1
 
-**Vorgänger:** [INF.2.A1-UA.1](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/10_INF_Infrastruktur/INF_2_Rechenzentrum_sowie_Serverraum_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (intersects-with)
+**Vorgänger:** [INF.2.A1-UA.1](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/10_INF_Infrastruktur/INF_2_Rechenzentrum_sowie_Serverraum_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (überschneidet sich mit)
 
 > Gebäudemanagement für Serverräume KANN diese ausschließlich in Rechenzentren nach *[einer anerkannten Norm]* platzieren.
 
@@ -353,7 +353,7 @@ Ohne eine solche Kontrolle könnten z. B. verlorene, vergessene oder unregistrie
 
 **Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.16
 
-**Vorgänger:** [INF.10.A1-UA.1](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/10_INF_Infrastruktur/INF_10_Besprechungs_Veranstaltungs_und_Schulungsraeume_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (intersects-with)
+**Vorgänger:** [INF.10.A1-UA.1](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/10_INF_Infrastruktur/INF_10_Besprechungs_Veranstaltungs_und_Schulungsraeume_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (überschneidet sich mit)
 
 > Gebäudemanagement für Standorte SOLLTE geschäftskritische Speichermedien in verschließbaren Schutzeinrichtungen platzieren.
 
@@ -543,7 +543,7 @@ Relevant ist für das Brandverhalten von Bauprodukten und Bauarten die europäis
 
 **Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.1, G 0.18
 
-**Vorgänger:** [INF.2.A2-UA.3](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/10_INF_Infrastruktur/INF_2_Rechenzentrum_sowie_Serverraum_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (equivalent-to)
+**Vorgänger:** [INF.2.A2-UA.3](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/10_INF_Infrastruktur/INF_2_Rechenzentrum_sowie_Serverraum_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (entspricht)
 
 > Gebäudemanagement für Räume SOLLTE Brandabschnitte nach den entsprechenden Normen installieren.
 
@@ -553,7 +553,7 @@ Brandabschnitte sind baulich abgegrenzte Bereiche in Gebäuden, die im Brandfall
 
 **Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.1, G 0.18
 
-**Vorgänger:** [INF.2.A2-UA.3](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/10_INF_Infrastruktur/INF_2_Rechenzentrum_sowie_Serverraum_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (equivalent-to)
+**Vorgänger:** [INF.2.A2-UA.3](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/10_INF_Infrastruktur/INF_2_Rechenzentrum_sowie_Serverraum_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (entspricht)
 
 > Gebäudemanagement für Räume KANN alle raumbildende Teile rauchdicht installieren.
 

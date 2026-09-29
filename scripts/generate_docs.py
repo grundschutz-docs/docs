@@ -130,6 +130,22 @@ def baustein_id_from_itgs_id(itgs_id):
     return m.group(1) if m else None
 
 
+# OSCAL-Beziehungstypen aus der Mapping-Datei sind englisches
+# Standard-Vokabular (internationales Format) -- auf einer sonst
+# durchgehend deutschen Seite übersetzt anzeigen. Interner Wert (für
+# Sortierung o. ä.) bleibt englisch, nur die Anzeige wird übersetzt.
+RELATIONSHIP_LABELS = {
+    "equivalent-to": "entspricht",
+    "subset-of": "Teilmenge von",
+    "superset-of": "Übermenge von",
+    "intersects-with": "überschneidet sich mit",
+}
+
+
+def relationship_label(rel):
+    return RELATIONSHIP_LABELS.get(rel, rel)
+
+
 def predecessor_line(control_id, predecessor_index, baustein_links):
     entries = predecessor_index.get(control_id)
     if not entries:
@@ -139,7 +155,7 @@ def predecessor_line(control_id, predecessor_index, baustein_links):
         baustein_id = baustein_id_from_itgs_id(old_id)
         link = baustein_links.get(baustein_id) if baustein_id else None
         label = f"[{old_id}]({link})" if link else old_id
-        parts.append(f"{label} ({rel})")
+        parts.append(f"{label} ({relationship_label(rel)})")
     return "**Vorgänger:** " + " · ".join(parts) + "\n"
 
 
@@ -297,7 +313,7 @@ def render_vergleich_page(all_mappings, group_titles, baustein_links):
             link = baustein_links.get(baustein_id) if baustein_id else None
             old_cell = f"[{old_id}]({link})" if link else old_id
             new_cell = f"[{new_id}](/grundschutzpp/{slug}/)"
-            lines.append(f"| {old_cell} | {rel} | {new_cell} |\n")
+            lines.append(f"| {old_cell} | {relationship_label(rel)} | {new_cell} |\n")
         lines.append("\n")
     return "".join(lines)
 

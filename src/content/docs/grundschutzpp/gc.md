@@ -115,7 +115,7 @@ Die Ziele sollten Bezug zu den Geschäftszielen der Institution aufweisen und m�
 
 **Pflicht:** MUSS · **Stufe:** `normal-SdT` · **Aufwand:** 3
 
-**Vorgänger:** [ORP.2.A3-UA.2](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/02_ORP_Organisation_und_Personal/ORP_2_Personal_Editon_2023.pdf?__blob=publicationFile&v=4#download=1) (intersects-with)
+**Vorgänger:** [ORP.2.A3-UA.2](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/02_ORP_Organisation_und_Personal/ORP_2_Personal_Editon_2023.pdf?__blob=publicationFile&v=4#download=1) (überschneidet sich mit)
 
 > Governance und Compliance MUSS eine grundlegende Strategie zur Erreichung der Ziele für die Informationssicherheit gemeinsam mit der Institutionsleitung festlegen.
 
@@ -161,7 +161,7 @@ Der Geltungsbereich legt den formalen und organisatorischen Umfang (Scope) fest,
 
 **Pflicht:** MUSS · **Stufe:** `normal-SdT` · **Aufwand:** 0
 
-**Vorgänger:** [APP.3.2.A7-UA.1](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/06_APP_Anwendungen/APP_3_2_Webserver_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (subset-of)
+**Vorgänger:** [APP.3.2.A7-UA.1](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/06_APP_Anwendungen/APP_3_2_Webserver_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (Teilmenge von)
 
 > Governance und Compliance MUSS ein Verfahren für die Festlegung von Geschäftsprozessen und die Einstufung des Schutzbedarfs dieser Geschäftsprozesse oder den hierbei verarbeiteten Informationen verankern.
 
