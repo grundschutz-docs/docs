@@ -11,6 +11,8 @@ Das Gebäudemanagement sorgt für die Implementierung von physischen Sicherheits
 
 **Pflicht:** MUSS · **Stufe:** `normal-SdT` · **Aufwand:** 0 · **Gefährdungen:** G 0.18
 
+**Vorgänger:** [INF.1.A1-UA.1](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/10_INF_Infrastruktur/INF_1_Allgemeines_Gebaeude_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (intersects-with)
+
 > Gebäudemanagement für Standorte MUSS Verfahren und Regelungen zum physischen Schutz von Standorten, an denen schützenswerte Informationen verarbeitet oder gespeichert werden, verankern.
 
 Ein Verfahren zum Gebäudemanagement stellt sicher, dass die zum Betrieb von Geschäftsprozessen erforderliche Infrastruktur vorhanden ist und schützt Zielobjekte dort vor dem Zugriff Unbefugter und vor Elementarschäden wie Feuer, Wind und Wetter. Die bei der Festlegung des Verfahrens im Einzelnen zu berücksichtigenden Inhalte ergeben sich aus den Anforderungen dieser Praktik.
@@ -191,6 +193,8 @@ Unter Berechtigungsmarkierungen sind physische Kennzeichen wie Ausweise, Badges,
 
 **Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.44, G 0.16, G 0.24, G 0.19, G 0.34, G 0.41
 
+**Vorgänger:** [INF.10.A1-UA.1](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/10_INF_Infrastruktur/INF_10_Besprechungs_Veranstaltungs_und_Schulungsraeume_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (intersects-with)
+
 > Gebäudemanagement für Standorte KANN einbruchhemmende Bauteile nach *[einer entsprechenden Norm]* installieren.
 
 Befinden sich am Standort Assets oder Geschäftsprozesse mit erhöhtem Schutzbedarf, so ist es sinnvoll, diese auch gegen hartnäckigere Einbruchsversuche zu schützen, z.B. größere Serverräume oder Datenträgerarchive, sowie Standorte im Fokus der Öffentlichkeit oder von ideologischen Gewalttätern. Die passenden Maßnahmen richten sich nach dem Risikoprofil der zu schützenden Assets, sowie der potenziellen Täter. So kann der Einbau rundum einbruchsicherer Bauteile wie Wände und Türen nach DIN EN 1627 RC3 oder besser sinnvoll sein. Für massive Bedrohungen von Außen bieten sich Poller oder hydraulische Straßensperren, ausgelegt für ein bestimmtes Gewicht bei einer bestimmten Geschwindigkeit, an. Die Anforderung ist auch dann erfüllt, wenn der Standort bereits von Dritten nach Normen wie DIN EN 1627 RC3 erbaut und abgenommen wurde.
@@ -251,6 +255,8 @@ Eine Vereinzelungsanlage ist eine technische Einrichtung, die den gleichzeitigen
 
 **Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.44, G 0.19, G 0.21
 
+**Vorgänger:** [INF.8.A1-UA.3](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/10_INF_Infrastruktur/INF_8_Haeuslicher_Arbeitsplatz_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (intersects-with)
+
 > Gebäudemanagement für Standorte SOLLTE einen Zugang für die Abwicklung von Lieferungen ohne unbefugten Zugang zum restlichen Standort installieren.
 
 Ein Zugang für die Abwicklung von Lieferungen ist ein baulich abgegrenzter Bereich (engl. delivery access point), der es ermöglicht, Waren, Material oder technische Geräte geschützt vor sonstigen äußeren Einflüssen anzunehmen bzw. abzugeben, ohne dass Lieferpersonal oder externe Dienstleister unkontrollierten Zutritt zu sicherheitsrelevanten Bereichen in der Institution erhalten. Unbefugter Zugang meint hierbei jeden Zutritt durch Personen, die für den betroffenen Standort oder bestimmte Schutzbereiche keine Zutrittsberechtigung besitzen (engl. unauthorized access). Der Sinn dieser Vorgabe liegt darin, Risiken durch unkontrollierte physische Zugänge zu minimieren: Ein Lieferant könnte etwa versehentlich oder absichtlich in interne Büro- oder Technikbereiche gelangen und dadurch vertrauliche Informationen, IT-Geräte oder Zugangsdaten einsehen oder entwenden. Eine bauliche und organisatorische Trennung kann dagegen gewährleisten, dass Lieferungen gesteuert angenommen, geprüft und weiterverarbeitet werden, ohne sicherheitskritische Bereiche zu gefährden. Beispielsweise kann es je nach Standort sinnvoll sein: (1) separate Schleusen- oder Annahmebereiche mit kontrollierter Türverriegelung, (2) Gegensprechanlagen oder Kameraeinrichtungen zur Identifikation von Lieferanten, (3) zeitlich begrenzte oder zonenbeschränkte Zutrittsberechtigungen über elektronische Zugangssysteme, sowie (4) baulich getrennte Lieferzonen mit Sichtschutz und gesichertem Übergabepunkt einzurichten.
@@ -309,6 +315,8 @@ Sinn und Zweck dieser Anforderung liegt darin, die Risiken durch unkontrollierte
 
 **Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.2, G 0.1
 
+**Vorgänger:** [INF.2.A1-UA.1](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/10_INF_Infrastruktur/INF_2_Rechenzentrum_sowie_Serverraum_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (intersects-with)
+
 > Gebäudemanagement für Serverräume KANN diese ausschließlich in Rechenzentren nach *[einer anerkannten Norm]* platzieren.
 
 Rechenzentren entsprechen einer anerkannten Norm, wenn sie nach den einschlägigen technischen, sicherheitsrelevanten und organisatorischen Standards für Rechenzentren errichtet und erhalten werden, wie sie etwa in ISO/IEC 22237, EN 50600 oder vergleichbaren Vorgaben beschrieben sind. In der Fachsprache wird häufig von „compliant data centers“ gesprochen. Solche Rechenzentren verfügen über definierte Schutzklassen hinsichtlich physischer Sicherheit, Energieversorgung, Klimatisierung, Brandfrüherkennung und Zutrittskontrolle. Sie gewährleisten kontrollierte Umgebungsbedingungen und eine hohe Verfügbarkeit (Availability Class) für serverbasierte IT-Systeme. Die Platzierung von Serverräumen ausschließlich in diesen Umgebungen kann sicherstellen, dass physische und infrastrukturelle Risiken minimiert werden, etwa durch den Wegfall von unsicheren Eigenbauten oder provisorischen Standorten. Der Zweck dieser Vorgabe liegt in der Risikoreduktion durch Standardisierung und geprüfte baulich-technische Schutzmaßnahmen. Ohne solche Umgebungen könnte beispielsweise ein Stromausfall, eine unzureichende Klimatisierung oder ein lokaler Brand unbemerkt zum Ausfall kritischer Systeme führen, während ein unzureichend gesicherter Standort auch unbefugten physischen Zugriff ermöglichen könnte. Die Nutzung normgerechter Rechenzentren kann demgegenüber die Verfügbarkeit und Integrität der Systeme erhöhen, da Ausfälle und Umwelteinflüsse frühzeitig erkannt und kontrolliert behandelt werden können. Eine Institution kann dies etwa durch die Unterbringung ihrer Server in einem zertifizierten Colocation-Rechenzentrum (z. B. ISO/IEC 27001 und EN 50600-konform), durch die Nutzung eines Tier III- oder Tier IV-Datacenters nach Uptime Institute-Standard oder durch den Umzug bestehender Systeme in eine baulich und betrieblich geprüfte Hosting-Umgebung umsetzen.
@@ -344,6 +352,8 @@ Ohne eine solche Kontrolle könnten z. B. verlorene, vergessene oder unregistrie
 ### GEB.8.1 – Gesonderte Aufbewahrung
 
 **Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.16
+
+**Vorgänger:** [INF.10.A1-UA.1](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/10_INF_Infrastruktur/INF_10_Besprechungs_Veranstaltungs_und_Schulungsraeume_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (intersects-with)
 
 > Gebäudemanagement für Standorte SOLLTE geschäftskritische Speichermedien in verschließbaren Schutzeinrichtungen platzieren.
 
@@ -533,6 +543,8 @@ Relevant ist für das Brandverhalten von Bauprodukten und Bauarten die europäis
 
 **Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.1, G 0.18
 
+**Vorgänger:** [INF.2.A2-UA.3](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/10_INF_Infrastruktur/INF_2_Rechenzentrum_sowie_Serverraum_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (equivalent-to)
+
 > Gebäudemanagement für Räume SOLLTE Brandabschnitte nach den entsprechenden Normen installieren.
 
 Brandabschnitte sind baulich abgegrenzte Bereiche in Gebäuden, die im Brandfall verhindern sollen, dass das Feuer auf andere Bereiche übergreift. Sie werden durch feuerfeste Wände, Decken und andere raumabschließende Bauteile voneinander getrennt. Hier besteht ein enger Zusammenhang zu Compliance-Anforderungen: Größe und Anzahl von Brandabschnitten werden auch durch die Bauordnung und andere Vorschriften festgelegt, abhängig von der Nutzung und Größe des Gebäudes. Für die Informationssicherheit relevant ist darüber hinaus, ob die Auswahl der Brandabschnitte den darin befindlichen Informationen und damit verbundenen Assets ausreichenden Schutz gewährt, um deren Verfügbarkeit aufrechtzuerhalten.
@@ -540,6 +552,8 @@ Brandabschnitte sind baulich abgegrenzte Bereiche in Gebäuden, die im Brandfall
 #### GEB.10.2.3 – Rauchdichtheit
 
 **Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.1, G 0.18
+
+**Vorgänger:** [INF.2.A2-UA.3](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/10_INF_Infrastruktur/INF_2_Rechenzentrum_sowie_Serverraum_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (equivalent-to)
 
 > Gebäudemanagement für Räume KANN alle raumbildende Teile rauchdicht installieren.
 

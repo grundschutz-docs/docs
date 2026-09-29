@@ -24,6 +24,19 @@ DEFAULT_CATALOG_FILE = (
 # diesen Nachbarordner nicht — dort wird der Pfad stattdessen über die Umgebungsvariable
 # gesetzt (siehe .github/workflows/sync-catalog.yml).
 CATALOG_FILE = Path(os.environ["GRUNDSCHUTZPP_CATALOG"]) if os.environ.get("GRUNDSCHUTZPP_CATALOG") else DEFAULT_CATALOG_FILE
+DEFAULT_MAPPING_FILE = (
+    REPO_ROOT / "Grundschutz-PlusPlus" / "control_layer" / "Mappings" / "IT-GS2023-zu-GSpp" / "ITGS-to-GS++-mapping_collection.json"
+)
+MAPPING_FILE = Path(os.environ["GRUNDSCHUTZPP_MAPPING"]) if os.environ.get("GRUNDSCHUTZPP_MAPPING") else DEFAULT_MAPPING_FILE
+# Grundschutz-Projekt/bsi-kompendium-2023-bausteine.json: eigene, einmal von
+# BSIs Bausteine-Uebersichtsseite gescrapte Lookup-Tabelle (Baustein-ID -> PDF-URL),
+# siehe adr/0005-vorgaenger-anforderung-alt-neu.md im Hosted-Repo. Liegt bewusst
+# eine Ebene ueber beiden Repos (wie SYNC.md) -- externe Referenzdaten, nicht
+# Eigentum eines der beiden Repos.
+DEFAULT_BAUSTEINE_LINKS_FILE = REPO_ROOT / "bsi-kompendium-2023-bausteine.json"
+BAUSTEINE_LINKS_FILE = (
+    Path(os.environ["BSI_BAUSTEINE_LINKS"]) if os.environ.get("BSI_BAUSTEINE_LINKS") else DEFAULT_BAUSTEINE_LINKS_FILE
+)
 OUT_DIR = Path(__file__).resolve().parent.parent / "src" / "content" / "docs" / "grundschutzpp"
 ASTRO_CONFIG = Path(__file__).resolve().parent.parent / "astro.config.mjs"
 
@@ -94,7 +107,43 @@ def part_prop_value(control, part_name, prop_name):
     return None
 
 
-def render_control(control, level, params_by_id):
+def build_predecessor_index(mapping_data):
+    index = {}
+    for group in mapping_data["mapping-collection"]["mappings"]:
+        for m in group.get("maps", []):
+            rel = m.get("relationship")
+            sources = m.get("sources", [])
+            targets = m.get("targets", [])
+            if not sources or not targets or not rel:
+                continue
+            old_id = sources[0].get("id-ref")
+            new_id = targets[0].get("id-ref")
+            if not old_id or not new_id:
+                continue
+            index.setdefault(new_id, []).append((old_id, rel))
+    return index
+
+
+def baustein_id_from_itgs_id(itgs_id):
+    # "OPS.1.1.5.A3-UA.1" -> "OPS.1.1.5" (Baustein-Teil vor der ersten Anforderungsnummer)
+    m = re.match(r"^([A-Z]+(?:\.[0-9]+)+)\.A", itgs_id)
+    return m.group(1) if m else None
+
+
+def predecessor_line(control_id, predecessor_index, baustein_links):
+    entries = predecessor_index.get(control_id)
+    if not entries:
+        return None
+    parts = []
+    for old_id, rel in entries:
+        baustein_id = baustein_id_from_itgs_id(old_id)
+        link = baustein_links.get(baustein_id) if baustein_id else None
+        label = f"[{old_id}]({link})" if link else old_id
+        parts.append(f"{label} ({rel})")
+    return "**Vorgänger:** " + " · ".join(parts) + "\n"
+
+
+def render_control(control, level, params_by_id, predecessor_index, baustein_links):
     heading = "#" * min(level, 6)
     lines = [f"{heading} {control['id']} – {control['title']}\n"]
 
@@ -114,6 +163,10 @@ def render_control(control, level, params_by_id):
     if badges:
         lines.append(" · ".join(badges) + "\n")
 
+    predecessors = predecessor_line(control["id"], predecessor_index, baustein_links)
+    if predecessors:
+        lines.append(predecessors)
+
     statement = substitute_params(part_text(control, "statement"), params_by_id)
     if statement:
         lines.append(f"> {statement}\n")
@@ -123,12 +176,12 @@ def render_control(control, level, params_by_id):
         lines.append(f"{guidance}\n")
 
     for sub in control.get("controls", []):
-        lines.append(render_control(sub, level + 1, params_by_id))
+        lines.append(render_control(sub, level + 1, params_by_id, predecessor_index, baustein_links))
 
     return "\n".join(lines)
 
 
-def render_group(group, level, params_by_id, include_heading=True):
+def render_group(group, level, params_by_id, predecessor_index, baustein_links, include_heading=True):
     lines = []
     if include_heading:
         heading = "#" * min(level, 6)
@@ -139,10 +192,10 @@ def render_group(group, level, params_by_id, include_heading=True):
         lines.append(f"{desc}\n")
 
     for control in group.get("controls", []):
-        lines.append(render_control(control, level + 1, params_by_id))
+        lines.append(render_control(control, level + 1, params_by_id, predecessor_index, baustein_links))
 
     for sub in group.get("groups", []):
-        lines.append(render_group(sub, level + 1, params_by_id))
+        lines.append(render_group(sub, level + 1, params_by_id, predecessor_index, baustein_links))
 
     return "\n".join(lines)
 
@@ -210,6 +263,9 @@ def main():
     data = json.loads(CATALOG_FILE.read_text())
     catalog = data["catalog"]
     params_by_id = build_params_index(catalog)
+    mapping_data = json.loads(MAPPING_FILE.read_text())
+    predecessor_index = build_predecessor_index(mapping_data)
+    baustein_links = json.loads(BAUSTEINE_LINKS_FILE.read_text())["bausteine"]
 
     OUT_DIR.mkdir(parents=True, exist_ok=True)
     for old in OUT_DIR.glob("*.md"):
@@ -220,7 +276,14 @@ def main():
         slug = group["id"].lower()
         # include_heading=False: Starlight rendert die Seiten-Überschrift bereits
         # automatisch aus der Frontmatter — sonst stünde sie doppelt auf der Seite.
-        body = render_group(group, level=1, params_by_id=params_by_id, include_heading=False)
+        body = render_group(
+            group,
+            level=1,
+            params_by_id=params_by_id,
+            predecessor_index=predecessor_index,
+            baustein_links=baustein_links,
+            include_heading=False,
+        )
         summary = first_sentence(group_description(group))
         page_title = f"{group['id']} – {group['title']}"
         frontmatter = (

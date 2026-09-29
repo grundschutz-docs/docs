@@ -47,6 +47,8 @@ Die Compliance-Überwachung umfasst regelmäßige Kontrollen zur Überprüfung d
 
 **Pflicht:** MUSS · **Stufe:** `normal-SdT` · **Aufwand:** 0
 
+**Vorgänger:** [DER.3.1.A2-UA.1](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/05_DER_Detektion_und_Reaktion/DER_3_1_Audits_und_Revisionen_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (intersects-with)
+
 > Monitoring-Evaluation MUSS ein Verfahren zum Aufbau und zur Pflege eines oder mehrerer Auditprogramme verankern.
 
 Ein Audit kann in unterschiedlichen Formen durchgeführt werden – beispielsweise als internes Audit durch eigene Mitarbeitende, als externes Audit durch unabhängige Dritte (z. B. für Zertifizierungen), als Überwachungs- oder Wiederholungsaudit, oder als Sonderaudit bei Sicherheitsvorfällen. Ziel ist es, die Einhaltung von Sicherheitsanforderungen, die Wirksamkeit von Maßnahmen sowie mögliche Schwachstellen zu prüfen.
@@ -70,6 +72,8 @@ Ziel ist es, die Einhaltung von Sicherheitsanforderungen, die Wirksamkeit von Ma
 #### PERF.3.1.3 – Auswahl des Auditteams
 
 **Pflicht:** MUSS · **Stufe:** `normal-SdT` · **Aufwand:** 0
+
+**Vorgänger:** [DER.3.1.A1-UA.1](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/05_DER_Detektion_und_Reaktion/DER_3_1_Audits_und_Revisionen_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (intersects-with) · [DER.3.2.A5-UA.1](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/05_DER_Detektion_und_Reaktion/DER_3_2_Revisionen_auf_Basis_des_Leitfadens_IS_Revision_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (equivalent-to)
 
 > Monitoring-Evaluation MUSS fachlich geeignete und unabhängige Auditoren zur Gewährleistung der Objektivität und Qualität der Audits anweisen.
 
@@ -112,6 +116,8 @@ Eine angemessene Kommunikation der Auditergebnisse an alle relevanten Stakeholde
 ### PERF.4.1 – Eignungsprüfung
 
 **Pflicht:** MUSS · **Stufe:** `normal-SdT` · **Aufwand:** 0
+
+**Vorgänger:** [DER.3.1.A22-UA.1](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/05_DER_Detektion_und_Reaktion/DER_3_1_Audits_und_Revisionen_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (equivalent-to)
 
 > Monitoring-Evaluation MUSS Ergebnisse der Überprüfungen der Eignung, Angemessenheit und Wirksamkeit des ISMS der Institution *[regelmäßig]* sowie anlassbezogen in einem Managementbericht dokumentieren.
 
@@ -202,6 +208,8 @@ Sinn und Zweck der Anforderung liegt darin, die Leitungsebene regelmäßig und n
 ### PERF.5.1 – Methoden und Tools
 
 **Pflicht:** MUSS · **Stufe:** `normal-SdT` · **Aufwand:** 0
+
+**Vorgänger:** [ISMS.1.A11-UA.5](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/01_ISMS_Sicherheitsmanagement/ISMS_1_Sicherheitsmanagement_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (equivalent-to)
 
 > Monitoring-Evaluation MUSS effektive Monitoring-Methoden und -tools zur *[regelmäßigen]* Überwachung der Informationssicherheit verankern.
 

@@ -11,6 +11,8 @@ Die Praktik "Änderungen und Tests" stellt sicher, dass alle geplanten Veränder
 
 **Pflicht:** MUSS · **Stufe:** `normal-SdT` · **Aufwand:** 0 · **Gefährdungen:** G 0.18
 
+**Vorgänger:** [IND.1.A6-UA.1](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/08_IND_Industrielle_IT/IND_1_Prozessleit_und_Automatisierungstechnik_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (subset-of) · [INF.13.A16-UA.2](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/10_INF_Infrastruktur/INF_13_Technisches_Gebaeudemanagement_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (subset-of)
+
 > Änderungen und Tests MUSS Verfahren und Regelungen zum Management von Neueinführungen, Änderungen oder der Entfernung von Komponenten *[für den Informationsverbund, pro Geschäftsprozess oder pro IT-System]* verankern.
 
 Verfahren und Regelungen beschreiben die formalisierten Abläufe, nach denen Änderungen an informationstechnischen Komponenten – also Hardware, Software oder Konfigurationen – geplant, bewertet, genehmigt und umgesetzt werden; im Englischen ist hier oft von Change Management Procedures die Rede. Weil moderne Infrastrukturen komplexe Abhängigkeiten haben, könnten Änderungen an Systemen und Anwendungen sonst zu unbeabsichtigten Ausfällen oder Sicherheitslücken führen. Dies betrifft auch die Neueinführung von Systemen oder Anwendungen in den Informationsverbund, oder deren Entfernung. Das Ziel der Änderung können Sicherheitsaktualisierungen ebenso wie funktionelle Änderungen sein, da sich auch vermeintlich rein funktionelle Änderungen häufig auf die Sicherheit auswirken. KPI zur Leistungsmessung können z.B. die Fehlerquote bei Änderungen (CFR), die mittlere Wiederherstellungszeit (MTTR) und die Vorlaufzeit für Änderungen (Lead Time) sein. Die Verfahren und Regelungen können dabei entweder einheitlich für den gesamten Informationsverbund, oder alternativ pro Geschäftsprozess oder (Kategorie von) IT-System festgelegt werden, um spezifischen Risiken oder Kontexten gerecht zu werden. Die Umsetzung kann in einem eigenen Prozess, oder integriert in andere Prozesse und Aufgaben, erfolgen. Die bei der Festlegung des Verfahrens im Einzelnen zu berücksichtigenden Inhalte ergeben sich aus den Anforderungen dieser Praktik.
@@ -18,6 +20,8 @@ Verfahren und Regelungen beschreiben die formalisierten Abläufe, nach denen Än
 #### TEST.1.1.1 – Dokumentation
 
 **Pflicht:** MUSS · **Stufe:** `normal-SdT` · **Aufwand:** 0 · **Gefährdungen:** G 0.18
+
+**Vorgänger:** [CON.11.1.A2-UA.3](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/03_CON_Konzepte_und_Vorgehensweisen/CON_11_1_Geheimschutz_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (intersects-with) · [OPS.1.1.2.A11-UA.4](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/04_OPS_Betrieb/OPS_1_1_2_Ordnungsgemaesse_IT_Administration_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (subset-of)
 
 > Änderungen und Tests MUSS die Verfahren und Regelungen dokumentieren.
 
@@ -27,6 +31,8 @@ Ohne eine Dokumentation könnte die Einhaltung der Verfahren und Regelungen von 
 
 **Pflicht:** MUSS · **Stufe:** `normal-SdT` · **Aufwand:** 0 · **Gefährdungen:** G 0.18
 
+**Vorgänger:** [OPS.1.1.1.A1-UA.2](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/04_OPS_Betrieb/OPS_1_1_1_Allgemeiner_IT_Betrieb_Edition_2023.pdf?__blob=publicationFile&v=4#download=1) (intersects-with) · [OPS.1.1.2.A7-UA.2](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/04_OPS_Betrieb/OPS_1_1_2_Ordnungsgemaesse_IT_Administration_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (intersects-with)
+
 > Änderungen und Tests MUSS die mit den Verfahren und Regelungen verbundenen Aufgaben *[zuständigen Personen oder Rollen]* zuweisen.
 
 Die Zuweisung von Aufgaben bezeichnet die eindeutige und verbindliche Übertragung von konkreten Tätigkeiten und Verantwortlichkeiten des Änderungsprozesses, wie etwa die Risikobewertung, die technische Umsetzung oder die finale Freigabe, an definierte Stellen in der Institution. Der Sinn dieser Vorschrift ist es, die Verantwortlichkeit ("Accountability") für jeden einzelnen Schritt im Prozess klarzustellen. Ohne eine solche Zuweisung könnten kritische Prüfungen unterbleiben, weil sich niemand explizit zuständig fühlt, was wiederum die Wahrscheinlichkeit fehlgeschlagener Änderungen erhöht. Eine klare Regelung kann sicherstellen, dass keine Aufgaben übersehen werden und jede Tätigkeit von einer dafür qualifizierten und befugten Stelle ausgeführt wird, was die Prozesssicherheit signifikant erhöht. Eine bewährte Methode zur Umsetzung ist die Erstellung einer RACI-Matrix (Responsible, Accountable, Consulted, Informed), die tabellarisch für jeden Prozessschritt darstellt, wer für die Durchführung verantwortlich ist, wer die Gesamtverantwortung trägt, wer zu konsultieren und wer zu informieren ist. Diese Zuständigkeiten können auch direkt in einem Workflow- oder Ticketsystem abgebildet werden, sodass Aufgaben, wie beispielsweise Genehmigungsschritte, automatisch an die richtige Gruppe oder Person weitergeleitet werden. Sinnvoll ist es die Zuweisung anhand von Rollen (z.B. "Anwendungsverantwortlicher", "Netzwerkadministrator", "Change Manager") vorzunehmen, statt an konkrete Personen. Dieser Ansatz stellt sicher, dass die Prozesse auch bei Personalwechseln stabil weiterlaufen, da die Zuständigkeit an die Funktion und nicht an das Individuum gebunden ist.
@@ -34,6 +40,8 @@ Die Zuweisung von Aufgaben bezeichnet die eindeutige und verbindliche Übertragu
 #### TEST.1.1.3 – Bekanntgabe
 
 **Pflicht:** MUSS · **Stufe:** `normal-SdT` · **Aufwand:** 0 · **Gefährdungen:** G 0.18, G 0.29
+
+**Vorgänger:** [ISMS.1.A8-UA.6](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/01_ISMS_Sicherheitsmanagement/ISMS_1_Sicherheitsmanagement_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (superset-of) · [ORP.1.A1-UA.4](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/02_ORP_Organisation_und_Personal/ORP_1_Organisation_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (superset-of) · [ORP.2.A1-UA.2](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/02_ORP_Organisation_und_Personal/ORP_2_Personal_Editon_2023.pdf?__blob=publicationFile&v=4#download=1) (superset-of)
 
 > Änderungen und Tests MUSS die zuständigen Personen oder Rollen über die Verfahren und Regelungen informieren.
 
@@ -43,6 +51,8 @@ Wenn die Zuständigen die etablierten Verfahren nicht kennen, besteht die Gefahr
 
 **Pflicht:** MUSS · **Stufe:** `normal-SdT` · **Aufwand:** 0 · **Gefährdungen:** G 0.18
 
+**Vorgänger:** [ORP.1.A1-UA.3](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/02_ORP_Organisation_und_Personal/ORP_1_Organisation_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (equal-to)
+
 > Änderungen und Tests MUSS die Verfahren und Regelungen *[regelmäßig]* und anlassbezogen auf Aktualität überprüfen.
 
 Eine geplante Überprüfung der etablierten Verfahren und Regelungen dient dazu festzustellen, ob diese noch wirksam, effizient und an die aktuellen Gegebenheiten angepasst sind. Eine anlassbezogene Überprüfung wird durch spezifische Ereignisse ausgelöst, wie etwa einen schwerwiegenden Sicherheitsvorfall, eine strategische Neuausrichtung der IT oder neue gesetzliche Anforderungen. Der Zweck dieser Anforderung ist es, die kontinuierliche Verbesserung und Anpassungsfähigkeit des Prozesses sicherzustellen, da veraltete Regelungen neuen technologischen Entwicklungen oder Bedrohungen nicht mehr gerecht werden könnten; ein vor Jahren für monolithische Anwendungen konzipierter Prozess ist beispielsweise für agile Entwicklungsmethoden oder Microservice-Architekturen ungeeignet. Die regelmäßige Überprüfung kann die Effektivität des Sicherheitsmanagements langfristig aufrechterhalten und die Resilienz der Institution stärken.
@@ -50,6 +60,8 @@ Eine geplante Überprüfung der etablierten Verfahren und Regelungen dient dazu 
 ### TEST.1.3 – Einschränkung von Änderungen
 
 **Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.18, G 0.30, G 0.23
+
+**Vorgänger:** [APP.4.4.A3-UA.6](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/06_APP_Anwendungen/APP_4_4_Kubernetes_Edition_2023.pdf?__blob=publicationFile&v=4#download=1) (subset-of) · [APP.5.3.A1-UA.3](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/06_APP_Anwendungen/APP_5_3_Allgemeiner_E-Mail_Client_und_Server_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (subset-of) · [IND.1.A8-UA.2](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/08_IND_Industrielle_IT/IND_1_Prozessleit_und_Automatisierungstechnik_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (subset-of) · [IND.2.7.A6-UA.1](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/08_IND_Industrielle_IT/IND_2_7_Safety_Instrumented_Systems_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (subset-of) · [OPS.1.1.2.A23-UA.1](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/04_OPS_Betrieb/OPS_1_1_2_Ordnungsgemaesse_IT_Administration_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (superset-of) · [OPS.1.1.2.A5-UA.4](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/04_OPS_Betrieb/OPS_1_1_2_Ordnungsgemaesse_IT_Administration_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (intersects-with) · [SYS.2.1.A8-UA.4](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/07_SYS_IT_Systeme/SYS_2_1_Allgemeiner_Client_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (subset-of) · [SYS.2.3.A1-UA.2](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/07_SYS_IT_Systeme/SYS_2_3_Clients_unter_Linux_und_Unix_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (intersects-with)
 
 > Änderungen und Tests SOLLTE die Durchführung von Änderungen auf Administrierende einschränken.
 
@@ -61,6 +73,8 @@ Ziel ist es, zu verhindern, dass unautorisierte Personen Eingriffe in produktive
 
 **Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.18
 
+**Vorgänger:** [CON.8.A10-UA.3](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/03_CON_Konzepte_und_Vorgehensweisen/CON_8_Software_Entwicklung_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (equivalent-to) · [IND.1.A20-UA.3](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/08_IND_Industrielle_IT/IND_1_Prozessleit_und_Automatisierungstechnik_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (subset-of) · [INF.13.A21-UA.4](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/10_INF_Infrastruktur/INF_13_Technisches_Gebaeudemanagement_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (subset-of) · [SYS.1.6.A20-UA.2](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/07_SYS_IT_Systeme/SYS_1_6_Containerisierung_Edition_2023.pdf?__blob=publicationFile&v=4#download=1) (superset-of)
+
 > Änderungen und Tests SOLLTE eine Versionshistorie wesentlicher Änderungen protokollieren.
 
 Wesentlich sind Änderungen, wenn sie Auswirkungen auf die Informationssicherheit von Produktivsystemen und -anwendungen haben können, die über eine geringe Anzahl von Nutzenden hinausgeht.
@@ -68,6 +82,8 @@ Wesentlich sind Änderungen, wenn sie Auswirkungen auf die Informationssicherhei
 ### TEST.2.2 – Folgenabschätzung
 
 **Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.18
+
+**Vorgänger:** [OPS.1.1.2.A24-UA.4](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/04_OPS_Betrieb/OPS_1_1_2_Ordnungsgemaesse_IT_Administration_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (superset-of) · [OPS.1.1.3.A1-UA.6](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/04_OPS_Betrieb/OPS_1_1_3_Patch_und_Aenderungsmanagement_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (intersects-with) · [OPS.1.1.3.A7-UA.2](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/04_OPS_Betrieb/OPS_1_1_3_Patch_und_Aenderungsmanagement_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (subset-of)
 
 > Änderungen und Tests für Administrierende SOLLTE zu einer strukturierten Folgenabschätzung vor wesentlichen Änderungen anweisen.
 
@@ -77,6 +93,8 @@ Sinnvoll ist es die Ausführlichkeit der Folgenabschätzung an Umfang und Reichw
 
 **Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.18
 
+**Vorgänger:** [INF.13.A16-UA.3](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/10_INF_Infrastruktur/INF_13_Technisches_Gebaeudemanagement_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (intersects-with)
+
 > Änderungen und Tests SOLLTE Änderungsvorhaben einer Kategorie zuweisen.
 
 Dabei werden Änderungen je nach Abschätzung der Folgen in Kategorien einsortiert, die im Verhältnis zu den möglichen Auswirkungen stehen (z.B. Geringe Auswirkungen, Mittlere Auswirkungen, Hohe Auswirkungen). Umfang und Tiefe der weiterer Prüfungen kann dann nach dieser Einstufung ausgerichtet werden.
@@ -85,6 +103,8 @@ Dabei werden Änderungen je nach Abschätzung der Folgen in Kategorien einsortie
 
 **Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.18
 
+**Vorgänger:** [INF.12.A10-UA.5](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/10_INF_Infrastruktur/INF_12_Verkabelung_2023.pdf?__blob=publicationFile&v=3#download=1) (subset-of) · [NET.3.4.A18-UA.5](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/09_NET_Netze_und_Kommunikation/NET_3_4_Network_Access_Control_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (subset-of) · [OPS.1.1.3.A11-UA.1](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/04_OPS_Betrieb/OPS_1_1_3_Patch_und_Aenderungsmanagement_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (intersects-with) · [OPS.1.2.2.A16-UA.4](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/04_OPS_Betrieb/OPS_1_2_2_Archivierung_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (intersects-with)
+
 > Änderungen und Tests SOLLTE die geplanten Änderungen dokumentieren.
 
 Je nach Inhalt der Änderung können hierzu Konfigurationsdateien, Sicherheitsrichtlinien, oder begleitende Dokumente wie ein IT-Betriebshandbuch oder für Nutzende gedachte Anwenderhandbücher oder Wikis gehören.
@@ -92,6 +112,8 @@ Je nach Inhalt der Änderung können hierzu Konfigurationsdateien, Sicherheitsri
 #### TEST.2.2.3 – Dokumentation der Abhängigkeiten
 
 **Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.18, G 0.28, G 0.25
+
+**Vorgänger:** [CON.10.A11-UA.1](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/03_CON_Konzepte_und_Vorgehensweisen/CON_10_Entwicklung_von_Webanwendungen_Edition_2023.pdf?__blob=publicationFile&v=4#download=1) (intersects-with) · [INF.13.A17-UA.4](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/10_INF_Infrastruktur/INF_13_Technisches_Gebaeudemanagement_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (intersects-with) · [NET.3.4.A18-UA.2](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/09_NET_Netze_und_Kommunikation/NET_3_4_Network_Access_Control_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (subset-of)
 
 > Änderungen und Tests SOLLTE von der Änderung betroffene Abhängigkeiten dokumentieren.
 
@@ -103,6 +125,8 @@ Betroffene Abhängigkeiten sind sowohl alle Systeme und Anwendungen, die durch d
 
 **Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.26, G 0.28, G 0.27
 
+**Vorgänger:** [INF.13.A16-UA.4](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/10_INF_Infrastruktur/INF_13_Technisches_Gebaeudemanagement_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (subset-of) · [INF.13.A22-UA.3](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/10_INF_Infrastruktur/INF_13_Technisches_Gebaeudemanagement_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (equivalent-to) · [OPS.1.1.1.A7-UA.6](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/04_OPS_Betrieb/OPS_1_1_1_Allgemeiner_IT_Betrieb_Edition_2023.pdf?__blob=publicationFile&v=4#download=1) (intersects-with) · [OPS.1.1.3.A1-UA.4](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/04_OPS_Betrieb/OPS_1_1_3_Patch_und_Aenderungsmanagement_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (superset-of) · [OPS.1.1.6.A5-UA.2](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/04_OPS_Betrieb/OPS_1_1_6_Software_Tests_und_Freigaben_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (subset-of)
+
 > Änderungen und Tests SOLLTE vor wesentlichen Änderungen die Einhaltung der Sicherheitsanforderungen testen.
 
 Änderungen sind wesentlich, wenn sie die Informationssicherheit von Produktivsystemen und -anwendungen betreffen und über eine geringe Anzahl von Nutzenden hinaus Auswirkungen haben können. Dabei sind sowohl die Sicherheitsanforderungen relevant, die direkt durch IT-Produkte umgesetzt werden (technische Anforderungen), als auch die prozessualen Anforderungen, die von der Änderung betroffen sind, etwa zur Überwachung von Ereignissen oder zur Sensibilisierung des Personals. Die Sicherheitsanforderungen ergeben sich aus den für das jeweilige Zielobjekt geltenden Vorgaben aus allen Praktiken. Sowohl die Funktionalität einzelner Module als auch das Zusammenspiel von Schnittstellen ist wichtig, um Sicherheitslücken frühzeitig zu erkennen.
@@ -110,6 +134,8 @@ Betroffene Abhängigkeiten sind sowohl alle Systeme und Anwendungen, die durch d
 #### TEST.3.1.1 – Dokumentation von Testergebnissen
 
 **Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.18, G 0.37, G 0.28, G 0.26
+
+**Vorgänger:** [INF.13.A22-UA.5](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/10_INF_Infrastruktur/INF_13_Technisches_Gebaeudemanagement_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (subset-of) · [OPS.1.1.1.A12-UA.6](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/04_OPS_Betrieb/OPS_1_1_1_Allgemeiner_IT_Betrieb_Edition_2023.pdf?__blob=publicationFile&v=4#download=1) (intersects-with) · [OPS.1.1.3.A13-UA.3](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/04_OPS_Betrieb/OPS_1_1_3_Patch_und_Aenderungsmanagement_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (equivalent-to) · [OPS.1.1.6.A12-UA.4](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/04_OPS_Betrieb/OPS_1_1_6_Software_Tests_und_Freigaben_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (subset-of) · [OPS.1.1.6.A5-UA.3](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/04_OPS_Betrieb/OPS_1_1_6_Software_Tests_und_Freigaben_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (superset-of) · [OPS.1.2.2.A16-UA.4](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/04_OPS_Betrieb/OPS_1_2_2_Archivierung_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (intersects-with)
 
 > Änderungen und Tests SOLLTE Tests einschließlich Prüfschritte, Ergebnissen und ggf. vorgenommenen Korrekturen dokumentieren.
 
@@ -119,6 +145,8 @@ Die Dokumentation von Tests zielt primär darauf ab, Transparenz und Nachvollzie
 
 **Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.28, G 0.46, G 0.20
 
+**Vorgänger:** [APP.6.A4-UA.7](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/06_APP_Anwendungen/APP_6_Allgemeine_Software_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (superset-of) · [APP.6.A8-UA.2](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/06_APP_Anwendungen/APP_6_Allgemeine_Software_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (superset-of) · [IND.2.7.A12-UA.2](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/08_IND_Industrielle_IT/IND_2_7_Safety_Instrumented_Systems_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (intersects-with) · [IND.2.7.A12-UA.3](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/08_IND_Industrielle_IT/IND_2_7_Safety_Instrumented_Systems_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (intersects-with) · [OPS.1.1.3.A10-UA.3](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/04_OPS_Betrieb/OPS_1_1_3_Patch_und_Aenderungsmanagement_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (superset-of) · [SYS.4.5.A11-UA.1](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/07_SYS_IT_Systeme/SYS_4_5_Wechseldatentraeger_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (intersects-with)
+
 > Änderungen und Tests SOLLTE die Einbindung externer Softwareartefakte und -Schnittstellen aus unzuverlässigen oder unbekannten Quellen untersagen.
 
 Externe Softwareartefakte sind in diesem Kontext nicht von der Institution entwickelte, durch die Änderung in die eigene Infrastruktur eingebundene oder zur Laufzeit nachgeladene Bestandteile wie Bibliotheken, Frameworks, Container-Images, Plug-ins, Packages, Binärdateien, Skripte, Modelle, Templates oder Build-Abhängigkeiten (sog. Third-Party Components, Dependencies). Externe Softwareschnittstellen sind fremde technische Übergabe- und Kommunikationspunkte, über die eine Anwendung Funktionen oder Daten anderer Systeme nutzt, etwa Third-Party APIs, Webhooks, SDK-Schnittstellen, Datenfeeds, Authentifizierungsdienste oder Remote Services. Eine Quelle ist unzuverlässig, wenn zukünftig mit Verstößen gegen die Schutzziele Vertraulichkeit, Verfügbarkeit oder Integrität durch sie zu rechnen ist (d.h. eine Prognose der Vertrauenswürdigkeit). Dies ist insbesondere der Fall, wenn erhebliche Verstöße gegen die Schutzziele durch sie begangen worden sind oder Anzeichen dafür vorliegen, dass bei einer Verwendung mit solchen Verstößen zu rechnen ist. Unbekannte Quellen meint hier Quellen, deren Herkunft, Integrität, Pflegezustand, Verantwortlichkeit, Vertrauenswürdigkeit oder Sicherheitsniveau nicht belastbar nachvollziehbar ist, etwa anonyme Paket-Repositories, private Download-Links, unklare Git-Repositories, veraltete Mirror-Server, nicht verifizierte Container-Registries oder Schnittstellen ohne erkennbare Betreiber-, Sicherheits- und Änderungsinformationen.
@@ -126,6 +154,8 @@ Externe Softwareartefakte sind in diesem Kontext nicht von der Institution entwi
 #### TEST.3.1.3 – Integritätstest
 
 **Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.28, G 0.20, G 0.23
+
+**Vorgänger:** [CON.8.A7-UA.6](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/03_CON_Konzepte_und_Vorgehensweisen/CON_8_Software_Entwicklung_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (intersects-with) · [OPS.1.1.6.A1-UA.1](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/04_OPS_Betrieb/OPS_1_1_6_Software_Tests_und_Freigaben_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (superset-of) · [OPS.1.1.6.A11-UA.3](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/04_OPS_Betrieb/OPS_1_1_6_Software_Tests_und_Freigaben_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (intersects-with)
 
 > Änderungen und Tests SOLLTE die Integrität von Softwareartefakten testen.
 
@@ -135,6 +165,8 @@ Softwareartefakte sind in diesem Kontext Anwendungen oder ihre Bestandteile wie 
 
 **Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.26, G 0.28
 
+**Vorgänger:** [APP.5.2.A7-UA.4](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/06_APP_Anwendungen/APP_5_2_Microsoft_Exchange_und_Outlook_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (subset-of) · [CON.8.A7-UA.8](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/03_CON_Konzepte_und_Vorgehensweisen/CON_8_Software_Entwicklung_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (equivalent-to) · [IND.2.1.A11-UA.3](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/08_IND_Industrielle_IT/IND_2_1_Allgemeine_ICS_Komponente_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (subset-of) · [INF.13.A25-UA.1](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/10_INF_Infrastruktur/INF_13_Technisches_Gebaeudemanagement_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (subset-of) · [OPS.1.1.3.A9-UA.3](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/04_OPS_Betrieb/OPS_1_1_3_Patch_und_Aenderungsmanagement_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (subset-of) · [OPS.1.1.6.A13-UA.1](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/04_OPS_Betrieb/OPS_1_1_6_Software_Tests_und_Freigaben_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (subset-of) · [OPS.1.1.6.A13-UA.2](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/04_OPS_Betrieb/OPS_1_1_6_Software_Tests_und_Freigaben_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (equivalent-to)
+
 > Änderungen und Tests SOLLTE die Testfälle abdeckende, aber unkritische Testdaten verankern.
 
 Testdaten (engl. test data) sind synthetisch erstellte oder abstrahierte Daten, die zur Durchführung von Testfällen genutzt werden. „Unkritisch“ bedeutet hier, dass die Daten keinen schützenswerten Daten wie Geschäftsgeheimnisse oder sicherheitsrelevanten Konfigurationsdetails enthalten. Testfälle (engl. test cases) sind vorab definierte Szenarien oder Abläufe, die das Verhalten einer Anwendung oder eines Systems gezielt prüfen sollen. Der Zweck der Anforderung liegt darin, sicherzustellen, dass Testaktivitäten einerseits realistische Bedingungen nachbilden, andererseits aber keine Risiken durch unbeabsichtigte Preisgabe oder Manipulation produktiver Daten entstehen. Ein Vorfall könnte beispielsweise darin bestehen, dass versehentlich echte Kundendaten in einer Testumgebung landen und durch unzureichende Sicherung Dritten zugänglich werden; durch den Einsatz unkritischer Testdaten kann dieses Risiko vermieden und dennoch die Qualität der Tests gewährleistet werden. Eine Institution kann die Anforderung praktisch umsetzen, indem sie Testdatensätze automatisiert generieren lässt, etwa durch Anonymisierung oder Pseudonymisierung produktiver Daten oder durch die Nutzung von Zufallswerten, die für Testlogik realistisch wirken. Zusätzlich kann es hilfreich sein, Regeln für Entwickler und Tester festzulegen, die dokumentieren, welche Arten von Daten zulässig sind. Auch Tools zur data masking oder synthetic data generation können verwendet werden, um komplexe Datenstrukturen ohne reale Inhalte nachzubilden.
@@ -143,6 +175,8 @@ Testdaten (engl. test data) sind synthetisch erstellte oder abstrahierte Daten, 
 
 **Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.28, G 0.18
 
+**Vorgänger:** [APP.4.4.A2-UA.2](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/06_APP_Anwendungen/APP_4_4_Kubernetes_Edition_2023.pdf?__blob=publicationFile&v=4#download=1) (superset-of) · [IND.1.A17-UA.4](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/08_IND_Industrielle_IT/IND_1_Prozessleit_und_Automatisierungstechnik_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (subset-of)
+
 > Änderungen und Tests SOLLTE eine dedizierte Testumgebung installieren.
 
 Eine dedizierte Testumgebung (auch Entwicklungsumgebung oder Laborumgebung genannt) ist hier eine von der Produktionsumgebung unabhängige Infrastruktur, die speziell für die Durchführung von Änderungen, Prüfungen und Qualitätssicherungsmaßnahmen vorgesehen ist. Sie dient dazu, geplante Anpassungen, Updates oder Neuentwicklungen realistisch nachzustellen, ohne die Verfügbarkeit oder Integrität der produktiven Systeme und Daten zu gefährden. Zur Produktivumgebung zählen dabei auch Betriebssysteme, verwendete Datenbanken und Netzschnittstellen. Dediziert bedeutet in diesem Zusammenhang, dass Ressourcen – beispielsweise Server, Datenbanken, Netzsegmente oder virtuelle Umgebungen – ausschließlich für Testzwecke bereitgestellt werden und nicht gleichzeitig produktiven Aufgaben dienen. Der Zweck dieser Vorgabe liegt darin, unbeabsichtigte Auswirkungen von Änderungen auf laufende Systeme zu vermeiden. Ohne eine solche Testumgebung könnte ein fehlerhaftes Update unmittelbar zu Produktionsausfällen führen oder sensible Daten unbeabsichtigt preisgeben. Eine Trennung kann dagegen sicherstellen, dass Schwachstellen oder Inkompatibilitäten frühzeitig erkannt werden, wodurch die Stabilität und Sicherheit der produktiven Systeme erhalten bleiben. Zur Umsetzung kann eine Institution verschiedene Maßnahmen einsetzen: (1) Sie kann separate physische oder virtuelle Serverlandschaften bereitstellen, die die Produktionsumgebung realitätsnah abbilden. (2) Sie kann Testdatenbanken mit anonymisierten oder synthetisch generierten Daten nutzen, um Datenschutzrisiken zu vermeiden. (3) Sie kann durch ein definiertes Deployment-Verfahren sicherstellen, dass Änderungen zunächst automatisiert in die Testumgebung ausgerollt und dort validiert werden, bevor eine Freigabe für die Produktion erfolgt.
@@ -150,6 +184,8 @@ Eine dedizierte Testumgebung (auch Entwicklungsumgebung oder Laborumgebung genan
 #### TEST.3.1.6 – Kontinuierliche Tests
 
 **Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.28, G 0.18
+
+**Vorgänger:** [CON.8.A7-UA.4](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/03_CON_Konzepte_und_Vorgehensweisen/CON_8_Software_Entwicklung_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (subset-of) · [SYS.1.8.A20-UA.5](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/07_SYS_IT_Systeme/SYS_1_8_Speicherloesungen_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (subset-of)
 
 > Änderungen und Tests KANN die Auswirkungen bei jeder Änderung automatisch testen.
 
@@ -167,6 +203,8 @@ Chaos Engineering kann helfen, die Zuverlässigkeit von Systemen oder Anwendunge
 
 **Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.23, G 0.46
 
+**Vorgänger:** [CON.8.A7-UA.5](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/03_CON_Konzepte_und_Vorgehensweisen/CON_8_Software_Entwicklung_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (subset-of) · [OPS.1.1.1.A22-UA.1](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/04_OPS_Betrieb/OPS_1_1_1_Allgemeiner_IT_Betrieb_Edition_2023.pdf?__blob=publicationFile&v=4#download=1) (intersects-with)
+
 > Änderungen und Tests KANN die Zusammensetzung der Änderungen testen.
 
 Eine Analyse der Zusammensetzung (Composition Analysis) ist die systematische Untersuchung und Bewertung der Bestandteile einer Software oder eines Systems – insbesondere in Bezug auf deren Herkunft, Eigenschaften und potenzielle Schwachstellen. Hierzu können auch (teil-)automatisierte Lösungen eingesetzt werden, z.B. können SBOMs in eine Plattform zur Verwaltung von Schwachstellen importiert werden, die eine Bereitstellung blockiert, wenn eine CVSS ≥ 9.0-Schwachstelle keine kompensierende Maßnahme hat.
@@ -175,6 +213,8 @@ Eine Analyse der Zusammensetzung (Composition Analysis) ist die systematische Un
 
 **Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.23, G 0.28
 
+**Vorgänger:** [CON.8.A7-UA.9](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/03_CON_Konzepte_und_Vorgehensweisen/CON_8_Software_Entwicklung_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (subset-of) · [INF.13.A16-UA.4](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/10_INF_Infrastruktur/INF_13_Technisches_Gebaeudemanagement_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (superset-of) · [INF.13.A22-UA.3](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/10_INF_Infrastruktur/INF_13_Technisches_Gebaeudemanagement_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (equivalent-to)
+
 > Änderungen und Tests KANN die Stabilität gegen Fehlerzustände oder Abstürze bei der Eingabe großer Mengen an Zufallsdaten testen.
 
 Fuzzing ist eine automatisierte Softwaretestmethode, mit der unerwartete Schwachstellen und Fehler in Anwendungen durch Eingabe zufälliger, unerwarteter oder ungültiger Daten aufgedeckt werden können. Der Hauptzweck besteht darin, Grenzbedingungen zu prüfen und Programmabstürze, Speicherlecks oder sicherheitskritische Fehler wie Buffer Overflows zu identifizieren, bevor Angreifer diese ausnutzen können. Kann durch spezialisierte Tools oder kontinuierliches Fuzzing in der CI/CD-Pipeline umgesetzt werden. Für einen effektiven Einsatz empfiehlt es sich, mit strukturiertem Fuzzing zu beginnen, das auf bekannten Protokollspezifikationen oder Datenformaten basiert, Fuzzing-Tests in die frühen Phasen des Entwicklungszyklus zu integrieren, alle gefundenen Fehler systematisch zu dokumentieren und zu beheben, sowie regelmäßig neue Testfälle auf Basis entdeckter Schwachstellen zu entwickeln, um die Testabdeckung kontinuierlich zu verbessern.
@@ -182,6 +222,8 @@ Fuzzing ist eine automatisierte Softwaretestmethode, mit der unerwartete Schwach
 #### TEST.3.1.10 – Lasttest
 
 **Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.28, G 0.18
+
+**Vorgänger:** [APP.1.4.A15-UA.1](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/06_APP_Anwendungen/APP_1_4_Mobile_Anwendungen_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (subset-of) · [APP.1.4.A15-UA.3](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/06_APP_Anwendungen/APP_1_4_Mobile_Anwendungen_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (subset-of) · [INF.13.A30-UA.1](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/10_INF_Infrastruktur/INF_13_Technisches_Gebaeudemanagement_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (subset-of) · [INF.13.A30-UA.2](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/10_INF_Infrastruktur/INF_13_Technisches_Gebaeudemanagement_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (subset-of) · [NET.3.2.A24-UA.2](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/09_NET_Netze_und_Kommunikation/NET_3_2_Firewall_Edition_2023.pdf?__blob=publicationFile&v=4#download=1) (superset-of) · [OPS.1.1.1.A23-UA.1](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/04_OPS_Betrieb/OPS_1_1_1_Allgemeiner_IT_Betrieb_Edition_2023.pdf?__blob=publicationFile&v=4#download=1) (equivalent-to) · [OPS.1.1.6.A14-UA.1](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/04_OPS_Betrieb/OPS_1_1_6_Software_Tests_und_Freigaben_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (intersects-with)
 
 > Änderungen und Tests KANN die Belastbarkeit bei hoher Auslastung testen.
 
@@ -199,6 +241,8 @@ Bei einem Penetrationstest führen qualifizierte Sicherheitsexperten kontrollier
 
 **Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.28, G 0.18, G 0.27
 
+**Vorgänger:** [INF.13.A22-UA.6](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/10_INF_Infrastruktur/INF_13_Technisches_Gebaeudemanagement_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (intersects-with) · [OPS.1.1.1.A20-UA.3](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/04_OPS_Betrieb/OPS_1_1_1_Allgemeiner_IT_Betrieb_Edition_2023.pdf?__blob=publicationFile&v=4#download=1) (superset-of) · [OPS.1.1.1.A7-UA.8](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/04_OPS_Betrieb/OPS_1_1_1_Allgemeiner_IT_Betrieb_Edition_2023.pdf?__blob=publicationFile&v=4#download=1) (intersects-with)
+
 > Änderungen und Tests SOLLTE die Testabdeckung *[regelmäßig]* überprüfen.
 
 Ein ungenügendes Testverfahren könnte beispielsweise dazu führen, dass Schwachstellen in kritischen Anwendungen unentdeckt bleiben, was wiederum zu Datenverlust, unbefugtem Zugriff oder Systemausfällen führen könnte. Ein Beispiel hierfür ist der Fall einer industriellen Steuerungsanlage, bei der eine nicht ausreichend getestete Firmware-Aktualisierung zu einem Sicherheitsversagen und anschließendem Produktionsausfall führt. Der Begriff "Testabdeckung" (engl. "test coverage") bezeichnet hierbei den Umfang, in dem Komponenten, Funktionen und Schnittstellen eines Systems durch strukturierte Tests überprüft werden. Zur Umsetzung kann eine Institution verschiedene Maßnahmen implementieren: Für Software kann ein Code-Coverage-Monitoring etabliert werden, während für Hardware systematische Testmatrizen entwickelt werden können, die alle relevanten Betriebsparameter und Umgebungsbedingungen abdecken. Test-Dashboards können sowohl Software- als auch Hardware-Metriken visualisieren und in Entwicklungs- bzw. Implementierungsprozesse integriert werden. Für Hardware können FMEA-Analysen (Failure Mode and Effects Analysis) die kritischen zu testenden Komponenten identifizieren, während Software durch automatisierte CI/CD-Tests abgesichert werden kann. Bei der Implementierung empfiehlt es sich, einen risikobasierten Ansatz zu verfolgen, bei dem zuerst sicherheitskritische Komponenten umfassend getestet werden. Zudem kann eine systematische Dokumentation aller Testfälle und -ergebnisse, sowohl für Hardware- als auch für Software-Komponenten, die Nachvollziehbarkeit und kontinuierliche Verbesserung der Testabdeckung unterstützen. Zudem kann eine Kombination aus verschiedenen Testebenen (z.B. Stichproben, automatisierte und manuelle Verfahren, Unit-, Integrations- und Systemtests) eine umfassendere Abdeckung gewährleisten.
@@ -209,6 +253,8 @@ Ein ungenügendes Testverfahren könnte beispielsweise dazu führen, dass Schwac
 
 **Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.18
 
+**Vorgänger:** [OPS.1.1.3.A1-UA.3](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/04_OPS_Betrieb/OPS_1_1_3_Patch_und_Aenderungsmanagement_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (intersects-with)
+
 > Änderungen und Tests SOLLTE kritische Änderungen anhand von Kriterien einschließlich der Sicherheitsanforderungen autorisieren.
 
 Änderungen gelten als kritisch, wenn sie breite Auswirkungen auf Geschäftsprozesse haben, beispielsweise die Aktivierung der Zwei-Faktor-Authentifizierung am zentralen Verzeichnisdienst. Die Kritikalität ergibt sich zudem aus Art und Umfang der Änderung, etwa bei umfangreichen Migrationen oder sicherheitsrelevanten Fehlerbehebungen. Kritische Änderungen betreffen häufig die Bereitstellung für eine große Zahl interner oder externer Nutzender oder Eingriffe in hochverfügbare Systeme. Zu den maßgeblichen Kriterien für die Freigabe zählen das fehlerfreie Durchlaufen definierter Tests, eine ausreichende Nutzerakzeptanz in einem Beta-Test und das erfolgreiche Bestehen von Penetrationstests. Zweckmäßig ist eine mehrstufige Autorisierung, in der Änderungen anhand der prognostizierten Auswirkungen den Kategorien niedrig, mittel oder hoch zugeordnet und mit abgestuften Genehmigungsanforderungen verknüpft werden. Während bei geringfügigen Änderungen an unkritischen Systemen eine konzentrierte Prüfung grundlegender Sicherheitsanforderungen wie Authentifizierung, Verschlüsselung und Härtung ausreichen kann, erfordern umfangreiche Vorhaben mit hohem Risikoprofil in der Regel automatisierte Prüfmechanismen, ergänzt durch Checklisten für manuelle Tätigkeiten, um die Auswirkungen verlässlich beherrschbar zu halten.
@@ -217,6 +263,8 @@ Ein ungenügendes Testverfahren könnte beispielsweise dazu führen, dass Schwac
 
 **Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 4 · **Gefährdungen:** G 0.18
 
+**Vorgänger:** [ISMS.1.A11-UA.6](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/01_ISMS_Sicherheitsmanagement/ISMS_1_Sicherheitsmanagement_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (superset-of) · [OPS.1.1.2.A17-UA.1](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/04_OPS_Betrieb/OPS_1_1_2_Ordnungsgemaesse_IT_Administration_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (intersects-with) · [OPS.1.1.6.A4-UA.3](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/04_OPS_Betrieb/OPS_1_1_6_Software_Tests_und_Freigaben_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (intersects-with)
+
 > Änderungen und Tests KANN kritische Änderungen auch durch eine von der Implementierung unabhängige Person autorisieren.
 
 Eine Freigabe durch eine unabhängige Person ist die nachweisliche Bestätigung der Testergebnisse durch eine fachlich qualifizierte, aber nicht an der Entwicklung, Durchführung oder unmittelbaren Implementierung der getesteten Änderung beteiligte Person. Ziel ist es, Objektivität und Unvoreingenommenheit sicherzustellen und das Vier-Augen-Prinzip für kritische Änderungen zu wahren. Hierbei genügt es, wenn neben beteiligten Personen auch eine unabhängige Person die Änderung autorisiert hat, wie z.B. bei einem Change Advisory Board, an dem mehrere Personen beteiligt sind. Die geltenden Anforderungen sind alle für das Zielobjekt ausgewählten Sicherheitsanforderungen, z.B. Verifikation korrekter TLS-Konfiguration oder Fertigstellung einer Datensicherung mit korrektem Umfang zu geforderter Zeit gemäß Konzept. Empfehlenswert ist es den Prozess in einem Versionkontrollsystem abzubilden, sodass die Dokumentation der Änderungen und der Freigabe weitestgehend automatisiert stattfindet.
@@ -224,6 +272,8 @@ Eine Freigabe durch eine unabhängige Person ist die nachweisliche Bestätigung 
 #### TEST.4.1.2 – Staging
 
 **Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.25, G 0.26, G 0.18
+
+**Vorgänger:** [OPS.1.1.3.A1-UA.3](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/04_OPS_Betrieb/OPS_1_1_3_Patch_und_Aenderungsmanagement_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (superset-of) · [OPS.1.1.3.A9-UA.4](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/04_OPS_Betrieb/OPS_1_1_3_Patch_und_Aenderungsmanagement_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (superset-of) · [OPS.1.1.6.A4-UA.2](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/04_OPS_Betrieb/OPS_1_1_6_Software_Tests_und_Freigaben_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (equivalent-to)
 
 > Änderungen und Tests SOLLTE die freizugebenden Änderungen in einer von der Produktumgebung getrennten Staging-Umgebung, deren Komponenten so weit wie möglich der Produktivumgebung entsprechen, testen.
 
@@ -241,6 +291,8 @@ Je nach Organisationstruktur kann es sinnvoll sein, weitere Angaben aufzuführen
 
 **Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.26, G 0.25
 
+**Vorgänger:** [OPS.1.1.3.A9-UA.4](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/04_OPS_Betrieb/OPS_1_1_3_Patch_und_Aenderungsmanagement_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (subset-of) · [OPS.1.1.3.A9-UA.5](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/04_OPS_Betrieb/OPS_1_1_3_Patch_und_Aenderungsmanagement_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (subset-of) · [OPS.1.1.6.A4-UA.2](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/04_OPS_Betrieb/OPS_1_1_6_Software_Tests_und_Freigaben_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (subset-of)
+
 > Änderungen und Tests KANN eine Signatur der Freigabeerklärung ausführen.
 
 Die Signatur der Freigabeerklärung ist hier als eine digitale oder handschriftliche Unterschrift zu verstehen, die dokumentiert, dass eine geplante Änderung oder ein Test geprüft, bewertet und zur Umsetzung freigegeben wurde. Die Signatur kann damit sowohl eine elektronische Signatur nach gängigen Standards (z. B. qualifizierte elektronische Signatur im Ticketsystem) als auch eine händische Unterschrift sein. Sie stellt nicht nur eine rechtliche, sondern vor allem eine technische und organisatorische Nachvollziehbarkeit sicher, indem eindeutig erkennbar wird, wer eine Entscheidung zur Durchführung von Änderungen verantwortet hat. Die Freigabe durch eine Signatur kann dazu beitragen, dass unbeabsichtigte oder fehlerhafte Änderungen nicht unkontrolliert in den Betrieb gelangen. Ein fehlender Nachweis könnte im Vorfallfall zu Streitigkeiten über Verantwortlichkeiten führen oder die forensische Nachvollziehbarkeit erschweren. Ebenso könnte ohne dokumentierte Freigabe eine ungetestete Änderung produktive Systeme beeinträchtigen und Ausfälle oder Datenverlust verursachen. Durch eine dokumentierte Signatur kann hingegen nachvollziehbar gemacht werden, dass fachliche, technische und sicherheitsrelevante Prüfungen stattgefunden haben und die Entscheidung zur Umsetzung bewusst und überprüfbar getroffen wurde.
@@ -249,6 +301,8 @@ Die Signatur der Freigabeerklärung ist hier als eine digitale oder handschriftl
 
 **Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.18
 
+**Vorgänger:** [OPS.1.1.2.A24-UA.5](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/04_OPS_Betrieb/OPS_1_1_2_Ordnungsgemaesse_IT_Administration_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (superset-of) · [OPS.1.1.3.A1-UA.5](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/04_OPS_Betrieb/OPS_1_1_3_Patch_und_Aenderungsmanagement_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (superset-of) · [OPS.1.1.7.A18-UA.2](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/04_OPS_Betrieb/OPS_1_1_7_Systemmanagement_Edition_2023.pdf?__blob=publicationFile&v=4#download=1) (intersects-with)
+
 > Änderungen und Tests SOLLTE eine Rückfallösung verankern.
 
 Kritisch sind administrative Änderungen an geschäftskritischen Systemen, da ihr Ausfall gravierende Folgen haben könnte. Die Kritikalität ergibt sich außerdem aus Art und Umfang der Änderungen, z.B. umfangreiche Migration oder Bugfix. Maßnahmen können z.B. die Wiederherstellung aus einer vorher erstellten aktuellen Datensicherung, einer Versionsverwaltung oder Blue-Green-Deployment sein.
@@ -256,6 +310,8 @@ Kritisch sind administrative Änderungen an geschäftskritischen Systemen, da ih
 ### TEST.4.4 – Geregelte Notfalländerungen
 
 **Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.18, G 0.27
+
+**Vorgänger:** [APP.4.3.A22-UA.4](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/06_APP_Anwendungen/APP_4_3_Relationale_Datenbanksysteme_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (subset-of) · [DER.4.A1-UA.1](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/05_DER_Detektion_und_Reaktion/DER_4_Notfallmanagement_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (intersects-with) · [OPS.1.2.5.A21-UA.2](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/04_OPS_Betrieb/OPS_1_2_5_Fernwartung_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (subset-of) · [SYS.1.8.A20-UA.2](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/07_SYS_IT_Systeme/SYS_1_8_Speicherloesungen_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (subset-of)
 
 > Änderungen und Tests SOLLTE Regelungen für Notfalländerungen einschließlich Vorgehensweise, Zuständigkeiten, erforderlicher Ressourcen und minimaler Prüfschritte verankern.
 
@@ -267,6 +323,8 @@ Ein Notfall-Deployment-Prozess ermöglicht eine schnelle Reaktion auf akute Bedr
 
 **Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.18, G 0.25
 
+**Vorgänger:** [APP.6.A12-UA.2](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/06_APP_Anwendungen/APP_6_Allgemeine_Software_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (subset-of) · [INF.13.A12-UA.8](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/10_INF_Infrastruktur/INF_13_Technisches_Gebaeudemanagement_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (superset-of) · [OPS.1.1.3.A1-UA.6](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/04_OPS_Betrieb/OPS_1_1_3_Patch_und_Aenderungsmanagement_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (superset-of) · [OPS.1.1.3.A6-UA.1](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/04_OPS_Betrieb/OPS_1_1_3_Patch_und_Aenderungsmanagement_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (superset-of)
+
 > Änderungen und Tests SOLLTE von der Änderung betroffene Kreise informieren.
 
 Betroffene Kreise können je nach Vorhaben z.B. interne oder externe Nutzende, IT-Betrieb, das Monitoring-Team, die Öffentlichkeitsarbeit oder ISB sein. Erforderliche Informationen können z.B. zu erwartende Ausfallzeiten oder Beginn und Ende des Wartungsfensters, die Vorgehensweise zum Bezug von Sicherheitsupdates oder anzupassende Sicherheitseinstellungen sein, die Nutzende selbst vornehmen können.
@@ -274,6 +332,8 @@ Betroffene Kreise können je nach Vorhaben z.B. interne oder externe Nutzende, I
 ### TEST.5.2 – Verschlüsselte Bereitstellung
 
 **Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.23, G 0.14, G 0.41, G 0.21
+
+**Vorgänger:** [CON.9.A8-UA.2](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/03_CON_Konzepte_und_Vorgehensweisen/CON_9_Informationsaustausch_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (superset-of) · [IND.2.7.A12-UA.2](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/08_IND_Industrielle_IT/IND_2_7_Safety_Instrumented_Systems_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (superset-of)
 
 > Änderungen und Tests SOLLTE die Bereitstellung verschlüsseln.
 
@@ -283,6 +343,8 @@ Das Konzept der Bereitstellung (engl. Deployment oder Provisioning) bezieht sich
 
 **Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.18
 
+**Vorgänger:** [SYS.2.1.A11-UA.3](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/07_SYS_IT_Systeme/SYS_2_1_Allgemeiner_Client_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (subset-of)
+
 > Änderungen und Tests KANN die Inbetriebnahme stufenweise ausführen.
 
 Inbetriebnahme (engl. deployment oder rollout) meint hier die technische und organisatorische Überführung einer Änderung oder Neuerung – etwa an IT-Systemen, Anwendungen oder Konfigurationen – vom Test- in den Produktivbetrieb. Eine stufenweise Inbetriebnahme (auch phased deployment, gradual rollout oder staged release) meint dabei das gezielte Ausrollen von Änderungen in mehreren kontrollierten Schritten, etwa nach Rollen, geografischen Standorten oder Systemkomponenten gruppiert, anstatt in einem einzigen vollständigen Übergang. Diese Methode kann gezielt dazu genutzt werden, Probleme frühzeitig zu erkennen und zu verhindern, dass diese sich flächendeckend auf die gesamte Infrastruktur auswirken. Ziel ist insbesondere, mögliche Risiken aus unzureichend getesteten Änderungen zu reduzieren – etwa wenn fehlerhafte Updates zu Systemausfällen, Datenverlusten oder Funktionseinschränkungen führen könnten. Auch unbeabsichtigte Interaktionen mit bestehenden Komponenten, die im Testsystem nicht abgebildet waren, könnten auftreten. Ein simples Rolling-Release-Modell, bei dem kleinschrittige Änderungen allen betroffenen Geräte gleichzeitig bereitgestellt werden, genügt NICHT um die Anforderung zu erfüllen. Ein schrittweiser Rollout ist in verschiedenen Varianten möglich: (1) der Einsatz von sogenannten Canary Releases, bei denen Änderungen zuerst auf ein kleines, repräsentatives Nutzersegment ausgerollt werden, (2) der automatisierte Rollout nach dem One-Some-All-Prinzip, (3) das gezielte Aktivieren neuer Funktionen über Feature Toggles, die zentrale Steuerung ermöglichen, oder (4) das parallele Führen alter und neuer Systemversionen in einer Blue-Green Deployment-Struktur.
@@ -291,6 +353,8 @@ Inbetriebnahme (engl. deployment oder rollout) meint hier die technische und org
 
 **Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.23, G 0.22, G 0.43, G 0.18
 
+**Vorgänger:** [INF.13.A12-UA.3](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/10_INF_Infrastruktur/INF_13_Technisches_Gebaeudemanagement_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (intersects-with) · [NET.3.1.A25-UA.1](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/09_NET_Netze_und_Kommunikation/NET_3_1_Router_und_Switches_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (subset-of) · [NET.3.2.A25-UA.1](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/09_NET_Netze_und_Kommunikation/NET_3_2_Firewall_Edition_2023.pdf?__blob=publicationFile&v=4#download=1) (subset-of) · [NET.3.2.A25-UA.2](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/09_NET_Netze_und_Kommunikation/NET_3_2_Firewall_Edition_2023.pdf?__blob=publicationFile&v=4#download=1) (subset-of) · [OPS.1.1.3.A1-UA.8](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/04_OPS_Betrieb/OPS_1_1_3_Patch_und_Aenderungsmanagement_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (superset-of) · [OPS.1.1.6.A12-UA.2](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/04_OPS_Betrieb/OPS_1_1_6_Software_Tests_und_Freigaben_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (subset-of)
+
 > Änderungen und Tests SOLLTE die Persistenz nach wesentlichen Änderungen testen.
 
 Persistenz bedeutet hier, dass eine wesentliche Änderung nach ihrer Einführung dauerhaft wirksam bleibt, also auch nach einem Neustart, einem System-Update oder einem Rückspielen von Konfigurations-Backups nicht unbeabsichtigt verloren geht. Dies könnte beispielsweise dazu führen, dass eine sicherheitsrelevante Konfiguration nach einem Reboot verschwindet oder eine Migration zu einem neuen Anbieter scheitert, weil Daten oder Regeln nicht portabel waren. Eine Institution kann die Anforderung praktisch umsetzen, indem Änderungen nach Abschluss nicht nur funktional, sondern auch über System- und Lebenszyklusereignisse hinweg überprüft werden. Dazu kann es hilfreich sein, Änderungen gezielt mit simulierten Neustarts, Failover-Tests oder dem erneuten Einspielen von Standard-Backups zu validieren. Um den laufenden Betrieb hierdurch nicht zu beeinträchtigen können Systeme oder Anwendungsinstanzen nacheinander oder zu unkritischen Zeiten neu gestartet werden.
@@ -298,6 +362,8 @@ Persistenz bedeutet hier, dass eine wesentliche Änderung nach ihrer Einführung
 ### TEST.5.5 – Rückblick
 
 **Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.18
+
+**Vorgänger:** [CON.11.1.A17-UA.5](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/03_CON_Konzepte_und_Vorgehensweisen/CON_11_1_Geheimschutz_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (subset-of) · [OPS.1.1.3.A1-UA.7](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/04_OPS_Betrieb/OPS_1_1_3_Patch_und_Aenderungsmanagement_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (superset-of)
 
 > Änderungen und Tests SOLLTE die Erreichung der Bereitstellungsziele *[regelmäßig]* überprüfen.
 

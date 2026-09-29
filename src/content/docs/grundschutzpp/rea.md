@@ -11,6 +11,8 @@ Die Praktik Sicherheitsvorfallsbehandlung sorgt dafür, dass Informationssicherh
 
 **Pflicht:** MUSS · **Stufe:** `normal-SdT` · **Aufwand:** 0 · **Gefährdungen:** G 0.18
 
+**Vorgänger:** [APP.3.2.A20-UA.2](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/06_APP_Anwendungen/APP_3_2_Webserver_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (superset-of) · [DER.2.1.A1-UA.1](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/05_DER_Detektion_und_Reaktion/DER_2_1_Behandlung_von_Sicherheitsvorfaellen_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (intersects-with) · [DER.2.1.A2-UA.1](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/05_DER_Detektion_und_Reaktion/DER_2_1_Behandlung_von_Sicherheitsvorfaellen_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (equivalent-to) · [DER.2.1.A7-UA.1](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/05_DER_Detektion_und_Reaktion/DER_2_1_Behandlung_von_Sicherheitsvorfaellen_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (equivalent-to)
+
 > Sicherheitsvorfallsbehandlung MUSS Verfahren und Regelungen zur Behandlung von Sicherheitsvorfällen verankern.
 
 Bei Sicherheitsvorfällen gilt es, schnell und systematisch zu reagieren, um weitere Schäden von Daten, Assets oder Personen abzuwenden. Auch erfahrene Experten benötigen dafür klare Anleitungen, um keine Arbeitsschritte zu vergessen oder rechtlichen Unsicherheiten bei der Ermittlung von Ursachen und Ergreifung von Gegenmaßnahmen ausgesetzt zu sein. Die bei der Festlegung des Verfahrens im Einzelnen zu berücksichtigenden Inhalte ergeben sich aus den Anforderungen dieser Praktik.
@@ -27,6 +29,8 @@ Ohne eine Dokumentation könnte die Einhaltung der Verfahren und Regelungen von 
 
 **Pflicht:** MUSS · **Stufe:** `normal-SdT` · **Aufwand:** 0 · **Gefährdungen:** G 0.18, G 0.31
 
+**Vorgänger:** [APP.3.2.A20-UA.2](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/06_APP_Anwendungen/APP_3_2_Webserver_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (superset-of)
+
 > Sicherheitsvorfallsbehandlung MUSS die mit den Verfahren und Regelungen verbundenen Aufgaben *[zuständigen Personen oder Rollen]* zuweisen.
 
 Die Zuweisung von Aufgaben bezeichnet die eindeutige und verbindliche Übertragung von konkreten Tätigkeiten und Verantwortlichkeiten des Änderungsprozesses, wie etwa die Risikobewertung, die technische Umsetzung oder die finale Freigabe, an definierte Stellen in der Institution. Der Sinn dieser Vorschrift ist es, die Verantwortlichkeit ("Accountability") für jeden einzelnen Schritt im Prozess klarzustellen. Ohne eine solche Zuweisung könnten kritische Prüfungen unterbleiben, weil sich niemand explizit zuständig fühlt, was wiederum die Wahrscheinlichkeit fehlgeschlagener Änderungen erhöht. Eine klare Regelung kann sicherstellen, dass keine Aufgaben übersehen werden und jede Tätigkeit von einer dafür qualifizierten und befugten Stelle ausgeführt wird, was die Prozesssicherheit signifikant erhöht. Eine bewährte Methode zur Umsetzung ist die Erstellung einer RACI-Matrix (Responsible, Accountable, Consulted, Informed), die tabellarisch für jeden Prozessschritt darstellt, wer für die Durchführung verantwortlich ist, wer die Gesamtverantwortung trägt, wer zu konsultieren und wer zu informieren ist. Diese Zuständigkeiten können auch direkt in einem Workflow- oder Ticketsystem abgebildet werden, sodass Aufgaben, wie beispielsweise Genehmigungsschritte, automatisch an die richtige Gruppe oder Person weitergeleitet werden. Sinnvoll ist es, die Zuweisung anhand von Rollen (z. B. "Anwendungsverantwortlicher", "Netzwerkadministrator", "Change Manager") vorzunehmen, statt an konkrete Personen. Dieser Ansatz stellt sicher, dass die Prozesse auch bei Personalwechseln stabil weiterlaufen, da die Zuständigkeit an die Funktion und nicht an das Individuum gebunden ist.
@@ -42,6 +46,8 @@ Wenn die Zuständigen die etablierten Verfahren nicht kennen, besteht die Gefahr
 ### REA.1.2 – Regelmäßige Überprüfung
 
 **Pflicht:** MUSS · **Stufe:** `normal-SdT` · **Aufwand:** 0 · **Gefährdungen:** G 0.18
+
+**Vorgänger:** [DER.2.1.A2-UA.8](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/05_DER_Detektion_und_Reaktion/DER_2_1_Behandlung_von_Sicherheitsvorfaellen_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (equivalent-to) · [DER.2.1.A7-UA.4](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/05_DER_Detektion_und_Reaktion/DER_2_1_Behandlung_von_Sicherheitsvorfaellen_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (equivalent-to)
 
 > Sicherheitsvorfallsbehandlung MUSS die Verfahren und Regelungen *[regelmäßig]* und anlassbezogen auf Aktualität überprüfen.
 
@@ -77,6 +83,8 @@ Die automatische Erstreaktion kann je nach Risikoprofil durch institutionseigene
 
 **Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.39, G 0.47, G 0.37, G 0.23
 
+**Vorgänger:** [DER.2.1.A16-UA.1](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/05_DER_Detektion_und_Reaktion/DER_2_1_Behandlung_von_Sicherheitsvorfaellen_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (subset-of)
+
 > Sicherheitsvorfallsbehandlung SOLLTE den Vorfall dokumentieren.
 
 Dokumentation des Vorfalls meint hier die nachvollziehbare, strukturierte und revisionssichere Aufzeichnung aller für eine spätere Auswertung relevanten Informationen zu einem Sicherheitsvorfall („security incident“). Dazu gehören insbesondere Zeitpunkt, Art, Ausmaß, betroffene Systeme oder Daten sowie eingeleitete Sofortmaßnahmen. Sie dient nicht allein der internen Nachvollziehbarkeit, sondern potenziell auch der rechtlichen Beweissicherung („evidence preservation“) und Verbesserung des Sicherheitsmanagements. Eine lückenhafte oder unvollständige Dokumentation könnte dazu führen, dass Ursachenanalysen fehlschlagen, Wiederholungen nicht verhindert werden oder rechtliche Nachweispflichten – etwa im Rahmen von Datenschutzvorfällen – nicht erfüllt werden könnten. Eine sorgfältig geführte Aufzeichnung kann dagegen die Transparenz im Incident-Handling erhöhen, interne Lernprozesse fördern und Verantwortlichkeiten eindeutig nachvollziehbar machen. Sinnvolle Varianten der Umsetzung können in Form von (1) standardisierten Incident-Report-Templates, (2) elektronischen Ticket- oder Case-Management-Systemen zur Vorfallserfassung oder (3) forensischen Protokollen mit Zeitstempeln und Beweismitteln erfolgen.
@@ -100,6 +108,8 @@ Bei einer forensischen Analyse werden Beweise gesichert und Erkenntnisse zur Ver
 #### REA.2.5.1 – Rechtssichere Beweissicherung
 
 **Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.39, G 0.47
+
+**Vorgänger:** [DER.2.2.A11-UA.1](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/05_DER_Detektion_und_Reaktion/DER_2_2_Vorsorge_fuer_die_IT_Forensik_2023.pdf?__blob=publicationFile&v=3#download=1) (equivalent-to)
 
 > Sicherheitsvorfallsbehandlung SOLLTE rechtlich relevante Beweise rechtssicher dokumentieren.
 
@@ -125,6 +135,8 @@ Um im Ernstfall eine schnelle Untersuchung von Sicherheitsvorfällen zu ermögli
 
 **Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.39, G 0.47, G 0.23, G 0.40
 
+**Vorgänger:** [DER.2.1.A5-UA.4](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/05_DER_Detektion_und_Reaktion/DER_2_1_Behandlung_von_Sicherheitsvorfaellen_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (equivalent-to)
+
 > Sicherheitsvorfallsbehandlung SOLLTE eine Vorgehensweise zur Ursachenanalyse und Behandlung verankern.
 
 Um einen Vorfall vollständig beheben zu können, ist es zweckmäßig, zunächst zu analysieren, wie der Vorfall zustande kam (Root Cause Analysis): Welche Personen und Systeme sind betroffen? Welche systematischen Schwachstellen haben zu dem Vorfall geführt? Die Behebung des Vorfalls orientiert sich dann an diesen Erkenntnissen, z.B. durch Schließen der Sicherheitslücken und Wiederherstellung von Daten und Anwendungen. Je nach Vorfall kann die Behandlung durch das Schließen ausgenutzter Sicherheitslücken, einem Test anderer IT-Systeme auf vergleichbare Schwachstellen oder dem Austausch betroffener IT-Systeme, Anwendungen oder Datenbestände umgesetzt werden. Sind die Originaldaten oder -Systeme nicht mehr zu retten, so kann die Neuinstallation betroffener Systeme und die Wiederherstellung von Daten aus Backups eine Möglichkeit der Behandlung sein.
@@ -139,6 +151,8 @@ Um einen Vorfall vollständig beheben zu können, ist es zweckmäßig, zunächst
 
 **Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.39, G 0.47
 
+**Vorgänger:** [DER.2.1.A9-UA.4](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/05_DER_Detektion_und_Reaktion/DER_2_1_Behandlung_von_Sicherheitsvorfaellen_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (equivalent-to)
+
 > Sicherheitsvorfallsbehandlung SOLLTE eine Vorgehensweise zur Kommunikation bei Vorfällen unter Berücksichtigung von Compliance-Verpflichtungen, Bedürfnissen der interessierten Parteien und der Geschäftsziele verankern.
 
 Hierzu gehören beispielsweise Meldepflichten gegenüber Aufsichts- oder Ermittlungsbehörden oder die Information Betroffener. Für personenbezogene Daten siehe auch Art. 34 DSGVO. Für weitere Details siehe ISO/IEC 27035. Bei den Compliance-Verpflichtungen sind einerseits Verpflichtungen zu beachten, die eine Meldung oder einen bestimmten Umfang für Meldungen fordern (z.B. Art. 33 DSGVO), andererseits aber auch Verpflichtungen zur Wahrung der Vertraulichkeit, z.B. aus dem Datenschutz, vertraglicher Pflichten zur Wahrung fremder Geschäftsgeheimnisse oder der staatlichen Geheimhaltung. Im Zweifelsfall ist hier die Inanspruchnahme interner oder externer Rechtsberatung hier empfehlenswert.
@@ -152,6 +166,8 @@ Hierzu gehören beispielsweise Meldepflichten gegenüber Aufsichts- oder Ermittl
 #### REA.2.6.3 – Koordinierung
 
 **Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.39, G 0.47, G 0.23, G 0.40
+
+**Vorgänger:** [APP.3.2.A20-UA.2](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/06_APP_Anwendungen/APP_3_2_Webserver_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (intersects-with)
 
 > Sicherheitsvorfallsbehandlung SOLLTE die Koordinierung bei Vorfällen verankern.
 

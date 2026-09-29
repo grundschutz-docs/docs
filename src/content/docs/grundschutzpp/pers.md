@@ -11,6 +11,8 @@ Die Praktik Personal fokussiert sich auf die Integration von Sicherheitsanforder
 
 **Pflicht:** MUSS · **Stufe:** `normal-SdT` · **Aufwand:** 0 · **Gefährdungen:** G 0.18
 
+**Vorgänger:** [ORP.2.A1-UA.1](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/02_ORP_Organisation_und_Personal/ORP_2_Personal_Editon_2023.pdf?__blob=publicationFile&v=4#download=1) (intersects-with)
+
 > Personal MUSS Verfahren und Regelungen zum Personalmanagement verankern.
 
 Der Prozess stellt sicher, dass qualifiziertes und zuverlässiges Personal für alle Aufgaben zur Verfügung steht und allen Beteiligten ihre Aufgaben und Zuständigkeiten bekannt sind. Hierbei sind Einstellung, Einarbeitung, Weiterbildung und Austritt von Mitarbeitenden zu berücksichtigen. Die bei der Festlegung des Verfahrens im Einzelnen zu berücksichtigenden Inhalte ergeben sich aus den Anforderungen dieser Praktik.
@@ -34,6 +36,8 @@ Die Zuweisung von Aufgaben bezeichnet die eindeutige und verbindliche Übertragu
 #### PERS.1.1.3 – Bekanntgabe
 
 **Pflicht:** MUSS · **Stufe:** `normal-SdT` · **Aufwand:** 0 · **Gefährdungen:** G 0.18, G 0.31
+
+**Vorgänger:** [ORP.2.A1-UA.2](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/02_ORP_Organisation_und_Personal/ORP_2_Personal_Editon_2023.pdf?__blob=publicationFile&v=4#download=1) (intersects-with)
 
 > Personal MUSS die zuständigen Personen oder Rollen über die Verfahren und Regelungen informieren.
 
@@ -167,6 +171,8 @@ Hierbei sind sowohl die Identität der Person, als auch ihre Qualifikation anhan
 
 **Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.31, G 0.33, G 0.32, G 0.35
 
+**Vorgänger:** [ORP.2.A13-UA.2](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/02_ORP_Organisation_und_Personal/ORP_2_Personal_Editon_2023.pdf?__blob=publicationFile&v=4#download=1) (intersects-with)
+
 > Personal KANN eine Sicherheitsüberprüfung vor der Besetzung von sicherheitsrelevanten Stellen ausführen.
 
 Eine Sicherheitsüberprüfung meint die Verifikation von Identität, beruflicher Qualifikation und Verlässlichkeit von allen Personen mit Zugriff auf schützenswerte Informationen, hier konkret der Mitarbeitenden. Bei einer Sicherheitsüberprüfung kann je nach Art der Tätigkeit ein Polizeiliches Führungszeugnis, eine finanzielle Hintergrundprüfung, ein Sicherheitsinterview, eine psychologische Eignungsprüfung, sowie eine Überprüfung von sozialen Beziehungen und Netzwerken sinnvoll sein. Hierbei besteht ein enger Bezug zum Persönlichkeits- und Datenschutzrecht der Betroffenen. Eine sicherheitsrelevante Stelle ist eine Funktion oder Rolle innerhalb einer Institution, die direkt Zugang zu sicherheitskritischen Informationen, IT-Systemen oder Konfigurationen hat und deren Handlungen die Vertraulichkeit, Integrität oder Verfügbarkeit dieser Systeme maßgeblich beeinflussen könnten. Dazu zählen insbesondere (1) der bzw. die Informationssicherheitsbeauftragte, (2) System-, Netzwerk- und Serveradministratoren sowie (3) weitere Administrator*innen mit erhöhten Rechten wie Domain-Admins, Datenbank-Admins oder Security-Engineers, ebenso wie (4) Personen mit Zugriff auf sicherheitskritische Schlüsselmaterialien etwa im Kryptografie- oder Identitätsmanagement. Nicht darunter fallen hingegen Tätigkeiten ohne sicherheitskritischen Systemzugang oder ohne Einfluss auf Sicherheitsfunktionen, etwa Reinigungs- oder Empfangstätigkeiten.
@@ -174,6 +180,8 @@ Eine Sicherheitsüberprüfung meint die Verifikation von Identität, beruflicher
 ### PERS.3.7 – Einarbeitung
 
 **Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.31, G 0.33, G 0.32, G 0.35
+
+**Vorgänger:** [ORP.2.A1-UA.1](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/02_ORP_Organisation_und_Personal/ORP_2_Personal_Editon_2023.pdf?__blob=publicationFile&v=4#download=1) (intersects-with) · [ORP.2.A1-UA.3](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/02_ORP_Organisation_und_Personal/ORP_2_Personal_Editon_2023.pdf?__blob=publicationFile&v=4#download=1) (intersects-with)
 
 > Personal für Mitarbeitende SOLLTE eine Einarbeitung bei Neuzugang ausführen.
 
@@ -200,6 +208,8 @@ Neue Mitarbeitende könnten ohne gezielte Einführung unbewusst vertrauliche Inf
 #### PERS.4.2.1 – Produktspezifische Schulungen und Sensibilisierungen
 
 **Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.18
+
+**Vorgänger:** [APP.3.4.A12-UA.1](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/06_APP_Anwendungen/APP_3_4_Samba_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (subset-of)
 
 > Personal für Administrierende SOLLTE produktspezifische Schulungen zum Umgang mit administrativen Werkzeugen bei Neuzugang und dem Einsatz neuer IT-Produkte ausführen.
 
@@ -237,6 +247,8 @@ Die Vertrauenswürdigkeit bezeichnet im hier relevanten Kontext die Eignung und 
 
 **Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.18
 
+**Vorgänger:** [ORP.2.A2-UA.10](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/02_ORP_Organisation_und_Personal/ORP_2_Personal_Editon_2023.pdf?__blob=publicationFile&v=4#download=1) (intersects-with)
+
 > Personal für Nutzende SOLLTE eine Vorgehensweise für den Weggang verankern.
 
 Wenn Nutzende ohne gesteuertes Vorgehen aus dem Informationsverbund ausscheiden, könnten Zugänge oder Aufgaben unkontrolliert zurückgelassen werden, oder Informationen ungewollt an Dritte abfließen. Hierzu gehört z.B. Mitarbeitende an die Wahrung von Betriebs- und Geschäftsgeheimnissen zu erinnern. Außerdem sind von ausscheidenden Mitarbeitenden alle im Rahmen ihrer Tätigkeit erhaltenen Unterlagen, Schlüssel und Geräte sowie Ausweise und Zutrittsberechtigungen einzuziehen. Hierbei besteht ein enger Zusammenhang zum Berechtigungsmanagement.
@@ -245,6 +257,8 @@ Wenn Nutzende ohne gesteuertes Vorgehen aus dem Informationsverbund ausscheiden,
 
 **Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.18
 
+**Vorgänger:** [ORP.2.A2-UA.4](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/02_ORP_Organisation_und_Personal/ORP_2_Personal_Editon_2023.pdf?__blob=publicationFile&v=4#download=1) (intersects-with)
+
 > Personal für Nutzende SOLLTE bei Weggang den unverzüglichen Entzug aller Zugriffsrechte im Einklang mit den Regelungen und Verfahren zum Berechtigungs- und Identitätsmanagement verankern.
 
 Der unverzügliche Entzug bedeutet in diesem Kontext die sofortige und vollständige Deaktivierung aller Zugriffsrechte, sowohl auf physische Ressourcen (z. B. Gebäude, Serverräume, Schränke mit vertraulichen Unterlagen) als auch auf logische Systeme (z. B. Benutzerkonten in E-Mail-Diensten, ERP-Systemen, Cloud-Speichern). Physische Zugriffsrechte umfassen Schlüssel, Zugangskarten oder Codes, die eine Person nutzen kann, um in geschützte Bereiche zu gelangen. Logische Zugriffsrechte beziehen sich auf digitale Berechtigungen wie Passwörter, Tokens, VPN-Profile oder Single-Sign-On-Zugänge. Der Sinn dieser Vorgabe liegt darin, das Risiko unbefugter Zugriffe nach dem Ausscheiden von Mitarbeitenden oder externen Nutzenden zu minimieren. Ein entlassener Mitarbeitender könnte ansonsten noch Daten aus einer Cloud-Anwendung kopieren oder mit einer Zutrittskarte ein Rechenzentrum betreten. Werden die Rechte dagegen sofort entzogen, kann die Institution die Vertraulichkeit und Integrität sensibler Informationen sichern und zugleich Haftungsrisiken reduzieren. Eine Institution kann diese Anforderung durch abgestimmte technische und prozessuale Maßnahmen umsetzen. Dazu kann ein standardisierter Offboarding-Prozess etabliert werden, der mit der Personalabteilung synchronisiert ist und automatisch IT und Facility-Management informiert.
@@ -252,6 +266,8 @@ Der unverzügliche Entzug bedeutet in diesem Kontext die sofortige und vollstän
 #### PERS.6.1.2 – Neubesetzung
 
 **Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.18
+
+**Vorgänger:** [ORP.2.A2-UA.1](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/02_ORP_Organisation_und_Personal/ORP_2_Personal_Editon_2023.pdf?__blob=publicationFile&v=4#download=1) (intersects-with)
 
 > Personal für Mitarbeitende SOLLTE bei Weggang frei gewordene Zuständigkeiten zuweisen.
 

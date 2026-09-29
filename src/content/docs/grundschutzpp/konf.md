@@ -11,6 +11,8 @@ Die Praktik Konfiguration stellt sicher, dass IT-Komponenten – wie Anwendungen
 
 **Pflicht:** MUSS · **Stufe:** `normal-SdT` · **Aufwand:** 0 · **Gefährdungen:** G 0.18
 
+**Vorgänger:** [NET.3.1.A1-UA.1](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/09_NET_Netze_und_Kommunikation/NET_3_1_Router_und_Switches_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (intersects-with)
+
 > Konfiguration MUSS Verfahren und Regelungen zum Konfigurationsmanagement verankern.
 
 Die Umsetzung kann in einem eigenen Prozess, oder integriert in andere Prozesse und Aufgaben erfolgen. Die bei der Festlegung des Verfahrens im Einzelnen zu berücksichtigenden Inhalte ergeben sich aus den Anforderungen dieser Praktik.
@@ -42,6 +44,8 @@ Wenn die Zuständigen die etablierten Verfahren nicht kennen, besteht die Gefahr
 ### KONF.1.2 – Regelmäßige Überprüfung
 
 **Pflicht:** MUSS · **Stufe:** `normal-SdT` · **Aufwand:** 0 · **Gefährdungen:** G 0.18, G 0.29
+
+**Vorgänger:** [APP.4.3.A1-UA.6](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/06_APP_Anwendungen/APP_4_3_Relationale_Datenbanksysteme_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (intersects-with)
 
 > Konfiguration MUSS die Verfahren und Regelungen *[regelmäßig]* und anlassbezogen auf Aktualität überprüfen.
 
@@ -77,6 +81,8 @@ Konfigurationsgeheimnissen sind sensitive, nicht-öffentliche Daten, die von Sys
 
 **Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.18
 
+**Vorgänger:** [APP.3.2.A1-UA.1](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/06_APP_Anwendungen/APP_3_2_Webserver_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (intersects-with)
+
 > Konfiguration für IT-Systeme SOLLTE eine Grundkonfiguration dokumentieren.
 
 Eine Grundkonfiguration (engl. baseline configuration) bezeichnet hier einen dokumentierten Ausgangszustand, der alle sicherheitsrelevanten Einstellungen, Dienste und Komponenten umfasst und als verbindlicher Referenzpunkt für den Betrieb und die Härtung dient. Sie stellt damit eine Art „Zielzustand“ dar, anhand dessen spätere Änderungen überprüft oder Abweichungen erkannt werden können. Ohne eine solche Referenz könnte es bei Installationen, Updates oder Wiederherstellungen zu unsicheren Abweichungen kommen, etwa wenn unnötige Dienste aktiv bleiben, Standardkonten nicht deaktiviert sind oder Kommunikationsschnittstellen unkontrolliert offenstehen; umgekehrt kann eine saubere Grundkonfiguration sicherstellen, dass Systeme konsistent, nachvollziehbar und auf Basis etablierter Sicherheitsanforderungen betrieben werden. Hierzu gehört z.B. die Konfiguration der Uhrensychronisation, von DNS und Verzeichnisdiensten, die Änderung von Default-Zugangsdaten oder der automatische Abruf benötigter Lizenzen. Die Umsetzung einer Grundkonfiguration kann durch verschiedene Maßnahmen unterstützt werden: (1) Es ist sinnvoll, Herstellerdokumentationen zu sichten und empfohlene Härtungseinstellungen (z. B. Deaktivierung unsicherer Protokolle) als Ausgangspunkt zu übernehmen. (2) Ergänzend können Empfehlungen des BSI oder Benchmarks wie die CIS Benchmarks herangezogen werden, um systematisch sicherheitskritische Parameter zu prüfen und einzupflegen. (3) Für komplexe Umgebungen kann ein Konfigurationsskript oder ein Automatisierungs-Tool (z. B. Ansible, Puppet, Chef) genutzt werden, um eine reproduzierbare Baseline einzuspielen und Abhängigkeiten der Komponenten konsistent zu berücksichtigen. Auf diese Weise kann die Institution sicherstellen, dass jede Installation oder Wiederherstellung eines Systems auf einer überprüfbaren und einheitlichen Basis erfolgt.
@@ -93,6 +99,8 @@ Die Versionierung bezeichnet hier die strukturierte Nachvollziehbarkeit von Änd
 
 **Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.18, G 0.29
 
+**Vorgänger:** [CON.1.A1-UA.1](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/03_CON_Konzepte_und_Vorgehensweisen/CON_1_Kryptokonzept_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (intersects-with)
+
 > Konfiguration für IT-Systeme SOLLTE kryptographische Verfahren nach *[anerkannten Standards]* im Einklang mit den zugehörigen Anforderungen zum Identitäts- und Berechtigungsmanagement aktivieren.
 
 Kryptographie wird für die Authentifizierung, Verschlüsselung und Integritätprüfung in Systemen verwendet, z.B. bei der Verschlüsselung von Speichermedien, bei der Anmeldung am System, Transportverschlüsselung von Systemupdates oder Integritätsprüfung von Systemfunktionen. Die Formulierung "im Einklang mit den zugehörigen Anforderungen zum Identitäts- und Berechtigungsmanagement" bedeutet, dass die Funktionen so zu konfigurieren sind, wie in der Praktik Berechtigung (BER) festgelegt. Hierzu gehört insbesondere die Verwendung aktueller kryptographischer Verfahren, wie sie im Thema Kryptographie zu finden ist.
@@ -101,6 +109,8 @@ Kryptographie wird für die Authentifizierung, Verschlüsselung und Integritätp
 
 **Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 1 · **Gefährdungen:** G 0.30, G 0.23
 
+**Vorgänger:** [IND.2.1.A1-UA.1](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/08_IND_Industrielle_IT/IND_2_1_Allgemeine_ICS_Komponente_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (intersects-with)
+
 > Konfiguration für IT-Systeme SOLLTE die Änderung von Default-Zugangsdaten ausführen.
 
 "Default-Zugangsdaten" sind werkseitig voreingestellte Benutzername-Passwort-Kombinationen wie "root" oder "administrator", sowie vergleichbare Authentifizierungsmerkmale, die bei der Erstinbetriebnahme von IT-Systemen unverändert vorhanden sind. Diese Daten sind in der Regel öffentlich dokumentiert oder leicht im Internet auffindbar. Ihr Fortbestehen im Produktivbetrieb könnte ein erhebliches Risiko darstellen, da ein Angreifer mit minimalem Aufwand Zugriff auf Systeme erlangen könnte. Ein klassischer Vorfall könnte sein, dass ein öffentlich erreichbarer Router mit unveränderten Standardzugängen übernommen wird. Die Änderung kann demgegenüber sicherstellen, dass nur berechtigte Personen Zugriff erlangen, und kann damit unbefugte Manipulationen oder Datendiebstahl wirksam erschweren. Eine Institution kann die Anforderung umsetzen, indem bei der Inbetriebnahme jedes Systems ein Prozess etabliert wird, der die Standardzugangsdaten unmittelbar ersetzt. Dies kann beispielsweise (1) durch verpflichtende Initial-Setup-Routinen erfolgen, die eine Passwortänderung erzwingen, oder (2) durch zentrale Checklisten oder automatisierte Inventarisierung, die offene Standardzugänge identifizieren und schließen. Die Anforderung ist auch dann erfüllt, wenn diese Zugänge deaktiviert oder durch Zugänge mit von der Institution verwalteten Zugangsdaten ersetzt werden.
@@ -108,6 +118,8 @@ Kryptographie wird für die Authentifizierung, Verschlüsselung und Integritätp
 ### KONF.2.4 – Deaktivierung nicht benötigter Systemfunktionen
 
 **Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.23, G 0.28
+
+**Vorgänger:** [APP.3.2.A1-UA.6](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/06_APP_Anwendungen/APP_3_2_Webserver_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (intersects-with) · [SYS.3.2.4.A2-UA.1](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/07_SYS_IT_Systeme/SYS_3_2_4_Android_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (intersects-with)
 
 > Konfiguration für IT-Systeme SOLLTE nicht benötigte Systemfunktionen deaktivieren.
 
@@ -125,6 +137,8 @@ Hierbei ist insbesondere an die vom Betriebssystem als vertrauenswürdig eingest
 
 **Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.19, G 0.23
 
+**Vorgänger:** [APP.1.1.A12-UA.1](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/06_APP_Anwendungen/APP_1_1_Office_Produkte_Edition_2023.pdf?__blob=publicationFile&v=4#download=1) (subset-of)
+
 > Konfiguration für IT-Systeme SOLLTE nicht benötigte Cloud-Anbindungen deaktivieren.
 
 Eine Cloud-Anbindung ist eine technische Schnittstelle, über die ein IT-System Daten oder Dienste mit einer externen Cloud-Plattform austauscht. Dazu können sowohl direkte API-Integrationen wie die Anmeldung an Cloud-Verzeichnisdienste, aber auch automatische Synchronisationsmechanismen, Hintergrund-Updates über Cloud-Server oder agentenbasierte Remote-Management-Funktionen zählen. Nicht benötigte Anbindungen können dadurch identifiziert werden, dass sie weder für den produktiven Betrieb noch für Wartung, Support oder Sicherheitsfunktionen erforderlich sind. Der Sinn und Zweck dieser Regelung liegt darin, die Angriffsfläche zu reduzieren und unkontrollierte Datenflüsse zu vermeiden. Ein nicht genutzter, aber weiterhin aktiver Cloud-Connector könnte etwa unbemerkt sensible Metadaten an Drittdienste übertragen oder als Einfallstor für Schadsoftware missbraucht werden; die gezielte Deaktivierung kann dagegen unnötige Risiken eliminieren und die Übersichtlichkeit der Systemarchitektur erhöhen.
@@ -132,6 +146,8 @@ Eine Cloud-Anbindung ist eine technische Schnittstelle, über die ein IT-System 
 ### KONF.2.5 – Überprüfung der Konfiguration
 
 **Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.22, G 0.21, G 0.46, G 0.31
+
+**Vorgänger:** [INF.13.A6-UA.4](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/10_INF_Infrastruktur/INF_13_Technisches_Gebaeudemanagement_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (subset-of) · [OPS.1.1.1.A5-UA.6](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/04_OPS_Betrieb/OPS_1_1_1_Allgemeiner_IT_Betrieb_Edition_2023.pdf?__blob=publicationFile&v=4#download=1) (intersects-with)
 
 > Konfiguration für IT-Systeme SOLLTE die Übereinstimmung der tatsächlichen Konfiguration mit dem Referenzzustand *[regelmäßig]* überprüfen.
 
@@ -165,6 +181,8 @@ Die Konfigurationsanforderungen für Mobile Device Management (MDM) sind im BSI-
 
 **Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.27, G 0.18
 
+**Vorgänger:** [SYS.2.1.A36-UA.1](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/07_SYS_IT_Systeme/SYS_2_1_Allgemeiner_Client_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (intersects-with)
+
 > Konfiguration für IT-Systeme KANN alternative Administrationszugänge installieren.
 
 Das ist zum Beispiel von Bedeutung bei zentralen Systemen wie Firewalls und Router, bei deren Ausfall eine Fernwartung nicht mehr möglich ist. Hierzu können alternative Werkzeuge, sowie alternative Protokolle, Schnittstellen und Zugangskonten verwendet werden. Alternative Werkzeuge sind z.B. Kommandozeilenwerkzeuge, API-Schnittstellen oder die Konsole virtualisierter oder physischer Server, statt der Grafischen Benutzeroberfläche. Bei Cloud-Diensten kann dies z.B. durch Vorhalten von sowohl Browser-Zugang als auch CLI-Zugang geschehen. Alternative Zugangskonten sind z.B Break-Glass-Accounts, deren Zugangsdaten nur bei Notfällen aus einem Safe entnommen werden.
@@ -191,6 +209,8 @@ Ein kryptographischer Hardwarespeicher bezeichnet in diesem Kontext eine gesiche
 
 **Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.19, G 0.14
 
+**Vorgänger:** [APP.3.3.A12-UA.1](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/06_APP_Anwendungen/APP_3_3_Fileserver_Edition_2023.pdf?__blob=publicationFile&v=4#download=1) (intersects-with)
+
 > Konfiguration für IT-Systeme SOLLTE integrierte Festspeichermedien verschlüsseln.
 
 Die Verschlüsselung von Datenträgern erschwert es Angreifern, Daten von verlorenen oder gestohlenen Geräten auszulesen. Die Verschlüsselung kann in Hard- oder Software (z.B. Windows BitLocker®, Apple FileVault®, Linux® dm-crypt) erfolgen. Für anerkannte kryptographische Algorithmen siehe BSI TR 02102.
@@ -206,6 +226,8 @@ Eine SIM-PIN ist eine persönliche Identifikationsnummer, die direkt auf der SIM
 ### KONF.3.4 – Physischer Diebstahlschutz
 
 **Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.16
+
+**Vorgänger:** [INF.10.A1-UA.1](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/10_INF_Infrastruktur/INF_10_Besprechungs_Veranstaltungs_und_Schulungsraeume_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (intersects-with)
 
 > Konfiguration für Endgeräte KANN einen physischen Diebstahlschutz installieren.
 
@@ -297,6 +319,8 @@ Unter Fernwartungsfunktionen versteht man technische Zugänge, die es ermöglich
 
 **Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.30, G 0.32
 
+**Vorgänger:** [IND.2.4.A1-UA.5](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/08_IND_Industrielle_IT/IND_2_4_Maschine_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (subset-of)
+
 > Konfiguration für IT-Systeme SOLLTE Fernwartungsfunktionen im Einklang mit den zugehörigen Anforderungen zum Identitäts- und Berechtigungsmanagement einschränken.
 
 Fernwartungszugänge, etwa über RDP, SNMP oder Anwendungen zur Fernsteuerung des Systems erlauben typischerweise eine Vielzahl von Eingriffen in Systemkonfiguration und Datenverarbeitungen. Beispiele sind die Remote-Zwischenablage und die automatische Einbindung von Peripheriegeräten, Wechseldatenträgern und Netzlaufwerken. Unautorisierte Fernwartungszugänge könnten für Angriffe missbraucht werden. Die Formulierung "im Einklang mit den zugehörigen Anforderungen zum Identitäts- und Berechtigungsmanagement" bedeutet, dass die Authentifizierung so erfolgt, wie in der Praktik Berechtigung (BER) festgelegt. Hierzu gehört insbesondere die Verwendung aktueller kryptographischer Verfahren, wie sie im Thema Kryptographie zu finden ist.
@@ -304,6 +328,8 @@ Fernwartungszugänge, etwa über RDP, SNMP oder Anwendungen zur Fernsteuerung de
 ### KONF.4.5 – Zeitquellen
 
 **Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.22, G 0.43
+
+**Vorgänger:** [OPS.1.2.6.A1-UA.5](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/04_OPS_Betrieb/OPS_1_2_6_NTP_Zeitsynchronisation_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (intersects-with)
 
 > Konfiguration für IT-Systeme SOLLTE Zeitquellen autorisieren.
 
@@ -315,6 +341,8 @@ Eine einheitliche Zeitquelle für die Systemuhr (meist über NTP oder PTP) ist e
 
 **Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 1 · **Gefährdungen:** G 0.18
 
+**Vorgänger:** [SYS.2.1.A1-UA.1](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/07_SYS_IT_Systeme/SYS_2_1_Allgemeiner_Client_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (intersects-with)
+
 > Konfiguration für IT-Systeme SOLLTE den Zugriff auf das System im Einklang mit den zugehörigen Anforderungen zum Identitäts- und Berechtigungsmanagement authentifizieren.
 
 Betrifft sowohl die lokale Anmeldung über eine Benutzeroberfläche als auch den Zugriff über Fernwartungsprotokolle oder -anwendungen wie RDP, SNMP, wenn diese vorhanden sind. Die Umsetzung erfolgt im einfachsten Fall durch einen Login, bzw. eine Bildschirmsperre für das IT-System. Biometrische Daten wie Fingerabdrücke können gefälscht werden und sind nicht so leicht zu ändern wie Passwörter. Setzen Sie Biometrie daher nicht als einzigen Authentifizierungsfaktor ein, sondern wenn, dann nur zur Ergänzung (Mehr-Faktor-Authentifizierung). Die Formulierung "im Einklang mit den zugehörigen Anforderungen zum Identitäts- und Berechtigungsmanagement" bedeutet, dass die Authentifizierung so erfolgt, wie in der Praktik Berechtigung (BER) festgelegt. Hierzu gehört insbesondere die Verwendung aktueller kryptographischer Verfahren, wie sie im Thema Kryptographie zu finden ist. Die Anforderung ist entbehrlich, wenn das System keinen Zugriff auf schützenswerte Daten erlaubt, z.B. bei Nutzung als Kiosk.
@@ -322,6 +350,8 @@ Betrifft sowohl die lokale Anmeldung über eine Benutzeroberfläche als auch den
 #### KONF.5.1.1 – Authentifizierung an der Firmware
 
 **Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 1 · **Gefährdungen:** G 0.30, G 0.21
+
+**Vorgänger:** [SYS.2.1.A36-UA.1](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/07_SYS_IT_Systeme/SYS_2_1_Allgemeiner_Client_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (intersects-with)
 
 > Konfiguration für IT-Systeme SOLLTE den Zugriff auf die Firmware im Einklang mit den zugehörigen Anforderungen zum Identitäts- und Berechtigungsmanagement authentifizieren.
 
@@ -364,6 +394,8 @@ Bei der Datenkapselung, im Englischen als data encapsulation bekannt, handelt es
 #### KONF.6.1.2 – Isolierung von Anwendungen
 
 **Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.39, G 0.23
+
+**Vorgänger:** [APP.4.4.A15-UA.1](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/06_APP_Anwendungen/APP_4_4_Kubernetes_Edition_2023.pdf?__blob=publicationFile&v=4#download=1) (subset-of)
 
 > Konfiguration für IT-Systeme KANN die Isolierung von *[bestimmten Anwendungen]* aktivieren.
 
@@ -429,6 +461,8 @@ Dies kann je nach Anwendung z.B. durch eine in der Anwendung integrierte Rollen-
 
 **Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.19, G 0.22
 
+**Vorgänger:** [APP.4.6.A20-UA.1](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/06_APP_Anwendungen/APP_4_6_SAP_ABAP_Programmierung_Edition_2023.pdf?__blob=publicationFile&v=4#download=1) (intersects-with)
+
 > Konfiguration für Anwendungen SOLLTE wenn die Anwendung mehrere Mandaten bedient, für jeden Mandanten eine eigene Berechtigungskonfiguration aktivieren.
 
 Der Ausdruck "mehrere Mandanten" (im Englischen auch multi-tenancy genannt) bezieht sich auf eine Softwarearchitektur, bei der eine einzige Instanz einer Anwendung gleichzeitig die Bedürfnisse mehrerer, voneinander unabhängiger Kundengruppen (Mandanten) bedient. Eine eigene Berechtigungskonfiguration bedeutet, dass jeder Mandant eine separate, von den anderen getrennte Sammlung von Zugriffsregeln und -rechten erhält. Dies dient dem Schutz vor Datenlecks, da ein Angreifer, der sich unrechtmäßig Zugang zu einem Mandanten verschafft, dadurch nicht automatisch die Berechtigungen für andere Mandanten übernimmt. Eine separate Konfiguration kann verhindern, dass ein Fehlverhalten oder eine Fehlkonfiguration bei einem Mandanten die Sicherheit aller anderen beeinträchtigt. Technische Möglichkeiten hierfür sind die Verwendung von mandantenspezifischen Datenbank-Schemata oder die logische Trennung von Daten innerhalb einer gemeinsamen Datenbank durch Mandanten-IDs. Darüber hinaus kann die Institution sicherstellen, dass die Authentifizierung und Autorisierung für jeden Mandanten streng getrennt sind, zum Beispiel durch die Nutzung unterschiedlicher API-Schlüssel oder Single-Sign-On-Konfigurationen pro Mandant.
@@ -445,6 +479,8 @@ Sind privilegierte Funktionen nicht eingeschränkt, so könnten Innentäter oder
 
 **Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.32, G 0.30
 
+**Vorgänger:** [APP.3.2.A1-UA.1](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/06_APP_Anwendungen/APP_3_2_Webserver_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (intersects-with) · [APP.3.2.A1-UA.2](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/06_APP_Anwendungen/APP_3_2_Webserver_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (intersects-with) · [APP.3.2.A1-UA.5](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/06_APP_Anwendungen/APP_3_2_Webserver_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (intersects-with) · [APP.3.2.A2-UA.1](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/06_APP_Anwendungen/APP_3_2_Webserver_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (intersects-with) · [APP.3.2.A2-UA.3](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/06_APP_Anwendungen/APP_3_2_Webserver_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (intersects-with) · [SYS.4.4.A24-UA.2](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/07_SYS_IT_Systeme/SYS_4_4_Allgemeines_IoT_Geraet_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (intersects-with)
+
 > Konfiguration für Webserver SOLLTE die Berechtigungen des Webserver-Prozesses einschränken.
 
 Wird der laufende Prozess über das Web kompromittiert, so verhindert eine Einschränkung der Rechte eine weitere Ausbreitung des Angriffs. Relevant sind dabei Zugriffsrechte für Dateisystem und Systemfunktionen. Zweckmäßig ist es hierzu, die Berechtigungen so einzuschränken, dass der Serverdienst a) keinen Zugriff auf Dateien außerhalb des WWW-Wurzelverzeichnisses hat, b) Schreibzugriffe innerhalb des WWW‑Wurzelverzeichnisses nur in explizit autorisierten Unter­verzeichnissen hat, c) keine Programme oder Shell‑Befehle außerhalb der vorgesehenen Interpreter ausführen kann, d) keine privilegierten Berechtigungen besitzt. Unterverzeichnisse die Schreibrechte benötigen könnten sind etwa /uploads, /cache, /tmp.
@@ -452,6 +488,8 @@ Wird der laufende Prozess über das Web kompromittiert, so verhindert eine Einsc
 ### KONF.6.9 – Zugriff auf Code
 
 **Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.19, G 0.22
+
+**Vorgänger:** [APP.3.1.A14-UA.3](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/06_APP_Anwendungen/APP_3_1_Webanwendungen_und_Webservices_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (intersects-with) · [APP.3.2.A2-UA.1](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/06_APP_Anwendungen/APP_3_2_Webserver_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (intersects-with)
 
 > Konfiguration für Webserver SOLLTE den Zugriff auf Quelldateien einschränken.
 
@@ -461,6 +499,8 @@ Quelldateien sind in diesem Zusammenhang alle Dateien, die zur Funktionsweise ei
 
 **Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.19
 
+**Vorgänger:** [APP.3.2.A2-UA.2](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/06_APP_Anwendungen/APP_3_2_Webserver_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (intersects-with)
+
 > Konfiguration für Webserver SOLLTE die Auflistung von Verzeichnisinhalten einschränken.
 
 Über das Auflisten von Verzeichnisinhalten erhalten Angreifer Einblick in die interne Struktur des Systems und potenziell sensibler Daten. Zur Umsetzung kann in der Konfiguration des Webservers (z.B. Apache, Nginx) die Directory-Listing-Funktion deaktiviert werden. Alternativ kann über Dateien wie .htaccess der Zugriff auf die notwendigen Verzeichnisse eingeschränkt werden.
@@ -468,6 +508,8 @@ Quelldateien sind in diesem Zusammenhang alle Dateien, die zur Funktionsweise ei
 ### KONF.6.11 – Einschränkung von Uploads
 
 **Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.39, G 0.40
+
+**Vorgänger:** [APP.3.1.A4-UA.1](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/06_APP_Anwendungen/APP_3_1_Webanwendungen_und_Webservices_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (intersects-with)
 
 > Konfiguration für Webserver SOLLTE Uploads einschränken.
 
@@ -493,6 +535,8 @@ Dynamische Zugriffskontrolle („dynamic access control“, DAC) bezeichnet hier
 
 **Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.39, G 0.23
 
+**Vorgänger:** [APP.1.2.A1-UA.1](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/06_APP_Anwendungen/APP_1_2_Webbrowser_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (intersects-with) · [APP.1.2.A1-UA.2](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/06_APP_Anwendungen/APP_1_2_Webbrowser_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (intersects-with)
+
 > Konfiguration für Webbrowser SOLLTE Browser Sandboxing aktivieren.
 
 Sandboxing bedeutet, dass jede Instanz und jeder Verarbeitungsprozess nur auf die eigenen Ressourcen zugreifen kann. Die Isolation kann durch eigene Threads oder eigene Prozesse realisiert sein.
@@ -500,6 +544,8 @@ Sandboxing bedeutet, dass jede Instanz und jeder Verarbeitungsprozess nur auf di
 ### KONF.6.15 – Virtualisierte Browser-Umgebung
 
 **Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.39, G 0.23
+
+**Vorgänger:** [APP.1.2.A9-UA.1](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/06_APP_Anwendungen/APP_1_2_Webbrowser_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (intersects-with)
 
 > Konfiguration für Webbrowser KANN Virtualisierte Browser-Umgebung aktivieren.
 
@@ -518,6 +564,8 @@ Der Datenaustausch zwischen virtualisierten Anwendungen umfasst jegliche direkte
 ### KONF.7.1 – Echtzeitscanner
 
 **Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.39, G 0.23
+
+**Vorgänger:** [APP.1.1.A3-UA.1](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/06_APP_Anwendungen/APP_1_1_Office_Produkte_Edition_2023.pdf?__blob=publicationFile&v=4#download=1) (intersects-with) · [APP.1.1.A3-UA.4](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/06_APP_Anwendungen/APP_1_1_Office_Produkte_Edition_2023.pdf?__blob=publicationFile&v=4#download=1) (intersects-with) · [APP.3.3.A14-UA.1](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/06_APP_Anwendungen/APP_3_3_Fileserver_Edition_2023.pdf?__blob=publicationFile&v=4#download=1) (intersects-with)
 
 > Konfiguration für IT-Systeme SOLLTE eine automatische Prüfung auf Schadcode bei Installation oder Öffnung von Dateien aktivieren.
 
@@ -583,6 +631,8 @@ Hiermit ist gemeint, dass die Angriffserkennung mittels (zwei oder mehr) verschi
 
 **Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.39, G 0.20
 
+**Vorgänger:** [APP.6.A5-UA.1](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/06_APP_Anwendungen/APP_6_Allgemeine_Software_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (intersects-with)
+
 > Konfiguration für IT-Systeme SOLLTE die Installation von Anwendungen einschränken.
 
 Es empfiehlt sich z.B. die zu installierende Software nicht unkontrolliert in das Wurzeldateisystem des Betriebssystems zu installieren. Wenn die zu installierende Software aus dem Quellcode kompiliert werden soll, dann empfiehlt es sich diese nur unter einem unprivilegierten Konto zu entpacken, zu konfigurieren und zu übersetzen.
@@ -607,6 +657,8 @@ Softwarebibliotheken sind wiederverwendbare Codesammlungen, die Entwicklern fert
 
 **Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.30, G 0.39
 
+**Vorgänger:** [SYS.1.2.3.A7-UA.5](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/07_SYS_IT_Systeme/SYS_1_2_3_Windows_Server_Edition_2023.pdf?__blob=publicationFile&v=5#download=1) (intersects-with)
+
 > Konfiguration für IT-Systeme KANN die Ausführung nicht autorisierter Skripte einschränken.
 
 Skripte könnten Schadcode enthalten oder zu Fehlerzuständen auf dem System führen. Die Auswirkungen schädlicher Skripte können eingeschränkt werden, indem nur bestimmte Systemfunktionen für Skripte erlaubt werden. Die Umsetzung ist mit Funktionen wie dem Windows PowerShell Constrained Language Mode oder Linux Secure Computing Mode möglich. Verfügt das System über keine Möglichkeit zur Ausführung von Skripten, so ist die Anforderung entbehrlich.
@@ -630,6 +682,8 @@ Nachladbarer Code im Kernelmodus verfügt typischerweise über weitreichende Ber
 ### KONF.7.15 – Lokale Firewall
 
 **Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.23, G 0.18
+
+**Vorgänger:** [CON.7.A7-UA.6](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/03_CON_Konzepte_und_Vorgehensweisen/CON_7_Informationssicherheit_auf_Auslandsreisen_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (subset-of)
 
 > Konfiguration für IT-Systeme SOLLTE ein- und ausgehende Netzverbindungen einschränken.
 
@@ -657,6 +711,8 @@ Gelingt es Angreifern Code auf dem System auszuführen, so könnten sie versuche
 
 **Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.18, G 0.28
 
+**Vorgänger:** [SYS.4.4.A1-UA.1](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/07_SYS_IT_Systeme/SYS_4_4_Allgemeines_IoT_Geraet_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (intersects-with)
+
 > Konfiguration für IT-Systeme SOLLTE das Vorliegen von Sicherheitsupdates überwachen.
 
 Eine Überwachung von Sicherheitsupdates bedeutet, dass die IT-Systeme selbsttätig nach neuen Aktualisierungen suchen, die Schwachstellen in der Software beheben. Technisch können Systeme so konfiguriert werden, dass sie über zentrale Update-Server regelmäßig auf neue Patches prüfen. Es ist ratsam, einen automatisierten Prozess einzurichten, der bei Vorliegen von Updates diese automatisiert ausrollt oder eine Meldung an die zuständigen IT-Administratoren und ggf. die betroffenen Nutzer sendet. Diese Benachrichtigung kann über E-Mail, ein internes Ticketsystem oder ein Dashboard erfolgen. Ein guter Tipp ist die priorisierte Behandlung von Updates, bei der kritische Sicherheits-Patches vor Routine-Updates installiert werden.
@@ -664,6 +720,8 @@ Eine Überwachung von Sicherheitsupdates bedeutet, dass die IT-Systeme selbsttä
 #### KONF.8.1.1 – Automatische Sicherheitsupdates
 
 **Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.18, G 0.28
+
+**Vorgänger:** [SYS.2.1.A3-UA.1](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/07_SYS_IT_Systeme/SYS_2_1_Allgemeiner_Client_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (intersects-with)
 
 > Konfiguration für IT-Systeme SOLLTE Sicherheitsupdates automatisch installieren.
 
@@ -725,6 +783,8 @@ Die Versionierung bezeichnet hier die strukturierte Nachvollziehbarkeit von Änd
 
 **Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.18, G 0.29
 
+**Vorgänger:** [APP.1.1.A16-UA.2](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/06_APP_Anwendungen/APP_1_1_Office_Produkte_Edition_2023.pdf?__blob=publicationFile&v=4#download=1) (subset-of)
+
 > Konfiguration für Anwendungen SOLLTE kryptographische Verfahren nach *[anerkannten Standards]* im Einklang mit den zugehörigen Anforderungen zum Identitäts- und Berechtigungsmanagement aktivieren.
 
 Kryptographie wird für die Authentifizierung, Verschlüsselung und Integritätprüfung in Anwendungen verwendet, z.B. bei der Anmeldung an der Anwendung oder digitalen Signierung von Nachrichten. Die Formulierung "im Einklang mit den zugehörigen Anforderungen zum Identitäts- und Berechtigungsmanagement" bedeutet, dass die Authentifizierung so erfolgt, wie in der Praktik Berechtigung (BER) festgelegt. Hierzu gehört insbesondere die Verwendung aktueller kryptographischer Verfahren, wie sie im Thema Schlüsselmanagement zu finden ist. Anerkannte kryptographische Verfahren sind in der BSI TR-02102 zu finden.
@@ -741,6 +801,8 @@ Hiermit sind Default-Passwörter, als auch vertrauenswürdige Authentisierungs-S
 
 **Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.28, G 0.23
 
+**Vorgänger:** [APP.1.1.A12-UA.1](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/06_APP_Anwendungen/APP_1_1_Office_Produkte_Edition_2023.pdf?__blob=publicationFile&v=4#download=1) (intersects-with) · [APP.3.1.A12-UA.2](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/06_APP_Anwendungen/APP_3_1_Webanwendungen_und_Webservices_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (superset-of)
+
 > Konfiguration für Anwendungen SOLLTE nicht benötigte Anwendungsfunktionen deaktivieren.
 
 Funktionen die für den Betrieb nicht benötigt werden stellen ein unnötiges Sicherheitsrisiko dar, da sie von Angreifern ausgenutzt werden oder durch Wechselwirkungen zu unvorhergesehenen Fehlern führen könnten. Hierzu gehören z.B. ungenutzte Cloud-Anbindungen, Module, Leistungsmerkmale oder Einstellungen. Installationspakete enthalten häufig eine Vielzahl von ausführbaren Dateien und Erweiterungen. Für den Betrieb nicht benötigte Anwendungskomponenten können Schwachstellen enthalten und sind ein unnötiges Sicherheitsrisiko.
@@ -748,6 +810,8 @@ Funktionen die für den Betrieb nicht benötigt werden stellen ein unnötiges Si
 ### KONF.10.5 – Überprüfung der Konfiguration
 
 **Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.31, G 0.23, G 0.21, G 0.22
+
+**Vorgänger:** [APP.4.3.A3-UA.4](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/06_APP_Anwendungen/APP_4_3_Relationale_Datenbanksysteme_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (intersects-with)
 
 > Konfiguration für Anwendungen SOLLTE die Übereinstimmung der tatsächlichen Konfiguration mit dem Referenzzustand *[regelmäßig]* überprüfen.
 
@@ -767,6 +831,8 @@ Die automatische Auditierung der Systemkonfiguration ermöglicht eine kontinuier
 
 **Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 1 · **Gefährdungen:** G 0.19, G 0.30
 
+**Vorgänger:** [APP.3.1.A1-UA.1](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/06_APP_Anwendungen/APP_3_1_Webanwendungen_und_Webservices_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (equivalent-to) · [CON.10.A1-UA.1](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/03_CON_Konzepte_und_Vorgehensweisen/CON_10_Entwicklung_von_Webanwendungen_Edition_2023.pdf?__blob=publicationFile&v=4#download=1) (intersects-with)
+
 > Konfiguration für Anwendungen SOLLTE Zugriffe auf schützenswerte Daten im Einklang mit den zugehörigen Anforderungen zum Identitäts- und Berechtigungsmanagement authentifizieren.
 
 Ziel ist es, vertrauliche Daten vor dem Zugriff von Unbefugten zu schützen. Relevant sind hierbei sowohl Frontend-Zugänge wie Webportale, als auch Backend-Datenschnittstellen wie Datenbank-API. Dies kann durch eine anwendungsspezifische Authentifizierung, oder durch Nutzung eines zentralen Identity Providers (Single-Sign-On) erfüllt werden. Für die Authentifizierung kommen z.B. Passwörter, X.509-Zertifikate, OTP-Token in Frage. Zweckmäßig ist hierfür der Einsatz von Standardkomponenten wie OAuth 2.0 und die Verbindung mit einem zentralen Berechtigungsmanagement der Anwendung. Im Einklang mit den Anforderungen des Identitäts- und Berechtigungsmanagements bedeutet, dass für die Anwendung die Anforderungen aus der Praktik Identitäts- und Berechtigungsmanagement erfüllt sind, die dort festgelegt wurden. Hierzu gehört die Art der Authentifizierung (z.B. Passwort, Biometrie, Mehr-Faktor-Authentifizierung) ebenso wie die relevanten Parameter (Passwortkomplexität, etc.). Auf Daten die nicht vertraulich (z.B. öffentlich) sind kann auch ohne Authentifizierung Zugriff erlaubt sein. Die Formulierung "im Einklang mit den zugehörigen Anforderungen zum Identitäts- und Berechtigungsmanagement" bedeutet, dass die Authentifizierung so erfolgt, wie in der Praktik Berechtigung (BER) festgelegt. Hierzu gehört insbesondere die Verwendung aktueller kryptographischer Verfahren, wie sie im Thema Kryptographie zu finden ist. Verarbeitet die Anwendung gar keine vertraulichen Daten, dann ist die Anforderung entbehrlich.
@@ -782,6 +848,8 @@ Viele TK-Anwendungen bieten geplante Konversationen, z.B. in virtuellen Meeting-
 #### KONF.11.1.2 – Authentifizierung von Netzverbindungen - clientseitig
 
 **Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.43, G 0.36
+
+**Vorgänger:** [APP.3.1.A1-UA.2](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/06_APP_Anwendungen/APP_3_1_Webanwendungen_und_Webservices_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (intersects-with) · [APP.3.1.A11-UA.2](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/06_APP_Anwendungen/APP_3_1_Webanwendungen_und_Webservices_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (superset-of)
 
 > Konfiguration für Anwendungen SOLLTE die Gegenstelle vor dem Datenaustausch im Einklang mit den zugehörigen Anforderungen zum Identitäts- und Berechtigungsmanagement authentifizieren.
 
@@ -863,6 +931,8 @@ Telekommunikation mit externen Stellen ist essenziell für viele Geschäftsproze
 
 **Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.19, G 0.14
 
+**Vorgänger:** [APP.1.4.A8-UA.1](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/06_APP_Anwendungen/APP_1_4_Mobile_Anwendungen_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (intersects-with)
+
 > Konfiguration für Anwendungen KANN schützenswerte Daten bei der Speicherung (at-rest) verschlüsseln.
 
 Hierbei ist insbesondere an Zugangsdaten zu denken. Die Anforderung ist auch dann erfüllt, wenn Daten statt einer Verschlüsselung mit Hash und Salt versehen sind. Zur Umsetzung siehe BSI TR-02102.
@@ -881,6 +951,8 @@ Eingabevalidierung (engl. input validation) ist die technische und logische Übe
 
 **Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 1 · **Gefährdungen:** G 0.43
 
+**Vorgänger:** [APP.1.2.A3-UA.6](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/06_APP_Anwendungen/APP_1_2_Webbrowser_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (intersects-with)
+
 > Konfiguration für Webbrowser SOLLTE die automatische Validierung des Zertifikates einschließlich der vollständigen Zertifikatskette aktivieren.
 
 Zertifikatsprüfung (Certificate Validation) ist eine Funktion, bei der ein Browser das digitale Zertifikat einer Webseite vor dem Verbindungsaufbau verifiziert. Dabei wird sichergestellt, dass das Zertifikat von einer vertrauenswürdigen Zertifizierungsstelle (CA - Certificate Authority) ausgestellt, gültig und nicht abgelaufen oder widerrufen ist. Dabei wird die vollständige Zertifikatskette, einschließlich des Root-Zertifikates verifiziert. Ist das Zertifikat ungültig, so wird der Aufruf der Seite blockiert. Die korrekte Implementierung dieses Prozesses kann die Vertraulichkeit und Integrität der übertragenen Daten gewährleisten und schützt vor Man-in-the-Middle-Angriffen, bei denen Angreifer versuchen, den Datenverkehr abzufangen. Zur Umsetzung dieser Anforderung können Institutionen die zentrale Konfiguration von Browsern über Gruppenrichtlinien (Group Policies) oder Mobile Device Management (MDM)-Lösungen vornehmen.
@@ -888,6 +960,8 @@ Zertifikatsprüfung (Certificate Validation) ist eine Funktion, bei der ein Brow
 #### KONF.12.1.2 – Content Security Policy (CSP)
 
 **Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 1 · **Gefährdungen:** G 0.28, G 0.23
+
+**Vorgänger:** [APP.1.2.A1-UA.4](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/06_APP_Anwendungen/APP_1_2_Webbrowser_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (intersects-with) · [APP.1.2.A11-UA.2](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/06_APP_Anwendungen/APP_1_2_Webbrowser_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (intersects-with) · [APP.3.1.A21-UA.2](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/06_APP_Anwendungen/APP_3_1_Webanwendungen_und_Webservices_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (intersects-with)
 
 > Konfiguration für Webbrowser SOLLTE aufgerufene Inhalte anhand der von der Webseite bereitgestellten Content Security Policy einschränken.
 
@@ -897,6 +971,8 @@ Eine Content Security Policy (CSP) ist ein Sicherheitsmechanismus, der es einer 
 
 **Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 1 · **Gefährdungen:** G 0.19, G 0.28
 
+**Vorgänger:** [APP.1.2.A1-UA.6](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/06_APP_Anwendungen/APP_1_2_Webbrowser_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (intersects-with)
+
 > Konfiguration für Webbrowser SOLLTE aufgerufene Inhalte anhand der von der Webseite bereitgestellten Same-Origin-Policy einschränken.
 
 Die Same-Origin-Policy, oft auch als SOP bekannt, ist ein fundamentaler Sicherheitsmechanismus im Webbrowser, der sicherstellt, dass von einer Quelle (Origin) geladene Skripte oder Dokumente nicht mit Ressourcen einer anderen Quelle interagieren können, wobei eine Quelle durch die Kombination aus Protokoll, Hostname und Port definiert wird. Sinn und Zweck dieser strikten Trennung ist der Schutz vor Datenabfluss und unbefugten Interaktionen zwischen unterschiedlichen Webanwendungen innerhalb derselben Browsersitzung. Ohne diese Isolierung könnte eine schadhafte Webseite beispielsweise vertrauliche Informationen aus einer parallel geöffneten legitimen Anwendung, wie einem Online-Banking-Portal oder internen Firmentool, auslesen und an einen Angreifer senden. Die konsequente Durchsetzung der Same-Origin-Policy durch den Browser kann solche Cross-Site-Scripting-Angriffe (XSS) effektiv unterbinden und somit die Vertraulichkeit und Integrität der vom Nutzer verarbeiteten Daten gewährleisten.
@@ -905,6 +981,8 @@ Die Same-Origin-Policy, oft auch als SOP bekannt, ist ein fundamentaler Sicherhe
 
 **Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 1 · **Gefährdungen:** G 0.22, G 0.46
 
+**Vorgänger:** [APP.1.2.A1-UA.6](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/06_APP_Anwendungen/APP_1_2_Webbrowser_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (intersects-with)
+
 > Konfiguration für Webbrowser SOLLTE aufgerufene Inhalte anhand der von der Webseite bereitgestellten Subresource Integrity-Prüfung einschränken.
 
 Unter Subresource Integrity (SRI), zu Deutsch etwa „Integrität von Unterressourcen“, versteht man einen Sicherheitsmechanismus von Webbrowsern, der sicherstellt, dass die vom Browser geladenen Ressourcen, wie z.B. JavaScript-Dateien oder CSS-Stylesheets, die von einem Drittanbieter (etwa einem Content Delivery Network, CDN) stammen, nicht unerwünscht manipuliert wurden. Technisch geschieht dies dadurch, dass die Webseite beim Einbinden der Ressource einen kryptografischen Hashwert (oder Digest) der erwarteten Datei als Attribut (z.B. integrity="...") mitsendet. Der Webbrowser kann dann nach dem Herunterladen der Ressource diesen Hashwert neu berechnen und mit dem bereitgestellten Wert vergleichen. Dies ist notwendig, da die Institution zwar die eigene Webseite kontrolliert, aber nicht die Server Dritter, von denen oft Bibliotheken geladen werden. Der Sinn und Zweck dieser Vorschrift liegt darin, die Sicherheit der Endnutzer zu erhöhen und Risiken durch manipulierte externe Inhalte zu minimieren. Ohne diese Prüfung könnte eine kompromittierte Drittanbieter-Ressource bösen Code in die Webseite der Institution einschleusen, was zu Vorfällen wie Datendiebstahl oder der Installation von Malware auf den Geräten der Nutzer führen könnte.
@@ -912,6 +990,8 @@ Unter Subresource Integrity (SRI), zu Deutsch etwa „Integrität von Unterresso
 #### KONF.12.1.5 – HTTP Strict Transport Security (HSTS)
 
 **Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 1 · **Gefährdungen:** G 0.15, G 0.43
+
+**Vorgänger:** [APP.1.2.A2-UA.4](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/06_APP_Anwendungen/APP_1_2_Webbrowser_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (intersects-with) · [APP.3.1.A21-UA.2](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/06_APP_Anwendungen/APP_3_1_Webanwendungen_und_Webservices_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (intersects-with)
 
 > Konfiguration für Webbrowser SOLLTE aufgerufene Inhalte anhand der von der Webseite bereitgestellten HTTP Strict Transport Security (HSTS) Richtlinie einschränken.
 
@@ -928,6 +1008,8 @@ Schadcode in JavaScript kann unbefugt auf sensible Daten zugreifen oder die ange
 #### KONF.12.1.7 – Filtern schädlicher Webinhalte
 
 **Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.39, G 0.28
+
+**Vorgänger:** [APP.1.2.A11-UA.1](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/06_APP_Anwendungen/APP_1_2_Webbrowser_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (intersects-with) · [APP.1.2.A11-UA.2](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/06_APP_Anwendungen/APP_1_2_Webbrowser_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (intersects-with) · [CON.10.A8-UA.1](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/03_CON_Konzepte_und_Vorgehensweisen/CON_10_Entwicklung_von_Webanwendungen_Edition_2023.pdf?__blob=publicationFile&v=4#download=1) (intersects-with)
 
 > Konfiguration für Webanwendungen SOLLTE eine Filterung schädlicher Webinhalte aktivieren.
 
@@ -953,6 +1035,8 @@ Beim Journaling werden Änderungen an Dateien zunächst in einem speziellen Prot
 
 **Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.28, G 0.23
 
+**Vorgänger:** [APP.3.1.A21-UA.1](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/06_APP_Anwendungen/APP_3_1_Webanwendungen_und_Webservices_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (intersects-with) · [APP.3.1.A21-UA.2](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/06_APP_Anwendungen/APP_3_1_Webanwendungen_und_Webservices_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (subset-of)
+
 > Konfiguration für Webanwendungen SOLLTE HTTP-Response-Header aktivieren.
 
 Hierzu können z.B. Content-Security-Policy (CSP), X-Frame-Options, X-XSS-Protection, Referrer-Policy, Permissions-Policy, HSTS und X-Content-Type-Optionen gehören.
@@ -960,6 +1044,8 @@ Hierzu können z.B. Content-Security-Policy (CSP), X-Frame-Options, X-XSS-Protec
 #### KONF.12.1.11 – Aktive Dateiinhalte
 
 **Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.39, G 0.23
+
+**Vorgänger:** [APP.1.1.A2-UA.1](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/06_APP_Anwendungen/APP_1_1_Office_Produkte_Edition_2023.pdf?__blob=publicationFile&v=4#download=1) (intersects-with)
 
 > Konfiguration für Office-Anwendungen SOLLTE aktive Inhalte in Office-Dateien deaktivieren.
 
@@ -969,6 +1055,8 @@ Aktive Inhalte (Makros) in Office-Dokumenten können Schadcode enthalten oder zu
 
 **Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 1 · **Gefährdungen:** G 0.15, G 0.43
 
+**Vorgänger:** [APP.1.2.A3-UA.7](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/06_APP_Anwendungen/APP_1_2_Webbrowser_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (intersects-with)
+
 > Konfiguration für Webbrowser SOLLTE eine Anzeige der Verschlüsselung der aktuellen Verbindung aktivieren.
 
 Die Anzeige der Verschlüsselung der aktuellen Verbindung im Webbrowser, auch bekannt als Connection Encryption Indicator oder oft durch ein 🔒-Symbol dargestellt, ist ein essenzielles Merkmal für die Wahrnehmung der Vertrauenswürdigkeit einer Online-Kommunikation. Sie visualisiert, ob die Datenübertragung zwischen dem Browser des Benutzers und dem Webserver mittels eines kryptografischen Protokolls, typischerweise Transport Layer Security (TLS) (früher Secure Sockets Layer (SSL)), abgesichert ist. Diese Vorschrift zielt darauf ab, das Risiko des Abhörens von Daten durch Dritte (Eavesdropping) zu minimieren; denn ohne diese Anzeige könnte ein Benutzer unbemerkt sensible Informationen über eine ungesicherte Verbindung eingeben, was beispielsweise zur Kompromittierung von Anmeldedaten oder vertraulichen Geschäftsinformationen führen könnte.
@@ -977,6 +1065,8 @@ Die Anzeige der Verschlüsselung der aktuellen Verbindung im Webbrowser, auch be
 
 **Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.19, G 0.14
 
+**Vorgänger:** [APP.1.2.A7-UA.1](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/06_APP_Anwendungen/APP_1_2_Webbrowser_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (intersects-with)
+
 > Konfiguration für Webbrowser SOLLTE Cookies einschränken.
 
 Cookies sind Dateien, in denen Webseiten Daten auf dem System speichern. Sie können Authentifizierungstoken und andere personenbezogene Daten enthalten und durch Angriffe wie Cross-Site-Scripting (XSS) oder Session Hijacking kompromittiert werden. Die Speicherung von Cookies per Default auszuschalten könnte jedoch zu Funktionseinschränkungen führen. Nutzende oder Administrierende können Ausnahmen für bestimmte Webseiten, z.B. im Intranet, hinzufügen.
@@ -984,6 +1074,8 @@ Cookies sind Dateien, in denen Webseiten Daten auf dem System speichern. Sie kö
 ### KONF.12.4 – Speicherung von Zugangsdaten
 
 **Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.19, G 0.30
+
+**Vorgänger:** [APP.1.2.A6-UA.3](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/06_APP_Anwendungen/APP_1_2_Webbrowser_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (equivalent-to)
 
 > Konfiguration für Webbrowser SOLLTE die Speicherung von Zugangsdaten *[in einem dedizierten Passwort-Manager mit Browser-Integration oder direkt im Browser durch ein Master-Passwort geschützt]* aktivieren.
 
@@ -1065,6 +1157,8 @@ Ein Sendebericht ermöglicht es bei der Verwendung von Faxen nachzuweisen, dass 
 
 **Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.43, G 0.22
 
+**Vorgänger:** [APP.3.6.A4-UA.3](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/06_APP_Anwendungen/APP_3_6_DNS_Server_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (equivalent-to)
+
 > Konfiguration für DNS-Server SOLLTE DNS-Antworten, die falsche Domain-Informationen liefern, deaktivieren.
 
 Falsch sind Domain-Informationen, wenn sie nicht der tatsächlichen Erreichbarkeit des Zieles entsprechen, sondern z.B. auf Werbeseiten umleiten. DNS-Server, die falsche Antworten liefern, können zu unerwarteten Fehlern in Anwendungen oder zum DNS-Hijacking führen. Sie sind an unerwarteten Websites, Zertifikatsfehlern oder mit DNS-Prüfsoftware zu erkennen. Gilt sowohl für die Konfiguration des eigenen Servers, als auch für die verwendeten DNS Upstream Server.
@@ -1090,6 +1184,8 @@ Unter Zustellung unerwünschter Nachrichten ist das Blockieren oder Filtern von 
 #### KONF.13.1.2 – Interpretation aktiver Inhalte
 
 **Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.39, G 0.23
+
+**Vorgänger:** [APP.1.1.A2-UA.1](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/06_APP_Anwendungen/APP_1_1_Office_Produkte_Edition_2023.pdf?__blob=publicationFile&v=4#download=1) (intersects-with) · [APP.5.3.A1-UA.8](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/06_APP_Anwendungen/APP_5_3_Allgemeiner_E-Mail_Client_und_Server_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (subset-of)
 
 > Konfiguration für Interpersonelle Kommunikation SOLLTE die automatische Interpretation aktiver Inhalte deaktivieren.
 
@@ -1147,6 +1243,8 @@ Dies wird typischerweise über spezielle DNS-Einträge wie den Sender Policy Fra
 
 **Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.36, G 0.42
 
+**Vorgänger:** [APP.5.3.A9-UA.4](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/06_APP_Anwendungen/APP_5_3_Allgemeiner_E-Mail_Client_und_Server_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (subset-of)
+
 > Konfiguration für E-Mail SOLLTE eine strenge Senderpolicy aktivieren.
 
 Ein strenger Senderpolicy-Eintrag, auch "hard fail" (-all) genannt, weist empfangende Mailserver an, E-Mails, die von nicht autorisierten Servern stammen, zurückzuweisen oder als Spam zu markieren. Dies kann das Risiko von Phishing-Angriffen erheblich reduzieren, bei denen Angreifer versuchen, sich als vertrauenswürdige Institutionen auszugeben. Eine solche Konfiguration kann auch Spoofing verhindern, bei dem die Absenderadresse gefälscht wird, was dazu führen könnte, dass Kunden oder Mitarbeiter betrügerischen Anweisungen folgen, die scheinbar von der Institution selbst stammen. Zur Umsetzung einer strengen Senderpolicy kann die Institution sicherstellen, dass sie einen SPF-Eintrag in ihren DNS-Einstellungen hinterlegt. Dieser Eintrag sollte alle autorisierten Server explizit auflisten und mit dem "-all" Mechanismus enden, um eine strikte Ablehnung nicht konformer E-Mails zu signalisieren.
@@ -1187,6 +1285,8 @@ Eine DMARC-Richtlinie legt fest, welchen Umgang sie sich von Empfängern wünsch
 
 **Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.43, G 0.36
 
+**Vorgänger:** [APP.3.6.A1-UA.1](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/06_APP_Anwendungen/APP_3_6_DNS_Server_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (intersects-with)
+
 > Konfiguration für E-Mail SOLLTE die Authentifizierung der Server-Zertifikate über das DNS aktivieren.
 
 Die Authentifizierung der Server-Zertifikate über das DNS (Domain Name System) kann die Sicherheit der E-Mail-Kommunikation erheblich steigern. Dabei werden Zertifikatsinformationen in DNS-Einträgen genutzt, um die Echtheit der TLS/SSL-Zertifikate eines E-Mail-Servers zu überprüfen und sicherzustellen, dass man tatsächlich mit dem beabsichtigten Kommunikationspartner spricht. Techniken wie DANE (DNS-based Authentication of Named Entities) oder CAA (Certificate Authority Authorization) nutzen spezifische DNS-Resource Records (wie TLSA oder CAA Records), um entweder die verwendeten Zertifikate oder die autorisierten Zertifizierungsstellen im DNS zu hinterlegen. Dies kann verhindern, dass ein Angreifer eine gefälschte Identität vortäuschen oder eine Man-in-the-Middle-Attacke durchführen könnte, indem er ein nicht autorisiertes oder kompromittiertes Zertifikat präsentiert. Ohne diese zusätzliche Überprüfung könnte ein Angreifer beispielsweise den E-Mail-Verkehr der Institution abfangen und mitlesen, während er sich als der legitime Server ausgibt. Die Aktivierung dieser DNS-basierten Überprüfung kann also die Vertraulichkeit und Integrität der übertragenen E-Mails schützen. Zur Umsetzung werden Informationen über eigene Serverzertifikate im DNS hinterlegt und die Prüfung eingehender E-Mails auf hinterlegte Einträge der sendenden Servers aktiviert.
@@ -1204,6 +1304,8 @@ Die Mail Transfer Agent Strict Transport Security (MTA-STS) ist ein wichtiger St
 ### KONF.14.1 – Verschlüsselung beim Transport
 
 **Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.43, G 0.15
+
+**Vorgänger:** [APP.1.1.A15-UA.1](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/06_APP_Anwendungen/APP_1_1_Office_Produkte_Edition_2023.pdf?__blob=publicationFile&v=4#download=1) (intersects-with) · [APP.1.2.A2-UA.2](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/06_APP_Anwendungen/APP_1_2_Webbrowser_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (intersects-with) · [APP.3.4.A15-UA.1](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/06_APP_Anwendungen/APP_3_4_Samba_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (subset-of) · [IND.2.1.A2-UA.2](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/08_IND_Industrielle_IT/IND_2_1_Allgemeine_ICS_Komponente_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (equivalent-to)
 
 > Konfiguration für Anwendungen SOLLTE Kommunikation beim Transport über Netze nach *[einem anerkannten Standard]* verschlüsseln.
 

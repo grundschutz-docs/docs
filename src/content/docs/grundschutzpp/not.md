@@ -11,6 +11,8 @@ Die Notfallplanung stellt sicher, dass bei schwerwiegenden Störungen oder Krise
 
 **Pflicht:** MUSS · **Stufe:** `normal-SdT` · **Aufwand:** 0 · **Gefährdungen:** G 0.18
 
+**Vorgänger:** [APP.4.2.A28-UA.3](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/06_APP_Anwendungen/APP_4_2_SAP_ERP_System_Edition_2023.pdf?__blob=publicationFile&v=4#download=1) (intersects-with) · [IND.1.A13-UA.1](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/08_IND_Industrielle_IT/IND_1_Prozessleit_und_Automatisierungstechnik_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (subset-of) · [OPS.1.1.1.A17-UA.3](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/04_OPS_Betrieb/OPS_1_1_1_Allgemeiner_IT_Betrieb_Edition_2023.pdf?__blob=publicationFile&v=4#download=1) (intersects-with)
+
 > Notfallplanung MUSS Verfahren und Regelungen zur Vorsorge für Notfälle der Informationssicherheit verankern.
 
 Für ein Managementsystem der Informationssicherheit ist es erforderlich, dass auch für Notfälle vorgesorgt wird, z.B. durch eine Datensicherung, so dass bei einer Naturkatastrophe wichtige Daten wiederhergestellt werden können. Dies kann durch den Aufbau eines dafür vorgesehenen Managementsystems (BCMS) oder die Umsetzung der einzelnen Anforderungen dieser Praktik geschehen. Die bei der Festlegung des Verfahrens im Einzelnen zu berücksichtigenden Inhalte, die bei der Festlegung des Verfahrens zu berücksichtigen sind, ergeben sich aus den Anforderungen dieser Praktik. Es empfiehlt sich ebenfalls Wiederherstellungsmöglichkeiten und Alternativen für administrative Zugänge zu betrachten.
@@ -18,6 +20,8 @@ Für ein Managementsystem der Informationssicherheit ist es erforderlich, dass a
 #### NOT.1.1.1 – Dokumentation
 
 **Pflicht:** MUSS · **Stufe:** `normal-SdT` · **Aufwand:** 0 · **Gefährdungen:** G 0.18, G 0.37
+
+**Vorgänger:** [DER.4.A12-UA.1](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/05_DER_Detektion_und_Reaktion/DER_4_Notfallmanagement_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (equivalent-to)
 
 > Notfallplanung MUSS die Verfahren und Regelungen dokumentieren.
 
@@ -50,6 +54,8 @@ BCMS steht für Business Continuity Management System, ein Management-System, da
 ### NOT.1.2 – Regelmäßige Überprüfung
 
 **Pflicht:** MUSS · **Stufe:** `normal-SdT` · **Aufwand:** 0 · **Gefährdungen:** G 0.18
+
+**Vorgänger:** [DER.4.A13-UA.2](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/05_DER_Detektion_und_Reaktion/DER_4_Notfallmanagement_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (equivalent-to)
 
 > Notfallplanung MUSS die Verfahren und Regelungen *[regelmäßig]* und anlassbezogen auf Aktualität überprüfen.
 
@@ -93,6 +99,8 @@ Damit der Stab der BAO im Schadensereignis handlungsfähig ist, benötigt er ein
 
 **Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.1
 
+**Vorgänger:** [IND.1.A13-UA.1](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/08_IND_Industrielle_IT/IND_1_Prozessleit_und_Automatisierungstechnik_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (subset-of)
+
 > Notfallplanung KANN die Funktionsfähigkeit der BAO *[regelmäßig]* durch Stabsübungen überprüfen.
 
 Da Notfälle nur selten vorkommen, die tatsächliche Funktionstüchtigkeit der BAO dann aber von großer Bedeutung für die Informationssicherheit ist, sind regelmäßige Übungen der BAO sinnvoll. Insbesondere die festgelegte Stabsstruktur (Aufgaben und Rollen), sowie das Funktionieren der Ausstattung sind im Ernstfall von großer Bedeutung. Zur Erprobung ist es zweckmäßig bei jeder Übung typische Szenarien im vollständig besetzten Stab durchzuführen und Notfallteams nur je nach passendem Szenario in die Übung einzubeziehen. Ist eine BAO erst aufgebaut worden, genügen für die Stabsübung in der Regel relativ simple Übungsszenarien wie ein Brand im Rechenzentrum oder ein Ransomware-Vorfall. Mit wachsendem Reifegrad der BAO kann anschließend die Komplexität und Realitätsnähe der Übung steigen. Nähere Informationen können dem BSI-Standard 200-4 Kapitel 13.6 Stabsübung (R+AS) entnommen werden.
@@ -127,6 +135,8 @@ Eine Sensibilisierung für die Vorgehensweise in Notfällen und Krisen (Continge
 
 **Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.18
 
+**Vorgänger:** [IND.1.A13-UA.1](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/08_IND_Industrielle_IT/IND_1_Prozessleit_und_Automatisierungstechnik_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (subset-of)
+
 > Notfallplanung KANN die tatsächliche Funktionstüchtigkeit von Notfallplänen *[regelmäßig]* überprüfen.
 
 Eine regelmäßige Überprüfung hilft zu erkennen, ob die verschiedenen Notfallpläne (z. B. Wiederanlaufplan, Geschäftsfortführungsplan) und Notbetriebsressourcen tatsächlich funktionieren und die Zuständigen die Verfahrensweisen beherrschen. Mit der tatsächlichen Funktionstüchtigkeit ist gemeint, dass nicht nur die Aktualität der Pläne theoretisch betrachtet wird, sondern soweit möglich auch die konkreten Ressourcen geprüft werden (z.B. laufen die Meldewege wie vorgesehen, lassen sich Ausfallleitungen aktivieren, sind Ersatzgeräte nutzbar). Ist hierzu noch nicht die erforderliche Reife erlangt, können in einem ersten Schritt Planbesprechungen, die nur virtuell einen Plan überprüfen, eingesetzt werden. Nähere Informationen können dem BSI-Standard 200-4 Kapitel 13.9 Funktionstest (R optional +AS) und 13.5 Planbesprechung (R optional +AS) entnommen werden.
@@ -135,6 +145,8 @@ Eine regelmäßige Überprüfung hilft zu erkennen, ob die verschiedenen Notfall
 
 **Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.18
 
+**Vorgänger:** [IND.1.A24-UA.1](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/08_IND_Industrielle_IT/IND_1_Prozessleit_und_Automatisierungstechnik_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (intersects-with)
+
 > Notfallplanung SOLLTE Ausweich-Telekommunikationsdienste verankern.
 
 „Ausweich-Telekommunikationsdienste“ sind alternative, im Notfall nutzbare Kommunikationswege oder -infrastrukturen, die den Fortbestand kritischer Kommunikationsprozesse gewährleisten können, wenn die primären Dienste kompromittiert oder ausgefallen sind (out-of-band communication). Der Sinn und Zweck der Regelung liegt nicht nur darin, den Informationsaustausch kritischer Geschäftsprozesse im Notfall sicherzustellen, sondern dient auch der sicherheitsbezogenen Koordination und Entscheidungsfindung bei schwerwiegenden Störungen oder Angriffen, etwa bei Ausfällen von Festnetz- oder VoIP-Diensten durch technische Defekte, Naturereignisse oder Cyberangriffe. Eine unzureichende Vorsorge könnte dazu führen, dass im Krisenfall keine Lageabstimmung, Notfallkommunikation oder Meldung an Sicherheitsbehörden möglich ist, oder dass Angreifer die eingeleiteten Gegenmaßnahmen über bereits kompromittierte Dienste mitlesen. Ausweich-Telekommunikationsdienste können z.B. über den Anschluss anderer Anbieter, Mobilfunk oder Satellitenanschlüsse umgesetzt werden. Hierbei ist sowohl an den Netzanschluss kritischer IT-Systeme als auch an die Erreichbarkeit der im Notfall zuständigen Mitarbeiter und Dienstleister zu denken.
@@ -142,6 +154,8 @@ Eine regelmäßige Überprüfung hilft zu erkennen, ob die verschiedenen Notfall
 ### NOT.3.6 – Sicherheitsmechanismen
 
 **Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.18
+
+**Vorgänger:** [APP.1.2.A12-UA.1](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/06_APP_Anwendungen/APP_1_2_Webbrowser_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (intersects-with)
 
 > Notfallplanung SOLLTE alternative Sicherheitsmechanismen , die in Notfällen greifen, verankern.
 

@@ -11,6 +11,8 @@ Die Praktik Sensibilisierung sorgt dafür, dass alle Mitarbeitenden über die Le
 
 **Pflicht:** MUSS · **Stufe:** `normal-SdT` · **Aufwand:** 0 · **Gefährdungen:** G 0.18
 
+**Vorgänger:** [ORP.3.A9-UA.1](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/02_ORP_Organisation_und_Personal/ORP_3_Sensibilisierung_und_Schulung_Editon_2023.pdf?__blob=publicationFile&v=3#download=1) (intersects-with)
+
 > Sensibilisierung MUSS Verfahren und Regelungen zur rollenspezifischen Schulung und Sensibilisierung verankern.
 
 Zweck ist es, internen und externen Nutzenden die korrekte Verarbeitung von schützenswerten Informationen sowie die sichere Bedienung von IT-Systemen und Anwendungen nahezubringen. Ohne Sensibilisierung könnte etwa ein Administrator durch Unachtsamkeit kritische Systemkonfigurationen offenlegen, eine Pflegekraft könnte Patientendaten in unsicheren Kanälen weitergeben oder ein Beschäftigter im Einkauf könnte auf täuschend echt wirkende Phishing-Mails hereinfallen. Durch passgenaue Schulungen kann dagegen erreicht werden, dass Mitarbeitende die für ihre Aufgaben relevanten Gefahren frühzeitig erkennen, geeignete Schutzmaßnahmen anwenden und damit einen aktiven Beitrag zur Informationssicherheit leisten. Zweckmäßig ist es, im Rahmen der Ersteinweisung dazu Schulungen durchzuführen und um jährliche Information über aktuelle Neuerungen zu ergänzen. Zur Ergänzung und Erinnerung sind z.B. Poster oder Kampagnen sinnvoll. Die bei der Festlegung des Verfahrens im Einzelnen zu berücksichtigenden Inhalte ergeben sich aus den Anforderungen dieser Praktik.
@@ -69,6 +71,8 @@ Zur Bekanntgabe von Meldewegen gehört, welche Meldewege (z.B. Adresse, Rufnumme
 
 **Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.31, G 0.42
 
+**Vorgänger:** [APP.1.1.A17-UA.5](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/06_APP_Anwendungen/APP_1_1_Office_Produkte_Edition_2023.pdf?__blob=publicationFile&v=4#download=1) (intersects-with)
+
 > Sensibilisierung für Nutzende von Anwendungen SOLLTE zur Bedienung von Verschlüsselungs- und Signaturfunktionen sensibilisieren.
 
 Viele Anwendungen zur Kommunikation bieten Funktionen zur Verschlüsselung oder digitalen Signatur (z.B. Verifikation der Ende-zu-Ende-Verschlüsselung per QR-Code im Messenger, Digitale Signatur von E-Mails). Verschlüsselung kann symmetrisch (gleicher Schlüssel ist auf beiden Seiten bekannt) oder asymmetrisch (ein öffentlicher und ein privater Schlüssel) erfolgen. Digitale Signaturen ermöglichen es, die Herkunft einer Nachricht zu überprüfen und Manipulationen zu erkennen.
@@ -100,6 +104,8 @@ Hiermit ist der Schutzbedarf des Zuständigkeitsbereichs des jeweiligen Nutzende
 ### SENS.2.6 – Umgehung von Sicherheitsfunktionen
 
 **Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.31, G 0.42
+
+**Vorgänger:** [APP.1.1.A17-UA.3](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/06_APP_Anwendungen/APP_1_1_Office_Produkte_Edition_2023.pdf?__blob=publicationFile&v=4#download=1) (intersects-with)
 
 > Sensibilisierung für Nutzende SOLLTE gegen die Umgehung von Sicherheitsfunktionen sensibilisieren.
 
@@ -200,6 +206,8 @@ Weil Passwörter komplex sind und an vielen Stellen verwendet werden kommt es im
 #### SENS.4.1.5 – Biometrische Authentifikation
 
 **Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.30, G 0.36, G 0.23
+
+**Vorgänger:** [APP.1.4.A14-UA.3](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/06_APP_Anwendungen/APP_1_4_Mobile_Anwendungen_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (intersects-with)
 
 > Sensibilisierung für Nutzende SOLLTE gegen die Fälschbarkeit von biometrischen Authentifizierungsmerkmalen sensibilisieren.
 
@@ -303,6 +311,8 @@ Falls Wechseldatenträger zum Austausch vertraulicher Daten verwendet werden, so
 
 **Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.18
 
+**Vorgänger:** [APP.1.1.A17-UA.4](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/06_APP_Anwendungen/APP_1_1_Office_Produkte_Edition_2023.pdf?__blob=publicationFile&v=4#download=1) (intersects-with) · [ORP.3.A9-UA.1](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/02_ORP_Organisation_und_Personal/ORP_3_Sensibilisierung_und_Schulung_Editon_2023.pdf?__blob=publicationFile&v=3#download=1) (intersects-with)
+
 > Sensibilisierung für Nutzende SOLLTE zu zielobjektspezifischen Schutzmaßnahmen zielgruppengerecht sensibilisieren.
 
 Kann dazu beitragen, dass Personen Risiken, die mit ihrer konkreten Tätigkeit, ihrem Arbeitsumfeld oder den von ihnen genutzten Systemen verbunden sind, frühzeitig erkennen und angemessen reagieren können. Ziel ist es auf die spezifischen Schutzbedarfe der jeweiligen Zielobjekte – wie z. B. bestimmte IT-Systeme, Produktionsanlagen, Forschungsdaten oder vertrauliche Kundeninformationen – aufmerksam zu machen. Dazu können sowohl technische als auch organisatorischen Schutzmaßnahmen gehören. Der Begriff „zielgruppengerecht“ meint dabei, dass Inhalte in einer Form, Tiefe und Sprache bereitgestellt werden, die für die jeweiligen Nutzenden verständlich, relevant und handlungsnah sind. Für die Zielgruppengerechtigkeit ist eine Zielgruppenanalyse zweckmäßig. Die Schutzmaßnahmen ergeben sich aus der konkreten Implementierung der Anforderungen durch die Institution.
@@ -310,6 +320,8 @@ Kann dazu beitragen, dass Personen Risiken, die mit ihrer konkreten Tätigkeit, 
 ### SENS.7.2 – Virenscan
 
 **Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.18
+
+**Vorgänger:** [APP.1.1.A17-UA.2](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/06_APP_Anwendungen/APP_1_1_Office_Produkte_Edition_2023.pdf?__blob=publicationFile&v=4#download=1) (intersects-with) · [APP.1.1.A3-UA.1](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/06_APP_Anwendungen/APP_1_1_Office_Produkte_Edition_2023.pdf?__blob=publicationFile&v=4#download=1) (intersects-with)
 
 > Sensibilisierung für Nutzende von Interpersoneller Kommunikation SOLLTE zum Virenscan von Dateien aus externen Quellen sensibilisieren.
 
@@ -366,6 +378,8 @@ Spam in E-Mails kann oft an einer Kombination auffälliger Merkmale erkannt werd
 ### SENS.7.9 – Aktive Inhalte
 
 **Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.18
+
+**Vorgänger:** [APP.1.1.A17-UA.1](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/06_APP_Anwendungen/APP_1_1_Office_Produkte_Edition_2023.pdf?__blob=publicationFile&v=4#download=1) (intersects-with) · [APP.1.1.A2-UA.2](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/06_APP_Anwendungen/APP_1_1_Office_Produkte_Edition_2023.pdf?__blob=publicationFile&v=4#download=1) (intersects-with) · [APP.1.1.A2-UA.3](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/06_APP_Anwendungen/APP_1_1_Office_Produkte_Edition_2023.pdf?__blob=publicationFile&v=4#download=1) (intersects-with)
 
 > Sensibilisierung für Nutzende von Office-Anwendungen SOLLTE zur Überprüfung aktiver Inhalte vor der Aktivierung sensibilisieren.
 
@@ -487,6 +501,8 @@ Zum Beispiel könnten Webseiten über Schnittstellen von Webbrowsern auf Standor
 
 **Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.18
 
+**Vorgänger:** [APP.1.2.A11-UA.2](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/06_APP_Anwendungen/APP_1_2_Webbrowser_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (intersects-with)
+
 > Sensibilisierung für Nutzende von Webbrowsern SOLLTE gegen das unautorisierte Übergehen einer Zertifikatswarnung bei der Webnutzung sensibilisieren.
 
 Zeigt der Browser oder eine andere Anwendung eine Zertifikatswarnung an, dann besteht das Risiko, dass es sich um einen Angriff handelt. Im Zweifel ist es hier angebracht, über die bekannten Meldewege nachzufragen und den Zugang zu bestimmten Seiten oder Anwendungen autorisieren zu lassen.
@@ -496,6 +512,8 @@ Zeigt der Browser oder eine andere Anwendung eine Zertifikatswarnung an, dann be
 ### SENS.8.1 – Screen Lock
 
 **Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.18
+
+**Vorgänger:** [APP.1.4.A1-UA.1](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/06_APP_Anwendungen/APP_1_4_Mobile_Anwendungen_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (intersects-with) · [SYS.3.1.A1-UA.1](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/07_SYS_IT_Systeme/SYS_3_1_Laptops_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (intersects-with)
 
 > Sensibilisierung für Nutzende SOLLTE zum Sperren von IT-System vor dem Verlassen des Arbeitsplatzes anweisen.
 
@@ -611,6 +629,8 @@ Das Abhören von Gesprächen bezeichnet im Kontext des mobilen Arbeitens das unb
 
 **Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.18
 
+**Vorgänger:** [INF.8.A1-UA.1](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/10_INF_Infrastruktur/INF_8_Haeuslicher_Arbeitsplatz_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (intersects-with)
+
 > Sensibilisierung für Nutzende SOLLTE zur Verwahrung von IT-Systemen und Datenträgern beim mobilen Arbeiten anweisen.
 
 Die Verwahrung von IT-Systemen und Datenträgern bedeutet, diese so zu sichern, dass sie nicht unbeabsichtigt verloren gehen, beschädigt oder unbefugt eingesehen werden können. An mobilen Arbeitsplätzen ist das Risiko eines Zugriffs Unbefugter oder Verlustes typischerweise höher als in Bürogebäuden. Dagegen hilft es, alle Hardware und Dokumente so aufzubewahren, dass unbefugter Zugang und unberechtigter Zugriff verhindert wird. Hierzu können z.B. Koffer mit Schloss oder Hotelsafes genutzt werden. Eine regelmäßige Überprüfung dieser Maßnahmen wird empfohlen.
@@ -695,6 +715,8 @@ Administrationskonten sind im konkreten Kontext privilegierte Benutzerkonten, di
 
 **Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.18
 
+**Vorgänger:** [ORP.3.A1-UA.1](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/02_ORP_Organisation_und_Personal/ORP_3_Sensibilisierung_und_Schulung_Editon_2023.pdf?__blob=publicationFile&v=3#download=1) (intersects-with)
+
 > Sensibilisierung für Institutionsleitung SOLLTE zur Bedeutung der Informationssicherheit für den Schutz der Geschäftsprozesse sensibilisieren.
 
 Informationssicherheit ist kein Selbstzweck, sondern soll die Verarbeitung von Informationen in Geschäftsprozessen zur Erreichung der Geschäftsziele schützen. Weil Umfang und Integration von Informationsverarbeitungen in Geschäftsprozessen zunehmen, sind Datenverluste, Cyberangriffe und andere elementare Gefährdungen eine zunehmend ernste Bedrohung.
@@ -702,6 +724,8 @@ Informationssicherheit ist kein Selbstzweck, sondern soll die Verarbeitung von I
 ### SENS.11.2 – Führen als Vorbild
 
 **Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 1 · **Gefährdungen:** G 0.18
+
+**Vorgänger:** [ORP.3.A1-UA.4](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/02_ORP_Organisation_und_Personal/ORP_3_Sensibilisierung_und_Schulung_Editon_2023.pdf?__blob=publicationFile&v=3#download=1) (intersects-with)
 
 > Sensibilisierung für Führungskräfte SOLLTE zu ihrer Vorbildfunktion bei der Informationssicherheit sensibilisieren.
 
@@ -720,6 +744,8 @@ Gezielte Angriffe auf Führungskräfte, auch Whaling genannt, sind eine besonder
 ### SENS.12.1 – Hohe Risiken
 
 **Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.42
+
+**Vorgänger:** [ORP.3.A9-UA.1](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/02_ORP_Organisation_und_Personal/ORP_3_Sensibilisierung_und_Schulung_Editon_2023.pdf?__blob=publicationFile&v=3#download=1) (intersects-with)
 
 > Sensibilisierung für Nutzende KANN gegen die in der Risikoanalyse festgestellten hohen Risiken sensibilisieren.
 

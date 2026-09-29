@@ -11,6 +11,8 @@ Die Praktik Berechtigung stellt sicher, dass ausschließlich autorisierte Person
 
 **Pflicht:** MUSS · **Stufe:** `normal-SdT` · **Aufwand:** 0 · **Gefährdungen:** G 0.18
 
+**Vorgänger:** [APP.2.2.A1-UA.2](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/06_APP_Anwendungen/APP_2_2_Active_Directory_Domain_Services_Edition_2023.pdf?__blob=publicationFile&v=4#download=1) (intersects-with)
+
 > Berechtigung MUSS Verfahren und Regelungen zum Identitäts- und Berechtigungsmanagement verankern.
 
 Ziel ist einen dokumentierten Prozess einzurichten, der die Vergabe, Verwaltung und Entfernung von Zugangs- und Zugriffsberechtigungen, sowie der damit verbundenen Identitäten regelt. Zu berücksichtigen sind insbesondere Neueinstellungen, Versetzungen und Entlassungen. Empfehlenswert ist es, die Vergabe und den Entzug von Berechtigungen so weit wie möglich zu automatisieren. Die bei der Festlegung des Verfahrens im Einzelnen zu berücksichtigenden Inhalte ergeben sich aus den Anforderungen dieser Praktik.
@@ -101,6 +103,8 @@ Zu einem Ereignisprotokoll gehört der Zeitpunkt, das Zugangskonto, sowie welche
 
 **Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.36, G 0.30, G 0.32
 
+**Vorgänger:** [ORP.2.A2-UA.4](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/02_ORP_Organisation_und_Personal/ORP_2_Personal_Editon_2023.pdf?__blob=publicationFile&v=4#download=1) (intersects-with)
+
 > Berechtigung SOLLTE die zugeordnete Identität bei Weggang von Nutzenden deaktivieren.
 
 Weggang meint hier die nicht nur kurzfristige Beendigung der Aktivitäten der Identität, z.B. bei Kündigung, Elternzeit, Sabbatical. Die Anforderung ist auch umgesetzt, wenn die Identität gelöscht wird. Empfehlenswert ist die Löschung jedoch erst nach Ablauf längerer Löschfristen, um die Nachvollziehbarkeit von Aktionen im Audit Log zu erhalten.
@@ -151,6 +155,8 @@ Werden Aktionen an Zugangskonten wie die Erstellung, Veränderung von Metadaten 
 
 **Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.36, G 0.30, G 0.32
 
+**Vorgänger:** [APP.2.2.A22-UA.1](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/06_APP_Anwendungen/APP_2_2_Active_Directory_Domain_Services_Edition_2023.pdf?__blob=publicationFile&v=4#download=1) (intersects-with)
+
 > Berechtigung SOLLTE ein Zugangskonto zu genau einer Identität zuweisen.
 
 Wenn ein Zugangskonto genau einer Identität zugewiesen ist erleichtert dies die Vergabe von Berechtigungen nach dem Need-to-know-Prinzip. Außerdem kann so bei einem Vorfall nachvollzogen werden, welche Person welche Befehle ausgeführt hat, z.B. mittels des Audit Logs. Anders herum können einer Identität auch mehrere Zugangskonten zugewiesen sein, z.B. ein normalen Nutzungskonto und ein Zugangskonto für die Systemadministration.
@@ -183,6 +189,8 @@ Den Hinweis, dass bei erfolglosen Anmeldeversuchen das Passwort oder die Kennung
 
 **Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.36, G 0.30, G 0.32
 
+**Vorgänger:** [APP.3.1.A1-UA.4](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/06_APP_Anwendungen/APP_3_1_Webanwendungen_und_Webservices_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (intersects-with)
+
 > Berechtigung SOLLTE Zugangskonten ereignisgesteuert deaktivieren.
 
 Ungenutzte Zugangskonten stellen ein unnötiges Risiko für unberechtigte Zugriffe dar. Werden sie z.B. bei längerer Inaktivität, bei Personalweggang oder bei Verletzung von Richtlinien unverzüglich deaktiviert, so vermindert sich das Risiko eines Missbrauchs erheblich.
@@ -191,6 +199,8 @@ Ungenutzte Zugangskonten stellen ein unnötiges Risiko für unberechtigte Zugrif
 
 **Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.36, G 0.30, G 0.32
 
+**Vorgänger:** [APP.3.1.A1-UA.4](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/06_APP_Anwendungen/APP_3_1_Webanwendungen_und_Webservices_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (intersects-with)
+
 > Berechtigung für IT-Systeme SOLLTE weitere Anmeldeversuche nach Erreichen von *[einem maximalen Schwellwert an]* fehlgeschlagenen Versuchen vorübergehend blockieren.
 
 Betrifft sowohl die lokale Anmeldung über eine Benutzeroberfläche als auch den Zugriff über Fernwartungsprotokolle oder -anwendungen wie RDP, SNMP, wenn diese vorhanden sind. Die Umsetzung erfolgt im einfachsten Fall durch ein Login, bzw. eine Bildschirmsperre für das IT-System. Biometrische Daten wie Fingerabdrücke können gefälscht werden und sind nicht so leicht zu ändern wie Passwörter. Setzen Sie Biometrie daher nicht als einzigen Authentifizierungsfaktor ein, sondern wenn, dann nur zur Ergänzung (Mehr-Faktor-Authentifizierung). Die Anforderung ist entbehrlich, wenn das System keinen Zugriff auf schützenswerte Daten erlaubt, z.B. bei Nutzung als Kiosk.
@@ -198,6 +208,8 @@ Betrifft sowohl die lokale Anmeldung über eine Benutzeroberfläche als auch den
 ### BER.3.11 – Anmeldeversuchsgrenze an der Anwendung
 
 **Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.36, G 0.30, G 0.32
+
+**Vorgänger:** [SYS.2.1.A1-UA.2](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/07_SYS_IT_Systeme/SYS_2_1_Allgemeiner_Client_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (intersects-with) · [SYS.2.1.A1-UA.3](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/07_SYS_IT_Systeme/SYS_2_1_Allgemeiner_Client_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (intersects-with)
 
 > Berechtigung für Anwendungen SOLLTE weitere Anmeldeversuche nach Erreichen von *[einem maximalen Schwellwert an]* fehlgeschlagenen Versuchen vorübergehend blockieren.
 
@@ -411,6 +423,8 @@ Innerhalb der Institution ist ein Prozess etabliert, mit dem Berechtigungen syst
 
 **Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.36
 
+**Vorgänger:** [APP.4.2.A14-UA.2](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/06_APP_Anwendungen/APP_4_2_SAP_ERP_System_Edition_2023.pdf?__blob=publicationFile&v=4#download=1) (subset-of)
+
 > Berechtigung SOLLTE eine Vorgehensweise zur initialen Ausgabe von Authentifizierungsmitteln verankern.
 
 Die initiale Ausgabe von Authentifizierungsmitteln ist die erstmalige, kontrollierte Bereitstellung von Mitteln, mit denen eine natürliche Person oder ein technischer Dienst seine Identität nachweisen kann; hierzu zählen beispielsweise Passwörter oder Einmalpasswörter, Hardware- oder Software-Token, Smartcards, Zertifikate, kryptografische Schlüssel, Passkeys, initiale MFA-Faktoren sowie Aktivierungs- oder Registrierungsinformationen (engl. authentication credentials, authentication factors, authenticators). Die Vorgehensweise zur initialen Ausgabe umfasst dabei insbesondere die nachvollziehbare Feststellung der berechtigten empfangenden Person oder Instanz, die Zuordnung zum vorgesehenen Zugangskonto oder Berechtigungsumfang, einen geschützten Übergabeweg, die Vermeidung unkontrollierter Mehrfachausgaben sowie eine dokumentierbare Bestätigung, dass das Authentifizierungsmittel nur der vorgesehenen empfangenden Stelle zugänglich gemacht wurde. Sinn und Zweck der Vorschrift ist, bereits beim ersten Zugang zu verhindern, dass Authentifizierungsmittel an falsche, nicht hinreichend identifizierte oder nicht mehr berechtigte Empfänger gelangen; andernfalls könnte ein Konto von Beginn an kompromittiert, ein Initialpasswort abgefangen, ein Token an eine falsche Person ausgegeben oder ein Zertifikat missbräuchlich zur Anmeldung verwendet werden.
@@ -434,6 +448,8 @@ Zurücksetzung meint hier die geregelte Wiederherstellung, Erneuerung, Sperrung 
 ### BER.5.3 – Vorgehensweise zum Widerruf
 
 **Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.36
+
+**Vorgänger:** [APP.2.2.A23-UA.1](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/06_APP_Anwendungen/APP_2_2_Active_Directory_Domain_Services_Edition_2023.pdf?__blob=publicationFile&v=4#download=1) (intersects-with) · [APP.4.2.A14-UA.1](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/06_APP_Anwendungen/APP_4_2_SAP_ERP_System_Edition_2023.pdf?__blob=publicationFile&v=4#download=1) (intersects-with)
 
 > Berechtigung SOLLTE eine Vorgehensweise zum Widerruf von Authentifizierungsmitteln verankern.
 
@@ -583,6 +599,8 @@ Eine Kompromittierung meint hier, dass Zugangsdaten wie Benutzername und Passwor
 
 **Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.36
 
+**Vorgänger:** [CON.1.A1-UA.1](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/03_CON_Konzepte_und_Vorgehensweisen/CON_1_Kryptokonzept_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (intersects-with)
+
 > Berechtigung SOLLTE die ausschließliche Verwendung etablierter kryptografischer Algorithmen bei der Schlüsselerzeugung nach *[einem anerkannten Standard]* verankern.
 
 Etablierte kryptografische Algorithmen sind mathematisch fundierte Verschlüsselungsverfahren und Protokolle, die in der aktuellen Praxis nicht mit vertretbarem Aufwand gebrochen werden können. Sie basieren auf mathematisch schwer lösbaren Problemen, bieten Resistenz gegen bekannte kryptanalytische Angriffe, unterstützen ausreichend große Schlüssellängen und wurden von Experten gründlich geprüft und analysiert. Aktuelle etablierte Algorithmen sind in BSI TR-02102 zu finden. Für weitere Details zur Implementierung siehe Detailspezifikation kryptografischer Abläufe und Mechanismen des BSI.
@@ -638,6 +656,8 @@ Im Allgemeinen ist es sinnvoll, private Schlüssel nur dort zu erzeugen, wo sie 
 ### BER.7.8 – Etablierte Algorithmen bei der Schlüsselnutzung
 
 **Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.36
+
+**Vorgänger:** [CON.1.A1-UA.2](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/03_CON_Konzepte_und_Vorgehensweisen/CON_1_Kryptokonzept_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (intersects-with)
 
 > Berechtigung SOLLTE die ausschließliche Verwendung etablierter Algorithmen bei der Schlüsselnutzung verankern.
 

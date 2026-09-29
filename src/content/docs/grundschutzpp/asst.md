@@ -69,6 +69,8 @@ Hiermit ist das Eigentum oder die institutionsinterne Zuständigkeit für die Nu
 
 **Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.16, G 0.18, G 0.17, G 0.45
 
+**Vorgänger:** [IND.1.A4-UA.2](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/08_IND_Industrielle_IT/IND_1_Prozessleit_und_Automatisierungstechnik_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (intersects-with)
+
 > Informationen und Assets SOLLTE ein Inventar der IT-Systeme einschließlich Identifikationsbezeichnung und letztem bekannten Verbleib dokumentieren.
 
 Hierbei sind neben physischen Endgeräten auch Hostsysteme, virtuelle Systeme, IoT-Geräte, Funkgeräte und Fahrzeuge relevant, wenn diese für die Verarbeitung von Daten aus dem Informationsverbund bestimmt sind. Als Identifikationsbezeichnung ist z.B. die Identifikationsnummer gemeint. Hierzu können z.B. eine Gerätenummer, Hardware-MAC-Adresse oder ein DNS-Name zählen, anhand derer das System eindeutig und nachvollziehbar identifiziert wird. Mit Verbleib ist hier z.B. der physische Standort, die Person, das Virtualisierungssystem oder die Netzadresse gemeint, wo das IT-System zu finden ist. Kann durch Integration in das Inventar der Informationen umgesetzt werden. Ein Asset-Inventar kann im einfachsten Fall händisch gepflegt werden. Empfehlenswert ist jedoch, auch automatisierte Systeme zum Erfassen von Asset-Inventar (z.B. Verzeichnisdienste, CMDB, DHCP-Logging, Passive Asset Discovery Tools, EDR oder MDM) einzusetzen.
@@ -84,6 +86,8 @@ Ziel ist sicherzustellen, dass keine unautorisierten Assets im Informationsverbu
 ### ASST.2.3 – Inventar der Anwendungen
 
 **Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.18, G 0.16, G 0.17, G 0.45
+
+**Vorgänger:** [IND.1.A4-UA.2](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/08_IND_Industrielle_IT/IND_1_Prozessleit_und_Automatisierungstechnik_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (intersects-with) · [IND.1.A4-UA.3](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/08_IND_Industrielle_IT/IND_1_Prozessleit_und_Automatisierungstechnik_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (intersects-with)
 
 > Informationen und Assets SOLLTE ein Inventar der Anwendungen einschließlich Produktname, Versionsstand, Herkunft und Lizenzierung dokumentieren.
 
@@ -273,6 +277,8 @@ Schnittstellen können hier sowohl physikalisch (z.B. Briefversand, regelmäßig
 
 **Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.19, G 0.18, G 0.43, G 0.15
 
+**Vorgänger:** [CON.10.A7-UA.1](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/03_CON_Konzepte_und_Vorgehensweisen/CON_10_Entwicklung_von_Webanwendungen_Edition_2023.pdf?__blob=publicationFile&v=4#download=1) (intersects-with) · [IND.2.1.A2-UA.2](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/08_IND_Industrielle_IT/IND_2_1_Allgemeine_ICS_Komponente_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (equivalent-to)
+
 > Informationen und Assets für Daten SOLLTE Vertraulichkeit und Integrität beim Transport verankern.
 
 Transport meint hier sowohl die Datenübertragung per Netz als auch auf physischen Datenträgern (Sneakernet) oder den physischen Transport ganzer Systeme. Zur Umsetzung kann z.B. in Netzen die Transportverschlüsselung und -signierung von E-Mails, Ende-zu-Ende-Verschlüsselung mit PGP genutzt werden. Beim physischen Transport können die vorherige Verschlüsselung von Speichermedien, die Verwahrung von Assets an der Person, Verwahrungsprotokolle, manipulationssichere Verpackungen, Geolocation Tracking oder vertrauenswürdige Kuriere genutzt werden. Die Auswahl der Maßnahmen richtet sich nach dem Schutzbedarf der ausgetauschten Informationen und der Transportart.
@@ -315,6 +321,8 @@ Wartungsbedarf meint die regelmäßig oder anlassbezogen erforderlichen Maßnahm
 
 **Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.31, G 0.25, G 0.28, G 0.21
 
+**Vorgänger:** [OPS.1.1.1.A19-UA.1](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/04_OPS_Betrieb/OPS_1_1_1_Allgemeiner_IT_Betrieb_Edition_2023.pdf?__blob=publicationFile&v=4#download=1) (intersects-with)
+
 > Informationen und Assets für IT-Systeme SOLLTE die Wartung *[regelmäßig oder prädiktiv]* ausführen.
 
 „Wartung“ bezeichnet hier sämtliche planmäßigen oder zustandsabhängigen Maßnahmen zur Erhaltung der Funktionsfähigkeit, Sicherheit und Integrität von IT-Systemen, Anwendungen und den zugehörigen physischen wie logischen Assets („maintenance“). Verschleißende Systeme und Infrastrukturen könnten zu Fehlerzuständen und hierdurch zu Ausfallzeiten und Sicherheitsrisiken führen. Das betrifft auch die für das IT-System verwendete Stromversorgung, USV, Klimatechnik, sowie Brandabschottungen für Kabel- und Rohrdurchführungen. Beispiele hierfür können vielfältig sein: Ein Server kann turnusmäßig mit Firmware‑Updates versorgt oder nach einer bestimmten Betriebsdauer auf Staubablagerungen überprüft werden; Netzwerkkomponenten können per Lifecycle‑Plan aktualisiert oder lüfterseitig gereinigt werden; USV‑Batterien können nach Herstellerempfehlung getauscht werden; Software‑Module können per Patch‑Management in ein Wartungsfenster eingeplant werden. Eine „regelmäßige Wartung“ bedeutet hierbei ein turnusmäßiges Vorgehen nach festen Zeitintervallen (Vorausbestimmte Instandhaltungsstrategie), während prädiktive Wartung den tatsächlichen Abnutzungs- oder Belastungszustand auswertet, um Eingriffe bedarfsgerecht zu planen (Prädiktive Instandhaltungsstrategie). Beide Ansätze verfolgen das Ziel, Sicherheits- und Betriebsrisiken zu minimieren, die aus dem Ausfall oder der Fehlfunktion technischer Komponenten resultieren könnten.
@@ -355,6 +363,8 @@ Eine Sicherheitsüberprüfung bezeichnet hier die systematische Bewertung der Ve
 
 **Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.31, G 0.37, G 0.18, G 0.25
 
+**Vorgänger:** [OPS.1.1.1.A19-UA.4](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/04_OPS_Betrieb/OPS_1_1_1_Allgemeiner_IT_Betrieb_Edition_2023.pdf?__blob=publicationFile&v=4#download=1) (intersects-with)
+
 > Informationen und Assets für IT-Systeme SOLLTE Wartungen mit Asset, Anlass, Zeitpunkt, Beteiligten, durchgefürten Maßnahmen und Ergebnissen dokumentieren.
 
 Die Dokumentation von Wartungen an IT-Systemen kann Nachvollziehbarkeit, Verantwortlichkeit und Beweisfähigkeit herstellen; ohne sie könnten unerkannte Konfigurationsänderungen, verdeckte Schwachstellen oder verlängerte Ausfälle entstehen. Zur Umsetzung kann die Institution ein schlankes, einheitliches Wartungsprotokoll verwenden, das je Vorgang erfasst: (1) eindeutig referenziertes Asset/CI, Umgebung und betroffener Service, (2) Anlass, Art der Wartung (präventiv/korrektiv/notfall) und geplanter Zeitraum, (3) Verantwortliche, Beteiligte/Dienstleister und Kontakt, (4) geplante Maßnahmen, Backout-Plan sowie definierte Vor-/Nach-Checks, (5) tatsächlich durchgeführte Schritte („as-built“), verwendete Versionen/Images und geänderte Parameter, (6) Messergebnisse/Logs/Screenshots/Hashes als Nachweis, (7) Auswirkungen (Downtime, Kapazität), Abnahme/Testresultat und Freigabe, (8) Verweise auf Tickets/Changes/Störungsmeldungen, (9) Datum/Zeit mit Zeitzone und Protokollversion. Die Erfassung kann in einem vorhandenen Ticket- oder CMDB-Werkzeug stattfinden.
@@ -388,6 +398,8 @@ Assets sind nicht konform, wenn Sie die für sie geltenden Anforderungen nicht o
 ### ASST.6.4 – Zurücksetzen auf Ausgangszustand
 
 **Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.18
+
+**Vorgänger:** [INF.10.A9-UA.1](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/10_INF_Infrastruktur/INF_10_Besprechungs_Veranstaltungs_und_Schulungsraeume_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (intersects-with)
 
 > Informationen und Assets für IT-Systeme SOLLTE bei Rücknahme das Zurücksetzen in einen definierten Ausgangszustand ausführen.
 
@@ -438,6 +450,8 @@ Anerkannte Standards für die Vernichtung sind DIN 66399 sowie ISO/IEC 21964; di
 #### ASST.7.3.2 – Löschverfahren
 
 **Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.45, G 0.19, G 0.16, G 0.38
+
+**Vorgänger:** [APP.1.4.A12-UA.1](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/06_APP_Anwendungen/APP_1_4_Mobile_Anwendungen_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (intersects-with)
 
 > Informationen und Assets für Daten SOLLTE ein Verfahren zur endgültigen Löschung verankern.
 

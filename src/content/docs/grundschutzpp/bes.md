@@ -271,6 +271,8 @@ Die Fähigkeit zur Diversifizierung von Bezugsquellen bedeutet in diesem Kontext
 
 **Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.18
 
+**Vorgänger:** [APP.6.A3-UA.2](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/06_APP_Anwendungen/APP_6_Allgemeine_Software_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (intersects-with)
+
 > Beschaffungsmanagement für Einkäufe SOLLTE die Beschaffung aus einer unbekannten oder unzuverlässigen Quelle untersagen.
 
 Eine Quelle (z.B. ein Softwarelieferant) ist unzuverlässig, wenn zukünftig mit Verstößen gegen die Schutzziele Vertraulichkeit, Verfügbarkeit oder Integrität durch ihn zu rechnen ist (d.h. eine Prognose der Vertrauenswürdigkeit). Dies ist insbesondere der Fall, wenn erhebliche Verstöße gegen die Schutzziele durch ihn begangen worden sind oder Anzeichen dafür vorliegen, dass bei einer Verwendung mit solchen Verstößen zu rechnen ist.
@@ -296,6 +298,8 @@ Beschaffungskriterien sind nachvollziehbare Bewertungsmaßstäbe, die bei der An
 ### BES.4.3 – Beschaffung anhand der Kriterien
 
 **Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.20
+
+**Vorgänger:** [APP.6.A3-UA.1](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/06_APP_Anwendungen/APP_6_Allgemeine_Software_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (intersects-with)
 
 > Beschaffungsmanagement für Einkäufe SOLLTE die Beschaffung anhand der festgelegten Kriterien verankern.
 
@@ -328,6 +332,8 @@ Ein Sicherheitslebenszyklus (engl. security development lifecycle, kurz SDL) bes
 #### BES.4.5.2 – Mandantentrennung
 
 **Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 4 · **Gefährdungen:** G 0.20, G 0.14, G 0.19, G 0.29
+
+**Vorgänger:** [APP.4.6.A20-UA.1](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/06_APP_Anwendungen/APP_4_6_SAP_ABAP_Programmierung_Edition_2023.pdf?__blob=publicationFile&v=4#download=1) (intersects-with)
 
 > Beschaffungsmanagement für Outsourcing KANN eine festgelegte Mandantentrennung vereinbaren.
 
@@ -774,6 +780,8 @@ Eine vom Hersteller oder Lieferanten empfohlene Konfiguration ist eine dokumenti
 #### BES.7.4.4 – Dokumentation der Komponenten
 
 **Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.18, G 0.26, G 0.37
+
+**Vorgänger:** [IND.1.A4-UA.2](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/08_IND_Industrielle_IT/IND_1_Prozessleit_und_Automatisierungstechnik_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (intersects-with)
 
 > Beschaffungsmanagement für Einkäufe SOLLTE eine Beschreibung der verwendeten Hardware- und Softwarekomponenten dokumentieren.
 
