@@ -8,7 +8,7 @@ something that turns out not to fit or is already half-solved elsewhere.
 - **`pnpm run build` must succeed** before you open a PR.
 - **Generator changes need an actual run**: if you touch
   `scripts/generate_docs.py` or the catalog processing, run the script and
-  look at the diff of the generated `.md` files — not just that it runs
+  look at the diff of the generated `.mdx` files — not just that it runs
   without errors, but whether the generated content is actually right.
 - **Look at it, don't just build it.** A green build only proves nothing
   crashed, not that it looks right — see "Green isn't the same as right"
@@ -23,6 +23,33 @@ something that turns out not to fit or is already half-solved elsewhere.
   Docker or a systemd service, without heavy runtime dependencies. New
   external services, CDN dependencies, or heavy client frameworks need a
   real justification, not a default yes.
+
+## When the upstream catalog changes
+
+The catalog this site renders lives in
+[`BSI-Bund/Stand-der-Technik-Bibliothek`](https://github.com/BSI-Bund/Stand-der-Technik-Bibliothek)
+and moves on its own schedule. `.github/workflows/sync-catalog.yml` picks
+that up daily and opens a PR. Before merging one:
+
+1. **Re-run the generator and read the diff**, don't just trust the green
+   check. A catalog edit can silently change what a requirement *says*.
+2. **Check the prop schema.** The generator reads `sec_level`,
+   `effort_level`, `threats` and `modal_verb` off the controls. A renamed
+   or newly added prop won't fail the build — it'll just quietly stop
+   appearing on the page.
+3. **Watch for MDX-hostile prose.** `mdx_safe()` escapes `{`, `}` and `<`
+   in catalog text after parameter substitution. Without it a sentence
+   like "Latenz < Antwortzeit" breaks the build. New editions can
+   introduce new problem characters.
+4. **Check the old-Kompendium links.** `bsi-kompendium-2023-bausteine.json`
+   maps 111 Baustein IDs to BSI's own PDF URLs and backs the "Vorgänger"
+   cross-references (see `adr/0005`). It was scraped once, by hand — BSI's
+   bot protection blocks simple scripted scraping — so a new Kompendium
+   edition means re-doing that by hand. See `_method` inside the file.
+5. **Sanity-check the mapping direction.** `subset-of` means the old
+   requirement is contained in the new one; `superset-of` means the new
+   one is narrower. This was wrong once already (see `adr/0005`), and it's
+   the kind of error a build never catches.
 
 ## Working with AI
 

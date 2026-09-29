@@ -76,3 +76,4 @@ Instanz, die ein eigenes Impressum bräuchte.
 | Datum      | Änderung | Von     |
 |------------|----------|---------|
 | 2026-09-29 | Erstellt | bruno   |
+| 2026-09-29 | Hosted-Repo aufgelöst (ADR-0008); Entscheidung gilt weiter, echte Daten jetzt in der Deployment-Konfiguration statt im Hosted-Repo | bruno   |

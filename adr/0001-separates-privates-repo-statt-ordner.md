@@ -2,7 +2,11 @@
 
 ## Status
 
-Angenommen
+**Überholt durch [ADR-0008](0008-aufloesung-des-oss-hosted-splits.md)**
+(2026-09-29) — das zweite Repo wurde nach einem Tag wieder aufgelöst. Die
+hier dokumentierte GitLab-CE/EE-Recherche und die Begründung gegen einen
+`special/`-Ordner bleiben inhaltlich gültig; nur die Prämisse, dass es
+überhaupt eine getrennte Hosted-Version geben soll, ist entfallen.
 
 ## Datum
 
@@ -80,3 +84,4 @@ Dateien hinzufügen und niemals Dateien des OSS-Repos verändern.
 | Datum      | Änderung | Von     |
 |------------|----------|---------|
 | 2026-09-29 | Erstellt | bruno   |
+| 2026-09-29 | Überholt durch ADR-0008 | bruno   |

@@ -24,12 +24,18 @@ and SSP generation, not for reading. Keeping it current here means running
 the generator against the upstream source automatically, not
 hand-transcribing it once and letting it rot.
 
-## Hosted version
+## Hosted instance
 
-There's a possible hosted version of this project on the horizon — free
-to use, but not self-hostable. This repo stays the real, complete version
-regardless of whether that happens. See `HOSTED.md` for what that would
-and wouldn't change.
+A hosted instance is planned — free to use, always built against the
+current upstream catalog, no setup required. It runs **this** code: there
+is no separate tier, no feature held back, nothing you can't run yourself.
+The convenience is the hosting, not a different version of the site.
+
+An earlier plan split the project into this repo plus a closed-source
+"hosted" layer with richer components. That split was dissolved after a
+day — the components live here now, under MIT like everything else. The
+reasoning, including what it cost and why it was wrong, is in
+[`adr/0008`](adr/0008-aufloesung-des-oss-hosted-splits.md).
 
 ## Status
 
@@ -53,8 +59,10 @@ Requires the pnpm version pinned in `package.json` (`packageManager`).
 
 The pages under `src/content/docs/grundschutzpp/` are generated, not
 hand-written. `scripts/generate_docs.py` reads the BSI's
-`Grundschutz++-resolved_catalog.json` (OSCAL) and renders Starlight
-markdown from it.
+`Grundschutz++-resolved_catalog.json` (OSCAL) and renders Starlight MDX
+from it — MDX rather than plain markdown so the generated pages can use
+real components (`ControlMeta` for the obligation/level/effort pills,
+`PdcaCycle`, the filter inputs) instead of bold-text metadata.
 
 Locally, it expects a `Grundschutz-PlusPlus` checkout of
 [`BSI-Bund/Stand-der-Technik-Bibliothek`](https://github.com/BSI-Bund/Stand-der-Technik-Bibliothek)
@@ -76,15 +84,18 @@ every push and pull request.
 
 ```
 .
+├── adr/                       # architecture decisions, with the reasoning
 ├── scripts/
-│   └── generate_docs.py       # OSCAL catalog → Starlight markdown
+│   └── generate_docs.py       # OSCAL catalog → Starlight MDX
 ├── src/
-│   ├── components/            # Hero, Footer, Banner, theme toggle, ...
+│   ├── components/            # ControlMeta, PdcaCycle, filters, chrome
 │   ├── content/docs/
 │   │   ├── grundschutzpp/     # generated — one page per topic area
+│   │   ├── rollen/            # generated — entry pages per role
 │   │   ├── index.mdx          # homepage
-│   │   ├── impressum.md       # legal notice (German law requires this)
-│   │   └── datenschutz.md     # privacy policy
+│   │   ├── vergleich.mdx      # generated — old Kompendium ↔ Grundschutz++
+│   │   ├── impressum.md       # legal notice template (see adr/0003)
+│   │   └── datenschutz.md     # privacy policy template
 │   └── styles/custom.css      # OKLCH palette, light + dark
 ├── astro.config.mjs           # site title, sidebar, Starlight plugins
 └── .env                       # SITE_NAME (see .env.example)

@@ -2,7 +2,10 @@
 
 ## Status
 
-Angenommen
+**Überholt durch [ADR-0008](0008-aufloesung-des-oss-hosted-splits.md)**
+(2026-09-29). Die Alternativenliste unten prüft ausschließlich, *wie*
+gesplittet wird — die Option „gar nicht splitten" fehlt. Genau diese Lücke
+hat ADR-0008 nachgeholt und die Entscheidung gekippt.
 
 ## Datum
 
@@ -80,3 +83,4 @@ Mehrwert-Grund.
 | Datum      | Änderung | Von     |
 |------------|----------|---------|
 | 2026-09-29 | Erstellt | bruno   |
+| 2026-09-29 | Überholt durch ADR-0008 | bruno   |
