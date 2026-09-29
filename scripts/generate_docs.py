@@ -302,11 +302,35 @@ def yaml_quote(text):
     return '"' + text.replace("\\", "\\\\").replace('"', '\\"') + '"'
 
 
+# Abkürzungen, die auf einen Punkt enden, ohne einen Satz zu beenden. Ohne
+# diese Liste bricht first_sentence() mitten im Satz ab und die
+# Meta-Description der Seite landet als Fragment in der Google-Vorschau
+# ("... Dokumentation von Anforderungen bzw." — UMS, 2026-09-29).
+SENTENCE_ABBREVS = (
+    "bzw.", "ggf.", "etc.", "ca.", "inkl.", "exkl.", "vgl.", "sog.", "evtl.",
+    "insb.", "Nr.", "Abs.", "Art.", "Kap.", "ff.",
+    "z. B.", "z.B.", "u. a.", "u.a.", "d. h.", "d.h.", "i. d. R.", "u. U.",
+)
+# Bewusst nicht in der Liste: "S." (Seite) und "max."/"min." — die würden
+# auch das Ende echter Sätze verschlucken ("... und IDS.", "... auf ein
+# Minimum.") und kosten mehr, als sie retten.
+
+# Einzelbuchstabe + Punkt ("z.", "B.", "u.") — die Hälften gesperrter
+# Abkürzungen, wenn der Text sie mit schmalem Leerzeichen schreibt.
+SINGLE_LETTER_ABBREV_RE = re.compile(r"\b[A-Za-zÄÖÜäöü]\.$")
+
+
 def first_sentence(text):
     if not text:
         return ""
-    match = re.search(r"(.+?[.!?])(\s|$)", text)
-    return match.group(1) if match else text
+    for match in re.finditer(r"[.!?](\s|$)", text):
+        candidate = text[: match.end()].strip()
+        if candidate.endswith(SENTENCE_ABBREVS):
+            continue
+        if SINGLE_LETTER_ABBREV_RE.search(candidate):
+            continue
+        return candidate
+    return text
 
 
 def format_range(start, end):
