@@ -13,12 +13,16 @@ Informationstechnik (BSI).
 
 ## Why this exists
 
-No readable cross-reference existed anywhere — not in the official repo,
-not from BSI itself. The pilot catalog is JSON-first by design, and that's
-the right call for tooling, but it leaves nothing a human can skim to
-answer "what does this control actually ask of me." This project reads
-the same source of truth and renders it for that use case instead, kept
-current automatically rather than hand-transcribed once and left to rot.
+There's already a community-built viewer for the catalog with more visual
+firepower than this site aims for — graphs, diagrams. This one is going
+for something different: a clean, modern reading experience — searchable,
+permalinked, comfortable to sit down with. The BSI's catalog content stays
+CC BY-SA, exactly as licensed; the code here is MIT.
+
+Past that, the pilot catalog is JSON-first by design — built for tooling
+and SSP generation, not for reading. Keeping it current here means running
+the generator against the upstream source automatically, not
+hand-transcribing it once and letting it rot.
 
 ## Status
 
