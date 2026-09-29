@@ -1,1 +1,16 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128"><path fill-rule="evenodd" d="M81 36 64 0 47 36l-1 2-9-10a6 6 0 0 0-9 9l10 10h-2L0 64l36 17h2L28 91a6 6 0 1 0 9 9l9-10 1 2 17 36 17-36v-2l9 10a6 6 0 1 0 9-9l-9-9 2-1 36-17-36-17-2-1 9-9a6 6 0 1 0-9-9l-9 10v-2Zm-17 2-2 5c-4 8-11 15-19 19l-5 2 5 2c8 4 15 11 19 19l2 5 2-5c4-8 11-15 19-19l5-2-5-2c-8-4-15-11-19-19l-2-5Z" clip-rule="evenodd"/><path d="M118 19a6 6 0 0 0-9-9l-3 3a6 6 0 1 0 9 9l3-3Zm-96 4c-2 2-6 2-9 0l-3-3a6 6 0 1 1 9-9l3 3c3 2 3 6 0 9Zm0 82c-2-2-6-2-9 0l-3 3a6 6 0 1 0 9 9l3-3c3-2 3-6 0-9Zm96 4a6 6 0 0 1-9 9l-3-3a6 6 0 1 1 9-9l3 3Z"/><style>path{fill:#000}@media (prefers-color-scheme:dark){path{fill:#fff}}</style></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+	<!-- Drei eingerückte Ebenen: die Katalog-Hierarchie (DET → DET.3 → DET.3.1)
+	     als Form. Bewusst flach und einfarbig statt isometrisch wie der
+	     Org-Avatar — bei 16 px im Browser-Tab überlebt nur die Silhouette. -->
+	<g class="mark">
+		<rect x="17" y="25" width="66" height="13" rx="6.5" />
+		<rect x="31" y="43.5" width="52" height="13" rx="6.5" />
+		<rect x="45" y="62" width="38" height="13" rx="6.5" />
+	</g>
+	<style>
+		.mark rect { fill: #B97600; }
+		@media (prefers-color-scheme: dark) {
+			.mark rect { fill: #DE9C31; }
+		}
+	</style>
+</svg>

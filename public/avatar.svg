@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="512" height="512">
+	<!-- Org-/Repo-Avatar. Dieselbe Form wie das Favicon (drei eingerückte
+	     Ebenen = Katalog-Hierarchie), hier isometrisch extrudiert: bei 128 px
+	     und größer trägt die Tiefe, bei 32 px bleibt die Treppen-Silhouette.
+
+	     Flächige Faces statt Verlauf/Schatten pro Fläche — Weichzeichner
+	     brechen beim Herunterskalieren als Erstes weg. Die drei Töne sind
+	     dieselbe Bernstein-Familie wie der Starlight-Accent (OKLCH-Hue 75)
+	     in src/styles/custom.css, in sRGB umgerechnet für den PNG-Export.
+
+	     Die dunkle Kante je Ebene ist nicht Dekoration: ohne sie verschmelzen
+	     die gleichfarbigen Oberseiten zu einer einzigen gefalteten Fläche und
+	     der Stapel ist als Stapel nicht mehr lesbar.
+
+	     Deckendes Quadrat ohne abgerundete Ecken: GitHub rundet Avatare
+	     selbst und schneidet dabei eigene Rundungen an. -->
+	<defs>
+		<radialGradient id="ground" cx="58%" cy="34%" r="76%">
+			<stop offset="0" stop-color="#2E2210" />
+			<stop offset="1" stop-color="#18130D" />
+		</radialGradient>
+	</defs>
+
+	<rect width="100" height="100" fill="url(#ground)" />
+
+	<!-- Marke auf ~76 % Kantenlänge hochskaliert; bei 60 % blieb bei 32 px zu
+	     viel Grund stehen und der Stapel wurde zum Fleck. -->
+	<g transform="translate(50 50) scale(1.26) translate(-50 -50)"
+	   stroke="#18130D" stroke-width="1.1" stroke-linejoin="round">
+
+		<!-- Hinterste Ebene (oben rechts, am tiefsten eingerückt) -->
+		<polygon points="46,28 63,20 80,28 63,36" fill="#F7C97B" />
+		<polygon points="46,28 63,36 63,44 46,36" fill="#D58D16" />
+		<polygon points="63,36 80,28 80,36 63,44" fill="#955905" />
+
+		<!-- Mittlere Ebene -->
+		<polygon points="33,44 55,33.5 77,44 55,54.5" fill="#F7C97B" />
+		<polygon points="33,44 55,54.5 55,62.5 33,52" fill="#D58D16" />
+		<polygon points="55,54.5 77,44 77,52 55,62.5" fill="#955905" />
+
+		<!-- Vorderste Ebene (unten links, oberste Katalog-Stufe) -->
+		<polygon points="20,60 47,47.5 74,60 47,72.5" fill="#F7C97B" />
+		<polygon points="20,60 47,72.5 47,80.5 20,68" fill="#D58D16" />
+		<polygon points="47,72.5 74,60 74,68 47,80.5" fill="#955905" />
+	</g>
+</svg>
