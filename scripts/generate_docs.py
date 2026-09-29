@@ -1,15 +1,20 @@
 #!/usr/bin/env python3
 """
 Liest den Grundschutz++-resolved_catalog.json (OSCAL) und generiert daraus
-lesbare Markdown-Seiten fuer Starlight.
+lesbare .mdx-Seiten fuer Starlight — Hosted-Variante von
+Grundschutz-Docs/scripts/generate_docs.py: gleiche Struktur, aber Stufe/
+Aufwand/Gefaehrdungen werden als <ControlMeta>-Komponente (echte Badges mit
+Tooltip) statt als Fettschrift-Text ausgegeben. Siehe
+Grundschutz-Docs-Hosted/adr/0001-*.md fuer den Grund der Trennung.
 
-Erneut ausfuehren nach jedem `git pull` im Grundschutz-PlusPlus-Repo, um die
-Doku-Seite auf den aktuellen Stand zu bringen:
+Erneut ausfuehren nach jedem `git pull` im Grundschutz-PlusPlus-Repo, danach
+SYNC.md (eine Ebene hoeher) aktualisieren:
 
     cd Grundschutz-PlusPlus && git pull
-    python3 ../Grundschutz-Docs/scripts/generate_docs.py
-    cd ../Grundschutz-Docs && pnpm run build   # oder: pnpm run dev
+    python3 ../Grundschutz-Docs-Hosted/scripts/generate_docs.py
+    cd ../Grundschutz-Docs-Hosted && pnpm run build   # oder: pnpm run dev
 """
+import csv
 import json
 import os
 import re
@@ -20,35 +25,47 @@ REPO_ROOT = Path(__file__).resolve().parent.parent.parent
 DEFAULT_CATALOG_FILE = (
     REPO_ROOT / "Grundschutz-PlusPlus" / "control_layer" / "Grundschutz++" / "Grundschutz++-resolved_catalog.json"
 )
+DEFAULT_BASETHREATS_FILE = (
+    REPO_ROOT / "Grundschutz-PlusPlus" / "documentation" / "namespaces" / "basethreats.csv"
+)
 # Lokal: Grundschutz-PlusPlus liegt als Ordner neben diesem Repo. In CI gibt es
 # diesen Nachbarordner nicht — dort wird der Pfad stattdessen über die Umgebungsvariable
-# gesetzt (siehe .github/workflows/sync-catalog.yml).
+# gesetzt (siehe .github/workflows/sync-catalog.yml im OSS-Repo).
 CATALOG_FILE = Path(os.environ["GRUNDSCHUTZPP_CATALOG"]) if os.environ.get("GRUNDSCHUTZPP_CATALOG") else DEFAULT_CATALOG_FILE
+BASETHREATS_FILE = (
+    Path(os.environ["GRUNDSCHUTZPP_BASETHREATS"]) if os.environ.get("GRUNDSCHUTZPP_BASETHREATS") else DEFAULT_BASETHREATS_FILE
+)
 DEFAULT_MAPPING_FILE = (
     REPO_ROOT / "Grundschutz-PlusPlus" / "control_layer" / "Mappings" / "IT-GS2023-zu-GSpp" / "ITGS-to-GS++-mapping_collection.json"
 )
 MAPPING_FILE = Path(os.environ["GRUNDSCHUTZPP_MAPPING"]) if os.environ.get("GRUNDSCHUTZPP_MAPPING") else DEFAULT_MAPPING_FILE
 # Grundschutz-Projekt/bsi-kompendium-2023-bausteine.json: eigene, einmal von
 # BSIs Bausteine-Uebersichtsseite gescrapte Lookup-Tabelle (Baustein-ID -> PDF-URL),
-# siehe adr/0005-vorgaenger-anforderung-alt-neu.md im Hosted-Repo. Liegt bewusst
-# eine Ebene ueber beiden Repos (wie SYNC.md) -- externe Referenzdaten, nicht
-# Eigentum eines der beiden Repos.
+# siehe adr/0005-vorgaenger-anforderung-alt-neu.md. Liegt bewusst eine Ebene
+# ueber beiden Repos (wie SYNC.md) -- externe Referenzdaten, nicht Eigentum
+# eines der beiden Repos.
 DEFAULT_BAUSTEINE_LINKS_FILE = REPO_ROOT / "bsi-kompendium-2023-bausteine.json"
 BAUSTEINE_LINKS_FILE = (
     Path(os.environ["BSI_BAUSTEINE_LINKS"]) if os.environ.get("BSI_BAUSTEINE_LINKS") else DEFAULT_BAUSTEINE_LINKS_FILE
 )
 OUT_DIR = Path(__file__).resolve().parent.parent / "src" / "content" / "docs" / "grundschutzpp"
-# Rollen-Seiten (ADR-0007 im Hosted-Repo, hier ohne eigenes ADR uebernommen --
-# Inhalt/Struktur ist geteilt, nur der Toggle/das Kreisdiagramm bleiben
-# Hosted-exklusiv, siehe SYNC.md).
+# Rollen-Seiten (ADR-0007) liegen wie vergleich.mdx eine Ebene flacher als
+# die Gruppen-Seiten, aber in einem eigenen Unterordner (eigene Sidebar-Gruppe).
 ROLLEN_OUT_DIR = Path(__file__).resolve().parent.parent / "src" / "content" / "docs" / "rollen"
-ASTRO_CONFIG = Path(__file__).resolve().parent.parent / "astro.config.mjs"
+CONTROL_META_IMPORT = "import ControlMeta from '../../../components/ControlMeta.astro';\n"
+# vergleich.mdx liegt eine Ebene flacher (direkt in src/content/docs/), daher
+# ein "../" weniger als CONTROL_META_IMPORT.
+VERGLEICH_FILTER_IMPORT = "import VergleichFilter from '../../components/VergleichFilter.astro';\n"
+# rollen/*.mdx liegt auf derselben Tiefe wie grundschutzpp/*.mdx (nicht wie
+# vergleich.mdx), daher derselbe "../../../"-Pfad wie CONTROL_META_IMPORT.
+GF_FILTER_IMPORT = "import GfFilter from '../../../components/GfFilter.astro';\n"
+PDCA_CYCLE_IMPORT = "import PdcaCycle from '../../../components/PdcaCycle.astro';\n"
 
 PARAM_RE = re.compile(r"\{\{\s*insert:\s*param,\s*([a-zA-Z0-9._-]+)\s*\}\}")
 
 # Zeitplan laut BSI-Fahrplan (Pilotphase, it-sa-Termin) und Fachpublikationen
 # (Übergangsfrist/Ablösung — vom BSI noch nicht mit einem fixen Datum bestätigt,
-# daher als "geplant" ausgewiesen). Quellen siehe Commit-Historie/Konversation.
+# daher als "geplant" ausgewiesen). Gleiche Quelle wie im OSS-Repo.
 TIMELINE = [
     (date(2026, 4, 1), date(2026, 9, 30), "Pilotphase", "Grundschutz++ wird mit Pilotpartnern erprobt."),
     (date(2026, 10, 27), date(2026, 10, 29), "Vorstellung auf der it-sa", "Methodik und Kompendium werden öffentlich vorgestellt."),
@@ -57,10 +74,8 @@ TIMELINE = [
     (date(2029, 1, 1), None, "Vollständige Ablösung (geplant, Datum offen)", "Das bisherige Kompendium soll danach vollständig abgelöst werden."),
 ]
 
-# Der Katalog selbst benennt diese sechs Praktiken als PDCA-Managementzyklus
-# (z. B. VRB: "schließt den PDCA-Zyklus ab", PERF: "Check-Phase im
-# PDCA-Zyklus") — keine eigene Erfindung, sondern in den Gruppentexten
-# explizit so beschrieben. Alle anderen Gruppen sind operative Themenfelder.
+# Wie im OSS-Repo: der Katalog selbst nennt diese sechs Praktiken den
+# PDCA-Managementzyklus (z. B. VRB: "schließt den PDCA-Zyklus ab").
 MANAGEMENT_CYCLE_IDS = {"GC", "STM", "UMS", "VRB", "PERF", "RISK"}
 
 
@@ -83,6 +98,18 @@ def group_description(group):
     return None
 
 
+def mdx_safe(text):
+    if not text:
+        return text
+    # MDX interpretiert { und } als JS-Ausdruck-Grenzen und < als möglichen
+    # JSX-Tag-Start (z. B. bricht "Latenz < Antwortzeit" sonst den Build,
+    # siehe ARCH-Gruppe). Im Katalog kommt das aktuell selten vor (geprüft),
+    # aber falls ein künftiges Upstream-Update mehr davon einführt, brechen
+    # wir damit nicht den Build, sondern zeigen ein literales Zeichen.
+    text = text.replace("{", "\\{").replace("}", "\\}")
+    return text.replace("<", "&lt;")
+
+
 def substitute_params(text, params_by_id):
     if not text:
         return text
@@ -92,7 +119,7 @@ def substitute_params(text, params_by_id):
         label = params_by_id.get(pid, pid)
         return f"*[{label}]*"
 
-    return PARAM_RE.sub(repl, text)
+    return mdx_safe(PARAM_RE.sub(repl, text))
 
 
 def part_text(control, name):
@@ -109,6 +136,21 @@ def part_prop_value(control, part_name, prop_name):
                 if p.get("name") == prop_name:
                     return p.get("value")
     return None
+
+
+def attr_escape(value):
+    return value.replace("&", "&amp;").replace('"', "&quot;")
+
+
+def load_basethreats():
+    with BASETHREATS_FILE.open(newline="", encoding="utf-8") as f:
+        return {row["ID"]: row["Begriff"] for row in csv.DictReader(f)}
+
+
+def threats_hint(threats, basethreats_by_id):
+    ids = [t.strip() for t in threats.split(",") if t.strip()]
+    labeled = [f"{tid} – {basethreats_by_id[tid]}" for tid in ids if tid in basethreats_by_id]
+    return " · ".join(labeled) if labeled else None
 
 
 def build_predecessor_index(mapping_data):
@@ -134,10 +176,11 @@ def baustein_id_from_itgs_id(itgs_id):
     return m.group(1) if m else None
 
 
-# OSCAL-Beziehungstypen aus der Mapping-Datei sind englisches
-# Standard-Vokabular (internationales Format) -- auf einer sonst
-# durchgehend deutschen Seite übersetzt anzeigen. Interner Wert (für
-# Sortierung o. ä.) bleibt englisch, nur die Anzeige wird übersetzt.
+# OSCAL-Beziehungstypen sind englisches Standard-Vokabular -- für die
+# Vergleichsseite (Vergleich.mdx wird als reines HTML/Markdown geschrieben,
+# nicht über ControlMeta.astro) übersetzt anzeigen, analog zu den
+# deutschen Labels in ControlMeta.astro. `data-rel` bleibt englisch (CSS-
+# Selektor-Matching gegen custom.css unverändert).
 # Richtung nach der offiziellen OSCAL-Mapping-Spezifikation (NIST, $schema
 # in der Mapping-Datei): "source [relationship] target" -- hier ist die
 # Quelle immer die alte, das Ziel die neue Anforderung. subset-of: die
@@ -155,42 +198,58 @@ def relationship_label(rel):
     return RELATIONSHIP_LABELS.get(rel, rel)
 
 
-def predecessor_line(control_id, predecessor_index, baustein_links):
+def jsx_string(value):
+    return '"' + value.replace("\\", "\\\\").replace('"', '\\"') + '"'
+
+
+def render_predecessors_prop(control_id, predecessor_index, baustein_links):
     entries = predecessor_index.get(control_id)
     if not entries:
         return None
-    parts = []
+    items = []
     for old_id, rel in entries:
         baustein_id = baustein_id_from_itgs_id(old_id)
         link = baustein_links.get(baustein_id) if baustein_id else None
-        label = f"[{old_id}]({link})" if link else old_id
-        parts.append(f"{label} ({relationship_label(rel)})")
-    return "**Vorgänger:** " + " · ".join(parts) + "\n"
+        obj = f"{{ oldId: {jsx_string(old_id)}, relationship: {jsx_string(rel)}"
+        if link:
+            obj += f", link: {jsx_string(link)}"
+        obj += " }"
+        items.append(obj)
+    return "[" + ", ".join(items) + "]"
 
 
-def render_control(control, level, params_by_id, predecessor_index, baustein_links):
-    heading = "#" * min(level, 6)
-    lines = [f"{heading} {control['id']} – {control['title']}\n"]
-
+def render_control_meta(control, basethreats_by_id, predecessor_index, baustein_links):
     modal_verb = part_prop_value(control, "statement", "modal_verb")
     sec_level = prop_value(control, "sec_level")
     effort = prop_value(control, "effort_level")
     threats = prop_value(control, "threats")
-    badges = []
+    predecessors = render_predecessors_prop(control["id"], predecessor_index, baustein_links)
+    if not (modal_verb or sec_level or effort or threats or predecessors):
+        return None
+    attrs = []
     if modal_verb:
-        badges.append(f"**Pflicht:** {modal_verb}")
+        attrs.append(f'modalVerb="{attr_escape(modal_verb)}"')
     if sec_level:
-        badges.append(f"**Stufe:** `{sec_level}`")
+        attrs.append(f'secLevel="{attr_escape(sec_level)}"')
     if effort:
-        badges.append(f"**Aufwand:** {effort}")
+        attrs.append(f'effort="{attr_escape(effort)}"')
     if threats:
-        badges.append(f"**Gefährdungen:** {threats}")
-    if badges:
-        lines.append(" · ".join(badges) + "\n")
-
-    predecessors = predecessor_line(control["id"], predecessor_index, baustein_links)
+        attrs.append(f'threats="{attr_escape(threats)}"')
+        hint = threats_hint(threats, basethreats_by_id)
+        if hint:
+            attrs.append(f'threatsHint="{attr_escape(hint)}"')
     if predecessors:
-        lines.append(predecessors)
+        attrs.append(f"predecessors={{{predecessors}}}")
+    return f"<ControlMeta {' '.join(attrs)} />\n"
+
+
+def render_control(control, level, params_by_id, basethreats_by_id, predecessor_index, baustein_links):
+    heading = "#" * min(level, 6)
+    lines = [f"{heading} {control['id']} – {control['title']}\n"]
+
+    meta = render_control_meta(control, basethreats_by_id, predecessor_index, baustein_links)
+    if meta:
+        lines.append(meta)
 
     statement = substitute_params(part_text(control, "statement"), params_by_id)
     if statement:
@@ -201,26 +260,26 @@ def render_control(control, level, params_by_id, predecessor_index, baustein_lin
         lines.append(f"{guidance}\n")
 
     for sub in control.get("controls", []):
-        lines.append(render_control(sub, level + 1, params_by_id, predecessor_index, baustein_links))
+        lines.append(render_control(sub, level + 1, params_by_id, basethreats_by_id, predecessor_index, baustein_links))
 
     return "\n".join(lines)
 
 
-def render_group(group, level, params_by_id, predecessor_index, baustein_links, include_heading=True):
+def render_group(group, level, params_by_id, basethreats_by_id, predecessor_index, baustein_links, include_heading=True):
     lines = []
     if include_heading:
         heading = "#" * min(level, 6)
         lines.append(f"{heading} {group['id']} {group['title']}\n")
 
-    desc = group_description(group)
+    desc = mdx_safe(group_description(group))
     if desc:
         lines.append(f"{desc}\n")
 
     for control in group.get("controls", []):
-        lines.append(render_control(control, level + 1, params_by_id, predecessor_index, baustein_links))
+        lines.append(render_control(control, level + 1, params_by_id, basethreats_by_id, predecessor_index, baustein_links))
 
     for sub in group.get("groups", []):
-        lines.append(render_group(sub, level + 1, params_by_id, predecessor_index, baustein_links))
+        lines.append(render_group(sub, level + 1, params_by_id, basethreats_by_id, predecessor_index, baustein_links))
 
     return "\n".join(lines)
 
@@ -273,6 +332,17 @@ def render_timeline():
     return "\n".join(lines)
 
 
+def render_index_section(heading, intro, entries):
+    lines = [f"## {heading}\n", f"{intro}\n", '<ul class="practice-index">']
+    for gid, title, slug, summary in entries:
+        lines.append(
+            f'<li><a href="/grundschutzpp/{slug}/"><span class="practice-id">{gid}</span> {title}</a>'
+            f"<p>{summary}</p></li>"
+        )
+    lines.append("</ul>\n")
+    return "\n".join(lines)
+
+
 def collect_leaf_controls(node):
     """Alle Anforderungen ohne eigene Unter-Anforderungen unter einem Control-
     oder Gruppen-Knoten, rekursiv. Funktioniert fuer beide Knotentypen, weil
@@ -292,18 +362,24 @@ def is_muss(control):
 
 # Quelle: Grundschutz-PlusPlus/documentation/namespaces/security_level.csv --
 # nur diese zwei Werte existieren im Katalog (kein Basis/Standard/Kern wie im
-# alten Kompendium).
+# alten Kompendium), siehe ADR-0007.
 SEC_LEVEL_LABELS = {"normal-SdT": "Standard-Sicherheitsstufe", "erhöht": "Erhöhte Sicherheitsstufe"}
 
 
-def render_muss_table_md(group_id, group_title, slug, muss_controls):
-    lines = [f"### {group_id} {group_title}\n\n"]
-    lines.append("| Anforderung | Stufe |\n|---|---|\n")
+def render_muss_table(group_id, group_title, slug, muss_controls):
+    lines = [f'<div class="rollen-section" data-group="{group_id}">\n']
+    lines.append(f"### {group_id} {group_title}\n")
+    lines.append('<table class="vergleich-table rollen-muss-table">\n')
+    lines.append("<thead><tr><th>Anforderung</th><th>Stufe</th></tr></thead>\n<tbody>\n")
     for control in muss_controls:
         sec_level = prop_value(control, "sec_level") or ""
         sec_label = SEC_LEVEL_LABELS.get(sec_level, sec_level)
-        lines.append(f"| [{control['id']} – {control['title']}](/grundschutzpp/{slug}/) | {sec_label} |\n")
-    lines.append("\n")
+        lines.append(
+            f'<tr data-sec="{attr_escape(sec_level)}">'
+            f'<td><a class="new-id" href="/grundschutzpp/{slug}/">{control["id"]} – {control["title"]}</a></td>'
+            f'<td>{sec_label}</td></tr>\n'
+        )
+    lines.append("</tbody>\n</table>\n</div>\n\n")
     return "".join(lines)
 
 
@@ -311,20 +387,24 @@ def render_geschaeftsfuehrung_page(management, themenfelder, groups_by_id):
     all_groups = management + themenfelder
     total = 0
     total_muss = 0
+    muss_normal_sdt = 0
     sections = []
     for gid, title, slug, _ in all_groups:
         leaves = list(collect_leaf_controls(groups_by_id[gid]))
         muss = [c for c in leaves if is_muss(c)]
         total += len(leaves)
         total_muss += len(muss)
+        muss_normal_sdt += sum(1 for c in muss if prop_value(c, "sec_level") == "normal-SdT")
         if muss:
-            sections.append(render_muss_table_md(gid, title, slug, muss))
+            sections.append(render_muss_table(gid, title, slug, muss))
 
     lines = [
         "---\n",
         f"title: {yaml_quote('Für Geschäftsführung')}\n",
         f"description: {yaml_quote('Pflicht-Anforderungen, Einstufungskriterien und Haftungsrahmen auf einen Blick.')}\n",
         "---\n\n",
+        GF_FILTER_IMPORT,
+        "\n",
         "> Diese Seite ersetzt keine Rechts- oder Haftungsberatung. Sie ordnet "
         "öffentliche Quellen ein (den BSI-Katalog und geltendes Gesetzesrecht) "
         "— eine Bewertung des Einzelfalls kann nur eine Rechtsanwältin, ein "
@@ -386,11 +466,28 @@ def render_geschaeftsfuehrung_page(management, themenfelder, groups_by_id):
         "- Alter der letzten Schutzbedarfsfeststellung bzw. Risikobewertung\n"
         "- Datum der letzten Schulungsteilnahme der Geschäftsleitung (§ 38 "
         "Abs. 3 BSIG)\n\n",
+        f'<GfFilter mussTotal={{{total_muss}}} mussNormalSdt={{{muss_normal_sdt}}} />\n\n',
         "## Die MUSS-Anforderungen nach Bereich\n\n",
         *sections,
     ]
     ROLLEN_OUT_DIR.mkdir(parents=True, exist_ok=True)
-    (ROLLEN_OUT_DIR / "geschaeftsfuehrung.md").write_text("".join(lines))
+    (ROLLEN_OUT_DIR / "geschaeftsfuehrung.mdx").write_text("".join(lines))
+
+
+def render_pdca_cycle_prop(management, groups_by_id):
+    by_id = {gid: (title, slug) for gid, title, slug, _ in management}
+
+    def node(gid):
+        title, slug = by_id[gid]
+        count = len(list(collect_leaf_controls(groups_by_id[gid])))
+        return f"{{ id: {jsx_string(gid)}, title: {jsx_string(title)}, slug: {jsx_string(slug)}, count: {count} }}"
+
+    # Reihenfolge des tatsächlichen PDCA-Ablaufs -- weicht von der
+    # Katalog-Reihenfolge ab (dort steht VRB vor PERF), siehe PdcaCycle.astro.
+    sequence = ["GC", "STM", "UMS", "PERF", "VRB"]
+    nodes = "[" + ", ".join(node(gid) for gid in sequence) + "]"
+    risk = node("RISK")
+    return nodes, risk
 
 
 def render_isb_page(management, groups_by_id):
@@ -399,27 +496,26 @@ def render_isb_page(management, groups_by_id):
         count = len(list(collect_leaf_controls(groups_by_id[gid])))
         entries.append((gid, title, slug, f"{summary} ({count} Anforderungen)"))
 
+    nodes_prop, risk_prop = render_pdca_cycle_prop(management, groups_by_id)
+
     lines = [
         "---\ntitle: " + yaml_quote("Für ISB") + "\n---\n\n",
+        PDCA_CYCLE_IMPORT,
+        "\n",
         "Der BSI-OSCAL-Katalog (`Grundschutz++-resolved_catalog.json`, CC "
         "BY-SA 4.0, BSI-Bund) ist für Maschinen geschrieben – SSP-Generierung, "
         "Tooling, Validierung. OSCAL selbst stammt von NIST, nicht vom BSI: "
         "ein bereits etablierter, international genutzter Standard, den das "
         "BSI bewusst übernommen hat, statt eine eigene Lösung zu bauen.\n\n"
         "Diese Seite übersetzt denselben Katalog in etwas, das man als ISB im "
-        "Tagesgeschäft tatsächlich liest.\n\n",
-        "## Der PDCA-Zyklus\n\n"
-        "[Governance & Compliance](/grundschutzpp/gc/) → "
-        "[Strukturmodellierung](/grundschutzpp/stm/) → "
-        "[Umsetzung](/grundschutzpp/ums/) → "
-        "[Monitoring-Evaluation](/grundschutzpp/perf/) → "
-        "[Verbesserung](/grundschutzpp/vrb/) — und schließt sich von dort "
-        "wieder zu Governance & Compliance. Ein echter Kreislauf, kein "
-        "linearer Ablauf. [Risikomanagement](/grundschutzpp/risk/) begleitet "
-        "alle fünf Phasen durchgehend, statt eine eigene Phase zu sein.\n\n",
+        "Tagesgeschäft tatsächlich liest — das Managementsystem als "
+        "PDCA-Zyklus, mit Risikomanagement als durchgehendem Begleiter statt "
+        "eigener Phase.\n\n",
+        "## Der PDCA-Zyklus\n\n",
+        f"<PdcaCycle nodes={{{nodes_prop}}} risk={{{risk_prop}}} />\n\n",
         render_index_section(
             "Die sechs Praktiken im Detail",
-            "",
+            "Dieselben sechs Praktiken als Liste, falls dir das lieber ist als der Kreis oben.",
             entries,
         ),
         "## Werkzeuge für den Alltag\n\n"
@@ -427,22 +523,24 @@ def render_isb_page(management, groups_by_id):
         "jede Zuordnung zwischen alter und neuer Anforderung, mit "
         "Beziehungstyp (entspricht/Teilbereich von/umfasst/überschneidet "
         "sich mit) und echten Links zu BSI's Baustein-PDFs.\n"
+        "- **Basisgefährdungen direkt am Control** — jede Anforderung zeigt "
+        "die zugeordneten elementaren Gefährdungen (BSI, 47 Stück) als "
+        "hoverbare Pille, ohne extra Nachschlagen in `basethreats.csv`.\n"
         "- **[Status & Zeitplan](/grundschutzpp/zeitplan/)** — Pilotphase, "
         "Übergangsfrist, geplante Zertifizierung.\n\n"
         "Diese Seite ist kein offizielles BSI-Angebot.\n",
     ]
     ROLLEN_OUT_DIR.mkdir(parents=True, exist_ok=True)
-    (ROLLEN_OUT_DIR / "isb.md").write_text("".join(lines))
+    (ROLLEN_OUT_DIR / "isb.mdx").write_text("".join(lines))
 
 
-# Redaktionelle Zweiteilung der 14 operativen Themenfelder (keine BSI-eigene
-# Kategorie -- deshalb auf der Seite selbst als Einordnung gekennzeichnet).
-# Kriterium: setzt ein Dev/eine Dev-nahe Rolle das direkt um (Code, Config,
-# Systeme), oder ist es Prozess/Personal/Einkauf/Gebäude, das nur indirekt
-# betrifft. ASST ist ein Grenzfall -- Datenklassifizierung wirkt sich direkt
-# auf den Umgang mit Daten im Code aus, daher hier bei "technisch" einsortiert.
-# Identisch mit Grundschutz-Docs-Hosted/scripts/generate_docs.py (kein
-# Code-Sharing zwischen den Repos, siehe ADR-0001 im Hosted-Repo).
+# Redaktionelle Zweiteilung der 14 operativen Themenfelder (keine
+# BSI-eigene Kategorie -- deshalb auf der Seite selbst als Einordnung
+# gekennzeichnet, nicht als Katalog-Fakt). Kriterium: setzt ein Dev/eine
+# Dev-nahe Rolle das direkt um (Code, Config, Systeme), oder ist es
+# Prozess/Personal/Einkauf/Gebäude, das einen Dev nur indirekt betrifft.
+# ASST ist ein Grenzfall -- Datenklassifizierung wirkt sich direkt auf den
+# Umgang mit Daten im Code aus, daher hier bei "technisch" einsortiert.
 DEV_TECHNICAL_GROUPS = ["ARCH", "KONF", "DEV", "BER", "DET", "NOT", "REA", "TEST", "ASST"]
 DEV_ORG_GROUPS = ["PERS", "BES", "DLS", "GEB", "SENS"]
 
@@ -462,8 +560,8 @@ def render_devs_page(themenfelder, groups_by_id):
         "---\ntitle: " + yaml_quote("Für Devs") + "\n---\n\n",
         "Jede Anforderung zeigt Pflichtgrad, Sicherheitsstufe, "
         "Aufwandsschätzung und zugeordnete Basisgefährdungen direkt am "
-        "Text — keine ISMS-Prozess-Erklärung davor, kein Umweg über das "
-        "Managementsystem.\n\n",
+        "Text, als Badges mit Hover-Erklärung — keine ISMS-Prozess-"
+        "Erklärung davor, kein Umweg über das Managementsystem.\n\n",
         render_index_section(
             "Technische Umsetzung",
             "Das betrifft dich direkt — Architektur, Konfiguration, Code, Zugriffe, Betrieb.",
@@ -480,7 +578,7 @@ def render_devs_page(themenfelder, groups_by_id):
         "nur die 14 Themenfelder ohne diese Unterscheidung.\n",
     ]
     ROLLEN_OUT_DIR.mkdir(parents=True, exist_ok=True)
-    (ROLLEN_OUT_DIR / "devs.md").write_text("".join(lines))
+    (ROLLEN_OUT_DIR / "devs.mdx").write_text("".join(lines))
 
 
 def build_all_mappings(mapping_data):
@@ -512,55 +610,67 @@ def render_vergleich_page(all_mappings, group_titles, baustein_links):
         f"description: {yaml_quote('Alle Zuordnungen zwischen dem alten IT-Grundschutz-Kompendium (Edition 2023) und dem neuen Grundschutz++-Katalog.')}\n",
         "---\n",
         "\n",
+        VERGLEICH_FILTER_IMPORT,
+        "\n",
         "Alle Zuordnungen aus der offiziellen BSI-Mapping-Datei "
         "(`ITGS-to-GS++-mapping_collection.json`) — kein alter Volltext, nur "
         "Struktur und echte Links zu BSI's eigenen Baustein-PDFs (siehe "
-        "ADR-0005 im Hosted-Repo). Mit Strg+F/Cmd+F nach einer bekannten "
-        "alten ID suchen, z. B. `OPS.1.1.5`.\n",
+        "ADR-0005). Tippe eine bekannte alte oder neue ID ins Suchfeld, z. B. "
+        "`OPS.1.1.5`.\n",
+        "\n",
+        "<VergleichFilter />\n",
         "\n",
     ]
     for group_id in sorted(by_group, key=lambda gid: group_titles.get(gid, gid)):
         entries = by_group[group_id]
         title = group_titles.get(group_id, group_id)
         slug = group_id.lower()
+        lines.append(f'<div class="vergleich-section not-content">\n')
         lines.append(f"## {group_id} {title}\n")
         lines.append("\n")
-        lines.append("| Alte Anforderung | Beziehung | Neue Anforderung |\n")
-        lines.append("|---|---|---|\n")
+        lines.append('<table class="vergleich-table">\n')
+        lines.append("<thead><tr><th>Alte Anforderung</th><th>Beziehung</th><th>Neue Anforderung</th></tr></thead>\n")
+        lines.append("<tbody>\n")
         for old_id, rel, new_id in sorted(entries, key=lambda e: e[2]):
             baustein_id = baustein_id_from_itgs_id(old_id)
             link = baustein_links.get(baustein_id) if baustein_id else None
-            old_cell = f"[{old_id}]({link})" if link else old_id
-            new_cell = f"[{new_id}](/grundschutzpp/{slug}/)"
-            lines.append(f"| {old_cell} | {relationship_label(rel)} | {new_cell} |\n")
+            old_cell = (
+                f'<a class="old-id" href="{link}" target="_blank" rel="noopener noreferrer">{old_id}</a>'
+                if link
+                else f'<span class="old-id">{old_id}</span>'
+            )
+            new_cell = f'<a class="new-id" href="/grundschutzpp/{slug}/">{new_id}</a>'
+            rel_label = relationship_label(rel)
+            lines.append(
+                f"<tr><td>{old_cell}</td><td><span class=\"rel-badge\" data-rel=\"{rel}\">{rel_label}</span></td><td>{new_cell}</td></tr>\n"
+            )
+        lines.append("</tbody>\n")
+        lines.append("</table>\n")
+        lines.append("</div>\n")
         lines.append("\n")
     return "".join(lines)
 
 
-def render_index_section(heading, intro, entries):
-    lines = [f"## {heading}\n", f"{intro}\n", '<ul class="practice-index">']
-    for gid, title, slug, summary in entries:
-        lines.append(
-            f'<li><a href="/grundschutzpp/{slug}/"><span class="practice-id">{gid}</span> {title}</a>'
-            f"<p>{summary}</p></li>"
-        )
-    lines.append("</ul>\n")
-    return "\n".join(lines)
+def write_mdx(path, frontmatter, body):
+    needs_control_meta = "<ControlMeta" in body
+    prefix = CONTROL_META_IMPORT + "\n" if needs_control_meta else ""
+    path.write_text(frontmatter + prefix + body)
 
 
 def main():
     data = json.loads(CATALOG_FILE.read_text())
     catalog = data["catalog"]
     params_by_id = build_params_index(catalog)
+    basethreats_by_id = load_basethreats()
     mapping_data = json.loads(MAPPING_FILE.read_text())
     predecessor_index = build_predecessor_index(mapping_data)
     baustein_links = json.loads(BAUSTEINE_LINKS_FILE.read_text())["bausteine"]
 
     OUT_DIR.mkdir(parents=True, exist_ok=True)
-    for old in OUT_DIR.glob("*.md"):
+    for old in OUT_DIR.glob("*.mdx"):
         old.unlink()
     ROLLEN_OUT_DIR.mkdir(parents=True, exist_ok=True)
-    for old in ROLLEN_OUT_DIR.glob("*.md"):
+    for old in ROLLEN_OUT_DIR.glob("*.mdx"):
         old.unlink()
 
     management, themenfelder = [], []
@@ -575,6 +685,7 @@ def main():
             group,
             level=1,
             params_by_id=params_by_id,
+            basethreats_by_id=basethreats_by_id,
             predecessor_index=predecessor_index,
             baustein_links=baustein_links,
             include_heading=False,
@@ -587,7 +698,7 @@ def main():
             f"description: {yaml_quote(summary)}\n"
             "---\n\n"
         )
-        (OUT_DIR / f"{slug}.md").write_text(frontmatter + body)
+        write_mdx(OUT_DIR / f"{slug}.mdx", frontmatter, body)
 
         entry = (group["id"], group["title"], slug, summary)
         (management if group["id"] in MANAGEMENT_CYCLE_IDS else themenfelder).append(entry)
@@ -608,7 +719,7 @@ def main():
             themenfelder,
         ),
     ]
-    (OUT_DIR / "index.md").write_text("\n".join(index_lines))
+    (OUT_DIR / "index.mdx").write_text("\n".join(index_lines))
 
     zeitplan_lines = [
         "---\ntitle: Status & Zeitplan\n---\n\n",
@@ -617,19 +728,21 @@ def main():
         "(nicht offiziell von der BSI in jedem Detail bestätigt):\n",
         render_timeline(),
     ]
-    (OUT_DIR / "zeitplan.md").write_text("\n".join(zeitplan_lines))
+    (OUT_DIR / "zeitplan.mdx").write_text("\n".join(zeitplan_lines))
 
     all_mappings = build_all_mappings(mapping_data)
     vergleich_body = render_vergleich_page(all_mappings, group_titles, baustein_links)
-    (OUT_DIR.parent / "vergleich.md").write_text(vergleich_body)
+    (OUT_DIR.parent / "vergleich.mdx").write_text(vergleich_body)
 
+    # Rollenbasierte Einstiegsseiten (ADR-0007) -- aus denselben Gruppen-
+    # Listen wie oben, keine eigene Zielgruppen-Einstufung im Katalog nötig.
     render_geschaeftsfuehrung_page(management, themenfelder, groups_by_id)
     render_isb_page(management, groups_by_id)
     render_devs_page(themenfelder, groups_by_id)
 
     total = len(management) + len(themenfelder)
-    print(f"{total} Gruppen-Seiten erzeugt in {OUT_DIR}")
-    print(f"3 Rollen-Seiten erzeugt in {ROLLEN_OUT_DIR}")
+    print(f"{total} Gruppen-Seiten (.mdx) erzeugt in {OUT_DIR}")
+    print(f"3 Rollen-Seiten (.mdx) erzeugt in {ROLLEN_OUT_DIR}")
 
     def sidebar_group(label, entries):
         items = ",\n\t\t\t\t\t\t".join(

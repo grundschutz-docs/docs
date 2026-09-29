@@ -1,0 +1,72 @@
+---
+// Selbstauswahl statt Einstufung (ADR-0007): die Geschäftsführung kennt ihre
+// eigene Sicherheitsstufe bereits aus einer Schutzbedarfsfeststellung -- diese
+// Komponente filtert nur die Anzeige, sie bewertet oder klassifiziert nichts.
+// Gleiches Muster wie VergleichFilter.astro: nur Markup + Script hier drin,
+// da MDX rohe {..}-Blöcke sonst als JSX-Ausdruck fehlinterpretiert; die
+// zugehörigen CSS-Regeln liegen global in custom.css.
+interface Props {
+	mussTotal: number;
+	mussNormalSdt: number;
+}
+const { mussTotal, mussNormalSdt } = Astro.props;
+---
+
+<div class="gf-filter" role="group" aria-label="Nach Sicherheitsstufe filtern">
+	<span class="gf-filter-label">Ich weiß, dass für uns gilt:</span>
+	<div class="gf-filter-options">
+		<label>
+			<input type="radio" name="gf-sec" value="" checked />
+			Beide Stufen
+		</label>
+		<label>
+			<input type="radio" name="gf-sec" value="normal-SdT" />
+			Standard-Sicherheitsstufe
+		</label>
+		<label>
+			<input type="radio" name="gf-sec" value="erhöht" />
+			Erhöhte Sicherheitsstufe
+		</label>
+	</div>
+</div>
+
+<p class="gf-filter-note" data-sec="normal-SdT" hidden>
+	<strong>Standard-Sicherheitsstufe</strong> (Stand der Technik) — der
+	Basisschutz, der unabhängig vom individuellen Schutzbedarf für praktisch
+	jede Einrichtung gilt. {mussNormalSdt} von {mussTotal} MUSS-Anforderungen
+	im Katalog haben diese Stufe.
+</p>
+<p class="gf-filter-note" data-sec="erhöht" hidden>
+	<strong>Erhöhte Sicherheitsstufe</strong> — gilt zusätzlich, wenn eure
+	Schutzbedarfsfeststellung einen höheren Schutzbedarf ergeben hat (z. B.
+	besonders sensible Daten, hohe Kritikalität). Aktuell ist im Katalog aber
+	keine MUSS-Anforderung ausschließlich dieser Stufe zugeordnet — BSI
+	markiert erhöhte Anforderungen bisher nur als SOLLTE oder KANN, nie als
+	uneingeschränkte Pflicht.
+</p>
+
+<script>
+	const radios = Array.from(document.querySelectorAll<HTMLInputElement>('input[name="gf-sec"]'));
+	const rows = Array.from(document.querySelectorAll<HTMLTableRowElement>('.rollen-muss-table tbody tr'));
+	const sections = Array.from(document.querySelectorAll<HTMLElement>('.rollen-section'));
+	const notes = Array.from(document.querySelectorAll<HTMLElement>('.gf-filter-note'));
+
+	function apply() {
+		const selected = radios.find((r) => r.checked)?.value ?? '';
+		rows.forEach((tr) => {
+			const match = !selected || tr.dataset.sec === selected;
+			tr.style.display = match ? '' : 'none';
+		});
+		sections.forEach((section) => {
+			const anyVisible = Array.from(section.querySelectorAll('tbody tr')).some(
+				(tr) => (tr as HTMLElement).style.display !== 'none'
+			);
+			section.style.display = anyVisible ? '' : 'none';
+		});
+		notes.forEach((note) => {
+			note.hidden = note.dataset.sec !== selected;
+		});
+	}
+
+	radios.forEach((r) => r.addEventListener('change', apply));
+</script>

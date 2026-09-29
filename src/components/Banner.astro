@@ -1,33 +1,26 @@
 ---
 // Starlights eigener Banner ist pro Seite über Frontmatter gedacht.
 // Hier bewusst sitewide fest verdrahtet, statt das an 25+ generierten
-// Dateien einzeln pflegen zu müssen. Zweite Zeile (ADR-0006, Hosted-Repo):
-// Quick-Nav, weil Starlights Header-Grid keinen Platz für zusätzliche
-// Links hat, ohne die responsive Grid-Berechnung nachzubauen -- der
-// Banner ist der einzige schon vorhandene sitewide-fixe Erweiterungspunkt.
+// Dateien einzeln pflegen zu müssen.
+//
+// Die Quick-Nav-Zweitzeile (ADR-0006) ist ausgezogen in eine eigene
+// Header.astro-Überschreibung (siehe dort) -- Banner ist für die temporäre
+// Pilotphase-Statusmeldung gedacht, permanente Navigation gehört semantisch
+// nicht in eine als "vorübergehende Meldung" wirkende Leiste. Korrektur von
+// ADR-0006, siehe dessen Changelog.
 ---
 
 <div class="sl-banner" data-pagefind-ignore>
-	<div class="banner-status">
-		<span
-			>Grundschutz++ ist aktuell in der <strong>Pilotphase</strong> (bis 30.9.2026) — das bisherige
-			IT-Grundschutz-Kompendium bleibt voraussichtlich bis 2029 parallel gültig.</span
-		>
-		<a href="/grundschutzpp/zeitplan/">Zum Zeitplan →</a>
-	</div>
-	<nav class="banner-quicknav" aria-label="Schnellzugriff">
-		<a href="/grundschutzpp/">Übersicht</a>
-		<a href="/grundschutzpp/zeitplan/">Status & Zeitplan</a>
-		<a href="/vergleich/">Vergleich: Alt ↔ Neu</a>
-	</nav>
+	<span
+		>Grundschutz++ ist aktuell in der <strong>Pilotphase</strong> (bis 30.9.2026) — das bisherige
+		IT-Grundschutz-Kompendium bleibt voraussichtlich bis 2029 parallel gültig.</span
+	>
+	<a href="/grundschutzpp/zeitplan/">Zum Zeitplan →</a>
 </div>
 
 <style>
 	@layer starlight.core {
 		.sl-banner {
-			display: flex;
-			flex-direction: column;
-			gap: 0.2rem;
 			padding-inline: calc(var(--sl-nav-pad-x) + var(--sl-menu-button-size));
 			padding-block: 0.4rem;
 			background-color: var(--sl-color-accent-low);
@@ -38,30 +31,12 @@
 			font-size: var(--sl-text-xs);
 			border-bottom: 1px solid var(--glass-border);
 		}
-		.banner-status a {
+		.sl-banner a {
 			display: inline-block;
 			margin-inline-start: 0.5em;
 			color: var(--sl-color-accent-high);
 			font-weight: 600;
 			white-space: nowrap;
-		}
-		.banner-quicknav {
-			display: flex;
-			flex-wrap: wrap;
-			justify-content: center;
-			gap: 0.25rem 1.25rem;
-			font-size: var(--sl-text-2xs);
-		}
-		.banner-quicknav a {
-			color: var(--sl-color-text);
-			opacity: 0.85;
-			text-decoration: none;
-			font-weight: 600;
-			white-space: nowrap;
-		}
-		.banner-quicknav a:hover {
-			opacity: 1;
-			text-decoration: underline;
 		}
 	}
 </style>

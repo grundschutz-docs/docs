@@ -3,13 +3,15 @@ title: "PERF – Monitoring-Evaluation"
 description: "Die Praktik Monitoring-Evaluation stellt durch kontinuierliche Überwachung und systematische Bewertung sicher, dass die implementierten Sicherheitsmaßnahmen wirksam sind und die Sicherheitsziele der Organisation erreicht werden."
 ---
 
+import ControlMeta from '../../../components/ControlMeta.astro';
+
 Die Praktik Monitoring-Evaluation stellt durch kontinuierliche Überwachung und systematische Bewertung sicher, dass die implementierten Sicherheitsmaßnahmen wirksam sind und die Sicherheitsziele der Organisation erreicht werden. Sie liefert Erkenntnisse über den aktuellen Sicherheitszustand und identifiziert Verbesserungspotentiale. Im Rahmen dieser Praktik werden regelmäßige Sicherheitsaudits, kontinuierliches Monitoring von Sicherheitsereignissen sowie periodische Überprüfungen und Bewertungen des ISMS durchgeführt. Sie entspricht der "Check-Phase" im PDCA-Zyklus und dient dazu, Abweichungen von den definierten Zielen zu erkennen. Die Ergebnisse der Monitoring-Evaluation fließen direkt in die Praktik Verbesserung ein, wo konkrete Maßnahmen zur Behebung identifizierter Schwachstellen und zur kontinuierlichen Weiterentwicklung des ISMS abgeleitet werden.
 
 ## PERF.1 Leistungsbewertung des ISMS
 
 ### PERF.1.1 – Verfahren und Regelungen
 
-**Pflicht:** MUSS · **Stufe:** `normal-SdT` · **Aufwand:** 0
+<ControlMeta modalVerb="MUSS" secLevel="normal-SdT" effort="0" />
 
 > Monitoring-Evaluation MUSS Verfahren und Regelungen zur Messung und Bewertung der Leistung des ISMS verankern.
 
@@ -17,7 +19,7 @@ Die bei der Festlegung des Verfahrens und der Regelungen im Einzelnen zu berück
 
 ### PERF.1.2 – Evaluation des Umsetzungsplans
 
-**Pflicht:** MUSS · **Stufe:** `normal-SdT` · **Aufwand:** 0
+<ControlMeta modalVerb="MUSS" secLevel="normal-SdT" effort="0" />
 
 > Monitoring-Evaluation MUSS die *[regelmäßige]* Überprüfung und Fortschreibung des Umsetzungsplans in Bezug auf Fortschritt, Fristeinhaltung und inhaltlicher Korrektheit verankern.
 
@@ -25,7 +27,7 @@ Die Überprüfung eines Umsetzungsplans beinhaltet, ob Sicherheitsmaßnahmen vol
 
 ### PERF.1.3 – Aktualität der Anforderungen
 
-**Pflicht:** MUSS · **Stufe:** `normal-SdT` · **Aufwand:** 0
+<ControlMeta modalVerb="MUSS" secLevel="normal-SdT" effort="0" />
 
 > Monitoring-Evaluation MUSS die Aktualität der Anforderungen *[regelmäßig]* überprüfen.
 
@@ -35,7 +37,7 @@ Die Aktualitätsprüfung umfasst folgende Aspekte: Das Anforderungspaket wird re
 
 ### PERF.2.1 – Überprüfung der Einhaltung von Verpflichtungen
 
-**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2
+<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="2" />
 
 > Monitoring-Evaluation SOLLTE die Einhaltung von Verpflichtungen *[regelmäßig]* sowie anlassbezogen überprüfen.
 
@@ -45,9 +47,7 @@ Die Compliance-Überwachung umfasst regelmäßige Kontrollen zur Überprüfung d
 
 ### PERF.3.1 – Aufbau und Pflege eines Auditprogramms
 
-**Pflicht:** MUSS · **Stufe:** `normal-SdT` · **Aufwand:** 0
-
-**Vorgänger:** [DER.3.1.A2-UA.1](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/05_DER_Detektion_und_Reaktion/DER_3_1_Audits_und_Revisionen_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (überschneidet sich mit)
+<ControlMeta modalVerb="MUSS" secLevel="normal-SdT" effort="0" predecessors={[{ oldId: "DER.3.1.A2-UA.1", relationship: "intersects-with", link: "https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/05_DER_Detektion_und_Reaktion/DER_3_1_Audits_und_Revisionen_Edition_2023.pdf?__blob=publicationFile&v=3#download=1" }]} />
 
 > Monitoring-Evaluation MUSS ein Verfahren zum Aufbau und zur Pflege eines oder mehrerer Auditprogramme verankern.
 
@@ -55,7 +55,7 @@ Ein Audit kann in unterschiedlichen Formen durchgeführt werden – beispielswei
 
 #### PERF.3.1.1 – Erstellen eines Auditsplans
 
-**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3
+<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="3" />
 
 > Monitoring-Evaluation SOLLTE für jedes durchzuführende Audit einen Auditplan festlegen.
 
@@ -63,7 +63,7 @@ Der Auditplan (audit plan) legt vorab die Ziele, den Umfang (Geltungsbereich, Zi
 
 #### PERF.3.1.2 – Planen von internen Audits
 
-**Pflicht:** MUSS · **Stufe:** `normal-SdT` · **Aufwand:** 0
+<ControlMeta modalVerb="MUSS" secLevel="normal-SdT" effort="0" />
 
 > Monitoring-Evaluation MUSS die Planung der internen Audits im Auditprogramm risikoorientiert ausführen.
 
@@ -71,9 +71,7 @@ Ziel ist es, die Einhaltung von Sicherheitsanforderungen, die Wirksamkeit von Ma
 
 #### PERF.3.1.3 – Auswahl des Auditteams
 
-**Pflicht:** MUSS · **Stufe:** `normal-SdT` · **Aufwand:** 0
-
-**Vorgänger:** [DER.3.1.A1-UA.1](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/05_DER_Detektion_und_Reaktion/DER_3_1_Audits_und_Revisionen_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (überschneidet sich mit) · [DER.3.2.A5-UA.1](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/05_DER_Detektion_und_Reaktion/DER_3_2_Revisionen_auf_Basis_des_Leitfadens_IS_Revision_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (entspricht)
+<ControlMeta modalVerb="MUSS" secLevel="normal-SdT" effort="0" predecessors={[{ oldId: "DER.3.1.A1-UA.1", relationship: "intersects-with", link: "https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/05_DER_Detektion_und_Reaktion/DER_3_1_Audits_und_Revisionen_Edition_2023.pdf?__blob=publicationFile&v=3#download=1" }, { oldId: "DER.3.2.A5-UA.1", relationship: "equivalent-to", link: "https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/05_DER_Detektion_und_Reaktion/DER_3_2_Revisionen_auf_Basis_des_Leitfadens_IS_Revision_Edition_2023.pdf?__blob=publicationFile&v=3#download=1" }]} />
 
 > Monitoring-Evaluation MUSS fachlich geeignete und unabhängige Auditoren zur Gewährleistung der Objektivität und Qualität der Audits anweisen.
 
@@ -81,7 +79,7 @@ Bei der Auswahl von Auditoren ist zu empfehlen insbesondere Fachkompetenz, Unabh
 
 #### PERF.3.1.4 – Umfang von Audits
 
-**Pflicht:** MUSS · **Stufe:** `normal-SdT` · **Aufwand:** 0
+<ControlMeta modalVerb="MUSS" secLevel="normal-SdT" effort="0" />
 
 > Monitoring-Evaluation MUSS in angemessenem Umfang Audits ausführen.
 
@@ -89,7 +87,7 @@ Der Umfang eines Audits beschreibt, was, wie und in welchem Rahmen geprüft wird
 
 ### PERF.3.2 – Dokumentation von Auditergebnissen
 
-**Pflicht:** MUSS · **Stufe:** `normal-SdT` · **Aufwand:** 0
+<ControlMeta modalVerb="MUSS" secLevel="normal-SdT" effort="0" />
 
 > Monitoring-Evaluation MUSS ein Verfahren zur Erstellung aussagekräftiger Auditberichte verankern.
 
@@ -97,7 +95,7 @@ Ein Auditbericht muss nachvollziehbar, vollständig und strukturiert dokumentier
 
 #### PERF.3.2.1 – Einheitliches Bewertungsschema
 
-**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3
+<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="3" />
 
 > Monitoring-Evaluation SOLLTE für Feststellungen in Audits ein einheitliches Bewertungsschema festlegen.
 
@@ -105,7 +103,7 @@ Das Bewertungsschema soll die einheitliche Bewertung, die Wirksamkeit der Auditp
 
 #### PERF.3.2.2 – Kommunikation an Stakeholder
 
-**Pflicht:** MUSS · **Stufe:** `normal-SdT` · **Aufwand:** 0
+<ControlMeta modalVerb="MUSS" secLevel="normal-SdT" effort="0" />
 
 > Monitoring-Evaluation MUSS alle relevanten Stakeholder über die Auditergebnisse informieren.
 
@@ -115,9 +113,7 @@ Eine angemessene Kommunikation der Auditergebnisse an alle relevanten Stakeholde
 
 ### PERF.4.1 – Eignungsprüfung
 
-**Pflicht:** MUSS · **Stufe:** `normal-SdT` · **Aufwand:** 0
-
-**Vorgänger:** [DER.3.1.A22-UA.1](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/05_DER_Detektion_und_Reaktion/DER_3_1_Audits_und_Revisionen_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (entspricht)
+<ControlMeta modalVerb="MUSS" secLevel="normal-SdT" effort="0" predecessors={[{ oldId: "DER.3.1.A22-UA.1", relationship: "equivalent-to", link: "https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/05_DER_Detektion_und_Reaktion/DER_3_1_Audits_und_Revisionen_Edition_2023.pdf?__blob=publicationFile&v=3#download=1" }]} />
 
 > Monitoring-Evaluation MUSS Ergebnisse der Überprüfungen der Eignung, Angemessenheit und Wirksamkeit des ISMS der Institution *[regelmäßig]* sowie anlassbezogen in einem Managementbericht dokumentieren.
 
@@ -125,7 +121,7 @@ Damit die Institutionsleitung fundierte Entscheidungen zur Steuerung des Informa
 
 #### PERF.4.1.1 – Ergebnisse von Folgemaßnahmen
 
-**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 1
+<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="1" />
 
 > Monitoring-Evaluation SOLLTE den Status von Folgemaßnahmen vorangegangener Managementbewertungen als Ergebnis der Überprüfung in einem Managementbericht dokumentieren.
 
@@ -133,7 +129,7 @@ Die Evaluierung von Folgemaßnahmen früherer Managementbewertungen dient der Pr
 
 #### PERF.4.1.2 – Geänderte Rahmenbedingungen
 
-**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 1
+<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="1" />
 
 > Monitoring-Evaluation SOLLTE veränderte Rahmenbedingungen mit Auswirkungen auf das Informationssicherheitsmanagement als Ergebnis der Überprüfung in einem Managementbericht dokumentieren.
 
@@ -141,7 +137,7 @@ Die Ergebnisse der Überprüfung der Rahmenbedingungen – wie rechtliche, organ
 
 #### PERF.4.1.3 – Erfolge und Probleme
 
-**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 1
+<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="1" />
 
 > Monitoring-Evaluation SOLLTE bisherige Erfolge und Probleme (z. B. Sicherheitsvorfälle) beim Informationssicherheitsprozess als Ergebnis der Überprüfung in einem Managementbericht dokumentieren.
 
@@ -149,7 +145,7 @@ Die Ergebnisse müssen im ISMS-Prozess berücksichtigt werden, um daraus gezielt
 
 #### PERF.4.1.4 – Interne Überprüfungen und Audits
 
-**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 1
+<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="1" />
 
 > Monitoring-Evaluation SOLLTE Auditberichte als Ergebnis der Überprüfung in einem Managementbericht dokumentieren.
 
@@ -157,7 +153,7 @@ Bei der Evaluierung müssen die Ergebnisse interner Überprüfungen und Audits d
 
 #### PERF.4.1.5 – Eignungsprüfung bisheriger Sicherheitsmaßnahmen
 
-**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 1
+<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="1" />
 
 > Monitoring-Evaluation SOLLTE eine Evaluation der Eignung umgesetzter Sicherheitsmaßnahmen zur Erreichung der Sicherheitsziele oder ob Maßnahmen geändert oder ergänzt werden müssen als Ergebnis der Überprüfung in einem Managementbericht dokumentieren.
 
@@ -165,7 +161,7 @@ Zur Bewertung, ob Sicherheitsmaßnahmen zur Erreichung der Sicherheitsziele geei
 
 #### PERF.4.1.6 – Rückmeldung von Stakeholdern
 
-**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 1
+<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="1" />
 
 > Monitoring-Evaluation SOLLTE die Bewertung von Rückmeldungen von Kunden, Geschäftspartnern, Mitarbeitern oder der Öffentlichkeit zu Sicherheitsaspekten als Ergebnis der Überprüfung in einem Managementbericht dokumentieren.
 
@@ -173,7 +169,7 @@ Betroffene Personen wie z. B. Kunden, Geschäftspartner und die Öffentlichkeit 
 
 #### PERF.4.1.7 – Status des Realisierungsplans
 
-**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 1
+<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="1" />
 
 > Monitoring-Evaluation SOLLTE die erfolgreiche Umsetzung von Maßnahmen und des damit verringerten Risikos (Status des Umsetzungsplans) als Ergebnis der Überprüfung in einem Managementbericht dokumentieren.
 
@@ -181,7 +177,7 @@ Die Überprüfung von Umsetzungsdefiziten und Risiken ist im ISMS ein zentraler 
 
 #### PERF.4.1.8 – Verbesserungen
 
-**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 1
+<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="1" />
 
 > Monitoring-Evaluation SOLLTE die aufgrund der Überprüfung abgeleitete Verbesserungen des ISMS als Ergebnis der Überprüfung in einem Managementbericht dokumentieren.
 
@@ -189,7 +185,7 @@ Hier ist zu dokumentieren, 1. ob identifizierte Verbesserungsmaßnahmen tatsäch
 
 #### PERF.4.1.9 – Maßnahmenvorschläge
 
-**Pflicht:** MUSS · **Stufe:** `normal-SdT` · **Aufwand:** 0
+<ControlMeta modalVerb="MUSS" secLevel="normal-SdT" effort="0" />
 
 > Monitoring-Evaluation MUSS priorisierte Maßnahmenvorschläge mit realistischen Abschätzungen zum erwarteten Umsetzungsaufwand als Ergebnis der Überprüfung in einem Managementbericht dokumentieren.
 
@@ -197,7 +193,7 @@ Maßnahmenvorschläge müssen daraufhin überprüft werden, ob sie wirksam zur R
 
 ### PERF.4.2 – Bericht an die Institutionsleitung
 
-**Pflicht:** MUSS · **Stufe:** `normal-SdT` · **Aufwand:** 0
+<ControlMeta modalVerb="MUSS" secLevel="normal-SdT" effort="0" />
 
 > Monitoring-Evaluation MUSS die Institutionsleitung über den Stand des Managementsystems *[regelmäßig]* anhand des Managementberichtes informieren.
 
@@ -207,9 +203,7 @@ Sinn und Zweck der Anforderung liegt darin, die Leitungsebene regelmäßig und n
 
 ### PERF.5.1 – Methoden und Tools
 
-**Pflicht:** MUSS · **Stufe:** `normal-SdT` · **Aufwand:** 0
-
-**Vorgänger:** [ISMS.1.A11-UA.5](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/01_ISMS_Sicherheitsmanagement/ISMS_1_Sicherheitsmanagement_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (entspricht)
+<ControlMeta modalVerb="MUSS" secLevel="normal-SdT" effort="0" predecessors={[{ oldId: "ISMS.1.A11-UA.5", relationship: "equivalent-to", link: "https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/01_ISMS_Sicherheitsmanagement/ISMS_1_Sicherheitsmanagement_Edition_2023.pdf?__blob=publicationFile&v=3#download=1" }]} />
 
 > Monitoring-Evaluation MUSS effektive Monitoring-Methoden und -tools zur *[regelmäßigen]* Überwachung der Informationssicherheit verankern.
 

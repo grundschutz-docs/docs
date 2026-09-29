@@ -1,0 +1,41 @@
+---
+// Nur Input + Script hier drin (MDX kann rohe <script>/<style>-Blöcke mit
+// geschweiften Klammern nicht parsen -- versucht sie als JSX-Ausdruck zu
+// lesen). Die zugehörigen CSS-Regeln (.vergleich-table, .rel-badge, ...)
+// liegen deshalb global in src/styles/custom.css, nicht hier gescoped --
+// sie müssen Tabellen-Markup treffen, das im umgebenden MDX-Content steht,
+// nicht in dieser Komponente selbst.
+---
+
+<input
+	type="search"
+	id="vergleich-filter"
+	placeholder="Nach ID suchen, z. B. OPS.1.1.5 oder DET.3.1 ..."
+	aria-label="Zuordnungen nach ID filtern"
+/>
+
+<script>
+	const input = document.getElementById('vergleich-filter') as HTMLInputElement | null;
+	const rows = Array.from(document.querySelectorAll<HTMLTableRowElement>('.vergleich-table tbody tr'));
+	const sections = Array.from(document.querySelectorAll<HTMLElement>('.vergleich-section'));
+
+	// Trennzeichen-unempfindlich statt echtem Regex: "OPS.1.1.5", "OPS 1.1.5"
+	// und "OPS115" sollen alle dasselbe finden. Echtes Regex wäre hier eher
+	// hinderlich (z. B. "." ist ein Platzhalter, würde ungewollt zu viel
+	// treffen, und ein Tippfehler im Muster würde die Suche crashen).
+	const normalize = (s: string) => s.toLowerCase().replace(/[^a-z0-9]+/g, '');
+
+	input?.addEventListener('input', () => {
+		const q = normalize(input.value);
+		rows.forEach((tr) => {
+			const match = !q || normalize(tr.textContent ?? '').includes(q);
+			tr.style.display = match ? '' : 'none';
+		});
+		sections.forEach((section) => {
+			const anyVisible = Array.from(section.querySelectorAll('tbody tr')).some(
+				(tr) => (tr as HTMLElement).style.display !== 'none'
+			);
+			section.style.display = anyVisible ? '' : 'none';
+		});
+	});
+</script>

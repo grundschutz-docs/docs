@@ -3,11 +3,9 @@ import { readFileSync } from 'node:fs';
 import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
 import starlightLinksValidator from 'starlight-links-validator';
+import mdx from '@astrojs/mdx';
 
-// Name an einer Stelle definiert (.env, siehe .env.example) statt über
-// mehrere Dateien verstreut — solange der endgültige Name noch nicht feststeht.
-// Kein vite-Import hier: pnpms strenges node_modules verbietet den Zugriff auf
-// nicht direkt deklarierte Abhängigkeiten, deshalb ein minimaler eigener Parser.
+// Name an einer Stelle definiert (.env, siehe .env.example), analog zum OSS-Repo.
 function readSiteName() {
 	if (process.env.SITE_NAME) return process.env.SITE_NAME;
 	try {
@@ -39,6 +37,7 @@ export default defineConfig({
 				Footer: './src/components/Footer.astro',
 				Banner: './src/components/Banner.astro',
 				SocialIcons: './src/components/SocialIcons.astro',
+				Header: './src/components/Header.astro',
 			},
 			social: [
 				{
@@ -96,5 +95,6 @@ export default defineConfig({
 				},
 			],
 		}),
+		mdx(),
 	],
 });

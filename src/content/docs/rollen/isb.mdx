@@ -2,17 +2,19 @@
 title: "Für ISB"
 ---
 
+import PdcaCycle from '../../../components/PdcaCycle.astro';
+
 Der BSI-OSCAL-Katalog (`Grundschutz++-resolved_catalog.json`, CC BY-SA 4.0, BSI-Bund) ist für Maschinen geschrieben – SSP-Generierung, Tooling, Validierung. OSCAL selbst stammt von NIST, nicht vom BSI: ein bereits etablierter, international genutzter Standard, den das BSI bewusst übernommen hat, statt eine eigene Lösung zu bauen.
 
-Diese Seite übersetzt denselben Katalog in etwas, das man als ISB im Tagesgeschäft tatsächlich liest.
+Diese Seite übersetzt denselben Katalog in etwas, das man als ISB im Tagesgeschäft tatsächlich liest — das Managementsystem als PDCA-Zyklus, mit Risikomanagement als durchgehendem Begleiter statt eigener Phase.
 
 ## Der PDCA-Zyklus
 
-[Governance & Compliance](/grundschutzpp/gc/) → [Strukturmodellierung](/grundschutzpp/stm/) → [Umsetzung](/grundschutzpp/ums/) → [Monitoring-Evaluation](/grundschutzpp/perf/) → [Verbesserung](/grundschutzpp/vrb/) — und schließt sich von dort wieder zu Governance & Compliance. Ein echter Kreislauf, kein linearer Ablauf. [Risikomanagement](/grundschutzpp/risk/) begleitet alle fünf Phasen durchgehend, statt eine eigene Phase zu sein.
+<PdcaCycle nodes={[{ id: "GC", title: "Governance und Compliance", slug: "gc", count: 28 }, { id: "STM", title: "Strukturmodellierung", slug: "stm", count: 13 }, { id: "UMS", title: "Umsetzung", slug: "ums", count: 11 }, { id: "PERF", title: "Monitoring-Evaluation", slug: "perf", count: 21 }, { id: "VRB", title: "Verbesserung", slug: "vrb", count: 10 }]} risk={{ id: "RISK", title: "Risikomanagement", slug: "risk", count: 4 }} />
 
 ## Die sechs Praktiken im Detail
 
-
+Dieselben sechs Praktiken als Liste, falls dir das lieber ist als der Kreis oben.
 
 <ul class="practice-index">
 <li><a href="/grundschutzpp/gc/"><span class="practice-id">GC</span> Governance und Compliance</a><p>Die Praktik Governance und Compliance stellt sicher, dass Informationssicherheitsstrategien mit den übergeordneten Zielen der Institution und regulatorischen Anforderungen im Einklang stehen. (28 Anforderungen)</p></li>
@@ -25,6 +27,7 @@ Diese Seite übersetzt denselben Katalog in etwas, das man als ISB im Tagesgesch
 ## Werkzeuge für den Alltag
 
 - **[Vergleich: Altes Kompendium ↔ Grundschutz++](/vergleich/)** — jede Zuordnung zwischen alter und neuer Anforderung, mit Beziehungstyp (entspricht/Teilbereich von/umfasst/überschneidet sich mit) und echten Links zu BSI's Baustein-PDFs.
+- **Basisgefährdungen direkt am Control** — jede Anforderung zeigt die zugeordneten elementaren Gefährdungen (BSI, 47 Stück) als hoverbare Pille, ohne extra Nachschlagen in `basethreats.csv`.
 - **[Status & Zeitplan](/grundschutzpp/zeitplan/)** — Pilotphase, Übergangsfrist, geplante Zertifizierung.
 
 Diese Seite ist kein offizielles BSI-Angebot.

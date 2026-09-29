@@ -3,15 +3,15 @@ title: "PERS – Personal"
 description: "Die Praktik Personal fokussiert sich auf die Integration von Sicherheitsanforderungen über den gesamten Beschäftigungs- oder Vertragszyklus von Mitarbeitenden sowie externen Partnern hinweg."
 ---
 
+import ControlMeta from '../../../components/ControlMeta.astro';
+
 Die Praktik Personal fokussiert sich auf die Integration von Sicherheitsanforderungen über den gesamten Beschäftigungs- oder Vertragszyklus von Mitarbeitenden sowie externen Partnern hinweg. Ziel ist es, einen sicheren Umgang mit Informationen während der gesamten Dauer der Beschäftigung oder Zusammenarbeit zu gewährleisten. Diese Praktik fokussiert auf den sicheren Umgang mit Personen, während Praktiken, wie Berechtigungen, den systemseitigen Zugriff regeln.
 
 ## PERS.1 Grundlagen
 
 ### PERS.1.1 – Verfahren und Regelungen
 
-**Pflicht:** MUSS · **Stufe:** `normal-SdT` · **Aufwand:** 0 · **Gefährdungen:** G 0.18
-
-**Vorgänger:** [ORP.2.A1-UA.1](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/02_ORP_Organisation_und_Personal/ORP_2_Personal_Editon_2023.pdf?__blob=publicationFile&v=4#download=1) (überschneidet sich mit)
+<ControlMeta modalVerb="MUSS" secLevel="normal-SdT" effort="0" threats="G 0.18" threatsHint="G 0.18 – Fehlplanung oder fehlende Anpassung" predecessors={[{ oldId: "ORP.2.A1-UA.1", relationship: "intersects-with", link: "https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/02_ORP_Organisation_und_Personal/ORP_2_Personal_Editon_2023.pdf?__blob=publicationFile&v=4#download=1" }]} />
 
 > Personal MUSS Verfahren und Regelungen zum Personalmanagement verankern.
 
@@ -19,7 +19,7 @@ Der Prozess stellt sicher, dass qualifiziertes und zuverlässiges Personal für 
 
 #### PERS.1.1.1 – Dokumentation
 
-**Pflicht:** MUSS · **Stufe:** `normal-SdT` · **Aufwand:** 0 · **Gefährdungen:** G 0.18, G 0.37
+<ControlMeta modalVerb="MUSS" secLevel="normal-SdT" effort="0" threats="G 0.18, G 0.37" threatsHint="G 0.18 – Fehlplanung oder fehlende Anpassung · G 0.37 – Abstreiten von Handlungen" />
 
 > Personal MUSS die Verfahren und Regelungen dokumentieren.
 
@@ -27,7 +27,7 @@ Ohne eine Dokumentation könnte die Einhaltung der Verfahren und Regelungen von 
 
 #### PERS.1.1.2 – Zuweisung der Aufgaben
 
-**Pflicht:** MUSS · **Stufe:** `normal-SdT` · **Aufwand:** 0 · **Gefährdungen:** G 0.18, G 0.31
+<ControlMeta modalVerb="MUSS" secLevel="normal-SdT" effort="0" threats="G 0.18, G 0.31" threatsHint="G 0.18 – Fehlplanung oder fehlende Anpassung · G 0.31 – Fehlerhafte Nutzung oder Administration von Geräten und Systemen" />
 
 > Personal MUSS die mit den Verfahren und Regelungen verbundenen Aufgaben *[zuständigen Personen oder Rollen]* zuweisen.
 
@@ -35,9 +35,7 @@ Die Zuweisung von Aufgaben bezeichnet die eindeutige und verbindliche Übertragu
 
 #### PERS.1.1.3 – Bekanntgabe
 
-**Pflicht:** MUSS · **Stufe:** `normal-SdT` · **Aufwand:** 0 · **Gefährdungen:** G 0.18, G 0.31
-
-**Vorgänger:** [ORP.2.A1-UA.2](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/02_ORP_Organisation_und_Personal/ORP_2_Personal_Editon_2023.pdf?__blob=publicationFile&v=4#download=1) (überschneidet sich mit)
+<ControlMeta modalVerb="MUSS" secLevel="normal-SdT" effort="0" threats="G 0.18, G 0.31" threatsHint="G 0.18 – Fehlplanung oder fehlende Anpassung · G 0.31 – Fehlerhafte Nutzung oder Administration von Geräten und Systemen" predecessors={[{ oldId: "ORP.2.A1-UA.2", relationship: "intersects-with", link: "https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/02_ORP_Organisation_und_Personal/ORP_2_Personal_Editon_2023.pdf?__blob=publicationFile&v=4#download=1" }]} />
 
 > Personal MUSS die zuständigen Personen oder Rollen über die Verfahren und Regelungen informieren.
 
@@ -45,7 +43,7 @@ Wenn die Zuständigen die etablierten Verfahren nicht kennen, besteht die Gefahr
 
 ### PERS.1.2 – Regelmäßige Überprüfung
 
-**Pflicht:** MUSS · **Stufe:** `normal-SdT` · **Aufwand:** 0 · **Gefährdungen:** G 0.18
+<ControlMeta modalVerb="MUSS" secLevel="normal-SdT" effort="0" threats="G 0.18" threatsHint="G 0.18 – Fehlplanung oder fehlende Anpassung" />
 
 > Personal MUSS die Verfahren und Regelungen *[regelmäßig]* und anlassbezogen auf Aktualität überprüfen.
 
@@ -55,7 +53,7 @@ Eine geplante der etablierten Verfahren und Regelungen dient dazu festzustellen,
 
 ### PERS.2.1 – Aufgaben
 
-**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.18, G 0.33, G 0.31
+<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="2" threats="G 0.18, G 0.33, G 0.31" threatsHint="G 0.18 – Fehlplanung oder fehlende Anpassung · G 0.33 – Personalausfall · G 0.31 – Fehlerhafte Nutzung oder Administration von Geräten und Systemen" />
 
 > Personal SOLLTE für alle Tätigkeiten im Geltungsbereich Aufgaben mit Abgrenzungen und Schnittstellen verankern.
 
@@ -63,7 +61,7 @@ Aufgaben sind die konkreten Tätigkeiten, die für die Errichtung und Aufrechter
 
 ### PERS.2.2 – Rollen
 
-**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.18, G 0.33, G 0.31
+<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="2" threats="G 0.18, G 0.33, G 0.31" threatsHint="G 0.18 – Fehlplanung oder fehlende Anpassung · G 0.33 – Personalausfall · G 0.31 – Fehlerhafte Nutzung oder Administration von Geräten und Systemen" />
 
 > Personal SOLLTE für alle Tätigkeiten im Geltungsbereich Rollen mit Zielen, Aufgaben, erforderlichen Kompetenzen und Qualifikationen verankern.
 
@@ -71,7 +69,7 @@ Eine Rolle beschreibt eine Stelle oder Personalposition innerhalb des ISMS. Sie 
 
 ### PERS.2.3 – Rollentrennung
 
-**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.18, G 0.33, G 0.31
+<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="3" threats="G 0.18, G 0.33, G 0.31" threatsHint="G 0.18 – Fehlplanung oder fehlende Anpassung · G 0.33 – Personalausfall · G 0.31 – Fehlerhafte Nutzung oder Administration von Geräten und Systemen" />
 
 > Personal SOLLTE für unvereinbare Aufgaben eine Rollentrennung verankern.
 
@@ -79,7 +77,7 @@ Bei einer Aufgabentrennung (Separation of Duties) werden miteinander in Konflikt
 
 #### PERS.2.3.1 – Rollentrennung - Verzeichnisdienst
 
-**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.18, G 0.33, G 0.31
+<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="4" threats="G 0.18, G 0.33, G 0.31" threatsHint="G 0.18 – Fehlplanung oder fehlende Anpassung · G 0.33 – Personalausfall · G 0.31 – Fehlerhafte Nutzung oder Administration von Geräten und Systemen" />
 
 > Personal SOLLTE zwischen Administration von Verzeichnisdiensten und Pflege der verwalteten Daten eine Rollentrennung verankern.
 
@@ -87,7 +85,7 @@ Administrierende von Verzeichnisdiensten haben sehr weitreichende Rechte, einsch
 
 #### PERS.2.3.2 – Rollentrennung - Virtualisierung
 
-**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.18, G 0.33, G 0.31
+<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="4" threats="G 0.18, G 0.33, G 0.31" threatsHint="G 0.18 – Fehlplanung oder fehlende Anpassung · G 0.33 – Personalausfall · G 0.31 – Fehlerhafte Nutzung oder Administration von Geräten und Systemen" />
 
 > Personal SOLLTE zwischen Administration von virtuellen Systemen und Virtualisierungslösungen eine Rollentrennung verankern.
 
@@ -95,7 +93,7 @@ Die Administration von virtuellen Systemen bezeichnet im hier relevanten Kontext
 
 #### PERS.2.3.3 – Rollentrennung - Audits
 
-**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.18, G 0.33, G 0.31
+<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="3" threats="G 0.18, G 0.33, G 0.31" threatsHint="G 0.18 – Fehlplanung oder fehlende Anpassung · G 0.33 – Personalausfall · G 0.31 – Fehlerhafte Nutzung oder Administration von Geräten und Systemen" />
 
 > Personal SOLLTE zwischen Implementierung von Sicherheitsanforderungen und deren Überprüfung eine Rollentrennung verankern.
 
@@ -103,7 +101,7 @@ Fehlt eine Rollentrennung zwischen Umsetzung und Überprüfung von Sicherheitsma
 
 #### PERS.2.3.4 – Rollentrennung - Änderungen und Tests
 
-**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.18, G 0.26, G 0.33, G 0.28
+<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="4" threats="G 0.18, G 0.26, G 0.33, G 0.28" threatsHint="G 0.18 – Fehlplanung oder fehlende Anpassung · G 0.26 – Fehlfunktion von Geräten oder Systemen · G 0.33 – Personalausfall · G 0.28 – Software-Schwachstellen oder -Fehler" />
 
 > Personal SOLLTE zwischen Implementierung und Test eine Rollentrennung verankern.
 
@@ -111,7 +109,7 @@ Liegen Implementierung von Funktionen und Änderungen, sowie deren Test in derse
 
 ### PERS.2.4 – Zuständigkeiten
 
-**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.18, G 0.33, G 0.31
+<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="2" threats="G 0.18, G 0.33, G 0.31" threatsHint="G 0.18 – Fehlplanung oder fehlende Anpassung · G 0.33 – Personalausfall · G 0.31 – Fehlerhafte Nutzung oder Administration von Geräten und Systemen" />
 
 > Personal SOLLTE Zuständigkeiten für die Rollen zuweisen.
 
@@ -121,7 +119,7 @@ Damit die mit jeder Rolle verbundenen Aufgaben auch tatsächlich bearbeitet werd
 
 ### PERS.3.1 – Dienst- oder Arbeitsvertrag
 
-**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.31, G 0.33, G 0.32, G 0.35
+<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="2" threats="G 0.31, G 0.33, G 0.32, G 0.35" threatsHint="G 0.31 – Fehlerhafte Nutzung oder Administration von Geräten und Systemen · G 0.33 – Personalausfall · G 0.32 – Missbrauch von Berechtigungen · G 0.35 – Nötigung, Erpressung oder Korruption" />
 
 > Personal für Mitarbeitende SOLLTE die vertrauliche Behandlung von Betriebs- und Geschäftsgeheimnissen vereinbaren.
 
@@ -129,7 +127,7 @@ Die vertrauliche Behandlung meint hierbei die arbeits-, dienst- oder statusbezog
 
 ### PERS.3.2 – Verfahrensanweisungen
 
-**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.31, G 0.33, G 0.32, G 0.35
+<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="2" threats="G 0.31, G 0.33, G 0.32, G 0.35" threatsHint="G 0.31 – Fehlerhafte Nutzung oder Administration von Geräten und Systemen · G 0.33 – Personalausfall · G 0.32 – Missbrauch von Berechtigungen · G 0.35 – Nötigung, Erpressung oder Korruption" />
 
 > Personal für Mitarbeitende SOLLTE explizit zur Einhaltung von Verfahrensanweisungen bei Neuzugang anweisen.
 
@@ -137,7 +135,7 @@ Wenn neue Mitarbeitende keine explizite Anweisung erhalten, dass Sicherheitsanwe
 
 ### PERS.3.3 – Betriebs- und Geschäftsgeheimnisse
 
-**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.31, G 0.33, G 0.32, G 0.35
+<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="2" threats="G 0.31, G 0.33, G 0.32, G 0.35" threatsHint="G 0.31 – Fehlerhafte Nutzung oder Administration von Geräten und Systemen · G 0.33 – Personalausfall · G 0.32 – Missbrauch von Berechtigungen · G 0.35 – Nötigung, Erpressung oder Korruption" />
 
 > Personal für Mitarbeitende SOLLTE zum Umgang mit definierten Betriebs- und Geschäftsgeheimnissen bei Neuzugang anweisen.
 
@@ -145,7 +143,7 @@ Eine Dienst- oder Arbeitsanweisung, die zu wahrende Betriebs- und Geschäftsgehe
 
 ### PERS.3.4 – Stellenbeschreibungen
 
-**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.31, G 0.33, G 0.32, G 0.35
+<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="3" threats="G 0.31, G 0.33, G 0.32, G 0.35" threatsHint="G 0.31 – Fehlerhafte Nutzung oder Administration von Geräten und Systemen · G 0.33 – Personalausfall · G 0.32 – Missbrauch von Berechtigungen · G 0.35 – Nötigung, Erpressung oder Korruption" />
 
 > Personal SOLLTE Stellenbeschreibungen vor Ausschreibung zu besetzender Stellen dokumentieren.
 
@@ -153,7 +151,7 @@ Eine Stellenbeschreibung ist hier ein Dokument, das die zentralen Aufgaben, Vera
 
 ### PERS.3.5 – Prüfung der Bewerbungsunterlagen
 
-**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.31, G 0.33, G 0.32, G 0.35
+<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="2" threats="G 0.31, G 0.33, G 0.32, G 0.35" threatsHint="G 0.31 – Fehlerhafte Nutzung oder Administration von Geräten und Systemen · G 0.33 – Personalausfall · G 0.32 – Missbrauch von Berechtigungen · G 0.35 – Nötigung, Erpressung oder Korruption" />
 
 > Personal SOLLTE die Qualifikation von Bewerbenden anhand der Bewerbungsunterlagen vor der Besetzung von Stellen testen.
 
@@ -161,7 +159,7 @@ Die Prüfung von Unterlagen zur Qualifikation ist essenziell, um sicherzustellen
 
 ### PERS.3.6 – Vertrauenswürdigkeit von Bewerbenden
 
-**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.31, G 0.33, G 0.32, G 0.35
+<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="2" threats="G 0.31, G 0.33, G 0.32, G 0.35" threatsHint="G 0.31 – Fehlerhafte Nutzung oder Administration von Geräten und Systemen · G 0.33 – Personalausfall · G 0.32 – Missbrauch von Berechtigungen · G 0.35 – Nötigung, Erpressung oder Korruption" />
 
 > Personal SOLLTE die Vertrauenswürdigkeit von Bewerbenden vor der Besetzung von Stellen testen.
 
@@ -169,9 +167,7 @@ Hierbei sind sowohl die Identität der Person, als auch ihre Qualifikation anhan
 
 #### PERS.3.6.1 – Sicherheitsüberprüfung (intern)
 
-**Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.31, G 0.33, G 0.32, G 0.35
-
-**Vorgänger:** [ORP.2.A13-UA.2](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/02_ORP_Organisation_und_Personal/ORP_2_Personal_Editon_2023.pdf?__blob=publicationFile&v=4#download=1) (überschneidet sich mit)
+<ControlMeta modalVerb="KANN" secLevel="erhöht" effort="5" threats="G 0.31, G 0.33, G 0.32, G 0.35" threatsHint="G 0.31 – Fehlerhafte Nutzung oder Administration von Geräten und Systemen · G 0.33 – Personalausfall · G 0.32 – Missbrauch von Berechtigungen · G 0.35 – Nötigung, Erpressung oder Korruption" predecessors={[{ oldId: "ORP.2.A13-UA.2", relationship: "intersects-with", link: "https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/02_ORP_Organisation_und_Personal/ORP_2_Personal_Editon_2023.pdf?__blob=publicationFile&v=4#download=1" }]} />
 
 > Personal KANN eine Sicherheitsüberprüfung vor der Besetzung von sicherheitsrelevanten Stellen ausführen.
 
@@ -179,9 +175,7 @@ Eine Sicherheitsüberprüfung meint die Verifikation von Identität, beruflicher
 
 ### PERS.3.7 – Einarbeitung
 
-**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.31, G 0.33, G 0.32, G 0.35
-
-**Vorgänger:** [ORP.2.A1-UA.1](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/02_ORP_Organisation_und_Personal/ORP_2_Personal_Editon_2023.pdf?__blob=publicationFile&v=4#download=1) (überschneidet sich mit) · [ORP.2.A1-UA.3](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/02_ORP_Organisation_und_Personal/ORP_2_Personal_Editon_2023.pdf?__blob=publicationFile&v=4#download=1) (überschneidet sich mit)
+<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="2" threats="G 0.31, G 0.33, G 0.32, G 0.35" threatsHint="G 0.31 – Fehlerhafte Nutzung oder Administration von Geräten und Systemen · G 0.33 – Personalausfall · G 0.32 – Missbrauch von Berechtigungen · G 0.35 – Nötigung, Erpressung oder Korruption" predecessors={[{ oldId: "ORP.2.A1-UA.1", relationship: "intersects-with", link: "https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/02_ORP_Organisation_und_Personal/ORP_2_Personal_Editon_2023.pdf?__blob=publicationFile&v=4#download=1" }, { oldId: "ORP.2.A1-UA.3", relationship: "intersects-with", link: "https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/02_ORP_Organisation_und_Personal/ORP_2_Personal_Editon_2023.pdf?__blob=publicationFile&v=4#download=1" }]} />
 
 > Personal für Mitarbeitende SOLLTE eine Einarbeitung bei Neuzugang ausführen.
 
@@ -191,7 +185,7 @@ Eine Einarbeitung ist eine strukturierte Vorgehensweise, bei der neue Mitarbeite
 
 ### PERS.4.1 – Qualifikationsbedarf
 
-**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.18
+<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="2" threats="G 0.18" threatsHint="G 0.18 – Fehlplanung oder fehlende Anpassung" />
 
 > Personal für Mitarbeitende SOLLTE den Bedarf an Qualifikationsmaßnahmen anhand der Aufgaben *[regelmäßig]* überprüfen.
 
@@ -199,7 +193,7 @@ Qualifikationsmaßnahmen sind z.B. Zertifizierte Weiterbildungen, interne Schulu
 
 ### PERS.4.2 – Rollenspezifische Schulungen und Sensibilisierungen
 
-**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.42
+<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="2" threats="G 0.42" threatsHint="G 0.42 – Social Engineering" />
 
 > Personal für Nutzende SOLLTE rollenspezifische Schulungen und Sensibilisierungen im Einklang mit den Anforderungen der Praktik Sensibilisierung bei Neuzugang und *[regelmäßig]* ausführen.
 
@@ -207,9 +201,7 @@ Neue Mitarbeitende könnten ohne gezielte Einführung unbewusst vertrauliche Inf
 
 #### PERS.4.2.1 – Produktspezifische Schulungen und Sensibilisierungen
 
-**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.18
-
-**Vorgänger:** [APP.3.4.A12-UA.1](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/06_APP_Anwendungen/APP_3_4_Samba_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (Teilbereich von)
+<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="2" threats="G 0.18" threatsHint="G 0.18 – Fehlplanung oder fehlende Anpassung" predecessors={[{ oldId: "APP.3.4.A12-UA.1", relationship: "subset-of", link: "https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/06_APP_Anwendungen/APP_3_4_Samba_Edition_2023.pdf?__blob=publicationFile&v=3#download=1" }]} />
 
 > Personal für Administrierende SOLLTE produktspezifische Schulungen zum Umgang mit administrativen Werkzeugen bei Neuzugang und dem Einsatz neuer IT-Produkte ausführen.
 
@@ -219,7 +211,7 @@ Ziel ist es, den sicheren Umgang mit den in der Institution genutzten administra
 
 ### PERS.5.1 – Maßregelung
 
-**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.18
+<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="3" threats="G 0.18" threatsHint="G 0.18 – Fehlplanung oder fehlende Anpassung" />
 
 > Personal SOLLTE ein Verfahren zur Maßregelung verankern.
 
@@ -227,7 +219,7 @@ Legen Sie fest unter welchen Voraussetzungen (z.B. Benennung konkreter Pflicht, 
 
 ### PERS.5.2 – Innentäter
 
-**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 5 · **Gefährdungen:** G 0.18
+<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="5" threats="G 0.18" threatsHint="G 0.18 – Fehlplanung oder fehlende Anpassung" />
 
 > Personal SOLLTE ein interdisziplinäres Verfahren zum Umgang mit potenziellen Innentätern verankern.
 
@@ -235,7 +227,7 @@ Ein interdisziplinäres Verfahren zum Umgang mit potenziellen Innentätern integ
 
 ### PERS.5.3 – Vertrauens-Check sicherheitskritischer Rollen
 
-**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.18
+<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="4" threats="G 0.18" threatsHint="G 0.18 – Fehlplanung oder fehlende Anpassung" />
 
 > Personal SOLLTE die Vertrauenswürdigkeit für *[definierte sicherheitskritische Rollen]* *[regelmäßig]* und anlassbezogen überprüfen.
 
@@ -245,9 +237,7 @@ Die Vertrauenswürdigkeit bezeichnet im hier relevanten Kontext die Eignung und 
 
 ### PERS.6.1 – Vorgehensweise für den Weggang
 
-**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.18
-
-**Vorgänger:** [ORP.2.A2-UA.10](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/02_ORP_Organisation_und_Personal/ORP_2_Personal_Editon_2023.pdf?__blob=publicationFile&v=4#download=1) (überschneidet sich mit)
+<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="2" threats="G 0.18" threatsHint="G 0.18 – Fehlplanung oder fehlende Anpassung" predecessors={[{ oldId: "ORP.2.A2-UA.10", relationship: "intersects-with", link: "https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/02_ORP_Organisation_und_Personal/ORP_2_Personal_Editon_2023.pdf?__blob=publicationFile&v=4#download=1" }]} />
 
 > Personal für Nutzende SOLLTE eine Vorgehensweise für den Weggang verankern.
 
@@ -255,9 +245,7 @@ Wenn Nutzende ohne gesteuertes Vorgehen aus dem Informationsverbund ausscheiden,
 
 #### PERS.6.1.1 – Entzug von Berechtigungen gemäß BER
 
-**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.18
-
-**Vorgänger:** [ORP.2.A2-UA.4](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/02_ORP_Organisation_und_Personal/ORP_2_Personal_Editon_2023.pdf?__blob=publicationFile&v=4#download=1) (überschneidet sich mit)
+<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="2" threats="G 0.18" threatsHint="G 0.18 – Fehlplanung oder fehlende Anpassung" predecessors={[{ oldId: "ORP.2.A2-UA.4", relationship: "intersects-with", link: "https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/02_ORP_Organisation_und_Personal/ORP_2_Personal_Editon_2023.pdf?__blob=publicationFile&v=4#download=1" }]} />
 
 > Personal für Nutzende SOLLTE bei Weggang den unverzüglichen Entzug aller Zugriffsrechte im Einklang mit den Regelungen und Verfahren zum Berechtigungs- und Identitätsmanagement verankern.
 
@@ -265,9 +253,7 @@ Der unverzügliche Entzug bedeutet in diesem Kontext die sofortige und vollstän
 
 #### PERS.6.1.2 – Neubesetzung
 
-**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.18
-
-**Vorgänger:** [ORP.2.A2-UA.1](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/02_ORP_Organisation_und_Personal/ORP_2_Personal_Editon_2023.pdf?__blob=publicationFile&v=4#download=1) (überschneidet sich mit)
+<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="2" threats="G 0.18" threatsHint="G 0.18 – Fehlplanung oder fehlende Anpassung" predecessors={[{ oldId: "ORP.2.A2-UA.1", relationship: "intersects-with", link: "https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/02_ORP_Organisation_und_Personal/ORP_2_Personal_Editon_2023.pdf?__blob=publicationFile&v=4#download=1" }]} />
 
 > Personal für Mitarbeitende SOLLTE bei Weggang frei gewordene Zuständigkeiten zuweisen.
 

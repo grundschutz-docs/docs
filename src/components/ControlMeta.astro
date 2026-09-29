@@ -1,0 +1,456 @@
+---
+// Pflicht/Stufe/Aufwand als eigene Pills mit Glas-Tooltip statt
+// Starlights generischem <Badge> (der Stufe und Aufwand:0 beide auf denselben
+// Akzent-Braunton fallen lässt) und statt Fettschrift-Text (OSS-Repo:
+// scripts/generate_docs.py:96-103). Sieh ADR-0002 — das erste konkrete
+// Hosted-only-Feature dieses Repos.
+interface Props {
+	modalVerb?: string;
+	secLevel?: string;
+	effort?: string;
+	threats?: string;
+	threatsHint?: string;
+	predecessors?: { oldId: string; relationship: string; link?: string }[];
+}
+
+const { modalVerb, secLevel, effort, threats, threatsHint, predecessors } = Astro.props;
+
+// OSCAL-Beziehungstypen aus der Mapping-Datei sind englisches
+// Standard-Vokabular -- auf einer sonst durchgehend deutschen Seite mit
+// deutschem Label angezeigt, intern (Key/CSS-Familie) englisch belassen.
+// Nicht selbsterklärend, daher zusätzlich Tooltip. Siehe
+// adr/0005-vorgaenger-anforderung-alt-neu.md.
+const RELATIONSHIPS: Record<string, { label: string; hint: string; family: string }> = {
+	'equivalent-to': {
+		label: 'entspricht',
+		hint: 'Inhaltlich deckungsgleich mit der alten Anforderung.',
+		family: 'accent',
+	},
+	// Richtung nach der offiziellen OSCAL-Mapping-Spezifikation (NIST,
+	// $schema in der Mapping-Datei): "source [relationship] target" --
+	// hier ist die Quelle immer die alte, das Ziel die neue Anforderung.
+	'subset-of': {
+		label: 'Teilbereich von',
+		hint: 'Die alte Anforderung ist in der neuen vollständig enthalten – die neue deckt zusätzlich mehr ab.',
+		family: 'calm',
+	},
+	'superset-of': {
+		label: 'umfasst',
+		hint: 'Die alte Anforderung deckte mehr ab als die neue – die neue erfasst nur einen Teilaspekt davon.',
+		family: 'info-strong',
+	},
+	'intersects-with': {
+		label: 'überschneidet sich mit',
+		hint: 'Neue und alte Anforderung überschneiden sich nur teilweise.',
+		family: 'neutral',
+	},
+};
+
+// Quelle: Grundschutz-PlusPlus/documentation/namespaces/modal_verbs.csv
+const MODAL_VERBS: Record<string, { hint: string; family: string }> = {
+	MUSS: {
+		hint: 'Uneingeschränkte Anforderung – muss unbedingt erfüllt werden (nach RFC2119 / DIN 820-2:2022, Anhang H).',
+		family: 'danger',
+	},
+	SOLLTE: {
+		hint: 'Normalerweise zu erfüllen, Abweichung nur mit sorgfältig abgewogener, stichhaltiger Begründung (nach RFC2119 / DIN 820-2:2022, Anhang H).',
+		family: 'warn',
+	},
+	KANN: {
+		hint: 'Keine generelle Verpflichtung – je nach Situation (Risikoanalyse) sinnvoll (vgl. DIN 820-2:2022-12).',
+		family: 'calm',
+	},
+};
+
+// Quelle: Grundschutz-PlusPlus/documentation/namespaces/security_level.csv
+const SEC_LEVELS: Record<string, { label: string; hint: string; family: string }> = {
+	'normal-SdT': { label: 'Standard-Sicherheitsstufe', hint: 'Standard-Sicherheitsstufe (Stand der Technik).', family: 'info' },
+	erhöht: { label: 'Erhöhte Sicherheitsstufe', hint: 'Erhöhte Sicherheitsstufe – höherer Schutzbedarf.', family: 'info-strong' },
+};
+
+// Quelle: Grundschutz-PlusPlus/documentation/namespaces/effort_level.csv
+const EFFORT: Record<string, { hint: string; family: string }> = {
+	'0': {
+		hint: 'Wird nicht bewertet – die Umsetzung ist in jedem Fall zwingend erforderlich.',
+		family: 'solid',
+	},
+	'1': {
+		hint: 'Quick Win: meist noch am selben Tag umsetzbar, kein laufender Pflegeaufwand.',
+		family: 'calm',
+	},
+	'2': {
+		hint: 'Meist innerhalb einer Woche mit eigenen Mitteln umsetzbar, nur geringer laufender Aufwand.',
+		family: 'calm',
+	},
+	'3': {
+		hint: 'Wochen bis Monate, ggf. externe Dienstleister nötig; laufender Betrieb durch kleines Team möglich.',
+		family: 'accent',
+	},
+	'4': {
+		hint: 'Langfristige Umsetzung/Beibehaltung; Expertenwissen und oft Drittunterstützung nötig.',
+		family: 'warn',
+	},
+	'5': {
+		hint: 'Aufwändige, komplexe Maßnahmen; tiefes Expertenwissen und sorgfältige Planung nötig.',
+		family: 'danger',
+	},
+};
+
+const modalInfo = modalVerb ? MODAL_VERBS[modalVerb] : undefined;
+const secInfo = secLevel ? SEC_LEVELS[secLevel] : undefined;
+const effortInfo = effort ? EFFORT[effort] : undefined;
+---
+
+{
+	(modalInfo || secInfo || effortInfo || threats) && (
+		<p class="control-meta not-content">
+			{modalInfo && (
+				<span
+					class="pill"
+					data-family={modalInfo.family}
+					data-tooltip={modalInfo.hint}
+					aria-label={`Pflichtgrad: ${modalVerb}. ${modalInfo.hint}`}
+					tabindex="0"
+				>
+					{modalVerb}
+					<span class="pill-hint" aria-hidden="true">?</span>
+				</span>
+			)}
+			{secInfo && (
+				<span
+					class="pill"
+					data-family={secInfo.family}
+					data-tooltip={secInfo.hint}
+					aria-label={`Stufe: ${secInfo.label}`}
+					tabindex="0"
+				>
+					Stufe: {secInfo.label}
+					<span class="pill-hint" aria-hidden="true">?</span>
+				</span>
+			)}
+			{effortInfo && (
+				<span
+					class="pill"
+					data-family={effortInfo.family}
+					data-tooltip={effortInfo.hint}
+					aria-label={`Aufwand: ${effort}. ${effortInfo.hint}`}
+					tabindex="0"
+				>
+					Aufwand: {effort}
+					<span class="pill-hint" aria-hidden="true">?</span>
+				</span>
+			)}
+			{threats && (
+				<span
+					class="pill"
+					data-family="neutral"
+					data-tooltip={threatsHint}
+					aria-label={`Basisgefährdungen: ${threats}.${threatsHint ? ` ${threatsHint}` : ''}`}
+					tabindex="0"
+				>
+					Gefährdungen: {threats}
+					{threatsHint && <span class="pill-hint" aria-hidden="true">?</span>}
+				</span>
+			)}
+		</p>
+	)
+}
+
+{
+	predecessors && predecessors.length > 0 && (
+		<table class="predecessors-table not-content">
+			<caption>Vorgänger im alten Kompendium</caption>
+			<tbody>
+				{predecessors.map((p) => {
+					const relInfo = RELATIONSHIPS[p.relationship];
+					const family = relInfo?.family ?? 'neutral';
+					const hint = relInfo?.hint ?? p.relationship;
+					const label = relInfo?.label ?? p.relationship;
+					return (
+						<tr>
+							<td>
+								{p.link ? (
+									<a href={p.link} target="_blank" rel="noopener noreferrer" class="predecessor-id">
+										{p.oldId}
+									</a>
+								) : (
+									<span class="predecessor-id">{p.oldId}</span>
+								)}
+							</td>
+							<td>
+								<span
+									class="pill"
+									data-family={family}
+									data-tooltip={hint}
+									aria-label={`Beziehung: ${label}. ${hint}`}
+									tabindex="0"
+								>
+									{label}
+									<span class="pill-hint" aria-hidden="true">?</span>
+								</span>
+							</td>
+						</tr>
+					);
+				})}
+			</tbody>
+		</table>
+	)
+}
+
+<style>
+	.control-meta {
+		display: flex;
+		gap: 0.5rem;
+		flex-wrap: wrap;
+		align-items: center;
+		margin: 0.5rem 0 1rem;
+	}
+
+	.pill {
+		position: relative;
+		display: inline-flex;
+		align-items: center;
+		padding: 0.3em 0.85em;
+		border-radius: 999px;
+		border: 1px solid transparent;
+		font-family: 'JetBrains Mono Variable', ui-monospace, monospace;
+		font-size: var(--sl-text-xs);
+		font-weight: 600;
+		letter-spacing: 0.01em;
+		line-height: 1.3;
+		cursor: default;
+		text-decoration: none;
+	}
+
+	a.pill {
+		cursor: pointer;
+	}
+
+	a.pill:hover {
+		filter: brightness(1.15);
+	}
+
+	.predecessors-table {
+		width: 100%;
+		max-width: 40rem;
+		border-collapse: collapse;
+		margin: 0.5rem 0 1.25rem;
+	}
+
+	.predecessors-table caption {
+		text-align: start;
+		font-family: 'Karla Variable', system-ui, sans-serif;
+		font-size: var(--sl-text-sm);
+		font-weight: 600;
+		color: var(--sl-color-gray-2);
+		margin-bottom: 0.4rem;
+	}
+
+	.predecessors-table td {
+		padding: 0.4rem 1rem 0.4rem 0;
+		border-bottom: 1px solid var(--sl-color-hairline);
+		vertical-align: middle;
+	}
+
+	.predecessors-table tr:last-child td {
+		border-bottom: none;
+	}
+
+	.predecessor-id {
+		font-family: 'JetBrains Mono Variable', ui-monospace, monospace;
+		font-size: var(--sl-text-xs);
+		color: var(--sl-color-text-accent);
+		text-decoration: none;
+	}
+
+	a.predecessor-id:hover {
+		text-decoration: underline;
+	}
+
+	.pill:focus-visible {
+		outline: 2px solid var(--sl-color-accent);
+		outline-offset: 2px;
+	}
+
+	/* Sichtbarer Hinweis, dass hier mehr Info per Hover/Fokus steckt —
+	   ohne das wirkt eine Pille wie reiner Text, niemand kommt auf die Idee
+	   zu hovern. Farbe folgt currentColor, passt sich also automatisch an
+	   jede Pill-Familie an. */
+	.pill-hint {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		width: 1.1em;
+		height: 1.1em;
+		margin-inline-start: 0.45em;
+		border-radius: 999px;
+		background-color: color-mix(in oklch, currentColor 24%, transparent);
+		font-size: 0.85em;
+		font-weight: 700;
+	}
+
+	.pill[data-family='danger'] {
+		background-color: var(--pill-danger-low);
+		color: var(--pill-danger-high);
+		border-color: color-mix(in oklch, var(--pill-danger-high) 35%, transparent);
+	}
+	.pill[data-family='warn'] {
+		background-color: var(--pill-warn-low);
+		color: var(--pill-warn-high);
+		border-color: color-mix(in oklch, var(--pill-warn-high) 35%, transparent);
+	}
+	.pill[data-family='calm'] {
+		background-color: var(--pill-calm-low);
+		color: var(--pill-calm-high);
+		border-color: color-mix(in oklch, var(--pill-calm-high) 35%, transparent);
+	}
+	.pill[data-family='info'] {
+		background-color: var(--pill-info-low);
+		color: var(--pill-info-high);
+		border-color: color-mix(in oklch, var(--pill-info-high) 35%, transparent);
+	}
+	.pill[data-family='info-strong'] {
+		background-color: var(--pill-info-strong-low);
+		color: var(--pill-info-strong-high);
+		border-color: color-mix(in oklch, var(--pill-info-strong-high) 35%, transparent);
+	}
+	.pill[data-family='accent'] {
+		background-color: var(--sl-color-accent-low);
+		color: var(--sl-color-accent-high);
+		border-color: color-mix(in oklch, var(--sl-color-accent-high) 35%, transparent);
+	}
+	.pill[data-family='neutral'] {
+		background-color: var(--sl-color-gray-6);
+		color: var(--sl-color-gray-2);
+		border-color: var(--sl-color-hairline);
+	}
+	/* Aufwand 0: kein Platz auf der 1–5-Skala, sondern "immer Pflicht" —
+	   deshalb bewusst kräftig gefüllt statt zart getönt wie die anderen. */
+	.pill[data-family='solid'] {
+		background-color: var(--sl-color-white);
+		color: var(--sl-color-black);
+		border-color: var(--sl-color-white);
+		font-weight: 700;
+	}
+
+	/* Eigenes Glas-Tooltip statt nativem title-Attribut — CSS-only, kein JS.
+	   Linksbündig statt zentriert: eine zentrierte Box ragt bei der ersten
+	   Pille in der Zeile nach links über den Content-Rand hinaus und landet
+	   unter/hinter der schwebenden Sidebar. z-index deutlich über Starlights
+	   höchstem eigenen Wert (--sl-z-index-skiplink: 20). */
+	.pill[data-tooltip]::after {
+		content: attr(data-tooltip);
+		position: absolute;
+		inset-block-end: calc(100% + 0.6rem);
+		inset-inline-start: 0;
+		transform: translateY(4px);
+		width: max-content;
+		max-width: 16rem;
+		padding: 0.6rem 0.85rem;
+		border-radius: 0.75rem;
+		border: 1px solid var(--glass-border);
+		background-color: var(--tooltip-bg);
+		backdrop-filter: blur(20px) saturate(160%);
+		-webkit-backdrop-filter: blur(20px) saturate(160%);
+		box-shadow: 0 12px 30px oklch(0% 0 0 / 0.25);
+		color: var(--sl-color-white);
+		font-family: 'Karla Variable', system-ui, sans-serif;
+		font-size: var(--sl-text-xs);
+		font-weight: 400;
+		letter-spacing: normal;
+		line-height: 1.45;
+		text-align: start;
+		white-space: normal;
+		opacity: 0;
+		visibility: hidden;
+		pointer-events: none;
+		transition:
+			opacity 0.15s ease,
+			transform 0.15s ease;
+		z-index: 50;
+	}
+
+	.pill[data-tooltip]::before {
+		content: '';
+		position: absolute;
+		inset-block-end: calc(100% + 0.1rem);
+		inset-inline-start: 1rem;
+		transform: translateY(4px);
+		border: 6px solid transparent;
+		border-top-color: var(--tooltip-bg);
+		opacity: 0;
+		visibility: hidden;
+		transition:
+			opacity 0.15s ease,
+			transform 0.15s ease;
+		z-index: 50;
+	}
+
+	.pill[data-tooltip]:hover::after,
+	.pill[data-tooltip]:hover::before,
+	.pill[data-tooltip]:focus-visible::after,
+	.pill[data-tooltip]:focus-visible::before {
+		opacity: 1;
+		visibility: visible;
+		transform: translateY(0);
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		.pill[data-tooltip]::after,
+		.pill[data-tooltip]::before {
+			transition: none;
+		}
+	}
+
+	/* Druckansicht (ADR-0004): unsere --pill-*-Tokens sind für den
+	   Bildschirm (OKLCH-Warmpalette, teils dunkler Hintergrund) getuned und
+	   werden von Starlights eigenem print.css nicht mitgezogen. Fester,
+	   von der Bildschirmfarbe unabhängiger Satz: Rahmen+Text statt Füllung
+	   — druckt zuverlässig auch ohne "Hintergrundgrafiken drucken" im
+	   Druckdialog, und spart Tinte bei vielen Controls pro Seite. */
+	@media print {
+		.pill-hint,
+		.pill[data-tooltip]::after,
+		.pill[data-tooltip]::before {
+			display: none;
+		}
+
+		.pill[data-family] {
+			background-color: transparent;
+			font-weight: 700;
+		}
+		.pill[data-family='danger'] {
+			border-color: #b3261e;
+			color: #b3261e;
+		}
+		.pill[data-family='warn'] {
+			border-color: #a05a00;
+			color: #a05a00;
+		}
+		.pill[data-family='calm'] {
+			border-color: #0f6e6e;
+			color: #0f6e6e;
+		}
+		.pill[data-family='info'] {
+			border-color: #6a3fa0;
+			color: #6a3fa0;
+		}
+		.pill[data-family='info-strong'] {
+			border-color: #9c1f8f;
+			color: #9c1f8f;
+		}
+		.pill[data-family='accent'] {
+			border-color: #9a5b1f;
+			color: #9a5b1f;
+		}
+		.pill[data-family='neutral'] {
+			border-color: #666;
+			color: #333;
+		}
+		.pill[data-family='solid'] {
+			border-width: 2px;
+			border-color: #000;
+			color: #000;
+		}
+	}
+</style>

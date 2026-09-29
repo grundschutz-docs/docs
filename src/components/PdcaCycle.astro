@@ -1,0 +1,188 @@
+---
+// Der PDCA-Zyklus ist wörtlich ein Kreislauf (VRB schließt ihn wieder zu GC,
+// siehe render_isb_page() in scripts/generate_docs.py) -- ein linker Pfeiltext
+// ("A -> B -> C") sagt das Gegenteil von dem, was gemeint ist. Positionen
+// sind für genau fünf Phasen im Kreis fest berechnet (reguläres Pentagon,
+// Mittelpunkt 210/210); RISK sitzt als "durchgehender Begleiter" gestrichelt
+// verbunden in der Mitte statt als sechster Schritt in der Kette.
+interface Node {
+	id: string;
+	title: string;
+	slug: string;
+	count: number;
+}
+
+interface Props {
+	nodes: [Node, Node, Node, Node, Node]; // Reihenfolge: GC, STM, UMS, PERF, VRB
+	risk: Node;
+}
+
+const { nodes, risk } = Astro.props;
+
+// Feste Pentagon-Positionen (Kreismittelpunkt 210/210, Radius 150), Start bei
+// -90° (oben), im Uhrzeigersinn -- eine Ebene passend zu MANAGEMENT_CYCLE_IDS.
+const positions = [
+	{ x: 210, y: 60 }, // GC
+	{ x: 354, y: 164 }, // STM
+	{ x: 298, y: 331 }, // UMS
+	{ x: 122, y: 331 }, // PERF
+	{ x: 66, y: 164 }, // VRB
+];
+
+// Bogen-Endpunkte auf Radius 95, je 14° Abstand zum Knoten -- fest berechnet
+// für dasselbe Pentagon, siehe Kommentar oben.
+const arcs = [
+	{ start: [233.0, 117.8], end: [290.6, 159.7] }, // GC -> STM
+	{ start: [304.8, 203.4], end: [282.8, 271.1] }, // STM -> UMS
+	{ start: [245.6, 298.1], end: [174.4, 298.1] }, // UMS -> PERF
+	{ start: [137.2, 271.1], end: [115.2, 203.4] }, // PERF -> VRB
+	{ start: [129.4, 159.7], end: [187.0, 117.8] }, // VRB -> GC (schließt den Zyklus)
+];
+
+const nodeW = 132;
+const nodeH = 72;
+---
+
+<div class="pdca-cycle-wrap">
+	<svg class="pdca-cycle" viewBox="0 0 440 440" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="PDCA-Zyklus: Governance und Compliance, Strukturmodellierung, Umsetzung, Monitoring-Evaluation, Verbesserung im Kreis, Risikomanagement als durchgehender Begleiter in der Mitte">
+		<defs>
+			<marker id="pdca-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+				<path d="M 0 0 L 10 5 L 0 10 z" class="pdca-arrowhead" />
+			</marker>
+		</defs>
+
+		{
+			arcs.map((arc) => (
+				<path
+					d={`M ${arc.start[0]} ${arc.start[1]} A 95 95 0 0 1 ${arc.end[0]} ${arc.end[1]}`}
+					class="pdca-arc"
+					marker-end="url(#pdca-arrow)"
+				/>
+			))
+		}
+
+		{
+			positions.map((pos) => (
+				<line
+					x1={210 + ((pos.x - 210) * 40) / 150}
+					y1={210 + ((pos.y - 210) * 40) / 150}
+					x2={210 + ((pos.x - 210) * 120) / 150}
+					y2={210 + ((pos.y - 210) * 120) / 150}
+					class="pdca-spoke"
+				/>
+			))
+		}
+
+		{
+			nodes.map((node, i) => (
+				<foreignObject
+					x={positions[i].x - nodeW / 2}
+					y={positions[i].y - nodeH / 2}
+					width={nodeW}
+					height={nodeH}
+				>
+					<a class="pdca-node" href={`/grundschutzpp/${node.slug}/`}>
+						<span class="pdca-id">{node.id}</span>
+						<span class="pdca-title">{node.title}</span>
+						<span class="pdca-count">{node.count} Anforderungen</span>
+					</a>
+				</foreignObject>
+			))
+		}
+
+		<foreignObject x={210 - 60} y={210 - 40} width={120} height={80}>
+			<a class="pdca-node pdca-hub" href={`/grundschutzpp/${risk.slug}/`}>
+				<span class="pdca-id">{risk.id}</span>
+				<span class="pdca-hub-caption">durchgehender Begleiter</span>
+				<span class="pdca-count">{risk.count} Anforderungen</span>
+			</a>
+		</foreignObject>
+	</svg>
+</div>
+
+<style>
+	.pdca-cycle-wrap {
+		overflow-x: auto;
+		margin: 1.5rem 0 2rem;
+	}
+
+	.pdca-cycle {
+		display: block;
+		width: 100%;
+		min-width: 26rem;
+		max-width: 30rem;
+		margin-inline: auto;
+		overflow: visible;
+	}
+
+	.pdca-arc {
+		fill: none;
+		stroke: var(--sl-color-accent);
+		stroke-width: 2.5;
+	}
+
+	.pdca-arrowhead {
+		fill: var(--sl-color-accent);
+	}
+
+	.pdca-spoke {
+		stroke: var(--sl-color-gray-4);
+		stroke-width: 1.5;
+		stroke-dasharray: 3 4;
+	}
+
+	.pdca-node {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		gap: 0.15rem;
+		width: 100%;
+		height: 100%;
+		padding: 0.4rem;
+		border-radius: 1rem;
+		border: 1px solid var(--sl-color-hairline);
+		background: var(--sl-color-bg-nav);
+		text-decoration: none;
+		text-align: center;
+		box-sizing: border-box;
+		transition: border-color 0.15s ease;
+	}
+
+	.pdca-node:hover {
+		border-color: var(--sl-color-accent);
+		text-decoration: none;
+	}
+
+	.pdca-hub {
+		border-style: dashed;
+		background: var(--sl-color-accent-low);
+	}
+
+	.pdca-id {
+		font-family: 'JetBrains Mono Variable', ui-monospace, monospace;
+		font-size: 0.72rem;
+		font-weight: 700;
+		color: var(--sl-color-accent-high);
+	}
+
+	.pdca-title {
+		font-family: 'Karla Variable', system-ui, sans-serif;
+		font-size: 0.68rem;
+		line-height: 1.2;
+		color: var(--sl-color-white);
+	}
+
+	.pdca-hub-caption {
+		font-family: 'Karla Variable', system-ui, sans-serif;
+		font-size: 0.62rem;
+		line-height: 1.15;
+		color: var(--sl-color-gray-2);
+	}
+
+	.pdca-count {
+		font-family: 'JetBrains Mono Variable', ui-monospace, monospace;
+		font-size: 0.6rem;
+		color: var(--sl-color-gray-3);
+	}
+</style>

@@ -3,15 +3,15 @@ title: "REA – Sicherheitsvorfallsbehandlung"
 description: "Die Praktik Sicherheitsvorfallsbehandlung sorgt dafür, dass Informationssicherheitsvorfälle effizient erkannt, gemeldet, analysiert und behoben werden, um Schäden zu minimieren und den Normalbetrieb so schnell wie möglich wiederherzustellen."
 ---
 
+import ControlMeta from '../../../components/ControlMeta.astro';
+
 Die Praktik Sicherheitsvorfallsbehandlung sorgt dafür, dass Informationssicherheitsvorfälle effizient erkannt, gemeldet, analysiert und behoben werden, um Schäden zu minimieren und den Normalbetrieb so schnell wie möglich wiederherzustellen. Diese Praktik ist reaktiv und konzentriert sich darauf, die Auswirkungen von Sicherheitsvorfällen zu minimieren. Sie stellt sicher, dass bei einem Sicherheitsvorfall schnell und effizient gehandelt wird, um den Schaden zu begrenzen. Andere Praktiken, wie z.B. Architektur, Personal, Sensibilisierung wirken proaktiv und versuchen, Sicherheitsvorfälle durch präventive Maßnahmen zu verhindern oder deren Häufigkeit zu reduzieren.
 
 ## REA.1 Grundlagen
 
 ### REA.1.1 – Verfahren und Regelungen
 
-**Pflicht:** MUSS · **Stufe:** `normal-SdT` · **Aufwand:** 0 · **Gefährdungen:** G 0.18
-
-**Vorgänger:** [APP.3.2.A20-UA.2](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/06_APP_Anwendungen/APP_3_2_Webserver_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (umfasst) · [DER.2.1.A1-UA.1](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/05_DER_Detektion_und_Reaktion/DER_2_1_Behandlung_von_Sicherheitsvorfaellen_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (überschneidet sich mit) · [DER.2.1.A2-UA.1](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/05_DER_Detektion_und_Reaktion/DER_2_1_Behandlung_von_Sicherheitsvorfaellen_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (entspricht) · [DER.2.1.A7-UA.1](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/05_DER_Detektion_und_Reaktion/DER_2_1_Behandlung_von_Sicherheitsvorfaellen_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (entspricht)
+<ControlMeta modalVerb="MUSS" secLevel="normal-SdT" effort="0" threats="G 0.18" threatsHint="G 0.18 – Fehlplanung oder fehlende Anpassung" predecessors={[{ oldId: "APP.3.2.A20-UA.2", relationship: "superset-of", link: "https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/06_APP_Anwendungen/APP_3_2_Webserver_Edition_2023.pdf?__blob=publicationFile&v=3#download=1" }, { oldId: "DER.2.1.A1-UA.1", relationship: "intersects-with", link: "https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/05_DER_Detektion_und_Reaktion/DER_2_1_Behandlung_von_Sicherheitsvorfaellen_Edition_2023.pdf?__blob=publicationFile&v=3#download=1" }, { oldId: "DER.2.1.A2-UA.1", relationship: "equivalent-to", link: "https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/05_DER_Detektion_und_Reaktion/DER_2_1_Behandlung_von_Sicherheitsvorfaellen_Edition_2023.pdf?__blob=publicationFile&v=3#download=1" }, { oldId: "DER.2.1.A7-UA.1", relationship: "equivalent-to", link: "https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/05_DER_Detektion_und_Reaktion/DER_2_1_Behandlung_von_Sicherheitsvorfaellen_Edition_2023.pdf?__blob=publicationFile&v=3#download=1" }]} />
 
 > Sicherheitsvorfallsbehandlung MUSS Verfahren und Regelungen zur Behandlung von Sicherheitsvorfällen verankern.
 
@@ -19,7 +19,7 @@ Bei Sicherheitsvorfällen gilt es, schnell und systematisch zu reagieren, um wei
 
 #### REA.1.1.1 – Dokumentation
 
-**Pflicht:** MUSS · **Stufe:** `normal-SdT` · **Aufwand:** 0 · **Gefährdungen:** G 0.18, G 0.37
+<ControlMeta modalVerb="MUSS" secLevel="normal-SdT" effort="0" threats="G 0.18, G 0.37" threatsHint="G 0.18 – Fehlplanung oder fehlende Anpassung · G 0.37 – Abstreiten von Handlungen" />
 
 > Sicherheitsvorfallsbehandlung MUSS die Verfahren und Regelungen dokumentieren.
 
@@ -27,9 +27,7 @@ Ohne eine Dokumentation könnte die Einhaltung der Verfahren und Regelungen von 
 
 #### REA.1.1.2 – Zuweisung der Aufgaben
 
-**Pflicht:** MUSS · **Stufe:** `normal-SdT` · **Aufwand:** 0 · **Gefährdungen:** G 0.18, G 0.31
-
-**Vorgänger:** [APP.3.2.A20-UA.2](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/06_APP_Anwendungen/APP_3_2_Webserver_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (umfasst)
+<ControlMeta modalVerb="MUSS" secLevel="normal-SdT" effort="0" threats="G 0.18, G 0.31" threatsHint="G 0.18 – Fehlplanung oder fehlende Anpassung · G 0.31 – Fehlerhafte Nutzung oder Administration von Geräten und Systemen" predecessors={[{ oldId: "APP.3.2.A20-UA.2", relationship: "superset-of", link: "https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/06_APP_Anwendungen/APP_3_2_Webserver_Edition_2023.pdf?__blob=publicationFile&v=3#download=1" }]} />
 
 > Sicherheitsvorfallsbehandlung MUSS die mit den Verfahren und Regelungen verbundenen Aufgaben *[zuständigen Personen oder Rollen]* zuweisen.
 
@@ -37,7 +35,7 @@ Die Zuweisung von Aufgaben bezeichnet die eindeutige und verbindliche Übertragu
 
 #### REA.1.1.3 – Bekanntgabe
 
-**Pflicht:** MUSS · **Stufe:** `normal-SdT` · **Aufwand:** 0 · **Gefährdungen:** G 0.18, G 0.31
+<ControlMeta modalVerb="MUSS" secLevel="normal-SdT" effort="0" threats="G 0.18, G 0.31" threatsHint="G 0.18 – Fehlplanung oder fehlende Anpassung · G 0.31 – Fehlerhafte Nutzung oder Administration von Geräten und Systemen" />
 
 > Sicherheitsvorfallsbehandlung MUSS die zuständigen Personen oder Rollen über die Verfahren und Regelungen informieren.
 
@@ -45,9 +43,7 @@ Wenn die Zuständigen die etablierten Verfahren nicht kennen, besteht die Gefahr
 
 ### REA.1.2 – Regelmäßige Überprüfung
 
-**Pflicht:** MUSS · **Stufe:** `normal-SdT` · **Aufwand:** 0 · **Gefährdungen:** G 0.18
-
-**Vorgänger:** [DER.2.1.A2-UA.8](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/05_DER_Detektion_und_Reaktion/DER_2_1_Behandlung_von_Sicherheitsvorfaellen_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (entspricht) · [DER.2.1.A7-UA.4](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/05_DER_Detektion_und_Reaktion/DER_2_1_Behandlung_von_Sicherheitsvorfaellen_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (entspricht)
+<ControlMeta modalVerb="MUSS" secLevel="normal-SdT" effort="0" threats="G 0.18" threatsHint="G 0.18 – Fehlplanung oder fehlende Anpassung" predecessors={[{ oldId: "DER.2.1.A2-UA.8", relationship: "equivalent-to", link: "https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/05_DER_Detektion_und_Reaktion/DER_2_1_Behandlung_von_Sicherheitsvorfaellen_Edition_2023.pdf?__blob=publicationFile&v=3#download=1" }, { oldId: "DER.2.1.A7-UA.4", relationship: "equivalent-to", link: "https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/05_DER_Detektion_und_Reaktion/DER_2_1_Behandlung_von_Sicherheitsvorfaellen_Edition_2023.pdf?__blob=publicationFile&v=3#download=1" }]} />
 
 > Sicherheitsvorfallsbehandlung MUSS die Verfahren und Regelungen *[regelmäßig]* und anlassbezogen auf Aktualität überprüfen.
 
@@ -55,7 +51,7 @@ Eine geplante der etablierten Verfahren und Regelungen dient dazu festzustellen,
 
 ### REA.1.3 – Übungen zur Vorfallsbehandlung
 
-**Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.18
+<ControlMeta modalVerb="KANN" secLevel="erhöht" effort="5" threats="G 0.18" threatsHint="G 0.18 – Fehlplanung oder fehlende Anpassung" />
 
 > Sicherheitsvorfallsbehandlung KANN die Abwehrfähigkeit durch Übungen *[regelmäßig]* überprüfen.
 
@@ -65,7 +61,7 @@ Komplexere Sicherheitsvorfälle treten auch in größeren Institutionen relativ 
 
 ### REA.2.1 – Triage und Erstreaktion
 
-**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.39, G 0.47, G 0.23, G 0.40
+<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="2" threats="G 0.39, G 0.47, G 0.23, G 0.40" threatsHint="G 0.39 – Schadprogramme · G 0.47 – Schädliche Seiteneffekte IT-gestützter Angriffe · G 0.23 – Unbefugtes Eindringen in IT-Systeme · G 0.40 – Verhinderung von Diensten (Denial of Service)" />
 
 > Sicherheitsvorfallsbehandlung SOLLTE Meldungen einer Priorität zuweisen.
 
@@ -73,7 +69,7 @@ Triage ist ein strukturiertes Vorgehen zur Priorisierung und Ersteinschätzung v
 
 ### REA.2.2 – Automatische Erstreaktion
 
-**Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 4 · **Gefährdungen:** G 0.39, G 0.47, G 0.23, G 0.40
+<ControlMeta modalVerb="KANN" secLevel="erhöht" effort="4" threats="G 0.39, G 0.47, G 0.23, G 0.40" threatsHint="G 0.39 – Schadprogramme · G 0.47 – Schädliche Seiteneffekte IT-gestützter Angriffe · G 0.23 – Unbefugtes Eindringen in IT-Systeme · G 0.40 – Verhinderung von Diensten (Denial of Service)" />
 
 > Sicherheitsvorfallsbehandlung KANN eine automatische Erstreaktion aktivieren.
 
@@ -81,9 +77,7 @@ Die automatische Erstreaktion kann je nach Risikoprofil durch institutionseigene
 
 ### REA.2.3 – Dokumentation von Vorfällen
 
-**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.39, G 0.47, G 0.37, G 0.23
-
-**Vorgänger:** [DER.2.1.A16-UA.1](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/05_DER_Detektion_und_Reaktion/DER_2_1_Behandlung_von_Sicherheitsvorfaellen_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (Teilbereich von)
+<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="3" threats="G 0.39, G 0.47, G 0.37, G 0.23" threatsHint="G 0.39 – Schadprogramme · G 0.47 – Schädliche Seiteneffekte IT-gestützter Angriffe · G 0.37 – Abstreiten von Handlungen · G 0.23 – Unbefugtes Eindringen in IT-Systeme" predecessors={[{ oldId: "DER.2.1.A16-UA.1", relationship: "subset-of", link: "https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/05_DER_Detektion_und_Reaktion/DER_2_1_Behandlung_von_Sicherheitsvorfaellen_Edition_2023.pdf?__blob=publicationFile&v=3#download=1" }]} />
 
 > Sicherheitsvorfallsbehandlung SOLLTE den Vorfall dokumentieren.
 
@@ -91,7 +85,7 @@ Dokumentation des Vorfalls meint hier die nachvollziehbare, strukturierte und re
 
 ### REA.2.4 – Diagnosedaten
 
-**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.39, G 0.47, G 0.23, G 0.40
+<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="3" threats="G 0.39, G 0.47, G 0.23, G 0.40" threatsHint="G 0.39 – Schadprogramme · G 0.47 – Schädliche Seiteneffekte IT-gestützter Angriffe · G 0.23 – Unbefugtes Eindringen in IT-Systeme · G 0.40 – Verhinderung von Diensten (Denial of Service)" />
 
 > Sicherheitsvorfallsbehandlung SOLLTE Diagnosemethoden für den Fall, dass der Vorfall sich mit den standardisiert erfassten Informationen nicht ausreichend analysieren lässt, verankern.
 
@@ -99,7 +93,7 @@ Der Begriff Diagnosemethoden bezeichnet in diesem Kontext strukturierte Verfahre
 
 ### REA.2.5 – IT-Forensik
 
-**Pflicht:** SOLLTE · **Stufe:** `erhöht` · **Aufwand:** 3 · **Gefährdungen:** G 0.39, G 0.47, G 0.18
+<ControlMeta modalVerb="SOLLTE" secLevel="erhöht" effort="3" threats="G 0.39, G 0.47, G 0.18" threatsHint="G 0.39 – Schadprogramme · G 0.47 – Schädliche Seiteneffekte IT-gestützter Angriffe · G 0.18 – Fehlplanung oder fehlende Anpassung" />
 
 > Sicherheitsvorfallsbehandlung SOLLTE eine forensische Analyse bei Vorfällen, die *[bestimmte Kriterien]* erfüllen, ausführen.
 
@@ -107,9 +101,7 @@ Bei einer forensischen Analyse werden Beweise gesichert und Erkenntnisse zur Ver
 
 #### REA.2.5.1 – Rechtssichere Beweissicherung
 
-**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.39, G 0.47
-
-**Vorgänger:** [DER.2.2.A11-UA.1](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/05_DER_Detektion_und_Reaktion/DER_2_2_Vorsorge_fuer_die_IT_Forensik_2023.pdf?__blob=publicationFile&v=3#download=1) (entspricht)
+<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="3" threats="G 0.39, G 0.47" threatsHint="G 0.39 – Schadprogramme · G 0.47 – Schädliche Seiteneffekte IT-gestützter Angriffe" predecessors={[{ oldId: "DER.2.2.A11-UA.1", relationship: "equivalent-to", link: "https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/05_DER_Detektion_und_Reaktion/DER_2_2_Vorsorge_fuer_die_IT_Forensik_2023.pdf?__blob=publicationFile&v=3#download=1" }]} />
 
 > Sicherheitsvorfallsbehandlung SOLLTE rechtlich relevante Beweise rechtssicher dokumentieren.
 
@@ -117,7 +109,7 @@ Rechtlich relevant sind Beweise, wenn Anzeichen dafür vorliegen, dass bei einem
 
 #### REA.2.5.2 – Vier-Augen-Prinzip
 
-**Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.39, G 0.47
+<ControlMeta modalVerb="KANN" secLevel="erhöht" effort="5" threats="G 0.39, G 0.47" threatsHint="G 0.39 – Schadprogramme · G 0.47 – Schädliche Seiteneffekte IT-gestützter Angriffe" />
 
 > Sicherheitsvorfallsbehandlung KANN zur Forensik ein Vier-Augen-Prinzip verankern.
 
@@ -125,7 +117,7 @@ Wenn IT-Forensische Untersuchungen alleine vorgenommen werden, könnte das dokum
 
 #### REA.2.5.3 – Forensik-Dienstleister
 
-**Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.39, G 0.47
+<ControlMeta modalVerb="KANN" secLevel="erhöht" effort="5" threats="G 0.39, G 0.47" threatsHint="G 0.39 – Schadprogramme · G 0.47 – Schädliche Seiteneffekte IT-gestützter Angriffe" />
 
 > Sicherheitsvorfallsbehandlung KANN die Bereitschaft eines Forensik-Dienstleisters binnen *[einer Frist]* vereinbaren.
 
@@ -133,9 +125,7 @@ Um im Ernstfall eine schnelle Untersuchung von Sicherheitsvorfällen zu ermögli
 
 ### REA.2.6 – Ursachenanalyse und Behandlung
 
-**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.39, G 0.47, G 0.23, G 0.40
-
-**Vorgänger:** [DER.2.1.A5-UA.4](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/05_DER_Detektion_und_Reaktion/DER_2_1_Behandlung_von_Sicherheitsvorfaellen_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (entspricht)
+<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="2" threats="G 0.39, G 0.47, G 0.23, G 0.40" threatsHint="G 0.39 – Schadprogramme · G 0.47 – Schädliche Seiteneffekte IT-gestützter Angriffe · G 0.23 – Unbefugtes Eindringen in IT-Systeme · G 0.40 – Verhinderung von Diensten (Denial of Service)" predecessors={[{ oldId: "DER.2.1.A5-UA.4", relationship: "equivalent-to", link: "https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/05_DER_Detektion_und_Reaktion/DER_2_1_Behandlung_von_Sicherheitsvorfaellen_Edition_2023.pdf?__blob=publicationFile&v=3#download=1" }]} />
 
 > Sicherheitsvorfallsbehandlung SOLLTE eine Vorgehensweise zur Ursachenanalyse und Behandlung verankern.
 
@@ -143,15 +133,13 @@ Um einen Vorfall vollständig beheben zu können, ist es zweckmäßig, zunächst
 
 #### REA.2.6.1 – Dokumentation des Vorgehens
 
-**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.39, G 0.47, G 0.18, G 0.37
+<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="3" threats="G 0.39, G 0.47, G 0.18, G 0.37" threatsHint="G 0.39 – Schadprogramme · G 0.47 – Schädliche Seiteneffekte IT-gestützter Angriffe · G 0.18 – Fehlplanung oder fehlende Anpassung · G 0.37 – Abstreiten von Handlungen" />
 
 > Sicherheitsvorfallsbehandlung SOLLTE die zur Behandlung durchgeführten Tätigkeiten dokumentieren.
 
 #### REA.2.6.2 – Kommunikation bei Vorfällen
 
-**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.39, G 0.47
-
-**Vorgänger:** [DER.2.1.A9-UA.4](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/05_DER_Detektion_und_Reaktion/DER_2_1_Behandlung_von_Sicherheitsvorfaellen_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (entspricht)
+<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="3" threats="G 0.39, G 0.47" threatsHint="G 0.39 – Schadprogramme · G 0.47 – Schädliche Seiteneffekte IT-gestützter Angriffe" predecessors={[{ oldId: "DER.2.1.A9-UA.4", relationship: "equivalent-to", link: "https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/05_DER_Detektion_und_Reaktion/DER_2_1_Behandlung_von_Sicherheitsvorfaellen_Edition_2023.pdf?__blob=publicationFile&v=3#download=1" }]} />
 
 > Sicherheitsvorfallsbehandlung SOLLTE eine Vorgehensweise zur Kommunikation bei Vorfällen unter Berücksichtigung von Compliance-Verpflichtungen, Bedürfnissen der interessierten Parteien und der Geschäftsziele verankern.
 
@@ -159,15 +147,13 @@ Hierzu gehören beispielsweise Meldepflichten gegenüber Aufsichts- oder Ermittl
 
 ##### REA.2.6.2.1 – Information zuständiger Behörden
 
-**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.39, G 0.47
+<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="3" threats="G 0.39, G 0.47" threatsHint="G 0.39 – Schadprogramme · G 0.47 – Schädliche Seiteneffekte IT-gestützter Angriffe" />
 
 > Sicherheitsvorfallsbehandlung SOLLTE bei Vorfällen die zuständigen Behörden im Einklang mit den Compliance-Verpflichtungen informieren.
 
 #### REA.2.6.3 – Koordinierung
 
-**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.39, G 0.47, G 0.23, G 0.40
-
-**Vorgänger:** [APP.3.2.A20-UA.2](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/06_APP_Anwendungen/APP_3_2_Webserver_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (überschneidet sich mit)
+<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="3" threats="G 0.39, G 0.47, G 0.23, G 0.40" threatsHint="G 0.39 – Schadprogramme · G 0.47 – Schädliche Seiteneffekte IT-gestützter Angriffe · G 0.23 – Unbefugtes Eindringen in IT-Systeme · G 0.40 – Verhinderung von Diensten (Denial of Service)" predecessors={[{ oldId: "APP.3.2.A20-UA.2", relationship: "intersects-with", link: "https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/06_APP_Anwendungen/APP_3_2_Webserver_Edition_2023.pdf?__blob=publicationFile&v=3#download=1" }]} />
 
 > Sicherheitsvorfallsbehandlung SOLLTE die Koordinierung bei Vorfällen verankern.
 
@@ -175,7 +161,7 @@ Die Koordinierung der Behandlung von Sicherheitsvorfällen dient dazu, die Auswi
 
 #### REA.2.6.4 – Service Level
 
-**Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.39, G 0.47
+<ControlMeta modalVerb="KANN" secLevel="erhöht" effort="5" threats="G 0.39, G 0.47" threatsHint="G 0.39 – Schadprogramme · G 0.47 – Schädliche Seiteneffekte IT-gestützter Angriffe" />
 
 > Sicherheitsvorfallsbehandlung KANN Service Level verankern.
 
@@ -183,7 +169,7 @@ Service Level bei der Sicherheitsvorfallsbehandlung legen verbindliche Zielvorga
 
 #### REA.2.6.5 – Eskalation
 
-**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.39, G 0.47, G 0.23, G 0.40
+<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="4" threats="G 0.39, G 0.47, G 0.23, G 0.40" threatsHint="G 0.39 – Schadprogramme · G 0.47 – Schädliche Seiteneffekte IT-gestützter Angriffe · G 0.23 – Unbefugtes Eindringen in IT-Systeme · G 0.40 – Verhinderung von Diensten (Denial of Service)" />
 
 > Sicherheitsvorfallsbehandlung SOLLTE eine Eskalationsleiter verankern.
 
@@ -193,7 +179,7 @@ Eine Eskalationsleiter (engl. escalation matrix oder escalation path) bezeichnet
 
 ### REA.3.1 – Verbesserung durch Erkenntnisse
 
-**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.18
+<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="3" threats="G 0.18" threatsHint="G 0.18 – Fehlplanung oder fehlende Anpassung" />
 
 > Sicherheitsvorfallsbehandlung SOLLTE bisherige Maßnahmen anhand von Erkenntnissen aus Informationssicherheitsvorfällen *[regelmäßig]* überprüfen.
 
@@ -201,7 +187,7 @@ Erkenntnisse meint hier sowohl technische Aspekte („technical findings“), or
 
 #### REA.3.1.1 – Quantitative Analyse
 
-**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.18
+<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="4" threats="G 0.18" threatsHint="G 0.18 – Fehlplanung oder fehlende Anpassung" />
 
 > Sicherheitsvorfallsbehandlung SOLLTE Erkenntnisse einschließlich Art, Umfang und Schäden des Vorfalls dokumentieren.
 

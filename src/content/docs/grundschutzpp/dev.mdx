@@ -3,15 +3,15 @@ title: "DEV – Entwicklung"
 description: "Die Praktik Entwicklung stellt sicher, dass Sicherheitsanforderungen bereits von Beginn an in die Planungs- und Entwicklungsphase von IT-Systemen und Anwendungen integriert werden."
 ---
 
+import ControlMeta from '../../../components/ControlMeta.astro';
+
 Die Praktik Entwicklung stellt sicher, dass Sicherheitsanforderungen bereits von Beginn an in die Planungs- und Entwicklungsphase von IT-Systemen und Anwendungen integriert werden. Auf diese Weise können potenzielle Schwachstellen frühzeitig erkannt und vermieden werden, wodurch die Sicherheit über den gesamten Lebenszyklus der IT-Systeme und Anwendungen hinweg gewährleistet ist. Entwicklung berücksichtigt die Software- und Systementwicklung, also die Erzeugung und Integration neuer IT-Komponenten in die IT-Infrastruktur der Institution. Durch die enge Zusammenarbeit mit anderen Praktiken wie IT-Betrieb, Asset Management und Konfiguration wird gewährleistet, dass die entwickelten IT-Komponenten nicht nur sicher entwickelt werden, sondern auch sicher betrieben, verwaltet und gepflegt werden können. Diese enge Verzahnung sorgt dafür, dass Sicherheitsanforderungen durchgängig und über alle Phasen hinweg eingehalten werden.
 
 ## DEV.1 Grundlagen
 
 ### DEV.1.1 – Verfahren und Regelungen
 
-**Pflicht:** MUSS · **Stufe:** `normal-SdT` · **Aufwand:** 0 · **Gefährdungen:** G 0.18
-
-**Vorgänger:** [APP.7.A2-UA.1](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/06_APP_Anwendungen/APP_7_Entwicklung_von_Individualsoftware_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (Teilbereich von) · [APP.7.A2-UA.2](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/06_APP_Anwendungen/APP_7_Entwicklung_von_Individualsoftware_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (Teilbereich von) · [APP.7.A3-UA.1](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/06_APP_Anwendungen/APP_7_Entwicklung_von_Individualsoftware_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (Teilbereich von) · [APP.7.A4-UA.1](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/06_APP_Anwendungen/APP_7_Entwicklung_von_Individualsoftware_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (Teilbereich von) · [CON.8.A2-UA.1](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/03_CON_Konzepte_und_Vorgehensweisen/CON_8_Software_Entwicklung_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (Teilbereich von)
+<ControlMeta modalVerb="MUSS" secLevel="normal-SdT" effort="0" threats="G 0.18" threatsHint="G 0.18 – Fehlplanung oder fehlende Anpassung" predecessors={[{ oldId: "APP.7.A2-UA.1", relationship: "subset-of", link: "https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/06_APP_Anwendungen/APP_7_Entwicklung_von_Individualsoftware_Edition_2023.pdf?__blob=publicationFile&v=3#download=1" }, { oldId: "APP.7.A2-UA.2", relationship: "subset-of", link: "https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/06_APP_Anwendungen/APP_7_Entwicklung_von_Individualsoftware_Edition_2023.pdf?__blob=publicationFile&v=3#download=1" }, { oldId: "APP.7.A3-UA.1", relationship: "subset-of", link: "https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/06_APP_Anwendungen/APP_7_Entwicklung_von_Individualsoftware_Edition_2023.pdf?__blob=publicationFile&v=3#download=1" }, { oldId: "APP.7.A4-UA.1", relationship: "subset-of", link: "https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/06_APP_Anwendungen/APP_7_Entwicklung_von_Individualsoftware_Edition_2023.pdf?__blob=publicationFile&v=3#download=1" }, { oldId: "CON.8.A2-UA.1", relationship: "subset-of", link: "https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/03_CON_Konzepte_und_Vorgehensweisen/CON_8_Software_Entwicklung_Edition_2023.pdf?__blob=publicationFile&v=3#download=1" }]} />
 
 > Entwicklung MUSS Verfahren und Regelungen zur Entwicklung von IT-Produkten verankern.
 
@@ -19,7 +19,7 @@ Für ein Verfahren zur Softwareentwicklung siehe BSI TR-03185. Entwickelt die In
 
 #### DEV.1.1.1 – Dokumentation
 
-**Pflicht:** MUSS · **Stufe:** `normal-SdT` · **Aufwand:** 0 · **Gefährdungen:** G 0.18, G 0.37, G 0.29, G 0.31
+<ControlMeta modalVerb="MUSS" secLevel="normal-SdT" effort="0" threats="G 0.18, G 0.37, G 0.29, G 0.31" threatsHint="G 0.18 – Fehlplanung oder fehlende Anpassung · G 0.37 – Abstreiten von Handlungen · G 0.29 – Verstoß gegen Gesetze oder Regelungen · G 0.31 – Fehlerhafte Nutzung oder Administration von Geräten und Systemen" />
 
 > Entwicklung MUSS die Verfahren und Regelungen dokumentieren.
 
@@ -27,7 +27,7 @@ Ohne eine Dokumentation könnte die Einhaltung der Verfahren und Regelungen von 
 
 #### DEV.1.1.2 – Zuweisung der Aufgaben
 
-**Pflicht:** MUSS · **Stufe:** `normal-SdT` · **Aufwand:** 0 · **Gefährdungen:** G 0.18, G 0.31
+<ControlMeta modalVerb="MUSS" secLevel="normal-SdT" effort="0" threats="G 0.18, G 0.31" threatsHint="G 0.18 – Fehlplanung oder fehlende Anpassung · G 0.31 – Fehlerhafte Nutzung oder Administration von Geräten und Systemen" />
 
 > Entwicklung MUSS die mit den Verfahren und Regelungen verbundenen Aufgaben *[zuständigen Personen oder Rollen]* zuweisen.
 
@@ -35,7 +35,7 @@ Die Zuweisung von Aufgaben bezeichnet die eindeutige und verbindliche Übertragu
 
 #### DEV.1.1.3 – Bekanntgabe
 
-**Pflicht:** MUSS · **Stufe:** `normal-SdT` · **Aufwand:** 0 · **Gefährdungen:** G 0.18
+<ControlMeta modalVerb="MUSS" secLevel="normal-SdT" effort="0" threats="G 0.18" threatsHint="G 0.18 – Fehlplanung oder fehlende Anpassung" />
 
 > Entwicklung MUSS die zuständigen Personen oder Rollen über die Verfahren und Regelungen informieren.
 
@@ -43,7 +43,7 @@ Wenn die Zuständigen die etablierten Verfahren nicht kennen, besteht die Gefahr
 
 ### DEV.1.2 – Regelmäßige Überprüfung
 
-**Pflicht:** MUSS · **Stufe:** `normal-SdT` · **Aufwand:** 0 · **Gefährdungen:** G 0.18, G 0.29
+<ControlMeta modalVerb="MUSS" secLevel="normal-SdT" effort="0" threats="G 0.18, G 0.29" threatsHint="G 0.18 – Fehlplanung oder fehlende Anpassung · G 0.29 – Verstoß gegen Gesetze oder Regelungen" />
 
 > Entwicklung MUSS die Verfahren und Regelungen *[regelmäßig]* und anlassbezogen auf Aktualität überprüfen.
 
@@ -53,9 +53,7 @@ Eine geplante Überprüfung der etablierten Verfahren und Regelungen dient dazu 
 
 ### DEV.2.1 – Security by Design Architektur
 
-**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.28, G 0.46, G 0.18
-
-**Vorgänger:** [APP.3.1.A8-UA.1](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/06_APP_Anwendungen/APP_3_1_Webanwendungen_und_Webservices_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (überschneidet sich mit) · [APP.6.A6-UA.1](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/06_APP_Anwendungen/APP_6_Allgemeine_Software_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (Teilbereich von) · [CON.8.A21-UA.1](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/03_CON_Konzepte_und_Vorgehensweisen/CON_8_Software_Entwicklung_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (Teilbereich von) · [CON.8.A22-UA.1](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/03_CON_Konzepte_und_Vorgehensweisen/CON_8_Software_Entwicklung_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (Teilbereich von) · [CON.8.A22-UA.2](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/03_CON_Konzepte_und_Vorgehensweisen/CON_8_Software_Entwicklung_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (Teilbereich von) · [CON.8.A22-UA.3](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/03_CON_Konzepte_und_Vorgehensweisen/CON_8_Software_Entwicklung_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (Teilbereich von) · [CON.8.A5-UA.1](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/03_CON_Konzepte_und_Vorgehensweisen/CON_8_Software_Entwicklung_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (umfasst)
+<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="2" threats="G 0.28, G 0.46, G 0.18" threatsHint="G 0.28 – Software-Schwachstellen oder -Fehler · G 0.46 – Integritätsverlust schützenswerter Informationen · G 0.18 – Fehlplanung oder fehlende Anpassung" predecessors={[{ oldId: "APP.3.1.A8-UA.1", relationship: "intersects-with", link: "https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/06_APP_Anwendungen/APP_3_1_Webanwendungen_und_Webservices_Edition_2023.pdf?__blob=publicationFile&v=3#download=1" }, { oldId: "APP.6.A6-UA.1", relationship: "subset-of", link: "https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/06_APP_Anwendungen/APP_6_Allgemeine_Software_Edition_2023.pdf?__blob=publicationFile&v=3#download=1" }, { oldId: "CON.8.A21-UA.1", relationship: "subset-of", link: "https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/03_CON_Konzepte_und_Vorgehensweisen/CON_8_Software_Entwicklung_Edition_2023.pdf?__blob=publicationFile&v=3#download=1" }, { oldId: "CON.8.A22-UA.1", relationship: "subset-of", link: "https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/03_CON_Konzepte_und_Vorgehensweisen/CON_8_Software_Entwicklung_Edition_2023.pdf?__blob=publicationFile&v=3#download=1" }, { oldId: "CON.8.A22-UA.2", relationship: "subset-of", link: "https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/03_CON_Konzepte_und_Vorgehensweisen/CON_8_Software_Entwicklung_Edition_2023.pdf?__blob=publicationFile&v=3#download=1" }, { oldId: "CON.8.A22-UA.3", relationship: "subset-of", link: "https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/03_CON_Konzepte_und_Vorgehensweisen/CON_8_Software_Entwicklung_Edition_2023.pdf?__blob=publicationFile&v=3#download=1" }, { oldId: "CON.8.A5-UA.1", relationship: "superset-of", link: "https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/03_CON_Konzepte_und_Vorgehensweisen/CON_8_Software_Entwicklung_Edition_2023.pdf?__blob=publicationFile&v=3#download=1" }]} />
 
 > Entwicklung SOLLTE die Architektur nach dem Prinzip "Security by Design" verankern.
 
@@ -63,9 +61,7 @@ Unter "Security by Design" ist zu verstehen, dass Sicherheitsprinzipien und -mec
 
 ### DEV.2.2 – Dokumentation der (Software-)Architektur
 
-**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.18
-
-**Vorgänger:** [APP.1.1.A10-UA.6](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/06_APP_Anwendungen/APP_1_1_Office_Produkte_Edition_2023.pdf?__blob=publicationFile&v=4#download=1) (überschneidet sich mit) · [APP.3.1.A8-UA.2](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/06_APP_Anwendungen/APP_3_1_Webanwendungen_und_Webservices_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (überschneidet sich mit) · [APP.7.A6-UA.1](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/06_APP_Anwendungen/APP_7_Entwicklung_von_Individualsoftware_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (überschneidet sich mit) · [CON.10.A11-UA.1](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/03_CON_Konzepte_und_Vorgehensweisen/CON_10_Entwicklung_von_Webanwendungen_Edition_2023.pdf?__blob=publicationFile&v=4#download=1) (Teilbereich von) · [CON.10.A11-UA.2](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/03_CON_Konzepte_und_Vorgehensweisen/CON_10_Entwicklung_von_Webanwendungen_Edition_2023.pdf?__blob=publicationFile&v=4#download=1) (überschneidet sich mit) · [CON.10.A11-UA.3](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/03_CON_Konzepte_und_Vorgehensweisen/CON_10_Entwicklung_von_Webanwendungen_Edition_2023.pdf?__blob=publicationFile&v=4#download=1) (überschneidet sich mit) · [CON.10.A11-UA.4](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/03_CON_Konzepte_und_Vorgehensweisen/CON_10_Entwicklung_von_Webanwendungen_Edition_2023.pdf?__blob=publicationFile&v=4#download=1) (überschneidet sich mit) · [CON.8.A12-UA.1](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/03_CON_Konzepte_und_Vorgehensweisen/CON_8_Software_Entwicklung_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (überschneidet sich mit) · [CON.8.A12-UA.3](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/03_CON_Konzepte_und_Vorgehensweisen/CON_8_Software_Entwicklung_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (überschneidet sich mit) · [CON.8.A12-UA.4](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/03_CON_Konzepte_und_Vorgehensweisen/CON_8_Software_Entwicklung_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (umfasst) · [CON.8.A12-UA.5](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/03_CON_Konzepte_und_Vorgehensweisen/CON_8_Software_Entwicklung_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (überschneidet sich mit) · [CON.8.A22-UA.2](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/03_CON_Konzepte_und_Vorgehensweisen/CON_8_Software_Entwicklung_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (überschneidet sich mit) · [IND.1.A20-UA.1](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/08_IND_Industrielle_IT/IND_1_Prozessleit_und_Automatisierungstechnik_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (überschneidet sich mit) · [IND.1.A4-UA.2](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/08_IND_Industrielle_IT/IND_1_Prozessleit_und_Automatisierungstechnik_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (überschneidet sich mit)
+<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="3" threats="G 0.18" threatsHint="G 0.18 – Fehlplanung oder fehlende Anpassung" predecessors={[{ oldId: "APP.1.1.A10-UA.6", relationship: "intersects-with", link: "https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/06_APP_Anwendungen/APP_1_1_Office_Produkte_Edition_2023.pdf?__blob=publicationFile&v=4#download=1" }, { oldId: "APP.3.1.A8-UA.2", relationship: "intersects-with", link: "https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/06_APP_Anwendungen/APP_3_1_Webanwendungen_und_Webservices_Edition_2023.pdf?__blob=publicationFile&v=3#download=1" }, { oldId: "APP.7.A6-UA.1", relationship: "intersects-with", link: "https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/06_APP_Anwendungen/APP_7_Entwicklung_von_Individualsoftware_Edition_2023.pdf?__blob=publicationFile&v=3#download=1" }, { oldId: "CON.10.A11-UA.1", relationship: "subset-of", link: "https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/03_CON_Konzepte_und_Vorgehensweisen/CON_10_Entwicklung_von_Webanwendungen_Edition_2023.pdf?__blob=publicationFile&v=4#download=1" }, { oldId: "CON.10.A11-UA.2", relationship: "intersects-with", link: "https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/03_CON_Konzepte_und_Vorgehensweisen/CON_10_Entwicklung_von_Webanwendungen_Edition_2023.pdf?__blob=publicationFile&v=4#download=1" }, { oldId: "CON.10.A11-UA.3", relationship: "intersects-with", link: "https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/03_CON_Konzepte_und_Vorgehensweisen/CON_10_Entwicklung_von_Webanwendungen_Edition_2023.pdf?__blob=publicationFile&v=4#download=1" }, { oldId: "CON.10.A11-UA.4", relationship: "intersects-with", link: "https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/03_CON_Konzepte_und_Vorgehensweisen/CON_10_Entwicklung_von_Webanwendungen_Edition_2023.pdf?__blob=publicationFile&v=4#download=1" }, { oldId: "CON.8.A12-UA.1", relationship: "intersects-with", link: "https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/03_CON_Konzepte_und_Vorgehensweisen/CON_8_Software_Entwicklung_Edition_2023.pdf?__blob=publicationFile&v=3#download=1" }, { oldId: "CON.8.A12-UA.3", relationship: "intersects-with", link: "https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/03_CON_Konzepte_und_Vorgehensweisen/CON_8_Software_Entwicklung_Edition_2023.pdf?__blob=publicationFile&v=3#download=1" }, { oldId: "CON.8.A12-UA.4", relationship: "superset-of", link: "https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/03_CON_Konzepte_und_Vorgehensweisen/CON_8_Software_Entwicklung_Edition_2023.pdf?__blob=publicationFile&v=3#download=1" }, { oldId: "CON.8.A12-UA.5", relationship: "intersects-with", link: "https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/03_CON_Konzepte_und_Vorgehensweisen/CON_8_Software_Entwicklung_Edition_2023.pdf?__blob=publicationFile&v=3#download=1" }, { oldId: "CON.8.A22-UA.2", relationship: "intersects-with", link: "https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/03_CON_Konzepte_und_Vorgehensweisen/CON_8_Software_Entwicklung_Edition_2023.pdf?__blob=publicationFile&v=3#download=1" }, { oldId: "IND.1.A20-UA.1", relationship: "intersects-with", link: "https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/08_IND_Industrielle_IT/IND_1_Prozessleit_und_Automatisierungstechnik_Edition_2023.pdf?__blob=publicationFile&v=3#download=1" }, { oldId: "IND.1.A4-UA.2", relationship: "intersects-with", link: "https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/08_IND_Industrielle_IT/IND_1_Prozessleit_und_Automatisierungstechnik_Edition_2023.pdf?__blob=publicationFile&v=3#download=1" }]} />
 
 > Entwicklung für Anwendungen SOLLTE die Architektur dokumentieren.
 
@@ -73,7 +69,7 @@ Die Architektur bezeichnet im konkreten Kontext die strukturierte Beschreibung d
 
 ### DEV.2.3 – Ausführbarkeit mit minimalen Rechten
 
-**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.28, G 0.32, G 0.21
+<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="3" threats="G 0.28, G 0.32, G 0.21" threatsHint="G 0.28 – Software-Schwachstellen oder -Fehler · G 0.32 – Missbrauch von Berechtigungen · G 0.21 – Manipulation von Hard- oder Software" />
 
 > Entwicklung für Anwendungen SOLLTE die fehlerfreie Ausführung mit den geringst möglichen Berechtigungen verankern.
 
@@ -81,7 +77,7 @@ Die Anwendung ermöglicht die Ausführung mit den geringst möglichen Berechtigu
 
 ### DEV.2.4 – Einschränkung Zugriffs auf Quellcode
 
-**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 1 · **Gefährdungen:** G 0.22, G 0.46
+<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="1" threats="G 0.22, G 0.46" threatsHint="G 0.22 – Manipulation von Informationen · G 0.46 – Integritätsverlust schützenswerter Informationen" />
 
 > Entwicklung SOLLTE den schreibenden Zugriff auf Quellcode einschränken.
 
@@ -89,9 +85,7 @@ Eine Einschränkung des schreibenden Zugriffes auf den Quellcode auf die zur Auf
 
 ### DEV.2.5 – Einschränkung des Zugriffs auf Zugangsdaten
 
-**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.28, G 0.21, G 0.22, G 0.19
-
-**Vorgänger:** [APP.4.2.A13-UA.3](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/06_APP_Anwendungen/APP_4_2_SAP_ERP_System_Edition_2023.pdf?__blob=publicationFile&v=4#download=1) (überschneidet sich mit)
+<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="2" threats="G 0.28, G 0.21, G 0.22, G 0.19" threatsHint="G 0.28 – Software-Schwachstellen oder -Fehler · G 0.21 – Manipulation von Hard- oder Software · G 0.22 – Manipulation von Informationen · G 0.19 – Offenlegung schützenswerter Informationen" predecessors={[{ oldId: "APP.4.2.A13-UA.3", relationship: "intersects-with", link: "https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/06_APP_Anwendungen/APP_4_2_SAP_ERP_System_Edition_2023.pdf?__blob=publicationFile&v=4#download=1" }]} />
 
 > Entwicklung für Anwendungen SOLLTE den lesenden und schreibenden Zugriff auf Zugangsdaten einschränken.
 
@@ -99,7 +93,7 @@ Von der Anwendung verwendete Zugangsdaten können z.B. API-Schlüssel oder Daten
 
 ### DEV.2.6 – Widerstandsfähigkeit gegen gängige Angriffsmuster
 
-**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.28, G 0.21, G 0.22, G 0.46
+<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="3" threats="G 0.28, G 0.21, G 0.22, G 0.46" threatsHint="G 0.28 – Software-Schwachstellen oder -Fehler · G 0.21 – Manipulation von Hard- oder Software · G 0.22 – Manipulation von Informationen · G 0.46 – Integritätsverlust schützenswerter Informationen" />
 
 > Entwicklung für Anwendungen SOLLTE Schutzfunktionen gegen gängige Angriffsmuster installieren.
 
@@ -107,9 +101,7 @@ Gängige Angriffsmuster sind wiederkehrende Vorgehensweisen von Angreifenden, di
 
 #### DEV.2.6.1 – Eingabevalidierung
 
-**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.28
-
-**Vorgänger:** [CON.10.A8-UA.1](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/03_CON_Konzepte_und_Vorgehensweisen/CON_10_Entwicklung_von_Webanwendungen_Edition_2023.pdf?__blob=publicationFile&v=4#download=1) (entspricht)
+<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="3" threats="G 0.28" threatsHint="G 0.28 – Software-Schwachstellen oder -Fehler" predecessors={[{ oldId: "CON.10.A8-UA.1", relationship: "equivalent-to", link: "https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/03_CON_Konzepte_und_Vorgehensweisen/CON_10_Entwicklung_von_Webanwendungen_Edition_2023.pdf?__blob=publicationFile&v=4#download=1" }]} />
 
 > Entwicklung für Anwendungen SOLLTE Eingabedaten auf eingeschleuste Befehle testen.
 
@@ -117,9 +109,7 @@ Bei der Eingabevalidierung (Input Validation) wird getestet, ob die Eingabedaten
 
 #### DEV.2.6.2 – Ausgabekodierung
 
-**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.28
-
-**Vorgänger:** [CON.10.A8-UA.1](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/03_CON_Konzepte_und_Vorgehensweisen/CON_10_Entwicklung_von_Webanwendungen_Edition_2023.pdf?__blob=publicationFile&v=4#download=1) (entspricht)
+<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="3" threats="G 0.28" threatsHint="G 0.28 – Software-Schwachstellen oder -Fehler" predecessors={[{ oldId: "CON.10.A8-UA.1", relationship: "equivalent-to", link: "https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/03_CON_Konzepte_und_Vorgehensweisen/CON_10_Entwicklung_von_Webanwendungen_Edition_2023.pdf?__blob=publicationFile&v=4#download=1" }]} />
 
 > Entwicklung für Anwendungen SOLLTE eine Ausgabekodierung ausführen.
 
@@ -129,7 +119,7 @@ Ausgabekodierung (Output Encoding) ist wichtig, da sie spezielle Zeichen neutral
 
 ### DEV.3.1 – Replay-Angriffe
 
-**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.43
+<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="3" threats="G 0.43" threatsHint="G 0.43 – Einspielen von Nachrichten" />
 
 > Entwicklung für Anwendungen SOLLTE Replay-Angriffe blockieren.
 
@@ -137,9 +127,7 @@ Wenn die Anwendung Anfragen von anderen Anwendungen oder IT-Systemen entgegennim
 
 ### DEV.3.2 – Routinen zur Fehlerbehandlung
 
-**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.28, G 0.21
-
-**Vorgänger:** [APP.3.2.A12-UA.5](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/06_APP_Anwendungen/APP_3_2_Webserver_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (entspricht) · [APP.3.3.A14-UA.1](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/06_APP_Anwendungen/APP_3_3_Fileserver_Edition_2023.pdf?__blob=publicationFile&v=4#download=1) (überschneidet sich mit)
+<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="2" threats="G 0.28, G 0.21" threatsHint="G 0.28 – Software-Schwachstellen oder -Fehler · G 0.21 – Manipulation von Hard- oder Software" predecessors={[{ oldId: "APP.3.2.A12-UA.5", relationship: "equivalent-to", link: "https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/06_APP_Anwendungen/APP_3_2_Webserver_Edition_2023.pdf?__blob=publicationFile&v=3#download=1" }, { oldId: "APP.3.3.A14-UA.1", relationship: "intersects-with", link: "https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/06_APP_Anwendungen/APP_3_3_Fileserver_Edition_2023.pdf?__blob=publicationFile&v=4#download=1" }]} />
 
 > Entwicklung für Anwendungen SOLLTE spezifische und allgemeine Routinen zur Fehlerbehandlung ausführen.
 
@@ -147,7 +135,7 @@ Behandeln Sie Fehler (Exceptions) möglichst nahe an der Quelle (z.B. Buffer Ove
 
 ### DEV.3.3 – Deaktivierung der Ausgabe schützenswerter Daten durch Fehlermeldungen
 
-**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.28, G 0.19
+<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="3" threats="G 0.28, G 0.19" threatsHint="G 0.28 – Software-Schwachstellen oder -Fehler · G 0.19 – Offenlegung schützenswerter Informationen" />
 
 > Entwicklung für Anwendungen SOLLTE die Ausgabe schützenswerter Daten durch Fehlermeldungen deaktivieren.
 
@@ -155,9 +143,7 @@ Werden sensible Daten in Fehlermeldungen oder Log-Einträgen verwendet, kommt es
 
 ### DEV.3.4 – Passwort-Hashing
 
-**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 1 · **Gefährdungen:** G 0.28, G 0.19
-
-**Vorgänger:** [APP.3.1.A14-UA.2](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/06_APP_Anwendungen/APP_3_1_Webanwendungen_und_Webservices_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (überschneidet sich mit) · [CON.8.A5-UA.9](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/03_CON_Konzepte_und_Vorgehensweisen/CON_8_Software_Entwicklung_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (überschneidet sich mit)
+<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="1" threats="G 0.28, G 0.19" threatsHint="G 0.28 – Software-Schwachstellen oder -Fehler · G 0.19 – Offenlegung schützenswerter Informationen" predecessors={[{ oldId: "APP.3.1.A14-UA.2", relationship: "intersects-with", link: "https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/06_APP_Anwendungen/APP_3_1_Webanwendungen_und_Webservices_Edition_2023.pdf?__blob=publicationFile&v=3#download=1" }, { oldId: "CON.8.A5-UA.9", relationship: "intersects-with", link: "https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/03_CON_Konzepte_und_Vorgehensweisen/CON_8_Software_Entwicklung_Edition_2023.pdf?__blob=publicationFile&v=3#download=1" }]} />
 
 > Entwicklung für Anwendungen SOLLTE das Hashing von Passwörtern, die zur Authentifizierung an der Anwendung verwendet werden vor der Verarbeitung oder Speicherung aktivieren.
 
@@ -167,7 +153,7 @@ Ziel ist der Schutz vor Angriffen, welche Passwörter beim Transport oder aus de
 
 ### DEV.4.1 – Nutzerinformation bei kritischen Ereignissen
 
-**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.36, G 0.29
+<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="2" threats="G 0.36, G 0.29" threatsHint="G 0.36 – Identitätsdiebstahl · G 0.29 – Verstoß gegen Gesetze oder Regelungen" />
 
 > Entwicklung für Anwendungen SOLLTE bei sicherheitskritischen Ereignissen die betroffenen Nutzenden informieren.
 
@@ -175,9 +161,7 @@ Z.B. bei Anmeldung von neuen Geräten, Zurücksetzen des Passwortes, ungewöhnli
 
 ### DEV.4.2 – Einbindung externer Software
 
-**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.28, G 0.46, G 0.20
-
-**Vorgänger:** [CON.8.A6-UA.1](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/03_CON_Konzepte_und_Vorgehensweisen/CON_8_Software_Entwicklung_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (entspricht)
+<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="2" threats="G 0.28, G 0.46, G 0.20" threatsHint="G 0.28 – Software-Schwachstellen oder -Fehler · G 0.46 – Integritätsverlust schützenswerter Informationen · G 0.20 – Informationen oder Produkte aus unzuverlässiger Quelle" predecessors={[{ oldId: "CON.8.A6-UA.1", relationship: "equivalent-to", link: "https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/03_CON_Konzepte_und_Vorgehensweisen/CON_8_Software_Entwicklung_Edition_2023.pdf?__blob=publicationFile&v=3#download=1" }]} />
 
 > Entwicklung für Anwendungen SOLLTE die Einbindung externer Softwareartefakte und -Schnittstellen aus unzuverlässigen oder unbekannten Quellen untersagen.
 
@@ -185,9 +169,7 @@ Externe Softwareartefakte sind in diesem Kontext nicht von der Institution entwi
 
 ### DEV.4.3 – Softwarebestandteile (SBOM)
 
-**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.18, G 0.28
-
-**Vorgänger:** [APP.1.1.A10-UA.6](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/06_APP_Anwendungen/APP_1_1_Office_Produkte_Edition_2023.pdf?__blob=publicationFile&v=4#download=1) (umfasst) · [CON.8.A12-UA.3](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/03_CON_Konzepte_und_Vorgehensweisen/CON_8_Software_Entwicklung_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (überschneidet sich mit) · [CON.8.A12-UA.5](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/03_CON_Konzepte_und_Vorgehensweisen/CON_8_Software_Entwicklung_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (überschneidet sich mit)
+<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="3" threats="G 0.18, G 0.28" threatsHint="G 0.18 – Fehlplanung oder fehlende Anpassung · G 0.28 – Software-Schwachstellen oder -Fehler" predecessors={[{ oldId: "APP.1.1.A10-UA.6", relationship: "superset-of", link: "https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/06_APP_Anwendungen/APP_1_1_Office_Produkte_Edition_2023.pdf?__blob=publicationFile&v=4#download=1" }, { oldId: "CON.8.A12-UA.3", relationship: "intersects-with", link: "https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/03_CON_Konzepte_und_Vorgehensweisen/CON_8_Software_Entwicklung_Edition_2023.pdf?__blob=publicationFile&v=3#download=1" }, { oldId: "CON.8.A12-UA.5", relationship: "intersects-with", link: "https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/03_CON_Konzepte_und_Vorgehensweisen/CON_8_Software_Entwicklung_Edition_2023.pdf?__blob=publicationFile&v=3#download=1" }]} />
 
 > Entwicklung für Anwendungen SOLLTE die Bestandteile mit Hilfe einer Software Bill of Materials (SBOM) vor dem Release dokumentieren.
 
@@ -195,9 +177,7 @@ Details siehe BSI TR-03183-2. Anwendungen zur Modulverwaltung und Software Compo
 
 ### DEV.4.4 – Integrität externer Software
 
-**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.22, G 0.46
-
-**Vorgänger:** [APP.6.A3-UA.3](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/06_APP_Anwendungen/APP_6_Allgemeine_Software_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (überschneidet sich mit) · [CON.8.A20-UA.1](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/03_CON_Konzepte_und_Vorgehensweisen/CON_8_Software_Entwicklung_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (überschneidet sich mit) · [CON.8.A20-UA.3](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/03_CON_Konzepte_und_Vorgehensweisen/CON_8_Software_Entwicklung_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (umfasst) · [CON.8.A6-UA.1](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/03_CON_Konzepte_und_Vorgehensweisen/CON_8_Software_Entwicklung_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (entspricht) · [CON.8.A6-UA.2](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/03_CON_Konzepte_und_Vorgehensweisen/CON_8_Software_Entwicklung_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (umfasst) · [OPS.1.1.3.A10-UA.3](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/04_OPS_Betrieb/OPS_1_1_3_Patch_und_Aenderungsmanagement_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (umfasst)
+<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="4" threats="G 0.22, G 0.46" threatsHint="G 0.22 – Manipulation von Informationen · G 0.46 – Integritätsverlust schützenswerter Informationen" predecessors={[{ oldId: "APP.6.A3-UA.3", relationship: "intersects-with", link: "https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/06_APP_Anwendungen/APP_6_Allgemeine_Software_Edition_2023.pdf?__blob=publicationFile&v=3#download=1" }, { oldId: "CON.8.A20-UA.1", relationship: "intersects-with", link: "https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/03_CON_Konzepte_und_Vorgehensweisen/CON_8_Software_Entwicklung_Edition_2023.pdf?__blob=publicationFile&v=3#download=1" }, { oldId: "CON.8.A20-UA.3", relationship: "superset-of", link: "https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/03_CON_Konzepte_und_Vorgehensweisen/CON_8_Software_Entwicklung_Edition_2023.pdf?__blob=publicationFile&v=3#download=1" }, { oldId: "CON.8.A6-UA.1", relationship: "equivalent-to", link: "https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/03_CON_Konzepte_und_Vorgehensweisen/CON_8_Software_Entwicklung_Edition_2023.pdf?__blob=publicationFile&v=3#download=1" }, { oldId: "CON.8.A6-UA.2", relationship: "superset-of", link: "https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/03_CON_Konzepte_und_Vorgehensweisen/CON_8_Software_Entwicklung_Edition_2023.pdf?__blob=publicationFile&v=3#download=1" }, { oldId: "OPS.1.1.3.A10-UA.3", relationship: "superset-of", link: "https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/04_OPS_Betrieb/OPS_1_1_3_Patch_und_Aenderungsmanagement_Edition_2023.pdf?__blob=publicationFile&v=3#download=1" }]} />
 
 > Entwicklung für Anwendungen SOLLTE die Integrität externer Softwareartefakte und -Schnittstellen vor dem Release testen.
 
@@ -205,7 +185,7 @@ Gemeint ist damit sowohl die technische Unversehrtheit (z. B. durch kryptografis
 
 ### DEV.4.5 – Updates externer Software
 
-**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.28
+<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="2" threats="G 0.28" threatsHint="G 0.28 – Software-Schwachstellen oder -Fehler" />
 
 > Entwicklung für Anwendungen SOLLTE externe Softwareartefakte auf Sicherheitsupdates vor dem Release testen.
 
@@ -213,7 +193,7 @@ Werden veraltete Softwareartefakte (z.B. Bibliotheken oder Container) in eine ve
 
 ### DEV.4.6 – Compileroptionen
 
-**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.28
+<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="3" threats="G 0.28" threatsHint="G 0.28 – Software-Schwachstellen oder -Fehler" />
 
 > Entwicklung für Anwendungen SOLLTE Compileroptionen für Sicherheitsfunktionen vor dem Release aktivieren.
 
@@ -221,7 +201,7 @@ Compileroptionen wie Stack Canaries, PIE, PIE, CFI können automatisch Schutzmec
 
 ### DEV.4.7 – Deterministischer Binärcode
 
-**Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.18, G 0.22, G 0.46
+<ControlMeta modalVerb="KANN" secLevel="erhöht" effort="5" threats="G 0.18, G 0.22, G 0.46" threatsHint="G 0.18 – Fehlplanung oder fehlende Anpassung · G 0.22 – Manipulation von Informationen · G 0.46 – Integritätsverlust schützenswerter Informationen" />
 
 > Entwicklung für Anwendungen KANN eine reproduzierbare Vorgehensweise zur Erstellung eines bestimmten Binärcodes aus dem Quellcode dokumentieren.
 
@@ -229,7 +209,7 @@ Ein bestimmter Binärcode meint hier eine reproduzierbare Anwendung (Reproducibl
 
 ### DEV.4.8 – Default-Zugangsdaten
 
-**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.18, G 0.30
+<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="2" threats="G 0.18, G 0.30" threatsHint="G 0.18 – Fehlplanung oder fehlende Anpassung · G 0.30 – Unberechtigte Nutzung oder Administration von Geräten und Systemen" />
 
 > Entwicklung für Anwendungen SOLLTE Default-Zugangsdaten vor dem Release dokumentieren.
 
@@ -237,9 +217,7 @@ Falls die Software Default-Zugangsdaten wie Passwörter oder Zertifikate enthäl
 
 ### DEV.4.9 – Voreinstellungen nach dem Prinzip "Security by Default"
 
-**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 1 · **Gefährdungen:** G 0.18, G 0.30
-
-**Vorgänger:** [APP.3.4.A3-UA.5](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/06_APP_Anwendungen/APP_3_4_Samba_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (Teilbereich von) · [SYS.1.1.A16-UA.7](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/07_SYS_IT_Systeme/SYS_1_1_Allgemeiner_Server_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (umfasst)
+<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="1" threats="G 0.18, G 0.30" threatsHint="G 0.18 – Fehlplanung oder fehlende Anpassung · G 0.30 – Unberechtigte Nutzung oder Administration von Geräten und Systemen" predecessors={[{ oldId: "APP.3.4.A3-UA.5", relationship: "subset-of", link: "https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/06_APP_Anwendungen/APP_3_4_Samba_Edition_2023.pdf?__blob=publicationFile&v=3#download=1" }, { oldId: "SYS.1.1.A16-UA.7", relationship: "superset-of", link: "https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/07_SYS_IT_Systeme/SYS_1_1_Allgemeiner_Server_Edition_2023.pdf?__blob=publicationFile&v=3#download=1" }]} />
 
 > Entwicklung für Anwendungen SOLLTE Voreinstellungen nach dem Prinzip "Security by Default" aktivieren.
 
@@ -247,9 +225,7 @@ Voreinstellungen sind die Parameter der Anwendung, mit denen diese im Auslieferu
 
 ### DEV.4.10 – Protokollierung von Codeänderungen
 
-**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 1 · **Gefährdungen:** G 0.37, G 0.22
-
-**Vorgänger:** [CON.8.A10-UA.3](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/03_CON_Konzepte_und_Vorgehensweisen/CON_8_Software_Entwicklung_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (entspricht)
+<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="1" threats="G 0.37, G 0.22" threatsHint="G 0.37 – Abstreiten von Handlungen · G 0.22 – Manipulation von Informationen" predecessors={[{ oldId: "CON.8.A10-UA.3", relationship: "equivalent-to", link: "https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/03_CON_Konzepte_und_Vorgehensweisen/CON_8_Software_Entwicklung_Edition_2023.pdf?__blob=publicationFile&v=3#download=1" }]} />
 
 > Entwicklung für Anwendungen SOLLTE Änderungen am Quellcode einschließlich Zeitpunkt, Inhalt der Änderung, ändernder Person und der Begründung der Änderung protokollieren.
 
@@ -257,7 +233,7 @@ Im Kontext dieser Anforderung bezeichnet Quellcode den in einer Programmiersprac
 
 ### DEV.4.11 – Test bei Änderungen am Quellcode
 
-**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.28, G 0.18
+<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="4" threats="G 0.28, G 0.18" threatsHint="G 0.28 – Software-Schwachstellen oder -Fehler · G 0.18 – Fehlplanung oder fehlende Anpassung" />
 
 > Entwicklung für Anwendungen SOLLTE Änderungen am Quellcode im Einklang mit den Verfahren und Regelungen für Änderungen und Tests testen.
 
@@ -267,7 +243,7 @@ Im Kontext dieser Anforderung bezeichnet Quellcode den in einer Programmiersprac
 
 ### DEV.5.1 – Verankerung des Zeitraums für Updates
 
-**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.28, G 0.18
+<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="2" threats="G 0.28, G 0.18" threatsHint="G 0.28 – Software-Schwachstellen oder -Fehler · G 0.18 – Fehlplanung oder fehlende Anpassung" />
 
 > Entwicklung für Anwendungen SOLLTE die Bereitstellung von Sicherheitsupdates mindestens für *[einen bestimmten Zeitraum]* verankern.
 
@@ -275,7 +251,7 @@ Hierbei wird festgelegt, für welchen konkreten Zeitraum Sicherheitsaktualisieru
 
 ### DEV.5.2 – Information über Zeitraum für Updates
 
-**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.18, G 0.29
+<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="2" threats="G 0.18, G 0.29" threatsHint="G 0.18 – Fehlplanung oder fehlende Anpassung · G 0.29 – Verstoß gegen Gesetze oder Regelungen" />
 
 > Entwicklung für Anwendungen SOLLTE Auftraggeber über den festgelegten Zeitraum für Sicherheitsupdates informieren.
 
@@ -283,9 +259,7 @@ Stellen Sie den Empfängern der Software Informationen darüber bereit, wie lang
 
 ### DEV.5.3 – Integritätsprüfung
 
-**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.20, G 0.22, G 0.46
-
-**Vorgänger:** [APP.1.1.A16-UA.1](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/06_APP_Anwendungen/APP_1_1_Office_Produkte_Edition_2023.pdf?__blob=publicationFile&v=4#download=1) (überschneidet sich mit) · [APP.6.A3-UA.3](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/06_APP_Anwendungen/APP_6_Allgemeine_Software_Edition_2023.pdf?__blob=publicationFile&v=3#download=1) (überschneidet sich mit)
+<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="2" threats="G 0.20, G 0.22, G 0.46" threatsHint="G 0.20 – Informationen oder Produkte aus unzuverlässiger Quelle · G 0.22 – Manipulation von Informationen · G 0.46 – Integritätsverlust schützenswerter Informationen" predecessors={[{ oldId: "APP.1.1.A16-UA.1", relationship: "intersects-with", link: "https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/06_APP_Anwendungen/APP_1_1_Office_Produkte_Edition_2023.pdf?__blob=publicationFile&v=4#download=1" }, { oldId: "APP.6.A3-UA.3", relationship: "intersects-with", link: "https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/06_APP_Anwendungen/APP_6_Allgemeine_Software_Edition_2023.pdf?__blob=publicationFile&v=3#download=1" }]} />
 
 > Entwicklung für Anwendungen SOLLTE Nutzende über Möglichkeiten zur Verifikation der Integrität von Installations-, Update- und Patchdateien informieren.
 
@@ -295,7 +269,7 @@ Dies kann z.B. durch die Veröffentlichung von Prüfsummen über einen authentif
 
 ### DEV.6.1 – Freigabe nach Änderungen und Tests
 
-**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.18, G 0.25, G 0.26
+<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="3" threats="G 0.18, G 0.25, G 0.26" threatsHint="G 0.18 – Fehlplanung oder fehlende Anpassung · G 0.25 – Ausfall von Geräten oder Systemen · G 0.26 – Fehlfunktion von Geräten oder Systemen" />
 
 > Entwicklung SOLLTE die Freigabe zur Nutzung im Einklang mit den entsprechenden Verfahren und Regelungen für Änderungen und Tests autorisieren.
 
@@ -305,7 +279,7 @@ Eine Freigabe zur Nutzung (Release) meint hier die formelle und autorisierte Üb
 
 ### DEV.7.1 – Sichere Bereitstellung
 
-**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.18, G 0.25, G 0.26
+<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="3" threats="G 0.18, G 0.25, G 0.26" threatsHint="G 0.18 – Fehlplanung oder fehlende Anpassung · G 0.25 – Ausfall von Geräten oder Systemen · G 0.26 – Fehlfunktion von Geräten oder Systemen" />
 
 > Entwicklung SOLLTE die Bereitstellung im Einklang mit den entsprechenden Verfahren und Regelungen für Änderungen und Tests verankern.
 
@@ -313,7 +287,7 @@ Die Bereitstellung ist der Prozessschritt, durch den eine neu entwickelte oder g
 
 ### DEV.7.2 – Zertifikatsmonitoring
 
-**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.36, G 0.43
+<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="2" threats="G 0.36, G 0.43" threatsHint="G 0.36 – Identitätsdiebstahl · G 0.43 – Einspielen von Nachrichten" />
 
 > Entwicklung für Anwendungen SOLLTE die Ausstellung neuer Zertifikate für die von der Anwendung verwendeten Domains überwachen.
 

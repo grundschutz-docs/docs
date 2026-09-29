@@ -1,0 +1,352 @@
+---
+title: "Für Geschäftsführung"
+description: "Pflicht-Anforderungen, Einstufungskriterien und Haftungsrahmen auf einen Blick."
+---
+
+import GfFilter from '../../../components/GfFilter.astro';
+
+> Diese Seite ersetzt keine Rechts- oder Haftungsberatung. Sie ordnet öffentliche Quellen ein (den BSI-Katalog und geltendes Gesetzesrecht) — eine Bewertung des Einzelfalls kann nur eine Rechtsanwältin, ein Rechtsanwalt oder eine Wirtschaftsprüfung vornehmen.
+
+## Auf einen Blick
+
+**123 von 874 Anforderungen im gesamten Katalog sind MUSS** — uneingeschränkt zu erfüllen, unabhängig vom individuellen Risikoappetit (RFC2119 / DIN 820-2:2022, Anhang H). Das ist die Teilmenge, die aus Governance-Sicht zuerst zählt.
+
+## Bin ich überhaupt betroffen?
+
+Das BSI-Gesetz (BSIG, Fassung seit 2.12.2025) unterscheidet zwei Kategorien nach § 28 BSIG:
+
+- **Besonders wichtige Einrichtung**: unabhängig von der Größe, wenn du Betreiber:in einer kritischen Anlage (KRITIS), qualifizierter Vertrauensdiensteanbieter, Top-Level-Domain-Registry oder DNS-Diensteanbieter bist. Sonst: mind. 250 Mitarbeitende **oder** über 50 Mio. € Jahresumsatz **und** über 43 Mio. € Jahresbilanzsumme, in einem Sektor nach Anlage 1 BSIG.
+- **Wichtige Einrichtung**: mind. 50 Mitarbeitende **oder** über 10 Mio. € Jahresumsatz **und** über 10 Mio. € Jahresbilanzsumme, in einem Sektor nach Anlage 1 oder 2 BSIG.
+
+Kleinere Einrichtungen außerhalb kritischer Sektoren fallen in der Regel nicht darunter. Diese Kriterien ersetzen keine Schutzbedarfsfeststellung — sie helfen nur bei der ersten Einordnung mit euren eigenen Zahlen.
+
+*Primärquelle: [§ 28 BSIG](https://www.gesetze-im-internet.de/bsig_2025/BJNR12D0B0025.html).*
+
+## Was schreibt das Gesetz meiner Geschäftsleitung vor?
+
+Nach § 38 BSIG muss die Geschäftsleitung besonders wichtiger und wichtiger Einrichtungen die Risikomanagementmaßnahmen (§ 30 BSIG) **umsetzen und ihre Umsetzung überwachen** — und **regelmäßig an Schulungen** zu IT-Sicherheits-Risikomanagement teilnehmen. Diese Schulungspflicht ist konkret und wenig bekannt.
+
+*Primärquelle: [§ 38 BSIG](https://www.gesetze-im-internet.de/bsig_2025/BJNR12D0B0025.html).*
+
+## Wie sieht die Haftung konkret aus?
+
+§ 38 Abs. 2 BSIG verweist auf das jeweils geltende Gesellschaftsrecht: Haftung bei Pflichtverletzung ist zunächst **Innenhaftung gegenüber der eigenen Einrichtung**, nicht automatisch gegenüber Dritten. Für die GmbH gilt § 43 GmbHG ("Sorgfalt eines ordentlichen Geschäftsmannes", gesamtschuldnerische Haftung, Verjährung 5 Jahre), für die AG § 93 AktG mit einem entlastenden Detail: keine Pflichtverletzung liegt vor, wenn "vernünftigerweise angenommen werden durfte, auf Grundlage angemessener Information zum Wohle der Gesellschaft zu handeln" (Business Judgment Rule, § 93 Abs. 1 Satz 2 AktG) — eine dokumentierte, informierte Entscheidung schützt. Ein nachvollziehbarer, öffentlich anerkannter Katalog wie Grundschutz++ ist genau das: ein Beleg für eine solche informierte Entscheidung, keine Garantie gegen Haftung.
+
+*Primärquellen: [§ 43 GmbHG](https://www.gesetze-im-internet.de/gmbhg/__43.html), [§ 93 AktG](https://www.gesetze-im-internet.de/aktg/__93.html).*
+
+## Sinnvolle Kennzahlen
+
+Diese Seite berechnet keinen Umsetzungsstatus für eure Organisation — dafür bräuchte es eine tatsächliche Bestandsaufnahme, keine statische Katalogseite. Als Rahmen für die eigene Berichterstattung eignen sich üblicherweise:
+
+- Anteil umgesetzter MUSS-Anforderungen (Zähler/Nenner wie oben, aber mit eurem tatsächlichen Stand)
+- Anzahl offener SOLLTE-Empfehlungen mit dokumentierter Begründung, falls nicht umgesetzt
+- Alter der letzten Schutzbedarfsfeststellung bzw. Risikobewertung
+- Datum der letzten Schulungsteilnahme der Geschäftsleitung (§ 38 Abs. 3 BSIG)
+
+<GfFilter mussTotal={123} mussNormalSdt={123} />
+
+## Die MUSS-Anforderungen nach Bereich
+
+<div class="rollen-section" data-group="GC">
+### GC Governance und Compliance
+<table class="vergleich-table rollen-muss-table">
+<thead><tr><th>Anforderung</th><th>Stufe</th></tr></thead>
+<tbody>
+<tr data-sec="normal-SdT"><td><a class="new-id" href="/grundschutzpp/gc/">GC.1.1 – Errichtung und Aufrechterhaltung eines ISMS</a></td><td>Standard-Sicherheitsstufe</td></tr>
+<tr data-sec="normal-SdT"><td><a class="new-id" href="/grundschutzpp/gc/">GC.1.2 – Freigabe des ISMS</a></td><td>Standard-Sicherheitsstufe</td></tr>
+<tr data-sec="normal-SdT"><td><a class="new-id" href="/grundschutzpp/gc/">GC.2.1 – Festlegung des externen Kontextes der Institution</a></td><td>Standard-Sicherheitsstufe</td></tr>
+<tr data-sec="normal-SdT"><td><a class="new-id" href="/grundschutzpp/gc/">GC.2.2 – Festlegung des internen Kontextes der Institution</a></td><td>Standard-Sicherheitsstufe</td></tr>
+<tr data-sec="normal-SdT"><td><a class="new-id" href="/grundschutzpp/gc/">GC.3.1.1 – Gesetzliche Verpflichtungen</a></td><td>Standard-Sicherheitsstufe</td></tr>
+<tr data-sec="normal-SdT"><td><a class="new-id" href="/grundschutzpp/gc/">GC.4.1 – Analyse der externen interessierten Parteien</a></td><td>Standard-Sicherheitsstufe</td></tr>
+<tr data-sec="normal-SdT"><td><a class="new-id" href="/grundschutzpp/gc/">GC.4.2 – Analyse der internen interessierten Parteien</a></td><td>Standard-Sicherheitsstufe</td></tr>
+<tr data-sec="normal-SdT"><td><a class="new-id" href="/grundschutzpp/gc/">GC.5.1.1 – Festlegung einer Sicherheitsstrategie</a></td><td>Standard-Sicherheitsstufe</td></tr>
+<tr data-sec="normal-SdT"><td><a class="new-id" href="/grundschutzpp/gc/">GC.5.1.2 – Verpflichtung der Institutionsleitung</a></td><td>Standard-Sicherheitsstufe</td></tr>
+<tr data-sec="normal-SdT"><td><a class="new-id" href="/grundschutzpp/gc/">GC.5.1.3 – Erstellung einer Sicherheitsleitlinie</a></td><td>Standard-Sicherheitsstufe</td></tr>
+<tr data-sec="normal-SdT"><td><a class="new-id" href="/grundschutzpp/gc/">GC.5.1.4 – Freigabe der Sicherheitsleitlinie</a></td><td>Standard-Sicherheitsstufe</td></tr>
+<tr data-sec="normal-SdT"><td><a class="new-id" href="/grundschutzpp/gc/">GC.6.1 – Festlegung des Geltungsbereichs</a></td><td>Standard-Sicherheitsstufe</td></tr>
+<tr data-sec="normal-SdT"><td><a class="new-id" href="/grundschutzpp/gc/">GC.7.1.1 – Festlegung der Geschäftsprozesse</a></td><td>Standard-Sicherheitsstufe</td></tr>
+<tr data-sec="normal-SdT"><td><a class="new-id" href="/grundschutzpp/gc/">GC.7.1.2 – Festlegung des Schutzbedarfs</a></td><td>Standard-Sicherheitsstufe</td></tr>
+<tr data-sec="normal-SdT"><td><a class="new-id" href="/grundschutzpp/gc/">GC.7.2 – Geschäftsprozesse mit hohem Schutzbedarf</a></td><td>Standard-Sicherheitsstufe</td></tr>
+<tr data-sec="normal-SdT"><td><a class="new-id" href="/grundschutzpp/gc/">GC.8.1 – Verfahren zur Ressourcenplanung</a></td><td>Standard-Sicherheitsstufe</td></tr>
+<tr data-sec="normal-SdT"><td><a class="new-id" href="/grundschutzpp/gc/">GC.9.1.1.1.1 – Ressourcen für den Informationssicherheitsbeauftragten</a></td><td>Standard-Sicherheitsstufe</td></tr>
+<tr data-sec="normal-SdT"><td><a class="new-id" href="/grundschutzpp/gc/">GC.9.1.1.1.2 – Vorspracherecht</a></td><td>Standard-Sicherheitsstufe</td></tr>
+<tr data-sec="normal-SdT"><td><a class="new-id" href="/grundschutzpp/gc/">GC.9.1.1.2 – Stellvertreterregelungen</a></td><td>Standard-Sicherheitsstufe</td></tr>
+<tr data-sec="normal-SdT"><td><a class="new-id" href="/grundschutzpp/gc/">GC.9.1.1.3 – Vermeidung von Interessenkonflikten</a></td><td>Standard-Sicherheitsstufe</td></tr>
+<tr data-sec="normal-SdT"><td><a class="new-id" href="/grundschutzpp/gc/">GC.9.1.1.4 – Sicherstellung der Qualifikation</a></td><td>Standard-Sicherheitsstufe</td></tr>
+<tr data-sec="normal-SdT"><td><a class="new-id" href="/grundschutzpp/gc/">GC.10.1.2 – Kommunikation im Projektmanagement</a></td><td>Standard-Sicherheitsstufe</td></tr>
+<tr data-sec="normal-SdT"><td><a class="new-id" href="/grundschutzpp/gc/">GC.11.1 – Dokumentenlenkung</a></td><td>Standard-Sicherheitsstufe</td></tr>
+<tr data-sec="normal-SdT"><td><a class="new-id" href="/grundschutzpp/gc/">GC.12.1 – Methodik für das Risikomanagement</a></td><td>Standard-Sicherheitsstufe</td></tr>
+</tbody>
+</table>
+</div>
+
+<div class="rollen-section" data-group="STM">
+### STM Strukturmodellierung
+<table class="vergleich-table rollen-muss-table">
+<thead><tr><th>Anforderung</th><th>Stufe</th></tr></thead>
+<tbody>
+<tr data-sec="normal-SdT"><td><a class="new-id" href="/grundschutzpp/stm/">STM.1.1 – Definition und Abgrenzung des Informationsverbunds</a></td><td>Standard-Sicherheitsstufe</td></tr>
+<tr data-sec="normal-SdT"><td><a class="new-id" href="/grundschutzpp/stm/">STM.1.2 – Dokumentation der externen Schnittstellen</a></td><td>Standard-Sicherheitsstufe</td></tr>
+<tr data-sec="normal-SdT"><td><a class="new-id" href="/grundschutzpp/stm/">STM.2.1.1 – ISMS-Anforderungen</a></td><td>Standard-Sicherheitsstufe</td></tr>
+<tr data-sec="normal-SdT"><td><a class="new-id" href="/grundschutzpp/stm/">STM.2.1.2 – Erfassung relevanter Assets</a></td><td>Standard-Sicherheitsstufe</td></tr>
+<tr data-sec="normal-SdT"><td><a class="new-id" href="/grundschutzpp/stm/">STM.2.1.3 – Mapping der Assets auf Zielobjektkategorien</a></td><td>Standard-Sicherheitsstufe</td></tr>
+<tr data-sec="normal-SdT"><td><a class="new-id" href="/grundschutzpp/stm/">STM.2.1.4.1 – Vererbung von Zielobjektkategorien</a></td><td>Standard-Sicherheitsstufe</td></tr>
+<tr data-sec="normal-SdT"><td><a class="new-id" href="/grundschutzpp/stm/">STM.2.1.4.2 – Konsolidierung und Redundanzprüfung</a></td><td>Standard-Sicherheitsstufe</td></tr>
+<tr data-sec="normal-SdT"><td><a class="new-id" href="/grundschutzpp/stm/">STM.2.1.5 – Modellierung der Anforderungen ohne Zielobjektkategorie</a></td><td>Standard-Sicherheitsstufe</td></tr>
+<tr data-sec="normal-SdT"><td><a class="new-id" href="/grundschutzpp/stm/">STM.2.1.6 – Aufgrund anforderungsloser Assets</a></td><td>Standard-Sicherheitsstufe</td></tr>
+<tr data-sec="normal-SdT"><td><a class="new-id" href="/grundschutzpp/stm/">STM.2.1.7 – Aufgrund externer Verpflichtungen</a></td><td>Standard-Sicherheitsstufe</td></tr>
+<tr data-sec="normal-SdT"><td><a class="new-id" href="/grundschutzpp/stm/">STM.4.1 – Durchführung der Risikobetrachtung</a></td><td>Standard-Sicherheitsstufe</td></tr>
+<tr data-sec="normal-SdT"><td><a class="new-id" href="/grundschutzpp/stm/">STM.5.1 – Setzen von Parametern</a></td><td>Standard-Sicherheitsstufe</td></tr>
+</tbody>
+</table>
+</div>
+
+<div class="rollen-section" data-group="UMS">
+### UMS Umsetzung
+<table class="vergleich-table rollen-muss-table">
+<thead><tr><th>Anforderung</th><th>Stufe</th></tr></thead>
+<tbody>
+<tr data-sec="normal-SdT"><td><a class="new-id" href="/grundschutzpp/ums/">UMS.1.1 – Ermittlung des Umsetzungsstatus</a></td><td>Standard-Sicherheitsstufe</td></tr>
+<tr data-sec="normal-SdT"><td><a class="new-id" href="/grundschutzpp/ums/">UMS.2.1 – Umsetzungsplanung</a></td><td>Standard-Sicherheitsstufe</td></tr>
+<tr data-sec="normal-SdT"><td><a class="new-id" href="/grundschutzpp/ums/">UMS.2.2 – Priorisierung von Maßnahmen</a></td><td>Standard-Sicherheitsstufe</td></tr>
+<tr data-sec="normal-SdT"><td><a class="new-id" href="/grundschutzpp/ums/">UMS.3.1 – Benennung von Umsetzungszuständigen</a></td><td>Standard-Sicherheitsstufe</td></tr>
+<tr data-sec="normal-SdT"><td><a class="new-id" href="/grundschutzpp/ums/">UMS.4.1 – Festlegung von Umsetzungsfristen</a></td><td>Standard-Sicherheitsstufe</td></tr>
+<tr data-sec="normal-SdT"><td><a class="new-id" href="/grundschutzpp/ums/">UMS.5.1 – Autorisierung von Ausnahmen</a></td><td>Standard-Sicherheitsstufe</td></tr>
+<tr data-sec="normal-SdT"><td><a class="new-id" href="/grundschutzpp/ums/">UMS.5.2 – Dokumentation von Ausnahmen</a></td><td>Standard-Sicherheitsstufe</td></tr>
+<tr data-sec="normal-SdT"><td><a class="new-id" href="/grundschutzpp/ums/">UMS.6.1 – Nachverfolgung des Umsetzungsfortschritts</a></td><td>Standard-Sicherheitsstufe</td></tr>
+<tr data-sec="normal-SdT"><td><a class="new-id" href="/grundschutzpp/ums/">UMS.6.2 – Fortschreibung des Umsetzungsplans</a></td><td>Standard-Sicherheitsstufe</td></tr>
+<tr data-sec="normal-SdT"><td><a class="new-id" href="/grundschutzpp/ums/">UMS.7.1 – Wahrung von Compliance in der Umsetzung</a></td><td>Standard-Sicherheitsstufe</td></tr>
+</tbody>
+</table>
+</div>
+
+<div class="rollen-section" data-group="VRB">
+### VRB Verbesserung
+<table class="vergleich-table rollen-muss-table">
+<thead><tr><th>Anforderung</th><th>Stufe</th></tr></thead>
+<tbody>
+<tr data-sec="normal-SdT"><td><a class="new-id" href="/grundschutzpp/vrb/">VRB.1.1 – Verfahren zur kontinuierlichen Verbesserung</a></td><td>Standard-Sicherheitsstufe</td></tr>
+<tr data-sec="normal-SdT"><td><a class="new-id" href="/grundschutzpp/vrb/">VRB.2.1 – Umgang mit Nicht-Konformitäten</a></td><td>Standard-Sicherheitsstufe</td></tr>
+<tr data-sec="normal-SdT"><td><a class="new-id" href="/grundschutzpp/vrb/">VRB.2.2 – Anpassung des ISMS</a></td><td>Standard-Sicherheitsstufe</td></tr>
+<tr data-sec="normal-SdT"><td><a class="new-id" href="/grundschutzpp/vrb/">VRB.3.1 – Identifikation von Verbesserungspotenzialen</a></td><td>Standard-Sicherheitsstufe</td></tr>
+<tr data-sec="normal-SdT"><td><a class="new-id" href="/grundschutzpp/vrb/">VRB.4.1 – Korrekturmaßnahmen</a></td><td>Standard-Sicherheitsstufe</td></tr>
+<tr data-sec="normal-SdT"><td><a class="new-id" href="/grundschutzpp/vrb/">VRB.4.2 – Verbesserungsmaßnahmen</a></td><td>Standard-Sicherheitsstufe</td></tr>
+<tr data-sec="normal-SdT"><td><a class="new-id" href="/grundschutzpp/vrb/">VRB.5.1 – Priorisierung von Maßnahmen</a></td><td>Standard-Sicherheitsstufe</td></tr>
+<tr data-sec="normal-SdT"><td><a class="new-id" href="/grundschutzpp/vrb/">VRB.6.1 – Überprüfung der erreichten Verbesserung</a></td><td>Standard-Sicherheitsstufe</td></tr>
+</tbody>
+</table>
+</div>
+
+<div class="rollen-section" data-group="PERF">
+### PERF Monitoring-Evaluation
+<table class="vergleich-table rollen-muss-table">
+<thead><tr><th>Anforderung</th><th>Stufe</th></tr></thead>
+<tbody>
+<tr data-sec="normal-SdT"><td><a class="new-id" href="/grundschutzpp/perf/">PERF.1.1 – Verfahren und Regelungen</a></td><td>Standard-Sicherheitsstufe</td></tr>
+<tr data-sec="normal-SdT"><td><a class="new-id" href="/grundschutzpp/perf/">PERF.1.2 – Evaluation des Umsetzungsplans</a></td><td>Standard-Sicherheitsstufe</td></tr>
+<tr data-sec="normal-SdT"><td><a class="new-id" href="/grundschutzpp/perf/">PERF.1.3 – Aktualität der Anforderungen</a></td><td>Standard-Sicherheitsstufe</td></tr>
+<tr data-sec="normal-SdT"><td><a class="new-id" href="/grundschutzpp/perf/">PERF.3.1.2 – Planen von internen Audits</a></td><td>Standard-Sicherheitsstufe</td></tr>
+<tr data-sec="normal-SdT"><td><a class="new-id" href="/grundschutzpp/perf/">PERF.3.1.3 – Auswahl des Auditteams</a></td><td>Standard-Sicherheitsstufe</td></tr>
+<tr data-sec="normal-SdT"><td><a class="new-id" href="/grundschutzpp/perf/">PERF.3.1.4 – Umfang von Audits</a></td><td>Standard-Sicherheitsstufe</td></tr>
+<tr data-sec="normal-SdT"><td><a class="new-id" href="/grundschutzpp/perf/">PERF.3.2.2 – Kommunikation an Stakeholder</a></td><td>Standard-Sicherheitsstufe</td></tr>
+<tr data-sec="normal-SdT"><td><a class="new-id" href="/grundschutzpp/perf/">PERF.4.1.9 – Maßnahmenvorschläge</a></td><td>Standard-Sicherheitsstufe</td></tr>
+<tr data-sec="normal-SdT"><td><a class="new-id" href="/grundschutzpp/perf/">PERF.4.2 – Bericht an die Institutionsleitung</a></td><td>Standard-Sicherheitsstufe</td></tr>
+<tr data-sec="normal-SdT"><td><a class="new-id" href="/grundschutzpp/perf/">PERF.5.1 – Methoden und Tools</a></td><td>Standard-Sicherheitsstufe</td></tr>
+</tbody>
+</table>
+</div>
+
+<div class="rollen-section" data-group="RISK">
+### RISK Risikomanagement
+<table class="vergleich-table rollen-muss-table">
+<thead><tr><th>Anforderung</th><th>Stufe</th></tr></thead>
+<tbody>
+<tr data-sec="normal-SdT"><td><a class="new-id" href="/grundschutzpp/risk/">RISK.1.1 – Methodik für das Risikomanagement</a></td><td>Standard-Sicherheitsstufe</td></tr>
+<tr data-sec="normal-SdT"><td><a class="new-id" href="/grundschutzpp/risk/">RISK.1.3 – Risikoeigentümer</a></td><td>Standard-Sicherheitsstufe</td></tr>
+<tr data-sec="normal-SdT"><td><a class="new-id" href="/grundschutzpp/risk/">RISK.1.5 – Freigabe des Risikomanagements</a></td><td>Standard-Sicherheitsstufe</td></tr>
+<tr data-sec="normal-SdT"><td><a class="new-id" href="/grundschutzpp/risk/">RISK.1.10 – Freigabe der Umsetzungsplanung</a></td><td>Standard-Sicherheitsstufe</td></tr>
+</tbody>
+</table>
+</div>
+
+<div class="rollen-section" data-group="ASST">
+### ASST Informationen und Assets
+<table class="vergleich-table rollen-muss-table">
+<thead><tr><th>Anforderung</th><th>Stufe</th></tr></thead>
+<tbody>
+<tr data-sec="normal-SdT"><td><a class="new-id" href="/grundschutzpp/asst/">ASST.1.1.1 – Dokumentation</a></td><td>Standard-Sicherheitsstufe</td></tr>
+<tr data-sec="normal-SdT"><td><a class="new-id" href="/grundschutzpp/asst/">ASST.1.1.2 – Zuweisung der Aufgaben</a></td><td>Standard-Sicherheitsstufe</td></tr>
+<tr data-sec="normal-SdT"><td><a class="new-id" href="/grundschutzpp/asst/">ASST.1.1.3 – Bekanntgabe</a></td><td>Standard-Sicherheitsstufe</td></tr>
+<tr data-sec="normal-SdT"><td><a class="new-id" href="/grundschutzpp/asst/">ASST.1.2 – Regelmäßige Überprüfung</a></td><td>Standard-Sicherheitsstufe</td></tr>
+</tbody>
+</table>
+</div>
+
+<div class="rollen-section" data-group="PERS">
+### PERS Personal
+<table class="vergleich-table rollen-muss-table">
+<thead><tr><th>Anforderung</th><th>Stufe</th></tr></thead>
+<tbody>
+<tr data-sec="normal-SdT"><td><a class="new-id" href="/grundschutzpp/pers/">PERS.1.1.1 – Dokumentation</a></td><td>Standard-Sicherheitsstufe</td></tr>
+<tr data-sec="normal-SdT"><td><a class="new-id" href="/grundschutzpp/pers/">PERS.1.1.2 – Zuweisung der Aufgaben</a></td><td>Standard-Sicherheitsstufe</td></tr>
+<tr data-sec="normal-SdT"><td><a class="new-id" href="/grundschutzpp/pers/">PERS.1.1.3 – Bekanntgabe</a></td><td>Standard-Sicherheitsstufe</td></tr>
+<tr data-sec="normal-SdT"><td><a class="new-id" href="/grundschutzpp/pers/">PERS.1.2 – Regelmäßige Überprüfung</a></td><td>Standard-Sicherheitsstufe</td></tr>
+</tbody>
+</table>
+</div>
+
+<div class="rollen-section" data-group="BES">
+### BES Beschaffungsmanagement
+<table class="vergleich-table rollen-muss-table">
+<thead><tr><th>Anforderung</th><th>Stufe</th></tr></thead>
+<tbody>
+<tr data-sec="normal-SdT"><td><a class="new-id" href="/grundschutzpp/bes/">BES.1.1.1 – Dokumentation</a></td><td>Standard-Sicherheitsstufe</td></tr>
+<tr data-sec="normal-SdT"><td><a class="new-id" href="/grundschutzpp/bes/">BES.1.1.2 – Zuweisung der Aufgaben</a></td><td>Standard-Sicherheitsstufe</td></tr>
+<tr data-sec="normal-SdT"><td><a class="new-id" href="/grundschutzpp/bes/">BES.1.1.3 – Bekanntgabe</a></td><td>Standard-Sicherheitsstufe</td></tr>
+<tr data-sec="normal-SdT"><td><a class="new-id" href="/grundschutzpp/bes/">BES.1.2 – Regelmäßige Überprüfung</a></td><td>Standard-Sicherheitsstufe</td></tr>
+</tbody>
+</table>
+</div>
+
+<div class="rollen-section" data-group="DLS">
+### DLS Dienstleistersteuerung
+<table class="vergleich-table rollen-muss-table">
+<thead><tr><th>Anforderung</th><th>Stufe</th></tr></thead>
+<tbody>
+<tr data-sec="normal-SdT"><td><a class="new-id" href="/grundschutzpp/dls/">DLS.1.1.1 – Dokumentation</a></td><td>Standard-Sicherheitsstufe</td></tr>
+<tr data-sec="normal-SdT"><td><a class="new-id" href="/grundschutzpp/dls/">DLS.1.1.2 – Zuweisung der Aufgaben</a></td><td>Standard-Sicherheitsstufe</td></tr>
+<tr data-sec="normal-SdT"><td><a class="new-id" href="/grundschutzpp/dls/">DLS.1.1.3 – Bekanntgabe</a></td><td>Standard-Sicherheitsstufe</td></tr>
+<tr data-sec="normal-SdT"><td><a class="new-id" href="/grundschutzpp/dls/">DLS.1.2 – Regelmäßige Überprüfung</a></td><td>Standard-Sicherheitsstufe</td></tr>
+</tbody>
+</table>
+</div>
+
+<div class="rollen-section" data-group="TEST">
+### TEST Änderungen und Tests
+<table class="vergleich-table rollen-muss-table">
+<thead><tr><th>Anforderung</th><th>Stufe</th></tr></thead>
+<tbody>
+<tr data-sec="normal-SdT"><td><a class="new-id" href="/grundschutzpp/test/">TEST.1.1.1 – Dokumentation</a></td><td>Standard-Sicherheitsstufe</td></tr>
+<tr data-sec="normal-SdT"><td><a class="new-id" href="/grundschutzpp/test/">TEST.1.1.2 – Zuweisung der Aufgaben</a></td><td>Standard-Sicherheitsstufe</td></tr>
+<tr data-sec="normal-SdT"><td><a class="new-id" href="/grundschutzpp/test/">TEST.1.1.3 – Bekanntgabe</a></td><td>Standard-Sicherheitsstufe</td></tr>
+<tr data-sec="normal-SdT"><td><a class="new-id" href="/grundschutzpp/test/">TEST.1.2 – Regelmäßige Überprüfung</a></td><td>Standard-Sicherheitsstufe</td></tr>
+</tbody>
+</table>
+</div>
+
+<div class="rollen-section" data-group="GEB">
+### GEB Gebäudemanagement
+<table class="vergleich-table rollen-muss-table">
+<thead><tr><th>Anforderung</th><th>Stufe</th></tr></thead>
+<tbody>
+<tr data-sec="normal-SdT"><td><a class="new-id" href="/grundschutzpp/geb/">GEB.1.1.1 – Dokumentation</a></td><td>Standard-Sicherheitsstufe</td></tr>
+<tr data-sec="normal-SdT"><td><a class="new-id" href="/grundschutzpp/geb/">GEB.1.1.2 – Zuweisung der Aufgaben</a></td><td>Standard-Sicherheitsstufe</td></tr>
+<tr data-sec="normal-SdT"><td><a class="new-id" href="/grundschutzpp/geb/">GEB.1.1.3 – Bekanntgabe</a></td><td>Standard-Sicherheitsstufe</td></tr>
+<tr data-sec="normal-SdT"><td><a class="new-id" href="/grundschutzpp/geb/">GEB.1.2 – Regelmäßige Überprüfung</a></td><td>Standard-Sicherheitsstufe</td></tr>
+</tbody>
+</table>
+</div>
+
+<div class="rollen-section" data-group="SENS">
+### SENS Sensibilisierung
+<table class="vergleich-table rollen-muss-table">
+<thead><tr><th>Anforderung</th><th>Stufe</th></tr></thead>
+<tbody>
+<tr data-sec="normal-SdT"><td><a class="new-id" href="/grundschutzpp/sens/">SENS.1.1.1 – Dokumentation</a></td><td>Standard-Sicherheitsstufe</td></tr>
+<tr data-sec="normal-SdT"><td><a class="new-id" href="/grundschutzpp/sens/">SENS.1.1.2 – Zuweisung der Aufgaben</a></td><td>Standard-Sicherheitsstufe</td></tr>
+<tr data-sec="normal-SdT"><td><a class="new-id" href="/grundschutzpp/sens/">SENS.1.1.3 – Bekanntgabe</a></td><td>Standard-Sicherheitsstufe</td></tr>
+</tbody>
+</table>
+</div>
+
+<div class="rollen-section" data-group="ARCH">
+### ARCH Architektur
+<table class="vergleich-table rollen-muss-table">
+<thead><tr><th>Anforderung</th><th>Stufe</th></tr></thead>
+<tbody>
+<tr data-sec="normal-SdT"><td><a class="new-id" href="/grundschutzpp/arch/">ARCH.1.1.1 – Dokumentation</a></td><td>Standard-Sicherheitsstufe</td></tr>
+<tr data-sec="normal-SdT"><td><a class="new-id" href="/grundschutzpp/arch/">ARCH.1.1.2 – Zuweisung der Aufgaben</a></td><td>Standard-Sicherheitsstufe</td></tr>
+<tr data-sec="normal-SdT"><td><a class="new-id" href="/grundschutzpp/arch/">ARCH.1.1.3 – Bekanntgabe</a></td><td>Standard-Sicherheitsstufe</td></tr>
+<tr data-sec="normal-SdT"><td><a class="new-id" href="/grundschutzpp/arch/">ARCH.1.2 – Regelmäßige Überprüfung</a></td><td>Standard-Sicherheitsstufe</td></tr>
+</tbody>
+</table>
+</div>
+
+<div class="rollen-section" data-group="BER">
+### BER Berechtigung
+<table class="vergleich-table rollen-muss-table">
+<thead><tr><th>Anforderung</th><th>Stufe</th></tr></thead>
+<tbody>
+<tr data-sec="normal-SdT"><td><a class="new-id" href="/grundschutzpp/ber/">BER.1.1.1 – Dokumentation</a></td><td>Standard-Sicherheitsstufe</td></tr>
+<tr data-sec="normal-SdT"><td><a class="new-id" href="/grundschutzpp/ber/">BER.1.1.2 – Zuweisung der Aufgaben</a></td><td>Standard-Sicherheitsstufe</td></tr>
+<tr data-sec="normal-SdT"><td><a class="new-id" href="/grundschutzpp/ber/">BER.1.1.3 – Bekanntgabe</a></td><td>Standard-Sicherheitsstufe</td></tr>
+<tr data-sec="normal-SdT"><td><a class="new-id" href="/grundschutzpp/ber/">BER.1.2 – Regelmäßige Überprüfung</a></td><td>Standard-Sicherheitsstufe</td></tr>
+</tbody>
+</table>
+</div>
+
+<div class="rollen-section" data-group="NOT">
+### NOT Notfallplanung
+<table class="vergleich-table rollen-muss-table">
+<thead><tr><th>Anforderung</th><th>Stufe</th></tr></thead>
+<tbody>
+<tr data-sec="normal-SdT"><td><a class="new-id" href="/grundschutzpp/not/">NOT.1.1.1 – Dokumentation</a></td><td>Standard-Sicherheitsstufe</td></tr>
+<tr data-sec="normal-SdT"><td><a class="new-id" href="/grundschutzpp/not/">NOT.1.1.2 – Zuweisung der Aufgaben</a></td><td>Standard-Sicherheitsstufe</td></tr>
+<tr data-sec="normal-SdT"><td><a class="new-id" href="/grundschutzpp/not/">NOT.1.1.3 – Bekanntgabe</a></td><td>Standard-Sicherheitsstufe</td></tr>
+<tr data-sec="normal-SdT"><td><a class="new-id" href="/grundschutzpp/not/">NOT.1.2 – Regelmäßige Überprüfung</a></td><td>Standard-Sicherheitsstufe</td></tr>
+</tbody>
+</table>
+</div>
+
+<div class="rollen-section" data-group="DET">
+### DET Detektion
+<table class="vergleich-table rollen-muss-table">
+<thead><tr><th>Anforderung</th><th>Stufe</th></tr></thead>
+<tbody>
+<tr data-sec="normal-SdT"><td><a class="new-id" href="/grundschutzpp/det/">DET.1.1.1 – Dokumentation</a></td><td>Standard-Sicherheitsstufe</td></tr>
+<tr data-sec="normal-SdT"><td><a class="new-id" href="/grundschutzpp/det/">DET.1.1.2 – Zuweisung der Aufgaben</a></td><td>Standard-Sicherheitsstufe</td></tr>
+<tr data-sec="normal-SdT"><td><a class="new-id" href="/grundschutzpp/det/">DET.1.1.3 – Bekanntgabe</a></td><td>Standard-Sicherheitsstufe</td></tr>
+<tr data-sec="normal-SdT"><td><a class="new-id" href="/grundschutzpp/det/">DET.1.2 – Regelmäßige Überprüfung</a></td><td>Standard-Sicherheitsstufe</td></tr>
+</tbody>
+</table>
+</div>
+
+<div class="rollen-section" data-group="REA">
+### REA Sicherheitsvorfallsbehandlung
+<table class="vergleich-table rollen-muss-table">
+<thead><tr><th>Anforderung</th><th>Stufe</th></tr></thead>
+<tbody>
+<tr data-sec="normal-SdT"><td><a class="new-id" href="/grundschutzpp/rea/">REA.1.1.1 – Dokumentation</a></td><td>Standard-Sicherheitsstufe</td></tr>
+<tr data-sec="normal-SdT"><td><a class="new-id" href="/grundschutzpp/rea/">REA.1.1.2 – Zuweisung der Aufgaben</a></td><td>Standard-Sicherheitsstufe</td></tr>
+<tr data-sec="normal-SdT"><td><a class="new-id" href="/grundschutzpp/rea/">REA.1.1.3 – Bekanntgabe</a></td><td>Standard-Sicherheitsstufe</td></tr>
+<tr data-sec="normal-SdT"><td><a class="new-id" href="/grundschutzpp/rea/">REA.1.2 – Regelmäßige Überprüfung</a></td><td>Standard-Sicherheitsstufe</td></tr>
+</tbody>
+</table>
+</div>
+
+<div class="rollen-section" data-group="KONF">
+### KONF Konfiguration
+<table class="vergleich-table rollen-muss-table">
+<thead><tr><th>Anforderung</th><th>Stufe</th></tr></thead>
+<tbody>
+<tr data-sec="normal-SdT"><td><a class="new-id" href="/grundschutzpp/konf/">KONF.1.1.1 – Dokumentation</a></td><td>Standard-Sicherheitsstufe</td></tr>
+<tr data-sec="normal-SdT"><td><a class="new-id" href="/grundschutzpp/konf/">KONF.1.1.2 – Zuweisung der Aufgaben</a></td><td>Standard-Sicherheitsstufe</td></tr>
+<tr data-sec="normal-SdT"><td><a class="new-id" href="/grundschutzpp/konf/">KONF.1.1.3 – Bekanntgabe</a></td><td>Standard-Sicherheitsstufe</td></tr>
+<tr data-sec="normal-SdT"><td><a class="new-id" href="/grundschutzpp/konf/">KONF.1.2 – Regelmäßige Überprüfung</a></td><td>Standard-Sicherheitsstufe</td></tr>
+</tbody>
+</table>
+</div>
+
+<div class="rollen-section" data-group="DEV">
+### DEV Entwicklung
+<table class="vergleich-table rollen-muss-table">
+<thead><tr><th>Anforderung</th><th>Stufe</th></tr></thead>
+<tbody>
+<tr data-sec="normal-SdT"><td><a class="new-id" href="/grundschutzpp/dev/">DEV.1.1.1 – Dokumentation</a></td><td>Standard-Sicherheitsstufe</td></tr>
+<tr data-sec="normal-SdT"><td><a class="new-id" href="/grundschutzpp/dev/">DEV.1.1.2 – Zuweisung der Aufgaben</a></td><td>Standard-Sicherheitsstufe</td></tr>
+<tr data-sec="normal-SdT"><td><a class="new-id" href="/grundschutzpp/dev/">DEV.1.1.3 – Bekanntgabe</a></td><td>Standard-Sicherheitsstufe</td></tr>
+<tr data-sec="normal-SdT"><td><a class="new-id" href="/grundschutzpp/dev/">DEV.1.2 – Regelmäßige Überprüfung</a></td><td>Standard-Sicherheitsstufe</td></tr>
+</tbody>
+</table>
+</div>
+

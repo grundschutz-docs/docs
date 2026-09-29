@@ -3,13 +3,15 @@ title: "DLS – Dienstleistersteuerung"
 description: "Die Praktik Dienstleistersteuerung regelt die kontinuierliche Überwachung und Steuerung externer Dienstleister, wie etwa Outsourcing-Partner oder Cloud-Anbieter."
 ---
 
+import ControlMeta from '../../../components/ControlMeta.astro';
+
 Die Praktik Dienstleistersteuerung regelt die kontinuierliche Überwachung und Steuerung externer Dienstleister, wie etwa Outsourcing-Partner oder Cloud-Anbieter. Sie stellt sicher, dass die erbrachten Leistungen den vereinbarten Sicherheitsanforderungen entsprechen und die Dienstleister ihre vertraglichen Verpflichtungen in Bezug auf die Informationssicherheit erfüllen. Im Gegensatz dazu befasst sich die Praktik Beschaffungsmanagement mit der Auswahl von Dienstleistern sowie der vertraglichen Absicherung, wobei die Integration von Informationssicherheitsanforderungen in den Beschaffungsprozess im Vordergrund steht. Während das Beschaffungsmanagement also die Grundlage für die Zusammenarbeit mit externen Dienstleistern schafft, übernimmt die Dienstleistersteuerung die fortlaufende Kontrolle und das Management dieser Beziehungen, um sicherzustellen, dass die vereinbarten Sicherheitsstandards auch langfristig eingehalten werden.
 
 ## DLS.1 Grundlagen
 
 ### DLS.1.1 – Verfahren und Regelungen
 
-**Pflicht:** MUSS · **Stufe:** `normal-SdT` · **Aufwand:** 0 · **Gefährdungen:** G 0.18
+<ControlMeta modalVerb="MUSS" secLevel="normal-SdT" effort="0" threats="G 0.18" threatsHint="G 0.18 – Fehlplanung oder fehlende Anpassung" />
 
 > Dienstleistersteuerung für Dienstleistungen MUSS ein Verfahren zur Steuerung und geordneten Beendigung von Dienstleistungsverträgen verankern.
 
@@ -17,7 +19,7 @@ Hierzu gehört die Kontrolle der Einhaltung von Vereinbarungen zur Sicherheit mi
 
 #### DLS.1.1.1 – Dokumentation
 
-**Pflicht:** MUSS · **Stufe:** `normal-SdT` · **Aufwand:** 0 · **Gefährdungen:** G 0.18, G 0.37
+<ControlMeta modalVerb="MUSS" secLevel="normal-SdT" effort="0" threats="G 0.18, G 0.37" threatsHint="G 0.18 – Fehlplanung oder fehlende Anpassung · G 0.37 – Abstreiten von Handlungen" />
 
 > Dienstleistersteuerung für Dienstleistungen MUSS die Verfahren und Regelungen dokumentieren.
 
@@ -25,7 +27,7 @@ Ohne eine Dokumentation könnte die Einhaltung der Verfahren und Regelungen von 
 
 #### DLS.1.1.2 – Zuweisung der Aufgaben
 
-**Pflicht:** MUSS · **Stufe:** `normal-SdT` · **Aufwand:** 0 · **Gefährdungen:** G 0.18, G 0.31
+<ControlMeta modalVerb="MUSS" secLevel="normal-SdT" effort="0" threats="G 0.18, G 0.31" threatsHint="G 0.18 – Fehlplanung oder fehlende Anpassung · G 0.31 – Fehlerhafte Nutzung oder Administration von Geräten und Systemen" />
 
 > Dienstleistersteuerung für Dienstleistungen MUSS die mit den Verfahren und Regelungen verbundenen Aufgaben *[zuständigen Personen oder Rollen]* zuweisen.
 
@@ -33,7 +35,7 @@ Die Zuweisung von Aufgaben bezeichnet die eindeutige und verbindliche Übertragu
 
 #### DLS.1.1.3 – Bekanntgabe
 
-**Pflicht:** MUSS · **Stufe:** `normal-SdT` · **Aufwand:** 0 · **Gefährdungen:** G 0.18, G 0.31
+<ControlMeta modalVerb="MUSS" secLevel="normal-SdT" effort="0" threats="G 0.18, G 0.31" threatsHint="G 0.18 – Fehlplanung oder fehlende Anpassung · G 0.31 – Fehlerhafte Nutzung oder Administration von Geräten und Systemen" />
 
 > Dienstleistersteuerung für Dienstleistungen MUSS die zuständigen Personen oder Rollen über die Verfahren und Regelungen informieren.
 
@@ -41,7 +43,7 @@ Wenn die Zuständigen die etablierten Verfahren nicht kennen, besteht die Gefahr
 
 ### DLS.1.2 – Regelmäßige Überprüfung
 
-**Pflicht:** MUSS · **Stufe:** `normal-SdT` · **Aufwand:** 0 · **Gefährdungen:** G 0.18
+<ControlMeta modalVerb="MUSS" secLevel="normal-SdT" effort="0" threats="G 0.18" threatsHint="G 0.18 – Fehlplanung oder fehlende Anpassung" />
 
 > Dienstleistersteuerung für Dienstleistungen MUSS die Verfahren und Regelungen *[regelmäßig]* und anlassbezogen auf Aktualität überprüfen.
 
@@ -51,7 +53,7 @@ Eine geplante Überprüfung der etablierten Verfahren und Regelungen dient dazu 
 
 ### DLS.2.1 – Mehr-Faktor-Authentifizierung
 
-**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.18, G 0.14
+<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="3" threats="G 0.18, G 0.14" threatsHint="G 0.18 – Fehlplanung oder fehlende Anpassung · G 0.14 – Ausspähen von Informationen (Spionage)" />
 
 > Dienstleistersteuerung für Dienstleistungen SOLLTE Mehr-Faktor-Authentifizierung bei Login in Online-Dienste aktivieren.
 
@@ -59,7 +61,7 @@ Online-Dienste wie die Verwaltung von TK-Rufnummern oder Cloud-Office-Anwendunge
 
 ### DLS.2.2 – Transportverschlüsselung
 
-**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.18, G 0.14
+<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="2" threats="G 0.18, G 0.14" threatsHint="G 0.18 – Fehlplanung oder fehlende Anpassung · G 0.14 – Ausspähen von Informationen (Spionage)" />
 
 > Dienstleistersteuerung für Daten SOLLTE den Transport bei der Übertragung zum Anbieter nach *[einem anerkannten Standard]* verschlüsseln.
 
@@ -67,7 +69,7 @@ Online-Dienste wie die Verwaltung von TK-Rufnummern oder Cloud-Office-Anwendunge
 
 ### DLS.2.3 – Vollverschlüsselung
 
-**Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.18, G 0.14
+<ControlMeta modalVerb="KANN" secLevel="erhöht" effort="5" threats="G 0.18, G 0.14" threatsHint="G 0.18 – Fehlplanung oder fehlende Anpassung · G 0.14 – Ausspähen von Informationen (Spionage)" />
 
 > Dienstleistersteuerung für Daten KANN diese, wenn der Anbieter deren Inhalt zur Vertragserbringung nicht kennen muss, für diesen nicht entschlüsselbar vor der Übertragung zum Dienstleister verschlüsseln.
 
@@ -77,7 +79,7 @@ Hierbei handelt es sich um eine Verschlüsselung at-rest, bei welcher der Dienst
 
 ### DLS.3.1 – Einhaltung der Sicherheitsvorgaben
 
-**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.11, G 0.29, G 0.20
+<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="3" threats="G 0.11, G 0.29, G 0.20" threatsHint="G 0.11 – Ausfall oder Störung von Dienstleistern · G 0.29 – Verstoß gegen Gesetze oder Regelungen · G 0.20 – Informationen oder Produkte aus unzuverlässiger Quelle" />
 
 > Dienstleistersteuerung für Dienstleistungen SOLLTE die Einhaltung der Sicherheitsvorgaben durch den Dienstleister *[regelmäßig]* überprüfen.
 
@@ -85,7 +87,7 @@ Hierzu ist zu prüfen, ob Anzeichen vorliegen, dass der Dienstleister die im Ver
 
 #### DLS.3.1.1 – Audit oder Zertifikat
 
-**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.29, G 0.11, G 0.20, G 0.18
+<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="4" threats="G 0.29, G 0.11, G 0.20, G 0.18" threatsHint="G 0.29 – Verstoß gegen Gesetze oder Regelungen · G 0.11 – Ausfall oder Störung von Dienstleistern · G 0.20 – Informationen oder Produkte aus unzuverlässiger Quelle · G 0.18 – Fehlplanung oder fehlende Anpassung" />
 
 > Dienstleistersteuerung für Outsourcing SOLLTE die Einhaltung der Sicherheitsvorgaben anhand eines *[Audits, Zertifikates oder vergleichbaren Sicherheitsnachweises]* *[regelmäßig]* überprüfen.
 
@@ -93,9 +95,7 @@ Hierzu ist zu prüfen, ob Anzeichen vorliegen, dass der Dienstleister die im Ver
 
 ### DLS.3.2 – Checkup
 
-**Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 4 · **Gefährdungen:** G 0.11, G 0.20
-
-**Vorgänger:** [OPS.2.3.A2-UA.4](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/04_OPS_Betrieb/OPS_2_3_Nutzung_von_Outsourcing_Edition_2023.pdf?__blob=publicationFile&v=4#download=1) (entspricht)
+<ControlMeta modalVerb="KANN" secLevel="erhöht" effort="4" threats="G 0.11, G 0.20" threatsHint="G 0.11 – Ausfall oder Störung von Dienstleistern · G 0.20 – Informationen oder Produkte aus unzuverlässiger Quelle" predecessors={[{ oldId: "OPS.2.3.A2-UA.4", relationship: "equivalent-to", link: "https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/04_OPS_Betrieb/OPS_2_3_Nutzung_von_Outsourcing_Edition_2023.pdf?__blob=publicationFile&v=4#download=1" }]} />
 
 > Dienstleistersteuerung für Outsourcing KANN die risikoorientierte Entscheidung über Outsourcing auf Grundlage der Geschäftsprozessprofile auf Änderungen der Gefährdungslage oder Prozessinhalte *[regelmäßig]* überprüfen.
 
@@ -103,7 +103,7 @@ Die risikoorientierte Entscheidung über Outsourcing kann in diesem Kontext als 
 
 ### DLS.3.3 – Strategie-Check
 
-**Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 4 · **Gefährdungen:** G 0.11, G 0.20
+<ControlMeta modalVerb="KANN" secLevel="erhöht" effort="4" threats="G 0.11, G 0.20" threatsHint="G 0.11 – Ausfall oder Störung von Dienstleistern · G 0.20 – Informationen oder Produkte aus unzuverlässiger Quelle" />
 
 > Dienstleistersteuerung für Outsourcing KANN die Strategie auf Vollständigkeit und Korrektheit in Bezug auf die betrachteten Geschäftsprozesse bei Änderungen der Geschäftsprozessprofile überprüfen.
 
@@ -111,7 +111,7 @@ Vollständigkeit bedeutet hier, dass die Gesamtheit der ausgelagerten Prozesse e
 
 ### DLS.3.4 – Anhörung
 
-**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 4 · **Gefährdungen:** G 0.11, G 0.20
+<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="4" threats="G 0.11, G 0.20" threatsHint="G 0.11 – Ausfall oder Störung von Dienstleistern · G 0.20 – Informationen oder Produkte aus unzuverlässiger Quelle" />
 
 > Dienstleistersteuerung für Outsourcing SOLLTE den Dienstleister zu Sicherheitsmaßnahmen für betroffene Zielobjekte anhören.
 
@@ -119,7 +119,7 @@ Betroffen sind alle Zielobjekte, zu denen vom Dienstleister (Teil-)Leistungen er
 
 ### DLS.3.5 – Blockierung unzuverlässiger Dienstleister
 
-**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.11, G 0.19, G 0.20
+<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="3" threats="G 0.11, G 0.19, G 0.20" threatsHint="G 0.11 – Ausfall oder Störung von Dienstleistern · G 0.19 – Offenlegung schützenswerter Informationen · G 0.20 – Informationen oder Produkte aus unzuverlässiger Quelle" />
 
 > Dienstleistersteuerung für Dienstleistungen SOLLTE unzuverlässige Dienstleister oder Subdienstleister blockieren.
 
@@ -127,7 +127,7 @@ Ein Dienstleister gilt als unzuverlässig, wenn zukünftig mit Verstößen gegen
 
 ### DLS.3.6 – Portabilität
 
-**Pflicht:** KANN · **Stufe:** `erhöht` · **Aufwand:** 5 · **Gefährdungen:** G 0.11, G 0.20
+<ControlMeta modalVerb="KANN" secLevel="erhöht" effort="5" threats="G 0.11, G 0.20" threatsHint="G 0.11 – Ausfall oder Störung von Dienstleistern · G 0.20 – Informationen oder Produkte aus unzuverlässiger Quelle" />
 
 > Dienstleistersteuerung für Outsourcing KANN die Portabilität des ausgelagerten Prozesses *[regelmäßig]* überprüfen.
 
@@ -137,7 +137,7 @@ Hierunter ist zu verstehen, dass regelmäßig ein Test durchgeführt wird, bei d
 
 ### DLS.4.1 – Dekomissionierung
 
-**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 2 · **Gefährdungen:** G 0.18
+<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="2" threats="G 0.18" threatsHint="G 0.18 – Fehlplanung oder fehlende Anpassung" />
 
 > Dienstleistersteuerung für Dienstleistungen SOLLTE eine Vorgehensweise zur Dekommissionierung vor Vertragsende verankern.
 
@@ -145,7 +145,7 @@ Der Begriff Dekommissionierung bezeichnet hier das strukturierte und nachweisbar
 
 #### DLS.4.1.1 – Unabhängigkeit
 
-**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.18
+<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="3" threats="G 0.18" threatsHint="G 0.18 – Fehlplanung oder fehlende Anpassung" />
 
 > Dienstleistersteuerung für Outsourcing SOLLTE die Unabhängigkeit der Verarbeitung schützenswerter Informationen vor der Außerbetriebnahme testen.
 
@@ -153,7 +153,7 @@ Der Begriff Dekommissionierung bezeichnet hier das strukturierte und nachweisbar
 
 #### DLS.4.1.2 – Berechtigungen deaktivieren
 
-**Pflicht:** SOLLTE · **Stufe:** `normal-SdT` · **Aufwand:** 3 · **Gefährdungen:** G 0.18, G 0.29
+<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="3" threats="G 0.18, G 0.29" threatsHint="G 0.18 – Fehlplanung oder fehlende Anpassung · G 0.29 – Verstoß gegen Gesetze oder Regelungen" />
 
 > Dienstleistersteuerung für Dienstleistungen SOLLTE für den Vertrag benötigte Berechtigungen bei Vertragsende unverzüglich deaktivieren.
 

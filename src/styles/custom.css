@@ -46,6 +46,24 @@ h6,
 	--glass-border: oklch(90% 0.02 70 / 0.18);
 	--glass-gap: 0.75rem;
 	--button-glow: oklch(74% 0.14 75 / 0.55);
+	/* Deutlich deckender als --glass-tint: Pill-Tooltips liegen über einem
+	   Feld aus vielen bunten Pills, 55% Deckkraft reicht da nicht für
+	   lesbaren Fließtext (siehe ControlMeta.astro). */
+	--tooltip-bg: oklch(20% 0.02 70 / 0.96);
+
+	/* Pill-Farbfamilien für ControlMeta (Pflicht/Stufe/Aufwand-Badges) —
+	   eigene Hues neben dem Bernstein-Accent (75), damit sie sich sichtbar
+	   voneinander unterscheiden statt alle auf denselben Braunton zu fallen. */
+	--pill-danger-low: oklch(30% 0.08 25);
+	--pill-danger-high: oklch(78% 0.15 25);
+	--pill-warn-low: oklch(30% 0.07 50);
+	--pill-warn-high: oklch(78% 0.13 50);
+	--pill-calm-low: oklch(28% 0.05 195);
+	--pill-calm-high: oklch(78% 0.1 195);
+	--pill-info-low: oklch(28% 0.05 300);
+	--pill-info-high: oklch(78% 0.09 300);
+	--pill-info-strong-low: oklch(30% 0.09 320);
+	--pill-info-strong-high: oklch(80% 0.14 320);
 }
 
 :root[data-theme='light'] {
@@ -67,19 +85,32 @@ h6,
 	--glass-tint: oklch(97% 0.01 80 / 0.55);
 	--glass-border: oklch(30% 0.02 70 / 0.12);
 	--button-glow: oklch(62% 0.15 75 / 0.4);
+	--tooltip-bg: oklch(98% 0.01 80 / 0.97);
+
+	--pill-danger-low: oklch(90% 0.05 25);
+	--pill-danger-high: oklch(42% 0.16 25);
+	--pill-warn-low: oklch(90% 0.05 50);
+	--pill-warn-high: oklch(42% 0.14 50);
+	--pill-calm-low: oklch(90% 0.04 195);
+	--pill-calm-high: oklch(38% 0.09 195);
+	--pill-info-low: oklch(90% 0.03 300);
+	--pill-info-high: oklch(40% 0.08 300);
+	--pill-info-strong-low: oklch(88% 0.06 320);
+	--pill-info-strong-high: oklch(40% 0.13 320);
 }
 
 /* Liquid-Glass-Chrome: nur auf UI-Rahmen, nie auf Fließtext */
 
-/* Erhöht ggü. vorher (ADR-0006, Hosted-Repo): der Banner hat jetzt zwei
-   Zeilen (Status + Quick-Nav) statt einer. */
+/* Zurückgesetzt auf einzeilig -- die Quick-Nav-Zweitzeile (ADR-0006) ist
+   in eine Header.astro-Überschreibung ausgezogen, Banner ist wieder nur die
+   Pilotphase-Statusmeldung. */
 :root {
-	--banner-height: 5.25rem;
+	--banner-height: 3.5rem;
 }
 
 @media (min-width: 50rem) {
 	:root {
-		--banner-height: 3.75rem;
+		--banner-height: 2.5rem;
 	}
 }
 
@@ -302,60 +333,6 @@ site-search dialog::backdrop {
 	font-size: var(--sl-text-sm);
 }
 
-/* Rollen-Auswahl auf der Startseite: bewusst eigenständiger als
-   .practice-index (Katalog-Gruppenliste) -- das hier ist eine
-   Einstiegsentscheidung, kein weiterer Listeneintrag. Identisch mit
-   Grundschutz-Docs-Hosted (geteiltes Feature, kein Divergenzpunkt). */
-.role-picker {
-	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
-	gap: 1rem;
-	margin: 1.5rem 0 2rem;
-}
-
-.role-card {
-	display: flex;
-	flex-direction: column;
-	gap: 0.5rem;
-	padding: 1.5rem 1.5rem 1.75rem;
-	border: 1px solid var(--sl-color-hairline);
-	border-radius: 1.25rem;
-	background: var(--sl-color-bg-nav);
-	text-decoration: none;
-	color: var(--sl-color-white);
-	transition:
-		border-color 0.15s ease,
-		transform 0.15s ease;
-}
-
-.role-card:hover {
-	border-color: var(--sl-color-accent);
-	transform: translateY(-2px);
-	text-decoration: none;
-}
-
-.role-kicker {
-	font-family: 'JetBrains Mono Variable', ui-monospace, monospace;
-	font-size: var(--sl-text-2xs);
-	letter-spacing: 0.06em;
-	text-transform: uppercase;
-	color: var(--sl-color-accent-high);
-}
-
-.role-card h3 {
-	margin: 0;
-	font-family: 'Fraunces Variable', Georgia, serif;
-	font-size: var(--sl-text-xl);
-	font-weight: 600;
-}
-
-.role-card p {
-	margin: 0;
-	color: var(--sl-color-gray-3);
-	font-size: var(--sl-text-sm);
-	line-height: 1.5;
-}
-
 /* Status & Zeitplan: vertikale Zeitleiste */
 .status-timeline {
 	list-style: none;
@@ -408,17 +385,9 @@ site-search dialog::backdrop {
 	vertical-align: middle;
 }
 
-.status-timeline p {
-	margin: 0.25rem 0 0;
-	color: var(--sl-color-gray-3);
-	font-size: var(--sl-text-sm);
-}
-
-/* Druckansicht: die schwebende Glas-Chrome ist für Bildschirme gedacht —
-   im Ausdruck macht sie nur Platz vor dem eigentlichen Inhalt und
-   Starlights eigenes print.css kennt unsere Klassen nicht. Siehe
-   Grundschutz-Docs-Hosted/adr/0004-*.md (dort ausführlicher begründet,
-   dieses Repo teilt sich den betroffenen Chrome-Code). */
+/* Druckansicht (ADR-0004): die schwebende Glas-Chrome ist für Bildschirme
+   gedacht — im Ausdruck macht sie nur Platz vor dem eigentlichen Inhalt
+   und Starlights eigenes print.css kennt unsere Klassen nicht. */
 @media print {
 	header.header,
 	.sidebar-pane,
@@ -439,6 +408,19 @@ site-search dialog::backdrop {
 	.sl-markdown-content :is(h1, h2, h3, h4, h5, h6) {
 		break-inside: avoid;
 	}
+
+	/* Pflicht/Stufe/Aufwand-Zeile soll nicht von ihrer Überschrift oder
+	   dem folgenden Anforderungstext getrennt werden. */
+	.control-meta {
+		break-inside: avoid;
+		break-after: avoid;
+	}
+}
+
+.status-timeline p {
+	margin: 0.25rem 0 0;
+	color: var(--sl-color-gray-3);
+	font-size: var(--sl-text-sm);
 }
 
 /* Vorherige/Nächste-Seite-Karten (components/Pagination.astro): Starlights
@@ -456,4 +438,190 @@ site-search dialog::backdrop {
 .pagination-links svg {
 	width: 1.1rem;
 	height: 1.1rem;
+}
+
+/* Vergleichsseite (/vergleich/, ADR-0006): Filter-Input + Tabelle. Global statt
+   gescoped, weil das Tabellen-Markup im MDX-Content der generierten Seite
+   steht, nicht innerhalb der VergleichFilter.astro-Komponente selbst. */
+#vergleich-filter {
+	width: 100%;
+	max-width: 28rem;
+	padding: 0.5rem 1rem;
+	border-radius: 999px;
+	border: 1px solid var(--sl-color-hairline);
+	background: var(--sl-color-bg-nav);
+	color: var(--sl-color-white);
+	font-size: var(--sl-text-sm);
+	margin-bottom: 1.5rem;
+}
+
+.vergleich-table {
+	width: 100%;
+	border-collapse: collapse;
+	margin: 0.5rem 0 2rem;
+	font-size: var(--sl-text-sm);
+}
+
+.vergleich-table th,
+.vergleich-table td {
+	padding: 0.4rem 0.75rem 0.4rem 0;
+	border-bottom: 1px solid var(--sl-color-hairline);
+	text-align: start;
+	vertical-align: middle;
+}
+
+.vergleich-table .old-id,
+.vergleich-table .new-id {
+	font-family: 'JetBrains Mono Variable', ui-monospace, monospace;
+	font-size: var(--sl-text-xs);
+}
+
+.vergleich-table a {
+	color: var(--sl-color-text-accent);
+	text-decoration: none;
+}
+
+.vergleich-table a:hover {
+	text-decoration: underline;
+}
+
+.rel-badge {
+	display: inline-block;
+	padding: 0.15em 0.6em;
+	border-radius: 999px;
+	font-size: var(--sl-text-2xs);
+	font-weight: 600;
+	font-family: 'JetBrains Mono Variable', ui-monospace, monospace;
+}
+
+.rel-badge[data-rel='equivalent-to'] {
+	background: var(--sl-color-accent-low);
+	color: var(--sl-color-accent-high);
+}
+
+.rel-badge[data-rel='subset-of'] {
+	background: var(--pill-calm-low);
+	color: var(--pill-calm-high);
+}
+
+.rel-badge[data-rel='superset-of'] {
+	background: var(--pill-info-strong-low);
+	color: var(--pill-info-strong-high);
+}
+
+.rel-badge[data-rel='intersects-with'] {
+	background: var(--sl-color-gray-6);
+	color: var(--sl-color-gray-2);
+}
+
+/* Rollen-Seiten (ADR-0007): Selbstauswahl-Toggle auf der
+   Geschäftsführungs-Seite -- global wie #vergleich-filter, weil das
+   gefilterte Tabellen-Markup im MDX-Content der generierten Seite steht. */
+.gf-filter {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 0.5rem 1rem;
+	padding: 0.85rem 1.1rem;
+	margin-bottom: 1.5rem;
+	border: 1px solid var(--sl-color-hairline);
+	border-radius: 1rem;
+	background: var(--sl-color-bg-nav);
+}
+
+.gf-filter-label {
+	font-weight: 600;
+	font-size: var(--sl-text-sm);
+}
+
+.gf-filter-options {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.4rem 1.1rem;
+}
+
+.gf-filter-options label {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.4em;
+	white-space: nowrap;
+	font-size: var(--sl-text-sm);
+	color: var(--sl-color-gray-2);
+	cursor: pointer;
+}
+
+.gf-filter-options input {
+	flex-shrink: 0;
+	width: 1rem;
+	height: 1rem;
+	margin: 0;
+	accent-color: var(--sl-color-accent);
+}
+
+.gf-filter-empty {
+	padding: 0.85rem 1.1rem;
+	margin: -0.75rem 0 1.5rem;
+	border: 1px solid var(--pill-warn-high);
+	border-radius: 1rem;
+	background: var(--pill-warn-low);
+	color: var(--pill-warn-high);
+	font-size: var(--sl-text-sm);
+}
+
+.rollen-muss-table .new-id {
+	font-family: 'Karla Variable', system-ui, sans-serif;
+	font-size: var(--sl-text-sm);
+}
+
+/* Rollen-Auswahl auf der Startseite (ADR-0007): bewusst eigenständiger als
+   .practice-index (Katalog-Gruppenliste) -- das hier ist eine Einstiegs-
+   entscheidung, kein weiterer Listeneintrag. */
+.role-picker {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+	gap: 1rem;
+	margin: 1.5rem 0 2rem;
+}
+
+.role-card {
+	display: flex;
+	flex-direction: column;
+	gap: 0.5rem;
+	padding: 1.5rem 1.5rem 1.75rem;
+	border: 1px solid var(--sl-color-hairline);
+	border-radius: 1.25rem;
+	background: var(--sl-color-bg-nav);
+	text-decoration: none;
+	color: var(--sl-color-white);
+	transition:
+		border-color 0.15s ease,
+		transform 0.15s ease;
+}
+
+.role-card:hover {
+	border-color: var(--sl-color-accent);
+	transform: translateY(-2px);
+	text-decoration: none;
+}
+
+.role-kicker {
+	font-family: 'JetBrains Mono Variable', ui-monospace, monospace;
+	font-size: var(--sl-text-2xs);
+	letter-spacing: 0.06em;
+	text-transform: uppercase;
+	color: var(--sl-color-accent-high);
+}
+
+.role-card h3 {
+	margin: 0;
+	font-family: 'Fraunces Variable', Georgia, serif;
+	font-size: var(--sl-text-xl);
+	font-weight: 600;
+}
+
+.role-card p {
+	margin: 0;
+	color: var(--sl-color-gray-3);
+	font-size: var(--sl-text-sm);
+	line-height: 1.5;
 }
