@@ -368,7 +368,8 @@ site-search dialog::backdrop {
 	.sidebar-pane,
 	.right-sidebar,
 	.sl-banner,
-	.print-trigger {
+	.print-trigger,
+	footer {
 		display: none;
 	}
 
