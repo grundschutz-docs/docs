@@ -24,6 +24,13 @@ and SSP generation, not for reading. Keeping it current here means running
 the generator against the upstream source automatically, not
 hand-transcribing it once and letting it rot.
 
+## Hosted version
+
+There's a possible hosted version of this project on the horizon — free
+to use, but not self-hostable. This repo stays the real, complete version
+regardless of whether that happens. See `HOSTED.md` for what that would
+and wouldn't change.
+
 ## Status
 
 The upstream catalog is in its pilot phase (April – September 2026); BSI
