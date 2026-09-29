@@ -485,6 +485,21 @@ site-search dialog::backdrop {
 	text-decoration: underline;
 }
 
+/* Klartext-Titel neben der ID — erst dadurch sagt eine Zeile, worum es geht,
+   statt nur "DET.3.4". Bricht auf Mobil in die zweite Zeile um. */
+.vergleich-table .new-title {
+	color: var(--sl-color-gray-3);
+	margin-inline-start: 0.5ch;
+}
+
+/* Sprungziel je Control (generate_docs.py setzt <a id="DET.3.4">). Ohne
+   scroll-margin verschwindet die Überschrift beim Anspringen hinter der
+   fixierten Kopfleiste plus Pilotphase-Banner. */
+.control-anchor {
+	display: block;
+	scroll-margin-top: calc(var(--sl-nav-height) + var(--banner-height) + 1rem);
+}
+
 .rel-badge {
 	display: inline-block;
 	padding: 0.15em 0.6em;

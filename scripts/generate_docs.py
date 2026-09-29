@@ -1,23 +1,26 @@
 #!/usr/bin/env python3
 """
 Liest den Grundschutz++-resolved_catalog.json (OSCAL) und generiert daraus
-lesbare .mdx-Seiten fuer Starlight — Hosted-Variante von
-Grundschutz-Docs/scripts/generate_docs.py: gleiche Struktur, aber Stufe/
-Aufwand/Gefaehrdungen werden als <ControlMeta>-Komponente (echte Badges mit
-Tooltip) statt als Fettschrift-Text ausgegeben. Siehe
-Grundschutz-Docs-Hosted/adr/0001-*.md fuer den Grund der Trennung.
+lesbare .mdx-Seiten fuer Starlight: eine Seite je Praktik, die drei
+Rollen-Einstiegsseiten, und die Vergleichsseiten Altes Kompendium ↔
+Grundschutz++ (eine Uebersicht plus eine Seite je altem Baustein).
 
-Erneut ausfuehren nach jedem `git pull` im Grundschutz-PlusPlus-Repo, danach
-SYNC.md (eine Ebene hoeher) aktualisieren:
+.mdx statt .md, damit die generierten Seiten echte Komponenten nutzen
+koennen (<ControlMeta> fuer Pflicht/Stufe/Aufwand, <PdcaCycle>, Filter).
+
+Erneut ausfuehren nach jedem `git pull` im Grundschutz-PlusPlus-Repo — die
+Checkliste dazu steht in CONTRIBUTING.md ("When the upstream catalog
+changes"):
 
     cd Grundschutz-PlusPlus && git pull
-    python3 ../Grundschutz-Docs-Hosted/scripts/generate_docs.py
-    cd ../Grundschutz-Docs-Hosted && pnpm run build   # oder: pnpm run dev
+    python3 ../Grundschutz-Docs/scripts/generate_docs.py
+    cd ../Grundschutz-Docs && pnpm run build   # oder: pnpm run dev
 """
 import csv
 import json
 import os
 import re
+import urllib.parse
 from datetime import date
 from pathlib import Path
 
@@ -52,10 +55,12 @@ OUT_DIR = Path(__file__).resolve().parent.parent / "src" / "content" / "docs" / 
 # Rollen-Seiten (ADR-0007) liegen wie vergleich.mdx eine Ebene flacher als
 # die Gruppen-Seiten, aber in einem eigenen Unterordner (eigene Sidebar-Gruppe).
 ROLLEN_OUT_DIR = Path(__file__).resolve().parent.parent / "src" / "content" / "docs" / "rollen"
+VERGLEICH_OUT_DIR = Path(__file__).resolve().parent.parent / "src" / "content" / "docs" / "vergleich"
 CONTROL_META_IMPORT = "import ControlMeta from '../../../components/ControlMeta.astro';\n"
 # vergleich.mdx liegt eine Ebene flacher (direkt in src/content/docs/), daher
 # ein "../" weniger als CONTROL_META_IMPORT.
-VERGLEICH_FILTER_IMPORT = "import VergleichFilter from '../../components/VergleichFilter.astro';\n"
+# Drei Ebenen hoch: src/content/docs/vergleich/index.mdx -> src/components/
+VERGLEICH_FILTER_IMPORT = "import VergleichFilter from '../../../components/VergleichFilter.astro';\n"
 # rollen/*.mdx liegt auf derselben Tiefe wie grundschutzpp/*.mdx (nicht wie
 # vergleich.mdx), daher derselbe "../../../"-Pfad wie CONTROL_META_IMPORT.
 GF_FILTER_IMPORT = "import GfFilter from '../../../components/GfFilter.astro';\n"
@@ -176,6 +181,83 @@ def baustein_id_from_itgs_id(itgs_id):
     return m.group(1) if m else None
 
 
+# Die zehn Schichten des alten IT-Grundschutz-Kompendiums. Nur zum Gruppieren
+# der Baustein-Uebersicht -- das Kompendium selbst wird nirgends reproduziert.
+KOMPENDIUM_LAYERS = {
+    "ISMS": "Sicherheitsmanagement",
+    "ORP": "Organisation und Personal",
+    "CON": "Konzeption und Vorgehensweisen",
+    "OPS": "Betrieb",
+    "DER": "Detektion und Reaktion",
+    "APP": "Anwendungen",
+    "SYS": "IT-Systeme",
+    "IND": "Industrielle IT",
+    "NET": "Netze und Kommunikation",
+    "INF": "Infrastruktur",
+}
+
+
+def baustein_slug(baustein_id):
+    # "OPS.1.1.5" -> "ops-1-1-5"
+    return baustein_id.lower().replace(".", "-")
+
+
+def baustein_title(baustein_id, url):
+    """Baustein-Titel aus dem BSI-PDF-Dateinamen ableiten.
+
+    bsi-kompendium-2023-bausteine.json enthaelt nur ID -> PDF-URL, aber der
+    Dateiname traegt den Titel mit ("OPS_1_1_5_Protokollierung_Edition_2023
+    .pdf" -> "Protokollierung"). Fuer alle 111 Bausteine geprueft.
+
+    Bekannte Grenze: Bindestriche zusammengesetzter Titel gehen im
+    Dateinamen verloren. "Netzarchitektur und -design" laesst sich aus dem
+    folgenden Kleinbuchstaben rekonstruieren, "Prozessleit- und
+    Automatisierungstechnik" nicht -- dort haengt der Bindestrich am ersten
+    Wort und ist spurlos weg.
+    """
+    if not url:
+        return ""
+    name = urllib.parse.urlparse(url).path.rsplit("/", 1)[-1]
+    name = re.sub(r"(?:_Edition_\d{4})?\.pdf$", "", name)
+    prefix = baustein_id.replace(".", "_") + "_"
+    if name.startswith(prefix):
+        name = name[len(prefix) :]
+    title = name.replace("_", " ").strip()
+    return re.sub(r"\bund ([a-zäöü])", r"und -\1", title)
+
+
+def build_control_index(catalog):
+    """control-id -> {slug, title} der Gruppenseite, auf der das Control steht.
+
+    Basis fuer die Anker-Links: ohne das zeigen die Vergleichsseiten nur auf
+    die Gruppenseite und man landet oben auf 150 KB Text.
+    """
+    index = {}
+
+    def walk(node, slug):
+        for control in node.get("controls", []) or []:
+            index[control["id"]] = {"slug": slug, "title": control.get("title", "")}
+            walk(control, slug)
+
+    for group in catalog.get("groups", []) or []:
+        slug = group["id"].lower()
+        walk(group, slug)
+        for subgroup in group.get("groups", []) or []:
+            walk(subgroup, slug)
+    return index
+
+
+def control_link(control_id, control_index):
+    """Link auf das Control selbst (Gruppenseite + Anker), mit Titel als Text."""
+    entry = control_index.get(control_id)
+    if not entry:
+        return f'<span class="new-id">{control_id}</span>'
+    href = f"/grundschutzpp/{entry['slug']}/#{control_id}"
+    title = entry["title"]
+    suffix = f" <span class=\"new-title\">{title}</span>" if title else ""
+    return f'<a class="new-id" href="{href}">{control_id}</a>{suffix}'
+
+
 # OSCAL-Beziehungstypen sind englisches Standard-Vokabular -- für die
 # Vergleichsseite (Vergleich.mdx wird als reines HTML/Markdown geschrieben,
 # nicht über ControlMeta.astro) übersetzt anzeigen, analog zu den
@@ -245,7 +327,15 @@ def render_control_meta(control, basethreats_by_id, predecessor_index, baustein_
 
 def render_control(control, level, params_by_id, basethreats_by_id, predecessor_index, baustein_links):
     heading = "#" * min(level, 6)
-    lines = [f"{heading} {control['id']} – {control['title']}\n"]
+    # Eigener Anker zusaetzlich zu Starlights Ueberschriften-ID. Starlight
+    # slugifiziert den ganzen Titel ("det31--verfahren-und-regelungen") --
+    # das aendert sich, sobald das BSI eine Formulierung anfasst, und genau
+    # darauf zeigen die ~1200 Links der Vergleichsseiten. Die Control-ID ist
+    # stabil, also ankern wir daran.
+    lines = [
+        f'<a id="{control["id"]}" class="control-anchor"></a>\n',
+        f"{heading} {control['id']} – {control['title']}\n",
+    ]
 
     meta = render_control_meta(control, basethreats_by_id, predecessor_index, baustein_links)
     if meta:
@@ -622,56 +712,121 @@ def build_all_mappings(mapping_data):
     return mappings
 
 
-def render_vergleich_page(all_mappings, group_titles, baustein_links):
-    by_group = {}
+def group_mappings_by_baustein(all_mappings):
+    """Zuordnungen nach altem Baustein buendeln — die Einheit, in der Leute suchen.
+
+    Wer migriert, fragt "was wird aus OPS.1.1.5", nicht "was gehoert alles
+    zu DET". Deshalb ist der alte Baustein die Seiteneinheit, nicht die
+    neue Praktik.
+    """
+    by_baustein = {}
     for old_id, rel, new_id in all_mappings:
-        group_id = new_id.split(".")[0]
-        by_group.setdefault(group_id, []).append((old_id, rel, new_id))
+        baustein_id = baustein_id_from_itgs_id(old_id)
+        if not baustein_id:
+            continue
+        by_baustein.setdefault(baustein_id, []).append((old_id, rel, new_id))
+    return by_baustein
+
+
+def render_baustein_page(baustein_id, entries, baustein_links, control_index):
+    pdf = baustein_links.get(baustein_id)
+    title = baustein_title(baustein_id, pdf)
+    full_name = f"{baustein_id} {title}".strip()
+    layer = KOMPENDIUM_LAYERS.get(baustein_id.split(".")[0], "")
+
+    pdf_line = (
+        f'Der Baustein selbst steht als <a href="{pdf}" target="_blank" '
+        f'rel="noopener noreferrer">PDF beim BSI</a>.'
+        if pdf
+        else ""
+    )
+
+    lines = [
+        "---\n",
+        f"title: {yaml_quote(full_name)}\n",
+        f"description: {yaml_quote(f'Welche Anforderungen aus {full_name} (IT-Grundschutz-Kompendium, Edition 2023) in welchen Grundschutz++-Controls aufgehen — je Zuordnung mit Beziehungstyp.')}\n",
+        "---\n",
+        "\n",
+        f"Nachfolge-Zuordnungen für **{full_name}**"
+        + (f" aus der Schicht {layer}" if layer else "")
+        + f", {len(entries)} Stück aus der offiziellen BSI-Mapping-Datei. "
+        "Der alte Anforderungstext wird hier bewusst nicht wiedergegeben "
+        "(siehe [ADR-0005](https://github.com/grundschutz-docs/docs/blob/main/adr/0005-vorgaenger-anforderung-alt-neu.md)) — "
+        + pdf_line
+        + "\n",
+        "\n",
+        '<div class="vergleich-section not-content">\n',
+        '<table class="vergleich-table">\n',
+        "<thead><tr><th>Alte Anforderung</th><th>Beziehung</th><th>Neue Anforderung</th></tr></thead>\n",
+        "<tbody>\n",
+    ]
+    for old_id, rel, new_id in sorted(entries, key=lambda e: (e[0], e[2])):
+        old_cell = (
+            f'<a class="old-id" href="{pdf}" target="_blank" rel="noopener noreferrer">{old_id}</a>'
+            if pdf
+            else f'<span class="old-id">{old_id}</span>'
+        )
+        lines.append(
+            f"<tr><td>{old_cell}</td>"
+            f'<td><span class="rel-badge" data-rel="{rel}">{relationship_label(rel)}</span></td>'
+            f"<td>{control_link(new_id, control_index)}</td></tr>\n"
+        )
+    lines += [
+        "</tbody>\n",
+        "</table>\n",
+        "</div>\n",
+        "\n",
+        "[Alle Bausteine im Überblick](/vergleich/)\n",
+    ]
+    return "".join(lines)
+
+
+def render_vergleich_index(by_baustein, baustein_links):
+    by_layer = {}
+    for baustein_id, entries in by_baustein.items():
+        by_layer.setdefault(baustein_id.split(".")[0], []).append((baustein_id, entries))
 
     lines = [
         "---\n",
         f"title: {yaml_quote('Vergleich: Altes Kompendium ↔ Grundschutz++')}\n",
-        f"description: {yaml_quote('Alle Zuordnungen zwischen dem alten IT-Grundschutz-Kompendium (Edition 2023) und dem neuen Grundschutz++-Katalog.')}\n",
+        f"description: {yaml_quote('Zu jedem Baustein des IT-Grundschutz-Kompendiums (Edition 2023) die Nachfolge-Anforderungen im Grundschutz++-Katalog, nach offizieller BSI-Mapping-Datei.')}\n",
         "---\n",
         "\n",
         VERGLEICH_FILTER_IMPORT,
         "\n",
-        "Alle Zuordnungen aus der offiziellen BSI-Mapping-Datei "
-        "(`ITGS-to-GS++-mapping_collection.json`) — kein alter Volltext, nur "
-        "Struktur und echte Links zu BSI's eigenen Baustein-PDFs (siehe "
-        "ADR-0005). Tippe eine bekannte alte oder neue ID ins Suchfeld, z. B. "
-        "`OPS.1.1.5`.\n",
+        "Zu jedem alten Baustein gibt es hier eine eigene Seite mit seinen "
+        "Nachfolge-Anforderungen — aus der offiziellen BSI-Mapping-Datei "
+        "(`ITGS-to-GS++-mapping_collection.json`), kein alter Volltext, nur "
+        "Struktur und echte Links (siehe ADR-0005). Tippe eine bekannte "
+        "Baustein-ID ins Suchfeld, z. B. `OPS.1.1.5`.\n",
         "\n",
         "<VergleichFilter />\n",
         "\n",
     ]
-    for group_id in sorted(by_group, key=lambda gid: group_titles.get(gid, gid)):
-        entries = by_group[group_id]
-        title = group_titles.get(group_id, group_id)
-        slug = group_id.lower()
-        lines.append(f'<div class="vergleich-section not-content">\n')
-        lines.append(f"## {group_id} {title}\n")
-        lines.append("\n")
-        lines.append('<table class="vergleich-table">\n')
-        lines.append("<thead><tr><th>Alte Anforderung</th><th>Beziehung</th><th>Neue Anforderung</th></tr></thead>\n")
-        lines.append("<tbody>\n")
-        for old_id, rel, new_id in sorted(entries, key=lambda e: e[2]):
-            baustein_id = baustein_id_from_itgs_id(old_id)
-            link = baustein_links.get(baustein_id) if baustein_id else None
-            old_cell = (
-                f'<a class="old-id" href="{link}" target="_blank" rel="noopener noreferrer">{old_id}</a>'
-                if link
-                else f'<span class="old-id">{old_id}</span>'
+    for layer_id in sorted(by_layer, key=lambda lid: list(KOMPENDIUM_LAYERS).index(lid) if lid in KOMPENDIUM_LAYERS else 99):
+        layer_name = KOMPENDIUM_LAYERS.get(layer_id, layer_id)
+        lines += [
+            '<div class="vergleich-section not-content">\n',
+            f"## {layer_id} {layer_name}\n",
+            "\n",
+            '<table class="vergleich-table">\n',
+            "<thead><tr><th>Baustein</th><th>Zuordnungen</th><th>Original</th></tr></thead>\n",
+            "<tbody>\n",
+        ]
+        for baustein_id, entries in sorted(by_layer[layer_id]):
+            pdf = baustein_links.get(baustein_id)
+            title = baustein_title(baustein_id, pdf)
+            pdf_cell = (
+                f'<a href="{pdf}" target="_blank" rel="noopener noreferrer">PDF beim BSI</a>'
+                if pdf
+                else "—"
             )
-            new_cell = f'<a class="new-id" href="/grundschutzpp/{slug}/">{new_id}</a>'
-            rel_label = relationship_label(rel)
             lines.append(
-                f"<tr><td>{old_cell}</td><td><span class=\"rel-badge\" data-rel=\"{rel}\">{rel_label}</span></td><td>{new_cell}</td></tr>\n"
+                f'<tr><td><a class="old-id" href="/vergleich/{baustein_slug(baustein_id)}/">{baustein_id}</a>'
+                f' <span class="new-title">{title}</span></td>'
+                f"<td>{len(entries)}</td><td>{pdf_cell}</td></tr>\n"
             )
-        lines.append("</tbody>\n")
-        lines.append("</table>\n")
-        lines.append("</div>\n")
-        lines.append("\n")
+        lines += ["</tbody>\n", "</table>\n", "</div>\n", "\n"]
     return "".join(lines)
 
 
@@ -685,6 +840,7 @@ def main():
     data = json.loads(CATALOG_FILE.read_text())
     catalog = data["catalog"]
     params_by_id = build_params_index(catalog)
+    control_index = build_control_index(catalog)
     basethreats_by_id = load_basethreats()
     mapping_data = json.loads(MAPPING_FILE.read_text())
     predecessor_index = build_predecessor_index(mapping_data)
@@ -754,9 +910,27 @@ def main():
     ]
     (OUT_DIR / "zeitplan.mdx").write_text("\n".join(zeitplan_lines))
 
+    # Vergleichsseiten: eine Uebersicht plus eine Seite je altem Baustein.
+    # Frueher war das eine einzige Seite mit ~1200 Zeilen -- unbrauchbar
+    # sowohl zum Lesen als auch zum Gefundenwerden, weil jede Suche nach
+    # einer Baustein-ID gegen alle anderen auf derselben Seite konkurriert.
     all_mappings = build_all_mappings(mapping_data)
-    vergleich_body = render_vergleich_page(all_mappings, group_titles, baustein_links)
-    (OUT_DIR.parent / "vergleich.mdx").write_text(vergleich_body)
+    by_baustein = group_mappings_by_baustein(all_mappings)
+
+    legacy_vergleich = OUT_DIR.parent / "vergleich.mdx"
+    if legacy_vergleich.exists():
+        legacy_vergleich.unlink()
+    VERGLEICH_OUT_DIR.mkdir(parents=True, exist_ok=True)
+    for old in VERGLEICH_OUT_DIR.glob("*.mdx"):
+        old.unlink()
+
+    (VERGLEICH_OUT_DIR / "index.mdx").write_text(
+        render_vergleich_index(by_baustein, baustein_links)
+    )
+    for baustein_id, entries in by_baustein.items():
+        (VERGLEICH_OUT_DIR / f"{baustein_slug(baustein_id)}.mdx").write_text(
+            render_baustein_page(baustein_id, entries, baustein_links, control_index)
+        )
 
     # Rollenbasierte Einstiegsseiten (ADR-0007) -- aus denselben Gruppen-
     # Listen wie oben, keine eigene Zielgruppen-Einstufung im Katalog nötig.
@@ -767,6 +941,7 @@ def main():
     total = len(management) + len(themenfelder)
     print(f"{total} Gruppen-Seiten (.mdx) erzeugt in {OUT_DIR}")
     print(f"3 Rollen-Seiten (.mdx) erzeugt in {ROLLEN_OUT_DIR}")
+    print(f"{len(by_baustein)} Baustein-Seiten + Übersicht erzeugt in {VERGLEICH_OUT_DIR}")
 
     def sidebar_group(label, entries):
         items = ",\n\t\t\t\t\t\t".join(
