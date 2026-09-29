@@ -375,4 +375,11 @@ site-search dialog::backdrop {
 	.main-frame {
 		padding-top: 0;
 	}
+
+	/* Starlight verhindert nur einen Umbruch DIREKT NACH einer Überschrift
+	   (break-after: avoid) — eine mehrzeilige Überschrift kann trotzdem
+	   selbst mitten im Seitenumbruch landen. break-inside ergänzt das. */
+	.sl-markdown-content :is(h1, h2, h3, h4, h5, h6) {
+		break-inside: avoid;
+	}
 }
