@@ -1,16 +1,24 @@
 # Grundschutz++ Docs
 
-A readable, searchable rendering of the BSI's Grundschutz++ OSCAL catalog —
-the successor to the IT-Grundschutz-Kompendium, currently in its pilot
-phase. This is an unofficial, independent project. It is not affiliated
-with, endorsed by, or produced by the Bundesamt für Sicherheit in der
+The BSI ships its Grundschutz++ security catalog as a 10k+ line OSCAL JSON
+file — built for SSP-generation tooling, unreadable by a human who just
+wants to know what a control requires. This project turns that same JSON
+into a site you'd actually want to read: full-text search, one permalink
+per control, security level / effort / base threats shown inline, dark
+mode, and a print-to-PDF per topic area.
+
+This is an unofficial, independent project — not affiliated with,
+endorsed by, or produced by the Bundesamt für Sicherheit in der
 Informationstechnik (BSI).
 
-The BSI publishes the catalog as machine-oriented OSCAL JSON, built for
-tooling and SSP generation, not for reading. This site generates
-human-readable pages from that same source: 20 topic areas across 6
-management phases (a PDCA cycle), each control shown with its security
-level, effort, and base threats — searchable, with a permalink per control.
+## Why this exists
+
+No readable cross-reference existed anywhere — not in the official repo,
+not from BSI itself. The pilot catalog is JSON-first by design, and that's
+the right call for tooling, but it leaves nothing a human can skim to
+answer "what does this control actually ask of me." This project reads
+the same source of truth and renders it for that use case instead, kept
+current automatically rather than hand-transcribed once and left to rot.
 
 ## Status
 
@@ -77,6 +85,20 @@ See `CONTRIBUTING.md` for what's expected in a PR (build must pass,
 generator changes need an actual run and diff review, check both color
 schemes and both mobile/desktop layouts) and `CODE_OF_CONDUCT.md` for
 community expectations.
+
+## What's next
+
+Not promises, just what's on the list — open an issue if you want to pick
+one of these up (see `CONTRIBUTING.md`):
+
+- Cross-references to the old IT-Grundschutz-Kompendium controls each new
+  control replaces (old ID + title + link, via BSI's own mapping file)
+- Filtering the catalog by theme, using the tags already in the source
+  data but not yet exposed in the UI
+- An OSCAL explainer page — what it is, and why a German agency adopted a
+  NIST-originated format instead of building its own
+- A real English translation of the catalog content (the i18n scaffold
+  already works, the translation itself doesn't exist yet)
 
 ## License
 
