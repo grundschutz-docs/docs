@@ -5,6 +5,10 @@ import { Icon } from '@astrojs/starlight/components';
 const links = config.social || [];
 ---
 
+<button type="button" class="sl-flex print-trigger" onclick="window.print()" aria-label="Diese Seite als PDF exportieren (Browser-Druckdialog)">
+	<Icon name="download" />
+</button>
+
 {
 	links.length > 0 && (
 		<>
@@ -20,13 +24,20 @@ const links = config.social || [];
 
 <style>
 	@layer starlight.core {
-		a {
+		a,
+		.print-trigger {
 			color: var(--sl-color-text-accent);
 			padding: 0.5em;
 			margin: -0.5em;
 		}
-		a:hover {
+		a:hover,
+		.print-trigger:hover {
 			color: var(--sl-color-white);
+		}
+		.print-trigger {
+			background: none;
+			border: none;
+			cursor: pointer;
 		}
 	}
 </style>

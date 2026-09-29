@@ -357,3 +357,22 @@ site-search dialog::backdrop {
 	color: var(--sl-color-gray-3);
 	font-size: var(--sl-text-sm);
 }
+
+/* Druckansicht: die schwebende Glas-Chrome ist für Bildschirme gedacht —
+   im Ausdruck macht sie nur Platz vor dem eigentlichen Inhalt und
+   Starlights eigenes print.css kennt unsere Klassen nicht. Siehe
+   Grundschutz-Docs-Hosted/adr/0004-*.md (dort ausführlicher begründet,
+   dieses Repo teilt sich den betroffenen Chrome-Code). */
+@media print {
+	header.header,
+	.sidebar-pane,
+	.right-sidebar,
+	.sl-banner,
+	.print-trigger {
+		display: none;
+	}
+
+	.main-frame {
+		padding-top: 0;
+	}
+}
