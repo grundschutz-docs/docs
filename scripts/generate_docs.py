@@ -38,6 +38,10 @@ BAUSTEINE_LINKS_FILE = (
     Path(os.environ["BSI_BAUSTEINE_LINKS"]) if os.environ.get("BSI_BAUSTEINE_LINKS") else DEFAULT_BAUSTEINE_LINKS_FILE
 )
 OUT_DIR = Path(__file__).resolve().parent.parent / "src" / "content" / "docs" / "grundschutzpp"
+# Rollen-Seiten (ADR-0007 im Hosted-Repo, hier ohne eigenes ADR uebernommen --
+# Inhalt/Struktur ist geteilt, nur der Toggle/das Kreisdiagramm bleiben
+# Hosted-exklusiv, siehe SYNC.md).
+ROLLEN_OUT_DIR = Path(__file__).resolve().parent.parent / "src" / "content" / "docs" / "rollen"
 ASTRO_CONFIG = Path(__file__).resolve().parent.parent / "astro.config.mjs"
 
 PARAM_RE = re.compile(r"\{\{\s*insert:\s*param,\s*([a-zA-Z0-9._-]+)\s*\}\}")
@@ -269,6 +273,216 @@ def render_timeline():
     return "\n".join(lines)
 
 
+def collect_leaf_controls(node):
+    """Alle Anforderungen ohne eigene Unter-Anforderungen unter einem Control-
+    oder Gruppen-Knoten, rekursiv. Funktioniert fuer beide Knotentypen, weil
+    beide optionale "controls"/"groups"-Listen haben (OSCAL-Struktur)."""
+    for c in node.get("controls", []):
+        if c.get("controls"):
+            yield from collect_leaf_controls(c)
+        else:
+            yield c
+    for g in node.get("groups", []):
+        yield from collect_leaf_controls(g)
+
+
+def is_muss(control):
+    return part_prop_value(control, "statement", "modal_verb") == "MUSS"
+
+
+# Quelle: Grundschutz-PlusPlus/documentation/namespaces/security_level.csv --
+# nur diese zwei Werte existieren im Katalog (kein Basis/Standard/Kern wie im
+# alten Kompendium).
+SEC_LEVEL_LABELS = {"normal-SdT": "Standard-Sicherheitsstufe", "erhöht": "Erhöhte Sicherheitsstufe"}
+
+
+def render_muss_table_md(group_id, group_title, slug, muss_controls):
+    lines = [f"### {group_id} {group_title}\n\n"]
+    lines.append("| Anforderung | Stufe |\n|---|---|\n")
+    for control in muss_controls:
+        sec_level = prop_value(control, "sec_level") or ""
+        sec_label = SEC_LEVEL_LABELS.get(sec_level, sec_level)
+        lines.append(f"| [{control['id']} – {control['title']}](/grundschutzpp/{slug}/) | {sec_label} |\n")
+    lines.append("\n")
+    return "".join(lines)
+
+
+def render_geschaeftsfuehrung_page(management, themenfelder, groups_by_id):
+    all_groups = management + themenfelder
+    total = 0
+    total_muss = 0
+    sections = []
+    for gid, title, slug, _ in all_groups:
+        leaves = list(collect_leaf_controls(groups_by_id[gid]))
+        muss = [c for c in leaves if is_muss(c)]
+        total += len(leaves)
+        total_muss += len(muss)
+        if muss:
+            sections.append(render_muss_table_md(gid, title, slug, muss))
+
+    lines = [
+        "---\n",
+        f"title: {yaml_quote('Für Geschäftsführung')}\n",
+        f"description: {yaml_quote('Pflicht-Anforderungen, Einstufungskriterien und Haftungsrahmen auf einen Blick.')}\n",
+        "---\n\n",
+        "> Diese Seite ersetzt keine Rechts- oder Haftungsberatung. Sie ordnet "
+        "öffentliche Quellen ein (den BSI-Katalog und geltendes Gesetzesrecht) "
+        "— eine Bewertung des Einzelfalls kann nur eine Rechtsanwältin, ein "
+        "Rechtsanwalt oder eine Wirtschaftsprüfung vornehmen.\n\n",
+        f"## Auf einen Blick\n\n"
+        f"**{total_muss} von {total} Anforderungen im gesamten Katalog sind "
+        f"MUSS** — uneingeschränkt zu erfüllen, unabhängig vom individuellen "
+        f"Risikoappetit (RFC2119 / DIN 820-2:2022, Anhang H). Das ist die "
+        f"Teilmenge, die aus Governance-Sicht zuerst zählt.\n\n",
+        "## Bin ich überhaupt betroffen?\n\n"
+        "Das BSI-Gesetz (BSIG, Fassung seit 2.12.2025) unterscheidet zwei "
+        "Kategorien nach § 28 BSIG:\n\n"
+        "- **Besonders wichtige Einrichtung**: unabhängig von der Größe, wenn "
+        "du Betreiber:in einer kritischen Anlage (KRITIS), qualifizierter "
+        "Vertrauensdiensteanbieter, Top-Level-Domain-Registry oder "
+        "DNS-Diensteanbieter bist. Sonst: mind. 250 Mitarbeitende **oder** "
+        "über 50 Mio. € Jahresumsatz **und** über 43 Mio. € Jahresbilanzsumme, "
+        "in einem Sektor nach Anlage 1 BSIG.\n"
+        "- **Wichtige Einrichtung**: mind. 50 Mitarbeitende **oder** über "
+        "10 Mio. € Jahresumsatz **und** über 10 Mio. € Jahresbilanzsumme, in "
+        "einem Sektor nach Anlage 1 oder 2 BSIG.\n\n"
+        "Kleinere Einrichtungen außerhalb kritischer Sektoren fallen in der "
+        "Regel nicht darunter. Diese Kriterien ersetzen keine "
+        "Schutzbedarfsfeststellung — sie helfen nur bei der ersten "
+        "Einordnung mit euren eigenen Zahlen.\n\n"
+        "*Primärquelle: [§ 28 BSIG](https://www.gesetze-im-internet.de/bsig_2025/BJNR12D0B0025.html).*\n\n",
+        "## Was schreibt das Gesetz meiner Geschäftsleitung vor?\n\n"
+        "Nach § 38 BSIG muss die Geschäftsleitung besonders wichtiger und "
+        "wichtiger Einrichtungen die Risikomanagementmaßnahmen (§ 30 BSIG) "
+        "**umsetzen und ihre Umsetzung überwachen** — und **regelmäßig an "
+        "Schulungen** zu IT-Sicherheits-Risikomanagement teilnehmen. Diese "
+        "Schulungspflicht ist konkret und wenig bekannt.\n\n"
+        "*Primärquelle: [§ 38 BSIG](https://www.gesetze-im-internet.de/bsig_2025/BJNR12D0B0025.html).*\n\n",
+        "## Wie sieht die Haftung konkret aus?\n\n"
+        "§ 38 Abs. 2 BSIG verweist auf das jeweils geltende Gesellschaftsrecht: "
+        "Haftung bei Pflichtverletzung ist zunächst **Innenhaftung gegenüber "
+        "der eigenen Einrichtung**, nicht automatisch gegenüber Dritten. Für "
+        "die GmbH gilt § 43 GmbHG (\"Sorgfalt eines ordentlichen "
+        "Geschäftsmannes\", gesamtschuldnerische Haftung, Verjährung 5 "
+        "Jahre), für die AG § 93 AktG mit einem entlastenden Detail: keine "
+        "Pflichtverletzung liegt vor, wenn \"vernünftigerweise angenommen "
+        "werden durfte, auf Grundlage angemessener Information zum Wohle der "
+        "Gesellschaft zu handeln\" (Business Judgment Rule, § 93 Abs. 1 Satz "
+        "2 AktG) — eine dokumentierte, informierte Entscheidung schützt. Ein "
+        "nachvollziehbarer, öffentlich anerkannter Katalog wie Grundschutz++ "
+        "ist genau das: ein Beleg für eine solche informierte Entscheidung, "
+        "keine Garantie gegen Haftung.\n\n"
+        "*Primärquellen: [§ 43 GmbHG](https://www.gesetze-im-internet.de/gmbhg/__43.html), "
+        "[§ 93 AktG](https://www.gesetze-im-internet.de/aktg/__93.html).*\n\n",
+        "## Sinnvolle Kennzahlen\n\n"
+        "Diese Seite berechnet keinen Umsetzungsstatus für eure Organisation "
+        "— dafür bräuchte es eine tatsächliche Bestandsaufnahme, keine "
+        "statische Katalogseite. Als Rahmen für die eigene Berichterstattung "
+        "eignen sich üblicherweise:\n\n"
+        "- Anteil umgesetzter MUSS-Anforderungen (Zähler/Nenner wie oben, "
+        "aber mit eurem tatsächlichen Stand)\n"
+        "- Anzahl offener SOLLTE-Empfehlungen mit dokumentierter Begründung, "
+        "falls nicht umgesetzt\n"
+        "- Alter der letzten Schutzbedarfsfeststellung bzw. Risikobewertung\n"
+        "- Datum der letzten Schulungsteilnahme der Geschäftsleitung (§ 38 "
+        "Abs. 3 BSIG)\n\n",
+        "## Die MUSS-Anforderungen nach Bereich\n\n",
+        *sections,
+    ]
+    ROLLEN_OUT_DIR.mkdir(parents=True, exist_ok=True)
+    (ROLLEN_OUT_DIR / "geschaeftsfuehrung.md").write_text("".join(lines))
+
+
+def render_isb_page(management, groups_by_id):
+    entries = []
+    for gid, title, slug, summary in management:
+        count = len(list(collect_leaf_controls(groups_by_id[gid])))
+        entries.append((gid, title, slug, f"{summary} ({count} Anforderungen)"))
+
+    lines = [
+        "---\ntitle: " + yaml_quote("Für ISB") + "\n---\n\n",
+        "Der BSI-OSCAL-Katalog (`Grundschutz++-resolved_catalog.json`, CC "
+        "BY-SA 4.0, BSI-Bund) ist für Maschinen geschrieben – SSP-Generierung, "
+        "Tooling, Validierung. OSCAL selbst stammt von NIST, nicht vom BSI: "
+        "ein bereits etablierter, international genutzter Standard, den das "
+        "BSI bewusst übernommen hat, statt eine eigene Lösung zu bauen.\n\n"
+        "Diese Seite übersetzt denselben Katalog in etwas, das man als ISB im "
+        "Tagesgeschäft tatsächlich liest.\n\n",
+        "## Der PDCA-Zyklus\n\n"
+        "[Governance & Compliance](/grundschutzpp/gc/) → "
+        "[Strukturmodellierung](/grundschutzpp/stm/) → "
+        "[Umsetzung](/grundschutzpp/ums/) → "
+        "[Monitoring-Evaluation](/grundschutzpp/perf/) → "
+        "[Verbesserung](/grundschutzpp/vrb/) — und schließt sich von dort "
+        "wieder zu Governance & Compliance. Ein echter Kreislauf, kein "
+        "linearer Ablauf. [Risikomanagement](/grundschutzpp/risk/) begleitet "
+        "alle fünf Phasen durchgehend, statt eine eigene Phase zu sein.\n\n",
+        render_index_section(
+            "Die sechs Praktiken im Detail",
+            "",
+            entries,
+        ),
+        "## Werkzeuge für den Alltag\n\n"
+        "- **[Vergleich: Altes Kompendium ↔ Grundschutz++](/vergleich/)** — "
+        "jede Zuordnung zwischen alter und neuer Anforderung, mit "
+        "Beziehungstyp (entspricht/Teilbereich von/umfasst/überschneidet "
+        "sich mit) und echten Links zu BSI's Baustein-PDFs.\n"
+        "- **[Status & Zeitplan](/grundschutzpp/zeitplan/)** — Pilotphase, "
+        "Übergangsfrist, geplante Zertifizierung.\n\n"
+        "Diese Seite ist kein offizielles BSI-Angebot.\n",
+    ]
+    ROLLEN_OUT_DIR.mkdir(parents=True, exist_ok=True)
+    (ROLLEN_OUT_DIR / "isb.md").write_text("".join(lines))
+
+
+# Redaktionelle Zweiteilung der 14 operativen Themenfelder (keine BSI-eigene
+# Kategorie -- deshalb auf der Seite selbst als Einordnung gekennzeichnet).
+# Kriterium: setzt ein Dev/eine Dev-nahe Rolle das direkt um (Code, Config,
+# Systeme), oder ist es Prozess/Personal/Einkauf/Gebäude, das nur indirekt
+# betrifft. ASST ist ein Grenzfall -- Datenklassifizierung wirkt sich direkt
+# auf den Umgang mit Daten im Code aus, daher hier bei "technisch" einsortiert.
+# Identisch mit Grundschutz-Docs-Hosted/scripts/generate_docs.py (kein
+# Code-Sharing zwischen den Repos, siehe ADR-0001 im Hosted-Repo).
+DEV_TECHNICAL_GROUPS = ["ARCH", "KONF", "DEV", "BER", "DET", "NOT", "REA", "TEST", "ASST"]
+DEV_ORG_GROUPS = ["PERS", "BES", "DLS", "GEB", "SENS"]
+
+
+def render_devs_page(themenfelder, groups_by_id):
+    by_id = {gid: (title, slug, summary) for gid, title, slug, summary in themenfelder}
+
+    def entries_for(group_ids):
+        out = []
+        for gid in group_ids:
+            title, slug, summary = by_id[gid]
+            count = len(list(collect_leaf_controls(groups_by_id[gid])))
+            out.append((gid, title, slug, f"{summary} ({count} Anforderungen)"))
+        return out
+
+    lines = [
+        "---\ntitle: " + yaml_quote("Für Devs") + "\n---\n\n",
+        "Jede Anforderung zeigt Pflichtgrad, Sicherheitsstufe, "
+        "Aufwandsschätzung und zugeordnete Basisgefährdungen direkt am "
+        "Text — keine ISMS-Prozess-Erklärung davor, kein Umweg über das "
+        "Managementsystem.\n\n",
+        render_index_section(
+            "Technische Umsetzung",
+            "Das betrifft dich direkt — Architektur, Konfiguration, Code, Zugriffe, Betrieb.",
+            entries_for(DEV_TECHNICAL_GROUPS),
+        ),
+        render_index_section(
+            "Organisatorisch",
+            "Betrifft dich eher indirekt (z. B. wenn ein Dienstleister Zugriff "
+            "auf dein System bekommt) — der Vollständigkeit halber trotzdem aufgeführt.",
+            entries_for(DEV_ORG_GROUPS),
+        ),
+        "Die Zweiteilung oben ist eine redaktionelle Einordnung dieser "
+        "Seite, keine offizielle BSI-Kategorie — der Katalog selbst kennt "
+        "nur die 14 Themenfelder ohne diese Unterscheidung.\n",
+    ]
+    ROLLEN_OUT_DIR.mkdir(parents=True, exist_ok=True)
+    (ROLLEN_OUT_DIR / "devs.md").write_text("".join(lines))
+
+
 def build_all_mappings(mapping_data):
     mappings = []
     for group in mapping_data["mapping-collection"]["mappings"]:
@@ -345,9 +559,13 @@ def main():
     OUT_DIR.mkdir(parents=True, exist_ok=True)
     for old in OUT_DIR.glob("*.md"):
         old.unlink()
+    ROLLEN_OUT_DIR.mkdir(parents=True, exist_ok=True)
+    for old in ROLLEN_OUT_DIR.glob("*.md"):
+        old.unlink()
 
     management, themenfelder = [], []
     group_titles = {}
+    groups_by_id = {group["id"]: group for group in catalog["groups"]}
     for group in catalog["groups"]:
         slug = group["id"].lower()
         group_titles[group["id"]] = group["title"]
@@ -405,8 +623,13 @@ def main():
     vergleich_body = render_vergleich_page(all_mappings, group_titles, baustein_links)
     (OUT_DIR.parent / "vergleich.md").write_text(vergleich_body)
 
+    render_geschaeftsfuehrung_page(management, themenfelder, groups_by_id)
+    render_isb_page(management, groups_by_id)
+    render_devs_page(themenfelder, groups_by_id)
+
     total = len(management) + len(themenfelder)
     print(f"{total} Gruppen-Seiten erzeugt in {OUT_DIR}")
+    print(f"3 Rollen-Seiten erzeugt in {ROLLEN_OUT_DIR}")
 
     def sidebar_group(label, entries):
         items = ",\n\t\t\t\t\t\t".join(

@@ -302,6 +302,60 @@ site-search dialog::backdrop {
 	font-size: var(--sl-text-sm);
 }
 
+/* Rollen-Auswahl auf der Startseite: bewusst eigenständiger als
+   .practice-index (Katalog-Gruppenliste) -- das hier ist eine
+   Einstiegsentscheidung, kein weiterer Listeneintrag. Identisch mit
+   Grundschutz-Docs-Hosted (geteiltes Feature, kein Divergenzpunkt). */
+.role-picker {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+	gap: 1rem;
+	margin: 1.5rem 0 2rem;
+}
+
+.role-card {
+	display: flex;
+	flex-direction: column;
+	gap: 0.5rem;
+	padding: 1.5rem 1.5rem 1.75rem;
+	border: 1px solid var(--sl-color-hairline);
+	border-radius: 1.25rem;
+	background: var(--sl-color-bg-nav);
+	text-decoration: none;
+	color: var(--sl-color-white);
+	transition:
+		border-color 0.15s ease,
+		transform 0.15s ease;
+}
+
+.role-card:hover {
+	border-color: var(--sl-color-accent);
+	transform: translateY(-2px);
+	text-decoration: none;
+}
+
+.role-kicker {
+	font-family: 'JetBrains Mono Variable', ui-monospace, monospace;
+	font-size: var(--sl-text-2xs);
+	letter-spacing: 0.06em;
+	text-transform: uppercase;
+	color: var(--sl-color-accent-high);
+}
+
+.role-card h3 {
+	margin: 0;
+	font-family: 'Fraunces Variable', Georgia, serif;
+	font-size: var(--sl-text-xl);
+	font-weight: 600;
+}
+
+.role-card p {
+	margin: 0;
+	color: var(--sl-color-gray-3);
+	font-size: var(--sl-text-sm);
+	line-height: 1.5;
+}
+
 /* Status & Zeitplan: vertikale Zeitleiste */
 .status-timeline {
 	list-style: none;

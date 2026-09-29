@@ -49,6 +49,14 @@ export default defineConfig({
 			],
 			sidebar: [
 				{
+					label: 'Rollen',
+					items: [
+						{ label: 'Für Geschäftsführung', slug: 'rollen/geschaeftsfuehrung' },
+						{ label: 'Für ISB', slug: 'rollen/isb' },
+						{ label: 'Für Devs', slug: 'rollen/devs' },
+					],
+				},
+				{
 					label: 'Grundschutz++',
 					items: [
 						{ label: 'Übersicht', slug: 'grundschutzpp' },
