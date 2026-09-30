@@ -1226,6 +1226,68 @@ def render_vergleich_index(by_baustein, baustein_links):
     return "".join(lines)
 
 
+def catalog_source(catalog):
+    """Zitierfaehige Angaben zum Katalogstand aus den OSCAL-Metadaten."""
+    meta = catalog.get("metadata") or {}
+    version = (meta.get("version") or "")[:10]
+    doc_ids = meta.get("document-ids") or []
+    return {
+        "titel": meta.get("title") or "Anwenderkatalog Grundschutz++",
+        "version": version,
+        "dokument_id": doc_ids[0].get("identifier") if doc_ids else None,
+    }
+
+
+def render_source_block(src):
+    """Katalogstand und Zitierhinweis am Kopf jeder Katalogseite.
+
+    Zwei verschiedene Fragen, die beide vor dem Inhalt kommen:
+
+    "Ist das aktuell?" -- der Katalogstand stand bisher nirgends auf der
+    Seite. Wer pruefen will, ob hier der heutige Katalog steht, musste ins
+    Repo schauen.
+
+    "Wie zitiere ich das?" -- ein ISB liest hier und belegt im Auditnachweis
+    das BSI-Original, so wie es sein soll. Diese Seite zitierfaehig machen zu
+    wollen waere falsch; das Zitieren des Originals leicht zu machen ist die
+    richtige Antwort darauf. Die Anforderungs-ID ist der stabile Schluessel,
+    die Katalogversion der Stand -- beides steht jetzt da, zusammengesetzt
+    muss es niemand mehr selbst.
+
+    Im <details>, weil es Referenzapparat ist: wichtig fuer den, der es
+    braucht, unsichtbar fuer alle anderen.
+    """
+    zeile = f"Katalogstand: {format_iso_date(src['version'])}" if src["version"] else "Katalogstand unbekannt"
+    doc = f"Dokument-ID {src['dokument_id']} (RFC 9562), " if src["dokument_id"] else ""
+    return (
+        '<div class="source-note">\n'
+        f"<p>{zeile} — Quelle: "
+        '<a href="https://github.com/BSI-Bund/Stand-der-Technik-Bibliothek" '
+        'target="_blank" rel="noopener noreferrer">BSI Stand-der-Technik-Bibliothek</a>.</p>\n'
+        "<details>\n<summary>Eine Anforderung von dieser Seite zitieren</summary>\n"
+        "<p>Maßgeblich ist immer das Original, nicht diese Aufbereitung. "
+        f"Zitierfähig ist: BSI, <em>{src['titel']}</em>, Version "
+        f"{src['version'] or '—'}, {doc}"
+        "Anforderung <em>&lt;ID&gt;</em> — wobei die ID die Kennung neben "
+        "der jeweiligen Überschrift ist, etwa <code>GC.5.1.1</code>. "
+        "Sie bleibt stabil, auch wenn das BSI eine Formulierung ändert.</p>\n"
+        "</details>\n</div>\n\n"
+    )
+
+
+def format_iso_date(iso):
+    """2026-09-10 -> 10. September 2026."""
+    monate = (
+        "Januar", "Februar", "März", "April", "Mai", "Juni",
+        "Juli", "August", "September", "Oktober", "November", "Dezember",
+    )
+    try:
+        d = date.fromisoformat(iso)
+    except ValueError:
+        return iso
+    return f"{d.day}. {monate[d.month - 1]} {d.year}"
+
+
 def write_mdx(path, frontmatter, body):
     needs_control_meta = "<ControlMeta" in body
     prefix = CONTROL_META_IMPORT + "\n" if needs_control_meta else ""
@@ -1235,6 +1297,7 @@ def write_mdx(path, frontmatter, body):
 def main():
     data = json.loads(CATALOG_FILE.read_text())
     catalog = data["catalog"]
+    src = catalog_source(catalog)
     params_by_id = build_params_index(catalog)
     control_index = build_control_index(catalog)
     basethreats_by_id = load_basethreats()
@@ -1274,7 +1337,7 @@ def main():
             f"description: {yaml_quote(summary)}\n"
             "---\n\n"
         )
-        write_mdx(OUT_DIR / f"{slug}.mdx", frontmatter, body)
+        write_mdx(OUT_DIR / f"{slug}.mdx", frontmatter, render_source_block(src) + body)
 
         entry = (group["id"], group["title"], slug, summary)
         (management if group["id"] in MANAGEMENT_CYCLE_IDS else themenfelder).append(entry)
