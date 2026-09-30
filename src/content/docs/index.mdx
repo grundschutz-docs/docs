@@ -33,14 +33,24 @@ hero:
   # sondern Migration ("ein automatisierter Import-Knopf existiert technisch
   # leider nicht", 30-40 % Handarbeit) -- und genau dafür hat diese Seite
   # 1.185 Zuordnungen.
-  tagline: Das BSI veröffentlicht den Katalog maschinenlesbar in OSCAL. Hier steht er als Text – samt Zuordnung zu den Bausteinen des alten Kompendiums.
+  # Als Gegenüberstellung gebaut, nicht als Beschreibung: "für Maschinen"
+  # gegen "für dich". Eine Beschreibung merkt sich niemand, einen Gegensatz
+  # schon. Das "wir" gibt der Seite einen Sprecher -- vorher kam sie ohne aus
+  # und klang dadurch wie ein Datenblatt über sich selbst.
+  #
+  # "Anforderungen" statt "Katalog": Katalog ist das Behälterwort, es sagt
+  # nur, dass es einen Behälter gibt. Die Leute kommen mit der Frage "was
+  # muss ich umsetzen" -- die Antwort darauf heißt Anforderungen.
+  tagline: Das BSI liefert die Anforderungen für Maschinen. Wir übersetzen sie für dich.
   # Bewusst nur eine Aktion. Der zweite Button ("BSI-Quellrepo") zeigte auf
   # exakt dieselbe URL wie das GitHub-Symbol in der Kopfleiste -- eine
   # wörtliche Dopplung, und das als zweitwichtigste Handlung der Startseite,
   # noch dazu von der Seite weg. Der Herkunftsnachweis steht jetzt im
   # Fließtext unten, wo ihn auch liest, wer kein Octocat erkennt.
   actions:
-    - text: Zum Katalog
+    # Derselbe Grund wie in der Tagline: der einzige Klick, den der Hero
+    # anbietet, sollte den Inhalt benennen und nicht den Behälter.
+    - text: Zu den Anforderungen
       link: /grundschutzpp/
       icon: right-arrow
 ---
