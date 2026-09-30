@@ -1,0 +1,125 @@
+---
+title: Über diese Seite
+description: Warum es diese Aufbereitung des Grundschutz++-Katalogs gibt, wer sie macht, wie sie aktuell bleibt und was passiert, wenn ich aufhöre.
+---
+
+import status from '../../data/status.json';
+
+Eine eigene, lesbare Aufbereitung des BSI-OSCAL-Katalogs
+(`Grundschutz++-resolved_catalog.json`) — **kein offizielles BSI-Angebot**
+und in keiner Weise mit dem Bundesamt für Sicherheit in der
+Informationstechnik verbunden. Maßgeblich ist immer das offizielle Original.
+
+Grundschutz++ ist aktuell in der **{status.phase}**, siehe
+[Status & Zeitplan](/grundschutzpp/zeitplan/).
+
+## Warum es diese Seite gibt
+
+Ich wollte wissen, was **OPS.1.1.5 Protokollierung** eigentlich verlangt — der
+Baustein war mir als Einstieg in den Grundschutz empfohlen worden. Gelandet
+bin ich in einer OSCAL-Datei mit mehreren zehntausend Zeilen JSON.
+
+Dass das BSI den Katalog so ausliefert, ist richtig: Er ist für Werkzeuge
+gebaut, für ISMS-Software und maschinelle Weiterverarbeitung. Nur liest man
+ihn so nicht. Wer bloß wissen will, was eine Anforderung verlangt, sucht
+zwischen `props`, `parts` und UUIDs nach einem Satz.
+
+Diese Seite rendert denselben Katalog als Text: mit Volltextsuche, einem
+Sprungziel je Anforderung, Pflichtgrad, Stufe, Aufwand und Gefährdungen
+direkt am Text, und der Zuordnung zurück auf das alte
+IT-Grundschutz-Kompendium.
+
+Beim genauen Lesen fällt einem dabei auch auf, wo etwas nicht zusammenpasst —
+überlappende Anforderungen, fehlende Querverweise, Zuordnungen, die inhaltlich
+nicht tragen. Diese Funde sammle ich.
+
+## Wer das macht
+
+Bruno, aus Deutschland. Was ich sonst baue, steht auf
+[GitHub](https://github.com/giordano137).
+
+**Das hier ist nicht mein Hauptberuf, sondern ein Hobbyprojekt.** Das solltest
+du wissen, bevor du dich auf etwas verlässt, denn es hat Folgen: Ich kriege
+nicht jede Änderung sofort mit, und hinter dieser Seite steht keine
+Organisation, die dich vorwarnt, wenn sie eingestellt wird.
+
+Umgekehrt: Je mehr die Seite genutzt wird, desto unwahrscheinlicher wird es,
+dass sie untergeht. Und dass ich das freiwillig mache, heißt nicht, dass ich
+es beiläufig mache — wie der Inhalt entsteht und geprüft wird, steht unten.
+
+Für den Arbeitsalltag ist diese Seite gedacht. In einer Dokumentation oder
+einem Auditnachweis gehört das BSI-Original zitiert, nicht sie. Wie das geht,
+steht oben auf jeder Katalogseite unter „Eine Anforderung von dieser Seite
+zitieren".
+
+## Wie die Seite aktuell bleibt
+
+Die Katalogseiten sind **generiert, nicht abgeschrieben**. Nach einer Änderung
+am BSI-Katalog erzeugt ein Skript sie neu; ein täglicher CI-Durchlauf prüft
+die Quelle und öffnet bei Abweichungen einen Pull Request. Es gibt also keinen
+einmalig übertragenen Stand, der langsam veraltet.
+
+Der Generator bricht ab, statt stillschweigend etwas Falsches zu schreiben:
+Er prüft nach jedem Lauf, ob die Zahlen auf den Seiten zur Quelle passen — ob
+jede Anforderung einen Anker hat, ob die Zuordnungen vollständig sind, ob die
+Angaben auf der Startseite zum Katalog stimmen. Stimmt etwas nicht, gibt es
+keine neue Seite.
+
+Wann ich die Pull Requests lese: Schickt GitHub mir eine Mail, sofort. Sonst
+bin ich fast täglich dort unterwegs, spätestens alle paar Tage. Eine feste
+Zusage ist das nicht — siehe oben.
+
+Welchen Katalogstand eine Seite zeigt, steht jeweils oben darauf.
+
+## Wenn ich aufhöre
+
+Ob vorübergehend oder endgültig — die Seite ist so gebaut, dass sie nicht mit
+mir verschwindet:
+
+- **Der Inhalt ist rekonstruierbar.** Die Katalogseiten werden aus der
+  öffentlichen BSI-Quelle erzeugt. Wer das Repo klont und den Generator laufen
+  lässt, hat sie neu, auf aktuellem Stand — es gibt hier keine Daten, die
+  nirgends sonst liegen.
+- **Die Lizenzen erlauben die Fortführung.** Inhalt CC BY-SA 4.0, Code MIT.
+- **Die Betreiberangaben sind konfigurierbar.** Name, Anschrift und Kontakt
+  kommen aus einer gitignorierten `.env`, nicht aus dem Repository. Wer die
+  Seite übernimmt, trägt seine eigenen ein und erbt keine fremden.
+
+Mitwirkende sind willkommen — Fehler, Korrekturen und Pull Requests laufen
+über das [Repository](https://github.com/grundschutz-docs/docs), siehe
+`CONTRIBUTING.md`.
+
+**Und wenn dir auf dieser Seite ein Fehler auffällt:** melde ihn ebenfalls
+dort. Ich führe ein Register über Ungereimtheiten, die mir im BSI-Katalog
+auffallen — es wäre schlecht, wenn ich meine eigenen nicht genauso behandeln
+würde.
+
+## Andere Aufbereitungen
+
+Es gibt bereits ein Werkzeug, das den OSCAL-Katalog visuell aufbereitet —
+mit mehr Darstellungsmöglichkeiten (Graphen, Diagramme) als diese Seite
+anstrebt. Diese Seite verfolgt ein anderes Ziel: ruhiges, durchsuchbares
+Lesen mit dauerhaften Links.
+
+Ein Unterschied betrifft die Lizenzierung. Jenes Werkzeug steht unter einer
+Inhalts-Lizenz (CC BY-SA) statt unter einer Software-Lizenz — wovon
+Creative Commons für Quellcode ausdrücklich abrät (kein Patentschutz, nie
+von der OSI als Open-Source-Lizenz anerkannt).
+
+## Lizenzen
+
+Diese Seite trennt beides bewusst:
+
+- **Katalog-Inhalt** (alles unter `/grundschutzpp/`): CC BY-SA 4.0,
+  © BSI-Bund — so, wie das BSI ihn selbst lizenziert hat.
+- **Code** dieser Website: MIT.
+
+Das alte IT-Grundschutz-Kompendium wird hier bewusst **nicht** im Volltext
+wiedergegeben. Die Vergleichsseiten zeigen nur Struktur — alte
+Anforderungs-ID, Beziehungstyp, neue Anforderung — und verlinken für den
+Originaltext auf die PDFs des BSI.
+
+## Druck und Export
+
+Jede Gruppenseite lässt sich über die Druckfunktion des Browsers als PDF
+exportieren; das Layout ist dafür eingerichtet.
