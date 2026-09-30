@@ -70,9 +70,14 @@ const SEC_LEVELS: Record<string, { label: string; hint: string; family: string }
 
 // Quelle: Grundschutz-PlusPlus/documentation/namespaces/effort_level.csv
 const EFFORT: Record<string, { hint: string; family: string }> = {
+	// Steht neben der 1-5-Skala, nicht darüber. Früher als volle schwarze
+	// Fläche gesetzt -- das machte die unwichtigste Angabe der Zeile zur
+	// auffälligsten, direkt neben einem blass getönten MUSS. Dass die
+	// Umsetzung zwingend ist, sagt ohnehin der Pflichtgrad; hier bleibt nur
+	// "nicht bewertet" übrig, und das ist eine leise Angabe.
 	'0': {
 		hint: 'Wird nicht bewertet – die Umsetzung ist in jedem Fall zwingend erforderlich.',
-		family: 'solid',
+		family: 'neutral',
 	},
 	'1': {
 		hint: 'Quick Win: meist noch am selben Tag umsetzbar, kein laufender Pflegeaufwand.',
@@ -108,6 +113,7 @@ const effortInfo = effort ? EFFORT[effort] : undefined;
 				<span
 					class="pill"
 					data-family={modalInfo.family}
+					data-role="pflicht"
 					data-tooltip={modalInfo.hint}
 					aria-label={`Pflichtgrad: ${modalVerb}. ${modalInfo.hint}`}
 					tabindex="0"
@@ -120,11 +126,17 @@ const effortInfo = effort ? EFFORT[effort] : undefined;
 				<span
 					class="pill"
 					data-family={secInfo.family}
+					data-role="meta"
 					data-tooltip={secInfo.hint}
 					aria-label={`Stufe: ${secInfo.label}`}
 					tabindex="0"
 				>
-					Stufe: {secInfo.label}
+					{/* Ohne "Stufe: "-Präfix -- die Labels heißen bereits
+					    "Standard-Sicherheitsstufe" bzw. "Erhöhte Sicherheitsstufe",
+					    das Präfix sagte dasselbe ein zweites Mal und machte diese
+					    Pille zur breitesten der Zeile. Bei Aufwand bleibt das
+					    Präfix, dort trägt eine nackte Zahl keine Bedeutung. */}
+					{secInfo.label}
 					<span class="pill-hint" aria-hidden="true">?</span>
 				</span>
 			)}
@@ -132,6 +144,7 @@ const effortInfo = effort ? EFFORT[effort] : undefined;
 				<span
 					class="pill"
 					data-family={effortInfo.family}
+					data-role="meta"
 					data-tooltip={effortInfo.hint}
 					aria-label={`Aufwand: ${effort}. ${effortInfo.hint}`}
 					tabindex="0"
@@ -144,6 +157,7 @@ const effortInfo = effort ? EFFORT[effort] : undefined;
 				<span
 					class="pill"
 					data-family="neutral"
+					data-role="meta"
 					data-tooltip={threatsHint}
 					aria-label={`Basisgefährdungen: ${threats}.${threatsHint ? ` ${threatsHint}` : ''}`}
 					tabindex="0"
@@ -181,6 +195,7 @@ const effortInfo = effort ? EFFORT[effort] : undefined;
 								<span
 									class="pill"
 									data-family={family}
+									data-role="meta"
 									data-tooltip={hint}
 									aria-label={`Beziehung: ${label}. ${hint}`}
 									tabindex="0"
@@ -220,6 +235,14 @@ const effortInfo = effort ? EFFORT[effort] : undefined;
 		line-height: 1.3;
 		cursor: default;
 		text-decoration: none;
+	}
+
+	/* Das "?" verspricht eine Erklärung -- ein default-Cursor widerspricht dem
+	   und lässt die Pille tot wirken. help ist der dafür vorgesehene Wert.
+	   Bewusst nur auf Pillen mit Tooltip: die Gefährdungs-Pille hat ohne
+	   threatsHint keinen, und darf dann auch nichts versprechen. */
+	.pill[data-tooltip] {
+		cursor: help;
 	}
 
 	a.pill {
@@ -324,13 +347,31 @@ const effortInfo = effort ? EFFORT[effort] : undefined;
 		color: var(--sl-color-gray-2);
 		border-color: var(--sl-color-hairline);
 	}
-	/* Aufwand 0: kein Platz auf der 1–5-Skala, sondern "immer Pflicht" —
-	   deshalb bewusst kräftig gefüllt statt zart getönt wie die anderen. */
-	.pill[data-family='solid'] {
-		background-color: var(--sl-color-white);
-		color: var(--sl-color-black);
-		border-color: var(--sl-color-white);
-		font-weight: 700;
+	/*
+	 * Fläche bedeutet Pflichtgrad -- sonst nichts.
+	 *
+	 * Vorher trugen alle Pillen dieselbe gefüllte Behandlung, egal ob sie
+	 * MUSS, eine Sicherheitsstufe oder einen Aufwandswert zeigten. Damit
+	 * kodierte die Farbe, welches *Feld* man vor sich hat, nicht wie wichtig
+	 * es ist -- und weil Aufwand 4/5 dieselben Familien benutzen wie
+	 * SOLLTE/MUSS, sahen völlig verschiedene Aussagen identisch aus.
+	 *
+	 * Jetzt: MUSS/SOLLTE/KANN behalten die Füllung, alles andere bekommt
+	 * dieselbe Farbfamilie nur als Kontur. Die Aufwands-Eskalation 1->5
+	 * bleibt dadurch ablesbar, tritt aber hinter den Pflichtgrad zurück.
+	 * Auf hellem wie dunklem Grund steigt dabei sogar der Textkontrast, weil
+	 * die getönte Füllung als Zwischenschicht wegfällt.
+	 */
+	.pill[data-role='meta'][data-family] {
+		background-color: transparent;
+		border-color: color-mix(in oklch, currentColor 40%, transparent);
+	}
+
+	/* Der Pflichtgrad trägt seit der Umstellung die Hierarchie der Zeile
+	   allein -- dann darf seine Fläche auch eine sichtbare Kante haben.
+	   Die Meta-Pillen bleiben bei 40%, der Abstand ist Teil der Aussage. */
+	.pill[data-role='pflicht'][data-family] {
+		border-color: color-mix(in oklch, currentColor 55%, transparent);
 	}
 
 	/* Eigenes Glas-Tooltip statt nativem title-Attribut — CSS-only, kein JS.
@@ -341,9 +382,14 @@ const effortInfo = effort ? EFFORT[effort] : undefined;
 	.pill[data-tooltip]::after {
 		content: attr(data-tooltip);
 		position: absolute;
-		inset-block-end: calc(100% + 0.6rem);
+		/* Nach unten, nicht nach oben: über einer Pill-Zeile steht per
+		   Konstruktion immer die Überschrift der Anforderung, die der Tooltip
+		   dann verdeckte -- also ausgerechnet den Kontext, zu dem er gehört.
+		   Unten steht der Anforderungstext; den darf er kurz überdecken, weil
+		   er beim Wegbewegen sofort wieder da ist. */
+		inset-block-start: calc(100% + 0.6rem);
 		inset-inline-start: 0;
-		transform: translateY(4px);
+		transform: translateY(-4px);
 		width: max-content;
 		max-width: 16rem;
 		padding: 0.6rem 0.85rem;
@@ -352,7 +398,7 @@ const effortInfo = effort ? EFFORT[effort] : undefined;
 		background-color: var(--tooltip-bg);
 		backdrop-filter: blur(20px) saturate(160%);
 		-webkit-backdrop-filter: blur(20px) saturate(160%);
-		box-shadow: 0 12px 30px oklch(0% 0 0 / 0.25);
+		box-shadow: var(--glass-shadow-lift);
 		color: var(--sl-color-white);
 		font-family: 'Karla Variable', system-ui, sans-serif;
 		font-size: var(--sl-text-xs);
@@ -373,11 +419,14 @@ const effortInfo = effort ? EFFORT[effort] : undefined;
 	.pill[data-tooltip]::before {
 		content: '';
 		position: absolute;
-		inset-block-end: calc(100% + 0.1rem);
+		inset-block-start: calc(100% + 0.1rem);
 		inset-inline-start: 1rem;
-		transform: translateY(4px);
+		transform: translateY(-4px);
 		border: 6px solid transparent;
-		border-top-color: var(--tooltip-bg);
+		/* Spitze nach oben zur Pille -- Gegenstück zur nach unten geöffneten
+		   Box. border-top-color hätte weiter nach unten gezeigt, also von der
+		   Pille weg. */
+		border-bottom-color: var(--tooltip-bg);
 		opacity: 0;
 		visibility: hidden;
 		transition:
@@ -386,8 +435,17 @@ const effortInfo = effort ? EFFORT[effort] : undefined;
 		z-index: 50;
 	}
 
+	/* :focus zusätzlich zu :focus-visible. Auf Touch gibt es kein Hover, und
+	   :focus-visible ist in den Browsern absichtlich so umgesetzt, dass es bei
+	   Touch- und Maus-Fokus nicht greift -- es ist für Tastaturbedienung
+	   gedacht. Ohne :focus tippt jemand am Telefon auf das "?" und bekommt
+	   nichts. Screenreader waren über aria-label versorgt, sehende
+	   Touch-Nutzer nicht. Nebeneffekt: der Tooltip erscheint jetzt auch beim
+	   Mausklick -- hier erwünscht, die Pille hat keine andere Aktion. */
 	.pill[data-tooltip]:hover::after,
 	.pill[data-tooltip]:hover::before,
+	.pill[data-tooltip]:focus::after,
+	.pill[data-tooltip]:focus::before,
 	.pill[data-tooltip]:focus-visible::after,
 	.pill[data-tooltip]:focus-visible::before {
 		opacity: 1;
@@ -447,10 +505,11 @@ const effortInfo = effort ? EFFORT[effort] : undefined;
 			border-color: #666;
 			color: #333;
 		}
-		.pill[data-family='solid'] {
+
+		/* Im Ausdruck sind ohnehin alle Pillen Kontur statt Fläche, der
+		   Pflichtgrad braucht dort also ein anderes Mittel als Farbe. */
+		.pill[data-role='pflicht'] {
 			border-width: 2px;
-			border-color: #000;
-			color: #000;
 		}
 	}
 </style>

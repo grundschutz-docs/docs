@@ -121,12 +121,12 @@ h6,
 	--banner-tint: oklch(87% 0.06 78);
 	--tooltip-bg: oklch(98% 0.01 80 / 0.97);
 
-	--pill-danger-low: oklch(90% 0.05 25);
-	--pill-danger-high: oklch(42% 0.16 25);
-	--pill-warn-low: oklch(90% 0.05 50);
-	--pill-warn-high: oklch(42% 0.14 50);
-	--pill-calm-low: oklch(90% 0.04 195);
-	--pill-calm-high: oklch(38% 0.09 195);
+	--pill-danger-low: oklch(87% 0.065 25);
+	--pill-danger-high: oklch(38% 0.17 25);
+	--pill-warn-low: oklch(87% 0.065 50);
+	--pill-warn-high: oklch(38% 0.15 50);
+	--pill-calm-low: oklch(87% 0.05 195);
+	--pill-calm-high: oklch(36% 0.1 195);
 	--pill-info-low: oklch(90% 0.03 300);
 	--pill-info-high: oklch(40% 0.08 300);
 	--pill-info-strong-low: oklch(88% 0.06 320);
