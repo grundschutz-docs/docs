@@ -137,7 +137,12 @@ if (image) {
 
 		@media (min-width: 50rem) {
 			.hero {
-				grid-template-columns: 7fr 4fr;
+				/* 60/40 statt Starlights 7fr 4fr: die Vergleichskarte braucht
+				   Breite, damit die JSON-Zeilen als Maschinenausgabe wirken
+				   und nicht als Schnipsel. Nicht weiter — ab etwa 6fr 5fr
+				   reicht die linke Spalte für "Grundschutz++ Docs" auch auf
+				   breiten Fenstern nicht mehr und der Titel bricht um. */
+				grid-template-columns: 3fr 2fr;
 				gap: 3%;
 				/* Starlights Standardwert reserviert viel Platz für ein Hero-Bild
 				   (bis zu 10rem). Wir haben keins, also deutlich knapper. */

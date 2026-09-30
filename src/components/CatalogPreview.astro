@@ -28,7 +28,10 @@ interface Props {
 
 const { sample } = landing;
 // Nur der Anfang: die Aussage ist "das geht so weiter", nicht "lies das".
-const defaultRawExcerpt = sample.raw.split('\n').slice(0, 14).join('\n');
+// Bewusst mehr Zeilen, als .pane-raw in max-height zeigen kann -- der
+// Ausschnitt soll unten mitten im JSON abreißen und ausblenden, nicht sauber
+// enden. Wer hier die Höhe der Karte ändert, muss diese Zahl mitziehen.
+const defaultRawExcerpt = sample.raw.split('\n').slice(0, 20).join('\n');
 
 const {
 	rawExcerpt = defaultRawExcerpt,
@@ -80,7 +83,7 @@ const {
 		/* Als Grid-Item im Hero gilt hier min-width: auto, also eine
 		   content-basierte Mindestbreite. Der Roh-Ausschnitt enthält eine
 		   ~125 Zeichen lange, nicht umbrechende "ns"-URL (white-space: pre),
-		   die darüber den 4fr-Track und damit die ganze Seite über den
+		   die darüber den rechten Hero-Track und damit die ganze Seite über den
 		   Viewport hinausdrückt — die Startseite ließ sich seitlich scrollen.
 		   overflow: hidden auf den Panes clippt das nur optisch; die
 		   Mindestbreite schlägt trotzdem bis zum Grid durch. Nur min-width
@@ -111,7 +114,10 @@ const {
 	   unlesbar-lang *wirken*, das ist die Aussage. */
 	.pane-raw pre {
 		margin: 0;
-		max-height: 9.5rem;
+		/* Zeigt ~10 klar lesbare Zeilen, bevor die Maske ausblendet. Höher
+		   sollte es nicht werden: die Karte würde sonst die linke Hero-Spalte
+		   überragen und das Gleichgewicht der Startseite kippen. */
+		max-height: 13rem;
 		overflow: hidden;
 		-webkit-mask-image: linear-gradient(to bottom, #000 70%, transparent 100%);
 		mask-image: linear-gradient(to bottom, #000 70%, transparent 100%);
