@@ -28,3 +28,6 @@ ROADMAP.md
 # Stand — bei diesem Repo also auch die Betreiberdaten, die 2026-09-30 aus
 # der Historie entfernt wurden. Dürfen nie eingecheckt werden.
 *.bundle
+
+# Claude-Code-Session-Exports, die versehentlich im Repo-Root landen
+*-claude-session-*.txt
