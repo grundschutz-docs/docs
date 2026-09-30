@@ -195,36 +195,37 @@ header.header {
 	}
 }
 
-/* Primärer CTA-Button ("Zum Katalog"): echte Tiefe statt platten
-   Drop-Shadows — Glanzlicht oben, leichte Wölbung, drückt sich beim Klick
-   spürbar ein. */
+/* Primärer CTA-Button ("Zum Katalog"): flach statt glasig — Tiefe kommt aus
+   Farbwechsel und einer kleinen Pfeil-Mikroanimation, nicht aus Glanzlicht
+   und Schatten-Stapel. */
 .sl-link-button.primary {
-	/* Schwarzer Schatten wäre auf dunklem Grund unsichtbar — deshalb ein
-	   farbiger Glow in der Akzentfarbe statt eines klassischen Drop-Shadows. */
-	box-shadow:
-		inset 0 1px 0 oklch(100% 0 0 / 0.5),
-		inset 0 -3px 5px oklch(0% 0 0 / 0.18),
-		0 6px 20px var(--button-glow),
-		0 2px 6px oklch(0% 0 0 / 0.3);
+	font-weight: 600;
+	box-shadow: 0 1px 2px oklch(0% 0 0 / 0.12);
 	transition:
-		transform 0.15s ease,
+		background-color 0.15s ease,
+		border-color 0.15s ease,
+		transform 0.1s ease,
 		box-shadow 0.15s ease;
 }
 
+.sl-link-button.primary :global(svg) {
+	transition: transform 0.2s ease;
+}
+
 .sl-link-button.primary:hover {
-	transform: translateY(-2px);
-	box-shadow:
-		inset 0 1px 0 oklch(100% 0 0 / 0.55),
-		inset 0 -3px 5px oklch(0% 0 0 / 0.18),
-		0 12px 28px var(--button-glow),
-		0 4px 10px oklch(0% 0 0 / 0.35);
+	background: color-mix(in oklch, var(--sl-color-accent) 85%, black);
+	border-color: color-mix(in oklch, var(--sl-color-accent) 85%, black);
+}
+
+.sl-link-button.primary:hover :global(svg) {
+	transform: translateX(3px);
 }
 
 .sl-link-button.primary:active {
+	background: color-mix(in oklch, var(--sl-color-accent) 72%, black);
+	border-color: color-mix(in oklch, var(--sl-color-accent) 72%, black);
 	transform: translateY(1px);
-	box-shadow:
-		inset 0 2px 4px oklch(0% 0 0 / 0.25),
-		0 2px 8px var(--button-glow);
+	box-shadow: 0 1px 1px oklch(0% 0 0 / 0.12);
 }
 
 site-search button {
