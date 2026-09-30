@@ -133,6 +133,26 @@ h6,
 	--pill-info-strong-high: oklch(40% 0.13 320);
 }
 
+/*
+ * Wofür der Bernstein-Akzent da ist — und wofür nicht.
+ *
+ * Er gehörte an einem Punkt elf verschiedenen Dingen gleichzeitig: Button,
+ * Statistikzahlen, Control-IDs, Praktik-IDs, aktivem Sidebar-Eintrag,
+ * Banner-Link, Zitatstrich, Zeitleisten-Punkt, Fokusring, Rollen-Kicker,
+ * Hinweisrahmen. Eine Akzentfarbe, die überall liegt, akzentuiert nichts.
+ *
+ * Die Regel: Akzent bedeutet Aktion, aktueller Ort oder Fokus.
+ *   ja  -> Primary-Button, Links, Hover-Rahmen, Fokusring, aktiver
+ *          Sidebar-Eintrag, aktuelle Phase in der Zeitleiste
+ *   nein -> Kennungen (IDs), Labels, Zahlen, Warnhinweise. Kennungen gehen
+ *          auf Grau, Warnungen auf die Warn-Familie, Zahlen auf die Textfarbe.
+ *
+ * Bewusste Ausnahme: die Katalog-Vorschau auf der Startseite behält ihren
+ * internen Akzentgebrauch (Pfeil, ID, Zitatstrich). Sie ist das eine Element,
+ * das laut sein darf, und dort ergeben die drei zusammen ein geschlossenes
+ * Bild -- einzelne davon zu entfärben würde es zerlegen, nicht beruhigen.
+ */
+
 /* Liquid-Glass-Chrome: nur auf UI-Rahmen, nie auf Fließtext */
 
 /* Zurückgesetzt auf einzeilig -- die Quick-Nav-Zweitzeile (ADR-0006) ist
@@ -358,7 +378,10 @@ site-search dialog::backdrop {
 .practice-id {
 	font-family: 'JetBrains Mono Variable', ui-monospace, monospace;
 	font-size: var(--sl-text-xs);
-	color: var(--sl-color-accent-high);
+	/* Kennung, keine Aktion -- siehe die Akzent-Regel oben. Der Titel daneben
+	   ist das, was man liest; die ID ist die Referenz und darf leise sein.
+	   Monospace und Position machen sie weiterhin scanbar. */
+	color: var(--sl-color-gray-3);
 	margin-inline-end: 0.5em;
 }
 
@@ -695,7 +718,9 @@ site-search dialog::backdrop {
 	font-size: var(--sl-text-2xs);
 	letter-spacing: 0.06em;
 	text-transform: uppercase;
-	color: var(--sl-color-accent-high);
+	/* Label, keine Aktion. Die Karte selbst ist der Link -- der Akzent gehört
+	   ihrem Hover-Rahmen, nicht ihrer Beschriftung. */
+	color: var(--sl-color-gray-3);
 }
 
 .role-card h3 {
@@ -719,7 +744,10 @@ site-search dialog::backdrop {
 	display: block;
 	margin: 0 0 2rem;
 	padding: 0.9rem 1.1rem;
-	border-inline-start: 3px solid var(--sl-color-accent);
+	/* Warn-Familie statt Akzent: der Hinweis IST eine Warnung ("Impressum mit
+	   Platzhaltern"), und genau dafür gibt es die Pill-Warnfarbe. Der Akzent
+	   hätte ihn wie ein normales Seitenelement aussehen lassen. */
+	border-inline-start: 3px solid var(--pill-warn-high);
 	border-radius: 0 0.5rem 0.5rem 0;
 	background: var(--sl-color-bg-sidebar);
 	font-size: var(--sl-text-sm);

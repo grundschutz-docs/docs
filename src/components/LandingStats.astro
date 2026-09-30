@@ -46,11 +46,30 @@ const items = [
 		gap: 0.1rem;
 	}
 
+	/*
+	 * Bewusst die Display-Serife, nicht der Monospace.
+	 *
+	 * "1.000" in JetBrains Mono liest sich wie Terminal-Ausgabe -- wie etwas,
+	 * das ein Programm gedruckt hat. Das sind aber redaktionelle Zahlen, eine
+	 * Behauptung über den Umfang des Katalogs. In Fraunces werden sie zu dem,
+	 * was sie sind: eine Aussage. Der Monospace bleibt den Dingen vorbehalten,
+	 * die tatsächlich Maschinen-Tokens sind (IDs, Codeauszüge).
+	 *
+	 * Größer als vorher, weil eine Serife bei gleicher Pixelzahl optisch
+	 * kleiner wirkt als ein Monospace -- ohne den Sprung sähe der Wechsel wie
+	 * ein Rückschritt aus.
+	 *
+	 * Textfarbe statt Akzent: der Bernstein-Ton gehört auf dieser Seite
+	 * Aktionen, dem aktuellen Ort und dem Fokusring. Zahlen sind keins davon,
+	 * und eine Akzentfarbe, die überall liegt, akzentuiert nichts mehr.
+	 */
 	dt {
-		font-family: var(--sl-font-mono);
-		font-size: var(--sl-text-2xl);
+		font-family: 'Fraunces Variable', Georgia, serif;
+		font-optical-sizing: auto;
+		font-size: var(--sl-text-3xl);
+		font-weight: 600;
 		font-variant-numeric: tabular-nums;
-		color: var(--sl-color-accent-high);
+		color: var(--sl-color-white);
 		line-height: 1.1;
 	}
 
@@ -67,7 +86,7 @@ const items = [
 		}
 
 		dt {
-			font-size: var(--sl-text-xl);
+			font-size: var(--sl-text-2xl);
 		}
 	}
 </style>
