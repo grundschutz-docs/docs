@@ -1,27 +1,48 @@
 ---
-title: Start
+# Landet als "<title>… | Grundschutz++ Docs</title>" im Browser-Tab und im
+# Suchergebnis. Hieß vorher "Start" — ein Navigationswort, das über den
+# Inhalt der Seite nichts aussagt. "Grundschutz++ Docs" wäre hier falsch:
+# Starlight dedupliziert den Seitennamen nicht und hängt ihn trotzdem an,
+# das Ergebnis wäre "Grundschutz++ Docs | Grundschutz++ Docs".
+title: Grundschutz++ lesbar aufbereitet
 description: Eigene lesbare Aufbereitung des BSI Grundschutz++ OSCAL-Katalogs
 template: splash
 head:
-  # Ohne das wäre der Titel beim Teilen schlicht "Start" — der Sidebar-Name
-  # dieser Seite taugt nicht als Überschrift einer Linkvorschau.
+  # Ausführlicher als der <title> für Linkvorschauen, wo mehr Platz ist.
   - tag: meta
     attrs:
       property: og:title
       content: Grundschutz++ Docs — der BSI-OSCAL-Katalog, lesbar aufbereitet
 hero:
-  tagline: Der BSI-OSCAL-Katalog ist für Maschinen gebaut (SSP-Generierung, Tooling) – das hier ist die Übersetzung für Menschen.
+  # Die H1 trägt die Aussage, nicht den Namen.
+  #
+  # Ohne title: fällt Hero.astro auf siteTitle zurück -- dann stand hier
+  # "Grundschutz++ Docs" in 42px, hundert Pixel unter demselben Wort in der
+  # Kopfleiste. Das größte typografische Mittel der Seite wiederholte damit
+  # etwas, das der Leser gerade gelesen hatte, während die eigentliche
+  # Aussage in die kleinere, graue Tagline verbannt war.
+  title: Grundschutz++, lesbar aufbereitet
+  # Ohne "SSP-Generierung, Tooling": der Begriff kommt in keinem der
+  # Praktiker-Artikel zum Umstieg vor -- dort heißt es "maschinenlesbar",
+  # "OSCAL-Unterstützung", "ISMS-Tool". Er belegte die Behauptung also mit
+  # Vokabular, das nur Devs kennen, und riskierte bei ISB und
+  # Geschäftsführung den Eindruck "Dev-Tool".
+  #
+  # Stattdessen steht im zweiten Satz die Zuordnung alt -> neu. Der meist-
+  # genannte Schmerzpunkt beim Umstieg ist laut Fachpresse nicht Lesbarkeit,
+  # sondern Migration ("ein automatisierter Import-Knopf existiert technisch
+  # leider nicht", 30-40 % Handarbeit) -- und genau dafür hat diese Seite
+  # 1.185 Zuordnungen.
+  tagline: Das BSI veröffentlicht den Katalog maschinenlesbar in OSCAL. Hier steht er als Text – samt Zuordnung zu den Bausteinen des alten Kompendiums.
+  # Bewusst nur eine Aktion. Der zweite Button ("BSI-Quellrepo") zeigte auf
+  # exakt dieselbe URL wie das GitHub-Symbol in der Kopfleiste -- eine
+  # wörtliche Dopplung, und das als zweitwichtigste Handlung der Startseite,
+  # noch dazu von der Seite weg. Der Herkunftsnachweis steht jetzt im
+  # Fließtext unten, wo ihn auch liest, wer kein Octocat erkennt.
   actions:
     - text: Zum Katalog
       link: /grundschutzpp/
       icon: right-arrow
-    - text: BSI-Quellrepo (GitHub)
-      link: https://github.com/BSI-Bund/Stand-der-Technik-Bibliothek
-      icon: external
-      variant: secondary
-      attrs:
-        target: _blank
-        rel: noopener noreferrer
 ---
 
 ## Wer bist du?
@@ -48,6 +69,7 @@ unterschiedliche Fragen. Hier kommst du direkt zu deiner:
 </div>
 
 Diese Seite ist **kein offizielles BSI-Angebot**, sondern eine eigene,
-lesbare Aufbereitung des BSI-OSCAL-Katalogs — aktuell in der
-**Pilotphase**. Mehr dazu unter [Über diese Seite](/ueber/) und
-[Status & Zeitplan](/grundschutzpp/zeitplan/).
+lesbare Aufbereitung des
+[BSI-OSCAL-Katalogs](https://github.com/BSI-Bund/Stand-der-Technik-Bibliothek)
+— aktuell in der **Pilotphase**. Mehr dazu unter
+[Über diese Seite](/ueber/) und [Status & Zeitplan](/grundschutzpp/zeitplan/).
