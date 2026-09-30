@@ -563,6 +563,49 @@ def render_timeline():
     return "\n".join(lines)
 
 
+def write_status_data():
+    """Aktuelle Phase fuer die sitewide Status-Leiste (Banner.astro).
+
+    Der Banner stand bis 2026-10-01 als fester Text im Bauteil und behauptete
+    danach weiter "aktuell in der Pilotphase (bis 30.9.2026)" -- auf einer
+    Seite, deren Thema Fristen sind, der teuerste denkbare Fehler: er steht
+    ueber allem und widersprach der eigenen, datumsgesteuerten Zeitleiste.
+    Jetzt kommt beides aus TIMELINE, damit es nicht wieder auseinanderlaufen
+    kann.
+
+    Mehrere Phasen koennen gleichzeitig laufen (Pilot- und Uebergangsphase
+    ueberlappten von 04/2026 bis 09/2026). Fuer die Leiste gewinnt die
+    kuerzeste laufende Phase -- die spezifischste Aussage, und dieselbe Wahl,
+    die vorher von Hand getroffen war.
+    """
+    today = date.today()
+    laufend = [
+        (start, end, label, detail)
+        for start, end, label, detail in TIMELINE
+        if start <= today and (end is None or today <= end)
+    ]
+    if not laufend:
+        raise SystemExit(
+            f"Keine Phase in TIMELINE umfasst heute ({today.isoformat()}). "
+            "Die Status-Leiste haette nichts anzuzeigen -- TIMELINE in "
+            "scripts/generate_docs.py fortschreiben."
+        )
+    start, end, label, detail = min(
+        laufend, key=lambda p: (p[1] - p[0]).days if p[1] else 10**6
+    )
+
+    data = {
+        "phase": label,
+        "bis": end.strftime("%m/%Y") if end else None,
+        "detail": detail,
+    }
+    DATA_OUT_DIR.mkdir(parents=True, exist_ok=True)
+    (DATA_OUT_DIR / "status.json").write_text(
+        json.dumps(data, indent="\t", ensure_ascii=False) + "\n"
+    )
+    return data
+
+
 def render_index_section(heading, intro, entries):
     lines = [f"## {heading}\n", f"{intro}\n", '<ul class="practice-index">']
     for gid, title, slug, summary in entries:
@@ -1192,6 +1235,7 @@ def main():
     stats = write_landing_data(
         catalog, control_index, by_baustein, all_mappings, params_by_id, baustein_links
     )
+    write_status_data()
 
 
     # Rollenbasierte Einstiegsseiten (ADR-0007) -- aus denselben Gruppen-

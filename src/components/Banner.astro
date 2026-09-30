@@ -1,7 +1,18 @@
 ---
-// Starlights eigener Banner ist pro Seite über Frontmatter gedacht.
-// Hier bewusst sitewide fest verdrahtet, statt das an 25+ generierten
-// Dateien einzeln pflegen zu müssen.
+/**
+ * Sitewide Status-Leiste.
+ *
+ * Inhalt kommt aus src/data/status.json (Generator, write_status_data) statt
+ * aus festem Text. Vorher stand hier "Grundschutz++ ist aktuell in der
+ * Pilotphase (bis 30.9.2026)" — ab dem 1.10.2026 also falsch, auf jeder Seite,
+ * und im Widerspruch zur eigenen Zeitleiste unter /grundschutzpp/zeitplan/,
+ * die ihre laufende Phase aus dem Datum ableitet. Auf einer Seite, deren Thema
+ * Fristen und Gültigkeitszeiträume sind, ist ein abgelaufenes Datum im
+ * Dauer-Banner der teuerste Fehler überhaupt.
+ *
+ * Beides liest jetzt dieselbe TIMELINE in scripts/generate_docs.py.
+ */
+import status from '../data/status.json';
 //
 // Die Quick-Nav-Zweitzeile (ADR-0006) ist ausgezogen in eine eigene
 // Header.astro-Überschreibung (siehe dort) -- Banner ist für die temporäre
@@ -11,11 +22,14 @@
 ---
 
 <div class="sl-banner" data-pagefind-ignore>
+	{/* Punkt statt Gedankenstrich: der Detailsatz kommt aus TIMELINE und ist
+	    dort ein eigener, großgeschriebener Satz — hinter einem Gedankenstrich
+	    läse er sich holprig. */}
 	<span
-		>Grundschutz++ ist aktuell in der <strong>Pilotphase</strong> (bis 30.9.2026) — das bisherige
-		IT-Grundschutz-Kompendium bleibt voraussichtlich bis 2029 parallel gültig.</span
+		>Grundschutz++ ist in der <strong>{status.phase}</strong>{status.bis && ` (bis ${status.bis})`}.
+		{' '}{status.detail}</span
 	>
-	<a href="/grundschutzpp/zeitplan/">Zum Zeitplan →</a>
+	<a href="/grundschutzpp/zeitplan/">Zum Zeitplan</a>
 </div>
 
 <style>
