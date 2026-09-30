@@ -127,7 +127,10 @@ const {
 		font-family: var(--sl-font-mono);
 		font-size: 0.6rem;
 		line-height: 1.5;
-		color: var(--sl-color-gray-3);
+		/* Nicht --sl-color-gray-3: der Wert ist für normal große Sekundärtexte
+		   kalibriert und fällt bei 9,6px im Light Mode unter AA. Eigenes Token
+		   mit eigener Hell-Stufe, siehe custom.css. */
+		color: var(--preview-code-text);
 		white-space: pre;
 	}
 

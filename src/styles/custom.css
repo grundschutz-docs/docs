@@ -45,6 +45,17 @@ h6,
 	--glass-tint: oklch(30% 0.02 70 / 0.55);
 	--glass-border: oklch(90% 0.02 70 / 0.18);
 	--glass-gap: 0.75rem;
+	/* Tiefe der schwebenden Panels. Im Dunkeln trägt ein einzelner weicher
+	   Schatten -- die Fläche ist dunkler als ihr Umfeld, der Schatten setzt
+	   nur ab. Der Light Mode überschreibt beides (siehe dort), weil dieselbe
+	   Rechnung auf Weiß nicht aufgeht. */
+	--glass-shadow: 0 12px 30px oklch(0% 0 0 / 0.22);
+	--glass-shadow-soft: 0 12px 30px oklch(0% 0 0 / 0.18);
+	--glass-shadow-lift: 0 20px 50px oklch(0% 0 0 / 0.25);
+	/* Roh-JSON in der Katalog-Vorschau: bewusst zurückgenommen, aber im
+	   Light Mode nicht so weit, dass 9,6px Monospace unter die
+	   WCAG-AA-Schwelle fällt (siehe dortige Überschreibung). */
+	--preview-code-text: oklch(62% 0.02 70);
 	--button-glow: oklch(74% 0.14 75 / 0.55);
 	/* Eigener Ton für die Status-Leiste statt --sl-color-accent-low: das Token
 	   ist für kleine Chip-Füllungen kalibriert, nicht für eine vollflächige
@@ -86,8 +97,22 @@ h6,
 	--sl-color-accent: oklch(62% 0.15 75);
 	--sl-color-accent-low: oklch(93% 0.05 78);
 
+	/*
+	 * Der Light Mode kann sich seine Tiefe nicht aus Transparenz holen: hinter
+	 * einem 97%-Tint auf einer 99%-hellen Seite ist nichts, wodurch man sähe.
+	 * Das Panel wirkte dadurch nicht schwebend, sondern gar nicht. Deshalb hier
+	 * dasselbe Mittel, das helle Layouts sonst benutzen -- eine deutlich
+	 * sichtbare Kante plus ein knapper, gestufter Schatten statt einer einzelnen
+	 * breiten Wolke. Ein 22%-Schwarz über 30px Weichzeichnung wird auf Weiß
+	 * grau und schmutzig; zwei enge Lagen lesen sich als Höhe.
+	 */
 	--glass-tint: oklch(97% 0.01 80 / 0.55);
-	--glass-border: oklch(30% 0.02 70 / 0.12);
+	--glass-border: oklch(30% 0.02 70 / 0.22);
+	--glass-shadow: 0 1px 2px oklch(0% 0 0 / 0.05), 0 8px 24px oklch(0% 0 0 / 0.07);
+	--glass-shadow-soft: 0 1px 2px oklch(0% 0 0 / 0.04), 0 6px 18px oklch(0% 0 0 / 0.05);
+	--glass-shadow-lift: 0 2px 4px oklch(0% 0 0 / 0.06), 0 16px 40px oklch(0% 0 0 / 0.1);
+	/* 48% L auf 99% L ergibt bei 9,6px rechnerisch ~4,4:1 -- unter AA. */
+	--preview-code-text: oklch(42% 0.018 70);
 	--button-glow: oklch(62% 0.15 75 / 0.4);
 	/* --sl-color-accent-low läge hier bei 93% L -- nur 4-6 Punkte unter der
 	   99% hellen Seiten-BG, die Leiste verschwand fast. Eigener, satterer
@@ -149,7 +174,7 @@ header.header {
 	background-color: var(--glass-tint);
 	backdrop-filter: blur(20px) saturate(160%);
 	-webkit-backdrop-filter: blur(20px) saturate(160%);
-	box-shadow: 0 12px 30px oklch(0% 0 0 / 0.22);
+	box-shadow: var(--glass-shadow);
 }
 
 /* Sidebar-Popover (mobil: volle Breite, bleibt bewusst randlos für Bedienbarkeit;
@@ -179,7 +204,7 @@ header.header {
 		background-color: var(--glass-tint);
 		backdrop-filter: blur(20px) saturate(160%);
 		-webkit-backdrop-filter: blur(20px) saturate(160%);
-		box-shadow: 0 12px 30px oklch(0% 0 0 / 0.18);
+		box-shadow: var(--glass-shadow-soft);
 	}
 }
 
@@ -200,7 +225,7 @@ header.header {
 		background-color: var(--glass-tint);
 		backdrop-filter: blur(20px) saturate(160%);
 		-webkit-backdrop-filter: blur(20px) saturate(160%);
-		box-shadow: 0 12px 30px oklch(0% 0 0 / 0.18);
+		box-shadow: var(--glass-shadow-soft);
 	}
 }
 
@@ -261,7 +286,7 @@ site-search dialog {
 	background-color: var(--glass-tint);
 	backdrop-filter: blur(24px) saturate(160%);
 	-webkit-backdrop-filter: blur(24px) saturate(160%);
-	box-shadow: 0 20px 50px oklch(0% 0 0 / 0.25);
+	box-shadow: var(--glass-shadow-lift);
 }
 
 site-search dialog::backdrop {
