@@ -502,11 +502,14 @@ site-search dialog::backdrop {
 	margin-inline-start: 0.5ch;
 }
 
-/* Sprungziel je Control (generate_docs.py setzt <a id="DET.3.4">). Ohne
-   scroll-margin verschwindet die Überschrift beim Anspringen hinter der
-   fixierten Kopfleiste plus Pilotphase-Banner. */
-.control-anchor {
-	display: block;
+/* Jede Überschrift ist ein potenzielles Sprungziel -- TOC, generierte
+   Control-/Gruppen-Anker (heading_anchor() in generate_docs.py, {#id} via
+   Satteris headingAttributes-Feature), von Hand gesetzte Links. Ohne
+   scroll-margin verschwindet sie beim Anspringen hinter der fixierten
+   Kopfleiste plus Pilotphase-Banner. Vorher hatte nur der alte
+   `.control-anchor`-Hack das -- jede andere Überschrift auf der Seite war
+   betroffen, nur ist es kaum aufgefallen. */
+.sl-markdown-content :is(h1, h2, h3, h4, h5, h6) {
 	scroll-margin-top: calc(var(--sl-nav-height) + var(--banner-height) + 1rem);
 }
 

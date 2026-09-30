@@ -408,16 +408,25 @@ def render_control_meta(control, basethreats_by_id, predecessor_index, baustein_
     return f"<ControlMeta {' '.join(attrs)} />\n"
 
 
+def heading_anchor(id_):
+    """{#id}-Ueberschriften-Attribut, nativ vom Satteri-Markdown-Prozessor
+    geparst (markdown.processor in astro.config.mjs, features.headingAttributes).
+    Satteri konsumiert die {}-Syntax vor MDX' eigenem Ausdrucks-Scanner --
+    kein HTML-Entity-Escaping noetig, mit Build + Link-Validator bestaetigt."""
+    return f"{{#{id_}}}"
+
+
 def render_control(control, level, params_by_id, basethreats_by_id, predecessor_index, baustein_links):
     heading = "#" * min(level, 6)
-    # Eigener Anker zusaetzlich zu Starlights Ueberschriften-ID. Starlight
-    # slugifiziert den ganzen Titel ("det31--verfahren-und-regelungen") --
-    # das aendert sich, sobald das BSI eine Formulierung anfasst, und genau
-    # darauf zeigen die ~1200 Links der Vergleichsseiten. Die Control-ID ist
-    # stabil, also ankern wir daran.
+    # {#...} setzt die Anker-ID explizit statt sie Starlights Auto-Slug zu
+    # ueberlassen (der slugifiziert den ganzen Titel, z. B.
+    # "det31--verfahren-und-regelungen") -- das aendert sich, sobald das BSI
+    # eine Formulierung anfasst, und genau darauf zeigen die ~1200 Links der
+    # Vergleichsseiten. Die Control-ID ist stabil, also ankern wir daran.
+    # Satteris headingAttributes-Feature macht daraus die tatsaechliche
+    # Element-ID, auch in Starlights eigener "Auf dieser Seite"-Navigation.
     lines = [
-        f'<a id="{control["id"]}" class="control-anchor"></a>\n',
-        f"{heading} {control['id']} – {control['title']}\n",
+        f"{heading} {control['id']} – {control['title']} {heading_anchor(control['id'])}\n",
     ]
 
     meta = render_control_meta(control, basethreats_by_id, predecessor_index, baustein_links)
@@ -442,7 +451,9 @@ def render_group(group, level, params_by_id, basethreats_by_id, predecessor_inde
     lines = []
     if include_heading:
         heading = "#" * min(level, 6)
-        lines.append(f"{heading} {group['id']} {group['title']}\n")
+        # Gleicher Grund wie bei render_control: stabile ID statt Starlights
+        # Auto-Slug aus dem Titeltext (siehe heading_anchor()).
+        lines.append(f"{heading} {group['id']} {group['title']} {heading_anchor(group['id'])}\n")
 
     desc = mdx_safe(group_description(group))
     if desc:
@@ -598,11 +609,17 @@ def check_invariants(catalog, control_index, muss_controls, by_baustein):
             f"control_index ({len(control_index)}) != Controls im Katalog ({len(all_controls)})"
         )
 
-    # 4. Aus den geschriebenen Katalogseiten zurueckgelesen: ein Anker je Control.
-    anchors = sum(count_in(p, 'class="control-anchor"') for p in OUT_DIR.glob("*.mdx"))
-    if anchors != len(all_controls):
+    # 4. Aus den geschriebenen Katalogseiten zurueckgelesen: eine {#id}-Anker-
+    #    Markierung je Control (Satteris headingAttributes-Feature macht
+    #    daraus die tatsaechliche Element-ID). Pro ID geprueft statt nur als Gesamtzahl --
+    #    sonst wuerden sich ein fehlender und ein doppelter Anker im
+    #    Gesamtcount gegenseitig verstecken, wie im Vorfall oben beschrieben.
+    catalog_text = "\n".join(p.read_text() for p in OUT_DIR.glob("*.mdx"))
+    missing_anchors = [c["id"] for c in all_controls if heading_anchor(c["id"]) not in catalog_text]
+    if missing_anchors:
         problems.append(
-            f"{anchors} Anker in den Katalogseiten, aber {len(all_controls)} Controls"
+            f"{len(missing_anchors)} Controls ohne {{#id}}-Anker in den Katalogseiten "
+            f"(z. B. {missing_anchors[:5]})"
         )
 
     # 5. Aus der geschriebenen GF-Seite zurueckgelesen: eine Zeile je MUSS.
@@ -653,7 +670,7 @@ def check_invariants(catalog, control_index, muss_controls, by_baustein):
 
     print(
         f"Plausibilitaet ok: {len(all_controls)} Anforderungen "
-        f"({len(muss_controls)} MUSS), {anchors} Anker, {actual_rows} Zuordnungen"
+        f"({len(muss_controls)} MUSS), {len(all_controls)} Anker, {actual_rows} Zuordnungen"
     )
 
 
@@ -690,7 +707,7 @@ SEC_LEVEL_LABELS = {"normal-SdT": "Standard-Sicherheitsstufe", "erhöht": "Erhö
 
 def render_muss_table(group_id, group_title, slug, muss_controls):
     lines = [f'<div class="rollen-section" data-group="{group_id}">\n']
-    lines.append(f"### {group_id} {group_title}\n")
+    lines.append(f"### {group_id} {group_title} {heading_anchor(group_id)}\n")
     lines.append('<table class="vergleich-table rollen-muss-table">\n')
     lines.append("<thead><tr><th>Anforderung</th><th>Stufe</th></tr></thead>\n<tbody>\n")
     for control in muss_controls:

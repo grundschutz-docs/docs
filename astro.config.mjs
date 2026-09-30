@@ -4,6 +4,7 @@ import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
 import starlightLinksValidator from 'starlight-links-validator';
 import mdx from '@astrojs/mdx';
+import { satteri } from '@astrojs/markdown-satteri';
 
 // .env in process.env laden, damit Komponenten (OperatorDetails.astro) sie
 // beim Build lesen koennen. Kein vite/dotenv-Import: pnpms striktes
@@ -44,6 +45,13 @@ const SITE_URL = process.env.SITE_URL || 'https://grundschutz-docs.de';
 
 export default defineConfig({
 	site: SITE_URL,
+	markdown: {
+		// headingAttributes schaltet die native "# Text {#id .class}"-Syntax
+		// des Satteri-Prozessors frei. Katalog- und Gruppen-Ueberschriften
+		// nutzen sie fuer eine stabile ID statt Auto-Slug aus dem Titeltext
+		// (siehe generate_docs.py, heading_anchor()).
+		processor: satteri({ features: { headingAttributes: true } }),
+	},
 	integrations: [
 		starlight({
 			title: SITE_NAME || 'Grundschutz++ Docs',
