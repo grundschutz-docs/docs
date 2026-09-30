@@ -77,6 +77,15 @@ const {
 		align-items: stretch;
 		gap: 0.4rem;
 		text-align: start;
+		/* Als Grid-Item im Hero gilt hier min-width: auto, also eine
+		   content-basierte Mindestbreite. Der Roh-Ausschnitt enthält eine
+		   ~125 Zeichen lange, nicht umbrechende "ns"-URL (white-space: pre),
+		   die darüber den 4fr-Track und damit die ganze Seite über den
+		   Viewport hinausdrückt — die Startseite ließ sich seitlich scrollen.
+		   overflow: hidden auf den Panes clippt das nur optisch; die
+		   Mindestbreite schlägt trotzdem bis zum Grid durch. Nur min-width
+		   direkt am Grid-Item unterbindet das. */
+		min-width: 0;
 	}
 
 	.pane {
