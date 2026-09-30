@@ -23,3 +23,8 @@ pnpm-debug.log*
 # private planning notes, not for the public repo
 PLAN.md
 ROADMAP.md
+
+# git-Bundles (Historie-Sicherungen). Enthalten per Definition den *alten*
+# Stand — bei diesem Repo also auch die Betreiberdaten, die 2026-09-30 aus
+# der Historie entfernt wurden. Dürfen nie eingecheckt werden.
+*.bundle
