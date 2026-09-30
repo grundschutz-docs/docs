@@ -4,25 +4,53 @@
  * gelesen. Steht in der Hero-Spalte, die Starlight für ein Bild reserviert —
  * statt eines Dekor-Bildes zeigt die Seite hier, was sie tatsächlich tut.
  *
- * Inhalt kommt aus src/data/landing.json (vom Generator geschrieben), damit
- * der Ausschnitt echt ist und nicht irgendwann etwas anderes behauptet als
- * der Katalog.
+ * Ohne Props: Inhalt kommt aus src/data/landing.json (vom Generator
+ * geschrieben), damit der Ausschnitt echt ist und nicht irgendwann etwas
+ * anderes behauptet als der Katalog. Mit Props ueberschreibbar -- genutzt
+ * von 404.astro fuer denselben Rahmen mit erfundenem Inhalt.
  */
 import landing from '../data/landing.json';
 
+interface Props {
+	rawExcerpt?: string;
+	arrowLabel?: string;
+	id?: string;
+	title?: string;
+	modalVerb?: string;
+	secLevel?: string;
+	effortLevel?: string;
+	statement?: string;
+	// true außerhalb der Hero-Spalte (z. B. 404.astro): dort gibt es keine
+	// zweite Spalte, mit der sich die Karte auf schmalen Bildschirmen
+	// beißen könnte, also bleibt sie bei jeder Breite sichtbar.
+	standalone?: boolean;
+}
+
 const { sample } = landing;
 // Nur der Anfang: die Aussage ist "das geht so weiter", nicht "lies das".
-const rawExcerpt = sample.raw.split('\n').slice(0, 14).join('\n');
+const defaultRawExcerpt = sample.raw.split('\n').slice(0, 14).join('\n');
+
+const {
+	rawExcerpt = defaultRawExcerpt,
+	arrowLabel = 'wird zu',
+	id = sample.id,
+	title = sample.title,
+	modalVerb = sample.modal_verb,
+	secLevel = `Stufe ${sample.sec_level}`,
+	effortLevel = `Aufwand ${sample.effort_level}`,
+	statement = sample.statement,
+	standalone = false,
+} = Astro.props;
 ---
 
-<figure class="catalog-preview">
+<figure class:list={['catalog-preview', { standalone }]}>
 	<div class="pane pane-raw">
 		<figcaption>Im Katalog</figcaption>
 		<pre><code>{rawExcerpt}</code></pre>
 	</div>
 
 	<div class="arrow" aria-hidden="true">
-		<span class="arrow-label">wird zu</span>
+		<span class="arrow-label">{arrowLabel}</span>
 		<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
 			<path d="M12 5v14M19 12l-7 7-7-7" />
 		</svg>
@@ -30,14 +58,14 @@ const rawExcerpt = sample.raw.split('\n').slice(0, 14).join('\n');
 
 	<div class="pane pane-read">
 		<figcaption>Auf dieser Seite</figcaption>
-		<p class="ctrl-id">{sample.id}</p>
-		<p class="ctrl-title">{sample.title}</p>
+		<p class="ctrl-id">{id}</p>
+		<p class="ctrl-title">{title}</p>
 		<p class="ctrl-pills">
-			<span class="ctrl-pill pill-must">{sample.modal_verb}</span>
-			<span class="ctrl-pill">Stufe {sample.sec_level}</span>
-			<span class="ctrl-pill">Aufwand {sample.effort_level}</span>
+			<span class="ctrl-pill pill-must">{modalVerb}</span>
+			<span class="ctrl-pill">{secLevel}</span>
+			<span class="ctrl-pill">{effortLevel}</span>
 		</p>
-		<blockquote>{sample.statement}</blockquote>
+		<blockquote>{statement}</blockquote>
 	</div>
 </figure>
 
@@ -151,9 +179,11 @@ const rawExcerpt = sample.raw.split('\n').slice(0, 14).join('\n');
 	}
 
 	/* Unter 50rem hat der Hero nur eine Spalte — dort würde der Vergleich den
-	   eigentlichen Einstieg (Tagline + Buttons) nach unten drücken. */
+	   eigentlichen Einstieg (Tagline + Buttons) nach unten drücken. Gilt nur
+	   in der Hero-Spalte: standalone (404.astro) hat keine zweite Spalte,
+	   mit der das kollidieren könnte. */
 	@media (max-width: 50rem) {
-		.catalog-preview {
+		.catalog-preview:not(.standalone) {
 			display: none;
 		}
 	}
@@ -163,7 +193,7 @@ const rawExcerpt = sample.raw.split('\n').slice(0, 14).join('\n');
 	   Style-Scoping einen Selektor der Elternkomponente nicht auf die
 	   Wurzel der Kindkomponente anwenden würde. */
 	@media (min-width: 50rem) {
-		.catalog-preview {
+		.catalog-preview:not(.standalone) {
 			order: 2;
 		}
 	}

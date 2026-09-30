@@ -1,0 +1,103 @@
+---
+// Eigene 404 statt Starlights generischer Standardseite. Nutzt
+// <StarlightPage>, weil src/pages/ (nicht die docs-Content-Collection) der
+// einzige Ort ist, an dem Astro eine 404.astro fuer den Build erkennt.
+//
+// Zeigt dasselbe "wird zu"-Bauteil wie die Startseite (CatalogPreview,
+// hier mit standalone -- keine Hero-Spalte, die auf schmalen Screens
+// kollidieren koennte), nur mit erfundenem Inhalt: die aufgerufene Seite
+// wird selbst zu einer (nicht erfuellten) Anforderung.
+import StarlightPage from '@astrojs/starlight/components/StarlightPage.astro';
+import { LinkButton } from '@astrojs/starlight/components';
+import CatalogPreview from '../components/CatalogPreview.astro';
+---
+
+<StarlightPage
+	frontmatter={{
+		title: 'Seite nicht gefunden',
+		description: 'Diese Seite existiert nicht.',
+		template: 'splash',
+	}}
+>
+	<p class="eyebrow">HTTP 404 · BSI-Methodik-Grundschutz-plus-plus</p>
+	<h1>Diese Anforderung wurde nicht erfüllt.</h1>
+	<p class="tagline">
+		Dieser Fehler ist für Maschinen gemacht (Routing, DNS, kaputte Links) — die Übersetzung für
+		Menschen: Sie haben sich verlaufen.
+	</p>
+
+	<div class="actions">
+		<LinkButton href="/" icon="right-arrow">Zur Startseite</LinkButton>
+		<LinkButton href="/grundschutzpp/" variant="secondary">Zum Katalog</LinkButton>
+	</div>
+
+	<CatalogPreview
+		standalone
+		rawExcerpt={`{
+  "id": "ERR.1.1",
+  "class": "BSI-Methodik-Grundschutz-plus-plus",
+  "title": "Seite nicht gefunden",
+  "props": [
+    {
+      "name": "http-status",
+      "value": "404"
+    },
+    {
+      "name": "zustaendigkeit",
+      "value": "ungeklärt"
+    },
+    {
+      "name": "letzte-pruefung",
+      "value": "nie"
+    },
+  ], // fehlende schließende Klammer
+  "links": [
+    {
+      "href": "#",
+      "rel": "vorgaenger-version"`}
+		id="ERR.1.1"
+		title="404 — Seite nicht gefunden"
+		modalVerb="MUSS"
+		secLevel="Stufe verzweifelt"
+		effortLevel="Aufwand ∞"
+		statement="Umsetzung MUSS erfolgen. Umsetzungsstand: nicht begonnen. Zuständigkeit: ungeklärt. Frist: bereits verstrichen. Restrisiko: wird vom Leser getragen."
+	/>
+
+	<p class="footnote">Dieser Fehler wurde nicht im Änderungsprotokoll erfasst.</p>
+</StarlightPage>
+
+<style>
+	.eyebrow {
+		font-family: var(--sl-font-mono);
+		font-size: var(--sl-text-xs);
+		letter-spacing: 0.1em;
+		text-transform: uppercase;
+		color: var(--pill-warn-high);
+		margin: 0 0 1rem;
+	}
+
+	h1 {
+		max-width: 18ch;
+	}
+
+	.tagline {
+		font-size: var(--sl-text-lg);
+		color: var(--sl-color-gray-2);
+		max-width: 46ch;
+		margin: 0.75rem 0 2rem;
+	}
+
+	.actions {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.9rem;
+		margin-bottom: 2.5rem;
+	}
+
+	.footnote {
+		font-family: var(--sl-font-mono);
+		font-size: var(--sl-text-xs);
+		color: var(--sl-color-gray-3);
+		margin-top: 1rem;
+	}
+</style>
