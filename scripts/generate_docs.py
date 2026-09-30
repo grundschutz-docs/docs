@@ -540,6 +540,123 @@ def render_index_section(heading, intro, entries):
     return "\n".join(lines)
 
 
+def check_invariants(catalog, control_index, muss_controls, by_baustein):
+    """Bricht den Lauf ab, wenn eine Zahl auf der Seite nicht zur Quelle passt.
+
+    Entstanden aus einem realen Fehler (2026-09-30): die Geschaeftsfuehrungs-
+    Seite behauptete "123 von 874 Anforderungen sind MUSS", tatsaechlich sind
+    es 149 von 1000 — 26 MUSS-Anforderungen fehlten in der Tabelle. Build und
+    Link-Pruefung waren dabei durchgehend gruen.
+
+    Warum es niemand merkte: Ueberschrift und Tabelle stammten aus **derselben**
+    Funktion. Sie waren untereinander konsistent, also sah die Uebereinstimmung
+    nach Bestaetigung aus — sie war aber nur der gemeinsame Fehler.
+
+    Deshalb die Regel fuer alles hier drin: **jede Zahl auf zwei unabhaengigen
+    Wegen ermitteln.** Die Pruefungen unten lesen die *fertig geschriebenen*
+    Dateien zurueck und vergleichen sie mit den Katalogdaten. Eine Pruefung,
+    die denselben Codepfad nimmt wie der Renderer, ist wertlos.
+    """
+    problems = []
+
+    def count_in(path, needle):
+        return path.read_text().count(needle) if path.exists() else -1
+
+    all_controls = list(collect_controls(catalog))
+
+    # 1. Gibt es Knoten ohne eigene Anforderung? Die Blatt-Logik von frueher
+    #    beruhte auf der Annahme, Eltern-Knoten seien reine Container. Falls
+    #    das BSI je echte Container einfuehrt, muss das eine Entscheidung
+    #    ausloesen und nicht still die Zahlen verschieben.
+    ohne_statement = [c["id"] for c in all_controls if not part_text(c, "statement")]
+    if ohne_statement:
+        problems.append(
+            f"{len(ohne_statement)} Controls ohne eigenes statement "
+            f"(z. B. {ohne_statement[:5]}). Bisher hatte jeder Knoten eine eigene "
+            "Anforderung — wenn sich das aendert, muss entschieden werden, ob sie "
+            "weiter mitgezaehlt werden."
+        )
+
+    # 2. Jede Anforderung hat genau ein Modalverb — sonst stimmt die
+    #    MUSS/SOLLTE/KANN-Aufteilung nicht mehr mit der Gesamtzahl ueberein.
+    modals = [part_prop_value(c, "statement", "modal_verb") for c in all_controls]
+    ohne_modal = [c["id"] for c, m in zip(all_controls, modals) if not m]
+    if ohne_modal:
+        problems.append(f"{len(ohne_modal)} Controls ohne modal_verb (z. B. {ohne_modal[:5]})")
+
+    # 3. Summe ueber die Gruppen == Gesamtzahl (unabhaengiger Zaehlweg).
+    per_group = sum(
+        len(list(collect_controls(g))) for g in catalog.get("groups", []) or []
+    )
+    if per_group != len(all_controls):
+        problems.append(
+            f"Summe je Gruppe ({per_group}) != Gesamtzahl Controls ({len(all_controls)})"
+        )
+
+    if len(control_index) != len(all_controls):
+        problems.append(
+            f"control_index ({len(control_index)}) != Controls im Katalog ({len(all_controls)})"
+        )
+
+    # 4. Aus den geschriebenen Katalogseiten zurueckgelesen: ein Anker je Control.
+    anchors = sum(count_in(p, 'class="control-anchor"') for p in OUT_DIR.glob("*.mdx"))
+    if anchors != len(all_controls):
+        problems.append(
+            f"{anchors} Anker in den Katalogseiten, aber {len(all_controls)} Controls"
+        )
+
+    # 5. Aus der geschriebenen GF-Seite zurueckgelesen: eine Zeile je MUSS.
+    gf = ROLLEN_OUT_DIR / "geschaeftsfuehrung.mdx"
+    gf_rows = count_in(gf, "<tr data-sec=")
+    if gf_rows != len(muss_controls):
+        problems.append(
+            f"{gf_rows} MUSS-Zeilen auf der Geschaeftsfuehrungs-Seite, "
+            f"aber {len(muss_controls)} MUSS-Anforderungen im Katalog"
+        )
+    if gf.exists() and f"{len(muss_controls)} von {len(all_controls)} " not in gf.read_text():
+        problems.append(
+            f"Die Ueberschrift der GF-Seite nennt nicht "
+            f"'{len(muss_controls)} von {len(all_controls)}'"
+        )
+
+    # 6. Aus den geschriebenen Baustein-Seiten zurueckgelesen: eine Zeile je Zuordnung.
+    expected_rows = sum(len(e) for e in by_baustein.values())
+    actual_rows = sum(
+        count_in(p, "<tr><td>")
+        for p in VERGLEICH_OUT_DIR.glob("*.mdx")
+        if p.name != "index.mdx"
+    )
+    if actual_rows != expected_rows:
+        problems.append(
+            f"{actual_rows} Zuordnungszeilen auf den Baustein-Seiten, "
+            f"aber {expected_rows} Zuordnungen in der Mapping-Datei"
+        )
+
+    # 7. Die Startseiten-Zahlen gegen dieselben Quellen.
+    landing = json.loads((DATA_OUT_DIR / "landing.json").read_text())["stats"]
+    if landing["controls"] != len(all_controls):
+        problems.append(
+            f"landing.json nennt {landing['controls']} Anforderungen, "
+            f"der Katalog hat {len(all_controls)}"
+        )
+    if landing["mappings"] != expected_rows:
+        problems.append(
+            f"landing.json nennt {landing['mappings']} Zuordnungen, "
+            f"auf den Seiten stehen {expected_rows}"
+        )
+
+    if problems:
+        raise SystemExit(
+            "Zahlen auf der Seite passen nicht zum Katalog:\n  - "
+            + "\n  - ".join(problems)
+        )
+
+    print(
+        f"Plausibilitaet ok: {len(all_controls)} Anforderungen "
+        f"({len(muss_controls)} MUSS), {anchors} Anker, {actual_rows} Zuordnungen"
+    )
+
+
 def collect_controls(node):
     """Alle Anforderungen unter einem Control- oder Gruppen-Knoten, rekursiv.
     Funktioniert fuer beide Knotentypen, weil beide optionale
@@ -1031,11 +1148,21 @@ def main():
         catalog, control_index, by_baustein, all_mappings, params_by_id
     )
 
+
     # Rollenbasierte Einstiegsseiten (ADR-0007) -- aus denselben Gruppen-
     # Listen wie oben, keine eigene Zielgruppen-Einstufung im Katalog nötig.
     render_geschaeftsfuehrung_page(management, themenfelder, groups_by_id)
     render_isb_page(management, groups_by_id)
     render_devs_page(themenfelder, groups_by_id)
+
+    # Ganz zum Schluss: die Pruefungen lesen die *fertig geschriebenen* Dateien
+    # zurueck, also muessen alle Seiten vorher auf der Platte liegen.
+    check_invariants(
+        catalog,
+        control_index,
+        [c for c in collect_controls(catalog) if is_muss(c)],
+        by_baustein,
+    )
 
     total = len(management) + len(themenfelder)
     print(f"{total} Gruppen-Seiten (.mdx) erzeugt in {OUT_DIR}")

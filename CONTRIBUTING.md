@@ -24,6 +24,41 @@ something that turns out not to fit or is already half-solved elsewhere.
   external services, CDN dependencies, or heavy client frameworks need a
   real justification, not a default yes.
 
+## Numbers on the site
+
+Any figure the site states about the catalog — "1000 requirements", "149 of
+them are MUSS", the per-practice counts, the stats on the homepage — must be
+**generated from the catalog and checked by `check_invariants()`** in
+`scripts/generate_docs.py`. Never hand-write one, and never add a new figure
+without a check alongside it. A wrong number is worse than a missing one:
+nothing about it looks broken.
+
+The rule that check has to follow, and the reason it exists:
+
+> **Verify each number by a second, independent path.**
+
+This is not theoretical. On 2026-09-30 the Geschäftsführung page claimed
+"123 of 874 requirements are MUSS" — the real figures are 149 of 1000, and
+the table below it was missing 26 MUSS requirements on the page that is
+specifically about legal obligation. Every build was green the whole time,
+and the link validator was happy.
+
+It survived because the heading and the table were computed by the *same*
+function. They agreed with each other, and that agreement looked like
+confirmation when it was only the shared bug. The underlying mistake was an
+assumption written into a docstring — that parent controls are structural
+containers rather than requirements. In this catalog all 1000 nodes carry
+their own `statement` and modal verb, parents included.
+
+So `check_invariants()` reads the **written files back** and compares them
+against the catalog: anchors in the generated pages, `<tr>` rows in the MUSS
+table and the Baustein pages, the figures in `landing.json`. A check that
+walks the same code path as the renderer proves nothing — if you add one,
+make sure it counts a different way.
+
+To confirm a check works, break the thing it guards on purpose and watch the
+generator fail. If it still passes, the check is decoration.
+
 ## When the upstream catalog changes
 
 The catalog this site renders lives in
