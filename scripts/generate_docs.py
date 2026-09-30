@@ -231,7 +231,15 @@ def baustein_title(baustein_id, url):
 # Anforderung". Bewusst eine kurze Anforderung aus dem Managementsystem, deren
 # Begriff jede:r ISB kennt. Verschwindet die ID aus dem Katalog, bricht der
 # Generator mit einer Meldung ab, statt die Startseite still leerzulassen.
-LANDING_SAMPLE_ID = "UMS.1.2"
+# Das Beispiel auf der Startseite ist das erste und oft einzige, das jemand
+# von diesem Katalog sieht -- es muss ohne Vorwissen verstaendlich sein.
+# Vorher UMS.1.2 ("Umsetzung SOLLTE das bestehende Restrisiko durch die nicht
+# umgesetzten Anforderungen festlegen"), was durch das BSI-Satzmuster
+# "[Praktikname] MUSS/SOLLTE [Verbphrase]" grammatisch schief wirkt: die
+# Praktik ist Subjekt, aber "Umsetzung" ist kein Handelnder. Das betrifft alle
+# Anforderungen, laesst sich also nicht wegaufbereiten -- aber das Schaufenster
+# muss nicht ausgerechnet ein Exemplar zeigen, an dem es auffaellt.
+LANDING_SAMPLE_ID = "NOT.4.10"
 
 
 def find_control(catalog, control_id):
@@ -267,7 +275,7 @@ def trim_prose(node, limit=150):
     return clone
 
 
-def write_landing_data(catalog, control_index, by_baustein, all_mappings, params_by_id):
+def write_landing_data(catalog, control_index, by_baustein, all_mappings, params_by_id, baustein_links):
     """Zahlen und Beispiel für die Startseite (LandingStats/CatalogPreview).
 
     Wird generiert statt von Hand gepflegt, damit die Zahlen auf der
@@ -281,11 +289,26 @@ def write_landing_data(catalog, control_index, by_baustein, all_mappings, params
             "Anforderung setzen."
         )
 
+    # Zaehler und Nenner muessen aus derselben Welt stammen: taucht ein
+    # zugeordneter Baustein nicht in der Kompendium-Liste auf, waere die Quote
+    # groesser als 100 % oder schlicht falsch.
+    unbekannt = sorted(set(by_baustein) - set(baustein_links))
+    if unbekannt:
+        raise SystemExit(
+            "Zugeordnete Bausteine fehlen in bsi-kompendium-2023-bausteine.json, "
+            f"die Abdeckungsquote waere falsch: {', '.join(unbekannt)}"
+        )
+
     data = {
         "stats": {
             "controls": len(control_index),
             "practices": len(catalog.get("groups", []) or []),
             "bausteine": len(by_baustein),
+            # Ohne Nenner ist "94 Bausteine" keine Abdeckungsangabe, sondern
+            # eine Zahl ohne Bezug -- man kann nicht einschaetzen, ob das viel
+            # oder wenig ist. Der Nenner ist die Bausteinliste des Kompendiums
+            # 2023, die hier ohnehin schon fuer die PDF-Links geladen wird.
+            "bausteine_gesamt": len(baustein_links),
             # Bewusst die Zuordnungen, die auch wirklich auf einer Seite stehen,
             # nicht alle 1185 aus der Datei — ein paar davon haben keine
             # auswertbare Baustein-ID und tauchen nirgends auf. Eine Zahl auf
@@ -757,7 +780,12 @@ def render_geschaeftsfuehrung_page(management, themenfelder, groups_by_id):
         f"MUSS** — uneingeschränkt zu erfüllen, unabhängig vom individuellen "
         f"Risikoappetit (RFC2119 / DIN 820-2:2022, Anhang H). Das ist die "
         f"Teilmenge, die aus Governance-Sicht zuerst zählt.\n\n",
-        "## Bin ich überhaupt betroffen?\n\n"
+        # Umlaute im Titel wuerden vom Auto-Slugger prozentcodiert ("%C3%BC"),
+        # deshalb explizite, transliterierte ID -- gleicher Grund wie bei
+        # heading_anchor() fuer Controls und Gruppen. Muss hier im Generator
+        # stehen: die Rollenseiten werden erzeugt, ein Anker direkt in der
+        # .mdx waere beim naechsten Lauf wieder weg.
+        "## Bin ich überhaupt betroffen? {#bin-ich-ueberhaupt-betroffen}\n\n"
         "Das BSI-Gesetz (BSIG, Fassung seit 2.12.2025) unterscheidet zwei "
         "Kategorien nach § 28 BSIG:\n\n"
         "- **Besonders wichtige Einrichtung**: unabhängig von der Größe, wenn "
@@ -774,7 +802,7 @@ def render_geschaeftsfuehrung_page(management, themenfelder, groups_by_id):
         "Schutzbedarfsfeststellung — sie helfen nur bei der ersten "
         "Einordnung mit euren eigenen Zahlen.\n\n"
         "*Primärquelle: [§ 28 BSIG](https://www.gesetze-im-internet.de/bsig_2025/BJNR12D0B0025.html).*\n\n",
-        "## Was schreibt das Gesetz meiner Geschäftsleitung vor?\n\n"
+        "## Was schreibt das Gesetz meiner Geschäftsleitung vor? {#was-schreibt-das-gesetz-vor}\n\n"
         "Nach § 38 BSIG muss die Geschäftsleitung besonders wichtiger und "
         "wichtiger Einrichtungen die Risikomanagementmaßnahmen (§ 30 BSIG) "
         "**umsetzen und ihre Umsetzung überwachen** — und **regelmäßig an "
@@ -861,7 +889,7 @@ def render_isb_page(management, groups_by_id):
             "Dieselben sechs Praktiken als Liste, falls dir das lieber ist als der Kreis oben.",
             entries,
         ),
-        "## Werkzeuge für den Alltag\n\n"
+        "## Werkzeuge für den Alltag {#werkzeuge-fuer-den-alltag}\n\n"
         "- **[Vergleich: Altes Kompendium ↔ Grundschutz++](/vergleich/)** — "
         "jede Zuordnung zwischen alter und neuer Anforderung, mit "
         "Beziehungstyp (entspricht/Teilbereich von/umfasst/überschneidet "
@@ -1162,7 +1190,7 @@ def main():
         )
 
     stats = write_landing_data(
-        catalog, control_index, by_baustein, all_mappings, params_by_id
+        catalog, control_index, by_baustein, all_mappings, params_by_id, baustein_links
     )
 
 

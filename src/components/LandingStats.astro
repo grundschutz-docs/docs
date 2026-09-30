@@ -27,9 +27,16 @@ import landing from '../data/landing.json';
 const { stats } = landing;
 const format = new Intl.NumberFormat('de-DE');
 
+// "94 alte Bausteine abgedeckt" war keine Abdeckungsangabe, sondern eine Zahl
+// ohne Bezug: abgedeckt von wie vielen? Ohne Nenner kann niemand einschätzen,
+// ob das viel ist -- und das ist die erste Frage, die jemand stellt, der sich
+// auf die Zuordnung verlassen will. Mit 111 daneben sind es 85 Prozent.
 const coverage = [
-	{ value: stats.mappings, label: 'Zuordnungen alt → neu' },
-	{ value: stats.bausteine, label: 'alte Bausteine abgedeckt' },
+	{ value: format.format(stats.mappings), label: 'Zuordnungen alt → neu' },
+	{
+		value: `${format.format(stats.bausteine)} von ${format.format(stats.bausteine_gesamt)}`,
+		label: 'alten Bausteinen zugeordnet',
+	},
 ];
 ---
 
@@ -38,7 +45,7 @@ const coverage = [
 		{
 			coverage.map((item) => (
 				<div>
-					<dt>{format.format(item.value)}</dt>
+					<dt>{item.value}</dt>
 					<dd>{item.label}</dd>
 				</div>
 			))

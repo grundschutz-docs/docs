@@ -79,6 +79,20 @@ if (image) {
 				</div>
 			)
 		}
+		{
+			/* Seit die Tagline "wir" sagt, steht im Hero ein Sprecher ohne
+			   Identität -- und "Grundschutz++" im Titel kann wie ein offizielles
+			   Angebot wirken. Für ein Compliance-Publikum ist die Quelle die
+			   erste Prüffrage, noch vor dem Inhalt. Die Klarstellung kostet hier
+			   nichts: offen zu sagen, dass man unabhängig ist, wirkt seriöser,
+			   als es unten im Schlussabsatz zu verstecken. */
+			isLandingPage && (
+				<p class="provenance">
+					Unabhängiges Projekt, kein Angebot des BSI.{' '}
+					<a href="/ueber/">Wer dahintersteht</a>
+				</p>
+			)
+		}
 		{isLandingPage && <LandingStats />}
 	</div>
 </div>
@@ -135,6 +149,25 @@ if (image) {
 			justify-content: center;
 		}
 
+		/* Bewusst leise: eine Randnotiz, die beantwortet, wer hier spricht --
+		   kein Hinweiskasten. Der negative Abstand holt sie an die Aktion heran,
+		   statt sie als eigenen Block der stack-gap zu überlassen. */
+		.provenance {
+			margin: -0.75rem 0 0;
+			font-size: var(--sl-text-xs);
+			color: var(--sl-color-gray-3);
+			text-align: center;
+		}
+
+		.provenance a {
+			color: inherit;
+			text-underline-offset: 0.2em;
+		}
+
+		.provenance a:hover {
+			color: var(--sl-color-white);
+		}
+
 		@media (min-width: 50rem) {
 			.hero {
 				/* 60/40 statt Starlights 7fr 4fr: die Vergleichskarte braucht
@@ -165,6 +198,10 @@ if (image) {
 
 			.actions {
 				justify-content: flex-start;
+			}
+
+			.provenance {
+				text-align: start;
 			}
 		}
 	}
