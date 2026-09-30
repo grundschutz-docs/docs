@@ -513,6 +513,46 @@ site-search dialog::backdrop {
 	margin-bottom: 1.5rem;
 }
 
+/*
+ * Schwellenwerte nach § 28 BSIG auf der Geschäftsführungs-Seite.
+ *
+ * Der Scroll-Container ist kein Schmuck: fünf Spalten passen auf einem
+ * Telefon nicht nebeneinander, und ohne overflow-x schiebt die Tabelle die
+ * ganze Seite über den Viewport — derselbe Fehler, den die Katalog-Vorschau
+ * im Hero einmal hatte. Breiter Inhalt scrollt in seinem eigenen Kasten,
+ * nie im Dokument.
+ */
+.table-scroll {
+	overflow-x: auto;
+	margin: 1rem 0 1.5rem;
+}
+
+.bsig-table {
+	width: 100%;
+	border-collapse: collapse;
+	font-size: var(--sl-text-sm);
+}
+
+.bsig-table th,
+.bsig-table td {
+	padding: 0.5rem 1rem 0.5rem 0;
+	border-bottom: 1px solid var(--sl-color-hairline);
+	text-align: start;
+	vertical-align: top;
+	white-space: nowrap;
+}
+
+/* Die Operatoren tragen die Bedingungslogik, deshalb sind die Spaltenköpfe
+   hier Inhalt und nicht Beschriftung. */
+.bsig-table th {
+	font-weight: 600;
+	color: var(--sl-color-gray-2);
+}
+
+.bsig-table tr:last-child td {
+	border-bottom: none;
+}
+
 .vergleich-table {
 	width: 100%;
 	border-collapse: collapse;

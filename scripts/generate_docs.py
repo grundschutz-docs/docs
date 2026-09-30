@@ -830,16 +830,32 @@ def render_geschaeftsfuehrung_page(management, themenfelder, groups_by_id):
         # .mdx waere beim naechsten Lauf wieder weg.
         "## Bin ich überhaupt betroffen? {#bin-ich-ueberhaupt-betroffen}\n\n"
         "Das BSI-Gesetz (BSIG, Fassung seit 2.12.2025) unterscheidet zwei "
-        "Kategorien nach § 28 BSIG:\n\n"
-        "- **Besonders wichtige Einrichtung**: unabhängig von der Größe, wenn "
-        "du Betreiber:in einer kritischen Anlage (KRITIS), qualifizierter "
-        "Vertrauensdiensteanbieter, Top-Level-Domain-Registry oder "
-        "DNS-Diensteanbieter bist. Sonst: mind. 250 Mitarbeitende **oder** "
-        "über 50 Mio. € Jahresumsatz **und** über 43 Mio. € Jahresbilanzsumme, "
-        "in einem Sektor nach Anlage 1 BSIG.\n"
-        "- **Wichtige Einrichtung**: mind. 50 Mitarbeitende **oder** über "
-        "10 Mio. € Jahresumsatz **und** über 10 Mio. € Jahresbilanzsumme, in "
-        "einem Sektor nach Anlage 1 oder 2 BSIG.\n\n"
+        "Kategorien nach § 28 BSIG.\n\n"
+        "**Unabhängig von der Größe besonders wichtig** sind Betreiber:innen "
+        "kritischer Anlagen (KRITIS), qualifizierte Vertrauensdiensteanbieter, "
+        "Top-Level-Domain-Registries und DNS-Diensteanbieter.\n\n"
+        "Für alle anderen entscheiden Größe und Sektor. Die Operatoren stehen "
+        "in den Spaltenköpfen: es zählt die Beschäftigtenzahl **oder** beide "
+        "Finanzkennzahlen zusammen.\n\n"
+        # Vorher als Fließtext mit verschachtelter Und/Oder-Bedingung. Eine
+        # Geschaeftsfuehrung liest das einmal quer und will dann wissen "bin
+        # ich drin" -- dafuer muss man die Logik im Kopf rueckwaerts aufloesen.
+        # In der Tabelle liest man nur die eigene Zeile ab. Bewusst keine
+        # Rechenhilfe mit Eingabefeld: die Seite stuft nicht ein (ADR-0007,
+        # siehe GfFilter.astro), sie legt die Kriterien nur so hin, dass man
+        # sie selbst anwenden kann.
+        '<div class="table-scroll">\n'
+        '<table class="bsig-table">\n'
+        "<thead><tr><th>Kategorie</th><th>Beschäftigte</th>"
+        "<th>oder Jahresumsatz</th><th>und Jahresbilanzsumme</th>"
+        "<th>Sektor</th></tr></thead>\n<tbody>\n"
+        "<tr><td><strong>Besonders wichtige Einrichtung</strong></td>"
+        "<td>ab 250</td><td>über 50 Mio. €</td><td>über 43 Mio. €</td>"
+        "<td>Anlage 1 BSIG</td></tr>\n"
+        "<tr><td><strong>Wichtige Einrichtung</strong></td>"
+        "<td>ab 50</td><td>über 10 Mio. €</td><td>über 10 Mio. €</td>"
+        "<td>Anlage 1 oder 2 BSIG</td></tr>\n"
+        "</tbody>\n</table>\n</div>\n\n"
         "Kleinere Einrichtungen außerhalb kritischer Sektoren fallen in der "
         "Regel nicht darunter. Diese Kriterien ersetzen keine "
         "Schutzbedarfsfeststellung — sie helfen nur bei der ersten "

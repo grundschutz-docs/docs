@@ -13,10 +13,21 @@ import GfFilter from '../../../components/GfFilter.astro';
 
 ## Bin ich überhaupt betroffen? {#bin-ich-ueberhaupt-betroffen}
 
-Das BSI-Gesetz (BSIG, Fassung seit 2.12.2025) unterscheidet zwei Kategorien nach § 28 BSIG:
+Das BSI-Gesetz (BSIG, Fassung seit 2.12.2025) unterscheidet zwei Kategorien nach § 28 BSIG.
 
-- **Besonders wichtige Einrichtung**: unabhängig von der Größe, wenn du Betreiber:in einer kritischen Anlage (KRITIS), qualifizierter Vertrauensdiensteanbieter, Top-Level-Domain-Registry oder DNS-Diensteanbieter bist. Sonst: mind. 250 Mitarbeitende **oder** über 50 Mio. € Jahresumsatz **und** über 43 Mio. € Jahresbilanzsumme, in einem Sektor nach Anlage 1 BSIG.
-- **Wichtige Einrichtung**: mind. 50 Mitarbeitende **oder** über 10 Mio. € Jahresumsatz **und** über 10 Mio. € Jahresbilanzsumme, in einem Sektor nach Anlage 1 oder 2 BSIG.
+**Unabhängig von der Größe besonders wichtig** sind Betreiber:innen kritischer Anlagen (KRITIS), qualifizierte Vertrauensdiensteanbieter, Top-Level-Domain-Registries und DNS-Diensteanbieter.
+
+Für alle anderen entscheiden Größe und Sektor. Die Operatoren stehen in den Spaltenköpfen: es zählt die Beschäftigtenzahl **oder** beide Finanzkennzahlen zusammen.
+
+<div class="table-scroll">
+<table class="bsig-table">
+<thead><tr><th>Kategorie</th><th>Beschäftigte</th><th>oder Jahresumsatz</th><th>und Jahresbilanzsumme</th><th>Sektor</th></tr></thead>
+<tbody>
+<tr><td><strong>Besonders wichtige Einrichtung</strong></td><td>ab 250</td><td>über 50 Mio. €</td><td>über 43 Mio. €</td><td>Anlage 1 BSIG</td></tr>
+<tr><td><strong>Wichtige Einrichtung</strong></td><td>ab 50</td><td>über 10 Mio. €</td><td>über 10 Mio. €</td><td>Anlage 1 oder 2 BSIG</td></tr>
+</tbody>
+</table>
+</div>
 
 Kleinere Einrichtungen außerhalb kritischer Sektoren fallen in der Regel nicht darunter. Diese Kriterien ersetzen keine Schutzbedarfsfeststellung — sie helfen nur bei der ersten Einordnung mit euren eigenen Zahlen.
 
