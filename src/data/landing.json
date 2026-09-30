@@ -1,0 +1,17 @@
+{
+	"stats": {
+		"controls": 1000,
+		"practices": 20,
+		"bausteine": 94,
+		"mappings": 1185
+	},
+	"sample": {
+		"id": "UMS.1.2",
+		"title": "Bewertung des Restrisikos",
+		"statement": "Umsetzung SOLLTE das bestehende Restrisiko durch die nicht umgesetzten Anforderungen festlegen.",
+		"modal_verb": "SOLLTE",
+		"sec_level": "normal-SdT",
+		"effort_level": "2",
+		"raw": "{\n  \"id\": \"UMS.1.2\",\n  \"class\": \"BSI-Methodik-Grundschutz-plus-plus\",\n  \"title\": \"Bewertung des Restrisikos\",\n  \"props\": [\n    {\n      \"name\": \"alt-identifier\",\n      \"value\": \"8b7626ab-3fcf-45bd-a7ba-45705436c909\"\n    },\n    {\n      \"name\": \"sec_level\",\n      \"ns\": \"https://github.com/BSI-Bund/Stand-der-Technik-Bibliothek/tree/main/documentation/namespaces/security_level.csv\",\n      \"value\": \"normal-SdT\"\n    },\n    {\n      \"name\": \"effort_level\",\n      \"ns\": \"https://github.com/BSI-Bund/Stand-der-Technik-Bibliothek/tree/main/documentation/namespaces/effort_level.csv\",\n      \"value\": \"2\"\n    }\n  ],\n  \"parts\": [\n    {\n      \"id\": \"UMS.1.2_stm\",\n      \"name\": \"statement\",\n      \"props\": [\n        {\n          \"name\": \"result\",\n          \"ns\": \"https://github.com/BSI-Bund/Stand-der-Technik-Bibliothek/tree/main/documentation/namespaces/result.csv\",\n          \"value\": \"das bestehende Restrisiko durch die nicht umgesetzten Anforderungen\"\n        },\n        {\n          \"name\": \"action_word\",\n          \"ns\": \"https://github.com/BSI-Bund/Stand-der-Technik-Bibliothek/tree/main/documentation/namespaces/action_words.csv\",\n          \"value\": \"festlegen\"\n        },\n        {\n          \"name\": \"modal_verb\",\n          \"ns\": \"https://github.com/BSI-Bund/Stand-der-Technik-Bibliothek/tree/main/documentation/namespaces/modal_verbs.csv\",\n          \"value\": \"SOLLTE\"\n        }\n      ],\n      \"prose\": \"Umsetzung SOLLTE das bestehende Restrisiko durch die nicht umgesetzten Anforderungen festlegen.\"\n    },\n    {\n      \"id\": \"UMS.1.2_gdn\",\n      \"name\": \"guidance\",\n      \"prose\": \"Die Risiken der Nichtumsetzung von Anforderungen können auch konsolidiert werden, um diese für die Institutionsleitung nachvollziehbarer zu machen.\"\n    }\n  ]\n}"
+	}
+}

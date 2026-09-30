@@ -1,0 +1,159 @@
+---
+/**
+ * Startseiten-Beleg: dieselbe Anforderung einmal als rohes OSCAL und einmal
+ * gelesen. Steht in der Hero-Spalte, die Starlight für ein Bild reserviert —
+ * statt eines Dekor-Bildes zeigt die Seite hier, was sie tatsächlich tut.
+ *
+ * Inhalt kommt aus src/data/landing.json (vom Generator geschrieben), damit
+ * der Ausschnitt echt ist und nicht irgendwann etwas anderes behauptet als
+ * der Katalog.
+ */
+import landing from '../data/landing.json';
+
+const { sample } = landing;
+// Nur der Anfang: die Aussage ist "das geht so weiter", nicht "lies das".
+const rawExcerpt = sample.raw.split('\n').slice(0, 14).join('\n');
+---
+
+<figure class="catalog-preview">
+	<div class="pane pane-raw">
+		<figcaption>Im Katalog</figcaption>
+		<pre><code>{rawExcerpt}</code></pre>
+	</div>
+
+	<div class="arrow" aria-hidden="true">
+		<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+			<path d="M12 5v14M19 12l-7 7-7-7" />
+		</svg>
+	</div>
+
+	<div class="pane pane-read">
+		<figcaption>Auf dieser Seite</figcaption>
+		<p class="ctrl-id">{sample.id}</p>
+		<p class="ctrl-title">{sample.title}</p>
+		<p class="ctrl-pills">
+			<span class="ctrl-pill pill-must">{sample.modal_verb}</span>
+			<span class="ctrl-pill">Stufe {sample.sec_level}</span>
+			<span class="ctrl-pill">Aufwand {sample.effort_level}</span>
+		</p>
+		<blockquote>{sample.statement}</blockquote>
+	</div>
+</figure>
+
+<style>
+	.catalog-preview {
+		margin: 0;
+		display: flex;
+		flex-direction: column;
+		align-items: stretch;
+		gap: 0.4rem;
+		text-align: start;
+	}
+
+	.pane {
+		border: 1px solid var(--glass-border);
+		border-radius: 0.9rem;
+		background: var(--glass-tint);
+		backdrop-filter: blur(20px) saturate(160%);
+		-webkit-backdrop-filter: blur(20px) saturate(160%);
+		padding: 0.75rem 0.9rem;
+		overflow: hidden;
+	}
+
+	figcaption {
+		font-family: var(--sl-font-mono);
+		font-size: 0.62rem;
+		letter-spacing: 0.1em;
+		text-transform: uppercase;
+		color: var(--sl-color-gray-3);
+		margin-bottom: 0.45rem;
+	}
+
+	/* Roh-Ausschnitt: bewusst angeschnitten statt scrollbar — er soll
+	   unlesbar-lang *wirken*, das ist die Aussage. */
+	.pane-raw pre {
+		margin: 0;
+		max-height: 8.5rem;
+		overflow: hidden;
+		-webkit-mask-image: linear-gradient(to bottom, #000 60%, transparent 100%);
+		mask-image: linear-gradient(to bottom, #000 60%, transparent 100%);
+	}
+
+	.pane-raw code {
+		font-family: var(--sl-font-mono);
+		font-size: 0.6rem;
+		line-height: 1.5;
+		color: var(--sl-color-gray-3);
+		white-space: pre;
+	}
+
+	.arrow {
+		display: flex;
+		justify-content: center;
+		color: var(--sl-color-accent);
+	}
+
+	.pane-read .ctrl-id {
+		font-family: var(--sl-font-mono);
+		font-size: 0.7rem;
+		color: var(--sl-color-accent-high);
+		margin: 0;
+	}
+
+	.pane-read .ctrl-title {
+		font-family: 'Fraunces Variable', Georgia, serif;
+		font-size: 1rem;
+		font-weight: 600;
+		color: var(--sl-color-white);
+		margin: 0.1rem 0 0.5rem;
+	}
+
+	.ctrl-pills {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.3rem;
+		margin: 0 0 0.6rem;
+	}
+
+	.ctrl-pill {
+		font-family: var(--sl-font-mono);
+		font-size: 0.6rem;
+		padding: 0.15em 0.55em;
+		border-radius: 999px;
+		background: var(--pill-calm-low);
+		color: var(--pill-calm-high);
+		white-space: nowrap;
+	}
+
+	.ctrl-pill.pill-must {
+		background: var(--pill-warn-low);
+		color: var(--pill-warn-high);
+	}
+
+	.pane-read blockquote {
+		margin: 0;
+		padding-inline-start: 0.7rem;
+		border-inline-start: 2px solid var(--sl-color-accent);
+		font-size: 0.8rem;
+		line-height: 1.5;
+		color: var(--sl-color-gray-2);
+	}
+
+	/* Unter 50rem hat der Hero nur eine Spalte — dort würde der Vergleich den
+	   eigentlichen Einstieg (Tagline + Buttons) nach unten drücken. */
+	@media (max-width: 50rem) {
+		.catalog-preview {
+			display: none;
+		}
+	}
+
+	/* order: 2 schiebt uns in die rechte Hero-Spalte, genau wie Starlight es
+	   mit dem Hero-Bild macht. Steht hier statt in Hero.astro, weil Astros
+	   Style-Scoping einen Selektor der Elternkomponente nicht auf die
+	   Wurzel der Kindkomponente anwenden würde. */
+	@media (min-width: 50rem) {
+		.catalog-preview {
+			order: 2;
+		}
+	}
+</style>

@@ -56,6 +56,7 @@ OUT_DIR = Path(__file__).resolve().parent.parent / "src" / "content" / "docs" / 
 # die Gruppen-Seiten, aber in einem eigenen Unterordner (eigene Sidebar-Gruppe).
 ROLLEN_OUT_DIR = Path(__file__).resolve().parent.parent / "src" / "content" / "docs" / "rollen"
 VERGLEICH_OUT_DIR = Path(__file__).resolve().parent.parent / "src" / "content" / "docs" / "vergleich"
+DATA_OUT_DIR = Path(__file__).resolve().parent.parent / "src" / "data"
 CONTROL_META_IMPORT = "import ControlMeta from '../../../components/ControlMeta.astro';\n"
 # vergleich.mdx liegt eine Ebene flacher (direkt in src/content/docs/), daher
 # ein "../" weniger als CONTROL_META_IMPORT.
@@ -224,6 +225,88 @@ def baustein_title(baustein_id, url):
         name = name[len(prefix) :]
     title = name.replace("_", " ").strip()
     return re.sub(r"\bund ([a-zäöü])", r"und -\1", title)
+
+
+# Beispiel-Control für den Startseiten-Vergleich "Rohes OSCAL ↔ gelesene
+# Anforderung". Bewusst eine kurze Anforderung aus dem Managementsystem, deren
+# Begriff jede:r ISB kennt. Verschwindet die ID aus dem Katalog, bricht der
+# Generator mit einer Meldung ab, statt die Startseite still leerzulassen.
+LANDING_SAMPLE_ID = "UMS.1.2"
+
+
+def find_control(catalog, control_id):
+    def walk(node):
+        for control in node.get("controls", []) or []:
+            if control["id"] == control_id:
+                return control
+            hit = walk(control)
+            if hit:
+                return hit
+        return None
+
+    for group in catalog.get("groups", []) or []:
+        hit = walk(group)
+        if hit:
+            return hit
+        for subgroup in group.get("groups", []) or []:
+            hit = walk(subgroup)
+            if hit:
+                return hit
+    return None
+
+
+def trim_prose(node, limit=150):
+    """Kopie des Controls mit gekürzter Prosa — der Roh-JSON-Ausschnitt auf der
+    Startseite soll die *Struktur* zeigen, nicht eine Textwand sein."""
+    clone = json.loads(json.dumps(node))
+    for part in clone.get("parts", []) or []:
+        prose = part.get("prose")
+        if prose and len(prose) > limit:
+            part["prose"] = prose[:limit].rstrip() + " …"
+    clone.pop("controls", None)
+    return clone
+
+
+def write_landing_data(catalog, control_index, by_baustein, all_mappings, params_by_id):
+    """Zahlen und Beispiel für die Startseite (LandingStats/CatalogPreview).
+
+    Wird generiert statt von Hand gepflegt, damit die Zahlen auf der
+    Startseite nicht irgendwann etwas anderes behaupten als der Katalog.
+    """
+    sample = find_control(catalog, LANDING_SAMPLE_ID)
+    if sample is None:
+        raise SystemExit(
+            f"Startseiten-Beispiel {LANDING_SAMPLE_ID} existiert im Katalog nicht mehr. "
+            "LANDING_SAMPLE_ID in scripts/generate_docs.py auf eine aktuelle, kurze "
+            "Anforderung setzen."
+        )
+
+    data = {
+        "stats": {
+            "controls": len(control_index),
+            "practices": len(catalog.get("groups", []) or []),
+            "bausteine": len(by_baustein),
+            # Bewusst die Zuordnungen, die auch wirklich auf einer Seite stehen,
+            # nicht alle 1185 aus der Datei — ein paar davon haben keine
+            # auswertbare Baustein-ID und tauchen nirgends auf. Eine Zahl auf
+            # der Startseite muss zählen, was man tatsächlich findet.
+            "mappings": sum(len(entries) for entries in by_baustein.values()),
+        },
+        "sample": {
+            "id": sample["id"],
+            "title": sample["title"],
+            "statement": substitute_params(part_text(sample, "statement"), params_by_id),
+            "modal_verb": part_prop_value(sample, "statement", "modal_verb") or "",
+            "sec_level": prop_value(sample, "sec_level") or "",
+            "effort_level": prop_value(sample, "effort_level") or "",
+            "raw": json.dumps(trim_prose(sample), indent=2, ensure_ascii=False),
+        },
+    }
+    DATA_OUT_DIR.mkdir(parents=True, exist_ok=True)
+    (DATA_OUT_DIR / "landing.json").write_text(
+        json.dumps(data, indent="\t", ensure_ascii=False) + "\n"
+    )
+    return data["stats"]
 
 
 def build_control_index(catalog):
@@ -932,6 +1015,10 @@ def main():
             render_baustein_page(baustein_id, entries, baustein_links, control_index)
         )
 
+    stats = write_landing_data(
+        catalog, control_index, by_baustein, all_mappings, params_by_id
+    )
+
     # Rollenbasierte Einstiegsseiten (ADR-0007) -- aus denselben Gruppen-
     # Listen wie oben, keine eigene Zielgruppen-Einstufung im Katalog nötig.
     render_geschaeftsfuehrung_page(management, themenfelder, groups_by_id)
@@ -942,6 +1029,7 @@ def main():
     print(f"{total} Gruppen-Seiten (.mdx) erzeugt in {OUT_DIR}")
     print(f"3 Rollen-Seiten (.mdx) erzeugt in {ROLLEN_OUT_DIR}")
     print(f"{len(by_baustein)} Baustein-Seiten + Übersicht erzeugt in {VERGLEICH_OUT_DIR}")
+    print(f"Startseiten-Daten: {stats}")
 
     def sidebar_group(label, entries):
         items = ",\n\t\t\t\t\t\t".join(

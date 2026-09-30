@@ -2,8 +2,20 @@
 import { Image } from 'astro:assets';
 import DraftContentNotice from 'virtual:starlight/components/DraftContentNotice';
 import { LinkButton } from '@astrojs/starlight/components';
+import CatalogPreview from './CatalogPreview.astro';
+import LandingStats from './LandingStats.astro';
 
 const PAGE_TITLE_ID = 'starlight__hero';
+
+// Starlight reserviert ab 50rem eine zweite Hero-Spalte (7fr 4fr) für ein
+// Bild. Wir haben keins — ohne Inhalt stand dort ein Drittel der Startseite
+// leer. Statt eines Dekor-Bildes zeigt die Spalte den Vergleich "rohes OSCAL
+// ↔ gelesene Anforderung", also genau die Behauptung der Tagline.
+//
+// Nur auf der Startseite: Impressum und Datenschutz nutzen zwar ebenfalls
+// template: splash, haben aber gar keinen Hero — und ein künftiger Hero auf
+// einer anderen Seite soll den Vergleich nicht ungefragt erben.
+const isLandingPage = Astro.url.pathname === '/';
 
 const { data } = Astro.locals.starlightRoute.entry;
 const { siteTitle } = Astro.locals.starlightRoute;
@@ -46,6 +58,7 @@ if (image) {
 	}
 	{lightImage && <Image src={lightImage} {...imageAttrs} class="dark:sl-hidden" />}
 	{rawHtml && <div class="hero-html sl-flex" set:html={rawHtml} />}
+	{!darkImage && !rawHtml && isLandingPage && <CatalogPreview />}
 	<div class="sl-flex stack">
 		<div class="sl-flex copy">
 			<h1 id={PAGE_TITLE_ID} data-page-title set:html={title} />
@@ -66,6 +79,7 @@ if (image) {
 				</div>
 			)
 		}
+		{isLandingPage && <LandingStats />}
 	</div>
 </div>
 
