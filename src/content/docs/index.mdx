@@ -2,6 +2,13 @@
 title: Start
 description: Eigene lesbare Aufbereitung des BSI Grundschutz++ OSCAL-Katalogs
 template: splash
+head:
+  # Ohne das wäre der Titel beim Teilen schlicht "Start" — der Sidebar-Name
+  # dieser Seite taugt nicht als Überschrift einer Linkvorschau.
+  - tag: meta
+    attrs:
+      property: og:title
+      content: Grundschutz++ Docs — der BSI-OSCAL-Katalog, lesbar aufbereitet
 hero:
   tagline: Der BSI-OSCAL-Katalog ist für Maschinen gebaut (SSP-Generierung, Tooling) – das hier ist die Übersetzung für Menschen.
   actions:

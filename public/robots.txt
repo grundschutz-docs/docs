@@ -27,6 +27,7 @@ Disallow: /
 User-agent: Applebot-Extended
 Disallow: /
 
-# Sitemap: sobald `site` in astro.config.mjs gesetzt ist (siehe dortiger
-# Kommentar), hier die vollständige URL ergänzen:
-# Sitemap: https://<domain>/sitemap.xml
+# Sitemap: erzeugt @astrojs/sitemap beim Build, seit `site` in
+# astro.config.mjs gesetzt ist. Der Index verweist auf sitemap-0.xml; wer
+# selbst hostet, trägt hier die eigene Domain ein.
+Sitemap: https://grundschutz-docs.de/sitemap-index.xml

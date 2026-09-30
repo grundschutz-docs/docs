@@ -36,10 +36,32 @@ loadEnvFile();
 const SITE_NAME = process.env.SITE_NAME;
 
 // https://astro.build/config
+// Produktionsadresse. Ohne sie überspringt Astro die sitemap.xml still und
+// setzt Canonical- und OG-URLs relativ, was beides nutzlos ist. Über
+// SITE_URL in .env überschreibbar, damit ein Fork nicht auf diese Domain
+// zeigt und eine Staging-Instanz sich selbst kanonisieren kann.
+const SITE_URL = process.env.SITE_URL || 'https://grundschutz-docs.de';
+
 export default defineConfig({
+	site: SITE_URL,
 	integrations: [
 		starlight({
 			title: SITE_NAME || 'Grundschutz++ Docs',
+			favicon: '/favicon.svg',
+			head: [
+				// Apple und ältere Android-Browser nehmen kein SVG als Icon.
+				{
+					tag: 'link',
+					attrs: { rel: 'apple-touch-icon', sizes: '180x180', href: '/apple-touch-icon.png' },
+				},
+				// Vorschaubild beim Teilen (LinkedIn, Mastodon, Slack). Absolute
+				// URL ist Pflicht — relative Pfade ignorieren die Crawler.
+				{ tag: 'meta', attrs: { property: 'og:image', content: `${SITE_URL}/og.png` } },
+				{ tag: 'meta', attrs: { property: 'og:image:width', content: '1200' } },
+				{ tag: 'meta', attrs: { property: 'og:image:height', content: '630' } },
+				{ tag: 'meta', attrs: { name: 'twitter:card', content: 'summary_large_image' } },
+				{ tag: 'meta', attrs: { name: 'twitter:image', content: `${SITE_URL}/og.png` } },
+			],
 			description: 'Eigene lesbare Aufbereitung des BSI Grundschutz++ OSCAL-Katalogs',
 			locales: {
 				root: { label: 'Deutsch', lang: 'de' },
