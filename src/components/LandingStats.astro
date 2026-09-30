@@ -14,7 +14,7 @@ const format = new Intl.NumberFormat('de-DE');
 const items = [
 	{ value: stats.controls, label: 'Anforderungen' },
 	{ value: stats.practices, label: 'Praktiken' },
-	{ value: stats.bausteine, label: 'Bausteine zugeordnet' },
+	{ value: stats.bausteine, label: 'Alte Bausteine zugeordnet' },
 	{ value: stats.mappings, label: 'Zuordnungen alt → neu' },
 ];
 ---
@@ -32,8 +32,8 @@ const items = [
 
 <style>
 	.landing-stats {
-		display: flex;
-		flex-wrap: wrap;
+		display: grid;
+		grid-template-columns: repeat(2, auto);
 		gap: 1.5rem 2.5rem;
 		margin: 0;
 		padding-top: 1.25rem;
