@@ -242,6 +242,15 @@ def baustein_title(baustein_id, url):
 # muss nicht ausgerechnet ein Exemplar zeigen, an dem es auffaellt.
 LANDING_SAMPLE_ID = "NOT.4.10"
 
+# Ueberschriften der Rollenseiten mit Umlauten brauchen eine explizite,
+# transliterierte Anker-ID -- der Auto-Slugger wuerde "%C3%BC" erzeugen. Als
+# Liste statt als verstreute Literale, damit Pruefung 8 sie gegen die
+# geschriebenen Dateien halten kann.
+ROLLEN_ANKER = {
+    "geschaeftsfuehrung.mdx": ("bin-ich-ueberhaupt-betroffen", "was-schreibt-das-gesetz-vor"),
+    "isb.mdx": ("werkzeuge-fuer-den-alltag",),
+}
+
 
 def find_control(catalog, control_id):
     def walk(node):
@@ -728,6 +737,26 @@ def check_invariants(catalog, control_index, muss_controls, by_baustein):
             f"landing.json nennt {landing['mappings']} Zuordnungen, "
             f"auf den Seiten stehen {expected_rows}"
         )
+
+    # 8. Aus den geschriebenen Rollenseiten zurueckgelesen: die expliziten
+    # Anker sind da. Pruefung 4 deckt nur die Katalogseiten ab -- genau
+    # deshalb fiel am 2026-10-01 nicht auf, dass ein Generatorlauf die Anker
+    # der Rollenseiten entfernte: sie waren in 30a968b direkt in die
+    # *erzeugten* Dateien geschrieben worden, nicht in den Generator. Build
+    # und Link-Pruefung blieben gruen, weil nichts intern darauf zeigt --
+    # kaputt gewesen waeren nur Lesezeichen und fremde Links.
+    for datei, anker in ROLLEN_ANKER.items():
+        pfad = ROLLEN_OUT_DIR / datei
+        if not pfad.exists():
+            problems.append(f"{datei} fehlt")
+            continue
+        text = pfad.read_text()
+        fehlend = [a for a in anker if f"{{#{a}}}" not in text]
+        if fehlend:
+            problems.append(
+                f"{datei}: Anker {', '.join(fehlend)} fehlt — "
+                "Ueberschriften mit Umlauten bekaemen sonst prozentcodierte IDs"
+            )
 
     if problems:
         raise SystemExit(
