@@ -540,17 +540,25 @@ def render_index_section(heading, intro, entries):
     return "\n".join(lines)
 
 
-def collect_leaf_controls(node):
-    """Alle Anforderungen ohne eigene Unter-Anforderungen unter einem Control-
-    oder Gruppen-Knoten, rekursiv. Funktioniert fuer beide Knotentypen, weil
-    beide optionale "controls"/"groups"-Listen haben (OSCAL-Struktur)."""
+def collect_controls(node):
+    """Alle Anforderungen unter einem Control- oder Gruppen-Knoten, rekursiv.
+    Funktioniert fuer beide Knotentypen, weil beide optionale
+    "controls"/"groups"-Listen haben (OSCAL-Struktur).
+
+    Zaehlt bewusst **jeden** Control-Knoten, nicht nur Blaetter. Frueher
+    wurden hier nur Blaetter gesammelt, in der Annahme, Eltern-Knoten seien
+    reine Struktur-Container. Das ist in diesem Katalog falsch: gegen den
+    Katalogstand geprueft haben **alle 1000** Knoten ein eigenes `statement`
+    mit eigenem Modalverb, auch die 126 mit Unter-Anforderungen (z. B. GC.3.1
+    "... MUSS ein Verfahren zur systematischen Erfassung ... festlegen").
+    Die Blatt-Logik hat dadurch 26 der 149 MUSS-Anforderungen unterschlagen —
+    ausgerechnet auf der Geschaeftsfuehrungs-Seite, die von Pflichten handelt.
+    """
     for c in node.get("controls", []):
-        if c.get("controls"):
-            yield from collect_leaf_controls(c)
-        else:
-            yield c
+        yield c
+        yield from collect_controls(c)
     for g in node.get("groups", []):
-        yield from collect_leaf_controls(g)
+        yield from collect_controls(g)
 
 
 def is_muss(control):
@@ -573,7 +581,11 @@ def render_muss_table(group_id, group_title, slug, muss_controls):
         sec_label = SEC_LEVEL_LABELS.get(sec_level, sec_level)
         lines.append(
             f'<tr data-sec="{attr_escape(sec_level)}">'
-            f'<td><a class="new-id" href="/grundschutzpp/{slug}/">{control["id"]} – {control["title"]}</a></td>'
+            # Mit Anker: ohne ihn landet man oben auf einer bis zu 150 KB langen
+            # Gruppenseite und sucht die Anforderung selbst. Die Anker setzt
+            # render_control().
+            f'<td><a class="new-id" href="/grundschutzpp/{slug}/#{control["id"]}">'
+            f'{control["id"]} – {control["title"]}</a></td>'
             f'<td>{sec_label}</td></tr>\n'
         )
     lines.append("</tbody>\n</table>\n</div>\n\n")
@@ -587,9 +599,9 @@ def render_geschaeftsfuehrung_page(management, themenfelder, groups_by_id):
     muss_normal_sdt = 0
     sections = []
     for gid, title, slug, _ in all_groups:
-        leaves = list(collect_leaf_controls(groups_by_id[gid]))
-        muss = [c for c in leaves if is_muss(c)]
-        total += len(leaves)
+        controls = list(collect_controls(groups_by_id[gid]))
+        muss = [c for c in controls if is_muss(c)]
+        total += len(controls)
         total_muss += len(muss)
         muss_normal_sdt += sum(1 for c in muss if prop_value(c, "sec_level") == "normal-SdT")
         if muss:
@@ -676,7 +688,7 @@ def render_pdca_cycle_prop(management, groups_by_id):
 
     def node(gid):
         title, slug = by_id[gid]
-        count = len(list(collect_leaf_controls(groups_by_id[gid])))
+        count = len(list(collect_controls(groups_by_id[gid])))
         return f"{{ id: {jsx_string(gid)}, title: {jsx_string(title)}, slug: {jsx_string(slug)}, count: {count} }}"
 
     # Reihenfolge des tatsächlichen PDCA-Ablaufs -- weicht von der
@@ -690,7 +702,7 @@ def render_pdca_cycle_prop(management, groups_by_id):
 def render_isb_page(management, groups_by_id):
     entries = []
     for gid, title, slug, summary in management:
-        count = len(list(collect_leaf_controls(groups_by_id[gid])))
+        count = len(list(collect_controls(groups_by_id[gid])))
         entries.append((gid, title, slug, f"{summary} ({count} Anforderungen)"))
 
     nodes_prop, risk_prop = render_pdca_cycle_prop(management, groups_by_id)
@@ -749,7 +761,7 @@ def render_devs_page(themenfelder, groups_by_id):
         out = []
         for gid in group_ids:
             title, slug, summary = by_id[gid]
-            count = len(list(collect_leaf_controls(groups_by_id[gid])))
+            count = len(list(collect_controls(groups_by_id[gid])))
             out.append((gid, title, slug, f"{summary} ({count} Anforderungen)"))
         return out
 
