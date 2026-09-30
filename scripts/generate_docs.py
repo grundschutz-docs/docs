@@ -21,6 +21,7 @@ import json
 import os
 import re
 import urllib.parse
+from collections import Counter
 from datetime import date
 from pathlib import Path
 
@@ -792,17 +793,95 @@ def render_muss_table(group_id, group_title, slug, muss_controls):
     return "".join(lines)
 
 
+def render_aufwand_section(aufwand):
+    """Was der Katalog ueber Aufwand sagt -- und was nicht.
+
+    Die naheliegende Frage einer Geschaeftsfuehrung nach "bin ich betroffen"
+    ist "was kostet mich das". Der Katalog traegt dafuer ein Feld
+    (effort_level, Skala 0-5), aber es beantwortet die Frage nicht so, wie man
+    erwartet: MUSS-Anforderungen sind praktisch durchgehend mit 0 = "wird
+    nicht bewertet" versehen. Das ist kein Datenfehler, sondern Absicht -- was
+    ohnehin zwingend ist, wird nicht nach Aufwand gewichtet.
+
+    Daraus folgt die eigentlich nuetzliche Aussage, und die steht nirgends im
+    Katalog: Budgetspielraum gibt es nur unterhalb der Pflicht, und dort
+    steigt der Aufwand mit der Freiwilligkeit.
+
+    Bewusst keine Umrechnung in Euro oder Personentage. effort_level ist eine
+    BSI-Skala, keine Kalkulation; sobald daraus "ca. 180 Personentage" wird,
+    erfindet die Seite etwas.
+    """
+    def zeile(verb):
+        c = aufwand[verb]
+        gesamt = sum(c.values())
+        nicht_bewertet = c.get("0", 0)
+        bewertet = {k: v for k, v in c.items() if k != "0"}
+        teile = []
+        if nicht_bewertet:
+            teile.append(f"{nicht_bewertet}× nicht bewertet")
+        if bewertet:
+            stufen = sorted(bewertet, key=int)
+            # Ein einzelner Ausreisser (aktuell GC.5.1.1: MUSS mit Aufwand 3)
+            # soll als solcher dastehen, nicht als "Stufe 3-3".
+            if len(bewertet) == 1:
+                stufe = stufen[0]
+                teile.append(f"{bewertet[stufe]}× Stufe {stufe}")
+            else:
+                teile.append(f"Stufe {stufen[0]}–{stufen[-1]}")
+                schwer = sum(v for k, v in bewertet.items() if k in ("4", "5"))
+                if schwer:
+                    teile.append(f"{schwer} davon auf 4–5")
+        return (
+            f"<tr><td><strong>{verb}</strong></td><td>{gesamt}</td>"
+            f"<td>{', '.join(teile)}</td></tr>"
+        )
+
+    muss_gesamt = sum(aufwand["MUSS"].values())
+    muss_unbewertet = aufwand["MUSS"].get("0", 0)
+    kann = aufwand["KANN"]
+    kann_gesamt = sum(kann.values())
+    kann_teuer = kann.get("5", 0)
+
+    return (
+        "## Was kostet mich das?\n\n"
+        f"Der Katalog gewichtet Anforderungen nach Aufwand (Skala 0–5), aber "
+        f"nicht dort, wo man es zuerst vermutet: **{muss_unbewertet} der "
+        f"{muss_gesamt} MUSS-Anforderungen tragen die Stufe 0 — „wird nicht "
+        f"bewertet\".** Was ohnehin zwingend ist, wird nicht nach Aufwand "
+        f"gewichtet. Eine Kostenschätzung für den Pflichtteil lässt sich aus "
+        f"dem Katalog also nicht ableiten.\n\n"
+        '<div class="table-scroll">\n<table class="bsig-table">\n'
+        "<thead><tr><th>Pflichtgrad</th><th>Anforderungen</th>"
+        "<th>Aufwand</th></tr></thead>\n<tbody>\n"
+        + zeile("MUSS") + "\n" + zeile("SOLLTE") + "\n" + zeile("KANN") + "\n"
+        "</tbody>\n</table>\n</div>\n\n"
+        f"Budgetspielraum liegt damit unterhalb der Pflicht — und dort steigt "
+        f"der Aufwand mit der Freiwilligkeit: **{kann_teuer} der "
+        f"{kann_gesamt} KANN-Anforderungen liegen auf der höchsten "
+        f"Aufwandsstufe.** Das Teure ist überwiegend das Optionale.\n\n"
+        "Die Stufen sind eine BSI-Einschätzung des Umsetzungs- und "
+        "Pflegeaufwands, keine Kalkulation. Diese Seite rechnet sie bewusst "
+        "nicht in Personentage oder Euro um — das hinge an eurer Größe, "
+        "Ausgangslage und Eigenleistung.\n\n"
+    )
+
+
 def render_geschaeftsfuehrung_page(management, themenfelder, groups_by_id):
     all_groups = management + themenfelder
     total = 0
     total_muss = 0
     muss_normal_sdt = 0
     sections = []
+    aufwand = {"MUSS": Counter(), "SOLLTE": Counter(), "KANN": Counter()}
     for gid, title, slug, _ in all_groups:
         controls = list(collect_controls(groups_by_id[gid]))
         muss = [c for c in controls if is_muss(c)]
         total += len(controls)
         total_muss += len(muss)
+        for c in controls:
+            verb = part_prop_value(c, "statement", "modal_verb")
+            if verb in aufwand:
+                aufwand[verb][prop_value(c, "effort_level")] += 1
         muss_normal_sdt += sum(1 for c in muss if prop_value(c, "sec_level") == "normal-SdT")
         if muss:
             sections.append(render_muss_table(gid, title, slug, muss))
@@ -884,6 +963,7 @@ def render_geschaeftsfuehrung_page(management, themenfelder, groups_by_id):
         "keine Garantie gegen Haftung.\n\n"
         "*Primärquellen: [§ 43 GmbHG](https://www.gesetze-im-internet.de/gmbhg/__43.html), "
         "[§ 93 AktG](https://www.gesetze-im-internet.de/aktg/__93.html).*\n\n",
+        render_aufwand_section(aufwand),
         "## Sinnvolle Kennzahlen\n\n"
         "Diese Seite berechnet keinen Umsetzungsstatus für eure Organisation "
         "— dafür bräuchte es eine tatsächliche Bestandsaufnahme, keine "
