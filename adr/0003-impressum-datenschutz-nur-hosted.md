@@ -80,8 +80,8 @@ Instanz, die ein eigenes Impressum bräuchte.
 - Kein Datenschutz-Leck für den Maintainer über Forks/Self-Hosting-Klone.
 - Self-Hoster:innen werden aktiv auf die eigene Impressumspflicht
   hingewiesen, statt sie zu übersehen.
-- Löst nebenbei die in `SYNC.md` als offen vermerkte Lücke: `Footer.astro`
-  verlinkt im Hosted-Repo jetzt auf tatsächlich existierende Seiten.
+- Löst nebenbei eine damals offene Lücke: `Footer.astro` verlinkt auf
+  tatsächlich existierende Seiten.
 
 ### Negativ / Trade-offs
 
@@ -91,8 +91,8 @@ Instanz, die ein eigenes Impressum bräuchte.
 
 ## Changelog
 
-| Datum      | Änderung | Von     |
-|------------|----------|---------|
-| 2026-09-29 | Erstellt | bruno   |
-| 2026-09-29 | Hosted-Repo aufgelöst (ADR-0008); Entscheidung gilt weiter, echte Daten jetzt in der Deployment-Konfiguration statt im Hosted-Repo | bruno   |
-| 2026-09-30 | Umsetzung auf .env-Variablen umgestellt (Hosted-Repo aufgelöst) | bruno   |
+| Datum      | Änderung | Von          |
+|------------|----------|--------------|
+| 2026-09-29 | Erstellt | Bruno Deanoz |
+| 2026-09-29 | Hosted-Repo aufgelöst (ADR-0008); Entscheidung gilt weiter, echte Daten jetzt in der Deployment-Konfiguration statt im Hosted-Repo | Bruno Deanoz |
+| 2026-09-30 | Umsetzung auf .env-Variablen umgestellt (Hosted-Repo aufgelöst) | Bruno Deanoz |

@@ -1,5 +1,9 @@
 # 0004. Sichtbarer Druck/PDF-Export-Button — geteiltes Feature, nicht Hosted-only
 
+> Entstanden, als das Projekt noch auf zwei Repos aufgeteilt war (ADR-0001/0002).
+> Diese Trennung wurde mit [ADR-0008](0008-aufloesung-des-oss-hosted-splits.md) aufgelöst; die hier
+> getroffene Entscheidung gilt unverändert, sie betrifft heute nur ein Repo.
+
 ## Status
 
 Angenommen
@@ -11,8 +15,8 @@ Angenommen
 ## Kontext
 
 Beide Homepages (OSS und Hosted) behaupten: "Jede Gruppenseite lässt sich
-direkt über die Browser-Druckfunktion als PDF exportieren." Zwei Probleme
-kamen beim Nachprüfen heraus:
+direkt über die Browser-Druckfunktion als PDF exportieren." Beim Nachprüfen
+dieser Zusage kamen zwei Probleme heraus:
 
 1. **Unentdeckbar:** Die Funktion existiert nur implizit über Cmd+P/Strg+P
    — niemand liest die Startseite genau genug, um das zu wissen. Ein Text-
@@ -64,9 +68,11 @@ kamen beim Nachprüfen heraus:
 - Zwei separate Implementierungen (kein Code-Sharing zwischen den Repos,
   siehe ADR-0001) — beide müssen bei künftigen Layout-Änderungen an der
   Glas-Chrome synchron nachgezogen werden. In `SYNC.md` vermerkt.
+  **Entfallen mit [ADR-0008](0008-aufloesung-des-oss-hosted-splits.md):**
+  es gibt nur noch ein Repo und eine Implementierung.
 
 ## Changelog
 
-| Datum      | Änderung | Von     |
-|------------|----------|---------|
-| 2026-09-29 | Erstellt | bruno   |
+| Datum      | Änderung | Von          |
+|------------|----------|--------------|
+| 2026-09-29 | Erstellt | Bruno Deanoz |

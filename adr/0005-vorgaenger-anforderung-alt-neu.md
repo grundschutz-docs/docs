@@ -1,5 +1,9 @@
 # 0005. Vorgänger-Anforderung (altes Kompendium → Grundschutz++): Links statt Volltext
 
+> Entstanden, als das Projekt noch auf zwei Repos aufgeteilt war (ADR-0001/0002).
+> Diese Trennung wurde mit [ADR-0008](0008-aufloesung-des-oss-hosted-splits.md) aufgelöst; die hier
+> getroffene Entscheidung gilt unverändert, sie betrifft heute nur ein Repo.
+
 ## Status
 
 Angenommen
@@ -106,6 +110,6 @@ im PDF).
 
 ## Changelog
 
-| Datum      | Änderung | Von     |
-|------------|----------|---------|
-| 2026-09-29 | Erstellt | bruno   |
+| Datum      | Änderung | Von          |
+|------------|----------|--------------|
+| 2026-09-29 | Erstellt | Bruno Deanoz |

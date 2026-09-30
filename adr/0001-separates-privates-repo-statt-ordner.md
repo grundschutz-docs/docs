@@ -81,7 +81,7 @@ Dateien hinzufügen und niemals Dateien des OSS-Repos verändern.
 
 ## Changelog
 
-| Datum      | Änderung | Von     |
-|------------|----------|---------|
-| 2026-09-29 | Erstellt | bruno   |
-| 2026-09-29 | Überholt durch ADR-0008 | bruno   |
+| Datum      | Änderung | Von          |
+|------------|----------|--------------|
+| 2026-09-29 | Erstellt | Bruno Deanoz |
+| 2026-09-29 | Überholt durch ADR-0008 | Bruno Deanoz |

@@ -32,6 +32,6 @@ Welche anderen Optionen standen zur Wahl? Warum wurden sie verworfen? (Dieser Ab
 
 ## Changelog
 
-| Datum | Änderung | Von |
-|-------|----------|-----|
+| Datum      | Änderung | Von          |
+|------------|----------|--------------|
 | YYYY-MM-DD | Erstellt | ... |

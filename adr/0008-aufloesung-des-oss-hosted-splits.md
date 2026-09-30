@@ -110,7 +110,11 @@ Filter-Komponenten) lag im Repo, das niemand öffnen kann.
 
 - Die Entscheidung gibt einen möglichen Differenzierungshebel auf: Es wird
   künftig kein Feature geben, das ausschließlich die gehostete Instanz hat.
-  Differenzierung muss über Betrieb und Inhalt entstehen.
+  Differenzierung muss über Betrieb und Inhalt entstehen — über die laufende
+  Instanz (immer aktueller Stand, kein Setup) und über die Annotations- und
+  Kritik-Ebene, die inhaltlich niemand sonst liefert. Beides lässt sich
+  ohnehin nicht durch geschlossenen Quellcode absichern; Design schon gar
+  nicht, das steht im Browser.
 - `.mdx` statt `.md` macht die generierten Seiten etwas
   anfälliger — Katalog-Prosa mit `{`, `}` oder `<` bricht sonst den Build.
   `mdx_safe()` fängt das ab, muss aber bei neuen Katalog-Editionen
@@ -122,6 +126,6 @@ Filter-Komponenten) lag im Repo, das niemand öffnen kann.
 
 ## Changelog
 
-| Datum      | Änderung | Von     |
-|------------|----------|---------|
-| 2026-09-29 | Erstellt | bruno   |
+| Datum      | Änderung | Von          |
+|------------|----------|--------------|
+| 2026-09-29 | Erstellt | Bruno Deanoz |

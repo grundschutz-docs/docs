@@ -1,5 +1,9 @@
 # 0007. Rollenbasierte Einstiegsseiten (Geschäftsführung/ISB/Devs) statt einheitlicher Startseite
 
+> Entstanden, als das Projekt noch auf zwei Repos aufgeteilt war (ADR-0001/0002).
+> Diese Trennung wurde mit [ADR-0008](0008-aufloesung-des-oss-hosted-splits.md) aufgelöst; die hier
+> getroffene Entscheidung gilt unverändert, sie betrifft heute nur ein Repo.
+
 ## Status
 
 Angenommen
@@ -139,6 +143,6 @@ Zielgruppen-Einstufung pro Control.
 
 ## Changelog
 
-| Datum | Änderung | Von |
-|-------|----------|-----|
-| 2026-09-29 | Erstellt | Bruno |
+| Datum      | Änderung | Von          |
+|------------|----------|--------------|
+| 2026-09-29 | Erstellt | Bruno Deanoz |

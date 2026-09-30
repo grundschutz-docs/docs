@@ -1,5 +1,9 @@
 # 0006. Vergleichsseite alt↔neu + Quick-Nav im Header
 
+> Entstanden, als das Projekt noch auf zwei Repos aufgeteilt war (ADR-0001/0002).
+> Diese Trennung wurde mit [ADR-0008](0008-aufloesung-des-oss-hosted-splits.md) aufgelöst; die hier
+> getroffene Entscheidung gilt unverändert, sie betrifft heute nur ein Repo.
+
 ## Status
 
 Angenommen
@@ -85,11 +89,12 @@ möglich, aber riskant (responsive Grid-Mathematik nachbauen).
 - Zwei unabhängige Implementierungen (OSS statisch, Hosted mit JS-Filter)
   müssen bei Strukturänderungen der Vergleichsseite synchron gehalten
   werden — wie immer bei diesem Repo-Split (ADR-0001), in `SYNC.md`
-  vermerken.
+  vermerken. **Entfallen mit [ADR-0008](0008-aufloesung-des-oss-hosted-splits.md):**
+  eine Implementierung, kein Abgleich mehr nötig.
 
 ## Changelog
 
-| Datum      | Änderung | Von     |
-|------------|----------|---------|
-| 2026-09-29 | Erstellt | bruno   |
-| 2026-09-29 | Korrektur (später am selben Tag): die Quick-Nav-Zweitzeile im Banner wurde doch in eine eigene `Header.astro`-Überschreibung ausgezogen (gleicher Overrides-Mechanismus wie `ThemeSelect`/`Hero`/`Footer`/`Banner`/`SocialIcons`, kein Sonderfall). Grund: Banner ist für eine temporäre Statusmeldung gedacht, permanente Navigation gehört semantisch nicht dorthin — der oben unter "Negativ/Trade-offs" genannte Punkt ("zwei Zwecke in einem Banner") wurde als real genug bewertet, um die ursprüngliche Risikoabwägung zu revidieren. Beim tatsächlichen Lesen von Starlights `Header.astro`-Quellcode stellte sich zudem heraus, dass das Risiko geringer war als angenommen: die mittlere Grid-Spalte (Suche) füllt nicht die volle Breite, Nav-Links passen dort hinein, ohne die für die Sidebar-Ausrichtung kritische `grid-template-columns`-Formel anzufassen. Banner zeigt jetzt nur noch die Pilotphase-Meldung. | bruno |
+| Datum      | Änderung | Von          |
+|------------|----------|--------------|
+| 2026-09-29 | Erstellt | Bruno Deanoz |
+| 2026-09-29 | Korrektur (später am selben Tag): die Quick-Nav-Zweitzeile im Banner wurde doch in eine eigene `Header.astro`-Überschreibung ausgezogen (gleicher Overrides-Mechanismus wie `ThemeSelect`/`Hero`/`Footer`/`Banner`/`SocialIcons`, kein Sonderfall). Grund: Banner ist für eine temporäre Statusmeldung gedacht, permanente Navigation gehört semantisch nicht dorthin — der oben unter "Negativ/Trade-offs" genannte Punkt ("zwei Zwecke in einem Banner") wurde als real genug bewertet, um die ursprüngliche Risikoabwägung zu revidieren. Beim tatsächlichen Lesen von Starlights `Header.astro`-Quellcode stellte sich zudem heraus, dass das Risiko geringer war als angenommen: die mittlere Grid-Spalte (Suche) füllt nicht die volle Breite, Nav-Links passen dort hinein, ohne die für die Sidebar-Ausrichtung kritische `grid-template-columns`-Formel anzufassen. Banner zeigt jetzt nur noch die Pilotphase-Meldung. | Bruno Deanoz |
