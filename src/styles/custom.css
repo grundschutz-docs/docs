@@ -46,6 +46,10 @@ h6,
 	--glass-border: oklch(90% 0.02 70 / 0.18);
 	--glass-gap: 0.75rem;
 	--button-glow: oklch(74% 0.14 75 / 0.55);
+	/* Eigener Ton für die Status-Leiste statt --sl-color-accent-low: das Token
+	   ist für kleine Chip-Füllungen kalibriert, nicht für eine vollflächige
+	   Leiste -- dort reichte der Abstand zur Seiten-BG (schwarz) locker. */
+	--banner-tint: oklch(28% 0.055 75);
 	/* Deutlich deckender als --glass-tint: Pill-Tooltips liegen über einem
 	   Feld aus vielen bunten Pills, 55% Deckkraft reicht da nicht für
 	   lesbaren Fließtext (siehe ControlMeta.astro). */
@@ -85,6 +89,11 @@ h6,
 	--glass-tint: oklch(97% 0.01 80 / 0.55);
 	--glass-border: oklch(30% 0.02 70 / 0.12);
 	--button-glow: oklch(62% 0.15 75 / 0.4);
+	/* --sl-color-accent-low läge hier bei 93% L -- nur 4-6 Punkte unter der
+	   99% hellen Seiten-BG, die Leiste verschwand fast. Eigener, satterer
+	   Ton mit spürbarem Abstand, aber bewusst kein volles --sl-color-accent
+	   (das bliebe dem Primary-Button und den Stat-Zahlen vorbehalten). */
+	--banner-tint: oklch(87% 0.06 78);
 	--tooltip-bg: oklch(98% 0.01 80 / 0.97);
 
 	--pill-danger-low: oklch(90% 0.05 25);
