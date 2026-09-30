@@ -29,9 +29,26 @@ const shouldRenderSearch =
 	</div>
 	<div class="sl-flex print:hidden middle-group">
 		{shouldRenderSearch && <Search />}
-		<nav class="quicknav sl-hidden md:sl-flex" aria-label="Schnellzugriff">
+		{/*
+		  lg statt md: ab 50rem blendete die Leiste ein, aber bei 800px stehen
+		  dem Header nur ~776px zur Verfügung, und Titel (~180) + sieben
+		  Quicknav-Einträge (~486) + Icons (~130) sind schon ~796 — das
+		  Suchfeld noch gar nicht gezählt. Mit nowrap ergibt das einen
+		  überlaufenden Header statt einer engen Leiste.
+
+		  Das war bereits vor "Befunde" so; der siebte Eintrag macht es nur
+		  sichtbar. Unterhalb von 72rem verliert niemand Navigation — die
+		  vollständige Sidebar bleibt, die Leiste ist eine Abkürzung.
+		*/}
+		<nav class="quicknav sl-hidden lg:sl-flex" aria-label="Schnellzugriff">
 			<a href="/grundschutzpp/">Übersicht</a>
 			<a href="/vergleich/">Vergleich</a>
+			{/* Steht bei Übersicht und Vergleich, nicht bei den Rollen: alle drei
+			    sind Sichten auf den Katalog, die Rollen dahinter sind Einstiege
+			    für Personen. Und Befunde ist das, was diese Seite von einer
+			    reinen Aufbereitung unterscheidet — das gehört nicht hinter eine
+			    Sidebar-Gruppe versteckt. */}
+			<a href="/befunde/">Befunde</a>
 			<a href="/rollen/geschaeftsfuehrung/">Geschäftsführung</a>
 			<a href="/rollen/isb/">ISB</a>
 			<a href="/rollen/devs/">Devs</a>
