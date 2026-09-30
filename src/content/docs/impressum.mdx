@@ -3,25 +3,28 @@ title: Impressum
 template: splash
 ---
 
-**Hinweis für Self-Hoster:innen:** Dies ist eine Vorlage, kein fertiges
-Impressum. Wer diese Website in Deutschland öffentlich betreibt
-(geschäftsmäßig, d. h. nicht rein privat/familiär), braucht nach § 5
-Digitale-Dienste-Gesetz (DDG) ein eigenes Impressum mit den *eigenen*
-Angaben — nicht denen des Projekt-Maintainers. Ersetze die Platzhalter
-unten durch deine Daten, bevor du live gehst.
+import OperatorDetails from '../../components/OperatorDetails.astro';
+import TemplateNotice from '../../components/TemplateNotice.astro';
+
+<TemplateNotice>
+	Die Betreiberangaben stehen noch auf Platzhaltern. Wer diese Website in
+	Deutschland öffentlich betreibt (geschäftsmäßig, d. h. nicht rein
+	privat/familiär), braucht nach § 5 Digitale-Dienste-Gesetz (DDG) ein
+	Impressum mit den *eigenen* Angaben — nicht denen des Projekt-Maintainers.
+	Trage sie in `.env` ein (siehe `.env.example`), bevor du live gehst.
+</TemplateNotice>
 
 ## Betreiber
 
-[Name]<br />
-[Anschrift]
+<OperatorDetails />
 
 ## Kontakt
 
-E-Mail: [E-Mail-Adresse]
+<OperatorDetails withEmail />
 
 ## Verantwortlich für den Inhalt nach § 18 Abs. 2 Medienstaatsvertrag (MStV)
 
-[Name] (Anschrift wie oben)
+<OperatorDetails />
 
 ## Haftungsausschluss
 

@@ -1,0 +1,25 @@
+---
+/**
+ * Warnhinweis auf den Rechtsseiten — erscheint nur, solange die
+ * Betreiberangaben in `.env` fehlen.
+ *
+ * Absicht: Ein frischer Klon zeigt unübersehbar "das ist eine Vorlage", eine
+ * fertig konfigurierte Instanz zeigt ein sauberes Impressum ohne Meta-Hinweis.
+ * Ohne diese Unterscheidung stünde auf der echten Seite dauerhaft ein
+ * Hinweis an Self-Hoster:innen, den ihre Besucher:innen nichts angeht.
+ */
+const configured = Boolean(
+	process.env.OPERATOR_NAME?.trim() &&
+		process.env.OPERATOR_ADDRESS?.trim() &&
+		process.env.OPERATOR_EMAIL?.trim()
+);
+---
+
+{
+	!configured && (
+		<aside class="template-notice">
+			<strong>Noch nicht konfiguriert:</strong>
+			<slot />
+		</aside>
+	)
+}

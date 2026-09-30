@@ -640,3 +640,22 @@ site-search dialog::backdrop {
 	font-size: var(--sl-text-sm);
 	line-height: 1.5;
 }
+
+/* Hinweis auf den Rechtsseiten, solange die Betreiberangaben in .env fehlen
+   (TemplateNotice.astro). Absichtlich auffällig: ein Impressum mit
+   Platzhaltern darf nicht versehentlich live gehen. */
+.template-notice {
+	display: block;
+	margin: 0 0 2rem;
+	padding: 0.9rem 1.1rem;
+	border-inline-start: 3px solid var(--sl-color-accent);
+	border-radius: 0 0.5rem 0.5rem 0;
+	background: var(--sl-color-bg-sidebar);
+	font-size: var(--sl-text-sm);
+	text-align: start;
+}
+
+.template-notice strong {
+	color: var(--sl-color-white);
+	margin-inline-end: 0.35ch;
+}

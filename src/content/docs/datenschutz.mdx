@@ -3,21 +3,34 @@ title: Datenschutzerklärung
 template: splash
 ---
 
-**Hinweis für Self-Hoster:innen:** Dies ist eine Vorlage, keine fertige
-Datenschutzerklärung. Passe sie an deinen tatsächlichen Betrieb an —
-Hosting-Anbieter/-Standort, ob du Cookies/Tracking einsetzt, und die für
-*dich* zuständige Datenschutz-Aufsichtsbehörde (richtet sich nach deinem
-Sitz, nicht nach dem des Projekt-Maintainers).
+import OperatorDetails from '../../components/OperatorDetails.astro';
+import TemplateNotice from '../../components/TemplateNotice.astro';
+
+export const hosting =
+	process.env.OPERATOR_HOSTING?.trim() ||
+	'[Hosting-Anbieter und Serverstandort eintragen.]';
+export const tracking =
+	process.env.OPERATOR_TRACKING?.trim() ||
+	'Diese Website setzt keine Cookies und keine Analyse- oder Tracking-Werkzeuge ein.';
+export const authority =
+	process.env.OPERATOR_AUTHORITY?.trim() ||
+	'[Zuständige Landesdatenschutzbehörde eintragen.]';
+
+<TemplateNotice>
+	Die Betreiberangaben stehen noch auf Platzhaltern. Passe die Erklärung
+	außerdem an deinen tatsächlichen Betrieb an — Hosting-Anbieter und
+	-Standort, ob du Cookies oder Tracking einsetzt, und die für *dich*
+	zuständige Aufsichtsbehörde (richtet sich nach deinem Sitz, nicht nach dem
+	des Projekt-Maintainers). Alles davon steht in `.env`, siehe `.env.example`.
+</TemplateNotice>
 
 ## 1. Verantwortlicher
 
-[Name]<br />
-[Anschrift]<br />
-E-Mail: [E-Mail-Adresse]
+<OperatorDetails withEmail />
 
 ## 2. Hosting
 
-[Beschreibe hier deinen Hosting-Anbieter und Serverstandort.]
+{hosting}
 
 ## 3. Server-Logfiles
 
@@ -33,7 +46,7 @@ Diese Daten dienen ausschließlich dem sicheren und stabilen Betrieb der Website
 
 ## 4. Cookies und Tracking
 
-[Beschreibe hier, ob und welche Cookies/Analyse-/Tracking-Werkzeuge du einsetzt.]
+{tracking}
 
 ## 5. Schriftarten
 
@@ -58,4 +71,6 @@ Wende dich dazu an die oben genannte Kontakt-E-Mail-Adresse.
 
 ## 8. Beschwerderecht bei der Aufsichtsbehörde
 
-Du hast das Recht, dich bei einer Datenschutz-Aufsichtsbehörde über die Verarbeitung deiner personenbezogenen Daten zu beschweren. Zuständig ist die für **deinen** Sitz zuständige Landesdatenschutzbehörde — [trage hier die für dich zuständige Behörde ein].
+Du hast das Recht, dich bei einer Datenschutz-Aufsichtsbehörde über die Verarbeitung deiner personenbezogenen Daten zu beschweren. Zuständig ist:
+
+{authority}

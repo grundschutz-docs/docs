@@ -5,20 +5,35 @@ import starlight from '@astrojs/starlight';
 import starlightLinksValidator from 'starlight-links-validator';
 import mdx from '@astrojs/mdx';
 
-// Name an einer Stelle definiert (.env, siehe .env.example), analog zum OSS-Repo.
-function readSiteName() {
-	if (process.env.SITE_NAME) return process.env.SITE_NAME;
+// .env in process.env laden, damit Komponenten (OperatorDetails.astro) sie
+// beim Build lesen koennen. Kein vite/dotenv-Import: pnpms striktes
+// node_modules verbietet den Zugriff auf nicht direkt deklarierte
+// Abhaengigkeiten, deshalb ein minimaler eigener Parser.
+//
+// Echte Umgebungsvariablen gewinnen gegen die Datei — so kann eine
+// Deployment-Plattform (Hetzner, CI) die Werte setzen, ohne dass eine
+// .env auf dem Server liegen muss.
+function loadEnvFile() {
+	let raw;
 	try {
-		const line = readFileSync(new URL('./.env', import.meta.url), 'utf-8')
-			.split('\n')
-			.find((l) => l.startsWith('SITE_NAME='));
-		return line?.slice('SITE_NAME='.length).trim();
+		raw = readFileSync(new URL('./.env', import.meta.url), 'utf-8');
 	} catch {
-		return undefined;
+		return;
+	}
+	for (const line of raw.split('\n')) {
+		const trimmed = line.trim();
+		if (!trimmed || trimmed.startsWith('#')) continue;
+		const eq = trimmed.indexOf('=');
+		if (eq < 1) continue;
+		const key = trimmed.slice(0, eq).trim();
+		if (process.env[key] !== undefined) continue;
+		process.env[key] = trimmed.slice(eq + 1).trim();
 	}
 }
 
-const SITE_NAME = readSiteName();
+loadEnvFile();
+
+const SITE_NAME = process.env.SITE_NAME;
 
 // https://astro.build/config
 export default defineConfig({

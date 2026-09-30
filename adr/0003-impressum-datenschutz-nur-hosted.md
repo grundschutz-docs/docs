@@ -2,7 +2,25 @@
 
 ## Status
 
-Angenommen
+**Angenommen, Umsetzung geändert** (2026-09-30). Das Ziel gilt unverändert:
+Dieses Repo darf nie die Daten seiner Maintainer ausliefern, und wer es
+betreibt, braucht seine eigenen Angaben. Nur der *Ort* für die echten Daten
+hat sich geändert — das Hosted-Repo aus ADR-0001 existiert seit
+[ADR-0008](0008-aufloesung-des-oss-hosted-splits.md) nicht mehr.
+
+Stattdessen kommen die Betreiberangaben aus der gitignorierten `.env`
+(`OPERATOR_NAME`, `OPERATOR_ADDRESS`, `OPERATOR_EMAIL`, `OPERATOR_HOSTING`,
+`OPERATOR_TRACKING`, `OPERATOR_AUTHORITY`, siehe `.env.example`), gelesen von
+`OperatorDetails.astro`. Sind sie nicht gesetzt, zeigen beide Seiten
+Platzhalter plus einen sichtbaren „noch nicht konfiguriert"-Hinweis
+(`TemplateNotice.astro`); sind sie gesetzt, verschwindet der Hinweis und die
+Seiten sind vollwertig. Echte Umgebungsvariablen gewinnen gegen die Datei,
+damit eine Deployment-Plattform die Werte setzen kann, ohne dass eine `.env`
+auf dem Server liegt.
+
+Damit erreicht ein einzelnes Repo, was ursprünglich der Grund für zwei war:
+öffentliche Vorlage und private Echtdaten aus derselben Quelle, ohne dass die
+Echtdaten je in git landen.
 
 ## Datum
 
@@ -77,3 +95,4 @@ Instanz, die ein eigenes Impressum bräuchte.
 |------------|----------|---------|
 | 2026-09-29 | Erstellt | bruno   |
 | 2026-09-29 | Hosted-Repo aufgelöst (ADR-0008); Entscheidung gilt weiter, echte Daten jetzt in der Deployment-Konfiguration statt im Hosted-Repo | bruno   |
+| 2026-09-30 | Umsetzung auf .env-Variablen umgestellt (Hosted-Repo aufgelöst) | bruno   |

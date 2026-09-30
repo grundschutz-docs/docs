@@ -1,0 +1,43 @@
+---
+/**
+ * Betreiberangaben für Impressum und Datenschutzerklärung.
+ *
+ * Die Werte kommen aus `.env` (siehe `.env.example`), die gitignoriert ist —
+ * damit liefert dieses Repo niemals die Daten seiner Maintainer aus, und wer
+ * es klont, sieht Platzhalter statt fremder Adressen. Wer die Seite
+ * tatsächlich betreibt, trägt seine eigenen Angaben in `.env` ein (oder setzt
+ * die Variablen in der Deployment-Umgebung).
+ *
+ * Mehrzeilige Anschrift: Zeilen in `OPERATOR_ADDRESS` mit `|` trennen,
+ * da .env-Werte einzeilig sind.
+ */
+interface Props {
+	/** E-Mail-Zeile mit ausgeben (Impressum-Kontaktblock, Datenschutz-Verantwortlicher). */
+	withEmail?: boolean;
+}
+
+const { withEmail = false } = Astro.props;
+
+const name = process.env.OPERATOR_NAME?.trim() || '[Name]';
+const email = process.env.OPERATOR_EMAIL?.trim() || '[E-Mail-Adresse]';
+const addressLines = (process.env.OPERATOR_ADDRESS?.trim() || '[Anschrift]')
+	.split('|')
+	.map((line) => line.trim())
+	.filter(Boolean);
+---
+
+<p>
+	{name}
+	{addressLines.map((line) => (
+		<>
+			<br />
+			{line}
+		</>
+	))}
+	{withEmail && (
+		<>
+			<br />
+			E-Mail: {email}
+		</>
+	)}
+</p>
