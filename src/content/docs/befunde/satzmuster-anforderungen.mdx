@@ -1,0 +1,60 @@
+---
+title: Das Satzmuster macht Anforderungen schwer lesbar
+description: Jede Anforderung setzt den Praktiknamen als grammatisches Subjekt — das erzeugt Sätze, in denen niemand handelt.
+befund:
+  typ: beobachtung
+  status: offen
+  gefunden: 2026-10-01
+  betrifft: [UMS.1.2]
+  quelle: Grundschutz++-resolved_catalog.json
+---
+
+import BefundMeta from '../../../components/BefundMeta.astro';
+
+<BefundMeta
+	typ="beobachtung"
+	status="offen"
+	gefunden={new Date('2026-10-01')}
+	betrifft={['UMS.1.2']}
+	quelle="Grundschutz++-resolved_catalog.json"
+/>
+
+## Befund
+
+Jede Anforderung im Katalog folgt demselben Satzbau:
+
+> `[Praktikname]` MUSS/SOLLTE/KANN `[Verbphrase]`
+
+Der Praktikname ist dabei grammatisches Subjekt. Das trägt, solange er sich
+als Handelnder lesen lässt — „Notfallplanung SOLLTE die Datensicherung
+getrennt von den Originaldaten platzieren" ist verständlich. Es kippt, sobald
+der Name ein Vorgang ist:
+
+> UMS.1.2 — „**Umsetzung** SOLLTE das bestehende Restrisiko durch die nicht
+> umgesetzten Anforderungen festlegen."
+
+„Umsetzung" ist kein Handelnder. Der Satz hat ein Subjekt, das nichts tun
+kann, und liest sich entsprechend.
+
+## Warum wichtig
+
+Das ist kein Einzelfall und kein Redaktionsversehen, sondern eine Folge der
+Katalogstruktur: Praktiken sind die oberste Gliederungsebene, und die
+Anforderungssätze erben ihren Namen als Subjekt. Betroffen sind damit alle
+1.000 Anforderungen — mal auffällig, mal nicht.
+
+Für maschinelle Verarbeitung ist das unerheblich und vermutlich sogar
+hilfreich, weil es die Zuordnung Anforderung → Praktik im Satz selbst trägt.
+Für Menschen ist es die Stelle, an der ein ansonsten präziser Katalog
+umständlich wirkt.
+
+## Was das hier bedeutet
+
+Diese Seite gibt Anforderungssätze **unverändert** wieder. Umformulieren wäre
+falsch: Der Wortlaut ist normativ, und eine Aufbereitung, die ihn glättet,
+wäre nicht mehr zitierfähig gegen das Original.
+
+Konsequenz ist stattdessen eine redaktionelle: Das Beispiel auf der Startseite
+zeigt bewusst eine Anforderung, an der das Muster nicht stört. Wer hier liest
+und dabei über einen Satz stolpert, findet die Ursache nun hier statt sie für
+einen Fehler dieser Aufbereitung zu halten.

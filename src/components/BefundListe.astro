@@ -1,0 +1,147 @@
+---
+/**
+ * Übersicht aller Befunde, aus der Collection statt von Hand gepflegt.
+ *
+ * Gleiches Prinzip wie bei den Startseiten-Zahlen: eine Liste, die man
+ * nachtragen muss, ist eine Liste, die irgendwann falsch ist. Wer einen Befund
+ * anlegt, taucht hier automatisch auf.
+ *
+ * Sortiert nach Funddatum, neueste zuerst — ein Register liest man von vorn.
+ */
+interface Befund {
+	id: string;
+	data: {
+		title: string;
+		description?: string;
+		befund?: {
+			typ: 'fakt' | 'auslegung' | 'beobachtung';
+			status: 'offen' | 'gemeldet' | 'beantwortet' | 'behoben' | 'hinfaellig';
+			gefunden: Date;
+		};
+	};
+}
+
+const { befunde } = Astro.props as { befunde: Befund[] };
+
+const TYP_LABEL = { fakt: 'Fakt', auslegung: 'Auslegung', beobachtung: 'Beobachtung' } as const;
+const TYP_FAMILY = { fakt: 'danger', auslegung: 'warn', beobachtung: 'calm' } as const;
+const STATUS_LABEL = {
+	offen: 'offen',
+	gemeldet: 'gemeldet',
+	beantwortet: 'beantwortet',
+	behoben: 'behoben',
+	hinfaellig: 'hinfällig',
+} as const;
+
+const sortiert = [...befunde].sort(
+	(a, b) => b.data.befund!.gefunden.getTime() - a.data.befund!.gefunden.getTime()
+);
+const datum = new Intl.DateTimeFormat('de-DE', { dateStyle: 'medium' });
+---
+
+<ul class="befund-liste not-content">
+	{
+		sortiert.map(({ id, data }) => (
+			<li>
+				<a href={`/${id}/`}>
+					<span class="befund-kopf">
+						<span class="pill" data-family={TYP_FAMILY[data.befund!.typ]}>
+							{TYP_LABEL[data.befund!.typ]}
+						</span>
+						<span class="befund-status">{STATUS_LABEL[data.befund!.status]}</span>
+						<span class="befund-datum">{datum.format(data.befund!.gefunden)}</span>
+					</span>
+					<span class="befund-titel">{data.title}</span>
+				</a>
+				{data.description && <p>{data.description}</p>}
+			</li>
+		))
+	}
+</ul>
+
+<style>
+	.befund-liste {
+		display: grid;
+		gap: 0.75rem;
+		margin: 1.5rem 0 2.5rem;
+		padding: 0;
+		list-style: none;
+	}
+
+	.befund-liste li {
+		position: relative;
+		border: 1px solid var(--sl-color-hairline);
+		border-radius: 1rem;
+		padding: 1rem 1.25rem;
+		background-color: var(--sl-color-bg-nav);
+		transition: border-color 0.15s ease;
+	}
+
+	.befund-liste li:hover {
+		border-color: var(--sl-color-accent);
+	}
+
+	.befund-liste a {
+		text-decoration: none;
+		color: var(--sl-color-white);
+	}
+
+	/* Die ganze Karte ist das Ziel, nicht nur der Titeltext. */
+	.befund-liste a::after {
+		content: '';
+		position: absolute;
+		inset: 0;
+		border-radius: inherit;
+	}
+
+	.befund-kopf {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		gap: 0.5rem;
+		margin-bottom: 0.4rem;
+	}
+
+	.pill {
+		padding: 0.15em 0.6em;
+		border-radius: 999px;
+		font-family: 'JetBrains Mono Variable', ui-monospace, monospace;
+		font-size: var(--sl-text-2xs);
+		font-weight: 600;
+	}
+
+	.pill[data-family='danger'] {
+		background-color: var(--pill-danger-low);
+		color: var(--pill-danger-high);
+	}
+	.pill[data-family='warn'] {
+		background-color: var(--pill-warn-low);
+		color: var(--pill-warn-high);
+	}
+	.pill[data-family='calm'] {
+		background-color: var(--pill-calm-low);
+		color: var(--pill-calm-high);
+	}
+
+	.befund-status,
+	.befund-datum {
+		font-family: 'JetBrains Mono Variable', ui-monospace, monospace;
+		font-size: var(--sl-text-2xs);
+		color: var(--sl-color-gray-3);
+	}
+
+	.befund-titel {
+		display: block;
+		font-family: 'Fraunces Variable', Georgia, serif;
+		font-size: var(--sl-text-lg);
+		font-weight: 600;
+		line-height: 1.3;
+	}
+
+	.befund-liste p {
+		margin: 0.35rem 0 0;
+		color: var(--sl-color-gray-3);
+		font-size: var(--sl-text-sm);
+		line-height: 1.5;
+	}
+</style>

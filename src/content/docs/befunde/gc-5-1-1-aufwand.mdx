@@ -1,0 +1,74 @@
+---
+title: GC.5.1.1 ist die einzige MUSS-Anforderung mit Aufwandsstufe
+description: Aufwand 0 und MUSS bedingen einander im Katalog — mit genau einer Ausnahme, die der veröffentlichten Definition der Aufwandsskala widerspricht.
+befund:
+  typ: fakt
+  status: offen
+  gefunden: 2026-10-01
+  betrifft: [GC.5.1, GC.5.1.1, GC.5.1.2]
+  quelle: Grundschutz++-resolved_catalog.json
+---
+
+import BefundMeta from '../../../components/BefundMeta.astro';
+
+<BefundMeta
+	typ="fakt"
+	status="offen"
+	gefunden={new Date('2026-10-01')}
+	betrifft={['GC.5.1', 'GC.5.1.1', 'GC.5.1.2']}
+	quelle="Grundschutz++-resolved_catalog.json"
+/>
+
+## Befund
+
+Im Katalog gilt über alle 1.000 Anforderungen hinweg: **Aufwandsstufe 0 kommt
+ausschließlich bei MUSS vor, und MUSS trägt ausschließlich Stufe 0** — mit
+genau einer Ausnahme.
+
+| Pflichtgrad | A0 | A1 | A2 | A3 | A4 | A5 |
+| --- | --- | --- | --- | --- | --- | --- |
+| MUSS | 148 | 0 | 0 | **1** | 0 | 0 |
+| SOLLTE | 0 | 51 | 171 | 270 | 128 | 7 |
+| KANN | 0 | 1 | 0 | 10 | 31 | 182 |
+
+Die Ausnahme ist `GC.5.1.1 – Festlegung einer Sicherheitsstrategie`: MUSS mit
+Aufwandsstufe 3. Ihre unmittelbaren Nachbarn folgen der Regel:
+
+| ID | Pflichtgrad | Aufwand |
+| --- | --- | --- |
+| `GC.5.1` (Elternanforderung) | MUSS | 0 |
+| **`GC.5.1.1`** | **MUSS** | **3** |
+| `GC.5.1.2` | MUSS | 0 |
+
+## Warum wichtig
+
+Die Regel ist nicht bloß ein statistisches Muster, sie folgt aus den
+veröffentlichten Definitionen des BSI. Der Namensraum `effort_level.csv`
+definiert Stufe 0 so:
+
+> Der Aufwand der Anforderung wird nicht bewertet, **da ihre Implementierung
+> in jedem Fall zwingend erforderlich ist.**
+
+Das ist wörtlich die Definition von MUSS aus `modal_verbs.csv` („eine
+Anforderung, die unbedingt erfüllt werden muss"). Eine MUSS-Anforderung mit
+einer Aufwandsbewertung widerspricht damit der eigenen Begriffsbestimmung.
+
+Praktisch trifft es Auswertungen: „Aufwand 0 bedeutet Pflicht" ist ein
+naheliegender Filter in jedem ISMS-Werkzeug und in jeder Auswertung über den
+Katalog. Wer so filtert, verliert genau eine Anforderung — und zwar die, eine
+grundlegende Sicherheitsstrategie gemeinsam mit der Institutionsleitung
+festzulegen. Keine Randnotiz.
+
+## Vorschlag
+
+Entweder `GC.5.1.1` auf Aufwandsstufe 0 setzen wie die übrigen 148, oder — falls
+die Bewertung beabsichtigt ist — in der Dokumentation der Aufwandsskala
+festhalten, dass MUSS-Anforderungen bewertet sein *können*. Aktuell ist beides
+nicht miteinander vereinbar.
+
+## Nachprüfen
+
+Der Befund lässt sich am öffentlichen Katalog gegenlesen: Für jede Anforderung
+in `Grundschutz++-resolved_catalog.json` das `modal_verb` der `statement`-Part
+gegen die Property `effort_level` halten. Die Kreuztabelle oben ist das
+vollständige Ergebnis über alle 1.000 Anforderungen.

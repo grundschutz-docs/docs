@@ -1,0 +1,77 @@
+---
+title: 26 MUSS-Anforderungen fehlten auf der Geschäftsführungs-Seite
+description: Ein eigener Fehler auf der Seite über Rechtspflichten — was schiefging, warum Build und Linkprüfung grün blieben, und was daraus folgte.
+befund:
+  typ: fakt
+  status: behoben
+  gefunden: 2026-09-30
+  betrifft: []
+  quelle: scripts/generate_docs.py
+  meldung:
+    kanal: Eigener Fehler, behoben im selben Repository
+    datum: 2026-09-30
+---
+
+import BefundMeta from '../../../components/BefundMeta.astro';
+
+<BefundMeta
+	typ="fakt"
+	status="behoben"
+	gefunden={new Date('2026-09-30')}
+	quelle="scripts/generate_docs.py"
+	meldung={{ kanal: 'Eigener Fehler, behoben im selben Repository', datum: new Date('2026-09-30') }}
+/>
+
+Dieser Befund betrifft nicht das BSI, sondern diese Seite. Er steht hier, weil
+ein Register, das nur nach außen zeigt, nichts wert ist.
+
+## Befund
+
+Die Seite [Für Geschäftsführung](/rollen/geschaeftsfuehrung/) behauptete am
+30. September 2026:
+
+> 123 von 874 Anforderungen im gesamten Katalog sind MUSS
+
+Tatsächlich sind es **149 von 1.000**. In der Tabelle darunter fehlten
+**26 MUSS-Anforderungen** — auf der Seite, die sich ausdrücklich mit
+gesetzlichen Pflichten befasst.
+
+Build und Link-Prüfung waren dabei durchgehend grün.
+
+## Warum wichtig
+
+Nicht die falsche Zahl ist das Interessante, sondern warum sie niemandem
+auffiel.
+
+**Überschrift und Tabelle stammten aus derselben Funktion.** Sie waren
+untereinander vollkommen konsistent: Die Zahl in der Überschrift passte exakt
+zu den Zeilen darunter. Diese Übereinstimmung sah aus wie eine Bestätigung —
+sie war aber nur der gemeinsame Fehler, zweimal ausgegeben.
+
+Die Ursache war eine veraltete Blatt-Logik: Der Zähler betrachtete nur
+Anforderungen ohne Unterpunkte als Anforderungen. Wer einen Katalog mit
+verschachtelten Controls so zählt, verliert jede Ebene, die noch Kinder hat —
+und zwar unauffällig, weil das Ergebnis in sich schlüssig bleibt.
+
+Wer sich auf eine solche Seite verlässt, um Pflichten abzuleiten, hätte 26
+davon nie gesehen.
+
+## Was daraus folgte
+
+Der Generator prüft seither nach jedem Lauf, ob die Zahlen auf den
+geschriebenen Seiten zur Quelle passen, und bricht ab, statt stillschweigend
+etwas Falsches zu schreiben. Die Regel dahinter steht im Code:
+
+> Jede Zahl auf zwei unabhängigen Wegen ermitteln. Die Prüfungen lesen die
+> *fertig geschriebenen* Dateien zurück und vergleichen sie mit den
+> Katalogdaten. Eine Prüfung, die denselben Codepfad nimmt wie der Renderer,
+> ist wertlos.
+
+Acht solcher Prüfungen laufen inzwischen: Anforderungszahl, Modalverben,
+Gruppensummen, ein Anker je Anforderung, eine Tabellenzeile je MUSS, eine
+Zeile je Zuordnung, die Startseiten-Zahlen, und die expliziten Anker der
+Rollenseiten.
+
+Die letzte kam am 1. Oktober 2026 dazu — nachdem derselbe Fehlertyp in
+anderer Form wieder aufgetreten war, siehe
+[Anker der Rollenseiten](/befunde/anker-rollenseiten/).

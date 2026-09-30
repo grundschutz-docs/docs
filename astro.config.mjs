@@ -101,6 +101,12 @@ export default defineConfig({
 					],
 				},
 				{
+					// Eigene Gruppe, nicht unter Grundschutz++: Befunde sind
+					// Kommentar zum Katalog, nicht Teil davon (ADR-0009).
+					label: 'Befunde',
+					items: [{ autogenerate: { directory: 'befunde' } }],
+				},
+				{
 					label: 'Grundschutz++',
 					items: [
 						{ label: 'Übersicht', slug: 'grundschutzpp' },

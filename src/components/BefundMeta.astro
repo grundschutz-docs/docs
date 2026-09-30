@@ -1,0 +1,211 @@
+---
+/**
+ * Kopfzeile eines Befunds: Typ, Status, Funddatum, betroffene Anforderungen.
+ *
+ * Bewusst dieselbe Pill-Sprache wie ControlMeta, inklusive der dort
+ * eingeführten Regel: **Fläche bedeutet Wichtigkeit, alles andere ist
+ * Kontur.** Hier trägt der Typ die Fläche — wie belastbar eine Aussage ist,
+ * entscheidet, wie man alles Weitere liest. Status, Datum und Fundstelle sind
+ * Kontext und bleiben konturiert.
+ *
+ * Die Typen sind keine Geschmacksfrage (ADR-0009): "fakt" ist an öffentlichen
+ * Daten nachprüfbar, "auslegung" folgt aus mehreren Regelwerken und bleibt
+ * eine Einschätzung, "beobachtung" ist ein Widerspruch ohne Fehlerbehauptung.
+ */
+interface Props {
+	typ: 'fakt' | 'auslegung' | 'beobachtung';
+	status: 'offen' | 'gemeldet' | 'beantwortet' | 'behoben' | 'hinfaellig';
+	gefunden: Date;
+	betrifft?: string[];
+	quelle?: string;
+	meldung?: { kanal: string; datum: Date; link?: string };
+}
+
+const { typ, status, gefunden, betrifft = [], quelle, meldung } = Astro.props;
+
+const TYP = {
+	fakt: {
+		label: 'Fakt',
+		hint: 'An öffentlich zugänglichen Daten nachprüfbar. Wer will, kann es gegenlesen.',
+		family: 'danger',
+	},
+	auslegung: {
+		label: 'Auslegung',
+		hint: 'Folgt aus mehreren Regelwerken, ist aber eine Einschätzung — keine Rechtsberatung.',
+		family: 'warn',
+	},
+	beobachtung: {
+		label: 'Beobachtung',
+		hint: 'Ein Widerspruch oder eine Lücke, aber kein Fehler im engeren Sinn.',
+		family: 'calm',
+	},
+} as const;
+
+const STATUS = {
+	offen: { label: 'offen', hint: 'Noch nicht gemeldet.' },
+	gemeldet: { label: 'gemeldet', hint: 'An die zuständige Stelle gemeldet, Antwort steht aus.' },
+	beantwortet: { label: 'beantwortet', hint: 'Es gibt eine Rückmeldung, aber noch keine Änderung.' },
+	behoben: { label: 'behoben', hint: 'Die Ursache ist beseitigt.' },
+	hinfaellig: { label: 'hinfällig', hint: 'Durch eine spätere Änderung gegenstandslos geworden.' },
+} as const;
+
+const t = TYP[typ];
+const s = STATUS[status];
+const datum = new Intl.DateTimeFormat('de-DE', { dateStyle: 'long' });
+---
+
+<p class="befund-meta not-content">
+	<span class="pill" data-family={t.family} data-role="pflicht" data-tooltip={t.hint} tabindex="0">
+		{t.label}
+		<span class="pill-hint" aria-hidden="true">?</span>
+	</span>
+	<span class="pill" data-family="neutral" data-role="meta" data-tooltip={s.hint} tabindex="0">
+		{s.label}
+		<span class="pill-hint" aria-hidden="true">?</span>
+	</span>
+	<span class="befund-datum">gefunden {datum.format(gefunden)}</span>
+</p>
+
+{
+	(betrifft.length > 0 || quelle || meldung) && (
+		<dl class="befund-details not-content">
+			{betrifft.length > 0 && (
+				<>
+					<dt>Betrifft</dt>
+					<dd>
+						{betrifft.map((id, i) => (
+							<>
+								{i > 0 && ', '}
+								<code>{id}</code>
+							</>
+						))}
+					</dd>
+				</>
+			)}
+			{quelle && (
+				<>
+					<dt>Nachprüfbar an</dt>
+					<dd>
+						<code>{quelle}</code>
+					</dd>
+				</>
+			)}
+			{meldung && (
+				<>
+					<dt>Gemeldet</dt>
+					<dd>
+						{datum.format(meldung.datum)} über {meldung.kanal}
+						{meldung.link && (
+							<>
+								{' — '}
+								<a href={meldung.link} target="_blank" rel="noopener noreferrer">
+									Vorgang
+								</a>
+							</>
+						)}
+					</dd>
+				</>
+			)}
+		</dl>
+	)
+}
+
+<style>
+	.befund-meta {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		gap: 0.5rem;
+		margin: 0.5rem 0 1rem;
+	}
+
+	/* Erbt die Pill-Regeln aus ControlMeta nicht (Astro scoped je Komponente),
+	   deshalb hier dieselben Werte. Bewusst dieselben und nicht ähnliche: zwei
+	   Pill-Dialekte auf einer Seite wären genau die Beliebigkeit, gegen die die
+	   Regel in ControlMeta.astro geschrieben wurde. */
+	.pill {
+		position: relative;
+		display: inline-flex;
+		align-items: center;
+		padding: 0.3em 0.85em;
+		border-radius: 999px;
+		border: 1px solid transparent;
+		font-family: 'JetBrains Mono Variable', ui-monospace, monospace;
+		font-size: var(--sl-text-xs);
+		font-weight: 600;
+		line-height: 1.3;
+		cursor: help;
+	}
+
+	.pill[data-family='danger'] {
+		background-color: var(--pill-danger-low);
+		color: var(--pill-danger-high);
+	}
+	.pill[data-family='warn'] {
+		background-color: var(--pill-warn-low);
+		color: var(--pill-warn-high);
+	}
+	.pill[data-family='calm'] {
+		background-color: var(--pill-calm-low);
+		color: var(--pill-calm-high);
+	}
+
+	/* Fläche nur für den Typ, Kontur für alles andere — siehe ControlMeta. */
+	.pill[data-role='pflicht'] {
+		border-color: color-mix(in oklch, currentColor 55%, transparent);
+	}
+
+	.pill[data-role='meta'] {
+		background-color: transparent;
+		color: var(--sl-color-gray-2);
+		border-color: color-mix(in oklch, currentColor 40%, transparent);
+	}
+
+	.pill:focus-visible {
+		outline: 2px solid var(--sl-color-accent);
+		outline-offset: 2px;
+	}
+
+	.pill-hint {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		width: 1.1em;
+		height: 1.1em;
+		margin-inline-start: 0.45em;
+		border-radius: 999px;
+		background-color: color-mix(in oklch, currentColor 24%, transparent);
+		font-size: 0.85em;
+		font-weight: 700;
+	}
+
+	.befund-datum {
+		font-size: var(--sl-text-xs);
+		color: var(--sl-color-gray-3);
+	}
+
+	.befund-details {
+		display: grid;
+		grid-template-columns: auto 1fr;
+		gap: 0.3rem 1rem;
+		margin: 0 0 1.75rem;
+		padding-bottom: 1rem;
+		border-bottom: 1px solid var(--sl-color-hairline);
+		font-size: var(--sl-text-sm);
+	}
+
+	.befund-details dt {
+		color: var(--sl-color-gray-3);
+		white-space: nowrap;
+	}
+
+	.befund-details dd {
+		margin: 0;
+		/* Dateipfade und IDs brechen sonst die Seitenbreite. */
+		overflow-wrap: anywhere;
+	}
+
+	.befund-details code {
+		font-size: 0.9em;
+	}
+</style>

@@ -1,0 +1,48 @@
+---
+title: Befunde
+description: Ein öffentliches Register über Ungereimtheiten im Grundschutz++-Katalog — und über eigene Fehler auf dieser Seite.
+---
+
+import { getCollection } from 'astro:content';
+import BefundListe from '../../../components/BefundListe.astro';
+
+{/* getCollection im Modulbereich, nicht im JSX-Attribut: await in einem
+    Prop-Ausdruck liefert in MDX still eine leere Liste statt eines Fehlers. */}
+
+Beim genauen Lesen eines Katalogs fällt auf, wo etwas nicht zusammenpasst:
+überlappende Anforderungen, fehlende Querverweise, Zuordnungen, die inhaltlich
+nicht tragen. Diese Funde stehen hier — mit Fundstelle, Begründung und einem
+Status, der sagt, was daraus geworden ist.
+
+**Auch eigene Fehler.** Ein Register, das nur nach außen zeigt, ist ein
+Instrument und kein Register. Was auf dieser Seite schiefging, steht deshalb
+in derselben Liste und im selben Format wie alles andere.
+
+## Wie ein Befund einzuordnen ist
+
+Jeder Eintrag trägt einen Typ. Der ist die wichtigste Angabe, weil er sagt,
+wie belastbar die Aussage ist:
+
+- **Fakt** — an öffentlich zugänglichen Daten nachprüfbar. Wer will, kann es
+  gegenlesen; jeder Eintrag sagt, woran.
+- **Auslegung** — folgt aus mehreren Regelwerken, bleibt aber eine
+  Einschätzung. Keine Rechtsberatung.
+- **Beobachtung** — ein Widerspruch oder eine Lücke, aber kein Fehler im
+  engeren Sinn.
+
+Dazu ein Status von *offen* über *gemeldet* bis *behoben* oder *hinfällig*.
+Wo eine Meldung vorgesehen ist, gilt: erst melden, dann veröffentlichen. Ein
+Eintrag mit Meldedatum ist Rückmeldung an die zuständige Stelle — derselbe
+Text ohne wäre nur eine Beschwerde.
+
+export const befunde = (await getCollection('docs')).filter((e) => e.data.befund);
+
+<BefundListe befunde={befunde} />
+
+## Etwas gefunden?
+
+Fehler in diesem Register oder auf dieser Seite gehören genauso gemeldet wie
+die hier gesammelten — über das
+[Repository](https://github.com/grundschutz-docs/docs). Beiträge sind
+willkommen; das Format steht in
+[ADR-0009](https://github.com/grundschutz-docs/docs/blob/main/adr/0009-befunde-als-eigener-inhaltstyp.md).

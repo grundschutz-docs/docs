@@ -1,0 +1,67 @@
+---
+title: Stabile Anker der Rollenseiten verschwanden beim nächsten Generatorlauf
+description: Ein eigener Fehler — Anker wurden in die erzeugten Dateien geschrieben statt in den Generator, und keine der sieben Prüfungen deckte diesen Bereich ab.
+befund:
+  typ: fakt
+  status: behoben
+  gefunden: 2026-10-01
+  betrifft: []
+  quelle: scripts/generate_docs.py
+  meldung:
+    kanal: Eigener Fehler, behoben im selben Repository
+    datum: 2026-10-01
+---
+
+import BefundMeta from '../../../components/BefundMeta.astro';
+
+<BefundMeta
+	typ="fakt"
+	status="behoben"
+	gefunden={new Date('2026-10-01')}
+	quelle="scripts/generate_docs.py"
+	meldung={{ kanal: 'Eigener Fehler, behoben im selben Repository', datum: new Date('2026-10-01') }}
+/>
+
+Wieder ein eigener Fehler, und derselbe Typ wie
+[bei den MUSS-Zahlen](/befunde/muss-zahlen-gf-seite/): still, grün, und nur
+durch Zurücklesen der Ausgabe zu finden.
+
+## Befund
+
+Überschriften mit Umlauten brauchen eine explizit gesetzte Anker-ID, sonst
+erzeugt der Slugger prozentcodierte Adressen (`#bin-ich-%C3%BCberhaupt-betroffen`).
+Für die Rollenseiten waren solche Anker gesetzt — aber **direkt in die
+erzeugten `.mdx`-Dateien geschrieben**, nicht in den Generator, der sie
+erzeugt.
+
+Damit waren sie beim nächsten Generatorlauf zwangsläufig weg, unabhängig
+davon, wer ihn auslöste. Genau das passierte am 1. Oktober 2026.
+
+## Warum wichtig
+
+Build und Link-Prüfung blieben grün — und zwar **zu Recht**: Kein Link
+innerhalb der Seite zeigt auf diese Anker. Kaputtgegangen wären Lesezeichen
+und Verweise von außen, also genau das, was eine Prüfung im eigenen Projekt
+nicht sehen kann.
+
+Die bestehenden Invarianten prüfen einen Anker je Anforderung auf den
+Katalogseiten. Die Rollenseiten waren von keiner der sieben Prüfungen erfasst.
+
+Das ist die eigentliche Lehre: Es war kein Flüchtigkeitsfehler, sondern eine
+Änderung am falschen Artefakt. Wer Ausgabe bearbeitet statt Erzeuger,
+schreibt eine Korrektur mit eingebautem Verfallsdatum.
+
+## Was daraus folgte
+
+Die Anker stehen jetzt im Generator. Zusätzlich liest eine achte Invariante
+die geschriebenen Rollenseiten zurück und prüft die geforderten Anker gegen
+eine deklarierte Liste — gegengetestet, indem ein Anker absichtlich entfernt
+wurde:
+
+```
+Zahlen auf der Seite passen nicht zum Katalog:
+  - isb.mdx: Anker werkzeuge-fuer-den-alltag fehlt — Ueberschriften mit
+    Umlauten bekaemen sonst prozentcodierte IDs
+```
+
+Eine Prüfung, die nie ausgelöst hat, ist keine Prüfung.
