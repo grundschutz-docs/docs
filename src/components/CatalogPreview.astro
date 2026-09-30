@@ -22,6 +22,7 @@ const rawExcerpt = sample.raw.split('\n').slice(0, 14).join('\n');
 	</div>
 
 	<div class="arrow" aria-hidden="true">
+		<span class="arrow-label">wird zu</span>
 		<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
 			<path d="M12 5v14M19 12l-7 7-7-7" />
 		</svg>
@@ -73,10 +74,10 @@ const rawExcerpt = sample.raw.split('\n').slice(0, 14).join('\n');
 	   unlesbar-lang *wirken*, das ist die Aussage. */
 	.pane-raw pre {
 		margin: 0;
-		max-height: 8.5rem;
+		max-height: 9.5rem;
 		overflow: hidden;
-		-webkit-mask-image: linear-gradient(to bottom, #000 60%, transparent 100%);
-		mask-image: linear-gradient(to bottom, #000 60%, transparent 100%);
+		-webkit-mask-image: linear-gradient(to bottom, #000 70%, transparent 100%);
+		mask-image: linear-gradient(to bottom, #000 70%, transparent 100%);
 	}
 
 	.pane-raw code {
@@ -89,8 +90,18 @@ const rawExcerpt = sample.raw.split('\n').slice(0, 14).join('\n');
 
 	.arrow {
 		display: flex;
+		align-items: center;
 		justify-content: center;
+		gap: 0.4rem;
+		margin-top: 0.35rem;
 		color: var(--sl-color-accent);
+	}
+
+	.arrow-label {
+		font-family: var(--sl-font-mono);
+		font-size: 0.62rem;
+		letter-spacing: 0.1em;
+		text-transform: uppercase;
 	}
 
 	.pane-read .ctrl-id {
