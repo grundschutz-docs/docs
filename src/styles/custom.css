@@ -538,6 +538,39 @@ site-search dialog::backdrop {
 	scroll-margin-top: calc(var(--sl-nav-height) + var(--banner-height) + 1rem);
 }
 
+/*
+ * Gruppenabstand auf den Katalogseiten.
+ *
+ * Dort liegen drei Ebenen dicht übereinander -- Praktik (h1), Gruppe (h2),
+ * Anforderung (h3) -- und das fünfzehnmal pro Seite. Starlights Typoskala
+ * ist ein gleichmäßiger Faktor 1,2 (42 / 35 / 29 px). Für Prosa stimmt das,
+ * hier bleiben zwischen Gruppe und Anforderung aber nur sechs Pixel bei
+ * gleicher Schrift und gleichem Gewicht -- beim Überfliegen trägt das nicht.
+ *
+ * Statt die Skala zu spreizen (was h2 gegen h1 drücken würde) kommt die
+ * Trennung aus Raum: vor einer neuen Gruppe steht spürbar mehr Weißraum plus
+ * eine Haarlinie. Dasselbe Mittel, mit dem Starlight bereits h1 absetzt --
+ * also keine neue Sprache, nur eine Ebene tiefer angewandt.
+ *
+ * Der Selektor greift am .sl-heading-wrapper, nicht am h2: Starlight verpackt
+ * jede Überschrift mit Anker in ein <div class="sl-heading-wrapper level-h2">,
+ * das h2 ist also gar kein direktes Kind von .sl-markdown-content.
+ *
+ * :not(:first-child) schützt die Startseite -- dort ist "Wer bist du?" das
+ * erste Element des Content-Blocks und bekäme sonst eine Linie im Nichts.
+ */
+.sl-markdown-content > .sl-heading-wrapper.level-h2:not(:first-child) {
+	margin-top: 3.5rem;
+	padding-top: 1.75rem;
+	border-top: 1px solid var(--sl-color-hairline);
+}
+
+/* Sonst addiert sich der Eigenabstand des h2 auf das padding-top des Wrappers
+   und die Linie stünde zu weit von ihrer Überschrift entfernt. */
+.sl-markdown-content > .sl-heading-wrapper.level-h2:not(:first-child) > h2 {
+	margin-top: 0;
+}
+
 .rel-badge {
 	display: inline-block;
 	padding: 0.15em 0.6em;
