@@ -56,6 +56,10 @@ export default defineConfig({
 		starlight({
 			title: SITE_NAME || 'Grundschutz++ Docs',
 			favicon: '/favicon.svg',
+			// src/pages/404.astro ist die eigene 404-Seite; ohne das hier
+			// injiziert Starlight zusaetzlich seine eigene unter derselben
+			// Route ("/404" doppelt definiert).
+			disable404Route: true,
 			head: [
 				// Apple und ältere Android-Browser nehmen kein SVG als Icon.
 				{
