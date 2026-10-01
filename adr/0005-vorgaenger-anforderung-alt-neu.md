@@ -103,13 +103,18 @@ im PDF).
 
 - Kein echter "Seite an Seite"-Vergleich — nur ID+Beziehung+Link, weniger
   eindrucksvoll als ursprünglich angedacht.
-- `bsi-kompendium-2023-bausteine.json` muss bei jeder neuen
-  Kompendium-Edition (jährlich) neu gescraped werden — manueller Schritt,
-  nicht automatisiert (Akamai-Bot-Schutz verhindert einfaches
-  Skript-Scraping ohne echten Browser).
+- `bsi-kompendium-2023-bausteine.json` muss bei jeder neuen Kompendium-Edition
+  neu gescraped werden — manueller Schritt, nicht automatisiert
+  (Akamai-Bot-Schutz verhindert einfaches Skript-Scraping ohne echten
+  Browser). **Korrektur 2026-10-01:** "jährlich" war die falsche Annahme —
+  das BSI hat den jährlichen Editions-Zyklus nach 2023 eingestellt (2024 und
+  2025 ohne neue Edition) und stellt stattdessen auf Grundschutz++ um. Eine
+  weitere Edition ist unwahrscheinlich, der manuelle Schritt bleibt aber
+  Voraussetzung, falls doch eine erscheint.
 
 ## Changelog
 
 | Datum      | Änderung | Von          |
 |------------|----------|--------------|
 | 2026-09-29 | Erstellt | Bruno Deanoz |
+| 2026-10-01 | "jährlich"-Annahme zur Kompendium-Edition korrigiert, `bsi-kompendium-2023-bausteine.json` nach `data/` ins Repo verschoben (CI brauchte sie, nicht nur lokal) | Bruno Deanoz |

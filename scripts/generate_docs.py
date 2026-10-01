@@ -43,12 +43,14 @@ DEFAULT_MAPPING_FILE = (
     REPO_ROOT / "Grundschutz-PlusPlus" / "control_layer" / "Mappings" / "IT-GS2023-zu-GSpp" / "ITGS-to-GS++-mapping_collection.json"
 )
 MAPPING_FILE = Path(os.environ["GRUNDSCHUTZPP_MAPPING"]) if os.environ.get("GRUNDSCHUTZPP_MAPPING") else DEFAULT_MAPPING_FILE
-# Grundschutz-Projekt/bsi-kompendium-2023-bausteine.json: eigene, einmal von
-# BSIs Bausteine-Uebersichtsseite gescrapte Lookup-Tabelle (Baustein-ID -> PDF-URL),
-# siehe adr/0005-vorgaenger-anforderung-alt-neu.md. Liegt bewusst eine Ebene
-# ueber beiden Repos (wie SYNC.md) -- externe Referenzdaten, nicht Eigentum
-# eines der beiden Repos.
-DEFAULT_BAUSTEINE_LINKS_FILE = REPO_ROOT / "bsi-kompendium-2023-bausteine.json"
+# data/bsi-kompendium-2023-bausteine.json: eigene, einmal von BSIs
+# Bausteine-Uebersichtsseite gescrapte Lookup-Tabelle (Baustein-ID -> PDF-URL),
+# siehe adr/0005-vorgaenger-anforderung-alt-neu.md. Lag frueher bewusst ausserhalb
+# beider Repos ("externe Referenzdaten") -- das scheiterte am ersten echten
+# CI-Lauf von sync-catalog.yml, der nur je Checkout, nicht auf die lokale
+# Festplatte des Maintainers zugreifen kann. Jetzt Teil dieses Repos, siehe
+# commit message fuer die Umstellung.
+DEFAULT_BAUSTEINE_LINKS_FILE = Path(__file__).resolve().parent.parent / "data" / "bsi-kompendium-2023-bausteine.json"
 BAUSTEINE_LINKS_FILE = (
     Path(os.environ["BSI_BAUSTEINE_LINKS"]) if os.environ.get("BSI_BAUSTEINE_LINKS") else DEFAULT_BAUSTEINE_LINKS_FILE
 )
