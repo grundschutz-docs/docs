@@ -1,0 +1,33 @@
+name: Site or generator bug
+description: Something on the site is broken — wrong number, broken layout, build failure, bad link.
+labels: [bug]
+body:
+  - type: textarea
+    id: what
+    attributes:
+      label: What's broken
+      description: What you saw, and what you expected instead.
+    validations:
+      required: true
+  - type: input
+    id: where
+    attributes:
+      label: Page or component
+      description: URL if it's a page, file path if you've already found it in the repo.
+  - type: dropdown
+    id: area
+    attributes:
+      label: Where does this live?
+      options:
+        - A generated catalog page (grundschutzpp/, vergleich/, rollen/)
+        - The generator script (scripts/generate_docs.py)
+        - Site chrome (header, nav, search, theme)
+        - CI/CD (GitHub Actions)
+        - Something else
+    validations:
+      required: true
+  - type: textarea
+    id: repro
+    attributes:
+      label: Steps to reproduce
+      description: If it's not obvious from the description above.

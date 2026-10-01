@@ -1,0 +1,28 @@
+name: Catalog finding (for the Befunde register)
+description: You spotted something in the Grundschutz++ catalog itself — a contradiction, a gap, an overlap — not a bug in this site.
+labels: [befund]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        This is for the catalog's own content, not this site's code — see
+        `/befunde/` for what's already there and the three types (Fakt,
+        Auslegung, Beobachtung). If you're unsure which type this is,
+        just describe it — that gets sorted out before it's published.
+  - type: textarea
+    id: finding
+    attributes:
+      label: What did you find
+      description: What's inconsistent, missing, or contradictory, and why it matters.
+    validations:
+      required: true
+  - type: input
+    id: betrifft
+    attributes:
+      label: Affected requirement ID(s)
+      description: "e.g. GC.5.1.1 — comma-separated if more than one."
+  - type: input
+    id: quelle
+    attributes:
+      label: How to verify it
+      description: What someone else would check to confirm this (a file, a field, a cross-reference).

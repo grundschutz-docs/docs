@@ -1,0 +1,5 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Security vulnerability
+    url: https://github.com/grundschutz-docs/docs/security/advisories/new
+    about: Don't file a public issue for a security problem — use a private advisory instead (see SECURITY.md).
