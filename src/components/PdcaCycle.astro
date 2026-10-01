@@ -29,14 +29,18 @@ const positions = [
 	{ x: 66, y: 164 }, // VRB
 ];
 
-// Bogen-Endpunkte auf Radius 95, je 14° Abstand zum Knoten -- fest berechnet
-// für dasselbe Pentagon, siehe Kommentar oben.
+// Bogen-Endpunkte auf Radius 95, je Knoten einzeln so weit vom Knotenwinkel
+// weg gedreht, bis der Punkt die abgerundete Kachel-Box (132x72, Radius 1rem)
+// mit 6 Einheiten Abstand verlässt -- ein fester 14°-Versatz für alle fünf
+// reicht nicht: bei GC/STM/VRB (oben, Box schmal in Bogenrichtung) klappt er,
+// bei UMS/PERF (unten, Box breit genau in Bogenrichtung) landet der Punkt bei
+// 14° noch innerhalb der Kachel, der Pfeil verschwindet sichtbar dahinter.
 const arcs = [
-	{ start: [233.0, 117.8], end: [290.6, 159.7] }, // GC -> STM
-	{ start: [304.8, 203.4], end: [282.8, 271.1] }, // STM -> UMS
-	{ start: [245.6, 298.1], end: [174.4, 298.1] }, // UMS -> PERF
-	{ start: [137.2, 271.1], end: [115.2, 203.4] }, // PERF -> VRB
-	{ start: [129.4, 159.7], end: [187.0, 117.8] }, // VRB -> GC (schließt den Zyklus)
+	{ start: [211.7, 115.0], end: [281.7, 147.7] }, // GC -> STM
+	{ start: [304.9, 206.7], end: [267.2, 285.9] }, // STM -> UMS
+	{ start: [264.5, 287.8], end: [155.5, 287.8] }, // UMS -> PERF
+	{ start: [152.8, 285.9], end: [115.1, 206.7] }, // PERF -> VRB
+	{ start: [138.3, 147.7], end: [208.3, 115.0] }, // VRB -> GC (schließt den Zyklus)
 ];
 
 const nodeW = 132;
@@ -146,11 +150,14 @@ const nodeH = 72;
 		text-decoration: none;
 		text-align: center;
 		box-sizing: border-box;
-		transition: border-color 0.15s ease;
+		transition:
+			border-color 0.15s ease,
+			background-color 0.15s ease;
 	}
 
 	.pdca-node:hover {
 		border-color: var(--sl-color-accent);
+		background: var(--sl-color-accent-low);
 		text-decoration: none;
 	}
 
