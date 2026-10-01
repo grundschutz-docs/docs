@@ -179,6 +179,84 @@ const datum = new Intl.DateTimeFormat('de-DE', { dateStyle: 'long' });
 		font-weight: 700;
 	}
 
+	/* Eigenes Glas-Tooltip statt nativem title-Attribut — CSS-only, kein JS.
+	   Identisch zu ControlMeta.astro (siehe dortiger Kommentar): das "?"
+	   allein stand hier bisher ohne diesen Block, also ohne Wirkung — die
+	   Pille versprach eine Erklärung per Hover, die nie kam. */
+	.pill[data-tooltip]::after {
+		content: attr(data-tooltip);
+		position: absolute;
+		inset-block-start: calc(100% + 0.6rem);
+		inset-inline-start: 0;
+		transform: translateY(-4px);
+		width: max-content;
+		max-width: 16rem;
+		padding: 0.6rem 0.85rem;
+		border-radius: 0.75rem;
+		border: 1px solid var(--glass-border);
+		background-color: var(--tooltip-bg);
+		backdrop-filter: blur(20px) saturate(160%);
+		-webkit-backdrop-filter: blur(20px) saturate(160%);
+		box-shadow: var(--glass-shadow-lift);
+		color: var(--sl-color-white);
+		font-family: 'Karla Variable', system-ui, sans-serif;
+		font-size: var(--sl-text-xs);
+		font-weight: 400;
+		letter-spacing: normal;
+		line-height: 1.45;
+		text-align: start;
+		white-space: normal;
+		opacity: 0;
+		visibility: hidden;
+		pointer-events: none;
+		transition:
+			opacity 0.15s ease,
+			transform 0.15s ease;
+		z-index: 50;
+	}
+
+	.pill[data-tooltip]::before {
+		content: '';
+		position: absolute;
+		inset-block-start: calc(100% + 0.1rem);
+		inset-inline-start: 1rem;
+		transform: translateY(-4px);
+		border: 6px solid transparent;
+		border-bottom-color: var(--tooltip-bg);
+		opacity: 0;
+		visibility: hidden;
+		transition:
+			opacity 0.15s ease,
+			transform 0.15s ease;
+		z-index: 50;
+	}
+
+	.pill[data-tooltip]:hover::after,
+	.pill[data-tooltip]:hover::before,
+	.pill[data-tooltip]:focus::after,
+	.pill[data-tooltip]:focus::before,
+	.pill[data-tooltip]:focus-visible::after,
+	.pill[data-tooltip]:focus-visible::before {
+		opacity: 1;
+		visibility: visible;
+		transform: translateY(0);
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		.pill[data-tooltip]::after,
+		.pill[data-tooltip]::before {
+			transition: none;
+		}
+	}
+
+	@media print {
+		.pill-hint,
+		.pill[data-tooltip]::after,
+		.pill[data-tooltip]::before {
+			display: none;
+		}
+	}
+
 	.befund-datum {
 		font-size: var(--sl-text-xs);
 		color: var(--sl-color-gray-3);
