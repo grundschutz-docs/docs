@@ -939,7 +939,7 @@ def render_geschaeftsfuehrung_page(management, themenfelder, groups_by_id):
         # stehen: die Rollenseiten werden erzeugt, ein Anker direkt in der
         # .mdx waere beim naechsten Lauf wieder weg.
         "## Bin ich überhaupt betroffen? {#bin-ich-ueberhaupt-betroffen}\n\n"
-        "Das BSI-Gesetz (BSIG, Fassung seit 2.12.2025) unterscheidet zwei "
+        "Das BSI-Gesetz (BSIG, in Kraft seit 6.12.2025) unterscheidet zwei "
         "Kategorien nach § 28 BSIG.\n\n"
         "**Unabhängig von der Größe besonders wichtig** sind Betreiber:innen "
         "kritischer Anlagen (KRITIS), qualifizierte Vertrauensdiensteanbieter, "
@@ -985,8 +985,8 @@ def render_geschaeftsfuehrung_page(management, themenfelder, groups_by_id):
         "die GmbH gilt § 43 GmbHG (\"Sorgfalt eines ordentlichen "
         "Geschäftsmannes\", gesamtschuldnerische Haftung, Verjährung 5 "
         "Jahre), für die AG § 93 AktG mit einem entlastenden Detail: keine "
-        "Pflichtverletzung liegt vor, wenn \"vernünftigerweise angenommen "
-        "werden durfte, auf Grundlage angemessener Information zum Wohle der "
+        "Pflichtverletzung liegt vor, wenn \"vernünftigerweise annehmen "
+        "durfte, auf der Grundlage angemessener Information zum Wohle der "
         "Gesellschaft zu handeln\" (Business Judgment Rule, § 93 Abs. 1 Satz "
         "2 AktG) — eine dokumentierte, informierte Entscheidung schützt. Ein "
         "nachvollziehbarer, öffentlich anerkannter Katalog wie Grundschutz++ "
