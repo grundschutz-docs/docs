@@ -4,6 +4,14 @@
 
 Angenommen — ersetzt ADR-0001 und ADR-0002
 
+**Ein Punkt korrigiert durch [ADR-0010](0010-lizenz-fuer-eigene-texte.md)**
+(2026-10-01): Die unten unter „Alternativen" verworfene Dual-Lizenz
+(Code MIT, Text CC BY) wurde aus dem Blickwinkel des Repo-Splits beurteilt,
+den diese ADR auflöst — nicht aus dem der Werkform. Für eigene Texte
+(Befunde-Register, ADRs) gilt seither CC BY 4.0, nicht MIT. Die
+eigentliche Entscheidung dieser ADR (ein Repo, keine Feature-Trennung)
+bleibt unverändert.
+
 ## Datum
 
 2026-09-29

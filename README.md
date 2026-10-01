@@ -4,8 +4,9 @@ The BSI ships its Grundschutz++ security catalog as a 10k+ line OSCAL JSON
 file — built for SSP-generation tooling, unreadable by a human who just
 wants to know what a control requires. This project turns that same JSON
 into a site you'd actually want to read: full-text search, one permalink
-per control, security level / effort / base threats shown inline, dark
-mode, and a print-to-PDF per topic area.
+per control, security level / effort / base threats shown inline, a
+side-by-side mapping to the old IT-Grundschutz-Kompendium control it
+replaces, dark mode, and a print-to-PDF per topic area.
 
 This is an unofficial, independent project — not affiliated with,
 endorsed by, or produced by the Bundesamt für Sicherheit in der
@@ -24,6 +25,14 @@ and SSP generation, not for reading. Keeping it current here means running
 the generator against the upstream source automatically, not
 hand-transcribing it once and letting it rot.
 
+Reading the catalog this closely also surfaces places where it doesn't add
+up — overlapping requirements, mappings that don't quite hold, missing
+cross-references. Those findings get published too, in a public register
+(`/befunde/`) — fact, interpretation, or observation, each labeled as
+such, with a status from open to fixed. The site's own bugs go in the same
+register, in the same format: a register that only points outward is an
+instrument, not a register.
+
 ## Hosted instance
 
 A hosted instance is planned — free to use, always built against the
@@ -39,10 +48,11 @@ reasoning, including what it cost and why it was wrong, is in
 
 ## Status
 
-The upstream catalog is in its pilot phase (April – September 2026); BSI
-is expected to present it publicly at it-sa Nürnberg (October 2026). The
+The upstream catalog is being phased in alongside the existing
+IT-Grundschutz-Kompendium, on a multi-year timeline (pilot, public
+presentation, optional certification, eventual full replacement). The
 site tracks whatever the catalog looks like at build time — see the
-in-site "Status & Zeitplan" page for the current pilot timeline.
+in-site "Status & Zeitplan" page for the current phase and dates.
 
 ## Getting started
 
@@ -88,12 +98,13 @@ every push and pull request.
 ├── scripts/
 │   └── generate_docs.py       # OSCAL catalog → Starlight MDX
 ├── src/
-│   ├── components/            # ControlMeta, PdcaCycle, filters, chrome
+│   ├── components/            # ControlMeta, PdcaCycle, Befund*, filters
 │   ├── content/docs/
 │   │   ├── grundschutzpp/     # generated — one page per topic area
 │   │   ├── rollen/            # generated — entry pages per role
+│   │   ├── vergleich/         # generated — one page per old↔new mapping
+│   │   ├── befunde/           # the findings register (see adr/0009)
 │   │   ├── index.mdx          # homepage
-│   │   ├── vergleich.mdx      # generated — old Kompendium ↔ Grundschutz++
 │   │   ├── impressum.md       # legal notice template (see adr/0003)
 │   │   └── datenschutz.md     # privacy policy template
 │   └── styles/custom.css      # OKLCH palette, light + dark
@@ -113,8 +124,6 @@ community expectations.
 Not promises, just what's on the list — open an issue if you want to pick
 one of these up (see `CONTRIBUTING.md`):
 
-- Cross-references to the old IT-Grundschutz-Kompendium controls each new
-  control replaces (old ID + title + link, via BSI's own mapping file)
 - Filtering the catalog by theme, using the tags already in the source
   data but not yet exposed in the UI
 - An OSCAL explainer page — what it is, and why a German agency adopted a
@@ -129,6 +138,9 @@ one of these up (see `CONTRIBUTING.md`):
   `src/content/docs/grundschutzpp/`): CC BY-SA 4.0, © BSI-Bund, per the
   upstream catalog's own license. This site's generated pages inherit that
   license from their source.
+- **Original text** (the findings register under `src/content/docs/befunde/`,
+  and the ADRs under `adr/`): CC BY 4.0 — a content license fits prose
+  better than a software license does, see [`adr/0010`](adr/0010-lizenz-fuer-eigene-texte.md).
 
 The BSI-OSCAL catalog itself follows [OSCAL](https://pages.nist.gov/OSCAL/),
 a standard originating from NIST that the BSI adopted rather than building
