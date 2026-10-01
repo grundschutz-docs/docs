@@ -10,6 +10,9 @@ something that turns out not to fit or is already half-solved elsewhere.
   `scripts/generate_docs.py` or the catalog processing, run the script and
   look at the diff of the generated `.mdx` files — not just that it runs
   without errors, but whether the generated content is actually right.
+  You'll need `python3` for this (stdlib only, no `pip install` or venv —
+  see README.md's "How the docs are generated" for the exact invocation
+  against a `Grundschutz-PlusPlus` checkout).
 - **Look at it, don't just build it.** A green build only proves nothing
   crashed, not that it looks right — see "Green isn't the same as right"
   below.
