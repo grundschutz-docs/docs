@@ -24,8 +24,15 @@ jobs:
         uses: actions/checkout@v4
         with:
           repository: BSI-Bund/Stand-der-Technik-Bibliothek
+          # generate_docs.py reads three things out of this repo, not just
+          # the catalog: basethreats.csv (threat labels on the Gefährdungs-
+          # pill) and the old-Kompendium mapping file (every /vergleich/
+          # page). The first scheduled run failed on exactly this — only
+          # the catalog subtree was ever checked out.
           sparse-checkout: |
             control_layer/Grundschutz++
+            control_layer/Mappings
+            documentation/namespaces
           path: upstream
 
       - uses: actions/setup-python@v5
@@ -35,6 +42,8 @@ jobs:
       - name: Regenerate docs from the upstream catalog
         env:
           GRUNDSCHUTZPP_CATALOG: upstream/control_layer/Grundschutz++/Grundschutz++-resolved_catalog.json
+          GRUNDSCHUTZPP_BASETHREATS: upstream/documentation/namespaces/basethreats.csv
+          GRUNDSCHUTZPP_MAPPING: upstream/control_layer/Mappings/IT-GS2023-zu-GSpp/ITGS-to-GS++-mapping_collection.json
         run: python3 scripts/generate_docs.py
 
       - name: Open a PR if anything changed
@@ -54,4 +63,11 @@ jobs:
             Review the diff before merging — read it, don't just trust that CI
             passed (see CONTRIBUTING.md, "Green isn't the same as right").
           branch: sync/upstream-catalog
-          add-paths: src/content/docs/grundschutzpp/**
+          # The generator also writes rollen/, vergleich/, and src/data/
+          # (landing.json, status.json) — not just grundschutzpp/. Those
+          # were silently excluded from every sync PR until now.
+          add-paths: |
+            src/content/docs/grundschutzpp/**
+            src/content/docs/rollen/**
+            src/content/docs/vergleich/**
+            src/data/*.json
