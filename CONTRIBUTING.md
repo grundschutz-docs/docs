@@ -1,5 +1,11 @@
 # Contributing
 
+Non-code input counts just as much as a PR — a different reading of a
+requirement, a gap you noticed, an open question. There's a low-friction
+[issue template](https://github.com/grundschutz-docs/docs/issues/new?template=catalog_finding.yml)
+for exactly that ("Catalog finding"). Worst case if it doesn't fit or is
+already known: I'll say so and why — no public callout, no drawn-out fight.
+
 PRs welcome. For anything bigger than a bugfix — a new generator feature, a
 new page outside the catalog, a layout change — open an issue first and say
 what you're after. That isn't a gate, it saves you two evenings on

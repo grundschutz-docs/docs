@@ -114,10 +114,12 @@ every push and pull request.
 
 ## Contributing
 
-See `CONTRIBUTING.md` for what's expected in a PR (build must pass,
-generator changes need an actual run and diff review, check both color
-schemes and both mobile/desktop layouts) and `CODE_OF_CONDUCT.md` for
-community expectations.
+Non-code input counts too — a different reading of a requirement, a gap,
+an open question; see `CONTRIBUTING.md` for the low-friction way in. The
+same file covers what's expected in a PR (build must pass, generator
+changes need an actual run and diff review, check both color schemes and
+both mobile/desktop layouts); `CODE_OF_CONDUCT.md` has the community
+expectations.
 
 ## What's next
 
