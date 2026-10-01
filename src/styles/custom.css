@@ -500,17 +500,44 @@ site-search dialog::backdrop {
 
 /* Vergleichsseite (/vergleich/, ADR-0006): Filter-Input + Tabelle. Global statt
    gescoped, weil das Tabellen-Markup im MDX-Content der generierten Seite
-   steht, nicht innerhalb der VergleichFilter.astro-Komponente selbst. */
+   steht, nicht innerhalb der VergleichFilter.astro-Komponente selbst.
+
+   Vorher: feste 28rem-Obergrenze plus flache --sl-color-bg-nav-Füllung --
+   das Feld blieb schmal, hing links im sonst volle Breite nutzenden
+   Content und ging farblich im Hintergrund unter. Jetzt: volle
+   Content-Breite, derselbe Glas-Look wie ThemeToggle/Pill-Tooltips, dazu
+   ein Lupen-Icon, das ein Suchfeld auch als solches erkennbar macht. */
+.vergleich-search {
+	position: relative;
+	margin-bottom: 1.5rem;
+}
+
+.vergleich-search-icon {
+	position: absolute;
+	inset-block-start: 50%;
+	inset-inline-start: 1rem;
+	transform: translateY(-50%);
+	width: 1.1rem;
+	height: 1.1rem;
+	color: var(--sl-color-gray-3);
+	pointer-events: none;
+}
+
 #vergleich-filter {
 	width: 100%;
-	max-width: 28rem;
-	padding: 0.5rem 1rem;
+	padding: 0.65rem 1.1rem 0.65rem 2.75rem;
 	border-radius: 999px;
-	border: 1px solid var(--sl-color-hairline);
-	background: var(--sl-color-bg-nav);
-	color: var(--sl-color-white);
+	border: 1px solid var(--glass-border);
+	background-color: var(--glass-tint);
+	backdrop-filter: blur(12px) saturate(160%);
+	-webkit-backdrop-filter: blur(12px) saturate(160%);
+	color: var(--sl-color-text);
 	font-size: var(--sl-text-sm);
-	margin-bottom: 1.5rem;
+}
+
+#vergleich-filter:focus-visible {
+	outline: none;
+	border-color: var(--sl-color-accent);
 }
 
 /*
