@@ -1181,6 +1181,7 @@ def render_baustein_page(baustein_id, entries, baustein_links, control_index):
         + "\n",
         "\n",
         '<div class="vergleich-section not-content">\n',
+        '<div class="table-scroll">\n',
         '<table class="vergleich-table">\n',
         "<thead><tr><th>Alte Anforderung</th><th>Beziehung</th><th>Neue Anforderung</th></tr></thead>\n",
         "<tbody>\n",
@@ -1199,6 +1200,7 @@ def render_baustein_page(baustein_id, entries, baustein_links, control_index):
     lines += [
         "</tbody>\n",
         "</table>\n",
+        "</div>\n",
         "</div>\n",
         "\n",
         "[Alle Bausteine im Überblick](/vergleich/)\n",
@@ -1234,6 +1236,7 @@ def render_vergleich_index(by_baustein, baustein_links):
             '<div class="vergleich-section not-content">\n',
             f"## {layer_id} {layer_name}\n",
             "\n",
+            '<div class="table-scroll">\n',
             '<table class="vergleich-table">\n',
             "<thead><tr><th>Baustein</th><th>Zuordnungen</th><th>Original</th></tr></thead>\n",
             "<tbody>\n",
@@ -1251,7 +1254,7 @@ def render_vergleich_index(by_baustein, baustein_links):
                 f' <span class="new-title">{title}</span></td>'
                 f"<td>{len(entries)}</td><td>{pdf_cell}</td></tr>\n"
             )
-        lines += ["</tbody>\n", "</table>\n", "</div>\n", "\n"]
+        lines += ["</tbody>\n", "</table>\n", "</div>\n", "</div>\n", "\n"]
     return "".join(lines)
 
 
