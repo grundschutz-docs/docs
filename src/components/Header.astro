@@ -30,17 +30,14 @@ const shouldRenderSearch =
 	<div class="sl-flex print:hidden middle-group">
 		{shouldRenderSearch && <Search />}
 		{/*
-		  lg statt md: ab 50rem blendete die Leiste ein, aber bei 800px stehen
-		  dem Header nur ~776px zur Verfügung, und Titel (~180) + sieben
-		  Quicknav-Einträge (~486) + Icons (~130) sind schon ~796 — das
-		  Suchfeld noch gar nicht gezählt. Mit nowrap ergibt das einen
-		  überlaufenden Header statt einer engen Leiste.
-
-		  Das war bereits vor "Befunde" so; der siebte Eintrag macht es nur
-		  sichtbar. Unterhalb von 72rem verliert niemand Navigation — die
-		  vollständige Sidebar bleibt, die Leiste ist eine Abkürzung.
+		  Vier Einträge sind die Obergrenze, nicht sieben: Titel (~180px),
+		  Quicknav und Icons (~130px) teilen sich bei 800px etwa 728px, der
+		  Rest gehört dem Suchfeld. Sieben Einträge brauchten allein ~486px und
+		  liessen nichts übrig -- mit white-space: nowrap wird daraus kein enger
+		  Header, sondern ein überlaufender. Wer hier etwas ergänzt, nimmt an
+		  anderer Stelle Platz weg.
 		*/}
-		<nav class="quicknav sl-hidden lg:sl-flex" aria-label="Schnellzugriff">
+		<nav class="quicknav sl-hidden md:sl-flex" aria-label="Schnellzugriff">
 			<a href="/grundschutzpp/">Übersicht</a>
 			<a href="/vergleich/">Vergleich</a>
 			{/* Steht bei Übersicht und Vergleich, nicht bei den Rollen: alle drei
@@ -49,9 +46,11 @@ const shouldRenderSearch =
 			    reinen Aufbereitung unterscheidet — das gehört nicht hinter eine
 			    Sidebar-Gruppe versteckt. */}
 			<a href="/befunde/">Befunde</a>
-			<a href="/rollen/geschaeftsfuehrung/">Geschäftsführung</a>
-			<a href="/rollen/isb/">ISB</a>
-			<a href="/rollen/devs/">Devs</a>
+			{/* Die Rollen standen hier und sind bewusst raus: sie sind dreifach
+			    vorhanden -- als drei große Karten auf der Startseite ("Wer bist
+			    du?"), als eigene Sidebar-Gruppe, und hier. Die Karten holen
+			    einen Erstbesucher besser ab als ein 4mm-Link, und wer
+			    wiederkommt, will in den Katalog, nicht in seine Rolle. */}
 			{/* Autorität der Quelle ist für ein Compliance-Publikum die erste
 			    Frage, noch vor dem Inhalt: offizielles BSI-Angebot oder privates
 			    Projekt, das sich nur so nennt? Die Antwort stand bisher nur im
