@@ -5,6 +5,12 @@ on:
     branches: [main]
   pull_request:
 
+# Read-only: this workflow only builds, it never needs to write back to the
+# repo or to a PR. Explicit so a future org-wide default change can't
+# silently widen it.
+permissions:
+  contents: read
+
 jobs:
   build:
     runs-on: ubuntu-latest
