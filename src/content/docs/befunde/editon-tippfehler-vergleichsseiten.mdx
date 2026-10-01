@@ -1,0 +1,63 @@
+---
+title: „Editon 2023" blieb in vier Baustein-Titeln der Vergleichsseiten stehen
+description: Ein eigener Fehler — die Titel-Bereinigung ging von korrekt geschriebenen BSI-Dateinamen aus, was für vier Bausteine nicht stimmt.
+befund:
+  typ: fakt
+  status: behoben
+  gefunden: 2026-10-01
+  betrifft: [ORP.2, ORP.3, ORP.4, ORP.5]
+  quelle: scripts/generate_docs.py (baustein_title())
+  meldung:
+    kanal: Eigener Fehler, behoben im selben Repository
+    datum: 2026-10-01
+---
+
+import BefundMeta from '../../../components/BefundMeta.astro';
+
+<BefundMeta
+	typ="fakt"
+	status="behoben"
+	gefunden={new Date('2026-10-01')}
+	quelle="scripts/generate_docs.py (baustein_title())"
+	meldung={{ kanal: 'Eigener Fehler, behoben im selben Repository', datum: new Date('2026-10-01') }}
+/>
+
+## Befund
+
+Auf der [Vergleichsübersicht](/vergleich/) und den eigenen Seiten für ORP.2,
+ORP.3 und ORP.5 stand bis zum 1. Oktober 2026 im Titel "Editon 2023" statt
+nur dem Baustein-Namen — z. B. "ORP.2 Personal Editon 2023" statt "ORP.2
+Personal".
+
+Das ist kein Tippfehler dieser Seite. Es ist BSIs eigener: Die echten
+PDF-Dateien auf bsi.bund.de für ORP.2, ORP.3, ORP.4 und ORP.5 heißen
+tatsächlich `..._Editon_2023.pdf`, ohne das zweite "i". Geprüft durch Abruf
+beider Schreibweisen — die korrekte "Edition" liefert 404, die falsch
+geschriebene "Editon" das echte PDF.
+
+`baustein_title()` leitet den Anzeigenamen aus dem Dateinamen ab und
+schneidet dafür das Suffix `_Edition_JAHR.pdf` ab. Die Regex dafür erwartete
+ausschließlich die korrekte Schreibweise und erkannte BSIs Tippfehler nicht
+— das Suffix blieb unbereinigt im Titel stehen, einschließlich der Jahreszahl.
+
+## Warum wichtig
+
+Nicht der fehlende Buchstabe ist interessant, sondern wessen Annahme hier
+gebrochen ist. Die Bereinigung war darauf ausgelegt, dass die Katalogdaten
+intern konsistent sind — hier aber liegt die Inkonsistenz nicht in den
+eigenen Daten, sondern in der Quelle, auf die man keinen Einfluss hat.
+Eine Regex, die nur den Erwartungsfall kennt, versagt lautlos: Es gibt
+keinen Crash, kein rotes Build, nur ein Suffix, das nicht abgeschnitten
+wurde, weil das Muster nicht mehr passte.
+
+## Was daraus folgte
+
+Die Regex erkennt jetzt beide Schreibweisen (`Editi?on`). Die vier bereits
+erzeugten Dateien wurden von Hand korrigiert — die PDF-Links selbst bleiben
+unverändert auf `Editon_2023.pdf`, weil das die tatsächlich existierende
+Datei ist.
+
+Keine der bestehenden acht Build-Prüfungen hätte das gefangen — sie prüfen
+Zahlen und Anker gegen die Quelle, nicht ob ein abgeleiteter Titel noch
+Reste seines eigenen Dateinamens trägt. Dafür existiert bisher keine
+allgemeine Absicherung.

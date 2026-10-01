@@ -222,7 +222,12 @@ def baustein_title(baustein_id, url):
     if not url:
         return ""
     name = urllib.parse.urlparse(url).path.rsplit("/", 1)[-1]
-    name = re.sub(r"(?:_Edition_\d{4})?\.pdf$", "", name)
+    # "Editi?on": BSI hat einen Teil der eigenen PDF-Dateinamen als
+    # "..._Editon_2023.pdf" hochgeladen (ohne das zweite i) -- die echte Datei
+    # heisst wirklich so, nicht nur der Link ist vertippt (ORP.2/3/4/5
+    # geprueft: "Edition" liefert 404, "Editon" das PDF). Ohne das "i?" bleibt
+    # "_Editon_2023" im Titel stehen, weil es nicht mehr matcht.
+    name = re.sub(r"(?:_Editi?on_\d{4})?\.pdf$", "", name)
     prefix = baustein_id.replace(".", "_") + "_"
     if name.startswith(prefix):
         name = name[len(prefix) :]
