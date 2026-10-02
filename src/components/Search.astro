@@ -634,10 +634,16 @@ const resultTemplate = `
 			gap: 0.6rem;
 		}
 
-		/* Pfeiltasten/Esc sind ohne physische Tastatur ohne Bedeutung --
-		   pointer:coarse statt einer Breakpoint-Breite, weil ein schmales
-		   Desktop-Fenster trotzdem eine echte Tastatur hat. */
-		@media (pointer: coarse) {
+		/* Pfeiltasten/Esc sind ohne physische Tastatur ohne Bedeutung.
+		   pointer:coarse allein reicht nicht: auf Samsung-Geraeten mit S Pen
+		   (z. B. Galaxy Ultra) gilt der Stift teils als primaerer Zeiger,
+		   auch wenn er gar nicht benutzt wird -- pointer:coarse matcht dann
+		   nie, beobachtet auf einem S25 Ultra. Deshalb zusaetzlich dieselbe
+		   50rem-Breite, die der Rest der Seite schon fuer "mobil" nutzt
+		   (Header-Quicknav, Sidebar-Popover) -- auf einem schmalen Bildschirm
+		   ist eine echte Tastatur ohnehin unwahrscheinlich, unabhaengig vom
+		   gemeldeten Zeigertyp. */
+		@media (pointer: coarse), (max-width: 50rem) {
 			pagefind-keyboard-hints {
 				display: none;
 			}
