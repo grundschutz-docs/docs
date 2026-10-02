@@ -116,6 +116,8 @@ const effortInfo = effort ? EFFORT[effort] : undefined;
 					data-family={modalInfo.family}
 					data-role="pflicht"
 					data-tooltip={modalInfo.hint}
+					data-pagefind-filter={`Pflicht:${modalVerb}`}
+					data-pagefind-meta={`pflicht:${modalVerb}`}
 					aria-label={`Pflichtgrad: ${modalVerb}. ${modalInfo.hint}`}
 					tabindex="0"
 				>

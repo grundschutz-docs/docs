@@ -43,6 +43,9 @@ const resultTemplate = `
     {{#if meta.section}}
     <span class="gs-result-type" data-section="{{ meta.section }}">{{ meta.section }}</span>
     {{/if}}
+    {{#if meta.pflicht}}
+    <span class="gs-result-pflicht" data-pflicht="{{ meta.pflicht }}">{{ meta.pflicht }}</span>
+    {{/if}}
     <p class="gs-result-title">
       <a class="gs-result-link" href="{{ meta.url | default(url) | safeUrl }}">{{ meta.title }}</a>
     </p>
@@ -569,6 +572,33 @@ const resultTemplate = `
 			border-radius: 999px;
 			padding: 0.15em 0.7em;
 			margin-bottom: 0.4rem;
+			margin-inline-end: 0.4rem;
+		}
+
+		/* Dieselbe Farblogik wie der Pflichtgrad-Pille auf den Katalogseiten
+		   selbst (ControlMeta.astro MODAL_VERBS) -- ein ISB soll MUSS/SOLLTE/
+		   KANN schon im Suchergebnis erkennen, nicht erst nach dem Klick. */
+		.gs-result-pflicht {
+			display: inline-block;
+			font-family: 'JetBrains Mono Variable', ui-monospace, monospace;
+			font-size: var(--sl-text-2xs);
+			font-weight: 700;
+			letter-spacing: 0.02em;
+			border-radius: 999px;
+			padding: 0.15em 0.7em;
+			margin-bottom: 0.4rem;
+		}
+		.gs-result-pflicht[data-pflicht='MUSS'] {
+			background: var(--pill-danger-low);
+			color: var(--pill-danger-high);
+		}
+		.gs-result-pflicht[data-pflicht='SOLLTE'] {
+			background: var(--pill-warn-low);
+			color: var(--pill-warn-high);
+		}
+		.gs-result-pflicht[data-pflicht='KANN'] {
+			background: var(--pill-calm-low);
+			color: var(--pill-calm-high);
 		}
 
 		.gs-result-title {
