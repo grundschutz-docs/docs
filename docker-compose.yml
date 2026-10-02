@@ -1,0 +1,11 @@
+# Generische Self-Hoster-Vorlage -- kein Reverse-Proxy vorausgesetzt. Danach
+# erreichbar unter http://localhost:8080. Wer einen eigenen Reverse-Proxy
+# (Traefik, Caddy, nginx) davor betreibt, passt den "ports"-Block durch
+# eigene Labels/Konfiguration an, statt diese Datei direkt zu aendern.
+services:
+  grundschutz-docs:
+    build: .
+    container_name: grundschutz-docs
+    restart: unless-stopped
+    ports:
+      - "8080:80"
