@@ -5,11 +5,13 @@ description: "Die Praktik Berechtigung stellt sicher, dass ausschließlich autor
 
 import ControlMeta from '../../../components/ControlMeta.astro';
 
+<span data-pagefind-meta="section:Anforderung"></span>
+
 <div class="source-note">
-<p>Katalogstand: 10. September 2026 — Quelle: <a href="https://github.com/BSI-Bund/Stand-der-Technik-Bibliothek" target="_blank" rel="noopener noreferrer">BSI Stand-der-Technik-Bibliothek</a>.</p>
+<p>Katalogstand: 24. September 2026 — Quelle: <a href="https://github.com/BSI-Bund/Stand-der-Technik-Bibliothek" target="_blank" rel="noopener noreferrer">BSI Stand-der-Technik-Bibliothek</a>.</p>
 <details>
 <summary>Eine Anforderung von dieser Seite zitieren</summary>
-<p>Maßgeblich ist immer das Original, nicht diese Aufbereitung. Zitierfähig ist: BSI, <em>Anwenderkatalog Grundschutz++</em>, Version 2026-09-10, Dokument-ID ebe77c16-3ddc-42ce-8d53-eff5b6e23334 (RFC 9562), Anforderung <em>&lt;ID&gt;</em> — wobei die ID die Kennung neben der jeweiligen Überschrift ist, etwa <code>GC.5.1.1</code>. Sie bleibt stabil, auch wenn das BSI eine Formulierung ändert.</p>
+<p>Maßgeblich ist immer das Original, nicht diese Aufbereitung. Zitierfähig ist: BSI, <em>Anwenderkatalog Grundschutz++</em>, Version 2026-09-24, Dokument-ID ebe77c16-3ddc-42ce-8d53-eff5b6e23334 (RFC 9562), Anforderung <em>&lt;ID&gt;</em> — wobei die ID die Kennung neben der jeweiligen Überschrift ist, etwa <code>GC.5.1.1</code>. Sie bleibt stabil, auch wenn das BSI eine Formulierung ändert.</p>
 </details>
 </div>
 
@@ -19,6 +21,8 @@ Die Praktik Berechtigung stellt sicher, dass ausschließlich autorisierte Person
 
 ### BER.1.1 – Verfahren und Regelungen {#BER.1.1}
 
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">BER.1.1</span>
+
 <ControlMeta modalVerb="MUSS" secLevel="normal-SdT" effort="0" threats="G 0.18" threatsHint="G 0.18 – Fehlplanung oder fehlende Anpassung" predecessors={[{ oldId: "APP.2.2.A1-UA.2", relationship: "intersects-with", link: "https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/06_APP_Anwendungen/APP_2_2_Active_Directory_Domain_Services_Edition_2023.pdf?__blob=publicationFile&v=4#download=1" }]} />
 
 > Berechtigung MUSS Verfahren und Regelungen zum Identitäts- und Berechtigungsmanagement verankern.
@@ -26,6 +30,8 @@ Die Praktik Berechtigung stellt sicher, dass ausschließlich autorisierte Person
 Ziel ist einen dokumentierten Prozess einzurichten, der die Vergabe, Verwaltung und Entfernung von Zugangs- und Zugriffsberechtigungen, sowie der damit verbundenen Identitäten regelt. Zu berücksichtigen sind insbesondere Neueinstellungen, Versetzungen und Entlassungen. Empfehlenswert ist es, die Vergabe und den Entzug von Berechtigungen so weit wie möglich zu automatisieren. Die bei der Festlegung des Verfahrens im Einzelnen zu berücksichtigenden Inhalte ergeben sich aus den Anforderungen dieser Praktik.
 
 #### BER.1.1.1 – Dokumentation {#BER.1.1.1}
+
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">BER.1.1.1</span>
 
 <ControlMeta modalVerb="MUSS" secLevel="normal-SdT" effort="0" threats="G 0.18, G 0.37" threatsHint="G 0.18 – Fehlplanung oder fehlende Anpassung · G 0.37 – Abstreiten von Handlungen" />
 
@@ -35,6 +41,8 @@ Ohne eine Dokumentation könnte die Einhaltung der Verfahren und Regelungen von 
 
 #### BER.1.1.2 – Zuweisung der Aufgaben {#BER.1.1.2}
 
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">BER.1.1.2</span>
+
 <ControlMeta modalVerb="MUSS" secLevel="normal-SdT" effort="0" threats="G 0.18, G 0.31" threatsHint="G 0.18 – Fehlplanung oder fehlende Anpassung · G 0.31 – Fehlerhafte Nutzung oder Administration von Geräten und Systemen" />
 
 > Berechtigung MUSS die mit den Verfahren und Regelungen verbundenen Aufgaben *[zuständigen Personen oder Rollen]* zuweisen.
@@ -42,6 +50,8 @@ Ohne eine Dokumentation könnte die Einhaltung der Verfahren und Regelungen von 
 Die Zuweisung von Aufgaben bezeichnet die eindeutige und verbindliche Übertragung von konkreten Tätigkeiten und Verantwortlichkeiten des Änderungsprozesses, wie etwa die Risikobewertung, die technische Umsetzung oder die finale Freigabe, an definierte Stellen in der Institution. Der Sinn dieser Vorschrift ist es, die Verantwortlichkeit ("Accountability") für jeden einzelnen Schritt im Prozess klarzustellen. Ohne eine solche Zuweisung könnten kritische Prüfungen unterbleiben, weil sich niemand explizit zuständig fühlt, was wiederum die Wahrscheinlichkeit fehlgeschlagener Änderungen erhöht. Eine klare Regelung kann sicherstellen, dass keine Aufgaben übersehen werden und jede Tätigkeit von einer dafür qualifizierten und befugten Stelle ausgeführt wird, was die Prozesssicherheit signifikant erhöht. Eine bewährte Methode zur Umsetzung ist die Erstellung einer RACI-Matrix (Responsible, Accountable, Consulted, Informed), die tabellarisch für jeden Prozessschritt darstellt, wer für die Durchführung verantwortlich ist, wer die Gesamtverantwortung trägt, wer zu konsultieren und wer zu informieren ist. Diese Zuständigkeiten können auch direkt in einem Workflow- oder Ticketsystem abgebildet werden, sodass Aufgaben, wie beispielsweise Genehmigungsschritte, automatisch an die richtige Gruppe oder Person weitergeleitet werden. Sinnvoll ist es, die Zuweisung anhand von Rollen (z. B. "Anwendungsverantwortlicher", "Netzwerkadministrator", "Change Manager") vorzunehmen, statt an konkrete Personen. Dieser Ansatz stellt sicher, dass die Prozesse auch bei Personalwechseln stabil weiterlaufen, da die Zuständigkeit an die Funktion und nicht an das Individuum gebunden ist.
 
 #### BER.1.1.3 – Bekanntgabe {#BER.1.1.3}
+
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">BER.1.1.3</span>
 
 <ControlMeta modalVerb="MUSS" secLevel="normal-SdT" effort="0" threats="G 0.18, G 0.31" threatsHint="G 0.18 – Fehlplanung oder fehlende Anpassung · G 0.31 – Fehlerhafte Nutzung oder Administration von Geräten und Systemen" />
 
@@ -51,6 +61,8 @@ Wenn die Zuständigen die etablierten Verfahren nicht kennen, besteht die Gefahr
 
 ### BER.1.2 – Regelmäßige Überprüfung {#BER.1.2}
 
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">BER.1.2</span>
+
 <ControlMeta modalVerb="MUSS" secLevel="normal-SdT" effort="0" threats="G 0.18" threatsHint="G 0.18 – Fehlplanung oder fehlende Anpassung" />
 
 > Berechtigung MUSS die Verfahren und Regelungen *[regelmäßig]* und anlassbezogen auf Aktualität überprüfen.
@@ -59,6 +71,8 @@ Eine geplante Überprüfung der etablierten Verfahren und Regelungen dient dazu 
 
 ### BER.1.3 – Inventar Authentifizierungs- und Autorisierungssysteme {#BER.1.3}
 
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">BER.1.3</span>
+
 <ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="3" threats="G 0.18" threatsHint="G 0.18 – Fehlplanung oder fehlende Anpassung" />
 
 > Berechtigung SOLLTE ein Inventar der Systeme zur Authentifizierung und Autorisierung dokumentieren.
@@ -66,6 +80,8 @@ Eine geplante Überprüfung der etablierten Verfahren und Regelungen dient dazu 
 Ein dokumentiertes Inventar der Authentifizierungs- und Autorisierungssysteme kann eine zentrale Grundlage sein, um den Überblick über sicherheitsrelevante Zugangskontrollen zu behalten, sowohl lokal als auch in der Cloud. Solche Systeme sind dafür zuständig zu prüfen, wer Zugriff auf IT-Ressourcen erhält (Authentifizierung) und was dieser Zugriff umfassen darf (Autorisierung). Wird kein vollständiges und gepflegtes Inventar geführt, könnten Schwachstellen unentdeckt bleiben, z.B. veraltete Login-Dienste, falsch konfigurierte Rollen oder Schatten-Identitäten in cloudbasierten Identitätsplattformen. In einem konkreten Vorfall könnte etwa ein ehemals genutzter Verzeichnisdienst (z.B. ein ausgemusterter LDAP-Server) unbemerkt weiterhin aktiv sein und von Angreifern für unautorisierte Zugriffe verwendet werden. Ebenso könnte ein unerkannter Konfigurationsfehler in einem Authentifizierungs-Gateway dazu führen, dass privilegierte Nutzerrollen ohne Zwei-Faktor-Absicherung zugänglich sind. Zu Authentifizierungs- und Autorisierungssystemen zählen beispielsweise Verzeichnisdienste (Directory Services), Identity Provider (IdPs), Single Sign-On-Plattformen (SSO), lokale Passwortdatenbanken sowie API-Gateways mit Zugriffskontrolllogik. Eine Möglichkeit zur Umsetzung kann darin bestehen, auf eine Liste aller Systeme des Informationsverbundes zurückzugreifen und Informationen zum Berechtigungsmanagement zu ergänzen – inklusive ihrer Funktion, angebundenen Anwendungen, unterstützten Protokollen (wie SAML, OAuth2, OpenID Connect) sowie Zuständigkeiten. Die Pflege dieses Inventars kann über ein zentrales Configuration Management Database (CMDB) erfolgen oder alternativ über eine revisionsfähige Tabellenstruktur mit Zugriffskontrollen. Hilfreich kann es sein, den Lifecycle einzelner Systeme zu erfassen, etwa ob sich diese in Einführung, Nutzung oder Stilllegung befinden. Ein Abgleich mit dem Rollen- und Rechtemanagement der Institution kann die Konsistenz zusätzlich verbessern.
 
 ### BER.1.4 – Inventar der Berechtigungen {#BER.1.4}
+
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">BER.1.4</span>
 
 <ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="3" threats="G 0.18" threatsHint="G 0.18 – Fehlplanung oder fehlende Anpassung" />
 
@@ -77,6 +93,8 @@ Ein Inventar der Berechtigungen kann helfen, Zugriffsrechte innerhalb einer Inst
 
 ### BER.2.1 – Person-Identität {#BER.2.1}
 
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">BER.2.1</span>
+
 <ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="3" threats="G 0.36, G 0.30, G 0.32" threatsHint="G 0.36 – Identitätsdiebstahl · G 0.30 – Unberechtigte Nutzung oder Administration von Geräten und Systemen · G 0.32 – Missbrauch von Berechtigungen" />
 
 > Berechtigung SOLLTE eine eindeutige Identität zu genau einer natürlichen Person oder einem IT-System zuweisen.
@@ -84,6 +102,8 @@ Ein Inventar der Berechtigungen kann helfen, Zugriffsrechte innerhalb einer Inst
 Hier wird eine Identität ("muellera") genau einer natürlichen Person ("Andrea Müller") zugewiesen, oder einem IT-System ("pc02348" zu "pc02348.our.domain").
 
 ### BER.2.2 – Einschränkung {#BER.2.2}
+
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">BER.2.2</span>
 
 <ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="3" threats="G 0.36, G 0.30, G 0.32" threatsHint="G 0.36 – Identitätsdiebstahl · G 0.30 – Unberechtigte Nutzung oder Administration von Geräten und Systemen · G 0.32 – Missbrauch von Berechtigungen" />
 
@@ -93,6 +113,8 @@ Das Identitäts- und Berechtigungsmanagement ist entscheidend für die sichere A
 
 ### BER.2.3 – Stammdatenprüfung {#BER.2.3}
 
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">BER.2.3</span>
+
 <ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="3" threats="G 0.36, G 0.30, G 0.32" threatsHint="G 0.36 – Identitätsdiebstahl · G 0.30 – Unberechtigte Nutzung oder Administration von Geräten und Systemen · G 0.32 – Missbrauch von Berechtigungen" />
 
 > Berechtigung SOLLTE Stammdaten einer Identität anhand allgemeiner Stammdaten *[regelmäßig]* überprüfen.
@@ -100,6 +122,8 @@ Das Identitäts- und Berechtigungsmanagement ist entscheidend für die sichere A
 Allgemeine Stammdaten können z.B. sein: Unterlagen der Personalabteilung, Ergebnisse von Netzwerkscans für IT-Systeme, CMDB. Der Abgleich kann auch automatisiert vorgenommen werden.
 
 ### BER.2.4 – Protokollierung von Stammdatenänderungen {#BER.2.4}
+
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">BER.2.4</span>
 
 <ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="3" threats="G 0.36, G 0.30, G 0.32, G 0.37" threatsHint="G 0.36 – Identitätsdiebstahl · G 0.30 – Unberechtigte Nutzung oder Administration von Geräten und Systemen · G 0.32 – Missbrauch von Berechtigungen · G 0.37 – Abstreiten von Handlungen" />
 
@@ -109,6 +133,8 @@ Zu einem Ereignisprotokoll gehört der Zeitpunkt, das Zugangskonto, sowie welche
 
 ### BER.2.5 – Deaktivierung bei Weggang {#BER.2.5}
 
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">BER.2.5</span>
+
 <ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="3" threats="G 0.36, G 0.30, G 0.32" threatsHint="G 0.36 – Identitätsdiebstahl · G 0.30 – Unberechtigte Nutzung oder Administration von Geräten und Systemen · G 0.32 – Missbrauch von Berechtigungen" predecessors={[{ oldId: "ORP.2.A2-UA.4", relationship: "intersects-with", link: "https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/02_ORP_Organisation_und_Personal/ORP_2_Personal_Editon_2023.pdf?__blob=publicationFile&v=4#download=1" }]} />
 
 > Berechtigung SOLLTE die zugeordnete Identität bei Weggang von Nutzenden deaktivieren.
@@ -116,6 +142,8 @@ Zu einem Ereignisprotokoll gehört der Zeitpunkt, das Zugangskonto, sowie welche
 Weggang meint hier die nicht nur kurzfristige Beendigung der Aktivitäten der Identität, z.B. bei Kündigung, Elternzeit, Sabbatical. Die Anforderung ist auch umgesetzt, wenn die Identität gelöscht wird. Empfehlenswert ist die Löschung jedoch erst nach Ablauf längerer Löschfristen, um die Nachvollziehbarkeit von Aktionen im Audit Log zu erhalten.
 
 ### BER.2.6 – Löschen nach Fristablauf {#BER.2.6}
+
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">BER.2.6</span>
 
 <ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="4" threats="G 0.36, G 0.30, G 0.32" threatsHint="G 0.36 – Identitätsdiebstahl · G 0.30 – Unberechtigte Nutzung oder Administration von Geräten und Systemen · G 0.32 – Missbrauch von Berechtigungen" />
 
@@ -127,6 +155,8 @@ Gesetzliche Aufbewahrungs- und Löschfristen ergeben sich aus dem Compliance-Man
 
 ### BER.3.1 – Zentrales Management {#BER.3.1}
 
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">BER.3.1</span>
+
 <ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="3" threats="G 0.36, G 0.30, G 0.32" threatsHint="G 0.36 – Identitätsdiebstahl · G 0.30 – Unberechtigte Nutzung oder Administration von Geräten und Systemen · G 0.32 – Missbrauch von Berechtigungen" />
 
 > Berechtigung SOLLTE ein zentrales Managementsystem für Zugangskonten installieren.
@@ -135,7 +165,9 @@ Wenn Zugangskonten lokal auf jedem Gerät einzeln verwaltet werden, könnte es z
 
 ### BER.3.2 – Autorisierung neuer Zugangskonten {#BER.3.2}
 
-<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="3" threats="G 0.36, G 0.30, G 0.32" threatsHint="G 0.36 – Identitätsdiebstahl · G 0.30 – Unberechtigte Nutzung oder Administration von Geräten und Systemen · G 0.32 – Missbrauch von Berechtigungen" />
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">BER.3.2</span>
+
+<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="3" threats="G 0.36, G 0.30, G 0.32" threatsHint="G 0.36 – Identitätsdiebstahl · G 0.30 – Unberechtigte Nutzung oder Administration von Geräten und Systemen · G 0.32 – Missbrauch von Berechtigungen" tags={[{ name: "Change Management", hint: "Strukturierter Ansatz zur Durchführung von Änderungen an IT-Systemen, der die Auswirkungen auf den Betrieb und die Sicherheit minimiert und dokumentiert." }]} />
 
 > Berechtigung SOLLTE die Einrichtung von Zugangskonten durch *[bestimmte Personen oder Rollen]* autorisieren.
 
@@ -143,13 +175,17 @@ Gemeint ist hier die Entscheidungsbefugnis für die Freigabe neuer Zugangskonten
 
 ### BER.3.3 – Einschränkung des Managements {#BER.3.3}
 
-<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="2" threats="G 0.36, G 0.30, G 0.32" threatsHint="G 0.36 – Identitätsdiebstahl · G 0.30 – Unberechtigte Nutzung oder Administration von Geräten und Systemen · G 0.32 – Missbrauch von Berechtigungen" />
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">BER.3.3</span>
+
+<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="2" threats="G 0.36, G 0.30, G 0.32" threatsHint="G 0.36 – Identitätsdiebstahl · G 0.30 – Unberechtigte Nutzung oder Administration von Geräten und Systemen · G 0.32 – Missbrauch von Berechtigungen" tags={[{ name: "Change Management", hint: "Strukturierter Ansatz zur Durchführung von Änderungen an IT-Systemen, der die Auswirkungen auf den Betrieb und die Sicherheit minimiert und dokumentiert." }]} />
 
 > Berechtigung SOLLTE das Management von Zugangskonten auf Administrierende einschränken.
 
 Management meint hier Aktionen wie z.B. das Erstellen oder Ändern von Metadaten oder Berechtigungen oder die Löschung des Zugangskontos.
 
 ### BER.3.4 – Protokollierung von Änderungen {#BER.3.4}
+
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">BER.3.4</span>
 
 <ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="3" threats="G 0.36, G 0.30, G 0.32, G 0.37" threatsHint="G 0.36 – Identitätsdiebstahl · G 0.30 – Unberechtigte Nutzung oder Administration von Geräten und Systemen · G 0.32 – Missbrauch von Berechtigungen · G 0.37 – Abstreiten von Handlungen" />
 
@@ -159,6 +195,8 @@ Werden Aktionen an Zugangskonten wie die Erstellung, Veränderung von Metadaten 
 
 ### BER.3.5 – Identität-Zugangskonto {#BER.3.5}
 
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">BER.3.5</span>
+
 <ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="2" threats="G 0.36, G 0.30, G 0.32" threatsHint="G 0.36 – Identitätsdiebstahl · G 0.30 – Unberechtigte Nutzung oder Administration von Geräten und Systemen · G 0.32 – Missbrauch von Berechtigungen" predecessors={[{ oldId: "APP.2.2.A22-UA.1", relationship: "intersects-with", link: "https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/06_APP_Anwendungen/APP_2_2_Active_Directory_Domain_Services_Edition_2023.pdf?__blob=publicationFile&v=4#download=1" }]} />
 
 > Berechtigung SOLLTE ein Zugangskonto zu genau einer Identität zuweisen.
@@ -167,13 +205,17 @@ Wenn ein Zugangskonto genau einer Identität zugewiesen ist erleichtert dies die
 
 ### BER.3.6 – Privilegierte Zugangskonten {#BER.3.6}
 
-<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="2" threats="G 0.36, G 0.30, G 0.32" threatsHint="G 0.36 – Identitätsdiebstahl · G 0.30 – Unberechtigte Nutzung oder Administration von Geräten und Systemen · G 0.32 – Missbrauch von Berechtigungen" />
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">BER.3.6</span>
+
+<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="2" threats="G 0.36, G 0.30, G 0.32" threatsHint="G 0.36 – Identitätsdiebstahl · G 0.30 – Unberechtigte Nutzung oder Administration von Geräten und Systemen · G 0.32 – Missbrauch von Berechtigungen" tags={[{ name: "Privilege Escalation", hint: "Ausweitung von Berechtigungen durch einen Angreifer oder Benutzer, um höhere Rechte zu erlangen als ursprünglich vorgesehen." }, { name: "Insider Threat", hint: "Sicherheitsrisiko, das von Personen innerhalb einer Organisation ausgeht, die aufgrund ihres legitimen Zugriffs sensible Informationen missbrauchen oder Systeme schädigen können.", synonyms: "interne Bedrohung, Innentäter" }, { name: "Privilegierte Rechte", hint: "Erweiterte Zugriffs- und Administrationsrechte, mit denen besonders weitreichende Änderungen an Systemen, Diensten oder Daten vorgenommen werden können." }]} />
 
 > Berechtigung für Administrierende SOLLTE separate Zugangskonten für administrative Tätigkeiten (Administrationskonten) verankern.
 
 Zugangskonten mit privilegierten Rechten (Superuser wie z.B. root) könnten durch menschliche Fehler oder Schadcode weitreichende Probleme verursachen. Bewährt hat es sich daher für administrative Tätigkeiten wie die Installation von Anwendungen dedizierte Zugangskonten einzurichten und diese auch nur für derartige Tätigkeiten zu verwenden. Für normale Geschäftsaktivitäten wie E-Mail oder Webbrowser nutzen auch Administrierende dann ausschließlich Zugangskonten ohne administrative Berechtigungen.
 
 ### BER.3.7 – Single-Sign-On {#BER.3.7}
+
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">BER.3.7</span>
 
 <ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="3" threats="G 0.36, G 0.30, G 0.32" threatsHint="G 0.36 – Identitätsdiebstahl · G 0.30 – Unberechtigte Nutzung oder Administration von Geräten und Systemen · G 0.32 – Missbrauch von Berechtigungen" />
 
@@ -183,13 +225,17 @@ Bei Single Sign-on authentifizieren sich Nutzende bei einem zentralen Identity P
 
 ### BER.3.8 – Hinweise bei Anmeldefehlern {#BER.3.8}
 
-<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="3" threats="G 0.36, G 0.30, G 0.32" threatsHint="G 0.36 – Identitätsdiebstahl · G 0.30 – Unberechtigte Nutzung oder Administration von Geräten und Systemen · G 0.32 – Missbrauch von Berechtigungen" />
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">BER.3.8</span>
+
+<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="3" threats="G 0.36, G 0.30, G 0.32" threatsHint="G 0.36 – Identitätsdiebstahl · G 0.30 – Unberechtigte Nutzung oder Administration von Geräten und Systemen · G 0.32 – Missbrauch von Berechtigungen" tags={[{ name: "Credential Stuffing", hint: "Cyberangriff, bei dem automatisiert gestohlene Benutzernamen und Passwörter auf verschiedenen Websites ausprobiert werden, um von Passwortwiederverwendung zu profitieren." }, { name: "Brute-Force-Attacke", hint: "Angriff, bei dem Zugangsdaten oder kryptografische Schlüssel automatisiert durch massenhaftes Ausprobieren möglicher Werte ermittelt werden sollen." }]} />
 
 > Berechtigung für Anwendungen SOLLTE Hinweise darauf, ob ein Zugangskonto existiert bei erfolglosen Anmeldeversuchen deaktivieren.
 
 Den Hinweis, dass bei erfolglosen Anmeldeversuchen das Passwort oder die Kennung falsch ist, könnte ein Angreifer als sogenannte User Enumeration (Benutzerkonten-Aufzählung) oder Account Discovery (Konto-Entdeckung) Schwachstelle ausnutzen. Dadurch wird das Risiko einer Brute-Force-Attacke oder eines Credential Stuffings erhöht, bei der ein Angreifer eine Liste potenzieller Benutzernamen durchprobieren könnte, um gültige Konten zu identifizieren. Der Schutz kann gewährleisten, dass ein Angreifer nicht automatisch weiß, welche Konten er als Nächstes mit Passwörtern attackieren muss oder Rückschlüsse auf registrierte Zugangskonten erhält. Zur Umsetzung kann die Institution alle Rückmeldungen bei fehlgeschlagenen Anmeldeversuchen so vereinheitlichen, dass sie keinen Aufschluss über den Grund des Fehlschlags geben, beispielsweise durch die generische Nachricht „Der eingegebene Benutzername oder das Passwort ist ungültig.“.
 
 ### BER.3.9 – Ereignisgesteuerte Deaktivierung {#BER.3.9}
+
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">BER.3.9</span>
 
 <ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="3" threats="G 0.36, G 0.30, G 0.32" threatsHint="G 0.36 – Identitätsdiebstahl · G 0.30 – Unberechtigte Nutzung oder Administration von Geräten und Systemen · G 0.32 – Missbrauch von Berechtigungen" predecessors={[{ oldId: "APP.3.1.A1-UA.4", relationship: "intersects-with", link: "https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/06_APP_Anwendungen/APP_3_1_Webanwendungen_und_Webservices_Edition_2023.pdf?__blob=publicationFile&v=3#download=1" }]} />
 
@@ -199,7 +245,9 @@ Ungenutzte Zugangskonten stellen ein unnötiges Risiko für unberechtigte Zugrif
 
 ### BER.3.10 – Anmeldeversuchsgrenze am System {#BER.3.10}
 
-<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="2" threats="G 0.36, G 0.30, G 0.32" threatsHint="G 0.36 – Identitätsdiebstahl · G 0.30 – Unberechtigte Nutzung oder Administration von Geräten und Systemen · G 0.32 – Missbrauch von Berechtigungen" predecessors={[{ oldId: "APP.3.1.A1-UA.4", relationship: "intersects-with", link: "https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/06_APP_Anwendungen/APP_3_1_Webanwendungen_und_Webservices_Edition_2023.pdf?__blob=publicationFile&v=3#download=1" }]} />
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">BER.3.10</span>
+
+<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="2" threats="G 0.36, G 0.30, G 0.32" threatsHint="G 0.36 – Identitätsdiebstahl · G 0.30 – Unberechtigte Nutzung oder Administration von Geräten und Systemen · G 0.32 – Missbrauch von Berechtigungen" tags={[{ name: "Credential Stuffing", hint: "Cyberangriff, bei dem automatisiert gestohlene Benutzernamen und Passwörter auf verschiedenen Websites ausprobiert werden, um von Passwortwiederverwendung zu profitieren." }, { name: "Brute-Force-Attacke", hint: "Angriff, bei dem Zugangsdaten oder kryptografische Schlüssel automatisiert durch massenhaftes Ausprobieren möglicher Werte ermittelt werden sollen." }]} predecessors={[{ oldId: "APP.3.1.A1-UA.4", relationship: "intersects-with", link: "https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/06_APP_Anwendungen/APP_3_1_Webanwendungen_und_Webservices_Edition_2023.pdf?__blob=publicationFile&v=3#download=1" }]} />
 
 > Berechtigung für IT-Systeme SOLLTE weitere Anmeldeversuche nach Erreichen von *[einem maximalen Schwellwert an]* fehlgeschlagenen Versuchen vorübergehend blockieren.
 
@@ -207,7 +255,9 @@ Betrifft sowohl die lokale Anmeldung über eine Benutzeroberfläche als auch den
 
 ### BER.3.11 – Anmeldeversuchsgrenze an der Anwendung {#BER.3.11}
 
-<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="2" threats="G 0.36, G 0.30, G 0.32" threatsHint="G 0.36 – Identitätsdiebstahl · G 0.30 – Unberechtigte Nutzung oder Administration von Geräten und Systemen · G 0.32 – Missbrauch von Berechtigungen" predecessors={[{ oldId: "SYS.2.1.A1-UA.2", relationship: "intersects-with", link: "https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/07_SYS_IT_Systeme/SYS_2_1_Allgemeiner_Client_Edition_2023.pdf?__blob=publicationFile&v=3#download=1" }, { oldId: "SYS.2.1.A1-UA.3", relationship: "intersects-with", link: "https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/07_SYS_IT_Systeme/SYS_2_1_Allgemeiner_Client_Edition_2023.pdf?__blob=publicationFile&v=3#download=1" }]} />
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">BER.3.11</span>
+
+<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="2" threats="G 0.36, G 0.30, G 0.32" threatsHint="G 0.36 – Identitätsdiebstahl · G 0.30 – Unberechtigte Nutzung oder Administration von Geräten und Systemen · G 0.32 – Missbrauch von Berechtigungen" tags={[{ name: "Credential Stuffing", hint: "Cyberangriff, bei dem automatisiert gestohlene Benutzernamen und Passwörter auf verschiedenen Websites ausprobiert werden, um von Passwortwiederverwendung zu profitieren." }, { name: "Brute-Force-Attacke", hint: "Angriff, bei dem Zugangsdaten oder kryptografische Schlüssel automatisiert durch massenhaftes Ausprobieren möglicher Werte ermittelt werden sollen." }]} predecessors={[{ oldId: "SYS.2.1.A1-UA.2", relationship: "intersects-with", link: "https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/07_SYS_IT_Systeme/SYS_2_1_Allgemeiner_Client_Edition_2023.pdf?__blob=publicationFile&v=3#download=1" }, { oldId: "SYS.2.1.A1-UA.3", relationship: "intersects-with", link: "https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/07_SYS_IT_Systeme/SYS_2_1_Allgemeiner_Client_Edition_2023.pdf?__blob=publicationFile&v=3#download=1" }]} />
 
 > Berechtigung für Anwendungen SOLLTE weitere Anmeldeversuche nach Erreichen von *[einem maximalen Schwellwert an]* fehlgeschlagenen Versuchen vorübergehend blockieren.
 
@@ -215,7 +265,9 @@ Häufen sich Anmeldeversuche, so könnte ein Angreifer Zugangsdaten durchprobier
 
 ### BER.3.12 – Systemsperre bei Inaktivität {#BER.3.12}
 
-<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="2" threats="G 0.36, G 0.30, G 0.32" threatsHint="G 0.36 – Identitätsdiebstahl · G 0.30 – Unberechtigte Nutzung oder Administration von Geräten und Systemen · G 0.32 – Missbrauch von Berechtigungen" />
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">BER.3.12</span>
+
+<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="2" threats="G 0.36, G 0.30, G 0.32" threatsHint="G 0.36 – Identitätsdiebstahl · G 0.30 – Unberechtigte Nutzung oder Administration von Geräten und Systemen · G 0.32 – Missbrauch von Berechtigungen" tags={[{ name: "Automatic Session Locking", hint: "Sicherheitsfunktion, die eine Benutzersitzung nach einer festgelegten Inaktivitätszeit automatisch sperrt, um unbefugten Zugriff zu verhindern." }]} />
 
 > Berechtigung für IT-Systeme SOLLTE eine Sperre bei Inaktivität nach *[einer Frist]* aktivieren.
 
@@ -223,13 +275,17 @@ Kann durch eine Bildschirmsperre oder Abmeldung (Automatic Session Locking) umge
 
 ### BER.3.13 – Sperre der Anwendung bei Inaktivität {#BER.3.13}
 
-<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="2" threats="G 0.36, G 0.30, G 0.32" threatsHint="G 0.36 – Identitätsdiebstahl · G 0.30 – Unberechtigte Nutzung oder Administration von Geräten und Systemen · G 0.32 – Missbrauch von Berechtigungen" />
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">BER.3.13</span>
+
+<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="2" threats="G 0.36, G 0.30, G 0.32" threatsHint="G 0.36 – Identitätsdiebstahl · G 0.30 – Unberechtigte Nutzung oder Administration von Geräten und Systemen · G 0.32 – Missbrauch von Berechtigungen" tags={[{ name: "Automatic Session Locking", hint: "Sicherheitsfunktion, die eine Benutzersitzung nach einer festgelegten Inaktivitätszeit automatisch sperrt, um unbefugten Zugriff zu verhindern." }]} />
 
 > Berechtigung für Anwendungen SOLLTE eine Sperre bei Inaktivität nach *[einer Frist]* aktivieren.
 
 Kann je nach Anmeldeweg durch eine Abmeldung (Automatic Session Locking) direkt an der Anwendung, über Single-Sign-On oder (bei Anmeldung über das Netz) die Trennung der Netzverbindung umgesetzt werden. Eine längere Inaktivität kann z.B. 5-15 Minuten lang sein. Verfügt die Anwendung über keine eigene Authentifizierungsmethode, so ist die Anforderung entbehrlich.
 
 ### BER.3.14 – Kein Recycling von Zugängen {#BER.3.14}
+
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">BER.3.14</span>
 
 <ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="3" threats="G 0.30, G 0.32, G 0.36" threatsHint="G 0.30 – Unberechtigte Nutzung oder Administration von Geräten und Systemen · G 0.32 – Missbrauch von Berechtigungen · G 0.36 – Identitätsdiebstahl" />
 
@@ -239,7 +295,9 @@ Wiederverwendung von Zugangskonten meint hier die erneute Vergabe oder Reaktivie
 
 ### BER.3.15 – Zugang löschen nach Fristablauf {#BER.3.15}
 
-<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="1" threats="G 0.36, G 0.30, G 0.32" threatsHint="G 0.36 – Identitätsdiebstahl · G 0.30 – Unberechtigte Nutzung oder Administration von Geräten und Systemen · G 0.32 – Missbrauch von Berechtigungen" />
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">BER.3.15</span>
+
+<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="1" threats="G 0.36, G 0.30, G 0.32" threatsHint="G 0.36 – Identitätsdiebstahl · G 0.30 – Unberechtigte Nutzung oder Administration von Geräten und Systemen · G 0.32 – Missbrauch von Berechtigungen" tags={[{ name: "Credential Stuffing", hint: "Cyberangriff, bei dem automatisiert gestohlene Benutzernamen und Passwörter auf verschiedenen Websites ausprobiert werden, um von Passwortwiederverwendung zu profitieren." }, { name: "Brute-Force-Attacke", hint: "Angriff, bei dem Zugangsdaten oder kryptografische Schlüssel automatisiert durch massenhaftes Ausprobieren möglicher Werte ermittelt werden sollen." }]} />
 
 > Berechtigung SOLLTE nicht mehr benötigte Zugangskonten nach Ablauf der Löschfristen löschen.
 
@@ -247,7 +305,9 @@ Die Löschfristen ergeben sich aus gesetzlichen Aufbewahrungs- und Löschfristen
 
 ### BER.3.16 – Keine Gruppenkonten {#BER.3.16}
 
-<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="2" threats="G 0.36, G 0.30, G 0.32" threatsHint="G 0.36 – Identitätsdiebstahl · G 0.30 – Unberechtigte Nutzung oder Administration von Geräten und Systemen · G 0.32 – Missbrauch von Berechtigungen" />
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">BER.3.16</span>
+
+<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="2" threats="G 0.36, G 0.30, G 0.32" threatsHint="G 0.36 – Identitätsdiebstahl · G 0.30 – Unberechtigte Nutzung oder Administration von Geräten und Systemen · G 0.32 – Missbrauch von Berechtigungen" tags={[{ name: "Insider Threat", hint: "Sicherheitsrisiko, das von Personen innerhalb einer Organisation ausgeht, die aufgrund ihres legitimen Zugriffs sensible Informationen missbrauchen oder Systeme schädigen können.", synonyms: "interne Bedrohung, Innentäter" }]} />
 
 > Berechtigung SOLLTE Gruppenkonten im Regelbetrieb untersagen.
 
@@ -255,13 +315,17 @@ Ein Gruppenkonto (englisch shared account) bezeichnet hier ein Zugangskonto, das
 
 ### BER.3.17 – Gruppenkonten - MFA {#BER.3.17}
 
-<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="4" threats="G 0.36, G 0.30, G 0.32" threatsHint="G 0.36 – Identitätsdiebstahl · G 0.30 – Unberechtigte Nutzung oder Administration von Geräten und Systemen · G 0.32 – Missbrauch von Berechtigungen" />
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">BER.3.17</span>
+
+<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="4" threats="G 0.36, G 0.30, G 0.32" threatsHint="G 0.36 – Identitätsdiebstahl · G 0.30 – Unberechtigte Nutzung oder Administration von Geräten und Systemen · G 0.32 – Missbrauch von Berechtigungen" tags={[{ name: "Insider Threat", hint: "Sicherheitsrisiko, das von Personen innerhalb einer Organisation ausgeht, die aufgrund ihres legitimen Zugriffs sensible Informationen missbrauchen oder Systeme schädigen können.", synonyms: "interne Bedrohung, Innentäter" }]} />
 
 > Berechtigung SOLLTE für Gruppenkonten die Mehr-Faktor-Authentisierung aktivieren.
 
 Werden trotz des damit verbundenen Risikos Gruppenkonten genutzt, so kann mit Mehr-Faktor-Authentifizierung der Mißbrauch von Zugangsdaten erschwert werden. Kann zum Beispiel durch mehrere dem Zugangskonto zugewiesene Hardwaretoken oder durch OTP-Apps umgesetzt werden. Falls keine Gruppenkonten verwendet werden, so ist die Anforderung entbehrlich.
 
 ### BER.3.18 – Gruppenkonten - Wechsel dokumentieren {#BER.3.18}
+
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">BER.3.18</span>
 
 <ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="3" threats="G 0.36, G 0.30, G 0.32" threatsHint="G 0.36 – Identitätsdiebstahl · G 0.30 – Unberechtigte Nutzung oder Administration von Geräten und Systemen · G 0.32 – Missbrauch von Berechtigungen" />
 
@@ -271,13 +335,17 @@ Es kann z.B. anhand von Dienst- oder Anwesenheitsplänen nachvollzogen werden, w
 
 ### BER.3.19 – Gruppenkonten - Passwortwechsel bei Weggang {#BER.3.19}
 
-<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="2" threats="G 0.36, G 0.30, G 0.32" threatsHint="G 0.36 – Identitätsdiebstahl · G 0.30 – Unberechtigte Nutzung oder Administration von Geräten und Systemen · G 0.32 – Missbrauch von Berechtigungen" />
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">BER.3.19</span>
+
+<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="2" threats="G 0.36, G 0.30, G 0.32" threatsHint="G 0.36 – Identitätsdiebstahl · G 0.30 – Unberechtigte Nutzung oder Administration von Geräten und Systemen · G 0.32 – Missbrauch von Berechtigungen" tags={[{ name: "Password Policy", hint: "Vorgaben für Erstellung, Nutzung, Änderung und Schutz von Passwörtern, um die Sicherheit von Benutzerkonten zu erhöhen.", synonyms: "Passwortrichtlinie, Passwortregeln" }]} />
 
 > Berechtigung SOLLTE für Gruppenkonten die Änderung von Zugangsdaten bei Weggang von Nutzenden ausführen.
 
 Gruppenkonten werden von mehreren Nutzenden (z.B. Schichtdienst) verwendet. Verlassen Nutzende die Institution oder Wechseln das Tätigkeitsfeld und das Passwort des Gruppenkontos wird nicht gewechselt, so besteht die Gefahr, dass das Gruppenkonto unberechtigt verwendet wird.
 
 ### BER.3.20 – Zwischenspeicherung von Zugangsdaten {#BER.3.20}
+
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">BER.3.20</span>
 
 <ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="3" threats="G 0.36, G 0.30, G 0.32" threatsHint="G 0.36 – Identitätsdiebstahl · G 0.30 – Unberechtigte Nutzung oder Administration von Geräten und Systemen · G 0.32 – Missbrauch von Berechtigungen" />
 
@@ -287,6 +355,8 @@ Wird die Zwischenspeicherung von Zugangsdaten auf IT-Systemen deaktiviert, so wi
 
 ### BER.3.21 – Dienstekonten {#BER.3.21}
 
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">BER.3.21</span>
+
 <ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="4" threats="G 0.36, G 0.30, G 0.32" threatsHint="G 0.36 – Identitätsdiebstahl · G 0.30 – Unberechtigte Nutzung oder Administration von Geräten und Systemen · G 0.32 – Missbrauch von Berechtigungen" />
 
 > Berechtigung für Hostsysteme SOLLTE eine automatische Verwaltung der Zugangsdaten von Dienste-Konten aktivieren.
@@ -295,7 +365,9 @@ Eine automatische Verwaltung der Zugangsdaten von Dienste-Konten bezeichnet in d
 
 ### BER.3.22 – Notfallzugang {#BER.3.22}
 
-<ControlMeta modalVerb="KANN" secLevel="erhöht" effort="1" threats="G 0.36, G 0.30, G 0.32" threatsHint="G 0.36 – Identitätsdiebstahl · G 0.30 – Unberechtigte Nutzung oder Administration von Geräten und Systemen · G 0.32 – Missbrauch von Berechtigungen" />
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">BER.3.22</span>
+
+<ControlMeta modalVerb="KANN" secLevel="erhöht" effort="1" threats="G 0.36, G 0.30, G 0.32" threatsHint="G 0.36 – Identitätsdiebstahl · G 0.30 – Unberechtigte Nutzung oder Administration von Geräten und Systemen · G 0.32 – Missbrauch von Berechtigungen" tags={[{ name: "BCM", hint: "Business Continuity Management, ein Rahmenwerk von Prozessen zur Identifizierung potenzieller Bedrohungen und deren Auswirkungen auf den Geschäftsbetrieb, um Resilienz und Wiederherstellungsfähigkeit zu gewährleisten." }, { name: "Privilegierte Rechte", hint: "Erweiterte Zugriffs- und Administrationsrechte, mit denen besonders weitreichende Änderungen an Systemen, Diensten oder Daten vorgenommen werden können." }]} />
 
 > Berechtigung KANN Notfallzugangskonten installieren.
 
@@ -303,7 +375,9 @@ Ein Notfallzugangskonto (sog. Break Glass Account) ist ein Zugang mit privilegie
 
 ### BER.3.23 – Notfallzugang Verzeichnisdienst {#BER.3.23}
 
-<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="5" threats="G 0.36, G 0.30, G 0.32" threatsHint="G 0.36 – Identitätsdiebstahl · G 0.30 – Unberechtigte Nutzung oder Administration von Geräten und Systemen · G 0.32 – Missbrauch von Berechtigungen" />
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">BER.3.23</span>
+
+<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="5" threats="G 0.36, G 0.30, G 0.32" threatsHint="G 0.36 – Identitätsdiebstahl · G 0.30 – Unberechtigte Nutzung oder Administration von Geräten und Systemen · G 0.32 – Missbrauch von Berechtigungen" tags={[{ name: "BCM", hint: "Business Continuity Management, ein Rahmenwerk von Prozessen zur Identifizierung potenzieller Bedrohungen und deren Auswirkungen auf den Geschäftsbetrieb, um Resilienz und Wiederherstellungsfähigkeit zu gewährleisten." }]} />
 
 > Berechtigung für Verzeichnisdienste SOLLTE ein Notfallzugangskonto installieren.
 
@@ -311,7 +385,9 @@ Ein Notfallzugangskonto (sog. Break Glass Account) ist ein Zugang mit privilegie
 
 ### BER.3.24 – Alternative Authentifizierung am IT-System {#BER.3.24}
 
-<ControlMeta modalVerb="KANN" secLevel="erhöht" effort="5" threats="G 0.36, G 0.30" threatsHint="G 0.36 – Identitätsdiebstahl · G 0.30 – Unberechtigte Nutzung oder Administration von Geräten und Systemen" />
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">BER.3.24</span>
+
+<ControlMeta modalVerb="KANN" secLevel="erhöht" effort="5" threats="G 0.36, G 0.30" threatsHint="G 0.36 – Identitätsdiebstahl · G 0.30 – Unberechtigte Nutzung oder Administration von Geräten und Systemen" tags={[{ name: "Produktbeschreibung", hint: "Anforderungen mit diesem Tag sind sinnvolle Bestandteile einer dokumentierten Beschreibung eines IT-Produktes. Die vom Produkt implementierten Anforderungen können (durch Herstellers, Dienstleister oder Lieferanten) als OSCAL component-definition bereitgestellt werden um einen schnellen Abgleich zwischen Grundschutz++ und der Implementierung zu ermöglichen." }]} />
 
 > Berechtigung für IT-Systeme KANN ein ebenso vertrauenswürdiges, alternatives Verfahren zur Authentifizierung verankern.
 
@@ -319,7 +395,9 @@ Wenn Nutzende ein für die reguläre Authentisierung erforderliches Authentisier
 
 ### BER.3.25 – Alternative Authentifizierung an der Anwendung {#BER.3.25}
 
-<ControlMeta modalVerb="KANN" secLevel="erhöht" effort="5" threats="G 0.36, G 0.30" threatsHint="G 0.36 – Identitätsdiebstahl · G 0.30 – Unberechtigte Nutzung oder Administration von Geräten und Systemen" />
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">BER.3.25</span>
+
+<ControlMeta modalVerb="KANN" secLevel="erhöht" effort="5" threats="G 0.36, G 0.30" threatsHint="G 0.36 – Identitätsdiebstahl · G 0.30 – Unberechtigte Nutzung oder Administration von Geräten und Systemen" tags={[{ name: "Produktbeschreibung", hint: "Anforderungen mit diesem Tag sind sinnvolle Bestandteile einer dokumentierten Beschreibung eines IT-Produktes. Die vom Produkt implementierten Anforderungen können (durch Herstellers, Dienstleister oder Lieferanten) als OSCAL component-definition bereitgestellt werden um einen schnellen Abgleich zwischen Grundschutz++ und der Implementierung zu ermöglichen." }]} />
 
 > Berechtigung für Anwendungen KANN ein ebenso vertrauenswürdiges, alternatives Verfahren zur Authentifizierung verankern.
 
@@ -329,13 +407,17 @@ Wenn Nutzende ihren Primärzugang (z.B. Passwort, Smartphone mit Authentifizieru
 
 ### BER.4.1 – Prinzip der geringsten Berechtigungen {#BER.4.1}
 
-<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="1" threats="G 0.36, G 0.30, G 0.32, G 0.18" threatsHint="G 0.36 – Identitätsdiebstahl · G 0.30 – Unberechtigte Nutzung oder Administration von Geräten und Systemen · G 0.32 – Missbrauch von Berechtigungen · G 0.18 – Fehlplanung oder fehlende Anpassung" />
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">BER.4.1</span>
+
+<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="1" threats="G 0.36, G 0.30, G 0.32, G 0.18" threatsHint="G 0.36 – Identitätsdiebstahl · G 0.30 – Unberechtigte Nutzung oder Administration von Geräten und Systemen · G 0.32 – Missbrauch von Berechtigungen · G 0.18 – Fehlplanung oder fehlende Anpassung" tags={[{ name: "Security by Default", hint: "Prinzip, bei dem die sichersten Einstellungen als Standardkonfiguration verwendet werden, sodass Benutzer keine zusätzlichen Maßnahmen ergreifen müssen, um Sicherheit zu gewährleisten." }, { name: "Privilegierte Rechte", hint: "Erweiterte Zugriffs- und Administrationsrechte, mit denen besonders weitreichende Änderungen an Systemen, Diensten oder Daten vorgenommen werden können." }]} />
 
 > Berechtigung SOLLTE die Vergabe von Berechtigungen nach dem Prinzip der geringsten Berechtigungen einschränken.
 
 Das Prinzip der geringsten Berechtigungen, im Englischen als Principle of Least Privilege (PoLP) bekannt, besagt, dass Nutzende, Prozesse oder Systeme nur die minimal notwendigen Zugriffsrechte erhalten dürfen, um die ihnen jeweils zugewiesenen Aufgaben zu erfüllen. Dies dient primär der Minimierung der Angriffsfläche und der Begrenzung potenzieller Schäden. Sollte beispielsweise ein Zugangskonto durch Phishing kompromittiert werden, könnte ein Angreifer ohne dieses Prinzip weitreichenden Zugriff auf kritische Daten oder Systeme erlangen und diese manipulieren, exfiltrieren oder verschlüsseln. Die konsequente Anwendung dieses Grundsatzes kann die Ausbreitung von Schadsoftware nach einem ersten Eindringen erheblich erschweren und sicherstellen, dass Mitarbeitende nur jene Informationen einsehen, die für ihre Tätigkeit unmittelbar relevant sind. Hierdurch wird auch das Risiko von Datendiebstahl durch Innentäter reduziert. Es empfiehlt sich als Ergänzung hier auch das "Need to know"-Prinzip zu betrachten, da sich beide Prinzipien ergänzen. Während das "Least Privilege"-Prinzip auf Systremrechte, Rollen und Berechtigungen fokussiert, liegt der Fokus des "Need to know"-Prinzips mehr auf Informationen und Datenzugriff. Zur sinnvollen Umsetzung kann die Institution ein rollenbasiertes Berechtigungskonzept (Role-Based Access Control, RBAC) etablieren, bei dem Berechtigungen nicht an einzelne Personen, sondern an vordefinierte Rollen (z.B. "Finanzbuchhaltung" oder "Netzwerkadministrator") gebunden werden. Für die Einführung in eine bestehende Umgebung kann ein gestuftes Vorgehen gewählt werden: (1) Zunächst wird ein Überwachungsmodus ("Audit-Only") aktiviert, der protokolliert, welche Zugriffe durch eine strengere Richtlinie verweigert würden, ohne sie tatsächlich zu blockieren. (2) Anschließend werden diese Protokolle analysiert, um legitime, für den Geschäftsbetrieb notwendige Zugriffe zu identifizieren und diese gezielt in die jeweiligen Rollen und Berechtigungsgruppen aufzunehmen. (3) Erst wenn keine legitimen Zugriffe mehr in den Protokollen als "verweigert" auftauchen, wird die Richtlinie scharf geschaltet und blockiert aktiv alle nicht explizit erlaubten Zugriffe. Alle relevanten Anforderungen zur Vergabe von Berechtigungen können mit den Handlungsworten "authentifizieren", "autorisieren" und "einschränken" gefunden werden.
 
 #### BER.4.1.1 – Rollenbasierte Berechtigung {#BER.4.1.1}
+
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">BER.4.1.1</span>
 
 <ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="3" threats="G 0.36, G 0.30, G 0.32" threatsHint="G 0.36 – Identitätsdiebstahl · G 0.30 – Unberechtigte Nutzung oder Administration von Geräten und Systemen · G 0.32 – Missbrauch von Berechtigungen" />
 
@@ -345,6 +427,8 @@ Aus Gründen der Nachvollziehbarkeit und des administrativen Aufwands wird die d
 
 #### BER.4.1.2 – JIT‑/JEA‑Berechtigungen {#BER.4.1.2}
 
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">BER.4.1.2</span>
+
 <ControlMeta modalVerb="KANN" secLevel="erhöht" effort="5" threats="G 0.32, G 0.30, G 0.36" threatsHint="G 0.32 – Missbrauch von Berechtigungen · G 0.30 – Unberechtigte Nutzung oder Administration von Geräten und Systemen · G 0.36 – Identitätsdiebstahl" />
 
 > Berechtigung KANN die Berechtigung zum Zeitpunkt des Zugriffs für *[besonders kritische Ressourcen oder Zugänge]* aktivieren.
@@ -352,6 +436,8 @@ Aus Gründen der Nachvollziehbarkeit und des administrativen Aufwands wird die d
 „JIT‑/JEA‑Berechtigungen“ (Just‑In‑Time/Just‑Enough‑Access) ist die zeitlich und inhaltlich begrenzte Vergabe von Rechten zum Zeitpunkt eines Zugriffs auf eine Ressource. Dies kann insbesondere für privilegierte Zugangskonten und Administrationszugänge sinnvoll sein, um erhöhte Rechte nur genau dann zu ermöglichen, wenn sie wirklich erforderlich sind.
 
 ### BER.4.2 – Autorisierung von Berechtigungen {#BER.4.2}
+
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">BER.4.2</span>
 
 <ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="3" threats="G 0.36, G 0.30, G 0.32" threatsHint="G 0.36 – Identitätsdiebstahl · G 0.30 – Unberechtigte Nutzung oder Administration von Geräten und Systemen · G 0.32 – Missbrauch von Berechtigungen" />
 
@@ -361,6 +447,8 @@ Mit „bestimmte Personen oder Rollen“ sind hier vorab festgelegte, nachvollzi
 
 ### BER.4.3 – Begründung von Berechtigungen {#BER.4.3}
 
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">BER.4.3</span>
+
 <ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="3" threats="G 0.36, G 0.30, G 0.32" threatsHint="G 0.36 – Identitätsdiebstahl · G 0.30 – Unberechtigte Nutzung oder Administration von Geräten und Systemen · G 0.32 – Missbrauch von Berechtigungen" />
 
 > Berechtigung SOLLTE die Vergabe von Berechtigungen und Änderungen an Berechtigungen mit einer Begründung dokumentieren.
@@ -368,6 +456,8 @@ Mit „bestimmte Personen oder Rollen“ sind hier vorab festgelegte, nachvollzi
 Zweck ist die Nachvollziehbarkeit der Vergabe von Berechtigungen. Die Dokumentation kann z.B. mit einem Identity-Access-Management oder Personalmanagementsystem automatisiert werden.
 
 ### BER.4.4 – Überprüfung von Berechtigungen {#BER.4.4}
+
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">BER.4.4</span>
 
 <ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="3" threats="G 0.36, G 0.30, G 0.32" threatsHint="G 0.36 – Identitätsdiebstahl · G 0.30 – Unberechtigte Nutzung oder Administration von Geräten und Systemen · G 0.32 – Missbrauch von Berechtigungen" />
 
@@ -377,6 +467,8 @@ Erforderlichkeit bedeutet in diesem Kontext, dass eine vergebene Berechtigung nu
 
 #### BER.4.4.1 – Überprüfung tatsächlicher Berechtigungen {#BER.4.4.1}
 
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">BER.4.4.1</span>
+
 <ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="4" threats="G 0.36, G 0.30, G 0.32" threatsHint="G 0.36 – Identitätsdiebstahl · G 0.30 – Unberechtigte Nutzung oder Administration von Geräten und Systemen · G 0.32 – Missbrauch von Berechtigungen" />
 
 > Berechtigung SOLLTE dokumentierte und tatsächlich vergebene Berechtigungen *[regelmäßig]* auf Übereinstimmung überprüfen.
@@ -384,6 +476,8 @@ Erforderlichkeit bedeutet in diesem Kontext, dass eine vergebene Berechtigung nu
 Der Sinn und Zweck der Vorgabe liegt darin, eine unbemerkte Abweichung zwischen Dokumentation und Realität frühzeitig zu erkennen. Ohne diesen Abgleich könnte es vorkommen, dass ehemalige Mitarbeitende weiterhin Zugriff auf interne Systeme behalten oder dass sich im Laufe der Zeit unautorisierte Rechteanhäufungen einschleichen. Durch eine wirksame Überprüfung kann hingegen sichergestellt werden, dass nur aktuelle, geprüfte und erforderliche Zugriffsrechte bestehen bleiben und so die Angriffsfläche der Institution reduziert werden kann. Zur Umsetzung kann die Institution Berechtigungsübersichten automatisiert aus IT-Systemen exportieren und diese mit den in Verzeichnissen oder Rollenmodellen hinterlegten Daten vergleichen, z.B. anhand eines automatisierten Abgleiches mit Personalstammdaten einmal pro Quartal. Diese Anforderung ist auch dann erfüllt, wenn Dokumentation der Berechtigungen und tatsächliche Berechtigung (z.B. ein Verzeichnisdienst) dasselbe sind. Bitte beachten Sie dabei, dass die generelle Anforderung zur Überprüfung vergebener Berechtigungen weiter gefasst ist und z.B. auch den Abgleich zwischen tatsächlich vergebenen Berechtigungen und nicht dokumentieren Erfordernissen (beispielsweise durch die Vorlage bei Vorgesetzten) umfassen kann.
 
 ### BER.4.5 – Systemfunktionen ohne Authentifizierung {#BER.4.5}
+
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">BER.4.5</span>
 
 <ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="4" threats="G 0.36, G 0.30, G 0.32" threatsHint="G 0.36 – Identitätsdiebstahl · G 0.30 – Unberechtigte Nutzung oder Administration von Geräten und Systemen · G 0.32 – Missbrauch von Berechtigungen" />
 
@@ -393,6 +487,8 @@ Funktionen ohne Authentifizierung sind alle Zugriffsmöglichkeiten auf Schnittst
 
 ### BER.4.6 – Anwendungsfunktionen ohne Authentifizierung {#BER.4.6}
 
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">BER.4.6</span>
+
 <ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="4" threats="G 0.36, G 0.30, G 0.32" threatsHint="G 0.36 – Identitätsdiebstahl · G 0.30 – Unberechtigte Nutzung oder Administration von Geräten und Systemen · G 0.32 – Missbrauch von Berechtigungen" />
 
 > Berechtigung für Anwendungen SOLLTE Funktionen, auf die ohne vorherige Authentifizierung zugegriffen werden kann, dokumentieren.
@@ -401,6 +497,8 @@ Hierzu gehören z.B. der Zugriff auf öffentliche Inhalte oder Funktionen zum Zu
 
 ### BER.4.7 – IT-System-Zugangskonto {#BER.4.7}
 
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">BER.4.7</span>
+
 <ControlMeta modalVerb="KANN" secLevel="erhöht" effort="5" threats="G 0.36, G 0.30, G 0.32" threatsHint="G 0.36 – Identitätsdiebstahl · G 0.30 – Unberechtigte Nutzung oder Administration von Geräten und Systemen · G 0.32 – Missbrauch von Berechtigungen" />
 
 > Berechtigung für IT-Systeme KANN diese genau einem Zugangskonto zuweisen.
@@ -408,6 +506,8 @@ Hierzu gehören z.B. der Zugriff auf öffentliche Inhalte oder Funktionen zum Zu
 Wenn ein besonders schützenswertes IT-System nur von einer Person oder Identität genutzt wird, empfiehlt es sich dieses mit genau einem zugehörigen Zugangskonto zu verknüpfen. Dadurch wird ausgeschlossen, dass weitere Konten unnötig Zugriff erhalten. Bei Revisionen ist auf diese Weise eindeutig nachvollziehbar, welche Identität Zugriff auf das System hatte. Das Vorgehen ist auch auf virtualisierte IT-Systeme übertragbar. Ein Beispiel ist eine spezielle Administrationskonsole, die ausschließlich einem dedizierten Admin-Konto zugeordnet ist.
 
 ### BER.4.8 – Entzug von Berechtigungen {#BER.4.8}
+
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">BER.4.8</span>
 
 <ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="3" threats="G 0.36, G 0.30, G 0.32" threatsHint="G 0.36 – Identitätsdiebstahl · G 0.30 – Unberechtigte Nutzung oder Administration von Geräten und Systemen · G 0.32 – Missbrauch von Berechtigungen" />
 
@@ -419,6 +519,8 @@ Innerhalb der Institution ist ein Prozess etabliert, mit dem Berechtigungen syst
 
 ### BER.5.1 – Vorgehensweise zur Ausgabe {#BER.5.1}
 
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">BER.5.1</span>
+
 <ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="2" threats="G 0.36" threatsHint="G 0.36 – Identitätsdiebstahl" predecessors={[{ oldId: "APP.4.2.A14-UA.2", relationship: "subset-of", link: "https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/06_APP_Anwendungen/APP_4_2_SAP_ERP_System_Edition_2023.pdf?__blob=publicationFile&v=4#download=1" }]} />
 
 > Berechtigung SOLLTE eine Vorgehensweise zur initialen Ausgabe von Authentifizierungsmitteln verankern.
@@ -426,6 +528,8 @@ Innerhalb der Institution ist ein Prozess etabliert, mit dem Berechtigungen syst
 Die initiale Ausgabe von Authentifizierungsmitteln ist die erstmalige, kontrollierte Bereitstellung von Mitteln, mit denen eine natürliche Person oder ein technischer Dienst seine Identität nachweisen kann; hierzu zählen beispielsweise Passwörter oder Einmalpasswörter, Hardware- oder Software-Token, Smartcards, Zertifikate, kryptografische Schlüssel, Passkeys, initiale MFA-Faktoren sowie Aktivierungs- oder Registrierungsinformationen (engl. authentication credentials, authentication factors, authenticators). Die Vorgehensweise zur initialen Ausgabe umfasst dabei insbesondere die nachvollziehbare Feststellung der berechtigten empfangenden Person oder Instanz, die Zuordnung zum vorgesehenen Zugangskonto oder Berechtigungsumfang, einen geschützten Übergabeweg, die Vermeidung unkontrollierter Mehrfachausgaben sowie eine dokumentierbare Bestätigung, dass das Authentifizierungsmittel nur der vorgesehenen empfangenden Stelle zugänglich gemacht wurde. Sinn und Zweck der Vorschrift ist, bereits beim ersten Zugang zu verhindern, dass Authentifizierungsmittel an falsche, nicht hinreichend identifizierte oder nicht mehr berechtigte Empfänger gelangen; andernfalls könnte ein Konto von Beginn an kompromittiert, ein Initialpasswort abgefangen, ein Token an eine falsche Person ausgegeben oder ein Zertifikat missbräuchlich zur Anmeldung verwendet werden.
 
 #### BER.5.1.1 – Initiale Ausgabe {#BER.5.1.1}
+
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">BER.5.1.1</span>
 
 <ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="2" threats="G 0.36" threatsHint="G 0.36 – Identitätsdiebstahl" />
 
@@ -435,6 +539,8 @@ Identität meint hier die natürliche Person, Gruppe, Rolle, Anwendung oder das 
 
 ### BER.5.2 – Vorgehensweise zur Zurücksetzung {#BER.5.2}
 
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">BER.5.2</span>
+
 <ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="3" threats="G 0.36" threatsHint="G 0.36 – Identitätsdiebstahl" />
 
 > Berechtigung SOLLTE eine Vorgehensweise zur Zurücksetzung von Authentifizierungsmitteln verankern.
@@ -442,6 +548,8 @@ Identität meint hier die natürliche Person, Gruppe, Rolle, Anwendung oder das 
 Zurücksetzung meint hier die geregelte Wiederherstellung, Erneuerung, Sperrung und Neuvergabe solcher Mittel, wenn sie vergessen, verloren, kompromittiert, technisch unbrauchbar oder aus anderen nachvollziehbaren Gründen nicht mehr sicher verwendbar sind; sie umfasst insbesondere die Prüfung der Identität der berechtigten Person, die Verhinderung unberechtigter Übernahmeversuche und die nachvollziehbare Durchführung des Vorgangs. Eine verankerte Vorgehensweise kann verhindern, dass der Reset selbst zum Einfallstor wird: Ohne klare Regeln könnte ein Angreifer über Social Engineering, manipulierte Helpdesk-Anfragen, abgefangene Wiederherstellungslinks oder missbrauchte Sicherheitsfragen Zugriff auf fremde Konten erhalten. Ebenso könnte eine uneinheitliche Behandlung verlorener Token, vergessener Passwörter oder kompromittierter Zertifikate dazu führen, dass alte Authentifizierungsmittel weiterverwendet werden oder neue Mittel an die falsche Person gelangen.
 
 ### BER.5.3 – Vorgehensweise zum Widerruf {#BER.5.3}
+
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">BER.5.3</span>
 
 <ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="3" threats="G 0.36" threatsHint="G 0.36 – Identitätsdiebstahl" predecessors={[{ oldId: "APP.2.2.A23-UA.1", relationship: "intersects-with", link: "https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/06_APP_Anwendungen/APP_2_2_Active_Directory_Domain_Services_Edition_2023.pdf?__blob=publicationFile&v=4#download=1" }, { oldId: "APP.4.2.A14-UA.1", relationship: "intersects-with", link: "https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/06_APP_Anwendungen/APP_4_2_SAP_ERP_System_Edition_2023.pdf?__blob=publicationFile&v=4#download=1" }]} />
 
@@ -451,13 +559,17 @@ Der Widerruf meint hier die gezielte Ungültigsetzung, Sperrung, Deaktivierung o
 
 ### BER.5.4 – Nur etablierte Kryptographie {#BER.5.4}
 
-<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="3" threats="G 0.36" threatsHint="G 0.36 – Identitätsdiebstahl" />
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">BER.5.4</span>
+
+<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="3" threats="G 0.36" threatsHint="G 0.36 – Identitätsdiebstahl" tags={[{ name: "Cryptography", hint: "Wissenschaft der Verschlüsselung von Informationen, um sie vor unbefugtem Zugriff zu schützen und sichere Kommunikation zu ermöglichen." }]} />
 
 > Berechtigung SOLLTE bei kryptografischen Authentifizierungsmitteln die ausschließliche Verwendung etablierter kryptografischer Algorithmen nach *[einem oder mehreren anerkannten Standards]* verankern.
 
 Kryptografische Authentifizierungsmittel sind Authentisierungsnachweise, deren Sicherheit wesentlich auf kryptografischen Verfahren beruht, etwa Passwort-Hashing, Zertifikate, Schlüsselpaare, Smartcards, Hardware-Token, Passkeys/FIDO2-Authentifikatoren, signaturbasierte API-Zugänge oder SSH-Schlüssel (engl. cryptographic authenticators). Etablierte kryptografische Algorithmen sind mathematisch fundierte Verschlüsselungsverfahren und Protokolle, die in der aktuellen Praxis nicht mit vertretbarem Aufwand gebrochen werden können, beispielsweise für Signaturen, Message Authentication Codes, Hashfunktionen, Schlüsselableitung oder authentisierte Verschlüsselung. Sie basieren auf mathematisch schwer lösbaren Problemen, bieten Resistenz gegen bekannte kryptanalytische Angriffe, unterstützen ausreichend große Schlüssellängen und wurden von Experten gründlich geprüft und analysiert. Aktuelle etablierte Algorithmen sind in BSI TR-02102 zu finden. Für weitere Details zur Implementierung siehe Detailspezifikation kryptografischer Abläufe und Mechanismen des BSI.
 
 ### BER.5.5 – Deaktivierung einfacher Biometrie auf IT-Systemen {#BER.5.5}
+
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">BER.5.5</span>
 
 <ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="3" threats="G 0.36, G 0.30" threatsHint="G 0.36 – Identitätsdiebstahl · G 0.30 – Unberechtigte Nutzung oder Administration von Geräten und Systemen" />
 
@@ -467,7 +579,9 @@ Wenn die Authentifizierung nur biometrisch vorgenommen wird (z.B. anhand von Fin
 
 ### BER.5.6 – Vorkonfigurierte Authentisierungsmittel von IT-Systemen {#BER.5.6}
 
-<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="1" threats="G 0.36, G 0.30" threatsHint="G 0.36 – Identitätsdiebstahl · G 0.30 – Unberechtigte Nutzung oder Administration von Geräten und Systemen" />
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">BER.5.6</span>
+
+<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="1" threats="G 0.36, G 0.30" threatsHint="G 0.36 – Identitätsdiebstahl · G 0.30 – Unberechtigte Nutzung oder Administration von Geräten und Systemen" tags={[{ name: "Advanced Persistent Threats (APT)", hint: "Komplexe, gezielte und langfristige Cyberangriffe, bei denen Angreifer unbemerkt in einer Umgebung verbleiben, um Informationen auszuspähen oder Systeme zu manipulieren.", synonyms: "gezielter Angriff, staatlich gesteuerter Angreifer" }]} />
 
 > Berechtigung für IT-Systeme SOLLTE vorkonfigurierte Authentisierungsmittel deaktivieren.
 
@@ -475,7 +589,9 @@ Herstellerseitige Standardkonten und Default-Passwörter stellen ein beliebtes E
 
 ### BER.5.7 – Vorkonfigurierte Authentisierungsmittel von Anwendungen {#BER.5.7}
 
-<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="1" threats="G 0.36, G 0.30" threatsHint="G 0.36 – Identitätsdiebstahl · G 0.30 – Unberechtigte Nutzung oder Administration von Geräten und Systemen" />
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">BER.5.7</span>
+
+<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="1" threats="G 0.36, G 0.30" threatsHint="G 0.36 – Identitätsdiebstahl · G 0.30 – Unberechtigte Nutzung oder Administration von Geräten und Systemen" tags={[{ name: "Advanced Persistent Threats (APT)", hint: "Komplexe, gezielte und langfristige Cyberangriffe, bei denen Angreifer unbemerkt in einer Umgebung verbleiben, um Informationen auszuspähen oder Systeme zu manipulieren.", synonyms: "gezielter Angriff, staatlich gesteuerter Angreifer" }]} />
 
 > Berechtigung für Anwendungen SOLLTE vorkonfigurierte Authentisierungsmittel deaktivieren.
 
@@ -483,7 +599,9 @@ Herstellerseitige Standardkonten und Default-Passwörter stellen ein beliebtes E
 
 ### BER.5.8 – Mehr-Faktor-Authentisierung am Perimeter {#BER.5.8}
 
-<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="3" threats="G 0.36, G 0.30, G 0.42" threatsHint="G 0.36 – Identitätsdiebstahl · G 0.30 – Unberechtigte Nutzung oder Administration von Geräten und Systemen · G 0.42 – Social Engineering" />
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">BER.5.8</span>
+
+<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="3" threats="G 0.36, G 0.30, G 0.42" threatsHint="G 0.36 – Identitätsdiebstahl · G 0.30 – Unberechtigte Nutzung oder Administration von Geräten und Systemen · G 0.42 – Social Engineering" tags={[{ name: "MFA", hint: "Multi-Faktor-Authentifizierung, ein Sicherheitsverfahren, das mindestens zwei unterschiedliche Authentifizierungsfaktoren (Wissen, Besitz, Inhärenz) erfordert, um Identitäten zuverlässiger zu verifizieren." }, { name: "Credential Stuffing", hint: "Cyberangriff, bei dem automatisiert gestohlene Benutzernamen und Passwörter auf verschiedenen Websites ausprobiert werden, um von Passwortwiederverwendung zu profitieren." }, { name: "Brute-Force-Attacke", hint: "Angriff, bei dem Zugangsdaten oder kryptografische Schlüssel automatisiert durch massenhaftes Ausprobieren möglicher Werte ermittelt werden sollen." }]} />
 
 > Berechtigung für Anwendungen von Externe Netzanschlüssen SOLLTE Phishing-resistente Mehr-Faktor-Authentisierung für alle Schnittstellen, auf die von Extern zugegriffen werden könnte, aktivieren.
 
@@ -491,13 +609,17 @@ Phishing-resistente Mehr-Faktor-Authentisierung bezeichnet Verfahren zur Anmeldu
 
 ### BER.5.9 – Mehr-Faktor-Authentisierung für weitreichende Berechtigungen {#BER.5.9}
 
-<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="2" threats="G 0.36, G 0.30" threatsHint="G 0.36 – Identitätsdiebstahl · G 0.30 – Unberechtigte Nutzung oder Administration von Geräten und Systemen" />
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">BER.5.9</span>
+
+<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="2" threats="G 0.36, G 0.30" threatsHint="G 0.36 – Identitätsdiebstahl · G 0.30 – Unberechtigte Nutzung oder Administration von Geräten und Systemen" tags={[{ name: "MFA", hint: "Multi-Faktor-Authentifizierung, ein Sicherheitsverfahren, das mindestens zwei unterschiedliche Authentifizierungsfaktoren (Wissen, Besitz, Inhärenz) erfordert, um Identitäten zuverlässiger zu verifizieren." }, { name: "Living off the land", hint: "Angriffstechnik, bei der legitime, bereits im System vorhandene Tools und Prozesse für böswillige Zwecke genutzt werden, um Erkennung zu erschweren." }, { name: "Privilege Escalation", hint: "Ausweitung von Berechtigungen durch einen Angreifer oder Benutzer, um höhere Rechte zu erlangen als ursprünglich vorgesehen." }, { name: "Credential Stuffing", hint: "Cyberangriff, bei dem automatisiert gestohlene Benutzernamen und Passwörter auf verschiedenen Websites ausprobiert werden, um von Passwortwiederverwendung zu profitieren." }, { name: "Brute-Force-Attacke", hint: "Angriff, bei dem Zugangsdaten oder kryptografische Schlüssel automatisiert durch massenhaftes Ausprobieren möglicher Werte ermittelt werden sollen." }]} />
 
 > Berechtigung SOLLTE Mehr-Faktor-Authentisierung für weitreichende Berechtigungen aktivieren.
 
 Eine Mehr-Faktor-Authentifizierung bei Zugängen mit weitreichenden Berechtigungen, z.B. Administrationskonten, die Zugriff auf wichtige Server wie den Verzeichnisdienst, das MDM, EDR oder DNS haben, erschwert den unberechtigten Zugang zu diesen Zugängen. Auch der Zugriff auch besonders sensible Daten kann eine weitreichende Berechtigung sein.
 
 ### BER.5.10 – Zugriffsbeschränkung pro IT-System {#BER.5.10}
+
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">BER.5.10</span>
 
 <ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="2" threats="G 0.36" threatsHint="G 0.36 – Identitätsdiebstahl" />
 
@@ -507,6 +629,8 @@ Lesender Zugriff bezeichnet in diesem Kontext jede Möglichkeit, Authentifizieru
 
 ### BER.5.11 – Zugriffsbeschränkung pro Anwendung {#BER.5.11}
 
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">BER.5.11</span>
+
 <ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="2" threats="G 0.36" threatsHint="G 0.36 – Identitätsdiebstahl" />
 
 > Berechtigung für Anwendungen SOLLTE den lesenden und schreibenden Zugriff auf Authentifizierungsmittel einschränken.
@@ -514,6 +638,8 @@ Lesender Zugriff bezeichnet in diesem Kontext jede Möglichkeit, Authentifizieru
 Lesender Zugriff bezeichnet in diesem Kontext jede Möglichkeit, Authentifizierungsmittel einzusehen, auszulesen, zu exportieren, zu kopieren oder technisch zu verwenden, ohne sie unmittelbar zu verändern; schreibender Zugriff meint jede Möglichkeit, Authentifizierungsmittel anzulegen, zu ändern, zu ersetzen, zu löschen, zu importieren oder deren Vertrauensstatus zu beeinflussen. Authentifizierungsmittel sind hier alle technischen oder organisatorisch verwalteten Mittel, mit denen Identitäten nachgewiesen oder Vertrauensbeziehungen hergestellt werden, etwa Passwörter, private Schlüssel, API-Keys, Token, Zertifikate, Kerberos-Keytabs, SSH-Schlüssel, Recovery-Codes, Hardware-Token-Zuordnungen oder Einträge in Trust Stores. Der Zugriff auf solche Mittel ist besonders sensibel, weil bereits lesender Zugriff in vielen Fällen zur Nachahmung einer Identität oder zur Umgehung vorgesehener Kontrollmechanismen führen könnte, während schreibender Zugriff zusätzlich Manipulationen an Vertrauensketten, Schlüsselmaterial oder Anmeldeverfahren ermöglichen könnte.
 
 ### BER.5.12 – Zugang nur durch zwei Personen {#BER.5.12}
+
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">BER.5.12</span>
 
 <ControlMeta modalVerb="KANN" secLevel="erhöht" effort="5" threats="G 0.36, G 0.30, G 0.32" threatsHint="G 0.36 – Identitätsdiebstahl · G 0.30 – Unberechtigte Nutzung oder Administration von Geräten und Systemen · G 0.32 – Missbrauch von Berechtigungen" />
 
@@ -523,6 +649,8 @@ Dient zur Absicherung des Zugriffs auf Daten, deren Vertraulichkeit oder Integri
 
 ### BER.5.13 – Identitätsüberprüfung {#BER.5.13}
 
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">BER.5.13</span>
+
 <ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="3" threats="G 0.18" threatsHint="G 0.18 – Fehlplanung oder fehlende Anpassung" />
 
 > Berechtigung SOLLTE vor dem Zurücksetzen von Berechtigungsmitteln eine Identitätsüberprüfung verankern.
@@ -530,6 +658,8 @@ Dient zur Absicherung des Zugriffs auf Daten, deren Vertraulichkeit oder Integri
 Unter einer Identitätsüberprüfung ist hier die Verifikation zu verstehen, ob die anfragende Person tatsächlich die berechtigte Identität besitzt, für die ein neues Passwort vergeben werden soll; in der Fachsprache wird dies häufig als Identity Verification oder Identity Proofing bezeichnet. Ein Passwort-Reset stellt einen besonders sensiblen Vorgang dar, da hierbei bestehende Authentisierungsmerkmale ersetzt werden und eine erfolgreiche Täuschung einem Unbefugten unmittelbar Zugang zu geschützten Informationen und Diensten verschaffen kann. Eine vorgelagerte Identitätsüberprüfung kann das Risiko verringern, dass sich Angreifer durch Social Engineering, gestohlene Kontaktdaten oder die Ausnutzung unzureichender Supportprozesse Zugang zu Benutzerkonten verschaffen könnten. \n\nDas unberechtigte Zurücksetzen von Zugangsdaten ist eine sehr bekannte Angriffsmethode und erfordert vom Täter nur geringe technische Fähigkeiten. Eine eindeutige Identifizierung des Inhabers des Zugangs kann z.B. anhand eines Personalausweises, durch die persönliche Identifikation bei autorisierten Stellen, die Bestätigung über einen unabhängigen zweiten Kommunikationskanal oder die Nutzung bestehender Mehrfaktor-Authentisierung erfolgen.
 
 ### BER.5.14 – Kompromittierte Authentifizierungsmittel {#BER.5.14}
+
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">BER.5.14</span>
 
 <ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="1" threats="G 0.36, G 0.30, G 0.32" threatsHint="G 0.36 – Identitätsdiebstahl · G 0.30 – Unberechtigte Nutzung oder Administration von Geräten und Systemen · G 0.32 – Missbrauch von Berechtigungen" />
 
@@ -541,7 +671,9 @@ Ein Authentifizierungsmittel gilt als kompromittiert, wenn Anzeichen bestehen, d
 
 ### BER.6.1 – Passwortmanager {#BER.6.1}
 
-<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="2" threats="G 0.36, G 0.30, G 0.42" threatsHint="G 0.36 – Identitätsdiebstahl · G 0.30 – Unberechtigte Nutzung oder Administration von Geräten und Systemen · G 0.42 – Social Engineering" />
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">BER.6.1</span>
+
+<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="2" threats="G 0.36, G 0.30, G 0.42" threatsHint="G 0.36 – Identitätsdiebstahl · G 0.30 – Unberechtigte Nutzung oder Administration von Geräten und Systemen · G 0.42 – Social Engineering" tags={[{ name: "Password Policy", hint: "Vorgaben für Erstellung, Nutzung, Änderung und Schutz von Passwörtern, um die Sicherheit von Benutzerkonten zu erhöhen.", synonyms: "Passwortrichtlinie, Passwortregeln" }]} />
 
 > Berechtigung für Nutzende SOLLTE einen Passwortmanager installieren.
 
@@ -549,7 +681,9 @@ Der Einsatz eines Passwortmanagers, der von der Institution den Nutzenden zur Ve
 
 ### BER.6.2 – Blockieren von Passwort Recycling {#BER.6.2}
 
-<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="3" threats="G 0.36, G 0.30, G 0.42" threatsHint="G 0.36 – Identitätsdiebstahl · G 0.30 – Unberechtigte Nutzung oder Administration von Geräten und Systemen · G 0.42 – Social Engineering" />
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">BER.6.2</span>
+
+<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="3" threats="G 0.36, G 0.30, G 0.42" threatsHint="G 0.36 – Identitätsdiebstahl · G 0.30 – Unberechtigte Nutzung oder Administration von Geräten und Systemen · G 0.42 – Social Engineering" tags={[{ name: "Credential Stuffing", hint: "Cyberangriff, bei dem automatisiert gestohlene Benutzernamen und Passwörter auf verschiedenen Websites ausprobiert werden, um von Passwortwiederverwendung zu profitieren." }, { name: "Privilege Escalation", hint: "Ausweitung von Berechtigungen durch einen Angreifer oder Benutzer, um höhere Rechte zu erlangen als ursprünglich vorgesehen." }, { name: "Password Policy", hint: "Vorgaben für Erstellung, Nutzung, Änderung und Schutz von Passwörtern, um die Sicherheit von Benutzerkonten zu erhöhen.", synonyms: "Passwortrichtlinie, Passwortregeln" }]} />
 
 > Berechtigung für Nutzende SOLLTE die Wiederverwendung von Passwörtern blockieren.
 
@@ -557,7 +691,9 @@ Die Wiederverwendung von Passwörtern („password reuse“) ist die Nutzung ide
 
 ### BER.6.3 – Trivialpasswörter {#BER.6.3}
 
-<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="2" threats="G 0.36, G 0.30, G 0.42" threatsHint="G 0.36 – Identitätsdiebstahl · G 0.30 – Unberechtigte Nutzung oder Administration von Geräten und Systemen · G 0.42 – Social Engineering" />
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">BER.6.3</span>
+
+<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="2" threats="G 0.36, G 0.30, G 0.42" threatsHint="G 0.36 – Identitätsdiebstahl · G 0.30 – Unberechtigte Nutzung oder Administration von Geräten und Systemen · G 0.42 – Social Engineering" tags={[{ name: "Credential Stuffing", hint: "Cyberangriff, bei dem automatisiert gestohlene Benutzernamen und Passwörter auf verschiedenen Websites ausprobiert werden, um von Passwortwiederverwendung zu profitieren." }, { name: "Password Policy", hint: "Vorgaben für Erstellung, Nutzung, Änderung und Schutz von Passwörtern, um die Sicherheit von Benutzerkonten zu erhöhen.", synonyms: "Passwortrichtlinie, Passwortregeln" }]} />
 
 > Berechtigung für Nutzende SOLLTE die Verwendung von Trivialpassworten blockieren.
 
@@ -565,7 +701,9 @@ Trivialpasswörter sind leicht zu erratende oder zu diesem Zugangskonto bereits 
 
 ### BER.6.4 – Kriterien für die Qualität von Passwörtern {#BER.6.4}
 
-<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="3" threats="G 0.36, G 0.30" threatsHint="G 0.36 – Identitätsdiebstahl · G 0.30 – Unberechtigte Nutzung oder Administration von Geräten und Systemen" />
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">BER.6.4</span>
+
+<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="3" threats="G 0.36, G 0.30" threatsHint="G 0.36 – Identitätsdiebstahl · G 0.30 – Unberechtigte Nutzung oder Administration von Geräten und Systemen" tags={[{ name: "Privilege Escalation", hint: "Ausweitung von Berechtigungen durch einen Angreifer oder Benutzer, um höhere Rechte zu erlangen als ursprünglich vorgesehen." }, { name: "Credential Stuffing", hint: "Cyberangriff, bei dem automatisiert gestohlene Benutzernamen und Passwörter auf verschiedenen Websites ausprobiert werden, um von Passwortwiederverwendung zu profitieren." }, { name: "Brute-Force-Attacke", hint: "Angriff, bei dem Zugangsdaten oder kryptografische Schlüssel automatisiert durch massenhaftes Ausprobieren möglicher Werte ermittelt werden sollen." }, { name: "Password Policy", hint: "Vorgaben für Erstellung, Nutzung, Änderung und Schutz von Passwörtern, um die Sicherheit von Benutzerkonten zu erhöhen.", synonyms: "Passwortrichtlinie, Passwortregeln" }, { name: "Cryptography", hint: "Wissenschaft der Verschlüsselung von Informationen, um sie vor unbefugtem Zugriff zu schützen und sichere Kommunikation zu ermöglichen." }]} />
 
 > Berechtigung SOLLTE Kriterien für die Qualität von Passwörtern anhand von Lebensdauer und Angriffsmöglichkeiten verankern.
 
@@ -573,7 +711,9 @@ Kriterien für die Qualität von Passwörtern können z.B. eine minimale Entropi
 
 ### BER.6.5 – Anlassbezogene Passwortwechsel {#BER.6.5}
 
-<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="1" threats="G 0.36, G 0.30, G 0.42" threatsHint="G 0.36 – Identitätsdiebstahl · G 0.30 – Unberechtigte Nutzung oder Administration von Geräten und Systemen · G 0.42 – Social Engineering" />
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">BER.6.5</span>
+
+<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="1" threats="G 0.36, G 0.30, G 0.42" threatsHint="G 0.36 – Identitätsdiebstahl · G 0.30 – Unberechtigte Nutzung oder Administration von Geräten und Systemen · G 0.42 – Social Engineering" tags={[{ name: "Password Policy", hint: "Vorgaben für Erstellung, Nutzung, Änderung und Schutz von Passwörtern, um die Sicherheit von Benutzerkonten zu erhöhen.", synonyms: "Passwortrichtlinie, Passwortregeln" }]} />
 
 > Berechtigung SOLLTE einen Passwortwechsel ausschließlich anlassbezogen ausführen.
 
@@ -581,7 +721,9 @@ Ein ausschließlich anlassbezogener Passwortwechsel bedeutet, dass Passwörter n
 
 ### BER.6.6 – Monitoring von Zugangsdaten {#BER.6.6}
 
-<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="3" threats="G 0.36, G 0.30, G 0.18, G 0.47" threatsHint="G 0.36 – Identitätsdiebstahl · G 0.30 – Unberechtigte Nutzung oder Administration von Geräten und Systemen · G 0.18 – Fehlplanung oder fehlende Anpassung · G 0.47 – Schädliche Seiteneffekte IT-gestützter Angriffe" />
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">BER.6.6</span>
+
+<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="3" threats="G 0.36, G 0.30, G 0.18, G 0.47" threatsHint="G 0.36 – Identitätsdiebstahl · G 0.30 – Unberechtigte Nutzung oder Administration von Geräten und Systemen · G 0.18 – Fehlplanung oder fehlende Anpassung · G 0.47 – Schädliche Seiteneffekte IT-gestützter Angriffe" tags={[{ name: "Credential Stuffing", hint: "Cyberangriff, bei dem automatisiert gestohlene Benutzernamen und Passwörter auf verschiedenen Websites ausprobiert werden, um von Passwortwiederverwendung zu profitieren." }, { name: "Password Policy", hint: "Vorgaben für Erstellung, Nutzung, Änderung und Schutz von Passwörtern, um die Sicherheit von Benutzerkonten zu erhöhen.", synonyms: "Passwortrichtlinie, Passwortregeln" }]} />
 
 > Berechtigung SOLLTE Zugangsdaten auf Kompromittierung durch *[einen automatisierten Mechanismus]* überwachen.
 
@@ -591,7 +733,9 @@ Eine Kompromittierung meint hier, dass Zugangsdaten wie Benutzername und Passwor
 
 ### BER.7.1 – Etablierte Algorithmen bei der Schlüsselerzeugung {#BER.7.1}
 
-<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="2" threats="G 0.36" threatsHint="G 0.36 – Identitätsdiebstahl" predecessors={[{ oldId: "CON.1.A1-UA.1", relationship: "intersects-with", link: "https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/03_CON_Konzepte_und_Vorgehensweisen/CON_1_Kryptokonzept_Edition_2023.pdf?__blob=publicationFile&v=3#download=1" }]} />
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">BER.7.1</span>
+
+<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="2" threats="G 0.36" threatsHint="G 0.36 – Identitätsdiebstahl" tags={[{ name: "Cryptography", hint: "Wissenschaft der Verschlüsselung von Informationen, um sie vor unbefugtem Zugriff zu schützen und sichere Kommunikation zu ermöglichen." }]} predecessors={[{ oldId: "CON.1.A1-UA.1", relationship: "intersects-with", link: "https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/03_CON_Konzepte_und_Vorgehensweisen/CON_1_Kryptokonzept_Edition_2023.pdf?__blob=publicationFile&v=3#download=1" }]} />
 
 > Berechtigung SOLLTE die ausschließliche Verwendung etablierter kryptografischer Algorithmen bei der Schlüsselerzeugung nach *[einem anerkannten Standard]* verankern.
 
@@ -599,7 +743,9 @@ Etablierte kryptografische Algorithmen sind mathematisch fundierte Verschlüssel
 
 ### BER.7.2 – Schlüssellänge {#BER.7.2}
 
-<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="2" threats="G 0.36" threatsHint="G 0.36 – Identitätsdiebstahl" />
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">BER.7.2</span>
+
+<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="2" threats="G 0.36" threatsHint="G 0.36 – Identitätsdiebstahl" tags={[{ name: "Cryptography", hint: "Wissenschaft der Verschlüsselung von Informationen, um sie vor unbefugtem Zugriff zu schützen und sichere Kommunikation zu ermöglichen." }]} />
 
 > Berechtigung SOLLTE die Schlüssellängen nach *[einem anerkannten Standard]* bei der Schlüsselerzeugung zuweisen.
 
@@ -607,7 +753,9 @@ Für die Sicherheit von Schlüsseln wie Passwörter oder PINs ist die Länge von
 
 ### BER.7.3 – Verzeichnis öffentlicher Schlüssel {#BER.7.3}
 
-<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="3" threats="G 0.36" threatsHint="G 0.36 – Identitätsdiebstahl" />
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">BER.7.3</span>
+
+<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="3" threats="G 0.36" threatsHint="G 0.36 – Identitätsdiebstahl" tags={[{ name: "Cryptography", hint: "Wissenschaft der Verschlüsselung von Informationen, um sie vor unbefugtem Zugriff zu schützen und sichere Kommunikation zu ermöglichen." }]} />
 
 > Berechtigung SOLLTE zu jedem öffentlichen Schlüssel die dazugehörige Identität, das Ablaufdatum, den Nutzungszweck, die Schlüsselart und den Algorithmus bei der Schlüsselbeglaubigung dokumentieren.
 
@@ -615,7 +763,9 @@ Im Verzeichnis öffentlicher Schlüssel werden die öffentlichen Schlüssel, die
 
 ### BER.7.4 – Erzeugung auf sicheren IT-Systemen {#BER.7.4}
 
-<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="2" threats="G 0.36" threatsHint="G 0.36 – Identitätsdiebstahl" />
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">BER.7.4</span>
+
+<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="2" threats="G 0.36" threatsHint="G 0.36 – Identitätsdiebstahl" tags={[{ name: "Cryptography", hint: "Wissenschaft der Verschlüsselung von Informationen, um sie vor unbefugtem Zugriff zu schützen und sichere Kommunikation zu ermöglichen." }]} />
 
 > Berechtigung SOLLTE die Verwendung eines IT-Systems, welches mindestens dasselbe Schutzniveau bietet, für das der Schlüssel eingesetzt werden soll, bei der Schlüsselerzeugung verankern.
 
@@ -623,7 +773,9 @@ Wird ein Schlüssel auf einem System erzeugt, dass einen geringeren Schutz biete
 
 ### BER.7.5 – Kriterien für die Qualität von Zufallszahlen {#BER.7.5}
 
-<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="3" threats="G 0.36" threatsHint="G 0.36 – Identitätsdiebstahl" />
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">BER.7.5</span>
+
+<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="3" threats="G 0.36" threatsHint="G 0.36 – Identitätsdiebstahl" tags={[{ name: "Cryptography", hint: "Wissenschaft der Verschlüsselung von Informationen, um sie vor unbefugtem Zugriff zu schützen und sichere Kommunikation zu ermöglichen." }]} />
 
 > Berechtigung SOLLTE *[Kriterien]* für die Qualität von Zufallszahlen bei der Schlüsselerzeugung verankern.
 
@@ -631,7 +783,9 @@ Wenn bei der Schlüsselerzeugung ein ungeeigneter Zufallszahlengenerator verwend
 
 ### BER.7.6 – Etablierte Algorithmen beim Transport {#BER.7.6}
 
-<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="2" threats="G 0.36" threatsHint="G 0.36 – Identitätsdiebstahl" />
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">BER.7.6</span>
+
+<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="2" threats="G 0.36" threatsHint="G 0.36 – Identitätsdiebstahl" tags={[{ name: "Cryptography", hint: "Wissenschaft der Verschlüsselung von Informationen, um sie vor unbefugtem Zugriff zu schützen und sichere Kommunikation zu ermöglichen." }]} />
 
 > Berechtigung SOLLTE die ausschließliche Verwendung etablierter kryptografischer Algorithmen beim Transport geheimer Schlüssel verankern.
 
@@ -639,7 +793,9 @@ Aktuelle etablierte Algorithmen sind in BSI TR-02102 zu finden. Der Transport ka
 
 ### BER.7.7 – Kein Transport privater Schlüssel {#BER.7.7}
 
-<ControlMeta modalVerb="KANN" secLevel="erhöht" effort="5" threats="G 0.36" threatsHint="G 0.36 – Identitätsdiebstahl" />
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">BER.7.7</span>
+
+<ControlMeta modalVerb="KANN" secLevel="erhöht" effort="5" threats="G 0.36" threatsHint="G 0.36 – Identitätsdiebstahl" tags={[{ name: "Cryptography", hint: "Wissenschaft der Verschlüsselung von Informationen, um sie vor unbefugtem Zugriff zu schützen und sichere Kommunikation zu ermöglichen." }]} />
 
 > Berechtigung KANN den Export privater Schlüssel durch *[eine zuständige Person oder Rolle]* autorisieren.
 
@@ -647,7 +803,9 @@ Im Allgemeinen ist es sinnvoll, private Schlüssel nur dort zu erzeugen, wo sie 
 
 ### BER.7.8 – Etablierte Algorithmen bei der Schlüsselnutzung {#BER.7.8}
 
-<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="2" threats="G 0.36" threatsHint="G 0.36 – Identitätsdiebstahl" predecessors={[{ oldId: "CON.1.A1-UA.2", relationship: "intersects-with", link: "https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/03_CON_Konzepte_und_Vorgehensweisen/CON_1_Kryptokonzept_Edition_2023.pdf?__blob=publicationFile&v=3#download=1" }]} />
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">BER.7.8</span>
+
+<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="2" threats="G 0.36" threatsHint="G 0.36 – Identitätsdiebstahl" tags={[{ name: "Cryptography", hint: "Wissenschaft der Verschlüsselung von Informationen, um sie vor unbefugtem Zugriff zu schützen und sichere Kommunikation zu ermöglichen." }]} predecessors={[{ oldId: "CON.1.A1-UA.2", relationship: "intersects-with", link: "https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/03_CON_Konzepte_und_Vorgehensweisen/CON_1_Kryptokonzept_Edition_2023.pdf?__blob=publicationFile&v=3#download=1" }]} />
 
 > Berechtigung SOLLTE die ausschließliche Verwendung etablierter Algorithmen bei der Schlüsselnutzung verankern.
 
@@ -655,7 +813,9 @@ Aktuelle etablierte Algorithmen sind in BSI TR-02102 zu finden. Für weitere Det
 
 ### BER.7.9 – Zweckbindung {#BER.7.9}
 
-<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="2" threats="G 0.36" threatsHint="G 0.36 – Identitätsdiebstahl" />
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">BER.7.9</span>
+
+<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="2" threats="G 0.36" threatsHint="G 0.36 – Identitätsdiebstahl" tags={[{ name: "Cryptography", hint: "Wissenschaft der Verschlüsselung von Informationen, um sie vor unbefugtem Zugriff zu schützen und sichere Kommunikation zu ermöglichen." }]} />
 
 > Berechtigung SOLLTE Verstöße gegen die Zweckbindung bei der Schlüsselnutzung untersagen.
 
@@ -663,7 +823,9 @@ Zweckbindung bedeutet, dass der Schlüssel ausschließlich zu dem im Verzeichnis
 
 ### BER.7.10 – Abgelaufene Schlüssel {#BER.7.10}
 
-<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="1" threats="G 0.36, G 0.19, G 0.22" threatsHint="G 0.36 – Identitätsdiebstahl · G 0.19 – Offenlegung schützenswerter Informationen · G 0.22 – Manipulation von Informationen" />
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">BER.7.10</span>
+
+<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="1" threats="G 0.36, G 0.19, G 0.22" threatsHint="G 0.36 – Identitätsdiebstahl · G 0.19 – Offenlegung schützenswerter Informationen · G 0.22 – Manipulation von Informationen" tags={[{ name: "Cryptography", hint: "Wissenschaft der Verschlüsselung von Informationen, um sie vor unbefugtem Zugriff zu schützen und sichere Kommunikation zu ermöglichen." }]} />
 
 > Berechtigung SOLLTE die Nutzung des Schlüssels zur Verschlüsselung oder Signierung nach Ablauf der Nutzungszeit untersagen.
 
@@ -671,7 +833,9 @@ Schlüssel dürfen nach Ablauf der Nutzungszeit nur noch zur Entschlüsselung od
 
 ### BER.7.11 – Integrität {#BER.7.11}
 
-<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="1" threats="G 0.36, G 0.19, G 0.22" threatsHint="G 0.36 – Identitätsdiebstahl · G 0.19 – Offenlegung schützenswerter Informationen · G 0.22 – Manipulation von Informationen" />
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">BER.7.11</span>
+
+<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="1" threats="G 0.36, G 0.19, G 0.22" threatsHint="G 0.36 – Identitätsdiebstahl · G 0.19 – Offenlegung schützenswerter Informationen · G 0.22 – Manipulation von Informationen" tags={[{ name: "Cryptography", hint: "Wissenschaft der Verschlüsselung von Informationen, um sie vor unbefugtem Zugriff zu schützen und sichere Kommunikation zu ermöglichen." }]} />
 
 > Berechtigung SOLLTE die Verifikation der Integrität geheimer Schlüssel vor jeder Nutzung verankern.
 
@@ -679,7 +843,9 @@ Wird die Integrität von Schlüsseln vor der Verwendung nicht geprüft, so könn
 
 ### BER.7.12 – Authentizität {#BER.7.12}
 
-<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="2" threats="G 0.36" threatsHint="G 0.36 – Identitätsdiebstahl" />
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">BER.7.12</span>
+
+<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="2" threats="G 0.36" threatsHint="G 0.36 – Identitätsdiebstahl" tags={[{ name: "Cryptography", hint: "Wissenschaft der Verschlüsselung von Informationen, um sie vor unbefugtem Zugriff zu schützen und sichere Kommunikation zu ermöglichen." }]} />
 
 > Berechtigung SOLLTE die Verifikation der Authentizität öffentlicher Schlüssel vor jeder Nutzung verankern.
 
@@ -687,7 +853,9 @@ Für die Implementierung genügt es, wenn die eingesetzten IT-Produkte bereits s
 
 ### BER.7.13 – Gültigkeit {#BER.7.13}
 
-<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="1" threats="G 0.36" threatsHint="G 0.36 – Identitätsdiebstahl" />
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">BER.7.13</span>
+
+<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="1" threats="G 0.36" threatsHint="G 0.36 – Identitätsdiebstahl" tags={[{ name: "Cryptography", hint: "Wissenschaft der Verschlüsselung von Informationen, um sie vor unbefugtem Zugriff zu schützen und sichere Kommunikation zu ermöglichen." }]} />
 
 > Berechtigung SOLLTE die Verifikation der Gültigkeit des Schlüssels vor jeder Nutzung verankern.
 
@@ -695,7 +863,9 @@ Die Gültigkeit ergibt sich aus Nutzungszeit und Revocation-Status. Für die Imp
 
 ### BER.7.14 – Schlüssel vor Ablauf prüfen {#BER.7.14}
 
-<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="2" threats="G 0.19, G 0.22, G 0.36" threatsHint="G 0.19 – Offenlegung schützenswerter Informationen · G 0.22 – Manipulation von Informationen · G 0.36 – Identitätsdiebstahl" />
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">BER.7.14</span>
+
+<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="2" threats="G 0.19, G 0.22, G 0.36" threatsHint="G 0.19 – Offenlegung schützenswerter Informationen · G 0.22 – Manipulation von Informationen · G 0.36 – Identitätsdiebstahl" tags={[{ name: "Cryptography", hint: "Wissenschaft der Verschlüsselung von Informationen, um sie vor unbefugtem Zugriff zu schützen und sichere Kommunikation zu ermöglichen." }]} />
 
 > Berechtigung SOLLTE Schlüssel auf das baldige Auslaufen der Nutzungszeit *[regelmäßig]* überprüfen.
 
@@ -703,7 +873,9 @@ Wird die Gültigkeit von Schlüsseln vor dem Auslaufen nicht überwacht, so kön
 
 ### BER.7.15 – Vorgehensweise nach Nutzung {#BER.7.15}
 
-<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="3" threats="G 0.19, G 0.22, G 0.36" threatsHint="G 0.19 – Offenlegung schützenswerter Informationen · G 0.22 – Manipulation von Informationen · G 0.36 – Identitätsdiebstahl" />
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">BER.7.15</span>
+
+<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="3" threats="G 0.19, G 0.22, G 0.36" threatsHint="G 0.19 – Offenlegung schützenswerter Informationen · G 0.22 – Manipulation von Informationen · G 0.36 – Identitätsdiebstahl" tags={[{ name: "Cryptography", hint: "Wissenschaft der Verschlüsselung von Informationen, um sie vor unbefugtem Zugriff zu schützen und sichere Kommunikation zu ermöglichen." }]} />
 
 > Berechtigung SOLLTE eine Vorgehensweise zur Außerbetriebnahme geheimer Schlüssel , sobald sie nicht mehr benötigt werden, verankern.
 
@@ -711,7 +883,9 @@ Werden Schlüssen nicht mehr benötigt, so ist es sinnvoll diese im Einklang mit
 
 ### BER.7.16 – Vorgaben für die Schlüsselbeglaubigung {#BER.7.16}
 
-<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="3" threats="G 0.36" threatsHint="G 0.36 – Identitätsdiebstahl" />
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">BER.7.16</span>
+
+<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="3" threats="G 0.36" threatsHint="G 0.36 – Identitätsdiebstahl" tags={[{ name: "Cryptography", hint: "Wissenschaft der Verschlüsselung von Informationen, um sie vor unbefugtem Zugriff zu schützen und sichere Kommunikation zu ermöglichen." }]} />
 
 > Berechtigung SOLLTE Vorgaben für die Schlüsselbeglaubigung verankern.
 
@@ -719,7 +893,9 @@ Je nach Umfang der Beglaubigungstätigkeit gehören hierzu z.B. Algorithmen, Zwe
 
 #### BER.7.16.1 – Zertifizierungsstelle {#BER.7.16.1}
 
-<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="4" threats="G 0.36" threatsHint="G 0.36 – Identitätsdiebstahl" />
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">BER.7.16.1</span>
+
+<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="4" threats="G 0.36" threatsHint="G 0.36 – Identitätsdiebstahl" tags={[{ name: "Cryptography", hint: "Wissenschaft der Verschlüsselung von Informationen, um sie vor unbefugtem Zugriff zu schützen und sichere Kommunikation zu ermöglichen." }]} />
 
 > Berechtigung SOLLTE die Beglaubigung von Schlüsseln *[einer zuständigen Person oder Rolle]* zuweisen.
 
@@ -727,7 +903,9 @@ Die Beglaubigung von Schlüsseln ist technisch komplex. Gleichzeitig hängt von 
 
 #### BER.7.16.2 – Beglaubigung {#BER.7.16.2}
 
-<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="4" threats="G 0.36, G 0.19, G 0.22" threatsHint="G 0.36 – Identitätsdiebstahl · G 0.19 – Offenlegung schützenswerter Informationen · G 0.22 – Manipulation von Informationen" />
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">BER.7.16.2</span>
+
+<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="4" threats="G 0.36, G 0.19, G 0.22" threatsHint="G 0.36 – Identitätsdiebstahl · G 0.19 – Offenlegung schützenswerter Informationen · G 0.22 – Manipulation von Informationen" tags={[{ name: "Cryptography", hint: "Wissenschaft der Verschlüsselung von Informationen, um sie vor unbefugtem Zugriff zu schützen und sichere Kommunikation zu ermöglichen." }]} />
 
 > Berechtigung SOLLTE den Schlüssel anhand der Vorgaben für die Schlüsselbeglaubigung bei Beantragung einer Beglaubigung testen.
 
@@ -735,7 +913,9 @@ Schlüsselbeglaubigung (engl. key certification) ist der kryptographische Nachwe
 
 #### BER.7.16.3 – Erneuerung {#BER.7.16.3}
 
-<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="4" threats="G 0.36" threatsHint="G 0.36 – Identitätsdiebstahl" />
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">BER.7.16.3</span>
+
+<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="4" threats="G 0.36" threatsHint="G 0.36 – Identitätsdiebstahl" tags={[{ name: "Cryptography", hint: "Wissenschaft der Verschlüsselung von Informationen, um sie vor unbefugtem Zugriff zu schützen und sichere Kommunikation zu ermöglichen." }]} />
 
 > Berechtigung SOLLTE den Schlüssel anhand der Vorgaben für die Schlüsselbeglaubigung bei Erneuerung einer Beglaubigung testen.
 
@@ -743,7 +923,9 @@ Die Erneuerung einer Beglaubigung beschreibt den Vorgang, bei dem ein ablaufende
 
 #### BER.7.16.4 – Revocation {#BER.7.16.4}
 
-<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="4" threats="G 0.19, G 0.22, G 0.36" threatsHint="G 0.19 – Offenlegung schützenswerter Informationen · G 0.22 – Manipulation von Informationen · G 0.36 – Identitätsdiebstahl" />
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">BER.7.16.4</span>
+
+<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="4" threats="G 0.19, G 0.22, G 0.36" threatsHint="G 0.19 – Offenlegung schützenswerter Informationen · G 0.22 – Manipulation von Informationen · G 0.36 – Identitätsdiebstahl" tags={[{ name: "Cryptography", hint: "Wissenschaft der Verschlüsselung von Informationen, um sie vor unbefugtem Zugriff zu schützen und sichere Kommunikation zu ermöglichen." }]} />
 
 > Berechtigung SOLLTE den Schlüssel anhand der Vorgaben für die Schlüsselbeglaubigung bei Revocation einer Beglaubigung testen.
 
@@ -751,7 +933,9 @@ Die Revocation einer Beglaubigung (engl. revocation of attestation) ist die nach
 
 #### BER.7.16.5 – Beglaubigungsstatus {#BER.7.16.5}
 
-<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="3" threats="G 0.36" threatsHint="G 0.36 – Identitätsdiebstahl" />
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">BER.7.16.5</span>
+
+<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="3" threats="G 0.36" threatsHint="G 0.36 – Identitätsdiebstahl" tags={[{ name: "Cryptography", hint: "Wissenschaft der Verschlüsselung von Informationen, um sie vor unbefugtem Zugriff zu schützen und sichere Kommunikation zu ermöglichen." }]} />
 
 > Berechtigung SOLLTE den Beglaubigungsstatus des Schlüssels im Verzeichnis öffentlicher Schlüssel dokumentieren.
 
@@ -759,7 +943,9 @@ Der Beglaubigungsstatus erfasst, ob der Schlüssel von der Beglaubigungs- oder Z
 
 #### BER.7.16.6 – Revocationstatus {#BER.7.16.6}
 
-<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="3" threats="G 0.36" threatsHint="G 0.36 – Identitätsdiebstahl" />
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">BER.7.16.6</span>
+
+<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="3" threats="G 0.36" threatsHint="G 0.36 – Identitätsdiebstahl" tags={[{ name: "Cryptography", hint: "Wissenschaft der Verschlüsselung von Informationen, um sie vor unbefugtem Zugriff zu schützen und sichere Kommunikation zu ermöglichen." }]} />
 
 > Berechtigung SOLLTE den Revocationstatus des Schlüssels im Verzeichnis öffentlicher Schlüssel dokumentieren.
 

@@ -54,14 +54,15 @@ const s = STATUS[status];
 const datum = new Intl.DateTimeFormat('de-DE', { dateStyle: 'long' });
 ---
 
+<span data-pagefind-meta="section:Befund"></span>
 <p class="befund-meta not-content">
 	<span class="pill" data-family={t.family} data-role="pflicht" data-tooltip={t.hint} tabindex="0">
 		{t.label}
-		<span class="pill-hint" aria-hidden="true">?</span>
+		<span class="pill-hint" aria-hidden="true" data-pagefind-ignore>?</span>
 	</span>
 	<span class="pill" data-family="neutral" data-role="meta" data-tooltip={s.hint} tabindex="0">
 		{s.label}
-		<span class="pill-hint" aria-hidden="true">?</span>
+		<span class="pill-hint" aria-hidden="true" data-pagefind-ignore>?</span>
 	</span>
 	<span class="befund-datum">gefunden {datum.format(gefunden)}</span>
 </p>

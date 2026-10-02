@@ -5,11 +5,13 @@ description: "Die Praktik Dienstleistersteuerung regelt die kontinuierliche Übe
 
 import ControlMeta from '../../../components/ControlMeta.astro';
 
+<span data-pagefind-meta="section:Anforderung"></span>
+
 <div class="source-note">
-<p>Katalogstand: 10. September 2026 — Quelle: <a href="https://github.com/BSI-Bund/Stand-der-Technik-Bibliothek" target="_blank" rel="noopener noreferrer">BSI Stand-der-Technik-Bibliothek</a>.</p>
+<p>Katalogstand: 24. September 2026 — Quelle: <a href="https://github.com/BSI-Bund/Stand-der-Technik-Bibliothek" target="_blank" rel="noopener noreferrer">BSI Stand-der-Technik-Bibliothek</a>.</p>
 <details>
 <summary>Eine Anforderung von dieser Seite zitieren</summary>
-<p>Maßgeblich ist immer das Original, nicht diese Aufbereitung. Zitierfähig ist: BSI, <em>Anwenderkatalog Grundschutz++</em>, Version 2026-09-10, Dokument-ID ebe77c16-3ddc-42ce-8d53-eff5b6e23334 (RFC 9562), Anforderung <em>&lt;ID&gt;</em> — wobei die ID die Kennung neben der jeweiligen Überschrift ist, etwa <code>GC.5.1.1</code>. Sie bleibt stabil, auch wenn das BSI eine Formulierung ändert.</p>
+<p>Maßgeblich ist immer das Original, nicht diese Aufbereitung. Zitierfähig ist: BSI, <em>Anwenderkatalog Grundschutz++</em>, Version 2026-09-24, Dokument-ID ebe77c16-3ddc-42ce-8d53-eff5b6e23334 (RFC 9562), Anforderung <em>&lt;ID&gt;</em> — wobei die ID die Kennung neben der jeweiligen Überschrift ist, etwa <code>GC.5.1.1</code>. Sie bleibt stabil, auch wenn das BSI eine Formulierung ändert.</p>
 </details>
 </div>
 
@@ -19,13 +21,17 @@ Die Praktik Dienstleistersteuerung regelt die kontinuierliche Überwachung und S
 
 ### DLS.1.1 – Verfahren und Regelungen {#DLS.1.1}
 
-<ControlMeta modalVerb="MUSS" secLevel="normal-SdT" effort="0" threats="G 0.18" threatsHint="G 0.18 – Fehlplanung oder fehlende Anpassung" />
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">DLS.1.1</span>
+
+<ControlMeta modalVerb="MUSS" secLevel="normal-SdT" effort="0" threats="G 0.18" threatsHint="G 0.18 – Fehlplanung oder fehlende Anpassung" tags={[{ name: "Exit-Strategie", hint: "Geplanter Ansatz für den geordneten Ausstieg aus einem Dienstleister-, Produkt- oder Vertragsverhältnis, um Betrieb, Daten und Sicherheit kontrolliert zu überführen.", synonyms: "Anbieterwechsel, Vendor Lock-in, Vertragsende Dienstleister" }]} />
 
 > Dienstleistersteuerung für Dienstleistungen MUSS ein Verfahren zur Steuerung und geordneten Beendigung von Dienstleistungsverträgen verankern.
 
 Hierzu gehört die Kontrolle der Einhaltung von Vereinbarungen zur Sicherheit mit Dienstleistern und (falls erforderlich) einen geeigneten Weg für die Beendigung von Verträgen vorzubereiten. Die bei der Festlegung des Verfahrens im Einzelnen zu berücksichtigenden Inhalte ergeben sich aus den Anforderungen dieser Praktik.
 
 #### DLS.1.1.1 – Dokumentation {#DLS.1.1.1}
+
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">DLS.1.1.1</span>
 
 <ControlMeta modalVerb="MUSS" secLevel="normal-SdT" effort="0" threats="G 0.18, G 0.37" threatsHint="G 0.18 – Fehlplanung oder fehlende Anpassung · G 0.37 – Abstreiten von Handlungen" />
 
@@ -35,6 +41,8 @@ Ohne eine Dokumentation könnte die Einhaltung der Verfahren und Regelungen von 
 
 #### DLS.1.1.2 – Zuweisung der Aufgaben {#DLS.1.1.2}
 
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">DLS.1.1.2</span>
+
 <ControlMeta modalVerb="MUSS" secLevel="normal-SdT" effort="0" threats="G 0.18, G 0.31" threatsHint="G 0.18 – Fehlplanung oder fehlende Anpassung · G 0.31 – Fehlerhafte Nutzung oder Administration von Geräten und Systemen" />
 
 > Dienstleistersteuerung für Dienstleistungen MUSS die mit den Verfahren und Regelungen verbundenen Aufgaben *[zuständigen Personen oder Rollen]* zuweisen.
@@ -43,6 +51,8 @@ Die Zuweisung von Aufgaben bezeichnet die eindeutige und verbindliche Übertragu
 
 #### DLS.1.1.3 – Bekanntgabe {#DLS.1.1.3}
 
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">DLS.1.1.3</span>
+
 <ControlMeta modalVerb="MUSS" secLevel="normal-SdT" effort="0" threats="G 0.18, G 0.31" threatsHint="G 0.18 – Fehlplanung oder fehlende Anpassung · G 0.31 – Fehlerhafte Nutzung oder Administration von Geräten und Systemen" />
 
 > Dienstleistersteuerung für Dienstleistungen MUSS die zuständigen Personen oder Rollen über die Verfahren und Regelungen informieren.
@@ -50,6 +60,8 @@ Die Zuweisung von Aufgaben bezeichnet die eindeutige und verbindliche Übertragu
 Wenn die Zuständigen die etablierten Verfahren nicht kennen, besteht die Gefahr, dass diese – sei es aus Unwissenheit oder Bequemlichkeit – umgangen werden, was die Schutzwirkung des gesamten Managementsystems untergräbt. So könnte ein neuer Systemadministrator eine weitreichende Konfigurationsänderung vornehmen, ohne den vorgeschriebenen Genehmigungsprozess zu durchlaufen, was zu einem unbemerkten Sicherheitsrisiko führen könnte. Eine gezielte Information kann hingegen die Akzeptanz der Regelungen fördern und sicherstellen, dass alle Beteiligten ihre Rolle im Prozess verstehen und die Abläufe korrekt anwenden. Zur Umsetzung ist es sinnvoll die Dokumentation im Rahmen eines Onboarding-Prozesses bekanntzugeben und bei allen Änderungen eine automtatische Benachrichtigung aller zuständigen Personen oder Rollen anzustoßen.
 
 ### DLS.1.2 – Regelmäßige Überprüfung {#DLS.1.2}
+
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">DLS.1.2</span>
 
 <ControlMeta modalVerb="MUSS" secLevel="normal-SdT" effort="0" threats="G 0.18" threatsHint="G 0.18 – Fehlplanung oder fehlende Anpassung" />
 
@@ -61,7 +73,9 @@ Eine geplante Überprüfung der etablierten Verfahren und Regelungen dient dazu 
 
 ### DLS.2.1 – Mehr-Faktor-Authentifizierung {#DLS.2.1}
 
-<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="3" threats="G 0.18, G 0.14" threatsHint="G 0.18 – Fehlplanung oder fehlende Anpassung · G 0.14 – Ausspähen von Informationen (Spionage)" />
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">DLS.2.1</span>
+
+<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="3" threats="G 0.18, G 0.14" threatsHint="G 0.18 – Fehlplanung oder fehlende Anpassung · G 0.14 – Ausspähen von Informationen (Spionage)" tags={[{ name: "Advanced Persistent Threats (APT)", hint: "Komplexe, gezielte und langfristige Cyberangriffe, bei denen Angreifer unbemerkt in einer Umgebung verbleiben, um Informationen auszuspähen oder Systeme zu manipulieren.", synonyms: "gezielter Angriff, staatlich gesteuerter Angreifer" }]} />
 
 > Dienstleistersteuerung für Dienstleistungen SOLLTE Mehr-Faktor-Authentifizierung bei Login in Online-Dienste aktivieren.
 
@@ -69,7 +83,9 @@ Online-Dienste wie die Verwaltung von TK-Rufnummern oder Cloud-Office-Anwendunge
 
 ### DLS.2.2 – Transportverschlüsselung {#DLS.2.2}
 
-<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="2" threats="G 0.18, G 0.14" threatsHint="G 0.18 – Fehlplanung oder fehlende Anpassung · G 0.14 – Ausspähen von Informationen (Spionage)" />
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">DLS.2.2</span>
+
+<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="2" threats="G 0.18, G 0.14" threatsHint="G 0.18 – Fehlplanung oder fehlende Anpassung · G 0.14 – Ausspähen von Informationen (Spionage)" tags={[{ name: "Lieferketten", hint: "Netzwerk von Organisationen, Menschen und Prozessen, die an der Produktion und Bereitstellung von Produkten oder Dienstleistungen beteiligt sind, einschließlich der damit verbundenen Sicherheitsrisiken.", synonyms: "Lieferanten, Zulieferer, Dienstleister, Supply Chain" }]} />
 
 > Dienstleistersteuerung für Daten SOLLTE den Transport bei der Übertragung zum Anbieter nach *[einem anerkannten Standard]* verschlüsseln.
 
@@ -77,7 +93,9 @@ Online-Dienste wie die Verwaltung von TK-Rufnummern oder Cloud-Office-Anwendunge
 
 ### DLS.2.3 – Vollverschlüsselung {#DLS.2.3}
 
-<ControlMeta modalVerb="KANN" secLevel="erhöht" effort="5" threats="G 0.18, G 0.14" threatsHint="G 0.18 – Fehlplanung oder fehlende Anpassung · G 0.14 – Ausspähen von Informationen (Spionage)" />
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">DLS.2.3</span>
+
+<ControlMeta modalVerb="KANN" secLevel="erhöht" effort="5" threats="G 0.18, G 0.14" threatsHint="G 0.18 – Fehlplanung oder fehlende Anpassung · G 0.14 – Ausspähen von Informationen (Spionage)" tags={[{ name: "Lieferketten", hint: "Netzwerk von Organisationen, Menschen und Prozessen, die an der Produktion und Bereitstellung von Produkten oder Dienstleistungen beteiligt sind, einschließlich der damit verbundenen Sicherheitsrisiken.", synonyms: "Lieferanten, Zulieferer, Dienstleister, Supply Chain" }]} />
 
 > Dienstleistersteuerung für Daten KANN diese, wenn der Anbieter deren Inhalt zur Vertragserbringung nicht kennen muss, für diesen nicht entschlüsselbar vor der Übertragung zum Dienstleister verschlüsseln.
 
@@ -87,7 +105,9 @@ Hierbei handelt es sich um eine Verschlüsselung at-rest, bei welcher der Dienst
 
 ### DLS.3.1 – Einhaltung der Sicherheitsvorgaben {#DLS.3.1}
 
-<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="3" threats="G 0.11, G 0.29, G 0.20" threatsHint="G 0.11 – Ausfall oder Störung von Dienstleistern · G 0.29 – Verstoß gegen Gesetze oder Regelungen · G 0.20 – Informationen oder Produkte aus unzuverlässiger Quelle" />
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">DLS.3.1</span>
+
+<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="3" threats="G 0.11, G 0.29, G 0.20" threatsHint="G 0.11 – Ausfall oder Störung von Dienstleistern · G 0.29 – Verstoß gegen Gesetze oder Regelungen · G 0.20 – Informationen oder Produkte aus unzuverlässiger Quelle" tags={[{ name: "Lieferketten", hint: "Netzwerk von Organisationen, Menschen und Prozessen, die an der Produktion und Bereitstellung von Produkten oder Dienstleistungen beteiligt sind, einschließlich der damit verbundenen Sicherheitsrisiken.", synonyms: "Lieferanten, Zulieferer, Dienstleister, Supply Chain" }]} />
 
 > Dienstleistersteuerung für Dienstleistungen SOLLTE die Einhaltung der Sicherheitsvorgaben durch den Dienstleister *[regelmäßig]* überprüfen.
 
@@ -95,7 +115,9 @@ Hierzu ist zu prüfen, ob Anzeichen vorliegen, dass der Dienstleister die im Ver
 
 #### DLS.3.1.1 – Audit oder Zertifikat {#DLS.3.1.1}
 
-<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="4" threats="G 0.29, G 0.11, G 0.20, G 0.18" threatsHint="G 0.29 – Verstoß gegen Gesetze oder Regelungen · G 0.11 – Ausfall oder Störung von Dienstleistern · G 0.20 – Informationen oder Produkte aus unzuverlässiger Quelle · G 0.18 – Fehlplanung oder fehlende Anpassung" />
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">DLS.3.1.1</span>
+
+<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="4" threats="G 0.29, G 0.11, G 0.20, G 0.18" threatsHint="G 0.29 – Verstoß gegen Gesetze oder Regelungen · G 0.11 – Ausfall oder Störung von Dienstleistern · G 0.20 – Informationen oder Produkte aus unzuverlässiger Quelle · G 0.18 – Fehlplanung oder fehlende Anpassung" tags={[{ name: "Lieferketten", hint: "Netzwerk von Organisationen, Menschen und Prozessen, die an der Produktion und Bereitstellung von Produkten oder Dienstleistungen beteiligt sind, einschließlich der damit verbundenen Sicherheitsrisiken.", synonyms: "Lieferanten, Zulieferer, Dienstleister, Supply Chain" }]} />
 
 > Dienstleistersteuerung für Outsourcing SOLLTE die Einhaltung der Sicherheitsvorgaben anhand eines *[Audits, Zertifikates oder vergleichbaren Sicherheitsnachweises]* *[regelmäßig]* überprüfen.
 
@@ -103,7 +125,9 @@ Hierzu ist zu prüfen, ob Anzeichen vorliegen, dass der Dienstleister die im Ver
 
 ### DLS.3.2 – Checkup {#DLS.3.2}
 
-<ControlMeta modalVerb="KANN" secLevel="erhöht" effort="4" threats="G 0.11, G 0.20" threatsHint="G 0.11 – Ausfall oder Störung von Dienstleistern · G 0.20 – Informationen oder Produkte aus unzuverlässiger Quelle" predecessors={[{ oldId: "OPS.2.3.A2-UA.4", relationship: "equivalent-to", link: "https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/04_OPS_Betrieb/OPS_2_3_Nutzung_von_Outsourcing_Edition_2023.pdf?__blob=publicationFile&v=4#download=1" }]} />
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">DLS.3.2</span>
+
+<ControlMeta modalVerb="KANN" secLevel="erhöht" effort="4" threats="G 0.11, G 0.20" threatsHint="G 0.11 – Ausfall oder Störung von Dienstleistern · G 0.20 – Informationen oder Produkte aus unzuverlässiger Quelle" tags={[{ name: "Lieferketten", hint: "Netzwerk von Organisationen, Menschen und Prozessen, die an der Produktion und Bereitstellung von Produkten oder Dienstleistungen beteiligt sind, einschließlich der damit verbundenen Sicherheitsrisiken.", synonyms: "Lieferanten, Zulieferer, Dienstleister, Supply Chain" }]} predecessors={[{ oldId: "OPS.2.3.A2-UA.4", relationship: "equivalent-to", link: "https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/04_OPS_Betrieb/OPS_2_3_Nutzung_von_Outsourcing_Edition_2023.pdf?__blob=publicationFile&v=4#download=1" }]} />
 
 > Dienstleistersteuerung für Outsourcing KANN die risikoorientierte Entscheidung über Outsourcing auf Grundlage der Geschäftsprozessprofile auf Änderungen der Gefährdungslage oder Prozessinhalte *[regelmäßig]* überprüfen.
 
@@ -111,7 +135,9 @@ Die risikoorientierte Entscheidung über Outsourcing kann in diesem Kontext als 
 
 ### DLS.3.3 – Strategie-Check {#DLS.3.3}
 
-<ControlMeta modalVerb="KANN" secLevel="erhöht" effort="4" threats="G 0.11, G 0.20" threatsHint="G 0.11 – Ausfall oder Störung von Dienstleistern · G 0.20 – Informationen oder Produkte aus unzuverlässiger Quelle" />
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">DLS.3.3</span>
+
+<ControlMeta modalVerb="KANN" secLevel="erhöht" effort="4" threats="G 0.11, G 0.20" threatsHint="G 0.11 – Ausfall oder Störung von Dienstleistern · G 0.20 – Informationen oder Produkte aus unzuverlässiger Quelle" tags={[{ name: "Lieferketten", hint: "Netzwerk von Organisationen, Menschen und Prozessen, die an der Produktion und Bereitstellung von Produkten oder Dienstleistungen beteiligt sind, einschließlich der damit verbundenen Sicherheitsrisiken.", synonyms: "Lieferanten, Zulieferer, Dienstleister, Supply Chain" }]} />
 
 > Dienstleistersteuerung für Outsourcing KANN die Strategie auf Vollständigkeit und Korrektheit in Bezug auf die betrachteten Geschäftsprozesse bei Änderungen der Geschäftsprozessprofile überprüfen.
 
@@ -119,7 +145,9 @@ Vollständigkeit bedeutet hier, dass die Gesamtheit der ausgelagerten Prozesse e
 
 ### DLS.3.4 – Anhörung {#DLS.3.4}
 
-<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="4" threats="G 0.11, G 0.20" threatsHint="G 0.11 – Ausfall oder Störung von Dienstleistern · G 0.20 – Informationen oder Produkte aus unzuverlässiger Quelle" />
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">DLS.3.4</span>
+
+<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="4" threats="G 0.11, G 0.20" threatsHint="G 0.11 – Ausfall oder Störung von Dienstleistern · G 0.20 – Informationen oder Produkte aus unzuverlässiger Quelle" tags={[{ name: "Lieferketten", hint: "Netzwerk von Organisationen, Menschen und Prozessen, die an der Produktion und Bereitstellung von Produkten oder Dienstleistungen beteiligt sind, einschließlich der damit verbundenen Sicherheitsrisiken.", synonyms: "Lieferanten, Zulieferer, Dienstleister, Supply Chain" }]} />
 
 > Dienstleistersteuerung für Outsourcing SOLLTE den Dienstleister zu Sicherheitsmaßnahmen für betroffene Zielobjekte anhören.
 
@@ -127,7 +155,9 @@ Betroffen sind alle Zielobjekte, zu denen vom Dienstleister (Teil-)Leistungen er
 
 ### DLS.3.5 – Blockierung unzuverlässiger Dienstleister {#DLS.3.5}
 
-<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="3" threats="G 0.11, G 0.19, G 0.20" threatsHint="G 0.11 – Ausfall oder Störung von Dienstleistern · G 0.19 – Offenlegung schützenswerter Informationen · G 0.20 – Informationen oder Produkte aus unzuverlässiger Quelle" />
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">DLS.3.5</span>
+
+<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="3" threats="G 0.11, G 0.19, G 0.20" threatsHint="G 0.11 – Ausfall oder Störung von Dienstleistern · G 0.19 – Offenlegung schützenswerter Informationen · G 0.20 – Informationen oder Produkte aus unzuverlässiger Quelle" tags={[{ name: "Lieferketten", hint: "Netzwerk von Organisationen, Menschen und Prozessen, die an der Produktion und Bereitstellung von Produkten oder Dienstleistungen beteiligt sind, einschließlich der damit verbundenen Sicherheitsrisiken.", synonyms: "Lieferanten, Zulieferer, Dienstleister, Supply Chain" }, { name: "Exit-Strategie", hint: "Geplanter Ansatz für den geordneten Ausstieg aus einem Dienstleister-, Produkt- oder Vertragsverhältnis, um Betrieb, Daten und Sicherheit kontrolliert zu überführen.", synonyms: "Anbieterwechsel, Vendor Lock-in, Vertragsende Dienstleister" }]} />
 
 > Dienstleistersteuerung für Dienstleistungen SOLLTE unzuverlässige Dienstleister oder Subdienstleister blockieren.
 
@@ -135,7 +165,9 @@ Ein Dienstleister gilt als unzuverlässig, wenn zukünftig mit Verstößen gegen
 
 ### DLS.3.6 – Portabilität {#DLS.3.6}
 
-<ControlMeta modalVerb="KANN" secLevel="erhöht" effort="5" threats="G 0.11, G 0.20" threatsHint="G 0.11 – Ausfall oder Störung von Dienstleistern · G 0.20 – Informationen oder Produkte aus unzuverlässiger Quelle" />
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">DLS.3.6</span>
+
+<ControlMeta modalVerb="KANN" secLevel="erhöht" effort="5" threats="G 0.11, G 0.20" threatsHint="G 0.11 – Ausfall oder Störung von Dienstleistern · G 0.20 – Informationen oder Produkte aus unzuverlässiger Quelle" tags={[{ name: "Lieferketten", hint: "Netzwerk von Organisationen, Menschen und Prozessen, die an der Produktion und Bereitstellung von Produkten oder Dienstleistungen beteiligt sind, einschließlich der damit verbundenen Sicherheitsrisiken.", synonyms: "Lieferanten, Zulieferer, Dienstleister, Supply Chain" }, { name: "Exit-Strategie", hint: "Geplanter Ansatz für den geordneten Ausstieg aus einem Dienstleister-, Produkt- oder Vertragsverhältnis, um Betrieb, Daten und Sicherheit kontrolliert zu überführen.", synonyms: "Anbieterwechsel, Vendor Lock-in, Vertragsende Dienstleister" }]} />
 
 > Dienstleistersteuerung für Outsourcing KANN die Portabilität des ausgelagerten Prozesses *[regelmäßig]* überprüfen.
 
@@ -145,7 +177,9 @@ Hierunter ist zu verstehen, dass regelmäßig ein Test durchgeführt wird, bei d
 
 ### DLS.4.1 – Dekomissionierung {#DLS.4.1}
 
-<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="2" threats="G 0.18" threatsHint="G 0.18 – Fehlplanung oder fehlende Anpassung" />
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">DLS.4.1</span>
+
+<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="2" threats="G 0.18" threatsHint="G 0.18 – Fehlplanung oder fehlende Anpassung" tags={[{ name: "Lieferketten", hint: "Netzwerk von Organisationen, Menschen und Prozessen, die an der Produktion und Bereitstellung von Produkten oder Dienstleistungen beteiligt sind, einschließlich der damit verbundenen Sicherheitsrisiken.", synonyms: "Lieferanten, Zulieferer, Dienstleister, Supply Chain" }, { name: "Exit-Strategie", hint: "Geplanter Ansatz für den geordneten Ausstieg aus einem Dienstleister-, Produkt- oder Vertragsverhältnis, um Betrieb, Daten und Sicherheit kontrolliert zu überführen.", synonyms: "Anbieterwechsel, Vendor Lock-in, Vertragsende Dienstleister" }]} />
 
 > Dienstleistersteuerung für Dienstleistungen SOLLTE eine Vorgehensweise zur Dekommissionierung vor Vertragsende verankern.
 
@@ -153,7 +187,9 @@ Der Begriff Dekommissionierung bezeichnet hier das strukturierte und nachweisbar
 
 #### DLS.4.1.1 – Unabhängigkeit {#DLS.4.1.1}
 
-<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="3" threats="G 0.18" threatsHint="G 0.18 – Fehlplanung oder fehlende Anpassung" />
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">DLS.4.1.1</span>
+
+<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="3" threats="G 0.18" threatsHint="G 0.18 – Fehlplanung oder fehlende Anpassung" tags={[{ name: "Lieferketten", hint: "Netzwerk von Organisationen, Menschen und Prozessen, die an der Produktion und Bereitstellung von Produkten oder Dienstleistungen beteiligt sind, einschließlich der damit verbundenen Sicherheitsrisiken.", synonyms: "Lieferanten, Zulieferer, Dienstleister, Supply Chain" }, { name: "Exit-Strategie", hint: "Geplanter Ansatz für den geordneten Ausstieg aus einem Dienstleister-, Produkt- oder Vertragsverhältnis, um Betrieb, Daten und Sicherheit kontrolliert zu überführen.", synonyms: "Anbieterwechsel, Vendor Lock-in, Vertragsende Dienstleister" }]} />
 
 > Dienstleistersteuerung für Outsourcing SOLLTE die Unabhängigkeit der Verarbeitung schützenswerter Informationen vor der Außerbetriebnahme testen.
 
@@ -161,7 +197,9 @@ Der Begriff Dekommissionierung bezeichnet hier das strukturierte und nachweisbar
 
 #### DLS.4.1.2 – Berechtigungen deaktivieren {#DLS.4.1.2}
 
-<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="3" threats="G 0.18, G 0.29" threatsHint="G 0.18 – Fehlplanung oder fehlende Anpassung · G 0.29 – Verstoß gegen Gesetze oder Regelungen" />
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">DLS.4.1.2</span>
+
+<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="3" threats="G 0.18, G 0.29" threatsHint="G 0.18 – Fehlplanung oder fehlende Anpassung · G 0.29 – Verstoß gegen Gesetze oder Regelungen" tags={[{ name: "Lieferketten", hint: "Netzwerk von Organisationen, Menschen und Prozessen, die an der Produktion und Bereitstellung von Produkten oder Dienstleistungen beteiligt sind, einschließlich der damit verbundenen Sicherheitsrisiken.", synonyms: "Lieferanten, Zulieferer, Dienstleister, Supply Chain" }, { name: "Exit-Strategie", hint: "Geplanter Ansatz für den geordneten Ausstieg aus einem Dienstleister-, Produkt- oder Vertragsverhältnis, um Betrieb, Daten und Sicherheit kontrolliert zu überführen.", synonyms: "Anbieterwechsel, Vendor Lock-in, Vertragsende Dienstleister" }]} />
 
 > Dienstleistersteuerung für Dienstleistungen SOLLTE für den Vertrag benötigte Berechtigungen bei Vertragsende unverzüglich deaktivieren.
 

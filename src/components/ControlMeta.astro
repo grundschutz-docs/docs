@@ -10,10 +10,11 @@ interface Props {
 	effort?: string;
 	threats?: string;
 	threatsHint?: string;
+	tags?: { name: string; hint?: string; synonyms?: string }[];
 	predecessors?: { oldId: string; relationship: string; link?: string }[];
 }
 
-const { modalVerb, secLevel, effort, threats, threatsHint, predecessors } = Astro.props;
+const { modalVerb, secLevel, effort, threats, threatsHint, tags, predecessors } = Astro.props;
 
 // OSCAL-Beziehungstypen aus der Mapping-Datei sind englisches
 // Standard-Vokabular -- auf einer sonst durchgehend deutschen Seite mit
@@ -107,7 +108,7 @@ const effortInfo = effort ? EFFORT[effort] : undefined;
 ---
 
 {
-	(modalInfo || secInfo || effortInfo || threats) && (
+	(modalInfo || secInfo || effortInfo || threats || (tags && tags.length > 0)) && (
 		<p class="control-meta not-content">
 			{modalInfo && (
 				<span
@@ -119,7 +120,7 @@ const effortInfo = effort ? EFFORT[effort] : undefined;
 					tabindex="0"
 				>
 					{modalVerb}
-					<span class="pill-hint" aria-hidden="true">?</span>
+					<span class="pill-hint" aria-hidden="true" data-pagefind-ignore>?</span>
 				</span>
 			)}
 			{secInfo && (
@@ -137,7 +138,7 @@ const effortInfo = effort ? EFFORT[effort] : undefined;
 					    Pille zur breitesten der Zeile. Bei Aufwand bleibt das
 					    Präfix, dort trägt eine nackte Zahl keine Bedeutung. */}
 					{secInfo.label}
-					<span class="pill-hint" aria-hidden="true">?</span>
+					<span class="pill-hint" aria-hidden="true" data-pagefind-ignore>?</span>
 				</span>
 			)}
 			{effortInfo && (
@@ -150,7 +151,7 @@ const effortInfo = effort ? EFFORT[effort] : undefined;
 					tabindex="0"
 				>
 					Aufwand: {effort}
-					<span class="pill-hint" aria-hidden="true">?</span>
+					<span class="pill-hint" aria-hidden="true" data-pagefind-ignore>?</span>
 				</span>
 			)}
 			{threats && (
@@ -163,9 +164,25 @@ const effortInfo = effort ? EFFORT[effort] : undefined;
 					tabindex="0"
 				>
 					Gefährdungen: {threats}
-					{threatsHint && <span class="pill-hint" aria-hidden="true">?</span>}
+					{threatsHint && <span class="pill-hint" aria-hidden="true" data-pagefind-ignore>?</span>}
 				</span>
 			)}
+			{tags && tags.map((t) => (
+				<span
+					class="pill"
+					data-family="calm"
+					data-role="meta"
+					data-tooltip={t.hint}
+					data-pagefind-filter={`Thema:${t.name}`}
+					data-synonyms={t.synonyms}
+					data-pagefind-index-attrs={t.synonyms ? 'data-synonyms' : undefined}
+					aria-label={`Thema: ${t.name}.${t.hint ? ` ${t.hint}` : ''}`}
+					tabindex="0"
+				>
+					{t.name}
+					{t.hint && <span class="pill-hint" aria-hidden="true" data-pagefind-ignore>?</span>}
+				</span>
+			))}
 		</p>
 	)
 }
@@ -201,7 +218,7 @@ const effortInfo = effort ? EFFORT[effort] : undefined;
 									tabindex="0"
 								>
 									{label}
-									<span class="pill-hint" aria-hidden="true">?</span>
+									<span class="pill-hint" aria-hidden="true" data-pagefind-ignore>?</span>
 								</span>
 							</td>
 						</tr>
@@ -298,7 +315,11 @@ const effortInfo = effort ? EFFORT[effort] : undefined;
 	/* Sichtbarer Hinweis, dass hier mehr Info per Hover/Fokus steckt —
 	   ohne das wirkt eine Pille wie reiner Text, niemand kommt auf die Idee
 	   zu hovern. Farbe folgt currentColor, passt sich also automatisch an
-	   jede Pill-Familie an. */
+	   jede Pill-Familie an.
+	   data-pagefind-ignore am Element selbst (nicht nur aria-hidden): das
+	   versteckt nur vor Screenreadern, Pagefind indexiert sichtbaren Text
+	   unabhaengig von ARIA. Ohne das stand ein nacktes "?" in jedem
+	   Such-Ausschnitt, der eine Pille mit Hint traf. */
 	.pill-hint {
 		display: inline-flex;
 		align-items: center;

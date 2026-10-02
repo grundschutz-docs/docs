@@ -5,11 +5,13 @@ description: "Die Praktik Sensibilisierung sorgt dafür, dass alle Mitarbeitende
 
 import ControlMeta from '../../../components/ControlMeta.astro';
 
+<span data-pagefind-meta="section:Anforderung"></span>
+
 <div class="source-note">
-<p>Katalogstand: 10. September 2026 — Quelle: <a href="https://github.com/BSI-Bund/Stand-der-Technik-Bibliothek" target="_blank" rel="noopener noreferrer">BSI Stand-der-Technik-Bibliothek</a>.</p>
+<p>Katalogstand: 24. September 2026 — Quelle: <a href="https://github.com/BSI-Bund/Stand-der-Technik-Bibliothek" target="_blank" rel="noopener noreferrer">BSI Stand-der-Technik-Bibliothek</a>.</p>
 <details>
 <summary>Eine Anforderung von dieser Seite zitieren</summary>
-<p>Maßgeblich ist immer das Original, nicht diese Aufbereitung. Zitierfähig ist: BSI, <em>Anwenderkatalog Grundschutz++</em>, Version 2026-09-10, Dokument-ID ebe77c16-3ddc-42ce-8d53-eff5b6e23334 (RFC 9562), Anforderung <em>&lt;ID&gt;</em> — wobei die ID die Kennung neben der jeweiligen Überschrift ist, etwa <code>GC.5.1.1</code>. Sie bleibt stabil, auch wenn das BSI eine Formulierung ändert.</p>
+<p>Maßgeblich ist immer das Original, nicht diese Aufbereitung. Zitierfähig ist: BSI, <em>Anwenderkatalog Grundschutz++</em>, Version 2026-09-24, Dokument-ID ebe77c16-3ddc-42ce-8d53-eff5b6e23334 (RFC 9562), Anforderung <em>&lt;ID&gt;</em> — wobei die ID die Kennung neben der jeweiligen Überschrift ist, etwa <code>GC.5.1.1</code>. Sie bleibt stabil, auch wenn das BSI eine Formulierung ändert.</p>
 </details>
 </div>
 
@@ -19,13 +21,17 @@ Die Praktik Sensibilisierung sorgt dafür, dass alle Mitarbeitenden über die Le
 
 ### SENS.1.1 – Verfahren und Regelungen {#SENS.1.1}
 
-<ControlMeta modalVerb="MUSS" secLevel="normal-SdT" effort="0" threats="G 0.18" threatsHint="G 0.18 – Fehlplanung oder fehlende Anpassung" predecessors={[{ oldId: "ORP.3.A9-UA.1", relationship: "intersects-with", link: "https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/02_ORP_Organisation_und_Personal/ORP_3_Sensibilisierung_und_Schulung_Editon_2023.pdf?__blob=publicationFile&v=3#download=1" }]} />
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">SENS.1.1</span>
+
+<ControlMeta modalVerb="MUSS" secLevel="normal-SdT" effort="0" threats="G 0.18" threatsHint="G 0.18 – Fehlplanung oder fehlende Anpassung" tags={[{ name: "Advanced Persistent Threats (APT)", hint: "Komplexe, gezielte und langfristige Cyberangriffe, bei denen Angreifer unbemerkt in einer Umgebung verbleiben, um Informationen auszuspähen oder Systeme zu manipulieren.", synonyms: "gezielter Angriff, staatlich gesteuerter Angreifer" }]} predecessors={[{ oldId: "ORP.3.A9-UA.1", relationship: "intersects-with", link: "https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/02_ORP_Organisation_und_Personal/ORP_3_Sensibilisierung_und_Schulung_Editon_2023.pdf?__blob=publicationFile&v=3#download=1" }]} />
 
 > Sensibilisierung MUSS Verfahren und Regelungen zur rollenspezifischen Schulung und Sensibilisierung verankern.
 
 Zweck ist es, internen und externen Nutzenden die korrekte Verarbeitung von schützenswerten Informationen sowie die sichere Bedienung von IT-Systemen und Anwendungen nahezubringen. Ohne Sensibilisierung könnte etwa ein Administrator durch Unachtsamkeit kritische Systemkonfigurationen offenlegen, eine Pflegekraft könnte Patientendaten in unsicheren Kanälen weitergeben oder ein Beschäftigter im Einkauf könnte auf täuschend echt wirkende Phishing-Mails hereinfallen. Durch passgenaue Schulungen kann dagegen erreicht werden, dass Mitarbeitende die für ihre Aufgaben relevanten Gefahren frühzeitig erkennen, geeignete Schutzmaßnahmen anwenden und damit einen aktiven Beitrag zur Informationssicherheit leisten. Zweckmäßig ist es, im Rahmen der Ersteinweisung dazu Schulungen durchzuführen und um jährliche Information über aktuelle Neuerungen zu ergänzen. Zur Ergänzung und Erinnerung sind z.B. Poster oder Kampagnen sinnvoll. Die bei der Festlegung des Verfahrens im Einzelnen zu berücksichtigenden Inhalte ergeben sich aus den Anforderungen dieser Praktik.
 
 #### SENS.1.1.1 – Dokumentation {#SENS.1.1.1}
+
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">SENS.1.1.1</span>
 
 <ControlMeta modalVerb="MUSS" secLevel="normal-SdT" effort="0" threats="G 0.18, G 0.37" threatsHint="G 0.18 – Fehlplanung oder fehlende Anpassung · G 0.37 – Abstreiten von Handlungen" />
 
@@ -35,6 +41,8 @@ Ohne eine Dokumentation könnte die Einhaltung der Verfahren und Regelungen von 
 
 #### SENS.1.1.2 – Zuweisung der Aufgaben {#SENS.1.1.2}
 
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">SENS.1.1.2</span>
+
 <ControlMeta modalVerb="MUSS" secLevel="normal-SdT" effort="0" threats="G 0.18, G 0.31" threatsHint="G 0.18 – Fehlplanung oder fehlende Anpassung · G 0.31 – Fehlerhafte Nutzung oder Administration von Geräten und Systemen" />
 
 > Sensibilisierung MUSS die mit den Verfahren und Regelungen verbundenen Aufgaben *[zuständigen Personen oder Rollen]* zuweisen.
@@ -43,6 +51,8 @@ Die Zuweisung von Aufgaben bezeichnet die eindeutige und verbindliche Übertragu
 
 #### SENS.1.1.3 – Bekanntgabe {#SENS.1.1.3}
 
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">SENS.1.1.3</span>
+
 <ControlMeta modalVerb="MUSS" secLevel="normal-SdT" effort="0" threats="G 0.18, G 0.31" threatsHint="G 0.18 – Fehlplanung oder fehlende Anpassung · G 0.31 – Fehlerhafte Nutzung oder Administration von Geräten und Systemen" />
 
 > Sensibilisierung MUSS die zuständigen Personen oder Rollen über die Verfahren und Regelungen informieren.
@@ -50,6 +60,8 @@ Die Zuweisung von Aufgaben bezeichnet die eindeutige und verbindliche Übertragu
 Wenn die Zuständigen die etablierten Verfahren nicht kennen, besteht die Gefahr, dass diese – sei es aus Unwissenheit oder Bequemlichkeit – umgangen werden, was die Schutzwirkung des gesamten Managementsystems untergräbt. So könnte ein neuer Systemadministrator eine weitreichende Konfigurationsänderung vornehmen, ohne den vorgeschriebenen Genehmigungsprozess zu durchlaufen, was zu einem unbemerkten Sicherheitsrisiko führen könnte. Eine gezielte Information kann hingegen die Akzeptanz der Regelungen fördern und sicherstellen, dass alle Beteiligten ihre Rolle im Prozess verstehen und die Abläufe korrekt anwenden. Zur Umsetzung ist es sinnvoll die Dokumentation im Rahmen eines Onboarding-Prozesses bekanntzugeben und bei allen Änderungen eine automatische Benachrichtigung aller zuständigen Personen oder Rollen anzustoßen.
 
 ### SENS.1.2 – Erfolgsmessung {#SENS.1.2}
+
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">SENS.1.2</span>
 
 <ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="3" threats="G 0.18" threatsHint="G 0.18 – Fehlplanung oder fehlende Anpassung" />
 
@@ -61,6 +73,8 @@ Zur Erfolgsmessung sind sowohl quantitative als auch qualitative Kriterien heran
 
 ### SENS.2.1 – Schutzziele {#SENS.2.1}
 
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">SENS.2.1</span>
+
 <ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="1" threats="G 0.31, G 0.42" threatsHint="G 0.31 – Fehlerhafte Nutzung oder Administration von Geräten und Systemen · G 0.42 – Social Engineering" />
 
 > Sensibilisierung für Nutzende SOLLTE zu den Schutzzielen Verfügbarkeit, Vertraulichkeit und Integrität sensibilisieren.
@@ -68,6 +82,8 @@ Zur Erfolgsmessung sind sowohl quantitative als auch qualitative Kriterien heran
 Für die grundlegende Schulung kann z.B. auf den Online-Kurs des BSI zum IT-Grundschutz zurückgegriffen werden.
 
 ### SENS.2.2 – Meldewege {#SENS.2.2}
+
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">SENS.2.2</span>
 
 <ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="2" threats="G 0.31, G 0.42" threatsHint="G 0.31 – Fehlerhafte Nutzung oder Administration von Geräten und Systemen · G 0.42 – Social Engineering" />
 
@@ -77,6 +93,8 @@ Zur Bekanntgabe von Meldewegen gehört, welche Meldewege (z.B. Adresse, Rufnumme
 
 ### SENS.2.3 – Verschlüsselung und Signatur {#SENS.2.3}
 
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">SENS.2.3</span>
+
 <ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="3" threats="G 0.31, G 0.42" threatsHint="G 0.31 – Fehlerhafte Nutzung oder Administration von Geräten und Systemen · G 0.42 – Social Engineering" predecessors={[{ oldId: "APP.1.1.A17-UA.5", relationship: "intersects-with", link: "https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/06_APP_Anwendungen/APP_1_1_Office_Produkte_Edition_2023.pdf?__blob=publicationFile&v=4#download=1" }]} />
 
 > Sensibilisierung für Nutzende von Anwendungen SOLLTE zur Bedienung von Verschlüsselungs- und Signaturfunktionen sensibilisieren.
@@ -85,7 +103,9 @@ Viele Anwendungen zur Kommunikation bieten Funktionen zur Verschlüsselung oder 
 
 ### SENS.2.4 – Nutzung unautorisierter Assets {#SENS.2.4}
 
-<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="3" threats="G 0.31, G 0.42" threatsHint="G 0.31 – Fehlerhafte Nutzung oder Administration von Geräten und Systemen · G 0.42 – Social Engineering" />
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">SENS.2.4</span>
+
+<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="3" threats="G 0.31, G 0.42" threatsHint="G 0.31 – Fehlerhafte Nutzung oder Administration von Geräten und Systemen · G 0.42 – Social Engineering" tags={[{ name: "Bring Your Own Device", hint: "Unternehmensrichtlinie, die es Mitarbeitern erlaubt, persönliche Geräte (Smartphones, Laptops) für Arbeitszwecke zu nutzen, was besondere Sicherheitsherausforderungen mit sich bringt.", synonyms: "BYOD, private Geräte, eigene Geräte" }, { name: "Insider Threat", hint: "Sicherheitsrisiko, das von Personen innerhalb einer Organisation ausgeht, die aufgrund ihres legitimen Zugriffs sensible Informationen missbrauchen oder Systeme schädigen können.", synonyms: "interne Bedrohung, Innentäter" }]} />
 
 > Sensibilisierung für Nutzende SOLLTE die Nutzung unautorisierter Assets untersagen.
 
@@ -93,13 +113,17 @@ Die Nutzung unautorisierter Assets bezeichnet hier den Einsatz von IT-Systemen, 
 
 #### SENS.2.4.1 – Verbindung unautorisierter IT-Systeme {#SENS.2.4.1}
 
-<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="3" threats="G 0.31, G 0.42" threatsHint="G 0.31 – Fehlerhafte Nutzung oder Administration von Geräten und Systemen · G 0.42 – Social Engineering" />
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">SENS.2.4.1</span>
+
+<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="3" threats="G 0.31, G 0.42" threatsHint="G 0.31 – Fehlerhafte Nutzung oder Administration von Geräten und Systemen · G 0.42 – Social Engineering" tags={[{ name: "Bring Your Own Device", hint: "Unternehmensrichtlinie, die es Mitarbeitern erlaubt, persönliche Geräte (Smartphones, Laptops) für Arbeitszwecke zu nutzen, was besondere Sicherheitsherausforderungen mit sich bringt.", synonyms: "BYOD, private Geräte, eigene Geräte" }, { name: "Insider Threat", hint: "Sicherheitsrisiko, das von Personen innerhalb einer Organisation ausgeht, die aufgrund ihres legitimen Zugriffs sensible Informationen missbrauchen oder Systeme schädigen können.", synonyms: "interne Bedrohung, Innentäter" }]} />
 
 > Sensibilisierung für Nutzende SOLLTE die Verbindung unautorisierter IT-Systeme mit internen Netzen oder Schnittstellen untersagen.
 
 Unautorisierte IT-Systeme sind solche, die von der Institution nicht für den Einsatz in den Netzen der Institution vorgesehen sind. Werden solche Geräte mit internen Netzen verbunden, so besteht das Risiko, dass sich hierüber Schadcode verbreitet oder unerwünschte Netzverbindungen aufgebaut werden. Das betrifft sowohl kabelgebundene Verbindungen als auch Funkverbindungen wie WLAN oder Bluetooth.
 
 ### SENS.2.5 – Zuständigkeitsbereiche {#SENS.2.5}
+
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">SENS.2.5</span>
 
 <ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="2" threats="G 0.31, G 0.42" threatsHint="G 0.31 – Fehlerhafte Nutzung oder Administration von Geräten und Systemen · G 0.42 – Social Engineering" />
 
@@ -109,6 +133,8 @@ Hiermit ist der Schutzbedarf des Zuständigkeitsbereichs des jeweiligen Nutzende
 
 ### SENS.2.6 – Umgehung von Sicherheitsfunktionen {#SENS.2.6}
 
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">SENS.2.6</span>
+
 <ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="2" threats="G 0.31, G 0.42" threatsHint="G 0.31 – Fehlerhafte Nutzung oder Administration von Geräten und Systemen · G 0.42 – Social Engineering" predecessors={[{ oldId: "APP.1.1.A17-UA.3", relationship: "intersects-with", link: "https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/06_APP_Anwendungen/APP_1_1_Office_Produkte_Edition_2023.pdf?__blob=publicationFile&v=4#download=1" }]} />
 
 > Sensibilisierung für Nutzende SOLLTE gegen die Umgehung von Sicherheitsfunktionen sensibilisieren.
@@ -116,6 +142,8 @@ Hiermit ist der Schutzbedarf des Zuständigkeitsbereichs des jeweiligen Nutzende
 Selbst die ausgefeiltesten Sicherheitssysteme werden wirkungslos, wenn Anwender diese durch Eigeninitiative oder mangelndes Verständnis umgehen. Umgehungshandlungen könnten beispielsweise dazu führen, dass Schadprogramme durch Deaktivieren des Virenschutzes ins System gelangen, oder Angreifer über unsichere Verbindungen Zugang erhalten, wenn neue Verbindungen eigenmächtig geschaffen werden. Der Begriff "Umgehung von Sicherheitsfunktionen" umfasst dabei alle Handlungen, bei denen implementierte technische oder organisatorische Schutzmaßnahmen außer Kraft gesetzt, deaktiviert oder auf andere Weise ihrer Schutzwirkung beraubt werden, z.B. durch Rooting/Jailbreaking oder Verwendung nicht autorisierter Anwendungen oder Geräte. Wenn für eine Tätigkeit Funktionen benötigt werden, die durch Sicherheitsmechanismen verhindert werden, ist stattdessen eine Abstimmung über die festgelegten Meldewege sinnvoll.
 
 ### SENS.2.7 – Änderung von Konfigurationen {#SENS.2.7}
+
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">SENS.2.7</span>
 
 <ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="1" threats="G 0.31, G 0.42" threatsHint="G 0.31 – Fehlerhafte Nutzung oder Administration von Geräten und Systemen · G 0.42 – Social Engineering" />
 
@@ -125,7 +153,9 @@ Sicherheitsrelevante Konfigurationen umfassen dabei alle Einstellungen, die dire
 
 ### SENS.2.8 – Melden von Ereignissen {#SENS.2.8}
 
-<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="2" threats="G 0.31, G 0.42" threatsHint="G 0.31 – Fehlerhafte Nutzung oder Administration von Geräten und Systemen · G 0.42 – Social Engineering" />
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">SENS.2.8</span>
+
+<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="2" threats="G 0.31, G 0.42" threatsHint="G 0.31 – Fehlerhafte Nutzung oder Administration von Geräten und Systemen · G 0.42 – Social Engineering" tags={[{ name: "Insider Threat", hint: "Sicherheitsrisiko, das von Personen innerhalb einer Organisation ausgeht, die aufgrund ihres legitimen Zugriffs sensible Informationen missbrauchen oder Systeme schädigen können.", synonyms: "interne Bedrohung, Innentäter" }]} />
 
 > Sensibilisierung für Nutzende SOLLTE zum Melden von sicherheitsrelevanten Ereignissen anweisen.
 
@@ -133,7 +163,9 @@ Ohne ein Bewusstsein für die Bedeutung solcher Meldungen könnte ein Vorfall wi
 
 #### SENS.2.8.1 – Melden von Fehler- und Warnmeldungen {#SENS.2.8.1}
 
-<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="2" threats="G 0.31, G 0.42" threatsHint="G 0.31 – Fehlerhafte Nutzung oder Administration von Geräten und Systemen · G 0.42 – Social Engineering" />
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">SENS.2.8.1</span>
+
+<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="2" threats="G 0.31, G 0.42" threatsHint="G 0.31 – Fehlerhafte Nutzung oder Administration von Geräten und Systemen · G 0.42 – Social Engineering" tags={[{ name: "Error Handling", hint: "Prozesse zur Identifizierung, Protokollierung und Behebung von Fehlern in Softwareanwendungen, ohne sensible Informationen preiszugeben oder Systemstabilität zu gefährden." }]} />
 
 > Sensibilisierung für Nutzende SOLLTE zum Melden von Fehler- und Warnmeldungen sensibilisieren.
 
@@ -143,13 +175,17 @@ Unerwartete Fehler- oder Warnmeldungen könnten ein Indiz für weitreichendere S
 
 ### SENS.3.1 – Schadprogramme {#SENS.3.1}
 
-<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="2" threats="G 0.18" threatsHint="G 0.18 – Fehlplanung oder fehlende Anpassung" />
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">SENS.3.1</span>
+
+<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="2" threats="G 0.18" threatsHint="G 0.18 – Fehlplanung oder fehlende Anpassung" tags={[{ name: "Advanced Persistent Threats (APT)", hint: "Komplexe, gezielte und langfristige Cyberangriffe, bei denen Angreifer unbemerkt in einer Umgebung verbleiben, um Informationen auszuspähen oder Systeme zu manipulieren.", synonyms: "gezielter Angriff, staatlich gesteuerter Angreifer" }]} />
 
 > Sensibilisierung für Nutzende SOLLTE gegen die Risiken von Schadprogrammen sensibilisieren.
 
 Viele Dateitypen, wie z. B. Office-Dateien mit Makros, Adobe PDF, .exe, .ps1, oder .vbs, können Schadcode enthalten, der bei Ausführung die Kontrolle über das System übernimmt und Angreifern zur weiteren Ausbreitung im Informationsverbund dient.
 
 ### SENS.3.2 – Öffnen in der Sandbox {#SENS.3.2}
+
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">SENS.3.2</span>
 
 <ControlMeta modalVerb="KANN" secLevel="erhöht" effort="5" threats="G 0.18" threatsHint="G 0.18 – Fehlplanung oder fehlende Anpassung" />
 
@@ -158,6 +194,8 @@ Viele Dateitypen, wie z. B. Office-Dateien mit Makros, Adobe PDF, .exe, .ps1, od
 Eine Sandbox ist ein isoliertes IT-System, das bewusst so gestaltet ist, dass Dateien oder Programme in einer abgeschotteten Umgebung geöffnet und ausgeführt werden, ohne die produktive IT-Infrastruktur zu gefährden. Damit wird ein geschützter Bereich geschaffen, in dem verdächtige Dateien getestet und beobachtet werden, ohne dass Schadsoftware unkontrolliert in interne Systeme gelangt. Der Sinn dieser Anforderung liegt darin, das Risiko unbewusster Schadcode-Ausführung zu reduzieren: Ein unbedachtes Öffnen von E-Mail-Anhängen könnte beispielsweise zu Verschlüsselung durch Ransomware führen, oder ein manipuliertes Office-Dokument könnte eine unbemerkte Datenabflussschleuse öffnen. Als Sandbox kann auch ein virtuelles System auf dem Endgerät genutzt werden, wenn dieses von der Betriebssystemumgebung des Endgerätes isoliert ausgeführt wird.
 
 ### SENS.3.3 – Umwandeln verdächtiger Dateien {#SENS.3.3}
+
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">SENS.3.3</span>
 
 <ControlMeta modalVerb="KANN" secLevel="erhöht" effort="5" threats="G 0.18" threatsHint="G 0.18 – Fehlplanung oder fehlende Anpassung" />
 
@@ -169,7 +207,9 @@ Das gezielte Umwandeln potenziell schadhafter Dateien in ein nicht-ausführbares
 
 ### SENS.4.1 – Personengebundene Authentisierungsmittel {#SENS.4.1}
 
-<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="3" threats="G 0.30, G 0.36, G 0.23" threatsHint="G 0.30 – Unberechtigte Nutzung oder Administration von Geräten und Systemen · G 0.36 – Identitätsdiebstahl · G 0.23 – Unbefugtes Eindringen in IT-Systeme" />
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">SENS.4.1</span>
+
+<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="3" threats="G 0.30, G 0.36, G 0.23" threatsHint="G 0.30 – Unberechtigte Nutzung oder Administration von Geräten und Systemen · G 0.36 – Identitätsdiebstahl · G 0.23 – Unbefugtes Eindringen in IT-Systeme" tags={[{ name: "Authentication and Authorization", hint: "Sicherheitsprozesse zur Prüfung von Identitäten und zur Festlegung, auf welche Systeme, Daten oder Funktionen ein Benutzer oder Dienst zugreifen darf." }, { name: "Advanced Persistent Threats (APT)", hint: "Komplexe, gezielte und langfristige Cyberangriffe, bei denen Angreifer unbemerkt in einer Umgebung verbleiben, um Informationen auszuspähen oder Systeme zu manipulieren.", synonyms: "gezielter Angriff, staatlich gesteuerter Angreifer" }]} />
 
 > Sensibilisierung für Nutzende SOLLTE zum Umgang mit Authentisierungsmitteln im Einklang mit den zugehörigen Anforderungen des Identitäts- und Berechtigungsmanagements sensibilisieren.
 
@@ -177,7 +217,9 @@ Zur Definition von Authentisierungsmitteln siehe Glossar/Namensräume. Um Missbr
 
 #### SENS.4.1.1 – Verdeckte Eingabe {#SENS.4.1.1}
 
-<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="3" threats="G 0.30, G 0.36, G 0.23" threatsHint="G 0.30 – Unberechtigte Nutzung oder Administration von Geräten und Systemen · G 0.36 – Identitätsdiebstahl · G 0.23 – Unbefugtes Eindringen in IT-Systeme" />
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">SENS.4.1.1</span>
+
+<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="3" threats="G 0.30, G 0.36, G 0.23" threatsHint="G 0.30 – Unberechtigte Nutzung oder Administration von Geräten und Systemen · G 0.36 – Identitätsdiebstahl · G 0.23 – Unbefugtes Eindringen in IT-Systeme" tags={[{ name: "Shoulder Surfing", hint: "Eine physische Angriffsmethode, bei der ein Angreifer durch Beobachten über die Schulter Informationen wie Passwörter oder PINs ausspäht." }]} />
 
 > Sensibilisierung für Nutzende SOLLTE zur verdeckten Eingabe von Zugangsdaten sensibilisieren.
 
@@ -185,7 +227,9 @@ Werden Zugangsdaten unverdeckt eingegeben, so könnten diese durch Shoulder Surf
 
 #### SENS.4.1.2 – Untersagung von Passwort Recycling {#SENS.4.1.2}
 
-<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="3" threats="G 0.30, G 0.36, G 0.23" threatsHint="G 0.30 – Unberechtigte Nutzung oder Administration von Geräten und Systemen · G 0.36 – Identitätsdiebstahl · G 0.23 – Unbefugtes Eindringen in IT-Systeme" />
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">SENS.4.1.2</span>
+
+<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="3" threats="G 0.30, G 0.36, G 0.23" threatsHint="G 0.30 – Unberechtigte Nutzung oder Administration von Geräten und Systemen · G 0.36 – Identitätsdiebstahl · G 0.23 – Unbefugtes Eindringen in IT-Systeme" tags={[{ name: "Credential Stuffing", hint: "Cyberangriff, bei dem automatisiert gestohlene Benutzernamen und Passwörter auf verschiedenen Websites ausprobiert werden, um von Passwortwiederverwendung zu profitieren." }, { name: "Privilege Escalation", hint: "Ausweitung von Berechtigungen durch einen Angreifer oder Benutzer, um höhere Rechte zu erlangen als ursprünglich vorgesehen." }, { name: "Password Policy", hint: "Vorgaben für Erstellung, Nutzung, Änderung und Schutz von Passwörtern, um die Sicherheit von Benutzerkonten zu erhöhen.", synonyms: "Passwortrichtlinie, Passwortregeln" }]} />
 
 > Sensibilisierung für Nutzende SOLLTE die Wiederverwendung von Passwörtern untersagen.
 
@@ -193,7 +237,9 @@ Wiederverwendung von Passwörtern bezeichnet die Nutzung identischer Zugangsdate
 
 #### SENS.4.1.3 – Wahl von Passwörtern {#SENS.4.1.3}
 
-<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="3" threats="G 0.30, G 0.36, G 0.23" threatsHint="G 0.30 – Unberechtigte Nutzung oder Administration von Geräten und Systemen · G 0.36 – Identitätsdiebstahl · G 0.23 – Unbefugtes Eindringen in IT-Systeme" />
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">SENS.4.1.3</span>
+
+<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="3" threats="G 0.30, G 0.36, G 0.23" threatsHint="G 0.30 – Unberechtigte Nutzung oder Administration von Geräten und Systemen · G 0.36 – Identitätsdiebstahl · G 0.23 – Unbefugtes Eindringen in IT-Systeme" tags={[{ name: "Authentication and Authorization", hint: "Sicherheitsprozesse zur Prüfung von Identitäten und zur Festlegung, auf welche Systeme, Daten oder Funktionen ein Benutzer oder Dienst zugreifen darf." }, { name: "Password Policy", hint: "Vorgaben für Erstellung, Nutzung, Änderung und Schutz von Passwörtern, um die Sicherheit von Benutzerkonten zu erhöhen.", synonyms: "Passwortrichtlinie, Passwortregeln" }]} />
 
 > Sensibilisierung für Nutzende SOLLTE zur Wahl ausreichend komplexer Passwörter sensibilisieren.
 
@@ -201,13 +247,17 @@ Ein Passwort ist ein geheimes Zeichenfolgenkürzel, das als Authentisierungsmerk
 
 #### SENS.4.1.4 – Passwörter nur im Passwortmanager {#SENS.4.1.4}
 
-<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="3" threats="G 0.30, G 0.36, G 0.23" threatsHint="G 0.30 – Unberechtigte Nutzung oder Administration von Geräten und Systemen · G 0.36 – Identitätsdiebstahl · G 0.23 – Unbefugtes Eindringen in IT-Systeme" />
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">SENS.4.1.4</span>
+
+<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="3" threats="G 0.30, G 0.36, G 0.23" threatsHint="G 0.30 – Unberechtigte Nutzung oder Administration von Geräten und Systemen · G 0.36 – Identitätsdiebstahl · G 0.23 – Unbefugtes Eindringen in IT-Systeme" tags={[{ name: "Password Policy", hint: "Vorgaben für Erstellung, Nutzung, Änderung und Schutz von Passwörtern, um die Sicherheit von Benutzerkonten zu erhöhen.", synonyms: "Passwortrichtlinie, Passwortregeln" }]} />
 
 > Sensibilisierung für Nutzende SOLLTE das Speichern oder Aufschreiben von Passwörtern außerhalb von Passwort-Managern untersagen.
 
 Weil Passwörter komplex sind und an vielen Stellen verwendet werden kommt es immer wieder dazu, dass sie unbedacht auf Zetteln oder in unverschlüsselten Tabellen notiert werden. Werden Passwörter etwa in Office-Listen, im Browser oder auf programmierbaren Tastaturen und Mäusen gespeichert, so könnten Angreifer diese auslesen und zur Ausbreitung auf Systemen und im Netz verwenden. In einem verschlüsselten Passwort-Manager, der nur mit einem Master-Passwort oder Hardwaretoken entsperrt werden kann, können Zugangsdaten dagegen sicher gespeichert werden. Ein Passwortmanager erleichtert es zudem Passwörter zu erzeugen und den richtigen Webseiten und Anwendungen zuzuordnen.
 
 #### SENS.4.1.5 – Biometrische Authentifikation {#SENS.4.1.5}
+
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">SENS.4.1.5</span>
 
 <ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="3" threats="G 0.30, G 0.36, G 0.23" threatsHint="G 0.30 – Unberechtigte Nutzung oder Administration von Geräten und Systemen · G 0.36 – Identitätsdiebstahl · G 0.23 – Unbefugtes Eindringen in IT-Systeme" predecessors={[{ oldId: "APP.1.4.A14-UA.3", relationship: "intersects-with", link: "https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/06_APP_Anwendungen/APP_1_4_Mobile_Anwendungen_Edition_2023.pdf?__blob=publicationFile&v=3#download=1" }]} />
 
@@ -217,13 +267,17 @@ Ein Angreifer könnte z.B. einen Fingerabdruck von einer glatten Oberfläche abn
 
 #### SENS.4.1.6 – Keine Weitergabe personengebundener Authentisierungsmittel {#SENS.4.1.6}
 
-<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="3" threats="G 0.30, G 0.36, G 0.23" threatsHint="G 0.30 – Unberechtigte Nutzung oder Administration von Geräten und Systemen · G 0.36 – Identitätsdiebstahl · G 0.23 – Unbefugtes Eindringen in IT-Systeme" />
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">SENS.4.1.6</span>
+
+<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="3" threats="G 0.30, G 0.36, G 0.23" threatsHint="G 0.30 – Unberechtigte Nutzung oder Administration von Geräten und Systemen · G 0.36 – Identitätsdiebstahl · G 0.23 – Unbefugtes Eindringen in IT-Systeme" tags={[{ name: "Authentication and Authorization", hint: "Sicherheitsprozesse zur Prüfung von Identitäten und zur Festlegung, auf welche Systeme, Daten oder Funktionen ein Benutzer oder Dienst zugreifen darf." }, { name: "Password Policy", hint: "Vorgaben für Erstellung, Nutzung, Änderung und Schutz von Passwörtern, um die Sicherheit von Benutzerkonten zu erhöhen.", synonyms: "Passwortrichtlinie, Passwortregeln" }]} />
 
 > Sensibilisierung für Nutzende SOLLTE die Weitergabe von personengebundenen Authentisierungsmitteln untersagen.
 
 Personengebundene Authentisierungsmittel sind z.B. Passwörter, Private PKI-Schlüssel oder Mehr-Faktor-Authentifizierungstoken wie Smartcards. Zur Definition von Authentisierungsmitteln siehe Glossar/Namensräume.
 
 ### SENS.4.2 – Mehrfachnutzung von Zugängen {#SENS.4.2}
+
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">SENS.4.2</span>
 
 <ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="3" threats="G 0.30, G 0.36, G 0.23" threatsHint="G 0.30 – Unberechtigte Nutzung oder Administration von Geräten und Systemen · G 0.36 – Identitätsdiebstahl · G 0.23 – Unbefugtes Eindringen in IT-Systeme" />
 
@@ -232,6 +286,8 @@ Personengebundene Authentisierungsmittel sind z.B. Passwörter, Private PKI-Schl
 Insbesondere ist die Nutzung eines Benutzerkontos auf einem Endgerät durch mehrere natürliche Personen problematisch.
 
 ### SENS.4.3 – Abmelden nach Nutzung {#SENS.4.3}
+
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">SENS.4.3</span>
 
 <ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="2" threats="G 0.30, G 0.36, G 0.23" threatsHint="G 0.30 – Unberechtigte Nutzung oder Administration von Geräten und Systemen · G 0.36 – Identitätsdiebstahl · G 0.23 – Unbefugtes Eindringen in IT-Systeme" />
 
@@ -243,6 +299,8 @@ Bleibt eine Sitzung unbeaufsichtigt angemeldet, könnte dies ausgenutzt werden, 
 
 ### SENS.5.1 – Datenablage {#SENS.5.1}
 
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">SENS.5.1</span>
+
 <ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="3" threats="G 0.19, G 0.38, G 0.22, G 0.45" threatsHint="G 0.19 – Offenlegung schützenswerter Informationen · G 0.38 – Missbrauch personenbezogener Daten · G 0.22 – Manipulation von Informationen · G 0.45 – Datenverlust" />
 
 > Sensibilisierung für Nutzende SOLLTE zum Einhalten einer strukturierten Datenablage sensibilisieren.
@@ -251,13 +309,17 @@ Eine strukturierte Datenablage ist eine systematische Organisation von Daten in 
 
 ### SENS.5.2 – Weitergabe von Informationen {#SENS.5.2}
 
-<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="2" threats="G 0.19, G 0.38, G 0.22, G 0.45" threatsHint="G 0.19 – Offenlegung schützenswerter Informationen · G 0.38 – Missbrauch personenbezogener Daten · G 0.22 – Manipulation von Informationen · G 0.45 – Datenverlust" />
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">SENS.5.2</span>
+
+<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="2" threats="G 0.19, G 0.38, G 0.22, G 0.45" threatsHint="G 0.19 – Offenlegung schützenswerter Informationen · G 0.38 – Missbrauch personenbezogener Daten · G 0.22 – Manipulation von Informationen · G 0.45 – Datenverlust" tags={[{ name: "Advanced Persistent Threats (APT)", hint: "Komplexe, gezielte und langfristige Cyberangriffe, bei denen Angreifer unbemerkt in einer Umgebung verbleiben, um Informationen auszuspähen oder Systeme zu manipulieren.", synonyms: "gezielter Angriff, staatlich gesteuerter Angreifer" }]} />
 
 > Sensibilisierung für Nutzende von Informationen SOLLTE zu den Voraussetzungen der Weitergabe von Informationen sensibilisieren.
 
 Als "Voraussetzungen der Weitergabe" werden die rechtlichen, vertraglichen, technischen und organisatorischen Bedingungen verstanden, die vor der Übermittlung von Informationen an interne oder externe Empfänger erfüllt sein müssen, um Vertraulichkeit und Compliance zu gewährleisten. So werden unkontrollierte Informationslecks und Compliance-Verletzungen verhindert, indem ein Bewusstsein für die Voraussetzungen geschaffen wird, unter denen Informationen an Dritte übermittelt werden dürfen. Hierzu gehört insbesondere, welche Kategorien von Informationen (z.B. Kundendaten) welchen internen und externen Personengruppen (z.B. Dienstleister) über welche Kommunikationskanäle (z.B. E-Mail, telefonisch) unter welchen Voraussetzungen (z.B. Nennung des Kundenkennwortes) weitergegeben werden dürfen.
 
 ### SENS.5.3 – Weitergabe von Erreichbarkeiten {#SENS.5.3}
+
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">SENS.5.3</span>
 
 <ControlMeta modalVerb="KANN" secLevel="erhöht" effort="5" threats="G 0.19, G 0.38, G 0.22, G 0.42" threatsHint="G 0.19 – Offenlegung schützenswerter Informationen · G 0.38 – Missbrauch personenbezogener Daten · G 0.22 – Manipulation von Informationen · G 0.42 – Social Engineering" />
 
@@ -267,6 +329,8 @@ Dient dem Schutz vor Social Engineering-Angriffen und der Minimierung von Angrif
 
 ### SENS.5.4 – Rest- und Zusatzdaten {#SENS.5.4}
 
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">SENS.5.4</span>
+
 <ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="2" threats="G 0.19, G 0.38, G 0.22, G 0.45" threatsHint="G 0.19 – Offenlegung schützenswerter Informationen · G 0.38 – Missbrauch personenbezogener Daten · G 0.22 – Manipulation von Informationen · G 0.45 – Datenverlust" />
 
 > Sensibilisierung für Nutzende SOLLTE zur Vermeidung oder Entfernung von Rest- und Zusatzdaten vor dem Versand sensibilisieren.
@@ -275,13 +339,17 @@ Rest- und Zusatzinformationen sind z.B. die Metadatenfelder in Office- oder PDF-
 
 ### SENS.5.5 – Löschfristen {#SENS.5.5}
 
-<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="2" threats="G 0.38, G 0.45, G 0.19, G 0.22" threatsHint="G 0.38 – Missbrauch personenbezogener Daten · G 0.45 – Datenverlust · G 0.19 – Offenlegung schützenswerter Informationen · G 0.22 – Manipulation von Informationen" />
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">SENS.5.5</span>
+
+<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="2" threats="G 0.38, G 0.45, G 0.19, G 0.22" threatsHint="G 0.38 – Missbrauch personenbezogener Daten · G 0.45 – Datenverlust · G 0.19 – Offenlegung schützenswerter Informationen · G 0.22 – Manipulation von Informationen" tags={[{ name: "Password Policy", hint: "Vorgaben für Erstellung, Nutzung, Änderung und Schutz von Passwörtern, um die Sicherheit von Benutzerkonten zu erhöhen.", synonyms: "Passwortrichtlinie, Passwortregeln" }]} />
 
 > Sensibilisierung für Nutzende SOLLTE zum Löschen oder Vernichten nach Ablauf der festgelegten Löschfristen anweisen.
 
 Werden sensible Informationen über die erforderliche Dauer hinaus gespeichert, könnte die Institution unnötigen Haftungsrisiken ausgesetzt sein – beispielsweise könnte eine Datenschutzbehörde Bußgelder verhängen, wenn personenbezogene Daten entgegen gesetzlicher Vorgaben zu lange vorgehalten werden. Darüber hinaus könnten nicht rechtzeitig gelöschte Geschäftsgeheimnisse oder Kundendaten bei einem Sicherheitsvorfall in falsche Hände geraten, was zu Reputationsschäden, Vertrauensverlust bei Kunden oder sogar zu Wirtschaftsspionage führen kann. Dies ist insbesondere wichtig bei sensiblen Daten wie Passwörtern im Passwortmanager oder Bankzugangsdaten in einer Kundendatenbank. Relevant ist dabei auch das Verständnis dafür, welche Löschfristen für welche Kategorien von Informationen konkret festgelegt sind und wie die Löschung oder Vernichtung vorzunehmen ist. Zu Details der Vorgehensweise siehe auch Praktik "Informations- und Assetmanagement". Dies gilt auch für den Umgang mit physischen Medien und auch an anderen Standorten, wie z.B. am Mobilen Arbeitsplatz.
 
 ### SENS.5.6 – Papiervernichtung {#SENS.5.6}
+
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">SENS.5.6</span>
 
 <ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="2" threats="G 0.19, G 0.38, G 0.22, G 0.45" threatsHint="G 0.19 – Offenlegung schützenswerter Informationen · G 0.38 – Missbrauch personenbezogener Daten · G 0.22 – Manipulation von Informationen · G 0.45 – Datenverlust" />
 
@@ -293,6 +361,8 @@ Gemäß ISO/IEC 21964-2 existieren unterschiedliche Sicherheitsstufen für Verni
 
 ### SENS.6.1 – Scan angenommener Wechseldatenträger {#SENS.6.1}
 
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">SENS.6.1</span>
+
 <ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="2" threats="G 0.18" threatsHint="G 0.18 – Fehlplanung oder fehlende Anpassung" />
 
 > Sensibilisierung für Nutzende SOLLTE zum Virenscan angenommener Wechseldatenträger anweisen.
@@ -301,7 +371,9 @@ Datenträger, wie USB-Sticks aus unbekannten oder externen Quellen, können Scha
 
 ### SENS.6.2 – Verschlüsselung {#SENS.6.2}
 
-<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="2" threats="G 0.18" threatsHint="G 0.18 – Fehlplanung oder fehlende Anpassung" />
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">SENS.6.2</span>
+
+<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="2" threats="G 0.18" threatsHint="G 0.18 – Fehlplanung oder fehlende Anpassung" tags={[{ name: "Physical Access Control", hint: "Maßnahmen und Systeme zur Kontrolle des physischen Zugangs zu Gebäuden, Räumlichkeiten oder IT-Ressourcen, um unbefugten Zugriff zu verhindern.", synonyms: "Zutrittskontrolle, Gebäudesicherheit" }]} />
 
 > Sensibilisierung für Nutzende SOLLTE zum Verschlüsseln von Wechseldatenträgern anweisen.
 
@@ -311,6 +383,8 @@ Falls Wechseldatenträger zum Austausch vertraulicher Daten verwendet werden, so
 
 ### SENS.7.1 – Spezifische Sensibilisierung {#SENS.7.1}
 
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">SENS.7.1</span>
+
 <ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="2" threats="G 0.18" threatsHint="G 0.18 – Fehlplanung oder fehlende Anpassung" predecessors={[{ oldId: "APP.1.1.A17-UA.4", relationship: "intersects-with", link: "https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/06_APP_Anwendungen/APP_1_1_Office_Produkte_Edition_2023.pdf?__blob=publicationFile&v=4#download=1" }, { oldId: "ORP.3.A9-UA.1", relationship: "intersects-with", link: "https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/02_ORP_Organisation_und_Personal/ORP_3_Sensibilisierung_und_Schulung_Editon_2023.pdf?__blob=publicationFile&v=3#download=1" }]} />
 
 > Sensibilisierung für Nutzende SOLLTE zu zielobjektspezifischen Schutzmaßnahmen zielgruppengerecht sensibilisieren.
@@ -318,6 +392,8 @@ Falls Wechseldatenträger zum Austausch vertraulicher Daten verwendet werden, so
 Kann dazu beitragen, dass Personen Risiken, die mit ihrer konkreten Tätigkeit, ihrem Arbeitsumfeld oder den von ihnen genutzten Systemen verbunden sind, frühzeitig erkennen und angemessen reagieren können. Ziel ist es auf die spezifischen Schutzbedarfe der jeweiligen Zielobjekte – wie z. B. bestimmte IT-Systeme, Produktionsanlagen, Forschungsdaten oder vertrauliche Kundeninformationen – aufmerksam zu machen. Dazu können sowohl technische als auch organisatorischen Schutzmaßnahmen gehören. Der Begriff „zielgruppengerecht“ meint dabei, dass Inhalte in einer Form, Tiefe und Sprache bereitgestellt werden, die für die jeweiligen Nutzenden verständlich, relevant und handlungsnah sind. Für die Zielgruppengerechtigkeit ist eine Zielgruppenanalyse zweckmäßig. Die Schutzmaßnahmen ergeben sich aus der konkreten Implementierung der Anforderungen durch die Institution.
 
 ### SENS.7.2 – Virenscan {#SENS.7.2}
+
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">SENS.7.2</span>
 
 <ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="3" threats="G 0.18" threatsHint="G 0.18 – Fehlplanung oder fehlende Anpassung" predecessors={[{ oldId: "APP.1.1.A17-UA.2", relationship: "intersects-with", link: "https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/06_APP_Anwendungen/APP_1_1_Office_Produkte_Edition_2023.pdf?__blob=publicationFile&v=4#download=1" }, { oldId: "APP.1.1.A3-UA.1", relationship: "intersects-with", link: "https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/06_APP_Anwendungen/APP_1_1_Office_Produkte_Edition_2023.pdf?__blob=publicationFile&v=4#download=1" }]} />
 
@@ -327,6 +403,8 @@ Dateien aus externen Quellen (z.B. per E-Mail oder Messenger) könnten Schadprog
 
 ### SENS.7.3 – Automatische Antworten {#SENS.7.3}
 
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">SENS.7.3</span>
+
 <ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="2" threats="G 0.18" threatsHint="G 0.18 – Fehlplanung oder fehlende Anpassung" />
 
 > Sensibilisierung für Nutzende von Interpersoneller Kommunikation SOLLTE gegen die Ausgabe vertraulicher Daten durch AutoReply-Funktionen sensibilisieren.
@@ -335,13 +413,17 @@ AutoReply-Funktionen – etwa automatische Abwesenheitsnotizen oder Standardantw
 
 ### SENS.7.4 – SPAM - Löschen oder Melden {#SENS.7.4}
 
-<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="2" threats="G 0.18" threatsHint="G 0.18 – Fehlplanung oder fehlende Anpassung" />
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">SENS.7.4</span>
+
+<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="2" threats="G 0.18" threatsHint="G 0.18 – Fehlplanung oder fehlende Anpassung" tags={[{ name: "Advanced Persistent Threats (APT)", hint: "Komplexe, gezielte und langfristige Cyberangriffe, bei denen Angreifer unbemerkt in einer Umgebung verbleiben, um Informationen auszuspähen oder Systeme zu manipulieren.", synonyms: "gezielter Angriff, staatlich gesteuerter Angreifer" }]} />
 
 > Sensibilisierung für Nutzende von Interpersoneller Kommunikation SOLLTE zum Löschen oder Melden von SPAM sensibilisieren.
 
 Spam – also unerwünschte, oft massenhaft versendete Nachrichten – könnte nicht nur den Posteingang überfluten und Arbeitszeit binden, sondern häufig auch Schadsoftware, Phishing-Links oder betrügerische Inhalte enthalten. Werden solche Nachrichten unbeachtet geöffnet oder beantwortet, könnte dies beispielsweise zu einer unbemerkten Offenlegung vertraulicher Informationen, zur Infektion von Endgeräten oder zur Kompromittierung von Benutzerkonten führen. Spam in E-Mails, Chat-Apps oder SMS kann oft an einer Kombination auffälliger Merkmale erkannt werden: (1) unerwartete oder anonyme Absender, (2) untypische Schreibweisen des Namens oder der Adresse, (3) drängender oder alarmierender Tonfall („sofort handeln“), (4) Links mit ungewöhnlichen oder verkürzten Domains, (5) fehlerhafte oder maschinell wirkende Sprache, (6) unpassende Dateianhänge oder Bilddateien sowie (7) Inhalte, die nicht zum bisherigen Kontext der Kommunikation passen. In Chat-Apps und SMS können zudem (8) fremdsprachige Nachrichten ohne Bezug, (9) Einladungen zu unbekannten Gruppen oder (10) Aufforderungen, auf externe Links zu klicken, verdächtig wirken. Das bewusste Hinterfragen solcher Signale kann helfen, Spam frühzeitig zu erkennen und unschädlich zu machen.
 
 ### SENS.7.5 – SPAM - Nichtbeantwortung {#SENS.7.5}
+
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">SENS.7.5</span>
 
 <ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="1" threats="G 0.18" threatsHint="G 0.18 – Fehlplanung oder fehlende Anpassung" />
 
@@ -351,6 +433,8 @@ Das Nichtbeantworten von Spam kann dazu beitragen, die eigene Angriffsfläche zu
 
 ### SENS.7.6 – SPAM - Links {#SENS.7.6}
 
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">SENS.7.6</span>
+
 <ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="1" threats="G 0.18" threatsHint="G 0.18 – Fehlplanung oder fehlende Anpassung" />
 
 > Sensibilisierung für Nutzende von Interpersoneller Kommunikation SOLLTE gegen das Öffnen von Links in SPAM sensibilisieren.
@@ -358,6 +442,8 @@ Das Nichtbeantworten von Spam kann dazu beitragen, die eigene Angriffsfläche zu
 Spam kann Phishing-Versuche enthalten, die zur Preisgabe sensibler Zugangsdaten verleiten, oder auf Webseiten führen, die Schadsoftware ausliefern. Angreifer versuchen oft, ihre Opfer zum unerwarteten Aufruf von Internetseiten zu drängen und nutzen täuschend echt aussehende Webseiten um Zugangsdaten oder IBAN-Nummern abzufischen. Im Zweifelsfall ist es sinnvoll stattdessen sinnvoll, Rücksprache über andere, bereits bekannte Erreichbarkeiten (z.B. Telefonnummer, bekannter Link im Intranet) zu halten und die Echtheit der Nachricht zu verifizieren, oder über die Meldewege einen potenziellen Vorfall zu melden.
 
 ### SENS.7.7 – SPAM - Anhänge {#SENS.7.7}
+
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">SENS.7.7</span>
 
 <ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="1" threats="G 0.18" threatsHint="G 0.18 – Fehlplanung oder fehlende Anpassung" />
 
@@ -367,6 +453,8 @@ Das Öffnens von Anhängen in unerwünschten oder verdächtigen Nachrichten kön
 
 ### SENS.7.8 – Gefälschte E-Mails {#SENS.7.8}
 
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">SENS.7.8</span>
+
 <ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="1" threats="G 0.18" threatsHint="G 0.18 – Fehlplanung oder fehlende Anpassung" />
 
 > Sensibilisierung für Nutzende von E-Mailn SOLLTE zum Erkennen von gefälschten E-Mails sensibilisieren.
@@ -374,6 +462,8 @@ Das Öffnens von Anhängen in unerwünschten oder verdächtigen Nachrichten kön
 Spam in E-Mails kann oft an einer Kombination auffälliger Merkmale erkannt werden: (1) unerwartete oder anonyme Absender, (2) untypische Schreibweisen des Namens oder der Adresse, (3) Absendernamen, der nicht zur Absender-Mailadresse passt, (4) drängender oder alarmierender Tonfall („sofort handeln“), (5) Links mit ungewöhnlichen oder verkürzten Domains, (6) fehlerhafte oder maschinell wirkende Sprache, (7) unpassende Dateianhänge oder Bilddateien sowie (8) Inhalte, die nicht zum bisherigen Kontext der Kommunikation passen.
 
 ### SENS.7.9 – Aktive Inhalte {#SENS.7.9}
+
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">SENS.7.9</span>
 
 <ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="2" threats="G 0.18" threatsHint="G 0.18 – Fehlplanung oder fehlende Anpassung" predecessors={[{ oldId: "APP.1.1.A17-UA.1", relationship: "intersects-with", link: "https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/06_APP_Anwendungen/APP_1_1_Office_Produkte_Edition_2023.pdf?__blob=publicationFile&v=4#download=1" }, { oldId: "APP.1.1.A2-UA.2", relationship: "intersects-with", link: "https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/06_APP_Anwendungen/APP_1_1_Office_Produkte_Edition_2023.pdf?__blob=publicationFile&v=4#download=1" }, { oldId: "APP.1.1.A2-UA.3", relationship: "intersects-with", link: "https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/06_APP_Anwendungen/APP_1_1_Office_Produkte_Edition_2023.pdf?__blob=publicationFile&v=4#download=1" }]} />
 
@@ -383,6 +473,8 @@ Office-Dateien mit aktiven Inhalten (z.B. Makros) können Schadprogramme enthalt
 
 ### SENS.7.10 – Trennen nicht benötigter Anschlüsse {#SENS.7.10}
 
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">SENS.7.10</span>
+
 <ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="4" threats="G 0.18" threatsHint="G 0.18 – Fehlplanung oder fehlende Anpassung" />
 
 > Sensibilisierung für Nutzende von Virtualisierungslösungen SOLLTE zum Trennen nicht benötigter Verbindungen zwischen Host und virtuellem Gast sensibilisieren.
@@ -390,6 +482,8 @@ Office-Dateien mit aktiven Inhalten (z.B. Makros) können Schadprogramme enthalt
 Werden unnötige Verbindungen zwischen Host und Gast nicht getrennt, könnte dies zu unautorisiertem Zugriff auf Daten oder Systeme führen, etwa wenn eine Malware aus dem Gast Zugriff auf Host-Ressourcen erhält oder wenn sensible Dateien versehentlich zwischen beiden Umgebungen ausgetauscht werden. Durch eine saubere Trennung kann das Risiko seitlicher Bewegungen innerhalb der IT-Infrastruktur verringert werden und die Integrität einzelner Arbeitsumgebungen kann erhalten bleiben. Dies betrifft z.B. angeschlossene Geräte und Schnittstellen wie Drucker, USB-Sticks oder auch die Netzanbindung. Auch einfache Checklisten für IT-Personal und Nutzende können helfen, das Bewusstsein zu stärken, dass Komfortfunktionen wie „Drag & Drop“ zwischen Host und Gast zwar praktisch erscheinen, aber potenziell eine unnötige Angriffsfläche eröffnen können.
 
 ### SENS.7.11 – Heimliche Aufzeichnung {#SENS.7.11}
+
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">SENS.7.11</span>
 
 <ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="2" threats="G 0.18" threatsHint="G 0.18 – Fehlplanung oder fehlende Anpassung" />
 
@@ -399,37 +493,47 @@ Heimliche Aufzeichnungen verletzen die Vertraulichkeit der Kommunikation. Eine A
 
 ### SENS.7.12 – Öffentliche WLANs {#SENS.7.12}
 
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">SENS.7.12</span>
+
 <ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="3" threats="G 0.18" threatsHint="G 0.18 – Fehlplanung oder fehlende Anpassung" />
 
-> Sensibilisierung für Nutzende von Endgeräten SOLLTE gegen die Risiken der Nutzung öffentlicher WLANs sensibilisieren.
+> Sensibilisierung für Nutzende von Mobilen Endgeräten SOLLTE gegen die Risiken der Nutzung öffentlicher WLANs sensibilisieren.
 
 „Öffentliches WLAN“ meint frei zugängliche oder nur schwach kontrollierte Funknetze, deren Betreiber, Konfiguration und Schutzmechanismen unbekannt sind. In öffentlichen WLANs übertragenen Datenverkehr könnte von Dritten abgefangen werden. Angriffe wie Man-in-the-Middle, gefälschte Hotspots (Evil Twins), Session-Hijacking oder Phishing über Captive Portals könnten zu Kontoübernahmen, Datenabfluss oder Schadsoftware führen. Dies gilt auch dann, wenn das WLAN verschlüsselt ist.
 
 ### SENS.7.13 – Unverschlüsselte WLANs {#SENS.7.13}
 
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">SENS.7.13</span>
+
 <ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="2" threats="G 0.18" threatsHint="G 0.18 – Fehlplanung oder fehlende Anpassung" />
 
-> Sensibilisierung für Nutzende von Endgeräten SOLLTE gegen die Risiken der Nutzung unverschlüsselter WLANs sensibilisieren.
+> Sensibilisierung für Nutzende von Mobilen Endgeräten SOLLTE gegen die Risiken der Nutzung unverschlüsselter WLANs sensibilisieren.
 
 Ohne Verschlüsselung könnten die über WLAN übertragenen Daten abgehört werden, z.B. Zugangsdaten, Session-Hijacking, Umleitungen durch DNS-Spoofing oder „Evil-Twins“. Ebenso könnte Schadcode über manipulierte Update-Kanäle oder Portalseiten eingeschleust werden. Im Kontext dieser Anforderung bedeutet „unverschlüsseltes WLAN“ offene Wi-Fi-Netze ohne WPA2/WPA3-Schutz, bei denen ein Captive Portal allein keine Funkstreckenverschlüsselung bereitstellt.
 
 ### SENS.7.14 – Unautorisierte WLANs {#SENS.7.14}
 
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">SENS.7.14</span>
+
 <ControlMeta modalVerb="KANN" secLevel="erhöht" effort="5" threats="G 0.18" threatsHint="G 0.18 – Fehlplanung oder fehlende Anpassung" />
 
-> Sensibilisierung für Nutzende von Endgeräten KANN die Nutzung unautorisierter WLANs untersagen.
+> Sensibilisierung für Nutzende von Mobilen Endgeräten KANN die Nutzung unautorisierter WLANs untersagen.
 
 Zwar sind immer mehr Verbindungen automatisch verschlüsselt, dennoch bergen WLAN-Verbindungen außerhalb der Institution das Risiko, dass Verbindungsdaten abgefangen oder IT-Systeme angegriffen werden.
 
 ### SENS.7.15 – Social Engineering Anrufe {#SENS.7.15}
 
-<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="1" threats="G 0.42" threatsHint="G 0.42 – Social Engineering" />
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">SENS.7.15</span>
+
+<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="1" threats="G 0.42" threatsHint="G 0.42 – Social Engineering" tags={[{ name: "Advanced Persistent Threats (APT)", hint: "Komplexe, gezielte und langfristige Cyberangriffe, bei denen Angreifer unbemerkt in einer Umgebung verbleiben, um Informationen auszuspähen oder Systeme zu manipulieren.", synonyms: "gezielter Angriff, staatlich gesteuerter Angreifer" }]} />
 
 > Sensibilisierung für Nutzende von TK-Anwendungen SOLLTE gegen Social Engineering Anrufe sensibilisieren.
 
 Social Engineering bezeichnet in diesem Zusammenhang die bewusste Täuschung oder Beeinflussung einer Person, um sie zu Handlungen zu bewegen, die im Interesse des Angreifenden liegen, beispielsweise das Preisgeben von Passwörtern, internen Abläufen oder technischen Zugangsdaten. Ein Angriff könnte sich etwa darin äußern, dass sich eine Person am Telefon glaubhaft als IT-Support, Vorgesetzte oder externe Partnerin ausgibt, um den Eindruck einer legitimen Anfrage zu erwecken. Solche Vorfälle könnten zu unbefugtem Zugriff auf interne Systeme, zum Auslösen von Störungen oder zur Vorbereitung weiterer Angriffe führen. Typischerweise sind solche Anrufe daran zu erkennen, dass von unbekannten Personen zu unüberlegten Handlungen gedrängt wird. Hiergegen hilft es, den Gesprächspartner zunächst zu authentifizieren, bevor über Vertrauliches gesprochen oder Handlungen angestoßen werden. Angezeigte Rufnummern oder Nutzernamen könnten dagegen manipuliert sein (Caller ID Spoofing) - sie sind zur Authentifizierung des Gesprächspartners eher nicht geeignet. Das Mithören Dritter ist hier insbesondere im öffentlichen Raum zu bedenken, kann aber auch bei unverschlüsselten Verbindungen auftreten oder beim Gesprächspartner.
 
 ### SENS.7.16 – Mailbox-PIN und Co. {#SENS.7.16}
+
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">SENS.7.16</span>
 
 <ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="2" threats="G 0.18" threatsHint="G 0.18 – Fehlplanung oder fehlende Anpassung" />
 
@@ -439,6 +543,8 @@ Der Begriff Zugangsdaten bezeichnet in diesem Kontext die für den Zugriff auf g
 
 ### SENS.7.17 – Unverschlüsseltes Telefonieren {#SENS.7.17}
 
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">SENS.7.17</span>
+
 <ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="2" threats="G 0.18" threatsHint="G 0.18 – Fehlplanung oder fehlende Anpassung" />
 
 > Sensibilisierung für Nutzende von TK-Anwendungen SOLLTE gegen die Kommunikation über unverschlüsselte Telekommunikationsverbindungen sensibilisieren.
@@ -447,23 +553,29 @@ Hilfreich ist es hierbei darüber zu informieren, zu welchen Empfängerkreisen m
 
 ### SENS.7.18 – Mobile Endgeräte in Sicherheitsbereichen {#SENS.7.18}
 
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">SENS.7.18</span>
+
 <ControlMeta modalVerb="KANN" secLevel="erhöht" effort="5" threats="G 0.18" threatsHint="G 0.18 – Fehlplanung oder fehlende Anpassung" />
 
-> Sensibilisierung für Nutzende von Endgeräten KANN das Mitführen von Endgeräten in Sicherheitsbereichen untersagen.
+> Sensibilisierung für Nutzende von Mobilen Endgeräten KANN das Mitführen von Endgeräten in Sicherheitsbereichen untersagen.
 
 Das Mitführen von Endgeräten in besonders geschützten Bereichen kann untersagt werden, um das Risiko unbefugter Informationsabflüsse, unbeabsichtigter Datenaufzeichnungen oder unkontrollierter Funkübertragungen zu reduzieren. Mitführen meint hier, dass dort Endgeräte eingeführt werden, die nicht explizit für diesen Sicherheitsbereich autorisiert wurden, z.B. durch Smartphones in der Tasche, Smartwatches am Handgelenk oder Notebooks in einer Tragetasche. Mobile Endgeräte verfügen heute fast immer über hochauflösende Kameras, Mikrofone, GPS-Module und vielfältige Funktechnologien (z. B. LTE, WLAN, Bluetooth), die sowohl gezielt als auch unbeabsichtigt vertrauliche Informationen erfassen und weitergeben können. So könnte etwa ein Besuchender in einem Forschungsbereich versehentlich sensible Projektdaten fotografieren, oder ein infiziertes Gerät könnte über eine Funkverbindung Schadsoftware ins interne Netz einschleusen. Auch unbeabsichtigte Sprachaufzeichnungen in Besprechungen, die durch Assistenzfunktionen aktiviert werden, könnten sicherheitskritische Informationen in Cloud-Dienste übertragen. Das Verbot oder die Einschränkung des Mitführens in bestimmten Bereichen kann daher ein wirksames Mittel sein, um die Angriffsfläche für Spionage, Sabotage oder unkontrollierte Datenverbreitung deutlich zu verringern.
 
 ### SENS.7.19 – Unverschlüsselte SMS oder MMS {#SENS.7.19}
 
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">SENS.7.19</span>
+
 <ControlMeta modalVerb="KANN" secLevel="erhöht" effort="5" threats="G 0.18" threatsHint="G 0.18 – Fehlplanung oder fehlende Anpassung" />
 
-> Sensibilisierung für Nutzende von Endgeräten KANN die Kommunikation über SMS oder MMS untersagen.
+> Sensibilisierung für Nutzende von Mobilen Endgeräten KANN die Kommunikation über SMS oder MMS untersagen.
 
 SMS und MMS werden in der Regel unverschlüsselt übertragen und sind daher nicht für sensible Informationen geeignet. Stattdessen kann oft auf verschlüsselte Anwendungen wie Messenger oder VoIP zurückgegriffen werden.
 
 ### SENS.7.20 – Authentifzierung von Gesprächspartnern {#SENS.7.20}
 
-<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="1" threats="G 0.42, G 0.36" threatsHint="G 0.42 – Social Engineering · G 0.36 – Identitätsdiebstahl" />
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">SENS.7.20</span>
+
+<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="1" threats="G 0.42, G 0.36" threatsHint="G 0.42 – Social Engineering · G 0.36 – Identitätsdiebstahl" tags={[{ name: "Advanced Persistent Threats (APT)", hint: "Komplexe, gezielte und langfristige Cyberangriffe, bei denen Angreifer unbemerkt in einer Umgebung verbleiben, um Informationen auszuspähen oder Systeme zu manipulieren.", synonyms: "gezielter Angriff, staatlich gesteuerter Angreifer" }]} />
 
 > Sensibilisierung für Nutzende von Informationen SOLLTE zur Authentifizierung von Gesprächspartnern vor der Weitergabe von Informationen sensibilisieren.
 
@@ -471,29 +583,37 @@ Die Authentifizierung von Gesprächspartnern ist die verlässliche Verifikation 
 
 ### SENS.7.21 – Rechtsunsicherheit von Faxen {#SENS.7.21}
 
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">SENS.7.21</span>
+
 <ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="2" threats="G 0.18" threatsHint="G 0.18 – Fehlplanung oder fehlende Anpassung" />
 
-> Sensibilisierung für Nutzende von Faxen SOLLTE gegen die Rechtsunsicherheit bei Empfang oder Versand von Faxen sensibilisieren.
+> Sensibilisierung für Nutzende von Faxanwendungen SOLLTE gegen die Rechtsunsicherheit bei Empfang oder Versand von Faxen sensibilisieren.
 
 Faxe enthalten nicht die originale, eigenhändige Unterschrift und erfüllen daher nicht die gesetzliche Schriftform (§ 126 BGB).
 
 ### SENS.7.22 – Unverschlüsselte Faxleitungen {#SENS.7.22}
 
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">SENS.7.22</span>
+
 <ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="4" threats="G 0.18" threatsHint="G 0.18 – Fehlplanung oder fehlende Anpassung" />
 
-> Sensibilisierung für Nutzende von Faxen SOLLTE gegen die Risiken der unauthentisierten und unverschlüsselten Faxnutzung sensibilisieren.
+> Sensibilisierung für Nutzende von Faxanwendungen SOLLTE gegen die Risiken der unauthentisierten und unverschlüsselten Faxnutzung sensibilisieren.
 
 Da Faxverbindungen in der Regel weder eine Authentifikation des Empfängers noch eine Transportverschlüsselung vornehmen, können diese leicht abgefangen oder manipuliert werden. Dem kann durch eine Ankündigung sowie eine Sende- und Empfangsbestätigung entgegengewirkt werden.
 
 ### SENS.7.23 – Geolokation {#SENS.7.23}
 
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">SENS.7.23</span>
+
 <ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="2" threats="G 0.18" threatsHint="G 0.18 – Fehlplanung oder fehlende Anpassung" />
 
-> Sensibilisierung für Nutzende von Endgeräten SOLLTE über Standortbestimmungsfunktionen von mobilen Endgeräten sensibilisieren.
+> Sensibilisierung für Nutzende von Mobilen Endgeräten SOLLTE über Standortbestimmungsfunktionen von mobilen Endgeräten sensibilisieren.
 
 Zum Beispiel könnten Webseiten über Schnittstellen von Webbrowsern auf Standort-Sensoren (GPS, Mobilfunk etc.) zugreifen. Auch Mobilfunkanbieter sind in der Lage, Geostandorte über das Mobilfunksignal zu erfassen.
 
 ### SENS.7.24 – Zertifikatswarnungen {#SENS.7.24}
+
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">SENS.7.24</span>
 
 <ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="2" threats="G 0.18" threatsHint="G 0.18 – Fehlplanung oder fehlende Anpassung" predecessors={[{ oldId: "APP.1.2.A11-UA.2", relationship: "intersects-with", link: "https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/06_APP_Anwendungen/APP_1_2_Webbrowser_Edition_2023.pdf?__blob=publicationFile&v=3#download=1" }]} />
 
@@ -505,6 +625,8 @@ Zeigt der Browser oder eine andere Anwendung eine Zertifikatswarnung an, dann be
 
 ### SENS.8.1 – Screen Lock {#SENS.8.1}
 
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">SENS.8.1</span>
+
 <ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="3" threats="G 0.18" threatsHint="G 0.18 – Fehlplanung oder fehlende Anpassung" predecessors={[{ oldId: "APP.1.4.A1-UA.1", relationship: "intersects-with", link: "https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/06_APP_Anwendungen/APP_1_4_Mobile_Anwendungen_Edition_2023.pdf?__blob=publicationFile&v=3#download=1" }, { oldId: "SYS.3.1.A1-UA.1", relationship: "intersects-with", link: "https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/07_SYS_IT_Systeme/SYS_3_1_Laptops_Edition_2023.pdf?__blob=publicationFile&v=3#download=1" }]} />
 
 > Sensibilisierung für Nutzende SOLLTE zum Sperren von IT-System vor dem Verlassen des Arbeitsplatzes anweisen.
@@ -512,6 +634,8 @@ Zeigt der Browser oder eine andere Anwendung eine Zertifikatswarnung an, dann be
 Diese Vorgehensweise hilft dabei, unbefugten Zugriff auf sensible Informationen zu verhindern, die auf dem Bildschirm angezeigt werden könnten. Ansonsten könnte es zu unbefugten Zugriffen auf Daten oder die Systeme selber kommen, wenn diese unbewacht und ungesperrt zurückgelassen werden.
 
 ### SENS.8.2 – Clean Desk {#SENS.8.2}
+
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">SENS.8.2</span>
 
 <ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="3" threats="G 0.18, G 0.29" threatsHint="G 0.18 – Fehlplanung oder fehlende Anpassung · G 0.29 – Verstoß gegen Gesetze oder Regelungen" />
 
@@ -521,15 +645,19 @@ Ein aufgeräumter Arbeitplatz („Clean Desk Policy“) kann dazu beitragen, Inf
 
 ### SENS.8.3 – Risiken der Nutzung von mobilen Endgeräten {#SENS.8.3}
 
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">SENS.8.3</span>
+
 <ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="1" threats="G 0.18" threatsHint="G 0.18 – Fehlplanung oder fehlende Anpassung" />
 
-> Sensibilisierung für Nutzende von Endgeräten SOLLTE gegen Risiken der Nutzung von mobilen Endgeräten sensibilisieren.
+> Sensibilisierung für Nutzende von Mobilen Endgeräten SOLLTE gegen Risiken der Nutzung von mobilen Endgeräten sensibilisieren.
 
 Bei der Nutzung mobiler Endgeräte wie Smartphones, Tablets und Laptops ist Vorsicht geboten, da diese Geräte häufig außerhalb gesicherter Umgebungen betrieben werden und dort typischerweise einer höheren Gefährdungslage ausgesetzt sind. Beispiele sind z.B. Abhandenkommen von Geräten oder Zugang von Unbefugten zu Informationen im öffentlichen Verkehr. Durch den konsequenten Einsatz von Gerätesperren, Verschlüsselung, vertrauenswürdigen Netzwerken sowie der geschützten Verwahrung von Geräten kann das Risiko einer unbefugten Nutzung erheblich reduziert werden.
 
 ### SENS.8.4 – Schließen von Türen und Fenstern {#SENS.8.4}
 
-<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="2" threats="G 0.44, G 0.2, G 0.3" threatsHint="G 0.44 – Unbefugtes Eindringen in Räumlichkeiten · G 0.2 – Ungünstige klimatische Bedingungen · G 0.3 – Wasser" />
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">SENS.8.4</span>
+
+<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="2" threats="G 0.44, G 0.2, G 0.3" threatsHint="G 0.44 – Unbefugtes Eindringen in Räumlichkeiten · G 0.2 – Ungünstige klimatische Bedingungen · G 0.3 – Wasser" tags={[{ name: "Physical Access Control", hint: "Maßnahmen und Systeme zur Kontrolle des physischen Zugangs zu Gebäuden, Räumlichkeiten oder IT-Ressourcen, um unbefugten Zugriff zu verhindern.", synonyms: "Zutrittskontrolle, Gebäudesicherheit" }]} />
 
 > Sensibilisierung für Nutzende von Gebäuden SOLLTE zum Verschließen von Fenstern und Türen beim Verlassen von Räumlichkeiten anweisen.
 
@@ -537,7 +665,9 @@ Durch unverschlossene Türen und Fenster könnten Unbefugte Zutritt erlangen und
 
 ### SENS.8.5 – Mitbringen von IT-Systemen {#SENS.8.5}
 
-<ControlMeta modalVerb="KANN" secLevel="erhöht" effort="5" threats="G 0.18" threatsHint="G 0.18 – Fehlplanung oder fehlende Anpassung" />
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">SENS.8.5</span>
+
+<ControlMeta modalVerb="KANN" secLevel="erhöht" effort="5" threats="G 0.18" threatsHint="G 0.18 – Fehlplanung oder fehlende Anpassung" tags={[{ name: "Bring Your Own Device", hint: "Unternehmensrichtlinie, die es Mitarbeitern erlaubt, persönliche Geräte (Smartphones, Laptops) für Arbeitszwecke zu nutzen, was besondere Sicherheitsherausforderungen mit sich bringt.", synonyms: "BYOD, private Geräte, eigene Geräte" }]} />
 
 > Sensibilisierung für Nutzende KANN das Mitbringen unautorisierter IT-Systeme untersagen.
 
@@ -545,7 +675,9 @@ Fremde IT-Systeme sind ein Risiko, weil sie an das interne Netz angeschlossen, z
 
 ### SENS.8.6 – Begleitung Externer {#SENS.8.6}
 
-<ControlMeta modalVerb="KANN" secLevel="erhöht" effort="4" threats="G 0.18" threatsHint="G 0.18 – Fehlplanung oder fehlende Anpassung" />
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">SENS.8.6</span>
+
+<ControlMeta modalVerb="KANN" secLevel="erhöht" effort="4" threats="G 0.18" threatsHint="G 0.18 – Fehlplanung oder fehlende Anpassung" tags={[{ name: "Physical Access Control", hint: "Maßnahmen und Systeme zur Kontrolle des physischen Zugangs zu Gebäuden, Räumlichkeiten oder IT-Ressourcen, um unbefugten Zugriff zu verhindern.", synonyms: "Zutrittskontrolle, Gebäudesicherheit" }, { name: "Advanced Persistent Threats (APT)", hint: "Komplexe, gezielte und langfristige Cyberangriffe, bei denen Angreifer unbemerkt in einer Umgebung verbleiben, um Informationen auszuspähen oder Systeme zu manipulieren.", synonyms: "gezielter Angriff, staatlich gesteuerter Angreifer" }]} />
 
 > Sensibilisierung für Mitarbeitende von Standorten KANN zur Begleitung von Externen anweisen.
 
@@ -553,7 +685,9 @@ Dies dient in erster Linie dazu, unbefugte oder unbeaufsichtigte Zugriffe auf se
 
 ### SENS.8.7 – Beaufsichtigung Externer {#SENS.8.7}
 
-<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="2" threats="G 0.18" threatsHint="G 0.18 – Fehlplanung oder fehlende Anpassung" />
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">SENS.8.7</span>
+
+<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="2" threats="G 0.18" threatsHint="G 0.18 – Fehlplanung oder fehlende Anpassung" tags={[{ name: "Physical Access Control", hint: "Maßnahmen und Systeme zur Kontrolle des physischen Zugangs zu Gebäuden, Räumlichkeiten oder IT-Ressourcen, um unbefugten Zugriff zu verhindern.", synonyms: "Zutrittskontrolle, Gebäudesicherheit" }]} />
 
 > Sensibilisierung für Mitarbeitende von Standorten SOLLTE zur Beaufsichtigung von Externen in sensiblen Bereichen anweisen.
 
@@ -561,13 +695,17 @@ Erhalten Externe wie z.B. IT-Dienstleister Zugang zu Standorten, an denen sensib
 
 ### SENS.8.8 – Verwahrung Intern {#SENS.8.8}
 
-<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="2" threats="G 0.18" threatsHint="G 0.18 – Fehlplanung oder fehlende Anpassung" />
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">SENS.8.8</span>
+
+<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="2" threats="G 0.18" threatsHint="G 0.18 – Fehlplanung oder fehlende Anpassung" tags={[{ name: "Physical Access Control", hint: "Maßnahmen und Systeme zur Kontrolle des physischen Zugangs zu Gebäuden, Räumlichkeiten oder IT-Ressourcen, um unbefugten Zugriff zu verhindern.", synonyms: "Zutrittskontrolle, Gebäudesicherheit" }]} />
 
 > Sensibilisierung für Nutzende von Räumen SOLLTE zur sicheren Verwahrung von IT-Systemen und Datenträgern sensibilisieren.
 
 Herumliegende vertrauliche Dokumente und Datenträger sind ein leichtes Ziel für Diebe und können versehentlich verloren gehen. Hiergegen hilft die Verwahrung in einem verschlossenen Schrank oder anderweitig entsprechend geschützt. Dies ist besonders wichtig in Räumlichkeiten, welche oft zusammen mit oder ausschließlich von externen Personen genutzt werden, z.B. Konferenz- oder Veranstaltungsräume.
 
 ### SENS.8.9 – Rückgabe nicht mehr benötigter Assets {#SENS.8.9}
+
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">SENS.8.9</span>
 
 <ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="2" threats="G 0.18" threatsHint="G 0.18 – Fehlplanung oder fehlende Anpassung" />
 
@@ -577,6 +715,8 @@ Dies gilt z.B. bei einem Wechsel der Aufgaben oder der Beendigung des Vertragsve
 
 ### SENS.8.10 – Vermeidung von Brandlasten {#SENS.8.10}
 
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">SENS.8.10</span>
+
 <ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="3" threats="G 0.1, G 0.18" threatsHint="G 0.1 – Feuer · G 0.18 – Fehlplanung oder fehlende Anpassung" />
 
 > Sensibilisierung für Nutzende von Standorten SOLLTE das ungesicherte Hinterlassen von Brandlasten untersagen.
@@ -585,6 +725,8 @@ Befinden sich Brandlasten wie Kartons, brennbare Dämmstoffe, Batterien oder Hol
 
 ### SENS.8.11 – Verwendung von Brandschutmitteln {#SENS.8.11}
 
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">SENS.8.11</span>
+
 <ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="3" threats="G 0.1, G 0.18" threatsHint="G 0.1 – Feuer · G 0.18 – Fehlplanung oder fehlende Anpassung" />
 
 > Sensibilisierung für Mitarbeitende SOLLTE zur korrekten Verwendung bereitgestellter Brandschutz-Hilfsmittel sensibilisieren.
@@ -592,6 +734,8 @@ Befinden sich Brandlasten wie Kartons, brennbare Dämmstoffe, Batterien oder Hol
 Hierzu zählt z.B. die Einweisung in die korrekte Verwendung von Handfeuerlöschern, welche in Serverräumen oder Rechenzentren bereitgestellt werden.
 
 ### SENS.8.12 – Verwendung von Wasserschutzmitteln {#SENS.8.12}
+
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">SENS.8.12</span>
 
 <ControlMeta modalVerb="KANN" secLevel="erhöht" effort="3" threats="G 0.3" threatsHint="G 0.3 – Wasser" />
 
@@ -603,13 +747,17 @@ Ohne ausreichende Kenntnisse könnte ein Mitarbeitender im Ernstfall zögern ode
 
 ### SENS.9.1 – Verarbeitung in der Öffentlichkeit {#SENS.9.1}
 
-<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="3" threats="G 0.18, G 0.29" threatsHint="G 0.18 – Fehlplanung oder fehlende Anpassung · G 0.29 – Verstoß gegen Gesetze oder Regelungen" />
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">SENS.9.1</span>
+
+<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="3" threats="G 0.18, G 0.29" threatsHint="G 0.18 – Fehlplanung oder fehlende Anpassung · G 0.29 – Verstoß gegen Gesetze oder Regelungen" tags={[{ name: "Physical Access Control", hint: "Maßnahmen und Systeme zur Kontrolle des physischen Zugangs zu Gebäuden, Räumlichkeiten oder IT-Ressourcen, um unbefugten Zugriff zu verhindern.", synonyms: "Zutrittskontrolle, Gebäudesicherheit" }, { name: "Shoulder Surfing", hint: "Eine physische Angriffsmethode, bei der ein Angreifer durch Beobachten über die Schulter Informationen wie Passwörter oder PINs ausspäht." }]} />
 
 > Sensibilisierung für Nutzende SOLLTE gegen die Verarbeitung von vertraulichen Informationen in der Öffentlichkeit sensibilisieren.
 
 Die Anforderung zielt darauf ab, das Risiko unbeabsichtigter Informationsabflüsse in öffentlichen Räumen zu reduzieren. Ohne entsprechende Aufmerksamkeit könnte etwa ein unbefugter Dritter vertrauliche Daten über die Schulter mitlesen, Fotos von Bildschirmen aufnehmen oder Gesprächsinhalte mithören, was im schlimmsten Fall zu Identitätsdiebstahl oder geschäftsschädigender Weitergabe von Insiderinformationen führen könnte. Unachtsamkeit könnte dabei z.B. einen Verstoß gegen Arbeitsanweisungen und das Gesetz zum Schutz von Geschäftsgeheimnissen (GeschGehG) darstellen. Im vorliegenden Kontext bedeutet „öffentliche Verarbeitung“ die Nutzung mobiler Geräte wie Laptops, Tablets oder Smartphones in frei zugänglichen Umgebungen, in denen unbekannte Personen mitlesen oder mithören könnten, zum Beispiel in Verkehrsmitteln, Cafés, Flughäfen oder Co-Working-Spaces. Zudem helfen Schutzmaßnahmen wie das Sitzen mit dem Rücken zur Wand oder die Verwendung von Displayschutzfolien und abdeckenden Kopfhörern.
 
 ### SENS.9.2 – Vorsicht vor Mithören {#SENS.9.2}
+
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">SENS.9.2</span>
 
 <ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="2" threats="G 0.18" threatsHint="G 0.18 – Fehlplanung oder fehlende Anpassung" />
 
@@ -619,7 +767,9 @@ Das Abhören von Gesprächen bezeichnet im Kontext des mobilen Arbeitens das unb
 
 ### SENS.9.3 – Verwahrung außer Haus {#SENS.9.3}
 
-<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="3" threats="G 0.18" threatsHint="G 0.18 – Fehlplanung oder fehlende Anpassung" predecessors={[{ oldId: "INF.8.A1-UA.1", relationship: "intersects-with", link: "https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/10_INF_Infrastruktur/INF_8_Haeuslicher_Arbeitsplatz_Edition_2023.pdf?__blob=publicationFile&v=3#download=1" }]} />
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">SENS.9.3</span>
+
+<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="3" threats="G 0.18" threatsHint="G 0.18 – Fehlplanung oder fehlende Anpassung" tags={[{ name: "Physical Access Control", hint: "Maßnahmen und Systeme zur Kontrolle des physischen Zugangs zu Gebäuden, Räumlichkeiten oder IT-Ressourcen, um unbefugten Zugriff zu verhindern.", synonyms: "Zutrittskontrolle, Gebäudesicherheit" }]} predecessors={[{ oldId: "INF.8.A1-UA.1", relationship: "intersects-with", link: "https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/10_INF_Infrastruktur/INF_8_Haeuslicher_Arbeitsplatz_Edition_2023.pdf?__blob=publicationFile&v=3#download=1" }]} />
 
 > Sensibilisierung für Nutzende SOLLTE zur Verwahrung von IT-Systemen und Datenträgern beim mobilen Arbeiten anweisen.
 
@@ -627,7 +777,9 @@ Die Verwahrung von IT-Systemen und Datenträgern bedeutet, diese so zu sichern, 
 
 ### SENS.9.4 – Mobile Arbeit mit Dokumenten {#SENS.9.4}
 
-<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="2" threats="G 0.18" threatsHint="G 0.18 – Fehlplanung oder fehlende Anpassung" />
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">SENS.9.4</span>
+
+<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="2" threats="G 0.18" threatsHint="G 0.18 – Fehlplanung oder fehlende Anpassung" tags={[{ name: "Physical Access Control", hint: "Maßnahmen und Systeme zur Kontrolle des physischen Zugangs zu Gebäuden, Räumlichkeiten oder IT-Ressourcen, um unbefugten Zugriff zu verhindern.", synonyms: "Zutrittskontrolle, Gebäudesicherheit" }]} />
 
 > Sensibilisierung für Nutzende SOLLTE über den sicheren Umgang mit analogen Dokumenten beim mobilen Arbeiten sensibilisieren.
 
@@ -635,7 +787,9 @@ Unter analogen Dokumenten sind hier alle physischen Informations- und Datenträg
 
 ### SENS.9.5 – Mitnahme zur mobilen Arbeit {#SENS.9.5}
 
-<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="4" threats="G 0.18" threatsHint="G 0.18 – Fehlplanung oder fehlende Anpassung" />
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">SENS.9.5</span>
+
+<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="4" threats="G 0.18" threatsHint="G 0.18 – Fehlplanung oder fehlende Anpassung" tags={[{ name: "Physical Access Control", hint: "Maßnahmen und Systeme zur Kontrolle des physischen Zugangs zu Gebäuden, Räumlichkeiten oder IT-Ressourcen, um unbefugten Zugriff zu verhindern.", synonyms: "Zutrittskontrolle, Gebäudesicherheit" }]} />
 
 > Sensibilisierung für Nutzende SOLLTE gegen die Mitnahme nicht erforderlicher IT-Systeme und Datenträger sensibilisieren.
 
@@ -643,7 +797,9 @@ Außerhalb der Institution sind die Möglichkeiten zum Schutz von IT-Systemen un
 
 ### SENS.9.6 – Mitnahme ins Ausland {#SENS.9.6}
 
-<ControlMeta modalVerb="KANN" secLevel="erhöht" effort="3" threats="G 0.18" threatsHint="G 0.18 – Fehlplanung oder fehlende Anpassung" />
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">SENS.9.6</span>
+
+<ControlMeta modalVerb="KANN" secLevel="erhöht" effort="3" threats="G 0.18" threatsHint="G 0.18 – Fehlplanung oder fehlende Anpassung" tags={[{ name: "Auslandsreisen", hint: "Aufenthalte außerhalb des Heimat- bzw. Wohnsitzlandes der beschäftigten Person, bei denen Informationen und Assets aus dem Informationsverbund verwendet werden. Dazu zählen sowohl vorübergehende Arbeitsaufenthalte an Standorten der eigenen Institution oder bei Geschäftspartnern als auch die Erbringung mobiler Arbeit von beliebigen Orten im Ausland. Wesentlich ist dabei, dass die Tätigkeit grenzüberschreitend ausgeübt wird und dadurch rechtliche, steuerliche sowie arbeits- und sozialversicherungsrechtliche Rahmenbedingungen anderer Staaten berührt werden könnten." }]} />
 
 > Sensibilisierung für Nutzende KANN die Mitnahme nicht erforderlicher IT-Systeme und Datenträger bei Auslandsreisen untersagen.
 
@@ -651,7 +807,9 @@ Auf Auslandsreisen ist das Risiko für Spionage erhöht und der Rechtsschutz fü
 
 ### SENS.9.7 – Reise- und Sicherheitshinweise {#SENS.9.7}
 
-<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="4" threats="G 0.18, G 0.5" threatsHint="G 0.18 – Fehlplanung oder fehlende Anpassung · G 0.5 – Naturkatastrophen" />
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">SENS.9.7</span>
+
+<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="4" threats="G 0.18, G 0.5" threatsHint="G 0.18 – Fehlplanung oder fehlende Anpassung · G 0.5 – Naturkatastrophen" tags={[{ name: "Auslandsreisen", hint: "Aufenthalte außerhalb des Heimat- bzw. Wohnsitzlandes der beschäftigten Person, bei denen Informationen und Assets aus dem Informationsverbund verwendet werden. Dazu zählen sowohl vorübergehende Arbeitsaufenthalte an Standorten der eigenen Institution oder bei Geschäftspartnern als auch die Erbringung mobiler Arbeit von beliebigen Orten im Ausland. Wesentlich ist dabei, dass die Tätigkeit grenzüberschreitend ausgeübt wird und dadurch rechtliche, steuerliche sowie arbeits- und sozialversicherungsrechtliche Rahmenbedingungen anderer Staaten berührt werden könnten." }, { name: "Advanced Persistent Threats (APT)", hint: "Komplexe, gezielte und langfristige Cyberangriffe, bei denen Angreifer unbemerkt in einer Umgebung verbleiben, um Informationen auszuspähen oder Systeme zu manipulieren.", synonyms: "gezielter Angriff, staatlich gesteuerter Angreifer" }]} />
 
 > Sensibilisierung für Nutzende SOLLTE zu Reise- und Sicherheitshinweisen des Auswärtigen Amtes bei Auslandsreisen ins außereuropäische Ausland sensibilisieren.
 
@@ -661,13 +819,17 @@ Dies kann dazu beitragen, frühzeitig potenzielle Gefahren zu erkennen und das V
 
 ### SENS.10.1 – Grundprinzipien der Systemadministration {#SENS.10.1}
 
-<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="2" threats="G 0.31, G 0.30, G 0.32" threatsHint="G 0.31 – Fehlerhafte Nutzung oder Administration von Geräten und Systemen · G 0.30 – Unberechtigte Nutzung oder Administration von Geräten und Systemen · G 0.32 – Missbrauch von Berechtigungen" />
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">SENS.10.1</span>
+
+<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="2" threats="G 0.31, G 0.30, G 0.32" threatsHint="G 0.31 – Fehlerhafte Nutzung oder Administration von Geräten und Systemen · G 0.30 – Unberechtigte Nutzung oder Administration von Geräten und Systemen · G 0.32 – Missbrauch von Berechtigungen" tags={[{ name: "Advanced Persistent Threats (APT)", hint: "Komplexe, gezielte und langfristige Cyberangriffe, bei denen Angreifer unbemerkt in einer Umgebung verbleiben, um Informationen auszuspähen oder Systeme zu manipulieren.", synonyms: "gezielter Angriff, staatlich gesteuerter Angreifer" }]} />
 
 > Sensibilisierung für Administrierende SOLLTE zu den Grundprinzipien der sicheren Administration sensibilisieren.
 
 Administriende sind durch ihre weitreichenden Zugangs- und Zugriffsberechtigungen, sowie ihre Verantwortung für die Aufrechterhaltung der Infrastruktur von besonderer Bedeutung für die Informations- und Cybersicherheit. Hier bedeutet „sichere Administration“, dass administrative Tätigkeiten so gestaltet werden, dass Vertraulichkeit, Integrität und Verfügbarkeit der Systeme möglichst gewahrt bleiben. Dazu zählen etwa Zugriffskontrolle und Rechtevergabe nach dem Least-Privilege-Prinzip, Netzwerksegmentierung, Systemhärtung, Loganalyse, Datensicherungen und Monitoring sowie die Vorbereitung für Notfälle. Um dies sicherzustellen ist es wichtig, die festgelegten Regeln (z.B. IT-Betriebskonzept) zu kennen und auf deren Einhaltung zu achten.
 
 ### SENS.10.2 – Umgang mit privilegierten Berechtigungen {#SENS.10.2}
+
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">SENS.10.2</span>
 
 <ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="2" threats="G 0.31, G 0.30, G 0.32, G 0.42" threatsHint="G 0.31 – Fehlerhafte Nutzung oder Administration von Geräten und Systemen · G 0.30 – Unberechtigte Nutzung oder Administration von Geräten und Systemen · G 0.32 – Missbrauch von Berechtigungen · G 0.42 – Social Engineering" />
 
@@ -677,6 +839,8 @@ Privilegierte Berechtigungen (auch „administrative Rechte“, „Root-Berechti
 
 ### SENS.10.3 – Systemadministration - Sicherheitsvorfälle {#SENS.10.3}
 
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">SENS.10.3</span>
+
 <ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="3" threats="G 0.31, G 0.30, G 0.32" threatsHint="G 0.31 – Fehlerhafte Nutzung oder Administration von Geräten und Systemen · G 0.30 – Unberechtigte Nutzung oder Administration von Geräten und Systemen · G 0.32 – Missbrauch von Berechtigungen" />
 
 > Sensibilisierung für Administrierende SOLLTE zu Verfahren und Regelungen bei Sicherheitsvorfällen sensibilisieren.
@@ -684,6 +848,8 @@ Privilegierte Berechtigungen (auch „administrative Rechte“, „Root-Berechti
 Für die Behandlung und Nachsorge bei Sicherheitsvorfällen sind die festgelegten Verfahren und Regelungen einzuhalten. Hierzu gehört etwa das Erkennen auffälliger Logeinträge, der Umgang mit kompromittierten Administratorpasswörtern oder das strukturierte Sammeln erster Fakten, bevor ein Incident-Response-Team übernimmt. Effektiv kann auch ein klar dokumentiertes Ablaufdiagramm sein, das den Meldeweg und zulässige Sofortmaßnahmen visuell darstellt und in Administrationshandbüchern oder direkt im Ticket-System hinterlegt ist.
 
 ### SENS.10.4 – Systemadministration - Strukturierte Verkabelung {#SENS.10.4}
+
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">SENS.10.4</span>
 
 <ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="2" threats="G 0.31, G 0.30, G 0.32" threatsHint="G 0.31 – Fehlerhafte Nutzung oder Administration von Geräten und Systemen · G 0.30 – Unberechtigte Nutzung oder Administration von Geräten und Systemen · G 0.32 – Missbrauch von Berechtigungen" />
 
@@ -693,7 +859,9 @@ Eine strukturierte Verkabelung kann die Übersichtlichkeit, Fehlertoleranz und B
 
 ### SENS.10.5 – Systemadministration - Internetnutzung {#SENS.10.5}
 
-<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="3" threats="G 0.31, G 0.30, G 0.32" threatsHint="G 0.31 – Fehlerhafte Nutzung oder Administration von Geräten und Systemen · G 0.30 – Unberechtigte Nutzung oder Administration von Geräten und Systemen · G 0.32 – Missbrauch von Berechtigungen" />
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">SENS.10.5</span>
+
+<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="3" threats="G 0.31, G 0.30, G 0.32" threatsHint="G 0.31 – Fehlerhafte Nutzung oder Administration von Geräten und Systemen · G 0.30 – Unberechtigte Nutzung oder Administration von Geräten und Systemen · G 0.32 – Missbrauch von Berechtigungen" tags={[{ name: "Privilege Escalation", hint: "Ausweitung von Berechtigungen durch einen Angreifer oder Benutzer, um höhere Rechte zu erlangen als ursprünglich vorgesehen." }, { name: "Insider Threat", hint: "Sicherheitsrisiko, das von Personen innerhalb einer Organisation ausgeht, die aufgrund ihres legitimen Zugriffs sensible Informationen missbrauchen oder Systeme schädigen können.", synonyms: "interne Bedrohung, Innentäter" }, { name: "Privilegierte Rechte", hint: "Erweiterte Zugriffs- und Administrationsrechte, mit denen besonders weitreichende Änderungen an Systemen, Diensten oder Daten vorgenommen werden können." }]} />
 
 > Sensibilisierung für Administrierende SOLLTE gegen den Internetzugriff über ein Administrationskonto sensibilisieren.
 
@@ -703,6 +871,8 @@ Administrationskonten sind im konkreten Kontext privilegierte Benutzerkonten, di
 
 ### SENS.11.1 – Sensibilisierung der Institutionsleitung {#SENS.11.1}
 
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">SENS.11.1</span>
+
 <ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="2" threats="G 0.18" threatsHint="G 0.18 – Fehlplanung oder fehlende Anpassung" predecessors={[{ oldId: "ORP.3.A1-UA.1", relationship: "intersects-with", link: "https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/02_ORP_Organisation_und_Personal/ORP_3_Sensibilisierung_und_Schulung_Editon_2023.pdf?__blob=publicationFile&v=3#download=1" }]} />
 
 > Sensibilisierung für Institutionsleitung SOLLTE zur Bedeutung der Informationssicherheit für den Schutz der Geschäftsprozesse sensibilisieren.
@@ -710,6 +880,8 @@ Administrationskonten sind im konkreten Kontext privilegierte Benutzerkonten, di
 Informationssicherheit ist kein Selbstzweck, sondern soll die Verarbeitung von Informationen in Geschäftsprozessen zur Erreichung der Geschäftsziele schützen. Weil Umfang und Integration von Informationsverarbeitungen in Geschäftsprozessen zunehmen, sind Datenverluste, Cyberangriffe und andere elementare Gefährdungen eine zunehmend ernste Bedrohung.
 
 ### SENS.11.2 – Führen als Vorbild {#SENS.11.2}
+
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">SENS.11.2</span>
 
 <ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="1" threats="G 0.18" threatsHint="G 0.18 – Fehlplanung oder fehlende Anpassung" predecessors={[{ oldId: "ORP.3.A1-UA.4", relationship: "intersects-with", link: "https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/02_ORP_Organisation_und_Personal/ORP_3_Sensibilisierung_und_Schulung_Editon_2023.pdf?__blob=publicationFile&v=3#download=1" }]} />
 
@@ -719,7 +891,9 @@ Die Vorbildfunktion von Führungskräften ist entscheidend, um eine robuste Sich
 
 ### SENS.11.3 – Whaling {#SENS.11.3}
 
-<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="1" threats="G 0.42" threatsHint="G 0.42 – Social Engineering" />
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">SENS.11.3</span>
+
+<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="1" threats="G 0.42" threatsHint="G 0.42 – Social Engineering" tags={[{ name: "Advanced Persistent Threats (APT)", hint: "Komplexe, gezielte und langfristige Cyberangriffe, bei denen Angreifer unbemerkt in einer Umgebung verbleiben, um Informationen auszuspähen oder Systeme zu manipulieren.", synonyms: "gezielter Angriff, staatlich gesteuerter Angreifer" }]} />
 
 > Sensibilisierung für Führungskräfte SOLLTE gegen gezielte Angriffe auf Führungskräfte sensibilisieren.
 
@@ -728,6 +902,8 @@ Gezielte Angriffe auf Führungskräfte, auch Whaling genannt, sind eine besonder
 ## SENS.12 Spezifische Risiken {#SENS.12}
 
 ### SENS.12.1 – Hohe Risiken {#SENS.12.1}
+
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">SENS.12.1</span>
 
 <ControlMeta modalVerb="KANN" secLevel="erhöht" effort="5" threats="G 0.42" threatsHint="G 0.42 – Social Engineering" predecessors={[{ oldId: "ORP.3.A9-UA.1", relationship: "intersects-with", link: "https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/02_ORP_Organisation_und_Personal/ORP_3_Sensibilisierung_und_Schulung_Editon_2023.pdf?__blob=publicationFile&v=3#download=1" }]} />
 

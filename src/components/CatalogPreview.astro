@@ -46,7 +46,12 @@ const {
 } = Astro.props;
 ---
 
-<figure class:list={['catalog-preview', { standalone }]}>
+<figure class:list={['catalog-preview', { standalone }]} data-pagefind-ignore>
+	{/* Reines Anschauungsstueck (rohes OSCAL-JSON + Pille-Rendering derselben
+	    Anforderung) -- kein Suchtreffer-wuerdiger Inhalt. Ohne das landete
+	    der rohe JSON-Schnipsel als eigenes, kaputt wirkendes Fragment in den
+	    Ergebnissen. Die echte Anforderung ist ohnehin schon unter
+	    /grundschutzpp/ indexiert. */}
 	<div class="pane pane-raw">
 		<figcaption>Im Katalog</figcaption>
 		<pre><code>{rawExcerpt}</code></pre>

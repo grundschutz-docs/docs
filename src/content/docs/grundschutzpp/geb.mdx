@@ -5,11 +5,13 @@ description: "Das Gebäudemanagement sorgt für die Implementierung von physisch
 
 import ControlMeta from '../../../components/ControlMeta.astro';
 
+<span data-pagefind-meta="section:Anforderung"></span>
+
 <div class="source-note">
-<p>Katalogstand: 10. September 2026 — Quelle: <a href="https://github.com/BSI-Bund/Stand-der-Technik-Bibliothek" target="_blank" rel="noopener noreferrer">BSI Stand-der-Technik-Bibliothek</a>.</p>
+<p>Katalogstand: 24. September 2026 — Quelle: <a href="https://github.com/BSI-Bund/Stand-der-Technik-Bibliothek" target="_blank" rel="noopener noreferrer">BSI Stand-der-Technik-Bibliothek</a>.</p>
 <details>
 <summary>Eine Anforderung von dieser Seite zitieren</summary>
-<p>Maßgeblich ist immer das Original, nicht diese Aufbereitung. Zitierfähig ist: BSI, <em>Anwenderkatalog Grundschutz++</em>, Version 2026-09-10, Dokument-ID ebe77c16-3ddc-42ce-8d53-eff5b6e23334 (RFC 9562), Anforderung <em>&lt;ID&gt;</em> — wobei die ID die Kennung neben der jeweiligen Überschrift ist, etwa <code>GC.5.1.1</code>. Sie bleibt stabil, auch wenn das BSI eine Formulierung ändert.</p>
+<p>Maßgeblich ist immer das Original, nicht diese Aufbereitung. Zitierfähig ist: BSI, <em>Anwenderkatalog Grundschutz++</em>, Version 2026-09-24, Dokument-ID ebe77c16-3ddc-42ce-8d53-eff5b6e23334 (RFC 9562), Anforderung <em>&lt;ID&gt;</em> — wobei die ID die Kennung neben der jeweiligen Überschrift ist, etwa <code>GC.5.1.1</code>. Sie bleibt stabil, auch wenn das BSI eine Formulierung ändert.</p>
 </details>
 </div>
 
@@ -19,6 +21,8 @@ Das Gebäudemanagement sorgt für die Implementierung von physischen Sicherheits
 
 ### GEB.1.1 – Verfahren und Regelungen {#GEB.1.1}
 
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">GEB.1.1</span>
+
 <ControlMeta modalVerb="MUSS" secLevel="normal-SdT" effort="0" threats="G 0.18" threatsHint="G 0.18 – Fehlplanung oder fehlende Anpassung" predecessors={[{ oldId: "INF.1.A1-UA.1", relationship: "intersects-with", link: "https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/10_INF_Infrastruktur/INF_1_Allgemeines_Gebaeude_Edition_2023.pdf?__blob=publicationFile&v=3#download=1" }]} />
 
 > Gebäudemanagement für Standorte MUSS Verfahren und Regelungen zum physischen Schutz von Standorten, an denen schützenswerte Informationen verarbeitet oder gespeichert werden, verankern.
@@ -26,6 +30,8 @@ Das Gebäudemanagement sorgt für die Implementierung von physischen Sicherheits
 Ein Verfahren zum Gebäudemanagement stellt sicher, dass die zum Betrieb von Geschäftsprozessen erforderliche Infrastruktur vorhanden ist und schützt Zielobjekte dort vor dem Zugriff Unbefugter und vor Elementarschäden wie Feuer, Wind und Wetter. Die bei der Festlegung des Verfahrens im Einzelnen zu berücksichtigenden Inhalte ergeben sich aus den Anforderungen dieser Praktik.
 
 #### GEB.1.1.1 – Dokumentation {#GEB.1.1.1}
+
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">GEB.1.1.1</span>
 
 <ControlMeta modalVerb="MUSS" secLevel="normal-SdT" effort="0" threats="G 0.18, G 0.37" threatsHint="G 0.18 – Fehlplanung oder fehlende Anpassung · G 0.37 – Abstreiten von Handlungen" />
 
@@ -35,6 +41,8 @@ Ohne eine Dokumentation könnte die Einhaltung der Verfahren und Regelungen von 
 
 #### GEB.1.1.2 – Zuweisung der Aufgaben {#GEB.1.1.2}
 
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">GEB.1.1.2</span>
+
 <ControlMeta modalVerb="MUSS" secLevel="normal-SdT" effort="0" threats="G 0.18, G 0.31" threatsHint="G 0.18 – Fehlplanung oder fehlende Anpassung · G 0.31 – Fehlerhafte Nutzung oder Administration von Geräten und Systemen" />
 
 > Gebäudemanagement für Standorte MUSS die mit den Verfahren und Regelungen verbundenen Aufgaben *[zuständigen Personen oder Rollen]* zuweisen.
@@ -42,6 +50,8 @@ Ohne eine Dokumentation könnte die Einhaltung der Verfahren und Regelungen von 
 Die Zuweisung von Aufgaben bezeichnet die eindeutige und verbindliche Übertragung von konkreten Tätigkeiten und Verantwortlichkeiten des Änderungsprozesses, wie etwa die Risikobewertung, die technische Umsetzung oder die finale Freigabe, an definierte Stellen in der Institution. Der Sinn dieser Vorschrift ist es, die Verantwortlichkeit ("Accountability") für jeden einzelnen Schritt im Prozess klarzustellen. Ohne eine solche Zuweisung könnten kritische Prüfungen unterbleiben, weil sich niemand explizit zuständig fühlt, was wiederum die Wahrscheinlichkeit fehlgeschlagener Änderungen erhöht. Eine klare Regelung kann sicherstellen, dass keine Aufgaben übersehen werden und jede Tätigkeit von einer dafür qualifizierten und befugten Stelle ausgeführt wird, was die Prozesssicherheit signifikant erhöht. Eine bewährte Methode zur Umsetzung ist die Erstellung einer RACI-Matrix (Responsible, Accountable, Consulted, Informed), die tabellarisch für jeden Prozessschritt darstellt, wer für die Durchführung verantwortlich ist, wer die Gesamtverantwortung trägt, wer zu konsultieren und wer zu informieren ist. Diese Zuständigkeiten können auch direkt in einem Workflow- oder Ticketsystem abgebildet werden, sodass Aufgaben, wie beispielsweise Genehmigungsschritte, automatisch an die richtige Gruppe oder Person weitergeleitet werden. Sinnvoll ist es, die Zuweisung anhand von Rollen (z. B. "Anwendungsverantwortlicher", "Netzwerkadministrator", "Change Manager") vorzunehmen, statt an konkrete Personen. Dieser Ansatz stellt sicher, dass die Prozesse auch bei Personalwechseln stabil weiterlaufen, da die Zuständigkeit an die Funktion und nicht an das Individuum gebunden ist.
 
 #### GEB.1.1.3 – Bekanntgabe {#GEB.1.1.3}
+
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">GEB.1.1.3</span>
 
 <ControlMeta modalVerb="MUSS" secLevel="normal-SdT" effort="0" threats="G 0.18, G 0.31" threatsHint="G 0.18 – Fehlplanung oder fehlende Anpassung · G 0.31 – Fehlerhafte Nutzung oder Administration von Geräten und Systemen" />
 
@@ -51,6 +61,8 @@ Wenn die Zuständigen die etablierten Verfahren nicht kennen, besteht die Gefahr
 
 ### GEB.1.2 – Regelmäßige Überprüfung {#GEB.1.2}
 
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">GEB.1.2</span>
+
 <ControlMeta modalVerb="MUSS" secLevel="normal-SdT" effort="0" threats="G 0.18" threatsHint="G 0.18 – Fehlplanung oder fehlende Anpassung" />
 
 > Gebäudemanagement für Standorte MUSS die Verfahren und Regelungen *[regelmäßig]* und anlassbezogen auf Aktualität überprüfen.
@@ -58,6 +70,8 @@ Wenn die Zuständigen die etablierten Verfahren nicht kennen, besteht die Gefahr
 Eine geplante der etablierten Verfahren und Regelungen dient dazu festzustellen, ob diese noch wirksam, effizient und an die aktuellen Gegebenheiten angepasst sind. Eine anlassbezogene Überprüfung wird durch spezifische Ereignisse ausgelöst, wie etwa einen schwerwiegenden Sicherheitsvorfall, eine strategische Neuausrichtung der IT oder neue gesetzliche Anforderungen. Der Zweck dieser Anforderung ist es, die kontinuierliche Verbesserung und Anpassungsfähigkeit des Prozesses sicherzustellen, da veraltete Regelungen neuen technologischen Entwicklungen oder Bedrohungen nicht mehr gerecht werden könnten; ein vor Jahren für monolithische Anwendungen konzipierter Prozess ist beispielsweise für agile Entwicklungsmethoden oder Microservice-Architekturen ungeeignet. Die regelmäßige Überprüfung kann die Effektivität des Sicherheitsmanagements langfristig aufrechterhalten und die Resilienz der Institution stärken.
 
 ### GEB.1.3 – Autorisierung von Standorten {#GEB.1.3}
+
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">GEB.1.3</span>
 
 <ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="2" threats="G 0.18, G 0.29" threatsHint="G 0.18 – Fehlplanung oder fehlende Anpassung · G 0.29 – Verstoß gegen Gesetze oder Regelungen" />
 
@@ -67,6 +81,8 @@ Die gezielte Autorisierung von Standorten für die Stationierung von Assets kann
 
 #### GEB.1.3.1 – Abnahme von Standorten {#GEB.1.3.1}
 
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">GEB.1.3.1</span>
+
 <ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="3" threats="G 0.18, G 0.26" threatsHint="G 0.18 – Fehlplanung oder fehlende Anpassung · G 0.26 – Fehlfunktion von Geräten oder Systemen" />
 
 > Gebäudemanagement für Standorte SOLLTE Standorte vor Autorisierung anhand von *[Kriterien]* testen.
@@ -75,6 +91,8 @@ Eine Abnahme anhand von Sicherheitskriterien stellt sicher, dass Sicherheitsaspe
 
 ### GEB.1.4 – Exponierte Bereiche {#GEB.1.4}
 
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">GEB.1.4</span>
+
 <ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="3" threats="G 0.5, G 0.6, G 0.7, G 0.18" threatsHint="G 0.5 – Naturkatastrophen · G 0.6 – Katastrophen im Umfeld · G 0.7 – Großereignisse im Umfeld · G 0.18 – Fehlplanung oder fehlende Anpassung" />
 
 > Gebäudemanagement für Standorte SOLLTE schützenswerte Assets oder zugehörige Infrastrukturen nur außerhalb exponierter oder besonders gefährdeter Bereiche platzieren.
@@ -82,6 +100,8 @@ Eine Abnahme anhand von Sicherheitskriterien stellt sicher, dass Sicherheitsaspe
 Wenn schützenswerte Räume wie Datenträgerarchive, Hostsysteme oder zentrale Infrastrukturen wie die Strom- und Netzversorgung in besonders exponierten Gebäudeteilen oder unter freiem Himmel lokalisiert werden, erhöht dies das Risiko für Ausfälle. Beispiele für gefährdete Bereiche sind ein überflutungsgefährdeter Keller, an der Gebäudekante direkt neben einer Bundesstraße oder an einer von Außen leicht einsehbaren Stelle. Welche Bereiche gefährdet sind kann oft von lokalen oder nationalen staatlichen Stellen bezogen werden. Wenn der gesamte Standort besonders exponiert oder gefährdet ist, kann dies nur durch die Nutzung anderer Standorte umgesetzt werden.
 
 ### GEB.1.5 – Strukturpläne {#GEB.1.5}
+
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">GEB.1.5</span>
 
 <ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="3" threats="G 0.18" threatsHint="G 0.18 – Fehlplanung oder fehlende Anpassung" />
 
@@ -93,6 +113,8 @@ Strukturpläne enthalten Grundrisse und Verlaufswege für physische Perimeter od
 
 ### GEB.2.1 – Installation von Perimetern {#GEB.2.1}
 
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">GEB.2.1</span>
+
 <ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="2" threats="G 0.18, G 0.44, G 0.16, G 0.24, G 0.34, G 0.41" threatsHint="G 0.18 – Fehlplanung oder fehlende Anpassung · G 0.44 – Unbefugtes Eindringen in Räumlichkeiten · G 0.16 – Diebstahl von Geräten, Datenträgern oder Dokumenten · G 0.24 – Zerstörung von Geräten oder Datenträgern · G 0.34 – Anschlag · G 0.41 – Sabotage" />
 
 > Gebäudemanagement für Standorte SOLLTE Sicherheitsperimeter installieren.
@@ -100,6 +122,8 @@ Strukturpläne enthalten Grundrisse und Verlaufswege für physische Perimeter od
 Die Installation physischer Sicherheitsperimeter dient dem grundlegenden Schutz von Informationsressourcen und kritischer Infrastruktur vor unbefugtem Zugriff und physischen Bedrohungen. Ein effektiver Sicherheitsperimeter kann als mehrschichtige Barriere fungieren, die sensible Bereiche vor verschiedenen Risiken wie Einbruch, Diebstahl oder Sabotage schützt. Ohne angemessene physische Sicherheitsmaßnahmen könnten unbefugte Personen z.B. Zugang zu Serverräumen erlangen und dort Datenträger entwenden, Schadcode installieren oder Hardwarekomponenten manipulieren. Auch Naturereignisse wie Überschwemmungen oder Brände könnten ohne geeignete Perimeter leichter zu Datenverlust oder Betriebsunterbrechungen führen. Bei der Implementierung physischer Sicherheitsperimeter kann eine Kombination verschiedener Sicherheitsebenen erwogen werden, beginnend mit äußeren Barrieren wie Zäunen, Schranken oder gesicherten Eingangsbereichen, die den Zugang zum Gelände regulieren. Im Gebäudeinneren können Zugangskontrollsysteme mit unterschiedlichen Authentifizierungsmethoden (Chipkarten, biometrische Verfahren, PIN-Codes) eingesetzt werden, um den Zutritt zu sensiblen Bereichen auf autorisierte Mitarbeiter zu beschränken. Die Effektivität dieser Maßnahmen kann durch ergänzende Systeme wie Videoüberwachung, Alarmanlagen oder Bewegungsmelder verstärkt werden, wobei ein ausgewogenes Verhältnis zwischen Sicherheitsanforderungen und Praktikabilität für den Arbeitsalltag zu finden ist. Bei der Planung kann eine Risikobewertung helfen, um festzulegen, welche Bereiche besonders schutzbedürftig sind und entsprechend abgesichert werden, etwa durch Sicherheitszonen mit gestaffelten Zugangsrechten oder spezielle Brandschutzbereiche für kritische IT-Infrastruktur.
 
 ### GEB.2.2 – Dokumentation öffentlicher Bereiche {#GEB.2.2}
+
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">GEB.2.2</span>
 
 <ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="4" threats="G 0.18, G 0.44, G 0.16, G 0.24" threatsHint="G 0.18 – Fehlplanung oder fehlende Anpassung · G 0.44 – Unbefugtes Eindringen in Räumlichkeiten · G 0.16 – Diebstahl von Geräten, Datenträgern oder Dokumenten · G 0.24 – Zerstörung von Geräten oder Datenträgern" />
 
@@ -109,13 +133,17 @@ Gebäude sind als stabiler und klar ersichtlicher Sicherheitsperimeter besonders
 
 ### GEB.2.3 – Erkundung aus dem öffentlichen Raum {#GEB.2.3}
 
-<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="4" threats="G 0.44, G 0.16, G 0.24, G 0.19" threatsHint="G 0.44 – Unbefugtes Eindringen in Räumlichkeiten · G 0.16 – Diebstahl von Geräten, Datenträgern oder Dokumenten · G 0.24 – Zerstörung von Geräten oder Datenträgern · G 0.19 – Offenlegung schützenswerter Informationen" />
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">GEB.2.3</span>
+
+<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="4" threats="G 0.44, G 0.16, G 0.24, G 0.19" threatsHint="G 0.44 – Unbefugtes Eindringen in Räumlichkeiten · G 0.16 – Diebstahl von Geräten, Datenträgern oder Dokumenten · G 0.24 – Zerstörung von Geräten oder Datenträgern · G 0.19 – Offenlegung schützenswerter Informationen" tags={[{ name: "Recon", hint: "Abkürzung für Reconnaissance, die Phase eines Cyberangriffs, in der Informationen über potenzielle Ziele gesammelt werden, um Schwachstellen zu identifizieren." }]} />
 
 > Gebäudemanagement für Standorte SOLLTE Hör- und Sehschutz gegen den öffentlichen Raum testen.
 
 Erkundung aus dem öffentlichen Raum ist die systematische Sammlung von Informationen, die ausschließlich von öffentlich zugänglichen Bereichen aus durchgeführt wird, um die Schwachstellen eines Standortes zu bewerten, ohne in Sperrzonen einzudringen. Hierbei könnten z.B. Sicherheitssysteme, Zugangspunkte und Personalroutinen ausgeforscht werden; Gespräche in offenen Bereichen wie Lobbys oder Raucherzonen aufgezeichnet werden, in denen sensible Informationen versehentlich preisgegeben werden könnten; zusätzliche Techniken wie das Durchsuchen von Mülltonnen (Dumpster Diving), drahtlose Signalanalyse und Social Engineering von öffentlichen Aussichtspunkten aus könnten zahlreiche Informationen ungewollt preisgeben. Hierbei sind sowohl Einblicke von öffentlichen Straßen, Plätzen oder sonstigen Flächen außerhalb des Perimeters relevant, als auch die Erkundung von höher gelegenen Positionen, z.B. gegenüberliegenden Hochhäusern oder Flugmaschinen wie Drohnen, bis hin zu Satellitenaufnahmen. Maßnahmen können z.B. Begehungen des Perimeters oder von höher gelegenen Räumlichkeiten, die Auswertung öffentlicher Sattelitenbilder oder eigene Drohnenflüge sein. Kann auch durch einen physischen Penetration Test sichergestellt werden.
 
 ### GEB.2.4 – Elektromagnetische Abschirmung {#GEB.2.4}
+
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">GEB.2.4</span>
 
 <ControlMeta modalVerb="KANN" secLevel="erhöht" effort="5" threats="G 0.19, G 0.13, G 0.12" threatsHint="G 0.19 – Offenlegung schützenswerter Informationen · G 0.13 – Abfangen kompromittierender Strahlung · G 0.12 – Elektromagnetische Störstrahlung" />
 
@@ -127,6 +155,8 @@ Die elektromagnetische Abschirmung von Standorten dient dem Schutz vertraulicher
 
 ### GEB.3.1 – Überwachung von Zutrittspunkten {#GEB.3.1}
 
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">GEB.3.1</span>
+
 <ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="3" threats="G 0.44, G 0.16, G 0.24, G 0.19, G 0.34" threatsHint="G 0.44 – Unbefugtes Eindringen in Räumlichkeiten · G 0.16 – Diebstahl von Geräten, Datenträgern oder Dokumenten · G 0.24 – Zerstörung von Geräten oder Datenträgern · G 0.19 – Offenlegung schützenswerter Informationen · G 0.34 – Anschlag" />
 
 > Gebäudemanagement für Standorte SOLLTE Zutrittspunkte auf unbefugte Zutritte überwachen.
@@ -134,6 +164,8 @@ Die elektromagnetische Abschirmung von Standorten dient dem Schutz vertraulicher
 Eine kontinuierliche Überwachung der Zugangsmöglichkeiten, z.B. verschlossener Türen und Fenster an der Gebäudeaußenseite, verhindert, dass sich Unbefugte Zutritt verschaffen. Der hierzu erforderliche Personalbedarf hängt von Gebäudegröße und Schutzbedarf ab. Um den für eine kontinuierliche Überwachung erforderlichen Personalbedarf wirtschaftlich zu decken ist es zweckmäßig, Unterstützungssysteme wie Videokameras oder Einbruchsalarme einzusetzen. Die Umsetzung kann z.B. erfolgen durch Umzäunung, Kameraüberwachung, Bewegungsmelder und einen Wachdienst.
 
 #### GEB.3.1.1 – Videoüberwachung {#GEB.3.1.1}
+
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">GEB.3.1.1</span>
 
 <ControlMeta modalVerb="KANN" secLevel="erhöht" effort="4" threats="G 0.44, G 0.16, G 0.24" threatsHint="G 0.44 – Unbefugtes Eindringen in Räumlichkeiten · G 0.16 – Diebstahl von Geräten, Datenträgern oder Dokumenten · G 0.24 – Zerstörung von Geräten oder Datenträgern" />
 
@@ -143,6 +175,8 @@ Die Auswertung der Videoaufzeichnungen kann je nach Risikoprofil und Geschäftsp
 
 #### GEB.3.1.2 – Überprüfung mitgeführter Gegenstände {#GEB.3.1.2}
 
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">GEB.3.1.2</span>
+
 <ControlMeta modalVerb="KANN" secLevel="erhöht" effort="5" threats="G 0.44, G 0.16, G 0.24, G 0.19, G 0.34, G 0.41" threatsHint="G 0.44 – Unbefugtes Eindringen in Räumlichkeiten · G 0.16 – Diebstahl von Geräten, Datenträgern oder Dokumenten · G 0.24 – Zerstörung von Geräten oder Datenträgern · G 0.19 – Offenlegung schützenswerter Informationen · G 0.34 – Anschlag · G 0.41 – Sabotage" />
 
 > Gebäudemanagement für Standorte KANN das Mitführen von Gegenständen überwachen.
@@ -150,6 +184,8 @@ Die Auswertung der Videoaufzeichnungen kann je nach Risikoprofil und Geschäftsp
 Die Überwachung des Mitführens von Gegenständen (z.B. am Empfang) kann an Standorten mit besonderen Sicherheitsrisiken dazu beitragen, unerlaubtes Einschleusen von Diebstahlwerkzeugen, schädlichen Datenträgern oder gefährlichen Gegenständen zu verhindern. Durch eine stichprobenartige Kontrolle von Taschen, Rucksäcken oder Paketlieferungen kann erkannt werden, ob unbeaufsichtigt Materialien wie USB‑Sticks, externe Festplatten oder andere Speichermedien ins Gebäude gelangen, die vertrauliche Informationen unbemerkt abziehen könnten. Ebenso kann das Verfahren auf Metallgegenstände oder Flüssigkeiten ausgeweitet werden, um das Risiko von Diebstahl, Sabotage oder physischen Angriffen zu reduzieren. Beispielsweise könnte ein nicht registrierter Besucher eine Videokamera einschleusen und damit sensible Produktionsprozesse filmen, oder ein unbeaufsichtigter Paketbote könnte Malware‑belastete Hardware mitliefern – durch die Kontrolle am Empfang kann solchen Szenarien vorgebeugt werden. Die Umsetzung kann stichprobenartig oder durchgehend erfolgen: Einmal täglich kann eine Auswahl von Taschen stichprobenartig geöffnet und mit einer Liste erlaubter Gegenstände abgeglichen werden; hierbei kann ein einfaches Check‑in‑Formular eingesetzt werden, in das Besucherinnen und Besucher freiwillig ihre mitgeführten Gegenstände eintragen können. Ergänzend kann ein abschließender Scan mit einem Metalldetektor oder ein kurzer Blick in unverschlossene Fächer erfolgen, was den Aufwand gering hält und den Durchfluss am Empfang weniger beeinträchtigt. Hier besteht ein enger Bezug zu den Persönlichkeitsrechten der Betroffenen. Eine klar kommunizierte Hausordnung oder ein Informationsblatt kann helfen die Maßnahmen zu erläutern, sodass Besucher erkennen, dass die Kontrollen dem Schutz aller Beteiligten dienen. Gegenstände, die vorübergehend nicht mitgeführt werden dürfen, können gegen Quittung sicher deponiert werden. Auf diese Weise entsteht eine nachvollziehbare Historie, die im Fall eines Vorfalls als Nachweis dienen kann.
 
 ### GEB.3.2 – Anmelde- und Empfangsbereiche {#GEB.3.2}
+
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">GEB.3.2</span>
 
 <ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="4" threats="G 0.44, G 0.16, G 0.24, G 0.34" threatsHint="G 0.44 – Unbefugtes Eindringen in Räumlichkeiten · G 0.16 – Diebstahl von Geräten, Datenträgern oder Dokumenten · G 0.24 – Zerstörung von Geräten oder Datenträgern · G 0.34 – Anschlag" />
 
@@ -159,6 +195,8 @@ Die Einrichtung definierter Anmelde- und Empfangsbereiche dient der Kontrolle de
 
 ### GEB.3.3 – Authentifizierung vor Zutritt {#GEB.3.3}
 
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">GEB.3.3</span>
+
 <ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="3" threats="G 0.44, G 0.16, G 0.24, G 0.19, G 0.34, G 0.41" threatsHint="G 0.44 – Unbefugtes Eindringen in Räumlichkeiten · G 0.16 – Diebstahl von Geräten, Datenträgern oder Dokumenten · G 0.24 – Zerstörung von Geräten oder Datenträgern · G 0.19 – Offenlegung schützenswerter Informationen · G 0.34 – Anschlag · G 0.41 – Sabotage" />
 
 > Gebäudemanagement für Standorte SOLLTE Zutritte im Einklang mit den Festlegungen des Identitäts- und Berechtigungsmanagements authentifizieren.
@@ -166,6 +204,8 @@ Die Einrichtung definierter Anmelde- und Empfangsbereiche dient der Kontrolle de
 Der Zweck der Authentifizierung von Zutritten liegt in der grundlegenden Absicherung physischer Zugänge gegen unbefugte Nutzung. Dies kann verhindern, dass Unbefugte Zugang zu sensiblen Bereichen oder Informationen erhalten. Ohne angemessene Zutrittskontrolle könnte beispielsweise ein nicht autorisierter Besucher in einen Serverraum gelangen und dort Hardware manipulieren, Datenträger entwenden oder Netzwerkkabel umstecken. Ebenso könnte ein ehemaliger Mitarbeiter ohne wirksame Authentifizierung weiterhin auf Systeme zugreifen und vertrauliche Daten entwenden oder geschäftskritische Informationen kompromittieren. Bei der Umsetzung kann ein mehrstufiger Ansatz verfolgt werden, der verschiedene Authentifizierungsfaktoren kombiniert: Wissen (z.B. PIN-Codes, Passwörter), Besitz (z.B. Chipkarten, Tokens, Schlüssel) und biometrische Merkmale (z.B. Fingerabdruck, Gesichtserkennung). Die Stärke der Authentifizierung kann dabei an die Schutzbedürftigkeit des zu schützenden Bereichs angepasst werden – für hochsensible Bereiche können Zwei- oder Mehr-Faktor-Authentifizierungen implementiert werden. Als ergänzende Maßnahme kann ein Monitoring der Zutrittsereignisse eingerichtet werden, das ungewöhnliche Zugriffsversuche erkennt und meldet. Zudem kann die regelmäßige Überprüfung und Aktualisierung der Zutrittsberechtigungen dazu beitragen, dass nur aktuell berechtigte Personen Zugang erhalten. Die Formulierung "im Einklang mit den Festlegungen des Identitäts- und Berechtigungsmanagements" bedeutet, dass die Authentifizierung so erfolgt, wie in der Praktik IDM festgelegt. Hierzu gehört insbesondere die Verwendung aktueller kryptographischer Verfahren, wie sie im Thema Kryptographie zu finden ist.
 
 #### GEB.3.3.1 – Zugangskontrollanlage {#GEB.3.3.1}
+
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">GEB.3.3.1</span>
 
 <ControlMeta modalVerb="KANN" secLevel="erhöht" effort="5" threats="G 0.44, G 0.16, G 0.24, G 0.19" threatsHint="G 0.44 – Unbefugtes Eindringen in Räumlichkeiten · G 0.16 – Diebstahl von Geräten, Datenträgern oder Dokumenten · G 0.24 – Zerstörung von Geräten oder Datenträgern · G 0.19 – Offenlegung schützenswerter Informationen" />
 
@@ -175,6 +215,8 @@ Der Einsatz einer automatischen Zugangskontrollanlage zur Authentifizierung von 
 
 #### GEB.3.3.2 – Dokumentation von Zutritten {#GEB.3.3.2}
 
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">GEB.3.3.2</span>
+
 <ControlMeta modalVerb="KANN" secLevel="erhöht" effort="5" threats="G 0.18, G 0.44, G 0.16, G 0.24" threatsHint="G 0.18 – Fehlplanung oder fehlende Anpassung · G 0.44 – Unbefugtes Eindringen in Räumlichkeiten · G 0.16 – Diebstahl von Geräten, Datenträgern oder Dokumenten · G 0.24 – Zerstörung von Geräten oder Datenträgern" />
 
 > Gebäudemanagement für Standorte KANN Zutritte und Austritte mit Identität und Zeitpunkt dokumentieren.
@@ -182,6 +224,8 @@ Der Einsatz einer automatischen Zugangskontrollanlage zur Authentifizierung von 
 Im Kontext dieser Anforderung bedeutet Identität die eindeutige Zuordnung einer Person zu einem Zutritt oder Austritt, etwa durch Namensangabe, Personalnummer oder ein elektronisches Identifikationsmerkmal wie eine Chipkarte. Der Zeitpunkt ist die präzise Erfassung von Datum und Uhrzeit, an dem ein Zutritts- oder Austrittsvorgang stattfindet. Diese beiden Informationen können so kombiniert werden, dass nachvollziehbar wird, wer zu welchem Zeitpunkt ein Gebäude oder einen bestimmten Bereich betreten oder verlassen hat. Dies gilt sowohl für Mitarbeitende als auch für Besuchende. Für die Umsetzung kann eine Institution z.B. elektronische Zutrittskontrollsysteme einsetzen, die beim Karten- oder Transpondereinsatz automatisch Identität und Zeitpunkt speichern. Auch ein biometrisches Terminal kann die Anforderung erfüllen, wenn es die Daten mit Zeitstempel dokumentiert. Als einfachere Variante kann ein digital geführtes Besucherbuch genutzt werden, in das Namen und Uhrzeit bei Ein- und Austritt eingetragen werden. Eine Institution kann ergänzend festlegen, dass Daten regelmäßig exportiert und manipulationssicher archiviert werden, sodass spätere Prüfungen möglich sind. Hilfreich kann zudem sein, bei Zutrittskarten eine Schnittstelle zur HR-Verwaltung einzurichten, damit Identitäten bei Austritt von Mitarbeitenden automatisch deaktiviert werden und die Dokumentation lückenfrei bleibt. Diese Protokolle dienen als wichtige Grundlage für forensische Analysen und können zur Aufklärung von Diebstahl, Sabotage oder unbefugtem Datenzugriff beitragen.
 
 #### GEB.3.3.3 – Besucheranmeldung {#GEB.3.3.3}
+
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">GEB.3.3.3</span>
 
 <ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="3" threats="G 0.44, G 0.16, G 0.24, G 0.19" threatsHint="G 0.44 – Unbefugtes Eindringen in Räumlichkeiten · G 0.16 – Diebstahl von Geräten, Datenträgern oder Dokumenten · G 0.24 – Zerstörung von Geräten oder Datenträgern · G 0.19 – Offenlegung schützenswerter Informationen" />
 
@@ -191,6 +235,8 @@ Der Begriff „Besuche“ bezeichnet in diesem Kontext physische Zutritte extern
 
 ### GEB.3.4 – Berechtigungsmarkierung {#GEB.3.4}
 
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">GEB.3.4</span>
+
 <ControlMeta modalVerb="KANN" secLevel="erhöht" effort="5" threats="G 0.44, G 0.16, G 0.24" threatsHint="G 0.44 – Unbefugtes Eindringen in Räumlichkeiten · G 0.16 – Diebstahl von Geräten, Datenträgern oder Dokumenten · G 0.24 – Zerstörung von Geräten oder Datenträgern" />
 
 > Gebäudemanagement für Nutzende von Standorten KANN zum Tragen von gut sichtbaren Berechtigungsmarkierungen innerhalb des Sicherheitsperimeters anweisen.
@@ -198,6 +244,8 @@ Der Begriff „Besuche“ bezeichnet in diesem Kontext physische Zutritte extern
 Unter Berechtigungsmarkierungen sind physische Kennzeichen wie Ausweise, Badges, Namensschilder oder Kartenhalter zu verstehen, die eine eindeutige Zuordnung einer Person zu ihrer Zugangsberechtigung ermöglichen. Sie können zudem farblich, mit Fotos oder Barcodes gestaltet sein, um unterschiedliche Zutrittsrechte auf einfache Weise erkennbar zu machen. Der Sinn einer solchen Vorgabe liegt darin, dass unbefugte Personen leichter auffallen und damit potenzielle Gefährdungen frühzeitig erkannt werden. So könnte ein Vorfall entstehen, wenn sich Unbefugte unbemerkt Zutritt zu kritischen Bereichen verschaffen, indem sie sich in einer Gruppe mit berechtigten Personen bewegen. Dagegen kann eine sichtbare Berechtigungsmarkierung helfen, Anomalien rasch zu erkennen und eine unauffällige, aber effektive Zugangskontrolle im Alltag zu unterstützen. Dies gilt sowohl für Mitarbeitende als auch für Besuchende. Für die Umsetzung kann eine Institution beispielsweise darauf achten, dass Markierungen gut sichtbar an Kleidung oder einem Schlüsselband getragen werden können. Sie kann auch unterschiedliche Farbkennungen nutzen, um klar zwischen Besuchenden, Dienstleistern und Mitarbeitenden zu unterscheiden. Für Besuche kann ein einfaches Verfahren eingeführt werden, mit dem Besuchende beim Betreten des Gebäudes ein temporäres Ausweisdokument erhalten, das bei Verlassen wieder zurückzugeben ist. Um die Akzeptanz zu erhöhen, kann das Gebäudemanagement praktikable Trageoptionen wie Clips, Lanyards oder magnetische Halterungen bereitstellen, die den Alltag nicht behindern.
 
 ### GEB.3.5 – Einbruchhemmung {#GEB.3.5}
+
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">GEB.3.5</span>
 
 <ControlMeta modalVerb="KANN" secLevel="erhöht" effort="5" threats="G 0.44, G 0.16, G 0.24, G 0.19, G 0.34, G 0.41" threatsHint="G 0.44 – Unbefugtes Eindringen in Räumlichkeiten · G 0.16 – Diebstahl von Geräten, Datenträgern oder Dokumenten · G 0.24 – Zerstörung von Geräten oder Datenträgern · G 0.19 – Offenlegung schützenswerter Informationen · G 0.34 – Anschlag · G 0.41 – Sabotage" predecessors={[{ oldId: "INF.10.A1-UA.1", relationship: "intersects-with", link: "https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/10_INF_Infrastruktur/INF_10_Besprechungs_Veranstaltungs_und_Schulungsraeume_Edition_2023.pdf?__blob=publicationFile&v=3#download=1" }]} />
 
@@ -207,6 +255,8 @@ Befinden sich am Standort Assets oder Geschäftsprozesse mit erhöhtem Schutzbed
 
 ### GEB.3.6 – Einbruchmeldeanlagen {#GEB.3.6}
 
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">GEB.3.6</span>
+
 <ControlMeta modalVerb="KANN" secLevel="erhöht" effort="5" threats="G 0.44, G 0.16, G 0.24, G 0.19, G 0.41" threatsHint="G 0.44 – Unbefugtes Eindringen in Räumlichkeiten · G 0.16 – Diebstahl von Geräten, Datenträgern oder Dokumenten · G 0.24 – Zerstörung von Geräten oder Datenträgern · G 0.19 – Offenlegung schützenswerter Informationen · G 0.41 – Sabotage" />
 
 > Gebäudemanagement für Standorte KANN Einbrüche nach *[einer entsprechenden Norm]* überwachen.
@@ -214,6 +264,8 @@ Befinden sich am Standort Assets oder Geschäftsprozesse mit erhöhtem Schutzbed
 Für Standorte mit erhöhtem Schutzbedarf ist eine Einbruchmeldeanlage sinnvoll. Die Anforderung gilt erst dann als umgesetzt, wenn alle vorhandenen Türen, Fenster und sonstige geschützte Öffnungen über die Einbruchmeldeanlage auf Verschluss, Verriegelung und Durchbruch überwacht werden.
 
 ### GEB.3.7 – Kontrolle der Zutrittskontrolle {#GEB.3.7}
+
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">GEB.3.7</span>
 
 <ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="4" threats="G 0.44, G 0.16, G 0.24, G 0.34" threatsHint="G 0.44 – Unbefugtes Eindringen in Räumlichkeiten · G 0.16 – Diebstahl von Geräten, Datenträgern oder Dokumenten · G 0.24 – Zerstörung von Geräten oder Datenträgern · G 0.34 – Anschlag" />
 
@@ -225,6 +277,8 @@ Die Funktionsfähigkeit von Zugangkontrollen wie Wachdiensten und Schließanlage
 
 ### GEB.4.1 – Einrichtung {#GEB.4.1}
 
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">GEB.4.1</span>
+
 <ControlMeta modalVerb="KANN" secLevel="erhöht" effort="5" threats="G 0.44, G 0.16, G 0.24, G 0.19, G 0.34, G 0.41" threatsHint="G 0.44 – Unbefugtes Eindringen in Räumlichkeiten · G 0.16 – Diebstahl von Geräten, Datenträgern oder Dokumenten · G 0.24 – Zerstörung von Geräten oder Datenträgern · G 0.19 – Offenlegung schützenswerter Informationen · G 0.34 – Anschlag · G 0.41 – Sabotage" />
 
 > Gebäudemanagement für Standorte KANN geschlossene Sicherheitsbereiche installieren.
@@ -232,6 +286,8 @@ Die Funktionsfähigkeit von Zugangkontrollen wie Wachdiensten und Schließanlage
 Ein Sicherheitsbereich ist ein klar abgegrenzter physischer Raum, für die ein eigener Perimeter eingerichtet wird und dessen Betreten ausschließlich autorisiertem Personal oder unter engen Voraussetzungen gestattet wird. Solche Bereiche dienen dem Schutz von Personen, Anlagen, sensiblen Informationen oder betriebskritischen Prozessen. Standorte oder Teile eines Standortes mit erhöhtem Schutzbedarf können so vor unbefugten Eingriffen geschützt werden, z.B. Serverräume, Arbeitsplätze für Administrierende oder die Institutionsleitung. Zur Umsetzung können z.B. Zutrittskontrollanlagen oder Bewachung eingesetzt werden. Wenn es sich um Hochsicherheitsbereiche handelt, kann der Zutritt mit einem Mehr-Faktor-Verfahren (z.B. Smartcard mit PIN) davor geschützt werden, dass Unbefugte sich durch entwendete Schlüssel oder Authentifizierungstoken Zugang verschaffen.
 
 ### GEB.4.2 – Gesonderte Autorisierung {#GEB.4.2}
+
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">GEB.4.2</span>
 
 <ControlMeta modalVerb="KANN" secLevel="erhöht" effort="5" threats="G 0.44, G 0.16, G 0.24, G 0.32" threatsHint="G 0.44 – Unbefugtes Eindringen in Räumlichkeiten · G 0.16 – Diebstahl von Geräten, Datenträgern oder Dokumenten · G 0.24 – Zerstörung von Geräten oder Datenträgern · G 0.32 – Missbrauch von Berechtigungen" />
 
@@ -241,6 +297,8 @@ Eine zuständige Person oder Rolle kann beispielsweise die Sicherheitsbeauftragt
 
 ### GEB.4.3 – Schleusen {#GEB.4.3}
 
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">GEB.4.3</span>
+
 <ControlMeta modalVerb="KANN" secLevel="erhöht" effort="5" threats="G 0.44, G 0.16, G 0.24" threatsHint="G 0.44 – Unbefugtes Eindringen in Räumlichkeiten · G 0.16 – Diebstahl von Geräten, Datenträgern oder Dokumenten · G 0.24 – Zerstörung von Geräten oder Datenträgern" />
 
 > Gebäudemanagement für Standorte KANN Schleusen an Zugangspunkten installieren.
@@ -248,6 +306,8 @@ Eine zuständige Person oder Rolle kann beispielsweise die Sicherheitsbeauftragt
 Eine Schleuse bezeichnet im Gebäudemanagement eine bauliche oder technische Einrichtung, die den Zutritt an einem Zugangspunkt so regelt, dass jeweils nur eine Person oder ein definiertes Objekt kontrolliert den Bereich passieren kann. Typische Formen sind Personenvereinzelungsanlagen wie Drehkreuze, Sicherheitsschleusen mit zwei Türen, die nie gleichzeitig geöffnet sind, oder Materialschleusen für Lieferungen. Der Sinn einer solchen Einrichtung liegt darin, unkontrolliertes Eindringen oder das Einschleusen unbefugter Personen zu verhindern. Ohne Schleusen könnte etwa jemand einer berechtigten Person unbemerkt folgen („Tailgating“) oder mehrere Personen gleichzeitig eine Zugangskarte verwenden. Mit Schleusen kann dagegen sichergestellt werden, dass jede Person oder jedes Transportgut einzeln überprüft wird und Manipulationsversuche erkannt werden. Für die Umsetzung kann eine Institution verschiedene Maßnahmen wählen: (1) Eine Schleuse kann mit Zutrittskontrollsystemen gekoppelt werden, sodass Türen erst nach erfolgreicher Authentifizierung (z. B. Kartenleser oder biometrische Erkennung) freigegeben werden. (2) Sensoren wie Gewichtssensoren oder 3D-Kameras können zusätzlich eingesetzt werden, um das Mitführen weiterer Personen zu erkennen. (3) Bei Material- oder Lieferantenschleusen kann ein Zwei-Personen-Prinzip implementiert werden, sodass ein Mitarbeiter der Institution den Vorgang begleitet. Auch prozessuale Ergänzungen wie regelmäßige Tests der Schleusenfunktionen, klare Regelungen zum Verhalten bei Fehlalarmen oder Hinweisschilder für Besucher können die Wirksamkeit erhöhen. So kann der Zugang zum Gebäude an kritischen Punkten kontrolliert und ein hohes Maß an physischer Sicherheit erzielt werden.
 
 ### GEB.4.4 – Vereinzelungsanlage {#GEB.4.4}
+
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">GEB.4.4</span>
 
 <ControlMeta modalVerb="KANN" secLevel="erhöht" effort="5" threats="G 0.44, G 0.16, G 0.24, G 0.19, G 0.34" threatsHint="G 0.44 – Unbefugtes Eindringen in Räumlichkeiten · G 0.16 – Diebstahl von Geräten, Datenträgern oder Dokumenten · G 0.24 – Zerstörung von Geräten oder Datenträgern · G 0.19 – Offenlegung schützenswerter Informationen · G 0.34 – Anschlag" />
 
@@ -259,6 +319,8 @@ Eine Vereinzelungsanlage ist eine technische Einrichtung, die den gleichzeitigen
 
 ### GEB.5.1 – Lieferzugang {#GEB.5.1}
 
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">GEB.5.1</span>
+
 <ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="4" threats="G 0.44, G 0.19, G 0.21" threatsHint="G 0.44 – Unbefugtes Eindringen in Räumlichkeiten · G 0.19 – Offenlegung schützenswerter Informationen · G 0.21 – Manipulation von Hard- oder Software" predecessors={[{ oldId: "INF.8.A1-UA.3", relationship: "intersects-with", link: "https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/10_INF_Infrastruktur/INF_8_Haeuslicher_Arbeitsplatz_Edition_2023.pdf?__blob=publicationFile&v=3#download=1" }]} />
 
 > Gebäudemanagement für Standorte SOLLTE einen Zugang für die Abwicklung von Lieferungen ohne unbefugten Zugang zum restlichen Standort installieren.
@@ -267,6 +329,8 @@ Ein Zugang für die Abwicklung von Lieferungen ist ein baulich abgegrenzter Bere
 
 ### GEB.5.2 – Schutz gegen Manipulation {#GEB.5.2}
 
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">GEB.5.2</span>
+
 <ControlMeta modalVerb="KANN" secLevel="erhöht" effort="5" threats="G 0.44, G 0.19, G 0.21" threatsHint="G 0.44 – Unbefugtes Eindringen in Räumlichkeiten · G 0.19 – Offenlegung schützenswerter Informationen · G 0.21 – Manipulation von Hard- oder Software" />
 
 > Gebäudemanagement für IT-Systeme KANN Manipulationsschutzvorkehrungen installieren.
@@ -274,6 +338,8 @@ Ein Zugang für die Abwicklung von Lieferungen ist ein baulich abgegrenzter Bere
 Manipulationsschutzvorkehrungen sind physische oder technische Schutzmaßnahmen („tamper protection measures“), die darauf ausgelegt sind, unbefugte Eingriffe, Veränderungen oder Beschädigungen an IT-Systemen oder deren Infrastruktur frühzeitig zu verhindern oder zumindest erkennbar zu machen. Der Begriff „gemeinsame Arbeitsbereiche“ („shared workspaces“) umfasst Räumlichkeiten, in denen mehrere Personen, Teams oder Abteilungen gleichzeitig arbeiten, wodurch sich naturgemäß ein erhöhtes Risiko unkontrollierter Zugriffe auf technische Einrichtungen ergibt. Der Zweck dieser Anforderung liegt darin, die Integrität und Verfügbarkeit der eingesetzten Systeme zu wahren und Manipulationen vorzubeugen, die durch unbeaufsichtigte physische Zugriffe oder verdeckte Eingriffe erfolgen könnten. Ein ungeschütztes Gerät in einem frei zugänglichen Raum könnte beispielsweise durch das unbemerkte Einstecken manipulierter USB-Geräte oder das Entfernen von Netzwerkkabeln kompromittiert werden, während ein gezielter Eingriff in eine Serversteckdose zu Systemausfällen führen könnte. Eine Manipulationsschutzvorkehrung kann hier den Nachweis eines Eingriffs ermöglichen oder diesen bereits im Ansatz verhindern. Beispielsweise kann sinnvoll sein: (1) die Verwendung manipulationssicherer Gehäuse oder Gehäusesiegel, (2) der Einsatz von abschließbaren IT-Racks oder gesicherten Anschlussfeldern, (3) die Integration physischer Sensoren, die bei Gehäuseöffnung Alarmmeldungen erzeugen, oder (4) die Kennzeichnung und regelmäßige Sichtprüfung von Geräten auf Manipulationsspuren. Auch der gezielte Einbau von IT-Komponenten in erhöhten, kameragesicherten oder besonders einsehbaren Bereichen kann eine praktikable Schutzwirkung entfalten.
 
 ### GEB.5.3 – Physische Mikrosegmentierung {#GEB.5.3}
+
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">GEB.5.3</span>
 
 <ControlMeta modalVerb="KANN" secLevel="erhöht" effort="5" threats="G 0.44, G 0.21" threatsHint="G 0.44 – Unbefugtes Eindringen in Räumlichkeiten · G 0.21 – Manipulation von Hard- oder Software" />
 
@@ -285,6 +351,8 @@ Bei der physischen Mikrosegmentierung in der Sicherheitsarchitektur geht es daru
 
 ### GEB.6.1 – Zugang zu Ausgabesystemen {#GEB.6.1}
 
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">GEB.6.1</span>
+
 <ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="4" threats="G 0.18" threatsHint="G 0.18 – Fehlplanung oder fehlende Anpassung" />
 
 > Gebäudemanagement für IT-Systeme SOLLTE den Zugang zu nicht-öffentlichen Ausgabesystemen einschränken.
@@ -292,6 +360,8 @@ Bei der physischen Mikrosegmentierung in der Sicherheitsarchitektur geht es daru
 Ausgabesysteme sind z.B. Monitore oder Drucker. Nicht-öffentlich sind diese, wenn darauf schützenswerte Inhalte ausgegeben werden, z.B. Arbeitsplätze von internen Sachbearbeitern, Netzdrucker der Personalabteilung.
 
 ### GEB.6.2 – Geschützte Aufstellung {#GEB.6.2}
+
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">GEB.6.2</span>
 
 <ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="3" threats="G 0.18" threatsHint="G 0.18 – Fehlplanung oder fehlende Anpassung" />
 
@@ -301,6 +371,8 @@ Ausgabesysteme sind z.B. Monitore oder Drucker. Nicht-öffentlich sind diese, we
 
 #### GEB.6.2.1 – Hostsysteme {#GEB.6.2.1}
 
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">GEB.6.2.1</span>
+
 <ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="3" threats="G 0.18" threatsHint="G 0.18 – Fehlplanung oder fehlende Anpassung" />
 
 > Gebäudemanagement für Hostsysteme SOLLTE diese ausschließlich in Serverräumen platzieren.
@@ -309,6 +381,8 @@ Sinn und Zweck dieser Anforderung liegt darin, die Risiken durch unkontrollierte
 
 ### GEB.6.3 – Netzkomponenten {#GEB.6.3}
 
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">GEB.6.3</span>
+
 <ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="3" threats="G 0.18" threatsHint="G 0.18 – Fehlplanung oder fehlende Anpassung" />
 
 > Gebäudemanagement für Netze SOLLTE für die Funktionsfähigkeit des Netzes erforderliche Systeme ausschließlich in Räumen für technische Infrastruktur platzieren.
@@ -316,6 +390,8 @@ Sinn und Zweck dieser Anforderung liegt darin, die Risiken durch unkontrollierte
 „Für die Funktionsfähigkeit des Netzes erforderliche Systeme“ sind in diesem Kontext alle physischen und logischen Komponenten, deren Betrieb direkt die Verfügbarkeit, Integrität oder Steuerbarkeit von Netzwerken beeinflusst — etwa aktive Netzwerkkomponenten (engl. network devices) wie Router, Switches, Firewalls oder Netzwerkmanagementsysteme (engl. Network Management Systems, NMS). Die Definition von „Räumen für technische Infrastruktur“ ist in den Definitionen für Zielobjekte zu finden. Diese Räume sind typischerweise mit einer kontrollierten physischen Zugangsbeschränkung, Klimatisierung, Brandfrüherkennung und einer stabilen Stromversorgung (z. B. über USV-Anlagen) ausgestattet. Die Anforderung gewährleistet somit, dass netzkritische Systeme räumlich von allgemeinen Arbeits- oder Aufenthaltsbereichen getrennt sind, um deren Sicherheit und Stabilität zu gewährleisten.
 
 ### GEB.6.4 – Normgerechte Rechenzentren {#GEB.6.4}
+
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">GEB.6.4</span>
 
 <ControlMeta modalVerb="KANN" secLevel="erhöht" effort="5" threats="G 0.2, G 0.1" threatsHint="G 0.2 – Ungünstige klimatische Bedingungen · G 0.1 – Feuer" predecessors={[{ oldId: "INF.2.A1-UA.1", relationship: "intersects-with", link: "https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/10_INF_Infrastruktur/INF_2_Rechenzentrum_sowie_Serverraum_Edition_2023.pdf?__blob=publicationFile&v=3#download=1" }]} />
 
@@ -327,6 +403,8 @@ Rechenzentren entsprechen einer anerkannten Norm, wenn sie nach den einschlägig
 
 ### GEB.7.1 – Schlüsselbeauftragte {#GEB.7.1}
 
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">GEB.7.1</span>
+
 <ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="3" threats="G 0.18" threatsHint="G 0.18 – Fehlplanung oder fehlende Anpassung" />
 
 > Gebäudemanagement für Standorte SOLLTE die Verwaltung von Schlüsseln *[zuständigen Personen oder Rollen]* zuweisen.
@@ -335,6 +413,8 @@ Bei der Verwaltung von Schlüsseln werden physische Schlüssel und digitale Zuga
 
 ### GEB.7.2 – Verwahrung von Schlüsseln {#GEB.7.2}
 
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">GEB.7.2</span>
+
 <ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="2" threats="G 0.18" threatsHint="G 0.18 – Fehlplanung oder fehlende Anpassung" />
 
 > Gebäudemanagement für Nutzende von Standorten SOLLTE zur Verwahrung von Schlüsseln anweisen.
@@ -342,6 +422,8 @@ Bei der Verwaltung von Schlüsseln werden physische Schlüssel und digitale Zuga
 Eine Verwahrung ist eine Aufbewahrung von Zugangssschlüsseln derart, dass Unbefugte keinen Zugriff hierauf haben. Dies kann durch das Mitführen der Schlüssel, oder durch eine verschlossene Aufbewahrung, z.B. in einem Schlüsselschrank, umgesetzt werden.
 
 ### GEB.7.3 – Schlüsselaudit {#GEB.7.3}
+
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">GEB.7.3</span>
 
 <ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="3" threats="G 0.18" threatsHint="G 0.18 – Fehlplanung oder fehlende Anpassung" />
 
@@ -353,6 +435,8 @@ Ohne eine solche Kontrolle könnten z. B. verlorene, vergessene oder unregistrie
 
 ### GEB.8.1 – Gesonderte Aufbewahrung {#GEB.8.1}
 
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">GEB.8.1</span>
+
 <ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="2" threats="G 0.16" threatsHint="G 0.16 – Diebstahl von Geräten, Datenträgern oder Dokumenten" predecessors={[{ oldId: "INF.10.A1-UA.1", relationship: "intersects-with", link: "https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/10_INF_Infrastruktur/INF_10_Besprechungs_Veranstaltungs_und_Schulungsraeume_Edition_2023.pdf?__blob=publicationFile&v=3#download=1" }]} />
 
 > Gebäudemanagement für Standorte SOLLTE geschäftskritische Speichermedien in verschließbaren Schutzeinrichtungen platzieren.
@@ -361,7 +445,9 @@ Vertrauliche Speichermedien, die ungesichert herumliegen (sowohl analoge Dokumen
 
 #### GEB.8.1.1 – Archiv {#GEB.8.1.1}
 
-<ControlMeta modalVerb="KANN" secLevel="erhöht" effort="4" threats="G 0.18" threatsHint="G 0.18 – Fehlplanung oder fehlende Anpassung" />
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">GEB.8.1.1</span>
+
+<ControlMeta modalVerb="KANN" secLevel="erhöht" effort="4" threats="G 0.18" threatsHint="G 0.18 – Fehlplanung oder fehlende Anpassung" tags={[{ name: "Langzeitarchivierung", hint: "Dauerhafte, unveränderbare und nachvollziehbare Aufbewahrung von Informationen über lange Zeiträume unter Berücksichtigung von Verfügbarkeit und Lesbarkeit." }]} />
 
 > Gebäudemanagement für Standorte KANN geschäftskritische Speichermedien in Datenträgerarchiven platzieren.
 
@@ -369,15 +455,19 @@ Geschäftskritische Datenträger lagern in gesicherten, klimatisierten Archiven 
 
 ### GEB.8.2 – Staub und Schmutz {#GEB.8.2}
 
-<ControlMeta modalVerb="KANN" secLevel="erhöht" effort="5" threats="G 0.2, G 0.4" threatsHint="G 0.2 – Ungünstige klimatische Bedingungen · G 0.4 – Verschmutzung, Staub, Korrosion" />
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">GEB.8.2</span>
 
-> Gebäudemanagement für Datenträgerarchiv KANN Maßnahmen zum Schutz der Datenträger vor Staub und Schmutz verankern.
+<ControlMeta modalVerb="KANN" secLevel="erhöht" effort="5" threats="G 0.2, G 0.4" threatsHint="G 0.2 – Ungünstige klimatische Bedingungen · G 0.4 – Verschmutzung, Staub, Korrosion" tags={[{ name: "Langzeitarchivierung", hint: "Dauerhafte, unveränderbare und nachvollziehbare Aufbewahrung von Informationen über lange Zeiträume unter Berücksichtigung von Verfügbarkeit und Lesbarkeit." }]} />
+
+> Gebäudemanagement für Archiv KANN Maßnahmen zum Schutz der Datenträger vor Staub und Schmutz verankern.
 
 Werden analoge und digitale Datenträger länger im Archiv aufbewahrt, so besteht das Risiko der schleichenden Zersetzung durch Staub und Schmutz. Maßnahmen sind z.B. staubdichte und antistatische Lagerung in Schutzschränken, Klimatisierung, Schutzkleidung, trockene Reinigung.
 
 ### GEB.8.3 – Schutz der Datenträger vor Brandschäden {#GEB.8.3}
 
-<ControlMeta modalVerb="KANN" secLevel="erhöht" effort="5" threats="G 0.1, G 0.18" threatsHint="G 0.1 – Feuer · G 0.18 – Fehlplanung oder fehlende Anpassung" />
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">GEB.8.3</span>
+
+<ControlMeta modalVerb="KANN" secLevel="erhöht" effort="5" threats="G 0.1, G 0.18" threatsHint="G 0.1 – Feuer · G 0.18 – Fehlplanung oder fehlende Anpassung" tags={[{ name: "Langzeitarchivierung", hint: "Dauerhafte, unveränderbare und nachvollziehbare Aufbewahrung von Informationen über lange Zeiträume unter Berücksichtigung von Verfügbarkeit und Lesbarkeit." }]} />
 
 > Gebäudemanagement für Standorte KANN feuerfeste Behältnisse nach *[einem anerkannten Standard]* installieren.
 
@@ -385,15 +475,19 @@ Datenträgerarchive sind bei Bränden besonders schützenswert, da hier häufig 
 
 ### GEB.8.4 – Überwachung schonender Klimatisierung {#GEB.8.4}
 
-<ControlMeta modalVerb="KANN" secLevel="erhöht" effort="5" threats="G 0.2" threatsHint="G 0.2 – Ungünstige klimatische Bedingungen" />
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">GEB.8.4</span>
 
-> Gebäudemanagement für Datenträgerarchiv KANN für die Datenträger schonende Temperatur und Luftfeuchtigkeit anhand von *[Schwellwerten]* überwachen.
+<ControlMeta modalVerb="KANN" secLevel="erhöht" effort="5" threats="G 0.2" threatsHint="G 0.2 – Ungünstige klimatische Bedingungen" tags={[{ name: "Langzeitarchivierung", hint: "Dauerhafte, unveränderbare und nachvollziehbare Aufbewahrung von Informationen über lange Zeiträume unter Berücksichtigung von Verfügbarkeit und Lesbarkeit." }]} />
+
+> Gebäudemanagement für Archiv KANN für die Datenträger schonende Temperatur und Luftfeuchtigkeit anhand von *[Schwellwerten]* überwachen.
 
 IT-Infrastruktur benötigt typischerweise eine Umwelttemperatur von nicht viel mehr als 25°C und eine Luftfeuchtigkeit von nicht über 60%. Bei höheren Werten altern Komponenten schneller und das Risiko von Ausfällen durch Abwärme oder Spannungsüberschläge steigt. Grenzwerte können anhand der Herstellerangaben der im Raum eingesetzten Datenträger ermittelt werden. Die Überwachung kann mit klimatechnischen Sensoren im Raum realisiert werden.
 
 ## GEB.9 Versorgungseinrichtungen {#GEB.9}
 
 ### GEB.9.1 – Normgerechte Stromversorgung {#GEB.9.1}
+
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">GEB.9.1</span>
 
 <ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="3" threats="G 0.25, G 0.8, G 0.10" threatsHint="G 0.25 – Ausfall von Geräten oder Systemen · G 0.8 – Ausfall oder Störung der Stromversorgung · G 0.10 – Ausfall oder Störung von Versorgungsnetzen" />
 
@@ -403,6 +497,8 @@ Eine Stromversorgung ist normgerecht, wenn Normen zur Bereitstellung und Verkabe
 
 #### GEB.9.1.1 – Vorausschauende Lastanalyse {#GEB.9.1.1}
 
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">GEB.9.1.1</span>
+
 <ControlMeta modalVerb="KANN" secLevel="erhöht" effort="5" threats="G 0.25" threatsHint="G 0.25 – Ausfall von Geräten oder Systemen" />
 
 > Gebäudemanagement für Standorte KANN die bedarfsgerechte Stromversorgung *[regelmäßig]* vorausschauend überprüfen.
@@ -411,7 +507,9 @@ Die prädiktive Lastanalyse in Stromversorgungssystemen bezieht sich auf die aus
 
 #### GEB.9.1.2 – Dedizierte Elektrounterverteilung {#GEB.9.1.2}
 
-<ControlMeta modalVerb="KANN" secLevel="erhöht" effort="5" threats="G 0.18" threatsHint="G 0.18 – Fehlplanung oder fehlende Anpassung" />
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">GEB.9.1.2</span>
+
+<ControlMeta modalVerb="KANN" secLevel="erhöht" effort="5" threats="G 0.18" threatsHint="G 0.18 – Fehlplanung oder fehlende Anpassung" tags={[{ name: "Hochverfügbarkeit", hint: "Systemeigenschaft, die sicherstellt, dass ein Dienst kontinuierlich verfügbar ist, mit minimalen oder keinen Ausfallzeiten, oft durch Redundanz und Failover-Mechanismen erreicht.", synonyms: "Ausfallsicherheit, Redundanz" }]} />
 
 > Gebäudemanagement für Standorte KANN eine ausschließlich für diesen Standort bestimmte Elektrounterverteilung die direkt von der Niederspannungshauptverteilung (NSHV) versorgt wird installieren.
 
@@ -419,7 +517,9 @@ Eine eigene, direkt aus der NSHV gespeiste Unterverteilung trennt kritische Abg�
 
 #### GEB.9.1.3 – Redundante Stromversorgung {#GEB.9.1.3}
 
-<ControlMeta modalVerb="KANN" secLevel="erhöht" effort="5" threats="G 0.8, G 0.25, G 0.10" threatsHint="G 0.8 – Ausfall oder Störung der Stromversorgung · G 0.25 – Ausfall von Geräten oder Systemen · G 0.10 – Ausfall oder Störung von Versorgungsnetzen" />
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">GEB.9.1.3</span>
+
+<ControlMeta modalVerb="KANN" secLevel="erhöht" effort="5" threats="G 0.8, G 0.25, G 0.10" threatsHint="G 0.8 – Ausfall oder Störung der Stromversorgung · G 0.25 – Ausfall von Geräten oder Systemen · G 0.10 – Ausfall oder Störung von Versorgungsnetzen" tags={[{ name: "Hochverfügbarkeit", hint: "Systemeigenschaft, die sicherstellt, dass ein Dienst kontinuierlich verfügbar ist, mit minimalen oder keinen Ausfallzeiten, oft durch Redundanz und Failover-Mechanismen erreicht.", synonyms: "Ausfallsicherheit, Redundanz" }]} />
 
 > Gebäudemanagement für Standorte KANN eine redundante Stromversorgung für *[eine Stützzeit]* installieren.
 
@@ -427,13 +527,17 @@ Wenn die Stromzufuhr ausfällt, könnten geschäftskritische Anwendungen unerwar
 
 #### GEB.9.1.4 – Langanhaltende Sekundärversorgung {#GEB.9.1.4}
 
-<ControlMeta modalVerb="KANN" secLevel="erhöht" effort="5" threats="G 0.25" threatsHint="G 0.25 – Ausfall von Geräten oder Systemen" />
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">GEB.9.1.4</span>
+
+<ControlMeta modalVerb="KANN" secLevel="erhöht" effort="5" threats="G 0.25" threatsHint="G 0.25 – Ausfall von Geräten oder Systemen" tags={[{ name: "Hochverfügbarkeit", hint: "Systemeigenschaft, die sicherstellt, dass ein Dienst kontinuierlich verfügbar ist, mit minimalen oder keinen Ausfallzeiten, oft durch Redundanz und Failover-Mechanismen erreicht.", synonyms: "Ausfallsicherheit, Redundanz" }]} />
 
 > Gebäudemanagement für Standorte KANN eine redundante Stromversorgung für *[eine längere Stützzeit]* installieren.
 
 Eine längere Stützzeit bezeichnet im Kontext der Stromversorgung die Fähigkeit, elektrische Energie über einen Zeitraum von mehreren Stunden oder sogar Tagen aufrechtzuerhalten, typischerweise durch den Einsatz einer Netzersatzanlage (NEA) oder vergleichbarer Infrastruktur. Während eine kurzzeitige Überbrückung durch unterbrechungsfreie Stromversorgungen (USV) lediglich Sekunden bis Minuten abdeckt, kann eine NEA längere Stromausfälle abfangen und die Betriebsfähigkeit kritischer Systeme dauerhaft sicherstellen. Risiken bestehen darin, dass ein Standort bei einem längerfristigen Netzausfall ohne redundante Stromversorgung seine sicherheitskritischen Prozesse nicht mehr betreiben könnte, was etwa zu Datenverlusten, Produktionsstillständen oder Ausfällen der Zutrittskontrolle führen könnte. Eine redundante Stromversorgung kann dem entgegenwirken, indem sie kritische Infrastrukturen wie Rechenzentren, Kommunikationssysteme oder Zutrittssysteme auch bei großflächigen Netzstörungen handlungsfähig hält. Zur Betriebsfähigkeit gehört auch die regelmäßige Wartung und Überprüfung des Betriebsmittelvorrats. Eine Institution kann die Anforderung umsetzen, indem sie geeignete technische Maßnahmen einplant: (1) Installation einer Netzersatzanlage mit automatischer Umschaltung auf Diesel- oder Gasgeneratoren, (2) Bereitstellung von Kraftstoffvorräten für eine definierte Stützzeit von beispielsweise 24, 48 oder 72 Stunden, (3) regelmäßige Lasttests, um sicherzustellen, dass die Anlage die notwendige Kapazität unter Realbedingungen liefern kann. Ergänzend kann eine Institution durch redundante Einspeisungen vom Energieversorger oder die Kombination mehrerer NEA-Module eine Ausfallsicherheit erhöhen. Prozessual kann sie Wartungspläne etablieren, die auch die Prüfung von Kraftstoffqualität, Starterbatterien und Umschalteinrichtungen umfassen. Praktische Umsetzungstipps sind etwa, NEA-Anlagen in geschützten Gebäudebereichen mit ausreichender Belüftung und Brandschutz vorzusehen, die Abgasführung nach außen zu gewährleisten und einen sicheren, vor Manipulation geschützten Tankstandort zu wählen.
 
 ### GEB.9.2 – Lasttest {#GEB.9.2}
+
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">GEB.9.2</span>
 
 <ControlMeta modalVerb="KANN" secLevel="erhöht" effort="5" threats="G 0.8, G 0.25, G 0.18" threatsHint="G 0.8 – Ausfall oder Störung der Stromversorgung · G 0.25 – Ausfall von Geräten oder Systemen · G 0.18 – Fehlplanung oder fehlende Anpassung" />
 
@@ -443,6 +547,8 @@ Die Maßnahmen richten sich nach den geltenden Anforderungen an die Stromversorg
 
 ### GEB.9.3 – Notaus {#GEB.9.3}
 
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">GEB.9.3</span>
+
 <ControlMeta modalVerb="KANN" secLevel="erhöht" effort="5" threats="G 0.1, G 0.8, G 0.10, G 0.25" threatsHint="G 0.1 – Feuer · G 0.8 – Ausfall oder Störung der Stromversorgung · G 0.10 – Ausfall oder Störung von Versorgungsnetzen · G 0.25 – Ausfall von Geräten oder Systemen" />
 
 > Gebäudemanagement für Standorte KANN eine Notausschaltung für die Versorgungseinrichtungen installieren.
@@ -450,6 +556,8 @@ Die Maßnahmen richten sich nach den geltenden Anforderungen an die Stromversorg
 Eine Notausschaltung bezeichnet in diesem Kontext eine zentral verfügbare, technisch implementierte Vorrichtung, mit der im Gefahrenfall die Energieversorgung kritischer Versorgungseinrichtungen wie Strom, Gas oder Klimaanlagen unmittelbar und vollständig unterbrochen werden kann. Der Sinn und Zweck einer solchen Einrichtung liegt darin, Gefahren für Menschen, Technik und Informationen schnell eingrenzen zu können: Ein unkontrollierter Brand könnte sich durch weiterlaufende Klimageräte verstärken, ein Stromschlag durch beschädigte Leitungen könnte Menschen gefährden, oder ein Wasserschaden durch defekte Kühlung könnte weitere Systeme zerstören. Gleichzeitig kann eine sofortige Unterbrechung der Energiezufuhr Folgeschäden eindämmen, indem Brandlast reduziert oder die Ausbreitung toxischer Gase verhindert werden kann. Zur Umsetzung kann eine Institution beispielsweise (1) physische Notausschalter an klar gekennzeichneten, jederzeit zugänglichen Stellen nahe den Ausgängen oder im Leitstand installieren, (2) die Schalter so konzipieren, dass sie nur für definierte Versorgungskreise wie IT-Serverräume oder Technikzonen wirken und nicht die gesamte Einrichtung unkontrolliert lahmlegen, und (3) ergänzende visuelle Hinweise oder Leitsymbole anbringen, die die Bedienung im Ernstfall erleichtern.
 
 ### GEB.9.4 – Überspannungsschutz {#GEB.9.4}
+
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">GEB.9.4</span>
 
 <ControlMeta modalVerb="KANN" secLevel="erhöht" effort="4" threats="G 0.25, G 0.8" threatsHint="G 0.25 – Ausfall von Geräten oder Systemen · G 0.8 – Ausfall oder Störung der Stromversorgung" />
 
@@ -459,6 +567,8 @@ Eine Notausschaltung bezeichnet in diesem Kontext eine zentral verfügbare, tech
 
 ### GEB.9.5 – Strukturierte Datenverkabelung {#GEB.9.5}
 
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">GEB.9.5</span>
+
 <ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="3" threats="G 0.18" threatsHint="G 0.18 – Fehlplanung oder fehlende Anpassung" />
 
 > Gebäudemanagement für Standorte SOLLTE eine norm- und bedarfsgerechte Datenverkabelung installieren.
@@ -466,6 +576,8 @@ Eine Notausschaltung bezeichnet in diesem Kontext eine zentral verfügbare, tech
 Normgerecht ist eine Datenverkabelung, wenn Normen für Verkabelungssysteme wie DIN EN 50173 und DIN EN 50174, sowie bei Glasfaser DIN EN 60794 eingehalten werden. Sie ist auch bedarfsgerecht, wenn die verwendete Verkabelung ausreicht, um festgelegte Bandbreite und Antwortzeit zu erreichen. Das betrifft sowohl zentrale Netzanschlüsse, als auch Unterverteiler und die Zuleitung in die einzelnen Räume. Zur Umsetzung ist es sinnvoll ein Kabelverlegungsdiagramm und eine standortspezifische Inspektionscheckliste zu erstellen oder erstellen zu lassen.
 
 #### GEB.9.5.1 – Physisch geschützte Verlegung {#GEB.9.5.1}
+
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">GEB.9.5.1</span>
 
 <ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="3" threats="G 0.18" threatsHint="G 0.18 – Fehlplanung oder fehlende Anpassung" />
 
@@ -475,6 +587,8 @@ Freigelegte Glasfaser- oder Kupferleitungen könnten angezapft oder durchtrennt 
 
 ### GEB.9.6 – Zugang zu Räumen für technische Infrastruktur {#GEB.9.6}
 
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">GEB.9.6</span>
+
 <ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="3" threats="G 0.18" threatsHint="G 0.18 – Fehlplanung oder fehlende Anpassung" />
 
 > Gebäudemanagement für Räume für technische Infrastruktur SOLLTE den Zugang zu Räumen für technische Infrastruktur auf *[für den Betrieb zuständige Personen oder Rollen]* einschränken.
@@ -482,6 +596,8 @@ Freigelegte Glasfaser- oder Kupferleitungen könnten angezapft oder durchtrennt 
 HIerzu gehören insbesondere Versorgungsverteiler, z.B. für Netzverteilung, Frischwasser, Abwasser, Stromversorgung und andere zentrale Versorgungseinrichtungen. sind essenziell für die Einsatzfähigkeit und den Schutz des Gebäudes. Der Zugang zu diesen Verteilern kann z.B. durch Schließanlagen, Bewachung und Einbruchmeldesysteme realisiert werden.
 
 ### GEB.9.7 – Zweckentfremdung {#GEB.9.7}
+
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">GEB.9.7</span>
 
 <ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="3" threats="G 0.18" threatsHint="G 0.18 – Fehlplanung oder fehlende Anpassung" />
 
@@ -493,6 +609,8 @@ Werden Räume für technische Infrastruktur zu weiteren Zwecken, z.B. als Arbeit
 
 ### GEB.10.1 – Klimatisierung {#GEB.10.1}
 
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">GEB.10.1</span>
+
 <ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="3" threats="G 0.2" threatsHint="G 0.2 – Ungünstige klimatische Bedingungen" />
 
 > Gebäudemanagement für Standorte SOLLTE eine ausreichende Klimatisierung von Räumlichkeiten anhand von *[Schwellwerten]* installieren.
@@ -500,6 +618,8 @@ Werden Räume für technische Infrastruktur zu weiteren Zwecken, z.B. als Arbeit
 Klimatisierung meint das Erzeugen und Aufrechterhalten von Temperatur und Luftfeuchtigkeit innerhalb bestimmter Schwellwerte. Zur Bestimmung der Schwellwerte können verschiedene Angaben herangezogen werden, u.a. Herstellerangaben für die am Standort betriebenen Systeme, Compliance-Vorgaben zur Arbeitsplatzsicherheit, branchenspezifische Normen und Standards (z.B. DIN EN ISO 7730), Energieeffizienzrichtlinien und Umweltvorschriften, sowie wissenschaftliche Erkenntnisse zu optimalen Arbeitsbedingungen. Die Implementierung kann umfassen: Die Gestaltung von Räumen mit klarer Trennung von Zu- und Abluftwegen, um Innenzirkulation zu vermeiden; Beseitigung von Hindernissen in kritischen Luftstromwegen; Implementierung geeigneter Einschlusslösungen für bestimmte Anwendungsfälle (z. B. heiße/kalte Servergänge oder Reinräume in der Fertigung); Optimierung der Geräteplatzierung zur Maximierung einer effizienten Luftverteilung; regelmäßige Wartung der Belüftungssysteme, einschließlich Filteraustausch und Kanalreinigung; strategische Platzierung von Ablenkblechen oder Deflektoren zur Lenkung des Luftstroms; saisonale Anpassung der HLK-Einstellungen an sich ändernde äußere Bedingungen; Einsatz drehzahlvariabler Ventilatoren und intelligenter Steuerungen, um dynamisch auf sich ändernde Lasten zu reagieren; regelmäßige Wärmebildaufnahmen, um entstehende Probleme zu erkennen. Den größen Nutzen bringt es in der Regel zunächst die größten Hindernisse zu beseitigen, sowie die Abdichtung unerwünschter Luftwege und die Optimierung der wichtigsten lufttechnischen Anlagen zu beachten. In Serverräumen empfiehlt sich oft eine gedrehte Rack-Ausrichtung, sodass die Luftzufuhr der Geräte aus kalten Gängen erfolgt, während die Abluft direkt in warmen Gänge geleitet wird, wodurch eine Rezirkulation verhindert und die Kühlung aufrechterhalten wird. Gleichzeitig verbessert diese Konfiguration die Betriebspraktikabilität durch die Positionierung der Kabelanschlüsse für einen bequemen Zugang der Techniker, ohne die Luftstrommuster zu unterbrechen.
 
 #### GEB.10.1.1 – Luftstrom-Analyse {#GEB.10.1.1}
+
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">GEB.10.1.1</span>
 
 <ControlMeta modalVerb="KANN" secLevel="erhöht" effort="4" threats="G 0.18" threatsHint="G 0.18 – Fehlplanung oder fehlende Anpassung" />
 
@@ -509,6 +629,8 @@ Luftstromanalyse ist die systematische Bewertung von Luftbewegungsmustern zur Op
 
 #### GEB.10.1.2 – Klimamessung {#GEB.10.1.2}
 
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">GEB.10.1.2</span>
+
 <ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="3" threats="G 0.2" threatsHint="G 0.2 – Ungünstige klimatische Bedingungen" />
 
 > Gebäudemanagement für Serverräume SOLLTE Lufttemperatur und Luftfeuchtigkeit anhand von *[Schwellwerten]* überwachen.
@@ -516,6 +638,8 @@ Luftstromanalyse ist die systematische Bewertung von Luftbewegungsmustern zur Op
 IT-Infrastruktur benötigt typischerweise eine Umwelttemperatur von nicht viel mehr als 25°C und eine Luftfeuchtigkeit von nicht über 60%. Bei höheren Werten altern Komponenten schneller und das Risiko von Ausfällen durch Abwärme oder Spannungsüberschläge steigt. Ermitteln Sie Grenzwerte anhand der Herstellerangaben der im Raum eingesetzten Komponenten. Die Überwachung kann mit klimatechnischen Sensoren in den Geräten selbst oder im Raum realisiert werden. Eine saisonale Anpassung der Lüftungsanlagen kann erforderlich sein, insbesondere in Einrichtungen, die mit Eco-Modus arbeiten.
 
 #### GEB.10.1.3 – Redundante Klimatisierung {#GEB.10.1.3}
+
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">GEB.10.1.3</span>
 
 <ControlMeta modalVerb="KANN" secLevel="erhöht" effort="5" threats="G 0.18" threatsHint="G 0.18 – Fehlplanung oder fehlende Anpassung" />
 
@@ -525,6 +649,8 @@ Redundant ist eine Klimatisierung, wenn alle zu ihrer Funktionsfähigkeit erford
 
 ### GEB.10.2 – Brandschutz {#GEB.10.2}
 
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">GEB.10.2</span>
+
 <ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="2" threats="G 0.18, G 0.29, G 0.1" threatsHint="G 0.18 – Fehlplanung oder fehlende Anpassung · G 0.29 – Verstoß gegen Gesetze oder Regelungen · G 0.1 – Feuer" />
 
 > Gebäudemanagement für Standorte SOLLTE Brandschutz nach den entsprechenden Normen verankern.
@@ -532,6 +658,8 @@ Redundant ist eine Klimatisierung, wenn alle zu ihrer Funktionsfähigkeit erford
 Maßnahmen können z.B. die Verwendung nicht brennbarer Baumaterialien (u.a. DIN 4102, DIN EN 13501), brandsichere Elektroinstallation, Feuerlöscher (DIN 14406), Rauchabzugsanlagen (DIN 18232) sowie Brandmelde- (DIN EN 54) und Löschanlagen (DIN EN 671) sein. Bei der Planung kann die örtliche Feuerwehr hinzugezogen werden. Gesetzliche Anforderungen hierzu sind in der Praktik Compliance zu berücksichtigen.
 
 #### GEB.10.2.1 – Baulicher Brandschutz {#GEB.10.2.1}
+
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">GEB.10.2.1</span>
 
 <ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="3" threats="G 0.1, G 0.18" threatsHint="G 0.1 – Feuer · G 0.18 – Fehlplanung oder fehlende Anpassung" />
 
@@ -541,6 +669,8 @@ Relevant ist für das Brandverhalten von Bauprodukten und Bauarten die europäis
 
 #### GEB.10.2.2 – Brandabschnitte {#GEB.10.2.2}
 
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">GEB.10.2.2</span>
+
 <ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="4" threats="G 0.1, G 0.18" threatsHint="G 0.1 – Feuer · G 0.18 – Fehlplanung oder fehlende Anpassung" predecessors={[{ oldId: "INF.2.A2-UA.3", relationship: "equivalent-to", link: "https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/10_INF_Infrastruktur/INF_2_Rechenzentrum_sowie_Serverraum_Edition_2023.pdf?__blob=publicationFile&v=3#download=1" }]} />
 
 > Gebäudemanagement für Räume SOLLTE Brandabschnitte nach den entsprechenden Normen installieren.
@@ -548,6 +678,8 @@ Relevant ist für das Brandverhalten von Bauprodukten und Bauarten die europäis
 Brandabschnitte sind baulich abgegrenzte Bereiche in Gebäuden, die im Brandfall verhindern sollen, dass das Feuer auf andere Bereiche übergreift. Sie werden durch feuerfeste Wände, Decken und andere raumabschließende Bauteile voneinander getrennt. Hier besteht ein enger Zusammenhang zu Compliance-Anforderungen: Größe und Anzahl von Brandabschnitten werden auch durch die Bauordnung und andere Vorschriften festgelegt, abhängig von der Nutzung und Größe des Gebäudes. Für die Informationssicherheit relevant ist darüber hinaus, ob die Auswahl der Brandabschnitte den darin befindlichen Informationen und damit verbundenen Assets ausreichenden Schutz gewährt, um deren Verfügbarkeit aufrechtzuerhalten.
 
 #### GEB.10.2.3 – Rauchdichtheit {#GEB.10.2.3}
+
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">GEB.10.2.3</span>
 
 <ControlMeta modalVerb="KANN" secLevel="erhöht" effort="5" threats="G 0.1, G 0.18" threatsHint="G 0.1 – Feuer · G 0.18 – Fehlplanung oder fehlende Anpassung" predecessors={[{ oldId: "INF.2.A2-UA.3", relationship: "equivalent-to", link: "https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/10_INF_Infrastruktur/INF_2_Rechenzentrum_sowie_Serverraum_Edition_2023.pdf?__blob=publicationFile&v=3#download=1" }]} />
 
@@ -557,6 +689,8 @@ Hierunter ist zu verstehen, dass alle raumbildenden Teile (Wände, Türen und fa
 
 #### GEB.10.2.4 – Brandwiderstandsklassen {#GEB.10.2.4}
 
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">GEB.10.2.4</span>
+
 <ControlMeta modalVerb="KANN" secLevel="erhöht" effort="5" threats="G 0.1" threatsHint="G 0.1 – Feuer" />
 
 > Gebäudemanagement für Räume KANN feuerfeste Materialen für alle raumbildenden Teile , sodass sie Feuern für *[eine bestimmte Frist]* standhalten, installieren.
@@ -564,6 +698,8 @@ Hierunter ist zu verstehen, dass alle raumbildenden Teile (Wände, Türen und fa
 Der Einsatz feuerfester Materialien für raumbildende Teile – also Wände, Decken, Türen und gegebenenfalls auch Bodenaufbauten – kann das Risiko erheblich reduzieren, dass sich ein Brand innerhalb eines Gebäudes schnell ausbreitet oder sicherheitsrelevante Bereiche in kurzer Zeit unbenutzbar werden könnten. Ohne geeignete Materialien könnte ein kleiner Kabelbrand beispielsweise binnen Minuten auf benachbarte Räume mit Servern, Schaltanlagen oder Dokumenten übergreifen und kritische Infrastruktur unbrauchbar machen. Mit feuerfesten Materialien kann eine Institution die Zeitspanne verlängern, in der Personen evakuiert, Brandbekämpfungsmaßnahmen eingeleitet oder Systeme geordnet heruntergefahren werden können. Der Begriff „feuerfest“ bedeutet im baulichen Kontext nicht absolute Unzerstörbarkeit, sondern eine definierte Widerstandsfähigkeit gegen Feuer über eine bestimmte Frist (z. B. 30, 60 oder 90 Minuten), die durch Normen wie die europäische Klassifizierung REI angegeben wird. Diese Frist beschreibt, wie lange ein Bauteil seine tragende Funktion (R), Dichtheit (E) und Wärmedämmung (I) im Brandfall aufrechterhalten kann. Zur praktischen Umsetzung können im Gebäudemanagement verschiedene Maßnahmen berücksichtigt werden: Wände und Decken können aus nicht brennbaren Baustoffen wie Beton oder speziellen Gipsfaserplatten ausgeführt werden, Türen können durch Brandschutztüren mit entsprechender Klassifizierung ersetzt werden, und Kabel- sowie Rohrdurchführungen können mit geprüften Brandschutzmanschetten oder -schotts ausgestattet werden. Auch abgehängte Decken oder Zwischenwände in Leichtbauweise können mit feuerhemmenden Platten verkleidet werden, um die Widerstandsdauer zu erhöhen. Eine Institution kann bei Umbauten oder Neubauten frühzeitig auf geprüfte Baustoffe achten und im Bestand gezielt besonders gefährdete Räume wie Serverräume, Archive oder Batterieräume nachrüsten.
 
 #### GEB.10.2.5 – Brandmeldeanlagen {#GEB.10.2.5}
+
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">GEB.10.2.5</span>
 
 <ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="3" threats="G 0.1, G 0.18" threatsHint="G 0.1 – Feuer · G 0.18 – Fehlplanung oder fehlende Anpassung" />
 
@@ -573,6 +709,8 @@ Die Umsetzung kann durch Brandmeldezentralen oder dezentrale Brandmeldealarmieru
 
 #### GEB.10.2.6 – Brandunterdrückung {#GEB.10.2.6}
 
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">GEB.10.2.6</span>
+
 <ControlMeta modalVerb="KANN" secLevel="erhöht" effort="5" threats="G 0.1, G 0.18" threatsHint="G 0.1 – Feuer · G 0.18 – Fehlplanung oder fehlende Anpassung" />
 
 > Gebäudemanagement für Serverräume KANN Brandunterdrückungssysteme installieren.
@@ -581,13 +719,17 @@ Kann z.B. durch eine Anlage zur Sauerstoffreduktion unter 15 Volumenprozent umge
 
 #### GEB.10.2.7 – Brandschutzprüfung {#GEB.10.2.7}
 
-<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="3" threats="G 0.1, G 0.18" threatsHint="G 0.1 – Feuer · G 0.18 – Fehlplanung oder fehlende Anpassung" />
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">GEB.10.2.7</span>
+
+<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="3" threats="G 0.1, G 0.18" threatsHint="G 0.1 – Feuer · G 0.18 – Fehlplanung oder fehlende Anpassung" tags={[{ name: "Inspektion", hint: "Geplante Prüfung von Systemen, Prozessen oder Zuständen, um Konformität, Sicherheit, Qualität oder ordnungsgemäße Umsetzung festzustellen." }]} />
 
 > Gebäudemanagement für Standorte SOLLTE die Wirksamkeit der Brandschutzmaßnahmen *[regelmäßig]* überprüfen.
 
 Eine regelmäßige Überprüfung von Brandmeldeanlagen, Rauchmeldern und organisatorische Maßnahmen stellt sicher, dass diese weiterhin funktionieren. Hier besteht ein enger Zusammenhang zu Compliance-Verpflichtungen, die Brandschutzprüfungen fordern.
 
 ### GEB.10.3 – Wasserschutz {#GEB.10.3}
+
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">GEB.10.3</span>
 
 <ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="2" threats="G 0.3, G 0.5" threatsHint="G 0.3 – Wasser · G 0.5 – Naturkatastrophen" />
 
@@ -597,6 +739,8 @@ Relevant ist hierbei sowohl Wasser von oben (Regen und Schnee), als auch von unt
 
 #### GEB.10.3.1 – Doppelter baulicher Wasserschutz {#GEB.10.3.1}
 
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">GEB.10.3.1</span>
+
 <ControlMeta modalVerb="KANN" secLevel="erhöht" effort="5" threats="G 0.3" threatsHint="G 0.3 – Wasser" />
 
 > Gebäudemanagement für Standorte KANN zwischen Wassergefahrenstellen und Assets mindestens zwei bauliche Schutzmaßnahmen vor Wasser nach den entsprechenden Normen installieren.
@@ -604,6 +748,8 @@ Relevant ist hierbei sowohl Wasser von oben (Regen und Schnee), als auch von unt
 Relevant ist hierbei sowohl Wasser von oben (Regen und Schnee), als auch von unten (Überflutungen, gesammeltes Regenwasser). Maßnahmen können z.B. witterungsbeständige Baumaterialien, Abdichtungen, Abkofferungen, Überdachungen, oder Entwässerungssysteme sein. Schränke und Gehäuse können auch mit einer geeigneten IP-Schutzklasse (z.B. IP65) gegen Wasser geschützt werden.
 
 #### GEB.10.3.2 – Leckagesensor {#GEB.10.3.2}
+
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">GEB.10.3.2</span>
 
 <ControlMeta modalVerb="KANN" secLevel="erhöht" effort="5" threats="G 0.3, G 0.18" threatsHint="G 0.3 – Wasser · G 0.18 – Fehlplanung oder fehlende Anpassung" />
 
@@ -613,6 +759,8 @@ Maßnahmen können z.B. Wassersensorstreifen unter Doppelböden sein, die SNMP-T
 
 ### GEB.10.4 – Blitzschutzeinrichtungen {#GEB.10.4}
 
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">GEB.10.4</span>
+
 <ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="3" threats="G 0.1, G 0.18" threatsHint="G 0.1 – Feuer · G 0.18 – Fehlplanung oder fehlende Anpassung" />
 
 > Gebäudemanagement für Standorte SOLLTE Blitzschutzeinrichtungen nach *[einem anerkannten Standard]* installieren.
@@ -621,13 +769,17 @@ Blitzschutzeinrichtungen sind bauliche oder technische Maßnahmen, die Gebäude,
 
 #### GEB.10.4.1 – Niederohmigkeit {#GEB.10.4.1}
 
-<ControlMeta modalVerb="KANN" secLevel="erhöht" effort="5" threats="G 0.18" threatsHint="G 0.18 – Fehlplanung oder fehlende Anpassung" />
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">GEB.10.4.1</span>
+
+<ControlMeta modalVerb="KANN" secLevel="erhöht" effort="5" threats="G 0.18" threatsHint="G 0.18 – Fehlplanung oder fehlende Anpassung" tags={[{ name: "Inspektion", hint: "Geplante Prüfung von Systemen, Prozessen oder Zuständen, um Konformität, Sicherheit, Qualität oder ordnungsgemäße Umsetzung festzustellen." }]} />
 
 > Gebäudemanagement für Standorte KANN Blitzschutzeinrichtungen *[regelmäßig]* auf Niederohmigkeit überprüfen.
 
 Eine niedrige Ohmzahl in Erdungs- und Potentialausgleichseinrichtungen gewährleistet, dass Blitzströme schnell und wirksam abgeleitet werden. Siehe DIN VDE 0100-443 u. -534. Beachten Sie dabei auch die Prüfpflicht aus der Betriebssicherheitsverordnung (BetrSichV).
 
 ### GEB.10.5 – Ableitfähiger Fußbodenbelag {#GEB.10.5}
+
+<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">GEB.10.5</span>
 
 <ControlMeta modalVerb="KANN" secLevel="erhöht" effort="4" threats="G 0.18" threatsHint="G 0.18 – Fehlplanung oder fehlende Anpassung" />
 

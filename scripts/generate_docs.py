@@ -32,6 +32,9 @@ DEFAULT_CATALOG_FILE = (
 DEFAULT_BASETHREATS_FILE = (
     REPO_ROOT / "Grundschutz-PlusPlus" / "documentation" / "namespaces" / "basethreats.csv"
 )
+DEFAULT_TAGS_FILE = (
+    REPO_ROOT / "Grundschutz-PlusPlus" / "documentation" / "namespaces" / "tags.csv"
+)
 # Lokal: Grundschutz-PlusPlus liegt als Ordner neben diesem Repo. In CI gibt es
 # diesen Nachbarordner nicht — dort wird der Pfad stattdessen über die Umgebungsvariable
 # gesetzt (siehe .github/workflows/sync-catalog.yml im OSS-Repo).
@@ -39,6 +42,7 @@ CATALOG_FILE = Path(os.environ["GRUNDSCHUTZPP_CATALOG"]) if os.environ.get("GRUN
 BASETHREATS_FILE = (
     Path(os.environ["GRUNDSCHUTZPP_BASETHREATS"]) if os.environ.get("GRUNDSCHUTZPP_BASETHREATS") else DEFAULT_BASETHREATS_FILE
 )
+TAGS_FILE = Path(os.environ["GRUNDSCHUTZPP_TAGS"]) if os.environ.get("GRUNDSCHUTZPP_TAGS") else DEFAULT_TAGS_FILE
 DEFAULT_MAPPING_FILE = (
     REPO_ROOT / "Grundschutz-PlusPlus" / "control_layer" / "Mappings" / "IT-GS2023-zu-GSpp" / "ITGS-to-GS++-mapping_collection.json"
 )
@@ -151,6 +155,15 @@ def attr_escape(value):
     return value.replace("&", "&amp;").replace('"', "&quot;")
 
 
+def pagefind_section(label):
+    # Kein Text, der irgendwem fehlt oder vorgelesen werden muesste -- ein
+    # leeres Element, das nur den data-pagefind-meta-Schluessel traegt. Macht
+    # den Seitentyp (Anforderung/Vergleich/Rolle/Befund) im Suchergebnis
+    # unterscheidbar, ohne dass man erst draufklicken muesste. Siehe
+    # Search.astro, Template-Zweig fuer meta.section.
+    return f'<span data-pagefind-meta="section:{label}"></span>\n\n'
+
+
 def load_basethreats():
     with BASETHREATS_FILE.open(newline="", encoding="utf-8") as f:
         return {row["ID"]: row["Begriff"] for row in csv.DictReader(f)}
@@ -160,6 +173,60 @@ def threats_hint(threats, basethreats_by_id):
     ids = [t.strip() for t in threats.split(",") if t.strip()]
     labeled = [f"{tid} – {basethreats_by_id[tid]}" for tid in ids if tid in basethreats_by_id]
     return " · ".join(labeled) if labeled else None
+
+
+def load_tags():
+    with TAGS_FILE.open(newline="", encoding="utf-8") as f:
+        return {row["Tag"]: row["Bedeutung"] for row in csv.DictReader(f)}
+
+
+# Handkuratiert, nicht alle ~50 vergebenen Tags: deckt die Begriffe ab, bei
+# denen die Alltags-/Geschaeftssprache nachweislich von der Katalog-Formulierung
+# abweicht (siehe Pagefind-Suchtest 2026-10-01 -- "was muss ich fuer
+# Lieferanten beachten" fand trotz 125 zugeordneter Anforderungen zum Tag
+# "Lieferketten" null Treffer). Recherchiert gegen BSI-eigene NIS-2-Papiere
+# und etablierte Fachbegriffe, nicht geraten. "Physical Access Control" hat
+# bewusst nur "Zutrittskontrolle", nicht "Zugangskontrolle" -- das bezeichnet
+# im Deutschen (und in der DSGVO-Terminologie) digitalen, nicht physischen
+# Zugang; eine Vermischung wuerde Treffer in die falsche Richtung ziehen.
+TAG_SYNONYMS = {
+    "Lieferketten": "Lieferanten, Zulieferer, Dienstleister, Supply Chain",
+    "Hochverfügbarkeit": "Ausfallsicherheit, Redundanz",
+    "Password Policy": "Passwortrichtlinie, Passwortregeln",
+    "Insider Threat": "interne Bedrohung, Innentäter",
+    "Bring Your Own Device": "BYOD, private Geräte, eigene Geräte",
+    "Compliance-Management": "Regelkonformität, Vorschrifteneinhaltung",
+    "Physical Access Control": "Zutrittskontrolle, Gebäudesicherheit",
+    "Advanced Persistent Threats (APT)": "gezielter Angriff, staatlich gesteuerter Angreifer",
+    "Exit-Strategie": "Anbieterwechsel, Vendor Lock-in, Vertragsende Dienstleister",
+    "Kompetenzmanagement": "Schulung, Weiterbildung, Qualifikation",
+}
+
+
+def render_tags_prop(control, tags_by_id):
+    # Eigenes Array statt eines einzelnen String-Props wie bei "threats": jedes
+    # Tag braucht seinen eigenen data-pagefind-filter-Wert (eine Pagefind-
+    # Filter-Facette je Element, kein kommagetrennter Wert in einem Attribut),
+    # und damit auch seine eigene Pille mit eigenem Tooltip statt einem
+    # gemeinsamen, zusammengewuerfelten Hint-Text.
+    value = prop_value(control, "tags")
+    if not value:
+        return None
+    names = [t.strip() for t in value.split(",") if t.strip()]
+    if not names:
+        return None
+    items = []
+    for name in names:
+        obj = f"{{ name: {jsx_string(name)}"
+        hint = tags_by_id.get(name)
+        if hint:
+            obj += f", hint: {jsx_string(hint)}"
+        synonyms = TAG_SYNONYMS.get(name)
+        if synonyms:
+            obj += f", synonyms: {jsx_string(synonyms)}"
+        obj += " }"
+        items.append(obj)
+    return "[" + ", ".join(items) + "]"
 
 
 def build_predecessor_index(mapping_data):
@@ -423,13 +490,14 @@ def render_predecessors_prop(control_id, predecessor_index, baustein_links):
     return "[" + ", ".join(items) + "]"
 
 
-def render_control_meta(control, basethreats_by_id, predecessor_index, baustein_links):
+def render_control_meta(control, basethreats_by_id, tags_by_id, predecessor_index, baustein_links):
     modal_verb = part_prop_value(control, "statement", "modal_verb")
     sec_level = prop_value(control, "sec_level")
     effort = prop_value(control, "effort_level")
     threats = prop_value(control, "threats")
+    tags = render_tags_prop(control, tags_by_id)
     predecessors = render_predecessors_prop(control["id"], predecessor_index, baustein_links)
-    if not (modal_verb or sec_level or effort or threats or predecessors):
+    if not (modal_verb or sec_level or effort or threats or tags or predecessors):
         return None
     attrs = []
     if modal_verb:
@@ -443,6 +511,8 @@ def render_control_meta(control, basethreats_by_id, predecessor_index, baustein_
         hint = threats_hint(threats, basethreats_by_id)
         if hint:
             attrs.append(f'threatsHint="{attr_escape(hint)}"')
+    if tags:
+        attrs.append(f"tags={{{tags}}}")
     if predecessors:
         attrs.append(f"predecessors={{{predecessors}}}")
     return f"<ControlMeta {' '.join(attrs)} />\n"
@@ -456,7 +526,7 @@ def heading_anchor(id_):
     return f"{{#{id_}}}"
 
 
-def render_control(control, level, params_by_id, basethreats_by_id, predecessor_index, baustein_links):
+def render_control(control, level, params_by_id, basethreats_by_id, tags_by_id, predecessor_index, baustein_links):
     heading = "#" * min(level, 6)
     # {#...} setzt die Anker-ID explizit statt sie Starlights Auto-Slug zu
     # ueberlassen (der slugifiziert den ganzen Titel, z. B.
@@ -467,9 +537,19 @@ def render_control(control, level, params_by_id, basethreats_by_id, predecessor_
     # Element-ID, auch in Starlights eigener "Auf dieser Seite"-Navigation.
     lines = [
         f"{heading} {control['id']} – {control['title']} {heading_anchor(control['id'])}\n",
+        # Reine Such-Gewichtung, keine neue Information: Pagefind gewichtet
+        # Ueberschriften schon mit 7.0 (h1) bis 2.0 (h6) -- auf einer
+        # Vergleichsseite kann dieselbe ID aber in einer dichten Tabelle
+        # mehrfach auftauchen und die Einzel-Ueberschrift der echten
+        # Anforderung trotzdem ueberholen (beobachtet: GC.5.1.1 rangierte
+        # hinter einer Seite, die die ID nur in einer Mapping-Zeile nennt).
+        # Deshalb hier zusaetzlich zur Skala 10.0 (quadratisch, ~100x
+        # Standardtext). aria-hidden, weil die ID in der Ueberschrift bereits
+        # vorgelesen wird -- Screenreader sollen sie nicht doppelt hoeren.
+        f'<span class="sr-only" aria-hidden="true" data-pagefind-weight="10">{control["id"]}</span>\n',
     ]
 
-    meta = render_control_meta(control, basethreats_by_id, predecessor_index, baustein_links)
+    meta = render_control_meta(control, basethreats_by_id, tags_by_id, predecessor_index, baustein_links)
     if meta:
         lines.append(meta)
 
@@ -482,12 +562,12 @@ def render_control(control, level, params_by_id, basethreats_by_id, predecessor_
         lines.append(f"{guidance}\n")
 
     for sub in control.get("controls", []):
-        lines.append(render_control(sub, level + 1, params_by_id, basethreats_by_id, predecessor_index, baustein_links))
+        lines.append(render_control(sub, level + 1, params_by_id, basethreats_by_id, tags_by_id, predecessor_index, baustein_links))
 
     return "\n".join(lines)
 
 
-def render_group(group, level, params_by_id, basethreats_by_id, predecessor_index, baustein_links, include_heading=True):
+def render_group(group, level, params_by_id, basethreats_by_id, tags_by_id, predecessor_index, baustein_links, include_heading=True):
     lines = []
     if include_heading:
         heading = "#" * min(level, 6)
@@ -500,10 +580,10 @@ def render_group(group, level, params_by_id, basethreats_by_id, predecessor_inde
         lines.append(f"{desc}\n")
 
     for control in group.get("controls", []):
-        lines.append(render_control(control, level + 1, params_by_id, basethreats_by_id, predecessor_index, baustein_links))
+        lines.append(render_control(control, level + 1, params_by_id, basethreats_by_id, tags_by_id, predecessor_index, baustein_links))
 
     for sub in group.get("groups", []):
-        lines.append(render_group(sub, level + 1, params_by_id, basethreats_by_id, predecessor_index, baustein_links))
+        lines.append(render_group(sub, level + 1, params_by_id, basethreats_by_id, tags_by_id, predecessor_index, baustein_links))
 
     return "\n".join(lines)
 
@@ -929,6 +1009,7 @@ def render_geschaeftsfuehrung_page(management, themenfelder, groups_by_id):
         "---\n\n",
         GF_FILTER_IMPORT,
         "\n",
+        pagefind_section("Rolle"),
         "> Diese Seite ersetzt keine Rechts- oder Haftungsberatung. Sie ordnet "
         "öffentliche Quellen ein (den BSI-Katalog und geltendes Gesetzesrecht) "
         "— eine Bewertung des Einzelfalls kann nur eine Rechtsanwältin, ein "
@@ -1048,6 +1129,7 @@ def render_isb_page(management, groups_by_id):
         "---\ntitle: " + yaml_quote("Für ISB") + "\n---\n\n",
         PDCA_CYCLE_IMPORT,
         "\n",
+        pagefind_section("Rolle"),
         "Der BSI-OSCAL-Katalog (`Grundschutz++-resolved_catalog.json`, CC "
         "BY-SA 4.0, BSI-Bund) ist für Maschinen geschrieben – SSP-Generierung, "
         "Tooling, Validierung. OSCAL selbst stammt von NIST, nicht vom BSI: "
@@ -1104,6 +1186,7 @@ def render_devs_page(themenfelder, groups_by_id):
 
     lines = [
         "---\ntitle: " + yaml_quote("Für Devs") + "\n---\n\n",
+        pagefind_section("Rolle"),
         "Jede Anforderung zeigt Pflichtgrad, Sicherheitsstufe, "
         "Aufwandsschätzung und zugeordnete Basisgefährdungen direkt am "
         "Text, als Badges mit Hover-Erklärung — keine ISMS-Prozess-"
@@ -1179,6 +1262,7 @@ def render_baustein_page(baustein_id, entries, baustein_links, control_index):
         f"description: {yaml_quote(f'Welche Anforderungen aus {full_name} (IT-Grundschutz-Kompendium, Edition 2023) in welchen Grundschutz++-Controls aufgehen — je Zuordnung mit Beziehungstyp.')}\n",
         "---\n",
         "\n",
+        pagefind_section("Vergleich"),
         f"Nachfolge-Zuordnungen für **{full_name}**"
         + (f" aus der Schicht {layer}" if layer else "")
         + f", {len(entries)} Stück aus der offiziellen BSI-Mapping-Datei. "
@@ -1228,6 +1312,7 @@ def render_vergleich_index(by_baustein, baustein_links):
         "\n",
         VERGLEICH_FILTER_IMPORT,
         "\n",
+        pagefind_section("Vergleich"),
         "Zu jedem alten Baustein gibt es hier eine eigene Seite mit seinen "
         "Nachfolge-Anforderungen — aus der offiziellen BSI-Mapping-Datei "
         "(`ITGS-to-GS++-mapping_collection.json`), kein alter Volltext, nur "
@@ -1327,10 +1412,11 @@ def format_iso_date(iso):
     return f"{d.day}. {monate[d.month - 1]} {d.year}"
 
 
-def write_mdx(path, frontmatter, body):
+def write_mdx(path, frontmatter, body, section=None):
     needs_control_meta = "<ControlMeta" in body
     prefix = CONTROL_META_IMPORT + "\n" if needs_control_meta else ""
-    path.write_text(frontmatter + prefix + body)
+    marker = pagefind_section(section) if section else ""
+    path.write_text(frontmatter + prefix + marker + body)
 
 
 def main():
@@ -1340,6 +1426,7 @@ def main():
     params_by_id = build_params_index(catalog)
     control_index = build_control_index(catalog)
     basethreats_by_id = load_basethreats()
+    tags_by_id = load_tags()
     mapping_data = json.loads(MAPPING_FILE.read_text())
     predecessor_index = build_predecessor_index(mapping_data)
     baustein_links = json.loads(BAUSTEINE_LINKS_FILE.read_text())["bausteine"]
@@ -1364,6 +1451,7 @@ def main():
             level=1,
             params_by_id=params_by_id,
             basethreats_by_id=basethreats_by_id,
+            tags_by_id=tags_by_id,
             predecessor_index=predecessor_index,
             baustein_links=baustein_links,
             include_heading=False,
@@ -1376,7 +1464,7 @@ def main():
             f"description: {yaml_quote(summary)}\n"
             "---\n\n"
         )
-        write_mdx(OUT_DIR / f"{slug}.mdx", frontmatter, render_source_block(src) + body)
+        write_mdx(OUT_DIR / f"{slug}.mdx", frontmatter, render_source_block(src) + body, section="Anforderung")
 
         entry = (group["id"], group["title"], slug, summary)
         (management if group["id"] in MANAGEMENT_CYCLE_IDS else themenfelder).append(entry)
