@@ -155,9 +155,13 @@ h6,
 
 /* Liquid-Glass-Chrome: nur auf UI-Rahmen, nie auf Fließtext */
 
-/* Zurückgesetzt auf einzeilig -- die Quick-Nav-Zweitzeile (ADR-0006) ist
-   in eine Header.astro-Überschreibung ausgezogen, Banner ist wieder nur die
-   Pilotphase-Statusmeldung. */
+/* Nur Startwert vor dem ersten Render -- Banner.astro misst die echte Höhe
+   per ResizeObserver und überschreibt das sofort. Ohne diesen Fallback
+   springt das Layout beim allerersten Paint kurz, mit ihm nur dann, wenn
+   die tatsächliche Höhe stark abweicht (z. B. dreizeiliger Banner-Text auf
+   schmalen Bildschirmen -- genau der Fall, der vorher zur falsch
+   geraten Zahl hier und damit zur Überlappung mit der mobilen
+   "Auf dieser Seite"-Leiste führte). */
 :root {
 	--banner-height: 3.5rem;
 }
@@ -201,6 +205,22 @@ header.header {
    Abstand nach unten wegen Status-Leiste + Header). */
 .sidebar-pane {
 	inset-block-start: calc(var(--banner-height) + var(--sl-nav-height) + var(--glass-gap));
+}
+
+/* Starlights eigene mobile "Auf dieser Seite"-Leiste (MobileTableOfContents.astro,
+   nicht ueberschrieben -- der Komponente importiert intern aus einem Pfad,
+   den Starlight nicht als Paket-Export anbietet) positioniert sich per
+   top: var(--sl-nav-height), ohne --banner-height zu kennen. Seit unser
+   Banner fixed ist (oben), ueberlappte das sichtbar mit der schwebenden
+   Kopfzeile -- beobachtet auf einem Samsung Galaxy S25 Ultra (Samsung
+   Internet), wo der Banner-Text auf drei Zeilen umbricht. Unlayered CSS
+   gewinnt automatisch gegen Starlights @layer starlight.core, also reicht
+   ein gezielter Override von aussen, kein Komponenten-Kopieren noetig. */
+mobile-starlight-toc nav {
+	top: calc(var(--banner-height) + var(--sl-nav-height) - 1px);
+}
+mobile-starlight-toc .dropdown {
+	max-height: calc(85vh - var(--banner-height) - var(--sl-nav-height) - var(--sl-mobile-toc-height));
 }
 
 .main-frame {

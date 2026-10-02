@@ -32,6 +32,27 @@ import status from '../data/status.json';
 	<a href="/grundschutzpp/zeitplan/">Zum Zeitplan</a>
 </div>
 
+<script>
+	// --banner-height stand vorher als geratener fester Wert in custom.css
+	// (3.5rem / 2.5rem je Breakpoint) -- auf schmalen Bildschirmen bricht der
+	// Banner-Text aber auf drei Zeilen um (beobachtet: Samsung Galaxy S25
+	// Ultra, Samsung Internet), und dann stimmte die Rate nicht mehr. Starlights
+	// eigene MobileTableOfContents.astro positioniert sich u.a. relativ dazu
+	// (siehe dortige Ueberschreibung) -- eine falsche Rate dort heisst
+	// sichtbare Ueberlappung, kein nur leicht falscher Abstand.
+	// ResizeObserver statt nur "resize"-Event: reagiert auch auf
+	// Schriftart-Nachladen, Zoom und Orientierungswechsel, ohne die noetig
+	// zu unterscheiden.
+	const banner = document.querySelector<HTMLElement>('.sl-banner');
+	if (banner) {
+		const setHeight = () => {
+			document.documentElement.style.setProperty('--banner-height', `${banner.offsetHeight}px`);
+		};
+		setHeight();
+		new ResizeObserver(setHeight).observe(banner);
+	}
+</script>
+
 <style>
 	@layer starlight.core {
 		.sl-banner {

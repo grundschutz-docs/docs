@@ -328,7 +328,20 @@ const resultTemplate = `
 			color: var(--sl-color-text-accent);
 		}
 
+		/* "Abbrechen" ist position:absolute, oben rechts im Dialog -- ohne
+		   reservierten Platz legt es sich direkt ueber das Eingabefeld
+		   (beobachtet: "...oder Thema su[Abbrechen]"). --gs-cancel-space
+		   spiegelt das Original-Suchfeld-Verhalten (dort ueber
+		   --sl-search-cancel-space geloest), hier auf das neue
+		   pagefind-input uebertragen, da das nicht mehr dieselbe Klasse hat. */
+		.dialog-frame {
+			--gs-cancel-space: 5rem;
+		}
+
 		@media (min-width: 50rem) {
+			.dialog-frame {
+				--gs-cancel-space: 0px;
+			}
 			dialog {
 				margin: 4rem auto auto;
 				border-radius: 0.5rem;
@@ -387,6 +400,11 @@ const resultTemplate = `
 
 		.gs-search pagefind-input {
 			display: block;
+			/* --gs-cancel-space reserviert Platz fuer den mobilen
+			   "Abbrechen"-Button (position:absolute, oben rechts im Dialog) --
+			   ohne das legt der sich ueber das Eingabefeld, siehe
+			   .dialog-frame weiter oben. */
+			width: calc(100% - var(--gs-cancel-space, 0px));
 		}
 
 		.gs-search pagefind-summary {
@@ -614,6 +632,15 @@ const resultTemplate = `
 			display: flex;
 			flex-direction: column;
 			gap: 0.6rem;
+		}
+
+		/* Pfeiltasten/Esc sind ohne physische Tastatur ohne Bedeutung --
+		   pointer:coarse statt einer Breakpoint-Breite, weil ein schmales
+		   Desktop-Fenster trotzdem eine echte Tastatur hat. */
+		@media (pointer: coarse) {
+			pagefind-keyboard-hints {
+				display: none;
+			}
 		}
 	}
 </style>
