@@ -315,15 +315,21 @@ const resultTemplate = `
 			padding: 1rem;
 		}
 
+		/* Schlanker Text-Link statt Button-Block -- feste 48px Hoehe plus
+		   geerbte (groessere) Schriftgroesse liess das wie einen
+		   uebergrossen Button statt einen "Abbrechen"-Link wirken
+		   (Feedback: "etwas klobig"). */
 		button[data-close-modal] {
 			position: absolute;
 			z-index: 1;
 			align-items: center;
 			align-self: flex-end;
-			height: 48px;
-			padding: 0.25rem;
+			height: auto;
+			padding: 0.85rem 0.25rem;
 			border: 0;
 			background: transparent;
+			font-size: var(--sl-text-sm);
+			font-weight: 600;
 			cursor: pointer;
 			color: var(--sl-color-text-accent);
 		}

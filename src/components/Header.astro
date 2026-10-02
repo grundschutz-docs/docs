@@ -69,6 +69,28 @@ const shouldRenderSearch =
 	</div>
 </div>
 
+<script>
+	// --sl-nav-height ist Starlights eigene, statische Rate (3.5rem/4rem,
+	// style/props.css) -- unsere schwebende Pillen-Kopfzeile (custom.css,
+	// "header.header") rendert aber hoeher/anders als Starlights kompakter
+	// Standard-Header. Darauf verlaesst sich u.a. Starlights eigene mobile
+	// "Auf dieser Seite"-Leiste (MobileTableOfContents.astro) fuer ihre
+	// top-Position -- falsche Rate dort heisst sichtbare Teil-Ueberlappung,
+	// beobachtet nach dem --banner-height-Fix als kleiner Rest. Gleiches
+	// Prinzip wie dort: echte Hoehe messen statt raten. Selector
+	// "header.header" statt dieser Komponente selbst, weil Starlights
+	// PageFrame.astro den eigentlichen <header> aussen um den hier
+	// gerenderten <div class="header"> legt.
+	const header = document.querySelector<HTMLElement>('header.header');
+	if (header) {
+		const setHeight = () => {
+			document.documentElement.style.setProperty('--sl-nav-height', `${header.offsetHeight}px`);
+		};
+		setHeight();
+		new ResizeObserver(setHeight).observe(header);
+	}
+</script>
+
 <style>
 	@layer starlight.core {
 		.header {
