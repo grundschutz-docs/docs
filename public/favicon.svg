@@ -1,11 +1,16 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
-	<!-- Drei eingerückte Ebenen: die Katalog-Hierarchie (DET → DET.3 → DET.3.1)
+	<!-- Drei eingerückte Ebenen: die Katalog-Hierarchie (DET, DET.3, DET.3.1)
 	     als Form. Bewusst flach und einfarbig statt isometrisch wie der
-	     Org-Avatar — bei 16 px im Browser-Tab überlebt nur die Silhouette.
-	     Fill direkt als Attribut, keine dark-mode-Variante per <style>/
-	     @media mehr: Safaris Favicon-Renderer wertet eingebettetes <style>
-	     in SVG-Favicons unzuverlässig aus und zeigt dann lieber gar kein
-	     Icon als ein halb gerendertes -- betraf dieses Favicon konkret. -->
+	     Org-Avatar; bei 16 px im Browser-Tab überlebt nur die Silhouette.
+	     Fill direkt als Attribut, keine dark-mode-Variante per style-Tag
+	     und @media mehr: WebKits Favicon-Renderer wertet eingebettetes
+	     CSS in SVG-Favicons unzuverlässig aus und zeigt dann lieber gar
+	     kein Icon als ein halb gerendertes; betraf dieses Favicon konkret.
+	     Achtung beim Bearbeiten: XML-Kommentare duerfen keine zwei direkt
+	     aufeinanderfolgenden Bindestriche enthalten, das macht die ganze
+	     Datei fuer strengere SVG-Parser ungueltig; reproduziert mit
+	     sips/CoreSVG, vermutlich auch Grund fuer ein fehlendes Icon in
+	     Chromium-basierten Browsern vorher. -->
 	<g>
 		<rect x="17" y="25" width="66" height="13" rx="6.5" fill="#B97600" />
 		<rect x="31" y="43.5" width="52" height="13" rx="6.5" fill="#B97600" />

@@ -66,6 +66,23 @@ export default defineConfig({
 					tag: 'link',
 					attrs: { rel: 'apple-touch-icon', sizes: '180x180', href: '/apple-touch-icon.png' },
 				},
+				// Chromium bevorzugt seit Version 110 bei der Icon-Auswahl eine
+				// ICO/PNG mit fester Größe gegenüber der SVG, sobald irgendeine
+				// Variante "sizes=any" trägt (Starlights eigener favicon-Tag
+				// erzeugt das implizit) — gibt es dann keine echte, erreichbare
+				// größenfeste Datei (bei uns: kein favicon.ico), zeigt Chrome
+				// gar kein Icon, statt auf die SVG zurückzufallen. Getestet:
+				// Edge zeigte deshalb nichts, obwohl favicon.svg selbst korrekt
+				// auslieferte. Diese beiden PNGs sind die geforderte feste
+				// Rückfalloption.
+				{
+					tag: 'link',
+					attrs: { rel: 'icon', type: 'image/png', sizes: '32x32', href: '/favicon-32x32.png' },
+				},
+				{
+					tag: 'link',
+					attrs: { rel: 'icon', type: 'image/png', sizes: '16x16', href: '/favicon-16x16.png' },
+				},
 				// Vorschaubild beim Teilen (LinkedIn, Mastodon, Slack). Absolute
 				// URL ist Pflicht — relative Pfade ignorieren die Crawler.
 				{ tag: 'meta', attrs: { property: 'og:image', content: `${SITE_URL}/og.png` } },
