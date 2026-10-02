@@ -1,0 +1,619 @@
+---
+// Ersetzt Starlights eingebaute Suche (die auf dem alten, monolithischen
+// @pagefind/default-ui aufsetzt) durch Pagefinds neueres Component-UI-System
+// (einzelne Web-Components: <pagefind-input>, <pagefind-results>, ...).
+// Grund: nur das Component-UI-System erlaubt ein eigenes HTML-Template pro
+// Ergebnis-Karte (<script type="text/pagefind-template">) -- damit lässt
+// sich die Suche in der eigenen Bildsprache gestalten (Pillen, Fraunces/
+// Karla/JetBrains Mono) statt gegen fremdes CSS anzukaempfen. Die
+// Bausteine liegen nach jedem Build bereits unbenutzt in dist/pagefind/
+// (pagefind-component-ui.js/css), keine zusaetzliche Abhaengigkeit noetig.
+//
+// Dialog-Rahmen (site-search, Oeffnen/Schliessen, Cmd+K) ist unveraendert
+// von Starlights eigenem Search.astro uebernommen -- das ist erprobter
+// Code fuer Tastatur/Fokus/ARIA, den neu zu schreiben nur Risiko ohne
+// Nutzen waere. Ersetzt wurde ausschliesslich der Inhalt des Dialogs.
+import project from 'virtual:starlight/project-context';
+
+const dataAttributes: DOMStringMap = {};
+if (project.trailingSlash === 'never') dataAttributes['data-strip-trailing-slash'] = '';
+
+// import.meta.env.DEV hier in der Frontmatter ausgewertet (echtes ESM,
+// von Vite zur Build-Zeit ersetzt) und als fertiger Wert uebergeben --
+// nicht direkt im Client-Script unten, das durch define:vars automatisch
+// zu is:inline wird und damit kein Modul mehr ist. "import.meta" dort ist
+// ein SyntaxError im Browser, nicht nur ein falscher Wert.
+const isDev = import.meta.env.DEV;
+
+// Eigenes Ergebnis-Template: meta.section (siehe generate_docs.py,
+// pagefind_section()) wird als kleine Typ-Pille vor dem Titel gezeigt --
+// die Seite hat drei inhaltlich verschiedene Treffertypen (Anforderung,
+// Vergleich, Befund, Rolle), die man sonst erst am Klicken unterscheidet.
+//
+// sub_results nur ab 2 Treffern anzeigen: Vergleichsseiten haben pro
+// Baustein nur eine Ueberschrift, die zwangslaeufig den Seitentitel
+// wiederholt -- ein einzelnes "Unterergebnis" war dort immer ein
+// Duplikat der Karte darueber, nicht nur inhaltlich, auch optisch (eigene
+// Karte vs. unstyled Text), was wie ein kaputtes Rendering aussah statt
+// wie Redundanz. Ab zwei Treffern (z. B. mehrere Controls auf derselben
+// Praktik-Seite) ist die Liste dagegen der eigentliche Mehrwert.
+const resultTemplate = `
+<li class="gs-result">
+  <div class="gs-result-card">
+    {{#if meta.section}}
+    <span class="gs-result-type" data-section="{{ meta.section }}">{{ meta.section }}</span>
+    {{/if}}
+    <p class="gs-result-title">
+      <a class="gs-result-link" href="{{ meta.url | default(url) | safeUrl }}">{{ meta.title }}</a>
+    </p>
+    {{#if excerpt}}
+    <p class="gs-result-excerpt">{{+ excerpt +}}</p>
+    {{/if}}
+  </div>
+  {{#if gt(length(sub_results), 1)}}
+  <ul class="gs-sub-results">
+    {{#each sub_results as sub}}
+    <li class="gs-sub-result">
+      <a class="gs-sub-link" href="{{ sub.url | safeUrl }}">{{ sub.title }}</a>
+      {{#if sub.excerpt}}<p class="gs-sub-excerpt">{{+ sub.excerpt +}}</p>{{/if}}
+    </li>
+    {{/each}}
+  </ul>
+  {{/if}}
+</li>`;
+---
+
+<site-search class={Astro.props.class} {...dataAttributes}>
+	<button
+		data-open-modal
+		disabled
+		aria-label={Astro.locals.t('search.label')}
+		aria-keyshortcuts="Control+K"
+	>
+		<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+			<circle cx="11" cy="11" r="8"></circle>
+			<path d="m21 21-4.3-4.3"></path>
+		</svg>
+		<span class="sl-hidden md:sl-block" aria-hidden="true">{Astro.locals.t('search.label')}</span>
+		<kbd class="sl-hidden md:sl-flex" style="display: none;">
+			<kbd>{Astro.locals.t('search.ctrlKey')}</kbd><kbd>K</kbd>
+		</kbd>
+	</button>
+
+	<dialog style="padding:0" aria-label={Astro.locals.t('search.label')}>
+		<div class="dialog-frame sl-flex">
+			<button data-close-modal class="sl-flex md:sl-hidden">
+				{Astro.locals.t('search.cancelLabel')}
+			</button>
+			{
+				import.meta.env.DEV ? (
+					<div style="margin: auto; text-align: center; white-space: pre-line;" dir="ltr">
+						<p>{Astro.locals.t('search.devWarning')}</p>
+					</div>
+				) : (
+					<div class="search-container">
+						<pagefind-config
+							bundle-path={`${import.meta.env.BASE_URL.replace(/\/$/, '')}/pagefind/`}
+							base-url={import.meta.env.BASE_URL}
+							excerpt-length="24"
+							lang="de"
+						/>
+						<div class="gs-search" id="gs-search">
+							<pagefind-input placeholder="Anforderung, ID oder Thema suchen" autofocus />
+							<pagefind-summary default-message="Suche nach einer Anforderung, einer ID (z. B. GC.5.1.1) oder einem Thema (z. B. Lieferketten)." />
+							{/* <pagefind-filter-pane> statt <pagefind-filter-dropdown>: die
+							    Dropdown-Variante ist absolut positioniert, der Dialog hat
+							    overflow:auto -- das schneidet ein schwebendes Panel
+							    zuverlaessig ab, egal wie es gestylt wird. Ohne expanded-Attribut
+							    rendert die Pane als natives <details>/<summary>, ein
+							    gewoehnliches Dokumentfluss-Element, nichts zum Clippen.
+							    Kein filter-Attribut: pagefind-filter-pane kennt es nicht
+							    (observedAttributes: show-empty/expanded/open/sort/
+							    auto-open-threshold) -- "Thema" ist ohnehin die einzige
+							    Facette, die der Katalog ueberhaupt definiert. */}
+							<pagefind-filter-pane />
+							<div class="gs-suggestions" id="gs-suggestions">
+								<span class="gs-suggestions-label">Beispiele:</span>
+								<button type="button" class="gs-chip" data-query="GC.5.1.1">GC.5.1.1</button>
+								<button type="button" class="gs-chip" data-query="Lieferketten">Lieferketten</button>
+								<button type="button" class="gs-chip" data-query="Passwort">Passwort</button>
+								<button type="button" class="gs-chip" data-query="MUSS">MUSS-Anforderungen</button>
+							</div>
+							<pagefind-results set:html={`<script type="text/pagefind-template">${resultTemplate}<\/script>`} />
+							<pagefind-keyboard-hints />
+						</div>
+					</div>
+				)
+			}
+		</div>
+	</dialog>
+</site-search>
+
+<script is:inline>
+	(() => {
+		const openBtn = document.querySelector('button[data-open-modal]');
+		const shortcut = openBtn?.querySelector('kbd');
+		if (!openBtn || !(shortcut instanceof HTMLElement)) return;
+		const platformKey = shortcut.querySelector('kbd');
+		if (platformKey && /(Mac|iPhone|iPod|iPad)/i.test(navigator.platform)) {
+			platformKey.textContent = '⌘';
+			openBtn.setAttribute('aria-keyshortcuts', 'Meta+K');
+		}
+		shortcut.style.display = '';
+	})();
+</script>
+
+<script>
+	class SiteSearch extends HTMLElement {
+		constructor() {
+			super();
+			const openBtn = this.querySelector<HTMLButtonElement>('button[data-open-modal]')!;
+			const closeBtn = this.querySelector<HTMLButtonElement>('button[data-close-modal]')!;
+			const dialog = this.querySelector('dialog')!;
+			const dialogFrame = this.querySelector('.dialog-frame')!;
+
+			const onClick = (event: MouseEvent) => {
+				const isLink = 'href' in (event.target || {});
+				if (
+					isLink ||
+					(document.body.contains(event.target as Node) &&
+						!dialogFrame.contains(event.target as Node))
+				) {
+					closeModal();
+				}
+			};
+
+			const openModal = (event?: MouseEvent) => {
+				dialog.showModal();
+				document.body.toggleAttribute('data-search-modal-open', true);
+				this.querySelector('pagefind-input input, input')?.focus();
+				event?.stopPropagation();
+				window.addEventListener('click', onClick);
+			};
+
+			const closeModal = () => dialog.close();
+
+			openBtn.addEventListener('click', openModal);
+			openBtn.disabled = false;
+			closeBtn.addEventListener('click', closeModal);
+
+			dialog.addEventListener('close', () => {
+				document.body.toggleAttribute('data-search-modal-open', false);
+				window.removeEventListener('click', onClick);
+			});
+
+			window.addEventListener('keydown', (e) => {
+				if ((e.metaKey === true || e.ctrlKey === true) && e.key === 'k') {
+					dialog.open ? closeModal() : openModal();
+					e.preventDefault();
+				}
+			});
+
+			const shouldStrip = this.dataset.stripTrailingSlash !== undefined;
+			const stripTrailingSlash = (path: string) => path.replace(/(.)\/(#.*)?$/, '$1$2');
+			this.formatURL = shouldStrip ? stripTrailingSlash : (path: string) => path;
+
+			// Beispiel-Chips: fuellen das Suchfeld und loesen die Suche direkt
+			// aus, statt nur den Text einzutragen -- wer draufklickt, will das
+			// Ergebnis sehen, nicht erst zusaetzlich Enter druecken.
+			this.querySelectorAll<HTMLButtonElement>('.gs-chip').forEach((chip) => {
+				chip.addEventListener('click', () => {
+					const input = this.querySelector<HTMLInputElement>('pagefind-input input, input');
+					if (!input) return;
+					input.value = chip.dataset.query ?? '';
+					input.dispatchEvent(new Event('input', { bubbles: true }));
+					input.focus();
+				});
+			});
+		}
+
+		formatURL: (path: string) => string = (path) => path;
+	}
+
+	customElements.define('site-search', SiteSearch);
+</script>
+
+<script define:vars={{ bundlePath: `${import.meta.env.BASE_URL.replace(/\/$/, '')}/pagefind/`, isDev }}>
+	if (!isDev) {
+		const link = document.createElement('link');
+		link.rel = 'stylesheet';
+		link.href = `${bundlePath}pagefind-component-ui.css`;
+		document.head.appendChild(link);
+
+		const script = document.createElement('script');
+		script.type = 'module';
+		script.src = `${bundlePath}pagefind-component-ui.js`;
+		script.addEventListener('load', () => {
+			// Beispiel-Chips ausblenden, sobald eine echte Suchanfrage lief --
+			// ueber das dokumentierte Event-System (instance.on('search', ...)),
+			// nicht ueber ein geratenes DOM-Attribut der Summary-Komponente.
+			const manager = window.PagefindComponents?.getInstanceManager?.();
+			const instance = manager?.getInstance?.('default');
+			const wrap = document.getElementById('gs-search');
+			instance?.on?.('search', (term) => {
+				wrap?.classList.toggle('gs-has-searched', Boolean(term));
+			});
+		});
+		document.head.appendChild(script);
+	}
+</script>
+
+<style>
+	@layer starlight.core {
+		site-search {
+			display: contents;
+		}
+		button[data-open-modal] {
+			display: flex;
+			align-items: center;
+			gap: 0.5rem;
+			border: 0;
+			background-color: transparent;
+			color: var(--sl-color-gray-1);
+			cursor: pointer;
+			height: 2.5rem;
+			font-size: var(--sl-text-xl);
+		}
+
+		@media (min-width: 50rem) {
+			button[data-open-modal] {
+				border: 1px solid var(--sl-color-gray-5);
+				border-radius: 0.5rem;
+				padding-inline-start: 0.75rem;
+				padding-inline-end: 0.5rem;
+				background-color: var(--sl-color-black);
+				color: var(--sl-color-gray-2);
+				font-size: var(--sl-text-sm);
+				width: 100%;
+				max-width: 22rem;
+			}
+			button[data-open-modal]:hover {
+				border-color: var(--sl-color-gray-2);
+				color: var(--sl-color-white);
+			}
+			button[data-open-modal] > :last-child {
+				margin-inline-start: auto;
+			}
+		}
+
+		button > kbd {
+			border-radius: 0.25rem;
+			font-size: var(--sl-text-2xs);
+			gap: 0.25em;
+			padding-inline: 0.375rem;
+			background-color: var(--sl-color-gray-6);
+		}
+		kbd {
+			font-family: var(--__sl-font);
+		}
+
+		dialog {
+			margin: 0;
+			background-color: var(--sl-color-gray-6);
+			border: 1px solid var(--sl-color-gray-5);
+			width: 100%;
+			max-width: 100%;
+			height: 100%;
+			max-height: 100%;
+			box-shadow: var(--sl-shadow-lg);
+		}
+		dialog[open] {
+			display: flex;
+		}
+		dialog::backdrop {
+			background-color: var(--sl-color-backdrop-overlay);
+			-webkit-backdrop-filter: blur(0.25rem);
+			backdrop-filter: blur(0.25rem);
+		}
+
+		.dialog-frame {
+			position: relative;
+			overflow: auto;
+			flex-direction: column;
+			flex-grow: 1;
+			gap: 1rem;
+			padding: 1rem;
+		}
+
+		button[data-close-modal] {
+			position: absolute;
+			z-index: 1;
+			align-items: center;
+			align-self: flex-end;
+			height: 48px;
+			padding: 0.25rem;
+			border: 0;
+			background: transparent;
+			cursor: pointer;
+			color: var(--sl-color-text-accent);
+		}
+
+		@media (min-width: 50rem) {
+			dialog {
+				margin: 4rem auto auto;
+				border-radius: 0.5rem;
+				width: 90%;
+				max-width: 40rem;
+				height: max-content;
+				min-height: 15rem;
+				max-height: calc(100% - 8rem);
+			}
+			.dialog-frame {
+				padding: 1.5rem;
+			}
+		}
+	}
+</style>
+
+<style is:global>
+	@layer starlight.core {
+		[data-search-modal-open] {
+			overflow: hidden;
+		}
+
+		/* Pagefind Component-UI auf die eigene Palette gemappt -- siehe
+		   src/styles/custom.css fuer die Quelltoken. Dark zuerst (Projekt-
+		   Default), [data-theme='light'] ueberschreibt -- gleiches Muster wie
+		   dort, kein zusaetzliches Vokabular. */
+		.gs-search {
+			--pf-text: var(--sl-color-white);
+			--pf-text-secondary: var(--sl-color-gray-2);
+			--pf-text-muted: var(--sl-color-gray-3);
+			--pf-background: var(--sl-color-black);
+			--pf-border: var(--sl-color-hairline);
+			--pf-border-focus: var(--sl-color-accent);
+			--pf-hover: var(--sl-color-accent-low);
+			--pf-mark: var(--sl-color-accent-high);
+			--pf-skeleton: var(--sl-color-gray-5);
+			--pf-skeleton-shine: var(--sl-color-gray-4);
+			--pf-shadow-sm: var(--glass-shadow-soft);
+			--pf-shadow-md: var(--glass-shadow);
+			--pf-shadow-lg: var(--glass-shadow-lift);
+			--pf-border-radius: 1rem;
+			/* Default waere GitHub-Blau (#0969da) -- passt zu keiner Farbe
+			   dieser Seite. */
+			--pf-outline-focus: var(--sl-color-accent);
+			--pf-font: 'Karla Variable', system-ui, sans-serif;
+			--pf-input-height: 3rem;
+			--pf-input-font-size: var(--sl-text-base);
+			--pf-result-title-font-size: var(--sl-text-base);
+			--pf-result-excerpt-font-size: var(--sl-text-sm);
+			--pf-summary-font-size: var(--sl-text-sm);
+
+			display: flex;
+			flex-direction: column;
+			gap: 0.9rem;
+		}
+
+		.gs-search pagefind-input {
+			display: block;
+		}
+
+		.gs-search pagefind-summary {
+			display: block;
+			color: var(--sl-color-gray-3);
+			font-size: var(--sl-text-sm);
+		}
+
+		/* Eingabefeld: Pagefind rendert sein Lupen-Icon schon selbst als
+		   maskiertes ::before (gefuellte Lupe als Mask-Image, Farbe ueber
+		   --pf-text-muted). Eigenes zweites Icon haette sich damit
+		   ueberlagert -- stattdessen nur die Maske auf den Strich-Stil der
+		   restlichen Seiten-Icons (Kreis+Strich, kein Fuellton) umgesetzt. */
+		.gs-search {
+			--pf-icon-search: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='11' cy='11' r='8'/%3E%3Cpath d='m21 21-4.3-4.3'/%3E%3C/svg%3E");
+		}
+		.gs-search .pf-input {
+			border-radius: 999px;
+			background: var(--sl-color-bg-nav, var(--pf-background));
+		}
+
+		/* Themen-Filter als natives <details>/<summary> (pagefind-filter-pane
+		   ohne expanded-Attribut) statt Dropdown -- liegt im normalen
+		   Dokumentfluss, kann also nicht vom Dialog-overflow abgeschnitten
+		   werden. Sprache angelehnt an die Themen-Pillen auf den
+		   Katalogseiten selbst (ControlMeta.astro). */
+		.gs-search .pf-filter-pane {
+			border: 1px solid var(--sl-color-hairline);
+			border-radius: 0.9rem;
+			overflow: hidden;
+		}
+		.gs-search .pf-filter-group-title {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			gap: 0.5rem;
+			padding: 0.6rem 0.9rem;
+			cursor: pointer;
+			font-family: 'JetBrains Mono Variable', ui-monospace, monospace;
+			font-size: var(--sl-text-xs);
+			color: var(--sl-color-gray-2);
+			list-style: none;
+		}
+		.gs-search .pf-filter-group-title::-webkit-details-marker {
+			display: none;
+		}
+		.gs-search .pf-filter-group[open] .pf-filter-group-title {
+			border-bottom: 1px solid var(--sl-color-hairline);
+			color: var(--sl-color-white);
+		}
+		.gs-search .pf-filter-group-count {
+			background: var(--sl-color-accent-low);
+			color: var(--sl-color-accent-high);
+			border-radius: 999px;
+			padding: 0 0.6em;
+			font-size: var(--sl-text-2xs);
+		}
+		.gs-search .pf-filter-options {
+			max-height: 14rem;
+			overflow-y: auto;
+			padding: 0.4rem;
+		}
+		.gs-search .pf-filter-checkbox {
+			display: flex;
+			align-items: center;
+			gap: 0.5rem;
+			padding: 0.3rem 0.5rem;
+			border-radius: 0.5rem;
+			font-size: var(--sl-text-sm);
+			color: var(--sl-color-white);
+		}
+		.gs-search .pf-filter-checkbox:hover {
+			background: var(--sl-color-accent-low);
+		}
+		.gs-search .pf-filter-checkbox-count {
+			margin-inline-start: auto;
+			color: var(--sl-color-gray-3);
+			font-family: 'JetBrains Mono Variable', ui-monospace, monospace;
+			font-size: var(--sl-text-2xs);
+		}
+		.gs-search .pf-checkbox-input {
+			accent-color: var(--sl-color-accent);
+		}
+
+		/* Beispiel-Chips: nur sichtbar, solange noch nichts gesucht wurde --
+		   sobald eine Suchanfrage lief, ist die Einladung nicht mehr noetig
+		   und wuerde nur noch Platz vor den echten Ergebnissen wegnehmen.
+		   Der Zustand kommt aus dem Suchfeld-Script unten (gs-has-searched
+		   auf #gs-search), nicht aus einem geratenen Pagefind-Attribut. */
+		.gs-search.gs-has-searched .gs-suggestions {
+			display: none;
+		}
+
+		.gs-suggestions {
+			display: flex;
+			flex-wrap: wrap;
+			align-items: center;
+			gap: 0.5rem;
+		}
+
+		.gs-suggestions-label {
+			font-size: var(--sl-text-xs);
+			color: var(--sl-color-gray-3);
+		}
+
+		.gs-chip {
+			font-family: 'JetBrains Mono Variable', ui-monospace, monospace;
+			font-size: var(--sl-text-xs);
+			padding: 0.3em 0.75em;
+			border-radius: 999px;
+			border: 1px solid var(--sl-color-hairline);
+			background: transparent;
+			color: var(--sl-color-gray-2);
+			cursor: pointer;
+			transition:
+				border-color 0.15s ease,
+				color 0.15s ease;
+		}
+		.gs-chip:hover {
+			border-color: var(--sl-color-accent);
+			color: var(--sl-color-white);
+		}
+
+		/* Ergebnis-Karten: eigenes Template (siehe Search.astro), eigenes CSS
+		   statt Pagefinds .pf-result-* -- volle Kontrolle uebers Markup macht
+		   die Pillen-/Typografie-Sprache der Seite hier moeglich.
+		   Rahmen/Hintergrund sitzen am <li class="gs-result"> selbst, nicht am
+		   inneren .gs-result-card -- sub_results ist ein Geschwister-Element
+		   von .gs-result-card, nicht sein Kind. Lag beides auf der Karte,
+		   schwebten Unterergebnisse unstyled neben der Karte statt sichtbar
+		   zu ihr zu gehoeren (siehe Screenshot-Feedback: "wieso grau und
+		   eckig"). Eine gemeinsame Karte mit zwei Abschnitten statt Karte
+		   plus loser Text daneben. */
+		.gs-result {
+			border: 1px solid var(--sl-color-hairline);
+			border-radius: var(--pf-border-radius);
+			background: var(--sl-color-bg-nav, var(--sl-color-gray-6));
+			transition: border-color 0.15s ease;
+			overflow: hidden;
+		}
+		.gs-result:has(.gs-result-link:hover),
+		.gs-result:has(.gs-result-link:focus-visible) {
+			border-color: var(--sl-color-accent);
+		}
+		.gs-result-card {
+			padding: 0.85rem 1rem;
+		}
+
+		.gs-result-type {
+			display: inline-block;
+			font-family: 'JetBrains Mono Variable', ui-monospace, monospace;
+			font-size: var(--sl-text-2xs);
+			letter-spacing: 0.04em;
+			color: var(--sl-color-accent-high);
+			background: var(--sl-color-accent-low);
+			border-radius: 999px;
+			padding: 0.15em 0.7em;
+			margin-bottom: 0.4rem;
+		}
+
+		.gs-result-title {
+			margin: 0;
+		}
+		.gs-result-link {
+			font-family: 'Fraunces Variable', Georgia, serif;
+			font-size: 1.05rem;
+			font-weight: 600;
+			color: var(--sl-color-white);
+			text-decoration: none;
+		}
+		.gs-result-link:hover {
+			text-decoration: underline;
+		}
+
+		.gs-result-excerpt {
+			margin: 0.35rem 0 0;
+			font-family: 'Karla Variable', system-ui, sans-serif;
+			font-size: var(--sl-text-sm);
+			color: var(--sl-color-gray-2);
+			line-height: 1.5;
+		}
+		.gs-result-excerpt mark,
+		.gs-sub-excerpt mark {
+			background: none;
+			color: var(--sl-color-accent-high);
+			font-weight: 600;
+		}
+
+		.gs-sub-results {
+			list-style: none;
+			margin: 0;
+			padding: 0.5rem 1rem 0.75rem;
+			background: color-mix(in oklch, var(--sl-color-black) 20%, transparent);
+			border-top: 1px solid var(--sl-color-hairline);
+			display: flex;
+			flex-direction: column;
+			gap: 0.5rem;
+		}
+		.gs-sub-result {
+			padding-inline-start: 0.75rem;
+			border-inline-start: 2px solid var(--sl-color-hairline);
+		}
+		.gs-sub-link {
+			font-family: 'JetBrains Mono Variable', ui-monospace, monospace;
+			font-size: var(--sl-text-sm);
+			color: var(--sl-color-text-accent);
+			text-decoration: none;
+		}
+		.gs-sub-link:hover {
+			text-decoration: underline;
+		}
+		.gs-sub-excerpt {
+			margin: 0.2rem 0 0;
+			font-size: var(--sl-text-xs);
+			color: var(--sl-color-gray-3);
+		}
+
+		pagefind-results {
+			display: block;
+		}
+		pagefind-results ul {
+			list-style: none;
+			margin: 0;
+			padding: 0;
+			display: flex;
+			flex-direction: column;
+			gap: 0.6rem;
+		}
+	}
+</style>

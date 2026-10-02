@@ -87,6 +87,7 @@ export default defineConfig({
 				Banner: './src/components/Banner.astro',
 				SocialIcons: './src/components/SocialIcons.astro',
 				Header: './src/components/Header.astro',
+				Search: './src/components/Search.astro',
 			},
 			social: [
 				{
