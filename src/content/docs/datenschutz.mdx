@@ -11,7 +11,13 @@ export const hosting =
 	'[Hosting-Anbieter und Serverstandort eintragen.]';
 export const tracking =
 	process.env.OPERATOR_TRACKING?.trim() ||
-	'Diese Website setzt keine Cookies und keine Analyse- oder Tracking-Werkzeuge ein.';
+	// Fällt auf einen zu Plausible passenden Text zurück, sobald
+	// PLAUSIBLE_SCRIPT_URL gesetzt ist (siehe astro.config.mjs) -- sonst
+	// bliebe bei vergessenem OPERATOR_TRACKING fälschlich "kein Tracking"
+	// stehen, obwohl das Script längst eingebunden ist.
+	(process.env.PLAUSIBLE_SCRIPT_URL?.trim()
+		? 'Diese Website nutzt Plausible Analytics, ein datenschutzfreundliches, selbst gehostetes Analyse-Tool. Plausible verwendet keine Cookies und erstellt keine personenbezogenen Nutzerprofile. Erfasst werden ausschließlich aggregierte, anonymisierte Daten (z. B. Seitenaufrufe, Referrer, grober Gerätetyp); die IP-Adresse wird zur Berechnung eindeutiger Besucher nur kurzzeitig verarbeitet und nicht gespeichert. Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an der Reichweitenmessung und Performance-Optimierung). Da die Instanz selbst gehostet wird, findet keine Datenübermittlung an Dritte oder in Drittländer statt.'
+		: 'Diese Website setzt keine Cookies und keine Analyse- oder Tracking-Werkzeuge ein.');
 export const authority =
 	process.env.OPERATOR_AUTHORITY?.trim() ||
 	'[Zuständige Landesdatenschutzbehörde eintragen.]';

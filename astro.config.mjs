@@ -43,6 +43,15 @@ const SITE_NAME = process.env.SITE_NAME;
 // zeigt und eine Staging-Instanz sich selbst kanonisieren kann.
 const SITE_URL = process.env.SITE_URL || 'https://grundschutz-docs.de';
 
+// Plausible-Einbindung ist komplett env-gesteuert, aus demselben Grund wie
+// die OPERATOR_*-Werte: ein Fork soll nicht automatisch Traffic an die
+// Analytics-Instanz des Original-Betreibers melden. Ohne PLAUSIBLE_SCRIPT_URL
+// wird gar kein Script eingebunden. PLAUSIBLE_DOMAIN ist optional und nur für
+// den Fall gedacht, dass der "data-domain"-Wert vom SITE_URL-Host abweichen
+// soll (z. B. mehrere Domains auf eine Plausible-Site gemappt).
+const PLAUSIBLE_SCRIPT_URL = process.env.PLAUSIBLE_SCRIPT_URL?.trim();
+const PLAUSIBLE_DOMAIN = process.env.PLAUSIBLE_DOMAIN?.trim() || new URL(SITE_URL).hostname;
+
 export default defineConfig({
 	site: SITE_URL,
 	markdown: {
@@ -90,6 +99,31 @@ export default defineConfig({
 				{ tag: 'meta', attrs: { property: 'og:image:height', content: '630' } },
 				{ tag: 'meta', attrs: { name: 'twitter:card', content: 'summary_large_image' } },
 				{ tag: 'meta', attrs: { name: 'twitter:image', content: `${SITE_URL}/og.png` } },
+				// Nur vorhanden, wenn PLAUSIBLE_SCRIPT_URL gesetzt ist -- siehe
+				// Kommentar bei der Konstante weiter oben. Der zweite Tag ist
+				// Plausibles Event-Queue-Shim: ohne ihn würfe ein plausible(...)-Aufruf,
+				// der vor dem Laden des (deferred) Hauptscripts passiert, einen Fehler.
+				// Aktuell rufen wir plausible() selbst nirgends manuell auf, aber die
+				// erweiterten Script-Varianten (file-downloads, outbound-links, ...)
+				// nutzen dieselbe Queue intern -- Plausibles eigener Installations-
+				// Assistent liefert ihn deshalb standardmäßig mit.
+				...(PLAUSIBLE_SCRIPT_URL
+					? [
+							{
+								tag: 'script',
+								attrs: {
+									defer: true,
+									'data-domain': PLAUSIBLE_DOMAIN,
+									src: PLAUSIBLE_SCRIPT_URL,
+								},
+							},
+							{
+								tag: 'script',
+								content:
+									"window.plausible = window.plausible || function() { (window.plausible.q = window.plausible.q || []).push(arguments) }",
+							},
+						]
+					: []),
 			],
 			description: 'Eigene lesbare Aufbereitung des BSI Grundschutz++ OSCAL-Katalogs',
 			locales: {
