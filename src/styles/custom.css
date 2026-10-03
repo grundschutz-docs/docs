@@ -96,6 +96,15 @@ h6,
 	--sl-color-accent-high: oklch(38% 0.09 75);
 	--sl-color-accent: oklch(62% 0.15 75);
 	--sl-color-accent-low: oklch(93% 0.05 78);
+	/* Starlights Default setzt --sl-color-text-accent im Light Mode auf
+	   --sl-color-accent (62% L) -- das ergibt auf unserem 99%-hellen
+	   Seitenhintergrund nur 3,6:1 Kontrast, unter der WCAG-AA-Schwelle von
+	   4,5:1 für Fließtext (betraf Links wie "Über diese Seite" und den
+	   Hero-CTA-Button). --sl-color-accent-high ist derselbe Farbton, nur
+	   dunkler (38% L statt 62%) -- schon an neun anderen Stellen im Light
+	   Mode im Einsatz, also keine neue Farbe, nur der passendere Ton für
+	   Text. Ergibt ~9,9:1 Kontrast. */
+	--sl-color-text-accent: var(--sl-color-accent-high);
 
 	/*
 	 * Der Light Mode kann sich seine Tiefe nicht aus Transparenz holen: hinter
