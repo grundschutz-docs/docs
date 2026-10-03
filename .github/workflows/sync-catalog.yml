@@ -44,6 +44,7 @@ jobs:
           GRUNDSCHUTZPP_CATALOG: upstream/control_layer/Grundschutz++/Grundschutz++-resolved_catalog.json
           GRUNDSCHUTZPP_BASETHREATS: upstream/documentation/namespaces/basethreats.csv
           GRUNDSCHUTZPP_MAPPING: upstream/control_layer/Mappings/IT-GS2023-zu-GSpp/ITGS-to-GS++-mapping_collection.json
+          GRUNDSCHUTZPP_TAGS: upstream/documentation/namespaces/tags.csv
         run: python3 scripts/generate_docs.py
 
       - name: Open a PR if anything changed
