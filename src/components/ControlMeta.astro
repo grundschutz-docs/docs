@@ -11,7 +11,7 @@ interface Props {
 	threats?: string;
 	threatsHint?: string;
 	tags?: { name: string; hint?: string; synonyms?: string }[];
-	predecessors?: { oldId: string; relationship: string; link?: string }[];
+	predecessors?: { oldId: string; relationship: string; link?: string; vergleichHref?: string }[];
 }
 
 const { modalVerb, secLevel, effort, threats, threatsHint, tags, predecessors } = Astro.props;
@@ -223,6 +223,13 @@ const effortInfo = effort ? EFFORT[effort] : undefined;
 									<span class="pill-hint" aria-hidden="true" data-pagefind-ignore>?</span>
 								</span>
 							</td>
+							<td>
+								{p.vergleichHref && (
+									<a href={p.vergleichHref} class="predecessor-vergleich-link">
+										im Vergleich ansehen
+									</a>
+								)}
+							</td>
 						</tr>
 					);
 				})}
@@ -307,6 +314,20 @@ const effortInfo = effort ? EFFORT[effort] : undefined;
 
 	a.predecessor-id:hover {
 		text-decoration: underline;
+	}
+
+	.predecessor-vergleich-link {
+		font-family: 'Karla Variable', system-ui, sans-serif;
+		font-size: var(--sl-text-xs);
+		color: var(--sl-color-gray-2);
+		text-decoration: underline;
+		text-decoration-color: var(--sl-color-hairline);
+		white-space: nowrap;
+	}
+
+	.predecessor-vergleich-link:hover {
+		color: var(--sl-color-text-accent);
+		text-decoration-color: currentColor;
 	}
 
 	.pill:focus-visible {

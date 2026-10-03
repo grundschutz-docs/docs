@@ -52,6 +52,33 @@ const SITE_URL = process.env.SITE_URL || 'https://grundschutz-docs.de';
 const PLAUSIBLE_SCRIPT_URL = process.env.PLAUSIBLE_SCRIPT_URL?.trim();
 const PLAUSIBLE_DOMAIN = process.env.PLAUSIBLE_DOMAIN?.trim() || new URL(SITE_URL).hostname;
 
+// Sitewide WebSite-Schema (JSON-LD) fuer Google & Co. Bewusst eng geschnitten:
+// - Kein sameAs/publisher-Bezug zum BSI -- diese Seite ist kein offizielles
+//   BSI-Angebot (siehe ueber.mdx, impressum.mdx), das Schema darf diese
+//   Trennung nicht verwischen. Es beschreibt nur die Website selbst.
+// - publisher nur, wenn OPERATOR_NAME tatsaechlich gesetzt ist, aus demselben
+//   Grund wie bei OperatorDetails.astro: ein ungesetzter Platzhalter-String
+//   wie "[Name]" darf nicht in maschinenlesbare Daten durchsickern.
+// - Kein potentialAction/SearchAction: Pagefind laeuft rein im Browser, es
+//   gibt keine crawlbare Such-URL mit Query-Parameter, die dieses Schema
+//   wahrheitsgemaess beschreiben koennte.
+const OPERATOR_NAME = process.env.OPERATOR_NAME?.trim();
+const WEBSITE_JSONLD = {
+	'@context': 'https://schema.org',
+	'@type': 'WebSite',
+	name: SITE_NAME || 'Grundschutz++ Docs',
+	url: SITE_URL,
+	description: 'Eigene lesbare Aufbereitung des BSI Grundschutz++ OSCAL-Katalogs',
+	inLanguage: 'de',
+	...(OPERATOR_NAME ? { publisher: { '@type': 'Organization', name: OPERATOR_NAME } } : {}),
+};
+
+// Google-Search-Console-Verifizierung per Meta-Tag, als Alternative zur
+// DNS-TXT-Methode. Env-gesteuert wie PLAUSIBLE_SCRIPT_URL: ohne gesetzten
+// Code kein Tag, damit ein Fork nicht versehentlich die GSC-Property des
+// Original-Betreibers zu verifizieren versucht.
+const GOOGLE_SITE_VERIFICATION = process.env.GOOGLE_SITE_VERIFICATION?.trim();
+
 export default defineConfig({
 	site: SITE_URL,
 	markdown: {
@@ -70,6 +97,23 @@ export default defineConfig({
 			// Route ("/404" doppelt definiert).
 			disable404Route: true,
 			head: [
+				// WebSite-Schema fuer alle Seiten identisch -- siehe Kommentar bei
+				// der Konstante weiter oben zu den bewussten Auslassungen.
+				{
+					tag: 'script',
+					attrs: { type: 'application/ld+json' },
+					content: JSON.stringify(WEBSITE_JSONLD),
+				},
+				// Nur vorhanden, wenn GOOGLE_SITE_VERIFICATION gesetzt ist -- siehe
+				// Kommentar bei der Konstante weiter oben.
+				...(GOOGLE_SITE_VERIFICATION
+					? [
+							{
+								tag: 'meta',
+								attrs: { name: 'google-site-verification', content: GOOGLE_SITE_VERIFICATION },
+							},
+						]
+					: []),
 				// Apple und ältere Android-Browser nehmen kein SVG als Icon.
 				{
 					tag: 'link',

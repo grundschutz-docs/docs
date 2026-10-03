@@ -485,6 +485,13 @@ def render_predecessors_prop(control_id, predecessor_index, baustein_links):
         obj = f"{{ oldId: {jsx_string(old_id)}, relationship: {jsx_string(rel)}"
         if link:
             obj += f", link: {jsx_string(link)}"
+        # Zusaetzlich zum externen BSI-PDF ein interner Link auf die eigene
+        # Vergleichsseite (alle Zuordnungen dieses Bausteins) -- die gab es
+        # bisher nur in der Gegenrichtung (control_link() auf den Vergleichs-
+        # seiten). Ohne das war die Anforderungsseite eine Sackgasse fuer
+        # jeden, der von hier aus den vollen Alt-Kontext sehen wollte.
+        if baustein_id:
+            obj += f", vergleichHref: {jsx_string(f'/vergleich/{baustein_slug(baustein_id)}/')}"
         obj += " }"
         items.append(obj)
     return "[" + ", ".join(items) + "]"
@@ -1126,7 +1133,15 @@ def render_isb_page(management, groups_by_id):
     nodes_prop, risk_prop = render_pdca_cycle_prop(management, groups_by_id)
 
     lines = [
-        "---\ntitle: " + yaml_quote("Für ISB") + "\n---\n\n",
+        "---\n"
+        + "title: "
+        + yaml_quote("Für ISB")
+        + "\n"
+        + "description: "
+        + yaml_quote(
+            "Der BSI-OSCAL-Katalog als PDCA-Zyklus für den ISB-Alltag: Vorgänger-Mapping zum alten Kompendium, Basisgefährdungen direkt am Text, Status und Zeitplan."
+        )
+        + "\n---\n\n",
         PDCA_CYCLE_IMPORT,
         "\n",
         pagefind_section("Rolle"),
@@ -1185,7 +1200,15 @@ def render_devs_page(themenfelder, groups_by_id):
         return out
 
     lines = [
-        "---\ntitle: " + yaml_quote("Für Devs") + "\n---\n\n",
+        "---\n"
+        + "title: "
+        + yaml_quote("Für Devs")
+        + "\n"
+        + "description: "
+        + yaml_quote(
+            "Alle operativen Themenfelder von Grundschutz++ für Entwicklung und Betrieb, mit Pflichtgrad, Sicherheitsstufe, Aufwand und Basisgefährdungen direkt am Anforderungstext."
+        )
+        + "\n---\n\n",
         pagefind_section("Rolle"),
         "Jede Anforderung zeigt Pflichtgrad, Sicherheitsstufe, "
         "Aufwandsschätzung und zugeordnete Basisgefährdungen direkt am "
@@ -1469,8 +1492,21 @@ def main():
         entry = (group["id"], group["title"], slug, summary)
         (management if group["id"] in MANAGEMENT_CYCLE_IDS else themenfelder).append(entry)
 
+    # Hieß vorher "Start" -- ein Navigationswort, das über den Inhalt der
+    # Seite nichts aussagt und ohne jedes Keyword im Suchergebnis landete
+    # (siehe Kommentar zu title in src/content/docs/index.mdx). Zahlen in
+    # der description kommen aus denselben Listen, die ohnehin schon fuer
+    # die Index-Abschnitte gebaut werden -- keine neue Datenquelle.
+    index_summary = (
+        f"Alle {len(management)} Praktiken des Managementsystems (PDCA-Zyklus) "
+        f"und {len(themenfelder)} operativen Themenfelder von Grundschutz++ im "
+        "Überblick, mit direktem Zugriff auf jede Anforderung."
+    )
     index_lines = [
-        "---\ntitle: Start\n---\n\n",
+        "---\n"
+        f"title: {yaml_quote('Grundschutz++ im Überblick')}\n"
+        f"description: {yaml_quote(index_summary)}\n"
+        "---\n\n",
         "Automatisch generiert aus dem OSCAL-Katalog. "
         "Nicht Teil des offiziellen BSI-Materials — eigene lesbare Aufbereitung.\n\n",
         render_index_section(
@@ -1488,7 +1524,10 @@ def main():
     (OUT_DIR / "index.mdx").write_text("\n".join(index_lines))
 
     zeitplan_lines = [
-        "---\ntitle: Status & Zeitplan\n---\n\n",
+        "---\n"
+        f"title: {yaml_quote('Status & Zeitplan')}\n"
+        f"description: {yaml_quote('Pilotphase, Übergangsfrist und geplante Zertifizierung: der Zeitplan für die Ablösung des bisherigen IT-Grundschutz-Kompendiums durch Grundschutz++.')}\n"
+        "---\n\n",
         "Grundschutz++ ersetzt das bisherige IT-Grundschutz-Kompendium nicht von "
         "heute auf morgen. Stand nach BSI-Fahrplan und Fachpublikationen "
         "(nicht offiziell von der BSI in jedem Detail bestätigt):\n",
