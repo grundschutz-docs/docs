@@ -35,10 +35,10 @@ instrument, not a register.
 
 ## Hosted instance
 
-A hosted instance is planned — free to use, always built against the
-current upstream catalog, no setup required. It runs **this** code: there
-is no separate tier, no feature held back, nothing you can't run yourself.
-The convenience is the hosting, not a different version of the site.
+A hosted instance is live at [grundschutz-docs.de](https://grundschutz-docs.de)
+— free to use, no setup required. It runs **this** code: there is no
+separate tier, no feature held back, nothing you can't run yourself. The
+convenience is the hosting, not a different version of the site.
 
 An earlier plan split the project into this repo plus a closed-source
 "hosted" layer with richer components. That split was dissolved after a
