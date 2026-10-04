@@ -192,6 +192,7 @@ export default defineConfig({
 				Header: './src/components/Header.astro',
 				Search: './src/components/Search.astro',
 				Head: './src/components/Head.astro',
+				LanguageSelect: './src/components/LanguageSelect.astro',
 			},
 			social: [
 				{

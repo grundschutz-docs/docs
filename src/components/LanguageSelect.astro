@@ -1,0 +1,82 @@
+---
+/**
+ * Ersetzt Starlights LanguageSelect (ein natives <select>) durch einen
+ * Zwei-Wege-Umschalter im Look des Theme-Toggles daneben (gleiche Glas-
+ * Pille: --glass-tint/--glass-border, backdrop-filter, Hoehe 2.25rem).
+ *
+ * Der Grund, das <select> zu ersetzen statt umzustylen: das aufgeklappte
+ * Panel mit Haken (siehe Screenshot im Chat) ist natives Browser-/OS-Menue,
+ * nicht von Starlights CSS gerendert -- das laesst sich nicht gestalten.
+ * Bei genau zwei Sprachen ist ein Dropdown dafuer ohnehin die falsche Form:
+ * ein Umschalter zeigt beide Optionen sofort und macht strukturell klar,
+ * dass es nur zwei gibt, statt eine offene Liste zu suggerieren.
+ *
+ * localizedUrl ist kein oeffentlicher Starlight-Export (kein ./utils im
+ * package.json), deshalb hier selbst nachgebaut -- gleiches Prinzip wie der
+ * Sitemap-Filter und Head.astro: root ohne Praefix, en mit /en-Praefix.
+ */
+import config from 'virtual:starlight/user-config';
+
+const isEnglish = Astro.currentLocale === 'en';
+const path = Astro.url.pathname;
+const dePath = isEnglish ? path.replace(/^\/en\/?/, '/') || '/' : path;
+const enPath = isEnglish ? path : `/en${path === '/' ? '/' : path}`;
+
+const groupLabel = Astro.locals.t('languageSelect.accessibleLabel');
+---
+
+{
+	config.isMultilingual && (
+		<div class="lang-switch" role="group" aria-label={groupLabel}>
+			<a href={dePath} aria-current={!isEnglish} class="lang-option">
+				DE
+			</a>
+			<a href={enPath} aria-current={isEnglish} class="lang-option">
+				EN
+			</a>
+		</div>
+	)
+}
+
+<style>
+	@layer starlight.components {
+		.lang-switch {
+			display: flex;
+			align-items: center;
+			gap: 0.125rem;
+			height: 2.25rem;
+			padding-inline: 0.2rem;
+			border-radius: 999px;
+			border: 1px solid var(--glass-border);
+			background-color: var(--glass-tint);
+			backdrop-filter: blur(12px) saturate(160%);
+			-webkit-backdrop-filter: blur(12px) saturate(160%);
+		}
+
+		.lang-option {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			min-width: 2rem;
+			padding: 0.3rem 0.55rem;
+			border-radius: 999px;
+			font-family: 'JetBrains Mono Variable', ui-monospace, monospace;
+			font-size: var(--sl-text-2xs);
+			letter-spacing: 0.03em;
+			color: var(--sl-color-gray-3);
+			text-decoration: none;
+			transition:
+				background-color 0.15s ease,
+				color 0.15s ease;
+		}
+
+		.lang-option:hover {
+			color: var(--sl-color-white);
+		}
+
+		.lang-option[aria-current='true'] {
+			background-color: var(--sl-color-accent);
+			color: var(--sl-color-white);
+		}
+	}
+</style>
