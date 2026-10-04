@@ -25,6 +25,16 @@ if (project.trailingSlash === 'never') dataAttributes['data-strip-trailing-slash
 // ein SyntaxError im Browser, nicht nur ein falscher Wert.
 const isDev = import.meta.env.DEV;
 
+// Jede Seite wird von Pagefind unter dem lang-Attribut ihres <html>-Tags
+// indexiert -- das ist bei uns die Locale der Route (Astro.currentLocale),
+// nicht die tatsaechliche Textsprache (eine deutsche Fallback-Seite unter
+// /en/... traegt trotzdem lang="en", siehe Head.astro). Ein hart codiertes
+// lang="de" hier wuerde auf /en/-Seiten also *gar nichts* mehr finden,
+// weder die paar echten englischen Seiten noch die deutschen Fallback-
+// Seiten -- die Suche faelschlich auf ausschliesslich Root-Seiten
+// einschraenken.
+const isEnglish = Astro.currentLocale === 'en';
+
 // Eigenes Ergebnis-Template: meta.section (siehe generate_docs.py,
 // pagefind_section()) wird als kleine Typ-Pille vor dem Titel gezeigt --
 // die Seite hat drei inhaltlich verschiedene Treffertypen (Anforderung,
@@ -99,11 +109,19 @@ const resultTemplate = `
 							bundle-path={`${import.meta.env.BASE_URL.replace(/\/$/, '')}/pagefind/`}
 							base-url={import.meta.env.BASE_URL}
 							excerpt-length="24"
-							lang="de"
+							lang={isEnglish ? 'en' : 'de'}
 						/>
 						<div class="gs-search" id="gs-search">
-							<pagefind-input placeholder="Anforderung, ID oder Thema suchen" autofocus />
-							<pagefind-summary default-message="Suche nach einer Anforderung, einer ID (z. B. GC.5.1.1) oder einem Thema (z. B. Lieferketten)." />
+							{isEnglish ? (
+								<pagefind-input placeholder="Search a requirement, ID, or topic" autofocus />
+							) : (
+								<pagefind-input placeholder="Anforderung, ID oder Thema suchen" autofocus />
+							)}
+							{isEnglish ? (
+								<pagefind-summary default-message="Search for a requirement, an ID (e.g. GC.5.1.1), or a topic (e.g. NIS2). Most of the catalog is still German-only." />
+							) : (
+								<pagefind-summary default-message="Suche nach einer Anforderung, einer ID (z. B. GC.5.1.1) oder einem Thema (z. B. Lieferketten)." />
+							)}
 							{/* <pagefind-filter-pane> statt <pagefind-filter-dropdown>: die
 							    Dropdown-Variante ist absolut positioniert, der Dialog hat
 							    overflow:auto -- das schneidet ein schwebendes Panel
@@ -115,13 +133,23 @@ const resultTemplate = `
 							    auto-open-threshold) -- "Thema" ist ohnehin die einzige
 							    Facette, die der Katalog ueberhaupt definiert. */}
 							<pagefind-filter-pane />
-							<div class="gs-suggestions" id="gs-suggestions">
-								<span class="gs-suggestions-label">Beispiele:</span>
-								<button type="button" class="gs-chip" data-query="GC.5.1.1">GC.5.1.1</button>
-								<button type="button" class="gs-chip" data-query="Lieferketten">Lieferketten</button>
-								<button type="button" class="gs-chip" data-query="Passwort">Passwort</button>
-								<button type="button" class="gs-chip" data-query="MUSS">MUSS-Anforderungen</button>
-							</div>
+							{isEnglish ? (
+								<div class="gs-suggestions" id="gs-suggestions">
+									<span class="gs-suggestions-label">Examples:</span>
+									<button type="button" class="gs-chip" data-query="NIS2">NIS2</button>
+									<button type="button" class="gs-chip" data-query="privacy">privacy policy</button>
+									<button type="button" class="gs-chip" data-query="GC.5.1.1">GC.5.1.1</button>
+									<button type="button" class="gs-chip" data-query="MUSS">MUSS requirements</button>
+								</div>
+							) : (
+								<div class="gs-suggestions" id="gs-suggestions">
+									<span class="gs-suggestions-label">Beispiele:</span>
+									<button type="button" class="gs-chip" data-query="GC.5.1.1">GC.5.1.1</button>
+									<button type="button" class="gs-chip" data-query="Lieferketten">Lieferketten</button>
+									<button type="button" class="gs-chip" data-query="Passwort">Passwort</button>
+									<button type="button" class="gs-chip" data-query="MUSS">MUSS-Anforderungen</button>
+								</div>
+							)}
 							<pagefind-results set:html={`<script type="text/pagefind-template">${resultTemplate}<\/script>`} />
 							<pagefind-keyboard-hints />
 						</div>
