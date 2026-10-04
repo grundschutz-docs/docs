@@ -2,14 +2,23 @@
 # Mirrors the reasoning in the German index.mdx: title must not equal the
 # site name (Starlight appends it unconditionally, no dedup), and the H1
 # should carry the claim, not the site's own name.
-title: Grundschutz++, made readable
-description: An independent, readable rendering of the BSI's Grundschutz++ catalog — for teams that need to show they meet Germany's security requirements.
+#
+# title/description lead with "BSI" rather than "Grundschutz++" --
+# nobody outside Germany searches that term. But NOT "NIS2 requirements":
+# this page explains NIS2 as context (one section, sourced facts), it
+# doesn't cover NIS2 requirements themselves -- the actual content is the
+# Grundschutz++ catalog, and BSI's own FAQ is explicit that Grundschutz
+# isn't automatically how you satisfy NIS2. A title promising NIS2
+# requirements would oversell exactly the way the consulting-firm sites
+# this project differentiates from do.
+title: BSI Grundschutz++ Catalog, in English
+description: A searchable, English-language rendering of the BSI's Grundschutz++ security catalog — relevant if your organization is affected by Germany's NIS2 law.
 template: splash
 head:
   - tag: meta
     attrs:
       property: og:title
-      content: Grundschutz++ Docs — the BSI's security catalog, made readable
+      content: Grundschutz++ Docs — the BSI's security catalog, in English
 hero:
   title: Grundschutz++, made readable.
   # Structurally the same line as the German tagline ("Das BSI liefert die
