@@ -13,6 +13,12 @@
  * Beides liest jetzt dieselbe TIMELINE in scripts/generate_docs.py.
  */
 import status from '../data/status.json';
+
+// English fields come from the same TIMELINE entry as the German ones (see
+// write_status_data() in generate_docs.py) -- never hand-translate this
+// banner separately, that's exactly how it went stale before (see the
+// docstring referenced above).
+const isEnglish = Astro.currentLocale === 'en';
 //
 // Die Quick-Nav-Zweitzeile (ADR-0006) ist ausgezogen in eine eigene
 // Header.astro-Überschreibung (siehe dort) -- Banner ist für die temporäre
@@ -25,11 +31,20 @@ import status from '../data/status.json';
 	{/* Punkt statt Gedankenstrich: der Detailsatz kommt aus TIMELINE und ist
 	    dort ein eigener, großgeschriebener Satz — hinter einem Gedankenstrich
 	    läse er sich holprig. */}
-	<span
-		>Grundschutz++ ist in der <strong>{status.phase}</strong>{status.bis && ` (bis ${status.bis})`}.
-		{' '}{status.detail}</span
-	>
-	<a href="/grundschutzpp/zeitplan/">Zum Zeitplan</a>
+	{
+		isEnglish ? (
+			<span>
+				Grundschutz++ is in its <strong>{status.phase_en}</strong>
+				{status.bis && ` (until ${status.bis})`}. {status.detail_en}
+			</span>
+		) : (
+			<span>
+				Grundschutz++ ist in der <strong>{status.phase}</strong>
+				{status.bis && ` (bis ${status.bis})`}. {status.detail}
+			</span>
+		)
+	}
+	<a href="/grundschutzpp/zeitplan/">{isEnglish ? 'Timeline (German)' : 'Zum Zeitplan'}</a>
 </div>
 
 <script>

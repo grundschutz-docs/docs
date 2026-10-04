@@ -172,6 +172,7 @@ export default defineConfig({
 			description: 'Eigene lesbare Aufbereitung des BSI Grundschutz++ OSCAL-Katalogs',
 			locales: {
 				root: { label: 'Deutsch', lang: 'de' },
+				en: { label: 'English', lang: 'en' },
 			},
 			plugins: [starlightLinksValidator()],
 			customCss: ['./src/styles/custom.css'],

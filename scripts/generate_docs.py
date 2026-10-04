@@ -79,12 +79,40 @@ PARAM_RE = re.compile(r"\{\{\s*insert:\s*param,\s*([a-zA-Z0-9._-]+)\s*\}\}")
 # Zeitplan laut BSI-Fahrplan (Pilotphase, it-sa-Termin) und Fachpublikationen
 # (Übergangsfrist/Ablösung — vom BSI noch nicht mit einem fixen Datum bestätigt,
 # daher als "geplant" ausgewiesen). Gleiche Quelle wie im OSS-Repo.
+#     (start, end, label_de, detail_de, label_en, detail_en)
+#
+# English fields only back the sitewide Banner.astro status strip (shown on
+# /en/ pages too) -- the zeitplan page itself (render_timeline()) stays
+# German-only like the rest of the catalog. Keeping the translation right
+# next to the German text it belongs to is what stops it from drifting out
+# of sync the way the banner's old hand-written text once did (see
+# write_status_data()'s docstring).
 TIMELINE = [
-    (date(2026, 4, 1), date(2026, 9, 30), "Pilotphase", "Grundschutz++ wird mit Pilotpartnern erprobt."),
-    (date(2026, 10, 27), date(2026, 10, 29), "Vorstellung auf der it-sa", "Methodik und Kompendium werden öffentlich vorgestellt."),
-    (date(2026, 4, 1), date(2029, 12, 31), "Übergangsphase", "Das bisherige IT-Grundschutz-Kompendium bleibt parallel gültig."),
-    (date(2027, 1, 1), None, "Zertifizierung möglich (geplant)", "Eine Zertifizierung nach Grundschutz++ soll ab 2027 möglich sein."),
-    (date(2029, 1, 1), None, "Vollständige Ablösung (geplant, Datum offen)", "Das bisherige Kompendium soll danach vollständig abgelöst werden."),
+    (
+        date(2026, 4, 1), date(2026, 9, 30),
+        "Pilotphase", "Grundschutz++ wird mit Pilotpartnern erprobt.",
+        "pilot phase", "Grundschutz++ is being tested with pilot partners.",
+    ),
+    (
+        date(2026, 10, 27), date(2026, 10, 29),
+        "Vorstellung auf der it-sa", "Methodik und Kompendium werden öffentlich vorgestellt.",
+        "public presentation at it-sa", "The methodology and compendium are presented publicly.",
+    ),
+    (
+        date(2026, 4, 1), date(2029, 12, 31),
+        "Übergangsphase", "Das bisherige IT-Grundschutz-Kompendium bleibt parallel gültig.",
+        "transition phase", "The previous IT-Grundschutz-Kompendium remains valid in parallel.",
+    ),
+    (
+        date(2027, 1, 1), None,
+        "Zertifizierung möglich (geplant)", "Eine Zertifizierung nach Grundschutz++ soll ab 2027 möglich sein.",
+        "certification available (planned)", "Certification under Grundschutz++ is planned to become possible from 2027.",
+    ),
+    (
+        date(2029, 1, 1), None,
+        "Vollständige Ablösung (geplant, Datum offen)", "Das bisherige Kompendium soll danach vollständig abgelöst werden.",
+        "full replacement (planned, date open)", "The previous compendium is planned to be fully replaced after this.",
+    ),
 ]
 
 # Wie im OSS-Repo: der Katalog selbst nennt diese sechs Praktiken den
@@ -655,7 +683,7 @@ def format_range(start, end):
 def render_timeline():
     today = date.today()
     lines = ['<ul class="status-timeline">']
-    for start, end, label, detail in TIMELINE:
+    for start, end, label, detail, _label_en, _detail_en in TIMELINE:
         is_current = start <= today and (end is None or today <= end)
         status = ' data-current="true"' if is_current else ""
         badge = '<span class="status-badge">läuft</span>' if is_current else ""
@@ -684,9 +712,9 @@ def write_status_data():
     """
     today = date.today()
     laufend = [
-        (start, end, label, detail)
-        for start, end, label, detail in TIMELINE
-        if start <= today and (end is None or today <= end)
+        entry
+        for entry in TIMELINE
+        if entry[0] <= today and (entry[1] is None or today <= entry[1])
     ]
     if not laufend:
         raise SystemExit(
@@ -694,7 +722,7 @@ def write_status_data():
             "Die Status-Leiste haette nichts anzuzeigen -- TIMELINE in "
             "scripts/generate_docs.py fortschreiben."
         )
-    start, end, label, detail = min(
+    start, end, label, detail, label_en, detail_en = min(
         laufend, key=lambda p: (p[1] - p[0]).days if p[1] else 10**6
     )
 
@@ -702,6 +730,8 @@ def write_status_data():
         "phase": label,
         "bis": end.strftime("%m/%Y") if end else None,
         "detail": detail,
+        "phase_en": label_en,
+        "detail_en": detail_en,
     }
     DATA_OUT_DIR.mkdir(parents=True, exist_ok=True)
     (DATA_OUT_DIR / "status.json").write_text(

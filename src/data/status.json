@@ -1,5 +1,7 @@
 {
 	"phase": "Übergangsphase",
 	"bis": "12/2029",
-	"detail": "Das bisherige IT-Grundschutz-Kompendium bleibt parallel gültig."
+	"detail": "Das bisherige IT-Grundschutz-Kompendium bleibt parallel gültig.",
+	"phase_en": "transition phase",
+	"detail_en": "The previous IT-Grundschutz-Kompendium remains valid in parallel."
 }

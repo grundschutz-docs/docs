@@ -1,0 +1,83 @@
+---
+# Mirrors the reasoning in the German index.mdx: title must not equal the
+# site name (Starlight appends it unconditionally, no dedup), and the H1
+# should carry the claim, not the site's own name.
+title: Grundschutz++, made readable
+description: An independent, readable rendering of the BSI's Grundschutz++ catalog — for teams that need to show they meet Germany's security requirements.
+template: splash
+head:
+  - tag: meta
+    attrs:
+      property: og:title
+      content: Grundschutz++ Docs — the BSI's security catalog, made readable
+hero:
+  title: Grundschutz++, made readable.
+  # Structurally the same line as the German tagline ("Das BSI liefert die
+  # Anforderungen für Maschinen. Wir übersetzen sie für dich.") — but the
+  # payload in the second sentence is swapped for this audience. German
+  # readers are mostly here out of professional interest; English readers
+  # are disproportionately here because a German NIS2/KRITIS obligation or
+  # a German customer just made this not-optional. "For you" would be the
+  # literal translation; it would also be wrong about why they're reading.
+  tagline: Germany's BSI delivers these requirements for machines. We translate them for the people who actually have to meet them.
+  actions:
+    - text: Browse the requirements
+      link: /grundschutzpp/
+      icon: right-arrow
+---
+
+## What Grundschutz++ is
+
+Germany's Federal Office for Information Security (BSI) is replacing its
+longstanding IT-Grundschutz framework with **Grundschutz++**: a leaner,
+machine-readable catalog of security requirements (in [OSCAL](https://pages.nist.gov/OSCAL/),
+a NIST-originated standard) rather than the old PDF-based
+Kompendium. It's being phased in over several years, alongside the
+Kompendium it eventually replaces.
+
+This site is an **independent, unofficial** rendering of that catalog —
+not a BSI product. It takes the 10,000-line source file BSI publishes
+for tooling and SSP-generation and turns it into something you can
+actually search and read: full-text search, one permalink per
+requirement, and a mapping back to the old Kompendium control it
+replaces. More on why this project exists under
+[About this site](/ueber/) (German for now — see below).
+
+## Why this might apply to you
+
+<div class="stat-row">
+	<div class="stat-chip" data-family="danger">
+		<span class="stat-chip-value">29,500</span>
+		<span class="stat-chip-label">organizations now bound by Germany's NIS2UmsetzungsG</span>
+	</div>
+	<div class="stat-chip">
+		<span class="stat-chip-value">No transition period</span>
+		<span class="stat-chip-label">in force since 6 December 2025 (§ 30 BSIG)</span>
+	</div>
+	<div class="stat-chip" data-family="danger">
+		<span class="stat-chip-value">Up to €10M</span>
+		<span class="stat-chip-label">or 2% of annual turnover in fines</span>
+	</div>
+</div>
+
+It applies regardless of where your company is headquartered: what
+matters is whether you're established in Germany or serve customers
+here (§§ 59, 60 BSIG). IT-Grundschutz isn't automatically mandatory for
+everyone this law touches — [BSI's own FAQ](https://www.bsi.bund.de/DE/Themen/Regulierte-Wirtschaft/NIS-2-regulierte-Unternehmen/NIS-2-FAQ/NIS-2-FAQ-allgemein/FAQ-zu-NIS-2.html)
+is explicit about that. But an existing Grundschutz-based ISMS is, in
+BSI's own words, "a valuable foundation" for meeting it.
+
+## What's in English here — and what isn't
+
+Right now, this overview page is the only thing translated. The
+requirement catalog itself, the role-specific guides (for executives,
+security leads, and engineering), the old↔new mapping, and the findings
+register are all still German-only — translating those is a separate,
+much bigger task this project hasn't tackled yet.
+
+Follow a link past this page and you'll land on the German version;
+the site will tell you plainly when that happens, rather than quietly
+showing you a stub. If you read German, or have a colleague who does,
+the catalog starts at [/grundschutzpp/](/grundschutzpp/), the
+role guides at [/rollen/](/rollen/geschaeftsfuehrung/), and the
+old↔new mapping at [/vergleich/](/vergleich/).
