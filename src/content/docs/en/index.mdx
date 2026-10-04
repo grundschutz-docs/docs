@@ -26,31 +26,12 @@ hero:
       icon: right-arrow
 ---
 
-## What Grundschutz++ is
-
-Germany's Federal Office for Information Security (BSI) is replacing its
-longstanding IT-Grundschutz framework with **Grundschutz++**: a leaner,
-machine-readable catalog of security requirements (in [OSCAL](https://pages.nist.gov/OSCAL/),
-a NIST-originated standard) rather than the old PDF-based
-Kompendium. It's being phased in over several years, alongside the
-Kompendium it eventually replaces.
-
-This site is an **independent, unofficial** rendering of that catalog —
-not a BSI product. It takes the 10,000-line source file BSI publishes
-for tooling and SSP-generation and turns it into something you can
-actually search and read: full-text search, one permalink per
-requirement, and a mapping back to the old Kompendium control it
-replaces. More on why this project exists under
-[About this site](/ueber/) (German for now — see below).
-
-## Why this might apply to you
-
 <div class="stat-row">
-	<div class="stat-chip" data-family="danger">
+	<div class="stat-chip">
 		<span class="stat-chip-value">29,500</span>
 		<span class="stat-chip-label">organizations now bound by Germany's NIS2UmsetzungsG</span>
 	</div>
-	<div class="stat-chip">
+	<div class="stat-chip" data-family="warn">
 		<span class="stat-chip-value">No transition period</span>
 		<span class="stat-chip-label">in force since 6 December 2025 (§ 30 BSIG)</span>
 	</div>
@@ -67,17 +48,39 @@ everyone this law touches — [BSI's own FAQ](https://www.bsi.bund.de/DE/Themen/
 is explicit about that. But an existing Grundschutz-based ISMS is, in
 BSI's own words, "a valuable foundation" for meeting it.
 
-## What's in English here — and what isn't
+## What Grundschutz++ is
 
-Right now, this overview page is the only thing translated. The
-requirement catalog itself, the role-specific guides (for executives,
-security leads, and engineering), the old↔new mapping, and the findings
-register are all still German-only — translating those is a separate,
-much bigger task this project hasn't tackled yet.
+Germany's Federal Office for Information Security (BSI) is replacing
+its longstanding IT-Grundschutz framework with **Grundschutz++**: a
+leaner, machine-readable catalog (in [OSCAL](https://pages.nist.gov/OSCAL/))
+rather than the old PDF-based Kompendium, phased in over several years.
+This site is an **independent, unofficial** rendering of it — not a
+BSI product — built to actually search and read: full-text search, one
+permalink per requirement, a mapping back to the old Kompendium control
+it replaces.
 
-Follow a link past this page and you'll land on the German version;
-the site will tell you plainly when that happens, rather than quietly
-showing you a stub. If you read German, or have a colleague who does,
-the catalog starts at [/grundschutzpp/](/grundschutzpp/), the
-role guides at [/rollen/](/rollen/geschaeftsfuehrung/), and the
-old↔new mapping at [/vergleich/](/vergleich/).
+## Explore the catalog
+
+<div class="role-picker">
+	<a class="role-card" href="/grundschutzpp/">
+		<span class="role-kicker">German</span>
+		<h3>The full catalog</h3>
+		<p>All 1,000 requirements, with obligation level, effort, and threats inline.</p>
+	</a>
+	<a class="role-card" href="/rollen/geschaeftsfuehrung/">
+		<span class="role-kicker">German</span>
+		<h3>Role-specific guides</h3>
+		<p>Separate entry points for executives, security leads, and engineering.</p>
+	</a>
+	<a class="role-card" href="/vergleich/">
+		<span class="role-kicker">German</span>
+		<h3>Old ↔ new mapping</h3>
+		<p>Every old Kompendium control mapped to its Grundschutz++ replacement.</p>
+	</a>
+</div>
+
+Right now, only this overview page exists in English — follow any of
+the three links above and you land on the German version; the site
+tells you plainly when that happens, rather than quietly showing you a
+stub. More on why this project exists under
+[About this site](/ueber/) (also German for now).

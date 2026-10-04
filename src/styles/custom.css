@@ -875,39 +875,50 @@ site-search dialog::backdrop {
 	line-height: 1.5;
 }
 
-/* "At a glance" Fakten-Zeile auf der englischen Startseite: dieselbe
-   Pill-Farbfamilie wie ControlMeta (--pill-*-low/high), aber als eigener,
-   einfacherer Chip ohne Tooltip-Mechanik -- die Zahlen hier sind
-   Kontext-Fakten, keine Katalog-Metadaten, die eine Erklärung brauchen. */
+/* "At a glance" Fakten-Leiste auf der englischen Startseite -- das eine
+   kräftige Element, das die deutsche Seite in den Rollen-Karten hat und die
+   englische sonst nicht hätte. Ein Rahmen um die ganze Zeile plus
+   1px-Trennlinien (per Grid-Gap-Trick) statt drei einzelne getönte Kacheln:
+   wirkt wie eine Kennzahlen-Leiste, nicht wie drei austauschbare SaaS-Cards.
+   Farbe sitzt nur auf der Zahl, nicht als Flächenfüllung -- die Pille bleibt
+   dem Katalog (ControlMeta) vorbehalten, hier reicht reine Akzentfarbe. */
 .stat-row {
 	display: grid;
 	grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
-	gap: 0.75rem;
+	gap: 1px;
 	margin: 1.5rem 0 2rem;
+	border: 1px solid var(--sl-color-hairline);
+	border-radius: 0.75rem;
+	overflow: hidden;
+	background: var(--sl-color-hairline);
 }
 
 .stat-chip {
 	display: flex;
 	flex-direction: column;
-	gap: 0.3rem;
-	padding: 1rem 1.25rem;
-	border-radius: 1rem;
-	background: var(--pill-warn-low);
-}
-
-.stat-chip[data-family='danger'] {
-	background: var(--pill-danger-low);
+	gap: 0.4rem;
+	padding: 1.5rem 1.5rem 1.75rem;
+	background: var(--sl-color-bg);
 }
 
 .stat-chip-value {
 	font-family: 'Fraunces Variable', Georgia, serif;
-	font-size: var(--sl-text-xl);
+	font-size: var(--sl-text-4xl);
 	font-weight: 600;
+	line-height: 1.05;
 	color: var(--sl-color-white);
 }
 
+.stat-chip[data-family='warn'] .stat-chip-value {
+	color: var(--pill-warn-high);
+}
+
+.stat-chip[data-family='danger'] .stat-chip-value {
+	color: var(--pill-danger-high);
+}
+
 .stat-chip-label {
-	font-size: var(--sl-text-xs);
+	font-size: var(--sl-text-sm);
 	line-height: 1.4;
 	color: var(--sl-color-gray-3);
 }
