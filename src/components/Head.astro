@@ -1,23 +1,54 @@
 ---
 /**
- * Erweitert Starlights Standard-Head nur um ein noindex auf Fallback-Seiten.
+ * Erweitert Starlights Standard-Head um zwei Dinge, die beide von der
+ * aktuellen Locale abhaengen und deshalb nicht in astro.config.mjs' statischem
+ * head[]-Array stehen koennen (das ist fuer jede Seite/Locale identisch):
  *
- * Starlight zeigt unter /en/... fuer jede noch nicht uebersetzte Seite den
- * deutschen Originalinhalt (siehe FallbackContentNotice in Page.astro) --
- * praktisch fuer Leser:innen, aber ohne Gegenmassnahme landen ~130 Kopien
- * desselben deutschen Texts unter einer /en/-URL im Suchindex: Duplicate
- * Content, selbst-kanonisiert, mit einem hreflang="en"-Versprechen, das der
- * Inhalt nicht einloest. `starlightRoute.isFallback` (gesetzt in
- * utils/routing/index.js) ist genau das Signal dafuer.
+ * 1. noindex auf Fallback-Seiten. Starlight zeigt unter /en/... fuer jede
+ *    noch nicht uebersetzte Seite den deutschen Originalinhalt (siehe
+ *    FallbackContentNotice in Page.astro) -- praktisch fuer Leser:innen,
+ *    aber ohne Gegenmassnahme landen ~130 Kopien desselben deutschen Texts
+ *    unter einer /en/-URL im Suchindex: Duplicate Content, selbst-
+ *    kanonisiert, mit einem hreflang="en"-Versprechen, das der Inhalt nicht
+ *    einloest. `starlightRoute.isFallback` (gesetzt in utils/routing/index.js)
+ *    ist genau das Signal dafuer. Der Sitemap-Filter in astro.config.mjs
+ *    loest dasselbe Problem fuer die Sitemap selbst; dieses noindex ist die
+ *    zweite Haelfte -- eine Seite kann verlinkt und damit crawlbar sein,
+ *    ohne in der Sitemap zu stehen.
  *
- * Der Sitemap-Filter in astro.config.mjs loest dasselbe Problem fuer die
- * Sitemap selbst; dieses noindex ist die zweite Haelfte -- eine Seite kann
- * verlinkt und damit crawlbar sein, ohne in der Sitemap zu stehen.
+ * 2. Das sitewide WebSite-JSON-LD. Stand bis hierher fest in
+ *    astro.config.mjs mit inLanguage: 'de' und deutscher description -- auf
+ *    jeder Seite identisch, also auch auf /en/-Seiten falsch. Bewusst eng
+ *    geschnitten (wie die vorherige Version): kein sameAs/publisher-Bezug
+ *    zum BSI, da diese Seite kein offizielles BSI-Angebot ist (siehe
+ *    ueber.mdx, impressum.mdx); publisher nur, wenn OPERATOR_NAME
+ *    tatsaechlich gesetzt ist, aus demselben Grund wie bei
+ *    OperatorDetails.astro (kein Platzhalter-String wie "[Name]" in
+ *    maschinenlesbaren Daten); kein potentialAction/SearchAction, da
+ *    Pagefind rein im Browser laeuft und es keine crawlbare Such-URL mit
+ *    Query-Parameter gibt, die dieses Schema wahrheitsgemaess beschreiben
+ *    koennte.
  */
 import Default from '@astrojs/starlight/components/Head.astro';
 
 const { isFallback } = Astro.locals.starlightRoute;
+
+const isEnglish = Astro.currentLocale === 'en';
+const SITE_URL = process.env.SITE_URL || 'https://grundschutz-docs.de';
+const OPERATOR_NAME = process.env.OPERATOR_NAME?.trim();
+const WEBSITE_JSONLD = {
+	'@context': 'https://schema.org',
+	'@type': 'WebSite',
+	name: process.env.SITE_NAME || 'Grundschutz++ Docs',
+	url: isEnglish ? `${SITE_URL}/en/` : SITE_URL,
+	description: isEnglish
+		? "An independent, readable rendering of the BSI Grundschutz++ OSCAL catalog"
+		: 'Eigene lesbare Aufbereitung des BSI Grundschutz++ OSCAL-Katalogs',
+	inLanguage: isEnglish ? 'en' : 'de',
+	...(OPERATOR_NAME ? { publisher: { '@type': 'Organization', name: OPERATOR_NAME } } : {}),
+};
 ---
 
 <Default><slot /></Default>
 {isFallback && <meta name="robots" content="noindex, follow" />}
+<script type="application/ld+json" set:html={JSON.stringify(WEBSITE_JSONLD)} />
