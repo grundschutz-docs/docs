@@ -220,8 +220,8 @@ export default defineConfig({
 			social: [
 				{
 					icon: 'github',
-					label: 'BSI Stand-der-Technik-Bibliothek',
-					href: 'https://github.com/BSI-Bund/Stand-der-Technik-Bibliothek',
+					label: 'Grundschutz++ Docs on GitHub',
+					href: 'https://github.com/grundschutz-docs/docs',
 				},
 			],
 			sidebar: [
