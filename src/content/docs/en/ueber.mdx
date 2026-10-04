@@ -1,0 +1,134 @@
+---
+title: About this site
+description: Why this rendering of the Grundschutz++ catalog exists, who makes it, how it stays current, and what happens if I stop.
+---
+
+import status from '../../../data/status.json';
+
+An independent, readable rendering of the BSI-OSCAL catalog
+(`Grundschutz++-resolved_catalog.json`) — **not an official BSI
+offering** and in no way affiliated with Germany's Federal Office for
+Information Security. The official original always governs.
+
+Grundschutz++ is currently in its **{status.phase_en}**, see
+[Status & Timeline](/grundschutzpp/zeitplan/) (German for now).
+
+## Why this site exists
+
+I wanted to know what **OPS.1.1.5 Logging** actually requires — that
+module had been recommended to me as an entry point into Grundschutz.
+I ended up in an OSCAL file running to several tens of thousands of
+lines of JSON.
+
+BSI shipping the catalog that way is the right call: it's built for
+tooling, for ISMS software, for machine processing. It just isn't
+something you read that way. Anyone who only wants to know what a
+requirement demands has to hunt through `props`, `parts`, and UUIDs for
+a sentence.
+
+This site renders the same catalog as text: full-text search, a
+jump target per requirement, obligation level, security level, effort,
+and threats right next to the text, and the mapping back to the old
+IT-Grundschutz-Kompendium.
+
+Reading it this closely also surfaces places where it doesn't quite
+add up — overlapping requirements, missing cross-references, mappings
+that don't hold up. I collect those findings.
+
+## Who makes this
+
+Bruno, from Germany. What else I build is on
+[GitHub](https://github.com/giordano137).
+
+**This isn't my day job — it's a hobby project.** You should know that
+before relying on it, because it has consequences: I don't catch every
+change immediately, and there's no organization behind this site that
+warns you before it's discontinued.
+
+The flip side: the more the site gets used, the less likely it is to
+disappear. And doing this voluntarily doesn't mean doing it carelessly
+— how the content is produced and checked is below.
+
+This site is meant for day-to-day work. In documentation or an audit
+record, cite the BSI original, not this site. How to do that is on
+every catalog page, under "Cite a requirement from this site."
+
+## How the site stays current
+
+The catalog pages are **generated, not transcribed**. After a change
+to the BSI catalog, a script regenerates them; a daily CI run checks
+the source and opens a pull request on any difference. There's no
+one-time snapshot quietly going stale.
+
+The generator aborts rather than silently writing something wrong: it
+checks after every run whether the figures on the pages match the
+source — whether every requirement has an anchor, whether the mappings
+are complete, whether the homepage's catalog figures are correct. If
+something's off, there's no new page.
+
+When I read the pull requests: GitHub emails me, immediately. Otherwise
+I'm around almost daily, every few days at the latest. That's not a
+firm commitment — see above.
+
+Which catalog version a page reflects is noted at the top of that
+page.
+
+## If I stop
+
+Whether temporarily or for good, the site is built so it doesn't
+disappear with me:
+
+- **The content is reconstructible.** The catalog pages are generated
+  from the public BSI source. Anyone who clones the repo and runs the
+  generator gets them fresh, fully current — there's no data here that
+  doesn't exist anywhere else.
+- **The licenses allow continuation.** Content is CC BY-SA 4.0, code is
+  MIT.
+- **The operator details are configurable.** Name, address, and contact
+  come from a gitignored `.env`, not from the repository. Whoever takes
+  over the site enters their own and doesn't inherit anyone else's.
+
+**Co-maintainers are explicitly welcome — discussion counts as much as
+code.** The subject has plenty of cross-references and real room for
+interpretation; more perspectives make the project better, not just
+faster. A different reading of a requirement, a flagged gap, a
+practitioner's assessment, a bug, a fix, a pull request — all of that
+goes through the [repository](https://github.com/grundschutz-docs/docs),
+see `CONTRIBUTING.md`.
+
+**And if you spot a mistake on this site:** report that there too. I
+keep a register of inconsistencies I notice in the BSI catalog — it
+would be a poor look if I didn't hold my own to the same standard.
+
+## Other renderings
+
+There's already a tool that renders the OSCAL catalog visually, with
+more display options (graphs, diagrams) than this site aims for. This
+site pursues a different goal: calm, searchable reading with permanent
+links.
+
+One difference is licensing. That tool is released under a content
+license (CC BY-SA) rather than a software license — something Creative
+Commons explicitly advises against for source code (no patent
+protection, never recognized by the OSI as an open-source license).
+
+## Licenses
+
+This site deliberately separates the two:
+
+- **Catalog content** (everything under `/grundschutzpp/`): CC BY-SA
+  4.0, © BSI-Bund — exactly as BSI licenses it themselves.
+- **Original text** (the findings register, the ADRs): CC BY 4.0 — a
+  content license fits prose better than a software license, see
+  `adr/0010`.
+- **This website's code**: MIT.
+
+The old IT-Grundschutz-Kompendium is deliberately **not** reproduced
+here in full text. The comparison pages show only structure — old
+requirement ID, relationship type, new requirement — and link to BSI's
+own PDFs for the original text.
+
+## Printing and export
+
+Every group page can be exported as a PDF via the browser's print
+function; the layout is set up for it.

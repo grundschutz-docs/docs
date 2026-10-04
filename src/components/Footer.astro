@@ -4,10 +4,6 @@ import LastUpdated from '@astrojs/starlight/components/LastUpdated.astro';
 import Pagination from '@astrojs/starlight/components/Pagination.astro';
 
 const isEnglish = Astro.currentLocale === 'en';
-// /ueber/ hat noch keine englische Fassung -- Ziel bleibt bewusst Deutsch
-// (derselbe ehrliche Fallback wie andere noch-deutsche Links), nur das
-// Label folgt der Sprache. Impressum/Datenschutz existieren jetzt auch auf
-// Englisch, deshalb bekommen die ein eigenes /en/-Ziel.
 const legalPrefix = isEnglish ? '/en' : '';
 ---
 
@@ -18,7 +14,7 @@ const legalPrefix = isEnglish ? '/en' : '';
 	</div>
 	<Pagination />
 	<div class="legal-links sl-flex">
-		<a href="/ueber/">{isEnglish ? 'About this site' : 'Über diese Seite'}</a>
+		<a href={`${legalPrefix}/ueber/`}>{isEnglish ? 'About this site' : 'Über diese Seite'}</a>
 		<a href={`${legalPrefix}/impressum/`}>{isEnglish ? 'Legal Notice' : 'Impressum'}</a>
 		<a href={`${legalPrefix}/datenschutz/`}>{isEnglish ? 'Privacy Policy' : 'Datenschutz'}</a>
 	</div>
