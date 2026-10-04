@@ -31,3 +31,6 @@ ROADMAP.md
 
 # Claude-Code-Session-Exports, die versehentlich im Repo-Root landen
 *-claude-session-*.txt
+
+# Deploy-Helfer fuer die eigene Instanz, kein Self-Hoster-Tool.
+scripts/deploy.sh
