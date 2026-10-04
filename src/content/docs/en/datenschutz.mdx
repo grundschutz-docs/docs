@@ -1,0 +1,95 @@
+---
+title: Privacy Policy
+description: What data this private rendering of the BSI Grundschutz++ catalog processes — server log files, cookies/tracking, and your rights under the GDPR.
+template: splash
+---
+
+import OperatorDetails from '../../../components/OperatorDetails.astro';
+import TemplateNotice from '../../../components/TemplateNotice.astro';
+
+export const hostingEn = process.env.OPERATOR_HOSTING_EN?.trim();
+export const hostingDe = process.env.OPERATOR_HOSTING?.trim();
+export const hosting = hostingEn || hostingDe || '[Enter hosting provider and server location.]';
+export const trackingEn = process.env.OPERATOR_TRACKING_EN?.trim();
+export const trackingDe = process.env.OPERATOR_TRACKING?.trim();
+export const trackingFallback = process.env.PLAUSIBLE_SCRIPT_URL?.trim()
+	? 'This website uses Plausible Analytics, a privacy-friendly, self-hosted analytics tool. Plausible does not use cookies and does not create personally identifiable user profiles. Only aggregated, anonymized data is collected (e.g. page views, referrers, coarse device type); the IP address is processed briefly, only to calculate unique visitors, and is not stored. The legal basis is Art. 6(1)(f) GDPR (legitimate interest in traffic measurement and performance optimization). Because the instance is self-hosted, no data is transmitted to third parties or third countries.'
+	: 'This website does not use cookies or any analytics or tracking tools.';
+export const tracking = trackingEn || trackingDe || trackingFallback;
+export const authorityEn = process.env.OPERATOR_AUTHORITY_EN?.trim();
+export const authorityDe = process.env.OPERATOR_AUTHORITY?.trim();
+export const authority =
+	authorityEn || authorityDe || '[Enter the responsible state data protection authority.]';
+
+<TemplateNotice>
+	The operator details below are still placeholders. Also adjust this
+	policy to match your actual operation — hosting provider and location,
+	whether you use cookies or tracking, and the supervisory authority
+	responsible for *you* (based on your own location, not the project
+	maintainer's). All of this lives in `.env`, see `.env.example`.
+</TemplateNotice>
+
+This page is an English translation provided for convenience. **The
+German version ([Datenschutzerklärung](/datenschutz/)) is the legally
+authoritative one** — if the two ever disagree, the German text
+controls.
+
+## 1. Controller
+
+<OperatorDetails withEmail />
+
+## 2. Hosting
+
+{hosting}
+{!hostingEn && hostingDe && (
+	<em> (German — not yet translated. Set <code>OPERATOR_HOSTING_EN</code> in <code>.env</code> to replace this.)</em>
+)}
+
+## 3. Server log files
+
+When you access this website, the web server automatically records technical access data transmitted by your browser (so-called server log files). This typically includes:
+
+- IP address
+- date and time of the request
+- the page/file accessed
+- referring URL (referrer)
+- browser type and operating system
+
+This data is used exclusively to ensure the secure and stable operation of the website (detecting faults and abuse) and is not combined with other data sources. The legal basis is Art. 6(1)(f) GDPR (legitimate interest in secure operation). Log files are deleted automatically once the retention period configured at the hosting provider expires.
+
+## 4. Cookies and tracking
+
+{tracking}
+{!trackingEn && trackingDe && (
+	<em> (German — not yet translated. Set <code>OPERATOR_TRACKING_EN</code> in <code>.env</code> to replace this.)</em>
+)}
+
+## 5. Fonts
+
+The fonts used on this website (Fraunces, Karla, JetBrains Mono) are served locally by default. **No connection is made to Google Fonts or any other external font service**, unless you have changed this.
+
+## 6. Search function
+
+The built-in full-text search (Pagefind) runs entirely in the user's browser. Search queries are not transmitted to or stored on a server.
+
+## 7. Your rights
+
+Under the GDPR, you have the following rights regarding your personal data:
+
+- access (Art. 15 GDPR)
+- rectification (Art. 16 GDPR)
+- erasure (Art. 17 GDPR)
+- restriction of processing (Art. 18 GDPR)
+- data portability (Art. 20 GDPR)
+- objection to processing (Art. 21 GDPR)
+
+To exercise these, contact the email address given above.
+
+## 8. Right to lodge a complaint with a supervisory authority {#right-to-complain}
+
+You have the right to lodge a complaint with a data protection supervisory authority about the processing of your personal data. The responsible authority is:
+
+{authority}
+{!authorityEn && authorityDe && (
+	<em> (German — not yet translated. Set <code>OPERATOR_AUTHORITY_EN</code> in <code>.env</code> to replace this.)</em>
+)}

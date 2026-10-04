@@ -13,12 +13,13 @@ const configured = Boolean(
 		process.env.OPERATOR_ADDRESS?.trim() &&
 		process.env.OPERATOR_EMAIL?.trim()
 );
+const isEnglish = Astro.currentLocale === 'en';
 ---
 
 {
 	!configured && (
 		<aside class="template-notice">
-			<strong>Noch nicht konfiguriert:</strong>
+			<strong>{isEnglish ? 'Not configured yet:' : 'Noch nicht konfiguriert:'}</strong>
 			<slot />
 		</aside>
 	)

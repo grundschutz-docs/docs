@@ -18,9 +18,11 @@ interface Props {
 
 const { withEmail = false } = Astro.props;
 
+const isEnglish = Astro.currentLocale === 'en';
+
 const name = process.env.OPERATOR_NAME?.trim() || '[Name]';
-const email = process.env.OPERATOR_EMAIL?.trim() || '[E-Mail-Adresse]';
-const addressLines = (process.env.OPERATOR_ADDRESS?.trim() || '[Anschrift]')
+const email = process.env.OPERATOR_EMAIL?.trim() || (isEnglish ? '[email address]' : '[E-Mail-Adresse]');
+const addressLines = (process.env.OPERATOR_ADDRESS?.trim() || (isEnglish ? '[address]' : '[Anschrift]'))
 	.split('|')
 	.map((line) => line.trim())
 	.filter(Boolean);
@@ -37,7 +39,7 @@ const addressLines = (process.env.OPERATOR_ADDRESS?.trim() || '[Anschrift]')
 	{withEmail && (
 		<>
 			<br />
-			E-Mail: {email}
+			{isEnglish ? 'Email' : 'E-Mail'}: {email}
 		</>
 	)}
 </p>
