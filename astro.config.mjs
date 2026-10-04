@@ -1,10 +1,41 @@
 // @ts-check
-import { readFileSync } from 'node:fs';
+import { readFileSync, readdirSync } from 'node:fs';
+import { fileURLToPath } from 'node:url';
 import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
 import starlightLinksValidator from 'starlight-links-validator';
 import mdx from '@astrojs/mdx';
+import sitemap from '@astrojs/sitemap';
 import { satteri } from '@astrojs/markdown-satteri';
+
+// Welche Seiten unter /en/ *wirklich* übersetzt sind, statt Starlights
+// Fallback-Kopie des deutschen Originals zu zeigen. Von der Dateistruktur
+// unter src/content/docs/en/ abgeleitet statt von Hand gepflegt -- aus
+// demselben Grund wie TIMELINE in generate_docs.py: eine Liste, die
+// unabhaengig vom tatsaechlichen Zustand gepflegt wird, laeuft irgendwann
+// auseinander. Treibt unten den Sitemap-Filter: ohne ihn stuenden alle ~130
+// Fallback-Seiten (deutscher Inhalt, zufaellig unter einer /en/-URL) als
+// angebliche englische Seiten in der Sitemap -- Duplicate Content, den
+// Suchmaschinen selbst herausfinden muessten statt dass wir es ihnen sagen.
+function translatedEnSlugs() {
+	const root = fileURLToPath(new URL('./src/content/docs/en/', import.meta.url));
+	const slugs = new Set();
+	function walk(dir, prefix) {
+		for (const entry of readdirSync(dir, { withFileTypes: true })) {
+			if (entry.isDirectory()) {
+				walk(`${dir}/${entry.name}`, `${prefix}${entry.name}/`);
+				continue;
+			}
+			const match = entry.name.match(/^(.*)\.mdx?$/);
+			if (!match) continue;
+			const base = match[1] === 'index' ? '' : match[1];
+			slugs.add(`${prefix}${base}`.replace(/\/$/, ''));
+		}
+	}
+	walk(root, '');
+	return slugs;
+}
+const TRANSLATED_EN_SLUGS = translatedEnSlugs();
 
 // .env in process.env laden, damit Komponenten (OperatorDetails.astro) sie
 // beim Build lesen koennen. Kein vite/dotenv-Import: pnpms striktes
@@ -184,6 +215,7 @@ export default defineConfig({
 				SocialIcons: './src/components/SocialIcons.astro',
 				Header: './src/components/Header.astro',
 				Search: './src/components/Search.astro',
+				Head: './src/components/Head.astro',
 			},
 			social: [
 				{
@@ -248,5 +280,23 @@ export default defineConfig({
 			],
 		}),
 		mdx(),
+		// Eigene statt Starlights automatisch zugeschaltete sitemap-Integration
+		// (siehe node_modules/@astrojs/starlight/dist/integrations/sitemap.js --
+		// sie tritt nur zurueck, wenn "@astrojs/sitemap" schon im integrations-
+		// Array steht). Noetig fuer den filter: ohne ihn landen alle ~130
+		// deutschen Fallback-Seiten unter /en/... in der Sitemap, als gaebe es
+		// dort echten englischen Inhalt.
+		sitemap({
+			i18n: {
+				defaultLocale: 'root',
+				locales: { root: 'de', en: 'en' },
+			},
+			filter: (page) => {
+				const path = new URL(page).pathname;
+				if (!path.startsWith('/en/') && path !== '/en') return true;
+				const slug = path.replace(/^\/en\/?/, '').replace(/\/$/, '');
+				return TRANSLATED_EN_SLUGS.has(slug);
+			},
+		}),
 	],
 });

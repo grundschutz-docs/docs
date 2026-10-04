@@ -1,0 +1,23 @@
+---
+/**
+ * Erweitert Starlights Standard-Head nur um ein noindex auf Fallback-Seiten.
+ *
+ * Starlight zeigt unter /en/... fuer jede noch nicht uebersetzte Seite den
+ * deutschen Originalinhalt (siehe FallbackContentNotice in Page.astro) --
+ * praktisch fuer Leser:innen, aber ohne Gegenmassnahme landen ~130 Kopien
+ * desselben deutschen Texts unter einer /en/-URL im Suchindex: Duplicate
+ * Content, selbst-kanonisiert, mit einem hreflang="en"-Versprechen, das der
+ * Inhalt nicht einloest. `starlightRoute.isFallback` (gesetzt in
+ * utils/routing/index.js) ist genau das Signal dafuer.
+ *
+ * Der Sitemap-Filter in astro.config.mjs loest dasselbe Problem fuer die
+ * Sitemap selbst; dieses noindex ist die zweite Haelfte -- eine Seite kann
+ * verlinkt und damit crawlbar sein, ohne in der Sitemap zu stehen.
+ */
+import Default from '@astrojs/starlight/components/Head.astro';
+
+const { isFallback } = Astro.locals.starlightRoute;
+---
+
+<Default><slot /></Default>
+{isFallback && <meta name="robots" content="noindex, follow" />}
