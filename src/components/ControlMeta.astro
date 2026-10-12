@@ -22,6 +22,14 @@ const { modalVerb, secLevel, effort, threats, threatsHint, tags, predecessors } 
 // Nicht selbsterklärend, daher zusätzlich Tooltip. Siehe
 // adr/0005-vorgaenger-anforderung-alt-neu.md.
 const RELATIONSHIPS: Record<string, { label: string; hint: string; family: string }> = {
+	// Stärkste Beziehung: laut OSCAL-Mapping-Spezifikation (NIST,
+	// oscal_mapping-common_metaschema.xml) dieselbe Anforderung, Unterschiede
+	// höchstens in Groß-/Kleinschreibung, Schreibweise oder Grammatik.
+	'equal-to': {
+		label: 'identisch mit',
+		hint: 'Dieselbe Anforderung wie die alte – höchstens in Schreibweise oder Grammatik verschieden.',
+		family: 'accent',
+	},
 	'equivalent-to': {
 		label: 'entspricht',
 		hint: 'Inhaltlich deckungsgleich mit der alten Anforderung.',

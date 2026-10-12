@@ -301,8 +301,19 @@ def baustein_slug(baustein_id):
     return baustein_id.lower().replace(".", "-")
 
 
+# Offizielle Titel aus data/bsi-kompendium-2023-bausteine.json ("titel"),
+# von main() gefuellt. Vorrang vor der Ableitung aus dem Dateinamen: die ist
+# ASCII-transliteriert (Gebaeude, Speicherloesungen), verliert Bindestriche
+# (DNS Server, WLAN Betrieb) und haengt teils "2023" an -- bei 49 von 111
+# Bausteinen wich das vom Titel auf BSIs eigener Seite ab.
+BAUSTEIN_TITLES = {}
+
+
 def baustein_title(baustein_id, url):
-    """Baustein-Titel aus dem BSI-PDF-Dateinamen ableiten.
+    """Offizieller Baustein-Titel; Notnagel: aus dem BSI-PDF-Dateinamen ableiten.
+
+    Die Ableitung unten ist nur noch der Fallback fuer einen Baustein ohne
+    Eintrag in "titel" (main() bricht in dem Fall ohnehin ab).
 
     bsi-kompendium-2023-bausteine.json enthaelt nur ID -> PDF-URL, aber der
     Dateiname traegt den Titel mit ("OPS_1_1_5_Protokollierung_Edition_2023
@@ -314,6 +325,8 @@ def baustein_title(baustein_id, url):
     Automatisierungstechnik" nicht -- dort haengt der Bindestrich am ersten
     Wort und ist spurlos weg.
     """
+    if baustein_id in BAUSTEIN_TITLES:
+        return BAUSTEIN_TITLES[baustein_id]
     if not url:
         return ""
     name = urllib.parse.urlparse(url).path.rsplit("/", 1)[-1]
@@ -1195,8 +1208,8 @@ def render_isb_page(management, groups_by_id):
         "## Werkzeuge für den Alltag {#werkzeuge-fuer-den-alltag}\n\n"
         "- **[Vergleich: Altes Kompendium ↔ Grundschutz++](/vergleich/)** — "
         "jede Zuordnung zwischen alter und neuer Anforderung, mit "
-        "Beziehungstyp (entspricht/Teilbereich von/umfasst/überschneidet "
-        "sich mit) und echten Links zu BSI's Baustein-PDFs.\n"
+        f"Beziehungstyp ({'/'.join(RELATIONSHIP_LABELS.values())}) und "
+        "echten Links zu den Baustein-PDFs des BSI.\n"
         "- **Basisgefährdungen direkt am Control** — jede Anforderung zeigt "
         "die zugeordneten elementaren Gefährdungen (BSI, 47 Stück) als "
         "hoverbare Pille, ohne extra Nachschlagen in `basethreats.csv`.\n"
@@ -1365,8 +1378,8 @@ def render_baustein_page(baustein_id, entries, baustein_links, control_index, gr
     layer = KOMPENDIUM_LAYERS.get(baustein_id.split(".")[0], "")
 
     pdf_line = (
-        f'Der Baustein selbst steht als <a href="{pdf}" target="_blank" '
-        f'rel="noopener noreferrer">PDF beim BSI</a>.'
+        f' — der Baustein selbst steht als <a href="{pdf}" target="_blank" '
+        f'rel="noopener noreferrer">PDF beim BSI</a>'
         if pdf
         else ""
     )
@@ -1379,12 +1392,12 @@ def render_baustein_page(baustein_id, entries, baustein_links, control_index, gr
         "\n",
         pagefind_section("Vergleich"),
         f"Nachfolge-Zuordnungen für **{full_name}**"
-        + (f" aus der Schicht {layer}" if layer else "")
-        + f", {len(entries)} Stück aus der offiziellen BSI-Mapping-Datei. "
+        + (f" (Schicht {layer})" if layer else "")
+        + " nach der offiziellen BSI-Mapping-Datei. "
         "Der alte Anforderungstext wird hier bewusst nicht wiedergegeben "
-        "(siehe [ADR-0005](https://github.com/grundschutz-docs/docs/blob/main/adr/0005-vorgaenger-anforderung-alt-neu.md)) — "
+        "(siehe [ADR-0005](https://github.com/grundschutz-docs/docs/blob/main/adr/0005-vorgaenger-anforderung-alt-neu.md))"
         + pdf_line
-        + "\n",
+        + ".\n",
         "\n",
         render_baustein_summary(entries, group_titles),
         "\n",
@@ -1419,7 +1432,7 @@ def render_baustein_page(baustein_id, entries, baustein_links, control_index, gr
 
 
 RELATIONSHIP_HINTS = {
-    "equal-to": "Beide Anforderungen sind identisch.",
+    "equal-to": "Dieselbe Anforderung wie die alte – höchstens in Schreibweise oder Grammatik verschieden.",
     "equivalent-to": "Inhaltlich deckungsgleich mit der alten Anforderung.",
     "subset-of": "Die alte Anforderung ist in der neuen vollständig enthalten – die neue deckt zusätzlich mehr ab.",
     "superset-of": "Die alte Anforderung deckte mehr ab als die neue – die neue erfasst nur einen Teilaspekt davon.",
@@ -1463,7 +1476,7 @@ def render_vergleich_index(by_baustein, baustein_links):
         "\n",
         "## So gehst du vor\n",
         "\n",
-        "1. Suche unten deinen Baustein, z. B. `OPS.1.1.5`, oder tippe die ID ins Suchfeld.\n",
+        "1. Suche unten deinen Baustein, z. B. `OPS.1.1.5`, oder tippe die ID ins Filterfeld unten.\n",
         "2. Auf der Baustein-Seite siehst du je alter Anforderung die passende neue "
         "Anforderung im Katalog, mit Link direkt dorthin.\n",
         "3. Der Beziehungstyp sagt, wie genau die beiden zusammenpassen:\n",
@@ -1585,7 +1598,16 @@ def main():
     tags_by_id = load_tags()
     mapping_data = json.loads(MAPPING_FILE.read_text())
     predecessor_index = build_predecessor_index(mapping_data)
-    baustein_links = json.loads(BAUSTEINE_LINKS_FILE.read_text())["bausteine"]
+    bausteine_data = json.loads(BAUSTEINE_LINKS_FILE.read_text())
+    baustein_links = bausteine_data["bausteine"]
+    BAUSTEIN_TITLES.update(bausteine_data.get("titel", {}))
+    ohne_titel = sorted(set(baustein_links) - set(BAUSTEIN_TITLES))
+    if ohne_titel:
+        raise SystemExit(
+            f"{len(ohne_titel)} Bausteine ohne offiziellen Titel in {BAUSTEINE_LINKS_FILE.name} "
+            f"(\"titel\"): {ohne_titel[:5]}. Titel von der BSI-Seite (_source) nachtragen, "
+            "nicht aus dem Dateinamen ableiten (siehe BAUSTEIN_TITLES)."
+        )
 
     OUT_DIR.mkdir(parents=True, exist_ok=True)
     for old in OUT_DIR.glob("*.mdx"):
