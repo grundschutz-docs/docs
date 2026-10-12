@@ -487,6 +487,7 @@ def control_link(control_id, control_index):
 # alte ist Teilbereich der neuen (neue deckt mehr ab). superset-of: die
 # alte deckte mehr ab als die neue (neue ist enger gefasst).
 RELATIONSHIP_LABELS = {
+    "equal-to": "identisch mit",
     "equivalent-to": "entspricht",
     "subset-of": "Teilbereich von",
     "superset-of": "umfasst",
@@ -1296,7 +1297,68 @@ def group_mappings_by_baustein(all_mappings):
     return by_baustein
 
 
-def render_baustein_page(baustein_id, entries, baustein_links, control_index):
+def render_baustein_summary(entries, group_titles):
+    """Zusammenfassung aus den Mapping-Daten -- Zahlen, kein Fremdtext.
+
+    Die Baustein-Seiten bestanden vorher nur aus Einleitung + Tabelle und
+    waren bei 95 Seiten nach identischem Muster dünn. Die Zusammenfassung
+    beantwortet in Klartext, was die Tabelle zeigt: wie viel des alten
+    Bausteins direkt weiterlebt und in welchen Themenfeldern es landet.
+    Nur Zahlen und Titel aus dem neuen Katalog (ADR-0005: kein alter Volltext).
+    """
+    def pl(n, sing, plur):
+        return f"{n} {sing if n == 1 else plur}"
+
+    rel_counts = {}
+    for _, rel, _ in entries:
+        rel_counts[rel] = rel_counts.get(rel, 0) + 1
+    # Die Zaehlung ist je Zuordnung (eine alte Anforderung kann mehrere neue
+    # haben und umgekehrt) -- die Saetze duerfen deshalb nicht so tun, als
+    # waeren es Anforderungen.
+    rel_phrases = {
+        "equal-to": "identisch",
+        "equivalent-to": "inhaltlich gleichwertig",
+        "subset-of": "alte Anforderung ist Teilbereich der neuen",
+        "superset-of": "alte Anforderung umfasst mehr als die neue",
+        "intersects-with": "teilweise Überschneidung",
+    }
+    parts = [f"{rel_phrases[rel]}: {rel_counts[rel]}" for rel in RELATIONSHIP_LABELS if rel in rel_counts]
+    new_ids = {new_id for _, _, new_id in entries}
+    old_ids = {old_id for old_id, _, _ in entries}
+    per_field = {}
+    for new_id in new_ids:
+        field = new_id.split(".")[0]
+        per_field[field] = per_field.get(field, 0) + 1
+    fields = ", ".join(
+        f"[{fid} {group_titles[fid]}](/grundschutzpp/{fid.lower()}/) ({n})"
+        if fid in group_titles
+        else f"{fid} ({n})"
+        for fid, n in sorted(per_field.items(), key=lambda kv: (-kv[1], kv[0]))
+    )
+    return (
+        f"Das Mapping enthält {pl(len(entries), 'Zuordnung', 'Zuordnungen')} zwischen "
+        f"{pl(len(old_ids), 'alten Anforderung', 'alten Anforderungen')} und "
+        f"{pl(len(new_ids), 'Grundschutz++-Anforderung', 'Grundschutz++-Anforderungen')}. "
+        f"Nach Beziehungstyp: {'; '.join(parts)}. "
+        f"Die neuen Anforderungen liegen in diesen Themenfeldern (Anzahl in Klammern): {fields}.\n"
+    )
+
+
+def render_baustein_siblings(baustein_id, by_baustein, baustein_links):
+    """Weitere Bausteine derselben Kompendium-Schicht -- interne Verlinkung."""
+    layer_id = baustein_id.split(".")[0]
+    siblings = sorted(b for b in by_baustein if b.split(".")[0] == layer_id and b != baustein_id)
+    if not siblings:
+        return ""
+    layer_name = KOMPENDIUM_LAYERS.get(layer_id, layer_id)
+    items = [
+        f"- [{b} {baustein_title(b, baustein_links.get(b))}](/vergleich/{baustein_slug(b)}/)\n"
+        for b in siblings
+    ]
+    return f"## Weitere Bausteine der Schicht {layer_id} {layer_name}\n\n" + "".join(items)
+
+
+def render_baustein_page(baustein_id, entries, baustein_links, control_index, group_titles, by_baustein):
     pdf = baustein_links.get(baustein_id)
     title = baustein_title(baustein_id, pdf)
     full_name = f"{baustein_id} {title}".strip()
@@ -1324,6 +1386,8 @@ def render_baustein_page(baustein_id, entries, baustein_links, control_index):
         + pdf_line
         + "\n",
         "\n",
+        render_baustein_summary(entries, group_titles),
+        "\n",
         '<div class="vergleich-section not-content">\n',
         '<div class="table-scroll">\n',
         '<table class="vergleich-table">\n',
@@ -1347,9 +1411,20 @@ def render_baustein_page(baustein_id, entries, baustein_links, control_index):
         "</div>\n",
         "</div>\n",
         "\n",
+        render_baustein_siblings(baustein_id, by_baustein, baustein_links),
+        "\n",
         "[Alle Bausteine im Überblick](/vergleich/)\n",
     ]
     return "".join(lines)
+
+
+RELATIONSHIP_HINTS = {
+    "equal-to": "Beide Anforderungen sind identisch.",
+    "equivalent-to": "Inhaltlich deckungsgleich mit der alten Anforderung.",
+    "subset-of": "Die alte Anforderung ist in der neuen vollständig enthalten – die neue deckt zusätzlich mehr ab.",
+    "superset-of": "Die alte Anforderung deckte mehr ab als die neue – die neue erfasst nur einen Teilaspekt davon.",
+    "intersects-with": "Alte und neue Anforderung überschneiden sich nur teilweise.",
+}
 
 
 def render_vergleich_index(by_baustein, baustein_links):
@@ -1357,20 +1432,48 @@ def render_vergleich_index(by_baustein, baustein_links):
     for baustein_id, entries in by_baustein.items():
         by_layer.setdefault(baustein_id.split(".")[0], []).append((baustein_id, entries))
 
+    total = sum(len(entries) for entries in by_baustein.values())
+    rel_counts = {}
+    for entries in by_baustein.values():
+        for _, rel, _ in entries:
+            rel_counts[rel] = rel_counts.get(rel, 0) + 1
+    legend = [
+        f"   - **{relationship_label(rel)}** ({rel_counts[rel]}): {RELATIONSHIP_HINTS[rel]}\n"
+        for rel in RELATIONSHIP_LABELS
+        if rel in rel_counts
+    ]
+
     lines = [
         "---\n",
         f"title: {yaml_quote('Vergleich: Altes Kompendium ↔ Grundschutz++')}\n",
-        f"description: {yaml_quote('Zu jedem Baustein des IT-Grundschutz-Kompendiums (Edition 2023) die Nachfolge-Anforderungen im Grundschutz++-Katalog, nach offizieller BSI-Mapping-Datei.')}\n",
+        f"description: {yaml_quote(f'Für {len(by_baustein)} Bausteine des IT-Grundschutz-Kompendiums (Edition 2023) die Nachfolge-Anforderungen im Grundschutz++-Katalog – {total} Zuordnungen aus der offiziellen BSI-Mapping-Datei.')}\n",
         "---\n",
         "\n",
         VERGLEICH_FILTER_IMPORT,
         "\n",
         pagefind_section("Vergleich"),
-        "Zu jedem alten Baustein gibt es hier eine eigene Seite mit seinen "
-        "Nachfolge-Anforderungen — aus der offiziellen BSI-Mapping-Datei "
-        "(`ITGS-to-GS++-mapping_collection.json`), kein alter Volltext, nur "
-        "Struktur und echte Links (siehe ADR-0005). Tippe eine bekannte "
-        "Baustein-ID ins Suchfeld, z. B. `OPS.1.1.5`.\n",
+        "Grundschutz++ löst das bisherige IT-Grundschutz-Kompendium schrittweise "
+        "ab (siehe [Status & Zeitplan](/grundschutzpp/zeitplan/)). Wer heute nach "
+        "dem Kompendium arbeitet, will wissen: Was wird aus meiner Anforderung? "
+        "Das BSI hat dafür eine Mapping-Datei veröffentlicht "
+        "(`ITGS-to-GS++-mapping_collection.json`). Diese Seite macht sie lesbar: "
+        f"{total} Zuordnungen von alten Anforderungen zu Grundschutz++-Anforderungen, "
+        f"sortiert nach den {len(by_baustein)} Bausteinen, für die das BSI "
+        f"Zuordnungen angibt (von {len(baustein_links)} Bausteinen im Kompendium).\n",
+        "\n",
+        "## So gehst du vor\n",
+        "\n",
+        "1. Suche unten deinen Baustein, z. B. `OPS.1.1.5`, oder tippe die ID ins Suchfeld.\n",
+        "2. Auf der Baustein-Seite siehst du je alter Anforderung die passende neue "
+        "Anforderung im Katalog, mit Link direkt dorthin.\n",
+        "3. Der Beziehungstyp sagt, wie genau die beiden zusammenpassen:\n",
+        "\n",
+        *legend,
+        "\n",
+        "Der alte Anforderungstext steht hier bewusst nicht (siehe "
+        "[ADR-0005](https://github.com/grundschutz-docs/docs/blob/main/adr/0005-vorgaenger-anforderung-alt-neu.md)), "
+        "nur Struktur und Links. Den Baustein selbst gibt es beim BSI als PDF, "
+        "verlinkt in der Spalte „Original\".\n",
         "\n",
         "<VergleichFilter />\n",
         "\n",
@@ -1584,7 +1687,7 @@ def main():
     )
     for baustein_id, entries in by_baustein.items():
         (VERGLEICH_OUT_DIR / f"{baustein_slug(baustein_id)}.mdx").write_text(
-            render_baustein_page(baustein_id, entries, baustein_links, control_index)
+            render_baustein_page(baustein_id, entries, baustein_links, control_index, group_titles, by_baustein)
         )
 
     stats = write_landing_data(

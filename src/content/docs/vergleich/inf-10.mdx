@@ -7,6 +7,8 @@ description: "Welche Anforderungen aus INF.10 Besprechungs Veranstaltungs und Sc
 
 Nachfolge-Zuordnungen für **INF.10 Besprechungs Veranstaltungs und Schulungsraeume** aus der Schicht Infrastruktur, 25 Stück aus der offiziellen BSI-Mapping-Datei. Der alte Anforderungstext wird hier bewusst nicht wiedergegeben (siehe [ADR-0005](https://github.com/grundschutz-docs/docs/blob/main/adr/0005-vorgaenger-anforderung-alt-neu.md)) — Der Baustein selbst steht als <a href="https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/10_INF_Infrastruktur/INF_10_Besprechungs_Veranstaltungs_und_Schulungsraeume_Edition_2023.pdf?__blob=publicationFile&v=3#download=1" target="_blank" rel="noopener noreferrer">PDF beim BSI</a>.
 
+Das Mapping enthält 25 Zuordnungen zwischen 10 alten Anforderungen und 14 Grundschutz++-Anforderungen. Nach Beziehungstyp: identisch: 1; inhaltlich gleichwertig: 2; alte Anforderung ist Teilbereich der neuen: 12; alte Anforderung umfasst mehr als die neue: 1; teilweise Überschneidung: 9. Die neuen Anforderungen liegen in diesen Themenfeldern (Anzahl in Klammern): [ARCH Architektur](/grundschutzpp/arch/) (9), [GEB Gebäudemanagement](/grundschutzpp/geb/) (2), [ASST Informationen und Assets](/grundschutzpp/asst/) (1), [GC Governance und Compliance](/grundschutzpp/gc/) (1), [KONF Konfiguration](/grundschutzpp/konf/) (1).
+
 <div class="vergleich-section not-content">
 <div class="table-scroll">
 <table class="vergleich-table">
@@ -24,7 +26,7 @@ Nachfolge-Zuordnungen für **INF.10 Besprechungs Veranstaltungs und Schulungsrae
 <tr><td><a class="old-id" href="https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/10_INF_Infrastruktur/INF_10_Besprechungs_Veranstaltungs_und_Schulungsraeume_Edition_2023.pdf?__blob=publicationFile&v=3#download=1" target="_blank" rel="noopener noreferrer">INF.10.A6-UA.2</a></td><td><span class="rel-badge" data-rel="equivalent-to">entspricht</span></td><td><a class="new-id" href="/grundschutzpp/arch/#ARCH.4.1">ARCH.4.1</a> <span class="new-title">Netzzugangskontrolle</span></td></tr>
 <tr><td><a class="old-id" href="https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/10_INF_Infrastruktur/INF_10_Besprechungs_Veranstaltungs_und_Schulungsraeume_Edition_2023.pdf?__blob=publicationFile&v=3#download=1" target="_blank" rel="noopener noreferrer">INF.10.A6-UA.3</a></td><td><span class="rel-badge" data-rel="subset-of">Teilbereich von</span></td><td><a class="new-id" href="/grundschutzpp/arch/#ARCH.2.2">ARCH.2.2</a> <span class="new-title">Einschränkung von Verbindungen zwischen Segmenten</span></td></tr>
 <tr><td><a class="old-id" href="https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/10_INF_Infrastruktur/INF_10_Besprechungs_Veranstaltungs_und_Schulungsraeume_Edition_2023.pdf?__blob=publicationFile&v=3#download=1" target="_blank" rel="noopener noreferrer">INF.10.A6-UA.3</a></td><td><span class="rel-badge" data-rel="subset-of">Teilbereich von</span></td><td><a class="new-id" href="/grundschutzpp/arch/#ARCH.2.2.1">ARCH.2.2.1</a> <span class="new-title">Externe Netzanschlüsse</span></td></tr>
-<tr><td><a class="old-id" href="https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/10_INF_Infrastruktur/INF_10_Besprechungs_Veranstaltungs_und_Schulungsraeume_Edition_2023.pdf?__blob=publicationFile&v=3#download=1" target="_blank" rel="noopener noreferrer">INF.10.A6-UA.3</a></td><td><span class="rel-badge" data-rel="equal-to">equal-to</span></td><td><a class="new-id" href="/grundschutzpp/arch/#ARCH.2.2.2">ARCH.2.2.2</a> <span class="new-title">Gastnetz</span></td></tr>
+<tr><td><a class="old-id" href="https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/10_INF_Infrastruktur/INF_10_Besprechungs_Veranstaltungs_und_Schulungsraeume_Edition_2023.pdf?__blob=publicationFile&v=3#download=1" target="_blank" rel="noopener noreferrer">INF.10.A6-UA.3</a></td><td><span class="rel-badge" data-rel="equal-to">identisch mit</span></td><td><a class="new-id" href="/grundschutzpp/arch/#ARCH.2.2.2">ARCH.2.2.2</a> <span class="new-title">Gastnetz</span></td></tr>
 <tr><td><a class="old-id" href="https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/10_INF_Infrastruktur/INF_10_Besprechungs_Veranstaltungs_und_Schulungsraeume_Edition_2023.pdf?__blob=publicationFile&v=3#download=1" target="_blank" rel="noopener noreferrer">INF.10.A6-UA.4</a></td><td><span class="rel-badge" data-rel="intersects-with">überschneidet sich mit</span></td><td><a class="new-id" href="/grundschutzpp/arch/#ARCH.2.2.1">ARCH.2.2.1</a> <span class="new-title">Externe Netzanschlüsse</span></td></tr>
 <tr><td><a class="old-id" href="https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/10_INF_Infrastruktur/INF_10_Besprechungs_Veranstaltungs_und_Schulungsraeume_Edition_2023.pdf?__blob=publicationFile&v=3#download=1" target="_blank" rel="noopener noreferrer">INF.10.A6-UA.4</a></td><td><span class="rel-badge" data-rel="intersects-with">überschneidet sich mit</span></td><td><a class="new-id" href="/grundschutzpp/arch/#ARCH.2.2.2">ARCH.2.2.2</a> <span class="new-title">Gastnetz</span></td></tr>
 <tr><td><a class="old-id" href="https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/10_INF_Infrastruktur/INF_10_Besprechungs_Veranstaltungs_und_Schulungsraeume_Edition_2023.pdf?__blob=publicationFile&v=3#download=1" target="_blank" rel="noopener noreferrer">INF.10.A6-UA.4</a></td><td><span class="rel-badge" data-rel="superset-of">umfasst</span></td><td><a class="new-id" href="/grundschutzpp/arch/#ARCH.3.4">ARCH.3.4</a> <span class="new-title">Verschlüsselte Netzanbindung</span></td></tr>
@@ -41,5 +43,15 @@ Nachfolge-Zuordnungen für **INF.10 Besprechungs Veranstaltungs und Schulungsrae
 </table>
 </div>
 </div>
+
+## Weitere Bausteine der Schicht INF Infrastruktur
+
+- [INF.1 Allgemeines Gebaeude](/vergleich/inf-1/)
+- [INF.11 Allgemeines Fahrzeug 2023](/vergleich/inf-11/)
+- [INF.12 Verkabelung 2023](/vergleich/inf-12/)
+- [INF.13 Technisches Gebaeudemanagement](/vergleich/inf-13/)
+- [INF.14 Gebaeudeautomation](/vergleich/inf-14/)
+- [INF.2 Rechenzentrum sowie Serverraum](/vergleich/inf-2/)
+- [INF.8 Haeuslicher Arbeitsplatz](/vergleich/inf-8/)
 
 [Alle Bausteine im Überblick](/vergleich/)

@@ -7,6 +7,8 @@ description: "Welche Anforderungen aus INF.13 Technisches Gebaeudemanagement (IT
 
 Nachfolge-Zuordnungen für **INF.13 Technisches Gebaeudemanagement** aus der Schicht Infrastruktur, 34 Stück aus der offiziellen BSI-Mapping-Datei. Der alte Anforderungstext wird hier bewusst nicht wiedergegeben (siehe [ADR-0005](https://github.com/grundschutz-docs/docs/blob/main/adr/0005-vorgaenger-anforderung-alt-neu.md)) — Der Baustein selbst steht als <a href="https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/10_INF_Infrastruktur/INF_13_Technisches_Gebaeudemanagement_Edition_2023.pdf?__blob=publicationFile&v=3#download=1" target="_blank" rel="noopener noreferrer">PDF beim BSI</a>.
 
+Das Mapping enthält 34 Zuordnungen zwischen 23 alten Anforderungen und 25 Grundschutz++-Anforderungen. Nach Beziehungstyp: identisch: 1; inhaltlich gleichwertig: 2; alte Anforderung ist Teilbereich der neuen: 18; alte Anforderung umfasst mehr als die neue: 2; teilweise Überschneidung: 11. Die neuen Anforderungen liegen in diesen Themenfeldern (Anzahl in Klammern): [TEST Änderungen und Tests](/grundschutzpp/test/) (13), [DET Detektion](/grundschutzpp/det/) (7), [ARCH Architektur](/grundschutzpp/arch/) (2), [KONF Konfiguration](/grundschutzpp/konf/) (1), [UMS Umsetzung](/grundschutzpp/ums/) (1), [VRB Verbesserung](/grundschutzpp/vrb/) (1).
+
 <div class="vergleich-section not-content">
 <div class="table-scroll">
 <table class="vergleich-table">
@@ -21,7 +23,7 @@ Nachfolge-Zuordnungen für **INF.13 Technisches Gebaeudemanagement** aus der Sch
 <tr><td><a class="old-id" href="https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/10_INF_Infrastruktur/INF_13_Technisches_Gebaeudemanagement_Edition_2023.pdf?__blob=publicationFile&v=3#download=1" target="_blank" rel="noopener noreferrer">INF.13.A16-UA.4</a></td><td><span class="rel-badge" data-rel="superset-of">umfasst</span></td><td><a class="new-id" href="/grundschutzpp/test/#TEST.3.1.9">TEST.3.1.9</a> <span class="new-title">Fuzzing</span></td></tr>
 <tr><td><a class="old-id" href="https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/10_INF_Infrastruktur/INF_13_Technisches_Gebaeudemanagement_Edition_2023.pdf?__blob=publicationFile&v=3#download=1" target="_blank" rel="noopener noreferrer">INF.13.A17-UA.4</a></td><td><span class="rel-badge" data-rel="intersects-with">überschneidet sich mit</span></td><td><a class="new-id" href="/grundschutzpp/test/#TEST.2.2.3">TEST.2.2.3</a> <span class="new-title">Dokumentation der Abhängigkeiten</span></td></tr>
 <tr><td><a class="old-id" href="https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/10_INF_Infrastruktur/INF_13_Technisches_Gebaeudemanagement_Edition_2023.pdf?__blob=publicationFile&v=3#download=1" target="_blank" rel="noopener noreferrer">INF.13.A21-UA.1</a></td><td><span class="rel-badge" data-rel="subset-of">Teilbereich von</span></td><td><a class="new-id" href="/grundschutzpp/det/#DET.3.1">DET.3.1</a> <span class="new-title">Protokollierung sicherheitsrelevanter Ereignisse</span></td></tr>
-<tr><td><a class="old-id" href="https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/10_INF_Infrastruktur/INF_13_Technisches_Gebaeudemanagement_Edition_2023.pdf?__blob=publicationFile&v=3#download=1" target="_blank" rel="noopener noreferrer">INF.13.A21-UA.2</a></td><td><span class="rel-badge" data-rel="equal-to">equal-to</span></td><td><a class="new-id" href="/grundschutzpp/det/#DET.3.1">DET.3.1</a> <span class="new-title">Protokollierung sicherheitsrelevanter Ereignisse</span></td></tr>
+<tr><td><a class="old-id" href="https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/10_INF_Infrastruktur/INF_13_Technisches_Gebaeudemanagement_Edition_2023.pdf?__blob=publicationFile&v=3#download=1" target="_blank" rel="noopener noreferrer">INF.13.A21-UA.2</a></td><td><span class="rel-badge" data-rel="equal-to">identisch mit</span></td><td><a class="new-id" href="/grundschutzpp/det/#DET.3.1">DET.3.1</a> <span class="new-title">Protokollierung sicherheitsrelevanter Ereignisse</span></td></tr>
 <tr><td><a class="old-id" href="https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/10_INF_Infrastruktur/INF_13_Technisches_Gebaeudemanagement_Edition_2023.pdf?__blob=publicationFile&v=3#download=1" target="_blank" rel="noopener noreferrer">INF.13.A21-UA.4</a></td><td><span class="rel-badge" data-rel="intersects-with">überschneidet sich mit</span></td><td><a class="new-id" href="/grundschutzpp/det/#DET.3.1.12">DET.3.1.12</a> <span class="new-title">Datenverarbeitungen</span></td></tr>
 <tr><td><a class="old-id" href="https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/10_INF_Infrastruktur/INF_13_Technisches_Gebaeudemanagement_Edition_2023.pdf?__blob=publicationFile&v=3#download=1" target="_blank" rel="noopener noreferrer">INF.13.A21-UA.4</a></td><td><span class="rel-badge" data-rel="subset-of">Teilbereich von</span></td><td><a class="new-id" href="/grundschutzpp/det/#DET.3.1.7">DET.3.1.7</a> <span class="new-title">Was, Wann, Wo</span></td></tr>
 <tr><td><a class="old-id" href="https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/10_INF_Infrastruktur/INF_13_Technisches_Gebaeudemanagement_Edition_2023.pdf?__blob=publicationFile&v=3#download=1" target="_blank" rel="noopener noreferrer">INF.13.A21-UA.4</a></td><td><span class="rel-badge" data-rel="subset-of">Teilbereich von</span></td><td><a class="new-id" href="/grundschutzpp/test/#TEST.2.1">TEST.2.1</a> <span class="new-title">Versionshistorie</span></td></tr>
@@ -50,5 +52,15 @@ Nachfolge-Zuordnungen für **INF.13 Technisches Gebaeudemanagement** aus der Sch
 </table>
 </div>
 </div>
+
+## Weitere Bausteine der Schicht INF Infrastruktur
+
+- [INF.1 Allgemeines Gebaeude](/vergleich/inf-1/)
+- [INF.10 Besprechungs Veranstaltungs und Schulungsraeume](/vergleich/inf-10/)
+- [INF.11 Allgemeines Fahrzeug 2023](/vergleich/inf-11/)
+- [INF.12 Verkabelung 2023](/vergleich/inf-12/)
+- [INF.14 Gebaeudeautomation](/vergleich/inf-14/)
+- [INF.2 Rechenzentrum sowie Serverraum](/vergleich/inf-2/)
+- [INF.8 Haeuslicher Arbeitsplatz](/vergleich/inf-8/)
 
 [Alle Bausteine im Überblick](/vergleich/)

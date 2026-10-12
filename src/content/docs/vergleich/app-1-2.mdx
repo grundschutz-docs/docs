@@ -7,6 +7,8 @@ description: "Welche Anforderungen aus APP.1.2 Webbrowser (IT-Grundschutz-Kompen
 
 Nachfolge-Zuordnungen für **APP.1.2 Webbrowser** aus der Schicht Anwendungen, 23 Stück aus der offiziellen BSI-Mapping-Datei. Der alte Anforderungstext wird hier bewusst nicht wiedergegeben (siehe [ADR-0005](https://github.com/grundschutz-docs/docs/blob/main/adr/0005-vorgaenger-anforderung-alt-neu.md)) — Der Baustein selbst steht als <a href="https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/06_APP_Anwendungen/APP_1_2_Webbrowser_Edition_2023.pdf?__blob=publicationFile&v=3#download=1" target="_blank" rel="noopener noreferrer">PDF beim BSI</a>.
 
+Das Mapping enthält 23 Zuordnungen zwischen 15 alten Anforderungen und 18 Grundschutz++-Anforderungen. Nach Beziehungstyp: identisch: 1; inhaltlich gleichwertig: 1; alte Anforderung ist Teilbereich der neuen: 1; alte Anforderung umfasst mehr als die neue: 1; teilweise Überschneidung: 19. Die neuen Anforderungen liegen in diesen Themenfeldern (Anzahl in Klammern): [KONF Konfiguration](/grundschutzpp/konf/) (12), [ARCH Architektur](/grundschutzpp/arch/) (4), [NOT Notfallplanung](/grundschutzpp/not/) (1), [SENS Sensibilisierung](/grundschutzpp/sens/) (1).
+
 <div class="vergleich-section not-content">
 <div class="table-scroll">
 <table class="vergleich-table">
@@ -23,7 +25,7 @@ Nachfolge-Zuordnungen für **APP.1.2 Webbrowser** aus der Schicht Anwendungen, 2
 <tr><td><a class="old-id" href="https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/06_APP_Anwendungen/APP_1_2_Webbrowser_Edition_2023.pdf?__blob=publicationFile&v=3#download=1" target="_blank" rel="noopener noreferrer">APP.1.2.A11-UA.2</a></td><td><span class="rel-badge" data-rel="intersects-with">überschneidet sich mit</span></td><td><a class="new-id" href="/grundschutzpp/konf/#KONF.12.1.2">KONF.12.1.2</a> <span class="new-title">Content Security Policy (CSP)</span></td></tr>
 <tr><td><a class="old-id" href="https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/06_APP_Anwendungen/APP_1_2_Webbrowser_Edition_2023.pdf?__blob=publicationFile&v=3#download=1" target="_blank" rel="noopener noreferrer">APP.1.2.A11-UA.2</a></td><td><span class="rel-badge" data-rel="intersects-with">überschneidet sich mit</span></td><td><a class="new-id" href="/grundschutzpp/konf/#KONF.12.1.7">KONF.12.1.7</a> <span class="new-title">Filtern schädlicher Webinhalte</span></td></tr>
 <tr><td><a class="old-id" href="https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/06_APP_Anwendungen/APP_1_2_Webbrowser_Edition_2023.pdf?__blob=publicationFile&v=3#download=1" target="_blank" rel="noopener noreferrer">APP.1.2.A11-UA.2</a></td><td><span class="rel-badge" data-rel="intersects-with">überschneidet sich mit</span></td><td><a class="new-id" href="/grundschutzpp/sens/#SENS.7.24">SENS.7.24</a> <span class="new-title">Zertifikatswarnungen</span></td></tr>
-<tr><td><a class="old-id" href="https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/06_APP_Anwendungen/APP_1_2_Webbrowser_Edition_2023.pdf?__blob=publicationFile&v=3#download=1" target="_blank" rel="noopener noreferrer">APP.1.2.A11-UA.3</a></td><td><span class="rel-badge" data-rel="equal-to">equal-to</span></td><td><a class="new-id" href="/grundschutzpp/arch/#ARCH.5.1.10.1">ARCH.5.1.10.1</a> <span class="new-title">Bekannte schädliche Inhalte</span></td></tr>
+<tr><td><a class="old-id" href="https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/06_APP_Anwendungen/APP_1_2_Webbrowser_Edition_2023.pdf?__blob=publicationFile&v=3#download=1" target="_blank" rel="noopener noreferrer">APP.1.2.A11-UA.3</a></td><td><span class="rel-badge" data-rel="equal-to">identisch mit</span></td><td><a class="new-id" href="/grundschutzpp/arch/#ARCH.5.1.10.1">ARCH.5.1.10.1</a> <span class="new-title">Bekannte schädliche Inhalte</span></td></tr>
 <tr><td><a class="old-id" href="https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/06_APP_Anwendungen/APP_1_2_Webbrowser_Edition_2023.pdf?__blob=publicationFile&v=3#download=1" target="_blank" rel="noopener noreferrer">APP.1.2.A11-UA.3</a></td><td><span class="rel-badge" data-rel="superset-of">umfasst</span></td><td><a class="new-id" href="/grundschutzpp/arch/#ARCH.5.1.10.2">ARCH.5.1.10.2</a> <span class="new-title">Bekannte illegale Inhalte</span></td></tr>
 <tr><td><a class="old-id" href="https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/06_APP_Anwendungen/APP_1_2_Webbrowser_Edition_2023.pdf?__blob=publicationFile&v=3#download=1" target="_blank" rel="noopener noreferrer">APP.1.2.A11-UA.3</a></td><td><span class="rel-badge" data-rel="intersects-with">überschneidet sich mit</span></td><td><a class="new-id" href="/grundschutzpp/arch/#ARCH.5.1.9">ARCH.5.1.9</a> <span class="new-title">Filterung von DNS</span></td></tr>
 <tr><td><a class="old-id" href="https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/06_APP_Anwendungen/APP_1_2_Webbrowser_Edition_2023.pdf?__blob=publicationFile&v=3#download=1" target="_blank" rel="noopener noreferrer">APP.1.2.A12-UA.1</a></td><td><span class="rel-badge" data-rel="intersects-with">überschneidet sich mit</span></td><td><a class="new-id" href="/grundschutzpp/not/#NOT.3.6">NOT.3.6</a> <span class="new-title">Sicherheitsmechanismen</span></td></tr>
@@ -39,5 +41,26 @@ Nachfolge-Zuordnungen für **APP.1.2 Webbrowser** aus der Schicht Anwendungen, 2
 </table>
 </div>
 </div>
+
+## Weitere Bausteine der Schicht APP Anwendungen
+
+- [APP.1.1 Office Produkte](/vergleich/app-1-1/)
+- [APP.1.4 Mobile Anwendungen](/vergleich/app-1-4/)
+- [APP.2.1 Allgemeiner Verzeichnisdienst](/vergleich/app-2-1/)
+- [APP.2.2 Active Directory Domain Services](/vergleich/app-2-2/)
+- [APP.3.1 Webanwendungen und Webservices](/vergleich/app-3-1/)
+- [APP.3.2 Webserver](/vergleich/app-3-2/)
+- [APP.3.3 Fileserver](/vergleich/app-3-3/)
+- [APP.3.4 Samba](/vergleich/app-3-4/)
+- [APP.3.6 DNS Server](/vergleich/app-3-6/)
+- [APP.4.2 SAP ERP System](/vergleich/app-4-2/)
+- [APP.4.3 Relationale Datenbanksysteme](/vergleich/app-4-3/)
+- [APP.4.4 Kubernetes](/vergleich/app-4-4/)
+- [APP.4.6 SAP ABAP Programmierung](/vergleich/app-4-6/)
+- [APP.5.2 Microsoft Exchange und Outlook](/vergleich/app-5-2/)
+- [APP.5.3 Allgemeiner E-Mail Client und Server](/vergleich/app-5-3/)
+- [APP.5.4 Unified Communications und Collaboration](/vergleich/app-5-4/)
+- [APP.6 Allgemeine Software](/vergleich/app-6/)
+- [APP.7 Entwicklung von Individualsoftware](/vergleich/app-7/)
 
 [Alle Bausteine im Überblick](/vergleich/)

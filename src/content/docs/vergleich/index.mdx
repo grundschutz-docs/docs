@@ -1,13 +1,27 @@
 ---
 title: "Vergleich: Altes Kompendium ↔ Grundschutz++"
-description: "Zu jedem Baustein des IT-Grundschutz-Kompendiums (Edition 2023) die Nachfolge-Anforderungen im Grundschutz++-Katalog, nach offizieller BSI-Mapping-Datei."
+description: "Für 94 Bausteine des IT-Grundschutz-Kompendiums (Edition 2023) die Nachfolge-Anforderungen im Grundschutz++-Katalog – 1185 Zuordnungen aus der offiziellen BSI-Mapping-Datei."
 ---
 
 import VergleichFilter from '../../../components/VergleichFilter.astro';
 
 <span data-pagefind-meta="section:Vergleich"></span>
 
-Zu jedem alten Baustein gibt es hier eine eigene Seite mit seinen Nachfolge-Anforderungen — aus der offiziellen BSI-Mapping-Datei (`ITGS-to-GS++-mapping_collection.json`), kein alter Volltext, nur Struktur und echte Links (siehe ADR-0005). Tippe eine bekannte Baustein-ID ins Suchfeld, z. B. `OPS.1.1.5`.
+Grundschutz++ löst das bisherige IT-Grundschutz-Kompendium schrittweise ab (siehe [Status & Zeitplan](/grundschutzpp/zeitplan/)). Wer heute nach dem Kompendium arbeitet, will wissen: Was wird aus meiner Anforderung? Das BSI hat dafür eine Mapping-Datei veröffentlicht (`ITGS-to-GS++-mapping_collection.json`). Diese Seite macht sie lesbar: 1185 Zuordnungen von alten Anforderungen zu Grundschutz++-Anforderungen, sortiert nach den 94 Bausteinen, für die das BSI Zuordnungen angibt (von 111 Bausteinen im Kompendium).
+
+## So gehst du vor
+
+1. Suche unten deinen Baustein, z. B. `OPS.1.1.5`, oder tippe die ID ins Suchfeld.
+2. Auf der Baustein-Seite siehst du je alter Anforderung die passende neue Anforderung im Katalog, mit Link direkt dorthin.
+3. Der Beziehungstyp sagt, wie genau die beiden zusammenpassen:
+
+   - **identisch mit** (21): Beide Anforderungen sind identisch.
+   - **entspricht** (118): Inhaltlich deckungsgleich mit der alten Anforderung.
+   - **Teilbereich von** (464): Die alte Anforderung ist in der neuen vollständig enthalten – die neue deckt zusätzlich mehr ab.
+   - **umfasst** (187): Die alte Anforderung deckte mehr ab als die neue – die neue erfasst nur einen Teilaspekt davon.
+   - **überschneidet sich mit** (395): Alte und neue Anforderung überschneiden sich nur teilweise.
+
+Der alte Anforderungstext steht hier bewusst nicht (siehe [ADR-0005](https://github.com/grundschutz-docs/docs/blob/main/adr/0005-vorgaenger-anforderung-alt-neu.md)), nur Struktur und Links. Den Baustein selbst gibt es beim BSI als PDF, verlinkt in der Spalte „Original".
 
 <VergleichFilter />
 

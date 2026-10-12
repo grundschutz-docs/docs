@@ -7,17 +7,31 @@ description: "Welche Anforderungen aus NET.4.1 TK Anlagen (IT-Grundschutz-Kompen
 
 Nachfolge-Zuordnungen für **NET.4.1 TK Anlagen** aus der Schicht Netze und Kommunikation, 3 Stück aus der offiziellen BSI-Mapping-Datei. Der alte Anforderungstext wird hier bewusst nicht wiedergegeben (siehe [ADR-0005](https://github.com/grundschutz-docs/docs/blob/main/adr/0005-vorgaenger-anforderung-alt-neu.md)) — Der Baustein selbst steht als <a href="https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/09_NET_Netze_und_Kommunikation/NET_4_1_TK_Anlagen_Edition_2023.pdf?__blob=publicationFile&v=4#download=1" target="_blank" rel="noopener noreferrer">PDF beim BSI</a>.
 
+Das Mapping enthält 3 Zuordnungen zwischen 3 alten Anforderungen und 2 Grundschutz++-Anforderungen. Nach Beziehungstyp: identisch: 1; alte Anforderung umfasst mehr als die neue: 1; teilweise Überschneidung: 1. Die neuen Anforderungen liegen in diesen Themenfeldern (Anzahl in Klammern): [ARCH Architektur](/grundschutzpp/arch/) (1), [DET Detektion](/grundschutzpp/det/) (1).
+
 <div class="vergleich-section not-content">
 <div class="table-scroll">
 <table class="vergleich-table">
 <thead><tr><th>Alte Anforderung</th><th>Beziehung</th><th>Neue Anforderung</th></tr></thead>
 <tbody>
-<tr><td><a class="old-id" href="https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/09_NET_Netze_und_Kommunikation/NET_4_1_TK_Anlagen_Edition_2023.pdf?__blob=publicationFile&v=4#download=1" target="_blank" rel="noopener noreferrer">NET.4.1.A19-UA.1</a></td><td><span class="rel-badge" data-rel="equal-to">equal-to</span></td><td><a class="new-id" href="/grundschutzpp/arch/#ARCH.8.2">ARCH.8.2</a> <span class="new-title">Redundante TK-Anbindung</span></td></tr>
+<tr><td><a class="old-id" href="https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/09_NET_Netze_und_Kommunikation/NET_4_1_TK_Anlagen_Edition_2023.pdf?__blob=publicationFile&v=4#download=1" target="_blank" rel="noopener noreferrer">NET.4.1.A19-UA.1</a></td><td><span class="rel-badge" data-rel="equal-to">identisch mit</span></td><td><a class="new-id" href="/grundschutzpp/arch/#ARCH.8.2">ARCH.8.2</a> <span class="new-title">Redundante TK-Anbindung</span></td></tr>
 <tr><td><a class="old-id" href="https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/09_NET_Netze_und_Kommunikation/NET_4_1_TK_Anlagen_Edition_2023.pdf?__blob=publicationFile&v=4#download=1" target="_blank" rel="noopener noreferrer">NET.4.1.A19-UA.2</a></td><td><span class="rel-badge" data-rel="intersects-with">überschneidet sich mit</span></td><td><a class="new-id" href="/grundschutzpp/arch/#ARCH.8.2">ARCH.8.2</a> <span class="new-title">Redundante TK-Anbindung</span></td></tr>
 <tr><td><a class="old-id" href="https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/09_NET_Netze_und_Kommunikation/NET_4_1_TK_Anlagen_Edition_2023.pdf?__blob=publicationFile&v=4#download=1" target="_blank" rel="noopener noreferrer">NET.4.1.A5-UA.2</a></td><td><span class="rel-badge" data-rel="superset-of">umfasst</span></td><td><a class="new-id" href="/grundschutzpp/det/#DET.3.1.12">DET.3.1.12</a> <span class="new-title">Datenverarbeitungen</span></td></tr>
 </tbody>
 </table>
 </div>
 </div>
+
+## Weitere Bausteine der Schicht NET Netze und Kommunikation
+
+- [NET.1.1 Netzarchitektur und -design](/vergleich/net-1-1/)
+- [NET.1.2 Netzmanagement](/vergleich/net-1-2/)
+- [NET.2.1 WLAN Betrieb](/vergleich/net-2-1/)
+- [NET.2.2 WLAN Nutzung](/vergleich/net-2-2/)
+- [NET.3.1 Router und Switches](/vergleich/net-3-1/)
+- [NET.3.2 Firewall](/vergleich/net-3-2/)
+- [NET.3.3 VPN](/vergleich/net-3-3/)
+- [NET.3.4 Network Access Control](/vergleich/net-3-4/)
+- [NET.4.2 VoIP](/vergleich/net-4-2/)
 
 [Alle Bausteine im Überblick](/vergleich/)
