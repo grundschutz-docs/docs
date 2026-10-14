@@ -20,6 +20,7 @@ import csv
 import json
 import os
 import re
+import sys
 import urllib.parse
 from collections import Counter
 from datetime import date
@@ -364,6 +365,53 @@ LANDING_SAMPLE_ID = "NOT.4.10"
 ROLLEN_ANKER = {
     "geschaeftsfuehrung.mdx": ("bin-ich-ueberhaupt-betroffen", "was-schreibt-das-gesetz-vor"),
     "isb.mdx": ("werkzeuge-fuer-den-alltag",),
+}
+
+
+# Meta-Descriptions der Praktik-Seiten, die wir bewusst kuerzen. Der Katalogtext
+# ist 213-284 Zeichen lang; Suchergebnisse schneiden bei etwa 155-160 ab, bevor
+# der Zweck der Praktik kommt (2026-10-14). Die Seiten werden erzeugt, und der
+# taegliche Workflow sync-catalog.yml laeuft den Generator erneut -- eine von
+# Hand in der .mdx gekuerzte Beschreibung waere beim naechsten Lauf wieder weg.
+#
+# "original" ist der Katalogtext, den wir ersetzen. Weicht der Katalog spaeter
+# davon ab (das BSI aendert die Beschreibung), meldet der Generator das, statt
+# unseren Text stillschweigend ueber die neue Fassung zu legen. Die Override
+# gilt nur fuer die Meta-Description, nicht fuer die Praktik-Listen auf den
+# Uebersichts- und Rollenseiten.
+DESCRIPTION_OVERRIDES = {
+    "KONF": {
+        "original": "Die Praktik Konfiguration stellt sicher, dass IT-Komponenten – wie Anwendungen und IT-Systeme – gemäß den festgelegten Informationssicherheitsrichtlinien eingerichtet und kontinuierlich gepflegt werden, um Sicherheitslücken durch fehlerhafte oder unsichere Einstellungen zu vermeiden.",
+        "text": "Praktik Konfiguration: IT-Komponenten gemäß Sicherheitsrichtlinien einrichten und pflegen, um Lücken durch unsichere Einstellungen zu vermeiden.",
+    },
+    "TEST": {
+        "original": "Die Praktik \"Änderungen und Tests\" stellt sicher, dass alle geplanten Veränderungen an Informationssystemen systematisch und kontrolliert ablaufen, um ungewollte Störungen, Sicherheitsrisiken oder Compliance-Verstöße zu vermeiden (Change Management).",
+        "text": "Praktik Änderungen und Tests: geplante Änderungen an Informationssystemen kontrolliert umsetzen (Change Management), ohne Störungen und Risiken.",
+    },
+    "REA": {
+        "original": "Die Praktik Sicherheitsvorfallsbehandlung sorgt dafür, dass Informationssicherheitsvorfälle effizient erkannt, gemeldet, analysiert und behoben werden, um Schäden zu minimieren und den Normalbetrieb so schnell wie möglich wiederherzustellen.",
+        "text": "Praktik Sicherheitsvorfallsbehandlung: Vorfälle effizient erkennen, melden, analysieren und beheben, um Schäden gering zu halten.",
+    },
+    "RISK": {
+        "original": "Risikomanagement ist ein systematischer, wiederkehrender Zyklus, mit dem Ziel, Risiken für die Vertraulichkeit, Integrität und Verfügbarkeit von Informationen zu identifizieren, zu bewerten, zu steuern und kontinuierlich zu überwachen.",
+        "text": "Risikomanagement als wiederkehrender Zyklus: Risiken für Vertraulichkeit, Integrität und Verfügbarkeit erkennen, bewerten, steuern und überwachen.",
+    },
+    "NOT": {
+        "original": "Die Notfallplanung stellt sicher, dass bei schwerwiegenden Störungen oder Krisen schnell und koordiniert reagiert wird, um den Fortbestand kritischer Geschäftsprozesse und die Wiederherstellung der betroffenen Systeme zu gewährleisten.",
+        "text": "Notfallplanung: bei schweren Störungen schnell und koordiniert reagieren, kritische Geschäftsprozesse sichern und Systeme wiederherstellen.",
+    },
+    "PERF": {
+        "original": "Die Praktik Monitoring-Evaluation stellt durch kontinuierliche Überwachung und systematische Bewertung sicher, dass die implementierten Sicherheitsmaßnahmen wirksam sind und die Sicherheitsziele der Organisation erreicht werden.",
+        "text": "Praktik Monitoring-Evaluation: durch laufende Überwachung und Bewertung prüfen, ob Sicherheitsmaßnahmen wirken und Ziele erreicht werden.",
+    },
+    "ARCH": {
+        "original": "Die Praktik Architektur definiert die grundlegende Struktur sowie die Sicherheitsprinzipien der IT-Infrastruktur und leitet daraus Anforderungen für einzelne IT-Komponenten ab – etwa für Anwendungen oder IT-Systeme.",
+        "text": "Praktik Architektur: Struktur und Sicherheitsprinzipien der IT-Infrastruktur festlegen und daraus Anforderungen für IT-Komponenten ableiten.",
+    },
+    "UMS": {
+        "original": "Die Praktik Umsetzung sorgt für die systematische Planung, Implementierung und Dokumentation von Anforderungen bzw. der Sicherheitsmaßnahmen, die aus der Strukturmodellierung und Risikobewertung abgeleitet wurden.",
+        "text": "Praktik Umsetzung: Anforderungen und Sicherheitsmaßnahmen aus Strukturmodellierung und Risikobewertung planen, umsetzen und dokumentieren.",
+    },
 }
 
 
@@ -1107,7 +1155,33 @@ def render_geschaeftsfuehrung_page(management, themenfelder, groups_by_id):
         "Regel nicht darunter. Diese Kriterien ersetzen keine "
         "Schutzbedarfsfeststellung — sie helfen nur bei der ersten "
         "Einordnung mit euren eigenen Zahlen.\n\n"
-        "*Primärquelle: [§ 28 BSIG](https://www.gesetze-im-internet.de/bsig_2025/BJNR12D0B0025.html).*\n\n",
+        # Ergaenzt 2026-10-14 nach Abgleich mit dem BSIG-Wortlaut und der
+        # BSI-FAQ (siehe die englische Seite operating-in-germany.mdx, dort
+        # dieselben Fundstellen). Vorher fehlten Konzernzaehlung,
+        # Zustaendigkeit und die Ausnahmen aus § 28 Abs. 5-7 -- letztere
+        # betreffen § 38 direkt, also genau die Pflicht, um die es auf dieser
+        # Seite geht.
+        "**Zuständigkeit.** Das BSI ist zuständig für besonders wichtige und "
+        "wichtige Einrichtungen, die in Deutschland niedergelassen sind "
+        "(§ 59 BSIG). Was „niedergelassen“ bedeutet, definiert das Gesetz "
+        "nicht.\n\n"
+        "**Zählweise im Konzern.** Beschäftigte, Umsatz und Bilanzsumme "
+        "richten sich nach der EU-Empfehlung 2003/361/EG; Daten von Partner- "
+        "und verbundenen Unternehmen werden hinzugerechnet, nach Auskunft des "
+        "BSI auch von solchen außerhalb Deutschlands und der EU. Ausgenommen "
+        "sind Einrichtungen, die bei Betrieb und Beschaffenheit ihrer "
+        "IT-Systeme, -Komponenten und -Prozesse unabhängig sind (§ 28 Abs. 4 "
+        "BSIG). Erfüllen Mutter und Tochter mit gemeinsamer IT gemeinsam die "
+        "Schwellen, gelten nach der BSI-FAQ beide als betroffen, vorbehaltlich "
+        "dieser Ausnahme.\n\n"
+        "**Ausnahmen.** Die §§ 30, 31, 32, 35, 36, 38 und 39 BSIG gelten nicht "
+        "für Finanzunternehmen im Sinne von Art. 2 Abs. 2 DORA und bestimmte "
+        "weitere Einrichtungen (§ 28 Abs. 5–7 BSIG). Prüft das für eure "
+        "Branche.\n\n"
+        "Ob ihr betroffen seid, bewertet ihr selbst; das BSI teilt es nicht "
+        "mit (BSI-FAQ).\n\n"
+        "*Primärquellen: [§§ 28, 59 BSIG](https://www.gesetze-im-internet.de/bsig_2025/BJNR12D0B0025.html), "
+        "[BSI NIS-2-FAQ](https://www.bsi.bund.de/DE/Themen/Regulierte-Wirtschaft/NIS-2-regulierte-Unternehmen/NIS-2-FAQ/NIS-2-FAQ-allgemein/FAQ-zu-NIS-2.html).*\n\n",
         "## Was schreibt das Gesetz meiner Geschäftsleitung vor? {#was-schreibt-das-gesetz-vor}\n\n"
         "Nach § 38 BSIG muss die Geschäftsleitung besonders wichtiger und "
         "wichtiger Einrichtungen die Risikomanagementmaßnahmen (§ 30 BSIG) "
@@ -1121,14 +1195,18 @@ def render_geschaeftsfuehrung_page(management, themenfelder, groups_by_id):
         "der eigenen Einrichtung**, nicht automatisch gegenüber Dritten. Für "
         "die GmbH gilt § 43 GmbHG (\"Sorgfalt eines ordentlichen "
         "Geschäftsmannes\", gesamtschuldnerische Haftung, Verjährung 5 "
-        "Jahre), für die AG § 93 AktG mit einem entlastenden Detail: keine "
-        "Pflichtverletzung liegt vor, wenn \"vernünftigerweise annehmen "
-        "durfte, auf der Grundlage angemessener Information zum Wohle der "
-        "Gesellschaft zu handeln\" (Business Judgment Rule, § 93 Abs. 1 Satz "
-        "2 AktG) — eine dokumentierte, informierte Entscheidung schützt. Ein "
-        "nachvollziehbarer, öffentlich anerkannter Katalog wie Grundschutz++ "
-        "ist genau das: ein Beleg für eine solche informierte Entscheidung, "
-        "keine Garantie gegen Haftung.\n\n"
+        "Jahre), für die AG § 93 AktG. Dort liegt keine Pflichtverletzung vor, "
+        "wenn das Vorstandsmitglied \"bei einer unternehmerischen Entscheidung "
+        "vernünftigerweise annehmen durfte, auf der Grundlage angemessener "
+        "Information zum Wohle der Gesellschaft zu handeln\" (Business "
+        "Judgment Rule, Abs. 1 Satz 2). Bei Streit über die Sorgfalt trifft "
+        "die Vorstandsmitglieder die Beweislast (Abs. 2 Satz 2), eine "
+        "nachvollziehbare Dokumentation ist deshalb praktisch wichtig. Ob die "
+        "Regel auch ein Absehen von einer gesetzlichen Pflicht wie § 38 BSIG "
+        "deckt, sagt der Gesetzestext nicht; das ist eine Auslegungsfrage für "
+        "die Rechtsberatung. Ein anerkannter, öffentlich nachvollziehbarer "
+        "Katalog wie Grundschutz++ kann helfen, die Auswahl und Umsetzung von "
+        "Maßnahmen zu begründen, ist aber keine Garantie gegen Haftung.\n\n"
         "*Primärquellen: [§ 43 GmbHG](https://www.gesetze-im-internet.de/gmbhg/__43.html), "
         "[§ 93 AktG](https://www.gesetze-im-internet.de/aktg/__93.html).*\n\n",
         render_aufwand_section(aufwand),
@@ -1635,11 +1713,23 @@ def main():
             include_heading=False,
         )
         summary = first_sentence(group_description(group))
+        meta_description = summary
+        override = DESCRIPTION_OVERRIDES.get(group["id"])
+        if override:
+            if override["original"] == summary:
+                meta_description = override["text"]
+            else:
+                print(
+                    f"WARNUNG: Katalogtext von {group['id']} weicht von dem ab, "
+                    "den DESCRIPTION_OVERRIDES ersetzt. Override wird nicht "
+                    "angewendet; neue Fassung pruefen und Override anpassen.",
+                    file=sys.stderr,
+                )
         page_title = f"{group['id']} – {group['title']}"
         frontmatter = (
             "---\n"
             f"title: {yaml_quote(page_title)}\n"
-            f"description: {yaml_quote(summary)}\n"
+            f"description: {yaml_quote(meta_description)}\n"
             "---\n\n"
         )
         write_mdx(OUT_DIR / f"{slug}.mdx", frontmatter, render_source_block(src) + body, section="Anforderung")
