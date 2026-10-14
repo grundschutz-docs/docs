@@ -1,0 +1,118 @@
+---
+title: If your company operates in Germany
+description: What Germany's NIS2 law (the BSIG) asks of companies established in Germany — who is covered, what is due and by when, what a violation costs, and where Grundschutz++ fits.
+---
+
+> This page is not legal advice. It sets out what the statute and the BSI's own FAQ say, with a source for every claim, so you can ask a lawyer better questions. Statute text is German; translations and paraphrases are ours and the German text governs. Read against the BSIG as in force since 6 December 2025, and the BSI's general NIS-2 FAQ, in October 2026.
+
+## The short version
+
+- **The law follows establishment in Germany, not your parent company's headquarters.** The BSI is the competent authority for covered entities "established in the Federal Republic of Germany" (§ 59 BSIG). A German subsidiary of a foreign group can be covered.
+- **Size is counted group-wide.** Headcount, turnover and balance sheet total include partner and affiliated companies, including those outside Germany and the EU, unless the entity is genuinely independent in how its IT systems and processes are run (§ 28 (4) BSIG; BSI FAQ).
+- **Nobody tells you.** You assess whether you are covered yourself; the BSI does not notify you.
+- **There is no general transition period.** Registration is due within three months of becoming covered; risk management and incident reporting apply from the start (BSI FAQ).
+- **Grundschutz is not mandatory.** The law requires a set of risk management measures. IT-Grundschutz, ISO 27001 and other frameworks are ways to build toward them, not substitutes for checking against the statute.
+
+## Are we covered?
+
+### Are we established in Germany?
+
+§ 59 BSIG makes the BSI the competent authority for particularly important and important entities that are established in Germany, and for operators of critical facilities whose facilities are in Germany. The BSIG text does not define "established" further. Whether a branch, a representative office or a German-registered subsidiary counts is a question for counsel, not something this page can settle.
+
+Two things are clearer:
+
+- **Operators of critical facilities (KRITIS)** stay in scope regardless of where their headquarters are, according to the BSI FAQ.
+- **Certain digital service types** follow a separate rule (§ 60 BSIG): DNS service providers, top-level domain registries, domain name registry service providers, cloud computing and data centre providers, content delivery networks, managed service providers, managed security service providers, online marketplaces, search engines and social network platforms. For these, the BSI is only competent if the company's main establishment in the EU is in Germany — or, if it has no establishment in the EU but offers services here, if the representative it must name is established in Germany. The BSI may also declare itself competent if no representative was named.
+
+We found nothing in the statute that brings an entity under the BSIG merely because it sells to customers in Germany from abroad, outside those § 60 service types. If that is your situation, ask a lawyer, and check the NIS2 law of the EU country where you are established.
+
+### Does our size and sector qualify?
+
+Two categories, by sector and size (§ 28 BSIG):
+
+<div class="table-scroll">
+<table class="bsig-table">
+<thead><tr><th>Category</th><th>Employees</th><th>or annual turnover</th><th>and annual balance sheet total</th><th>Sector</th></tr></thead>
+<tbody>
+<tr><td><strong>Particularly important entity</strong> (<em>besonders wichtige Einrichtung</em>)</td><td>250 or more</td><td>over €50 million</td><td>over €43 million</td><td>Annex 1</td></tr>
+<tr><td><strong>Important entity</strong> (<em>wichtige Einrichtung</em>)</td><td>50 or more</td><td>over €10 million</td><td>over €10 million</td><td>Annex 1 or 2</td></tr>
+</tbody>
+</table>
+</div>
+
+A few entities are covered regardless of size: operators of critical facilities, qualified trust service providers, top-level domain registries and DNS service providers (all particularly important), and non-qualified trust service providers (important). Telecommunications providers have their own thresholds (§ 28 (1) no. 3 and (2) no. 2).
+
+**Sectors in Annex 1:** energy; transport and traffic; finance; health; water; digital infrastructure; space. **Added in Annex 2:** postal and courier services; waste management; production and trade of chemicals; food; manufacturing; digital service providers; research. Each sector breaks down into specific entity types — check the annexes themselves, because the entity type is what decides, not the industry label.
+
+An activity that is negligible relative to your overall business can be disregarded when assigning an entity type (§ 28 (3)).
+
+### How the group counts
+
+This is where foreign-owned companies most often get surprised.
+
+- Size is computed under the EU Commission Recommendation 2003/361/EC (without Article 3(4) of its annex). Partner and affiliated companies are added in.
+- The BSI FAQ confirms affiliated companies **outside Germany and outside the EU are included**.
+- The only way out is § 28 (4) sentence 2: an entity is not aggregated with its group if, given the legal, economic and actual circumstances, it is **independent in the nature and operation of its IT systems, components and processes**. Shared IT with a parent points the other way.
+- If both parent and subsidiary fall within an entity type and meet the thresholds together, **both are covered** and both are subject to §§ 30 ff. (BSI FAQ), unless the independence exception above applies in the individual case.
+
+*Sources: [§ 28 BSIG](https://www.gesetze-im-internet.de/bsig_2025/BJNR12D0B0025.html), [BSI NIS-2 FAQ](https://www.bsi.bund.de/DE/Themen/Regulierte-Wirtschaft/NIS-2-regulierte-Unternehmen/NIS-2-FAQ/NIS-2-FAQ-allgemein/FAQ-zu-NIS-2.html) (German).*
+
+## What is due, and when
+
+<div class="table-scroll">
+<table class="bsig-table">
+<thead><tr><th>Duty</th><th>What the law says</th><th>Source</th></tr></thead>
+<tbody>
+<tr><td><strong>Register with the BSI</strong></td><td>Within three months of first (or again) becoming a particularly important or important entity. Changes to registered details within two weeks. Registration goes through a portal set up by the BSI.</td><td>§ 33 (1), (5) BSIG</td></tr>
+<tr><td><strong>Risk management measures</strong></td><td>Appropriate, proportionate and effective technical and organizational measures covering at least ten listed areas (risk analysis and IT security policies, incident handling, business continuity, supply chain security, secure acquisition/development/maintenance including vulnerability handling, measuring effectiveness, basic training, cryptography, personnel security and access control, multi-factor authentication and secure communications). Compliance must be documented.</td><td>§ 30 (1), (2) BSIG</td></tr>
+<tr><td><strong>Report significant incidents</strong></td><td>Early warning within 24 hours of becoming aware; incident report within 72 hours; final report within one month of that. The duty applies at the earliest once the reporting channel has been set up.</td><td>§ 32 (1) BSIG</td></tr>
+<tr><td><strong>Management duties</strong></td><td>The management must implement the § 30 measures and oversee their implementation, and must take part in training regularly.</td><td>§ 38 (1), (3) BSIG</td></tr>
+<tr><td><strong>Proof, on request</strong></td><td>Evidence of compliance is required when the BSI orders it. It can be documentation, audit reports or certifications. Operators of critical facilities have separate, regular proof duties (§ 39).</td><td>BSI FAQ; § 39 BSIG</td></tr>
+</tbody>
+</table>
+</div>
+
+Whether you are covered is your own assessment. The BSI does not notify anyone (BSI FAQ), but offers a non-binding self-check tool.
+
+Outsourcing does not move the responsibility. According to the BSI FAQ, an entity that has handed its IT to external providers remains responsible and must make sure the providers implement the requirements and that incidents are reported; contracts alone are not enough.
+
+*Sources: [§§ 30, 32, 33, 38 BSIG](https://www.gesetze-im-internet.de/bsig_2025/BJNR12D0B0025.html), BSI NIS-2 FAQ (German).*
+
+## What a violation costs
+
+Fines depend on the violation and on the category (§ 65 BSIG). The amounts are maxima ("up to").
+
+<div class="table-scroll">
+<table class="bsig-table">
+<thead><tr><th>Violation</th><th>Particularly important entity</th><th>Important entity</th></tr></thead>
+<tbody>
+<tr><td>Not taking, or not documenting, the § 30 risk management measures; missing, incorrect, incomplete or late incident reports (§ 32); certain notices to service recipients (§ 35 (2))</td><td>up to €10 million</td><td>up to €7 million</td></tr>
+<tr><td>Failing to register or to submit registration details correctly and on time (§§ 33, 34)</td><td colspan="2">up to €500,000</td></tr>
+</tbody>
+</table>
+</div>
+
+For a particularly important or important entity whose **group turnover worldwide exceeds €500 million**, the cap for the first row can instead be **2 percent** (particularly important) or **1.4 percent** (important) of that turnover (§ 65 (6), (7)). "Turnover" here means the worldwide turnover of the company group the entity belongs to, and it may be estimated (§ 65 (8)). The statute says the fine "may" reach these amounts; it does not say every violation will.
+
+Management liability is separate: breaching the § 38 duties makes the management liable **to its own entity** for culpably caused damage, under the company law that applies to the entity's legal form (§ 38 (2) BSIG). The BSIG creates its own liability only if company law provides none. See [the German page for executives](/rollen/geschaeftsfuehrung/) for the GmbH and AG rules.
+
+*Source: [§ 65 BSIG](https://www.gesetze-im-internet.de/bsig_2025/BJNR12D0B0025.html) (German).*
+
+## Where Grundschutz++ fits
+
+**It is not required.** The BSI says in its FAQ that IT-Grundschutz is not mandatory for everyone covered by NIS2. An existing Grundschutz-based management system can be a valuable foundation, but it has to be checked against the statutory catalog of measures in § 30 and supplemented where needed. The same applies to ISO 27001: a certification can make the proof easier, and a company certification alone does not meet all requirements of the law.
+
+**What it is good for.** § 30 says the measures should follow the state of the art and take relevant European and international standards into account. Grundschutz++ is a structured, public, machine-readable catalog of security requirements with a stated obligation level (MUSS/SOLLTE/KANN) for each. If you need to show how you derived your measures, a recognized catalog is a defensible starting point. It does not tell you whether you are covered, and following it does not by itself satisfy § 30.
+
+This site renders the catalog readably and is **independent and not an official BSI offering**. The requirements themselves are in German for now: [browse the catalog](/grundschutzpp/).
+
+## What we have not settled
+
+- Whether a branch or representative office in Germany counts as "established" under § 59.
+- How the NIS2 laws of other EU countries apply if you operate in several of them. The BSI FAQ says the BSIG does not require you to merge different national requirements into one management system, and leaves that to you.
+- The exact reporting channel and its start date for § 32. The statute ties the duty to the channel being set up; check the BSI's current notices.
+
+## Sources
+
+- [BSIG, as in force since 6 December 2025](https://www.gesetze-im-internet.de/bsig_2025/BJNR12D0B0025.html) — §§ 28, 30, 32, 33, 34, 38, 59, 60, 65 and Annexes 1 and 2 (German)
+- [BSI: NIS-2 FAQ](https://www.bsi.bund.de/DE/Themen/Regulierte-Wirtschaft/NIS-2-regulierte-Unternehmen/NIS-2-FAQ/NIS-2-FAQ-allgemein/FAQ-zu-NIS-2.html) (German)
