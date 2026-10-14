@@ -17,6 +17,12 @@ const PAGE_TITLE_ID = 'starlight__hero';
 // einer anderen Seite soll den Vergleich nicht ungefragt erben.
 const isLandingPage = Astro.url.pathname === '/';
 
+// Die englische Startseite zeigt weder Zahlenleiste noch Katalog-Vorschau,
+// aber die Herkunftszeile braucht sie genauso: für die englische Zielgruppe
+// ist "Grundschutz++" im Titel noch eher als offizielles Angebot lesbar, und
+// der Hinweis stand bisher nur weiter unten im Fließtext.
+const isEnglishLanding = Astro.url.pathname === '/en/';
+
 const { data } = Astro.locals.starlightRoute.entry;
 const { siteTitle } = Astro.locals.starlightRoute;
 // Fällt auf siteTitle (aus SITE_NAME in astro.config.mjs) zurück statt auf die
@@ -90,6 +96,14 @@ if (image) {
 				<p class="provenance">
 					Unabhängiges Projekt, kein Angebot des BSI.{' '}
 					<a href="/ueber/">Wer dahintersteht</a>
+				</p>
+			)
+		}
+		{
+			isEnglishLanding && (
+				<p class="provenance">
+					Independent project, not an official BSI offering.{' '}
+					<a href="/en/ueber/">Who is behind it</a>
 				</p>
 			)
 		}
