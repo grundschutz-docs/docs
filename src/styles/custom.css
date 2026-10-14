@@ -366,6 +366,10 @@ site-search dialog::backdrop {
 /* Übersichtsseite: Karten statt unterstrichener Linkliste */
 .practice-index {
 	display: grid;
+	/* minmax(0, 1fr) statt des Standard-auto: ein Grid-Eintrag lässt sich
+	   sonst nicht unter die Breite seines längsten unbrechbaren Worts
+	   schrumpfen und lief bei 320px um 36px über den Viewport. */
+	grid-template-columns: minmax(0, 1fr);
 	gap: 0.75rem;
 	padding: 0;
 	margin: 1.5rem 0 2.5rem;

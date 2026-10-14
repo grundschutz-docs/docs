@@ -505,6 +505,33 @@ const effortInfo = effort ? EFFORT[effort] : undefined;
 		transform: translateY(0);
 	}
 
+	/* Schmale Bildschirme: Tooltip als Kasten am unteren Bildschirmrand statt
+	   unter der Pille. Die Box ist bis 16rem breit und hängt an der linken
+	   Kante ihrer Pille; bei Pillen am rechten Rand ragte sie über den
+	   Viewport. Unsichtbar (visibility: hidden) zählt sie trotzdem zur
+	   scrollbaren Breite -- die Seite ließ sich auf dem Handy seitlich
+	   verschieben (gemessen 2026-10-14, bis 67px, 17 von 21 Katalogseiten).
+	   position: fixed wirkt nicht auf die Dokumentbreite und macht den Text
+	   auf kleinen Geräten vollständig lesbar. Die Pfeilspitze entfällt, sie
+	   würde auf eine Box zeigen, die nicht mehr an der Pille hängt.
+	   50rem ist Starlights Grenze zwischen mobilem und Desktop-Layout. */
+	@media (max-width: 50rem) {
+		.pill[data-tooltip]::after {
+			position: fixed;
+			inset-block-start: auto;
+			inset-block-end: 1rem;
+			inset-inline: 1rem;
+			width: auto;
+			max-width: none;
+			transform: translateY(8px);
+			font-size: var(--sl-text-sm);
+		}
+
+		.pill[data-tooltip]::before {
+			display: none;
+		}
+	}
+
 	@media (prefers-reduced-motion: reduce) {
 		.pill[data-tooltip]::after,
 		.pill[data-tooltip]::before {
