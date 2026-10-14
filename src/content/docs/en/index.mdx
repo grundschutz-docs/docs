@@ -29,10 +29,15 @@ hero:
   # a German customer just made this not-optional. "For you" would be the
   # literal translation; it would also be wrong about why they're reading.
   tagline: Germany's BSI delivers these requirements for machines. We translate them for the people who actually have to meet them.
+  # Primary action is the page written for this audience; the catalog
+  # button stays, but says outright that it lands on German pages.
   actions:
-    - text: Browse the requirements
-      link: /grundschutzpp/
+    - text: Does this apply to you?
+      link: /en/operating-in-germany/
       icon: right-arrow
+    - text: Browse the requirements (German)
+      link: /grundschutzpp/
+      variant: minimal
 ---
 
 <div class="stat-row">
@@ -75,6 +80,11 @@ it replaces.
 ## Explore the catalog
 
 <div class="role-picker">
+	<a class="role-card" href="/en/operating-in-germany/">
+		<span class="role-kicker">English</span>
+		<h3>Operating in Germany</h3>
+		<p>Does Germany's NIS2 law apply to you, what is due and by when, and what a violation costs.</p>
+	</a>
 	<a class="role-card" href="/grundschutzpp/">
 		<span class="role-kicker">German</span>
 		<h3>The full catalog</h3>
@@ -92,8 +102,9 @@ it replaces.
 	</a>
 </div>
 
-Right now, only this overview page exists in English — follow any of
-the three links above and you land on the German version; the site
+Right now, this overview, the page on operating in Germany and a few
+site pages exist in English — follow any of the other three links above
+and you land on the German version; the site
 tells you plainly when that happens, rather than quietly showing you a
 stub. More on why this project exists under
 [About this site](/ueber/).
