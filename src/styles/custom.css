@@ -640,6 +640,17 @@ site-search dialog::backdrop {
 	white-space: nowrap;
 }
 
+/* Für Tabellen mit Fließtext in den Zellen (englische Seite
+   operating-in-germany). nowrap oben ist für kurze Zahlenzellen gedacht;
+   bei langen Sätzen läuft der Text sonst aus der Zelle und die rechten
+   Spalten (Quelle, Bußgeldhöhe) sind nur durch Seitwärtsscrollen sichtbar.
+   Nur per Klasse zugeschaltet, damit die deutschen Zahlentabellen
+   unverändert bleiben. */
+.bsig-table.bsig-table-text th,
+.bsig-table.bsig-table-text td {
+	white-space: normal;
+}
+
 /* Die Operatoren tragen die Bedingungslogik, deshalb sind die Spaltenköpfe
    hier Inhalt und nicht Beschriftung. */
 .bsig-table th {
