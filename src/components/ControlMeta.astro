@@ -338,6 +338,28 @@ const effortInfo = effort ? EFFORT[effort] : undefined;
 		text-decoration-color: currentColor;
 	}
 
+	/* Auf dem Handy darf der Link umbrechen ("im Vergleich / ansehen"). Mit
+	   nowrap war die Zelle breiter als der Bildschirm und der Text kam abge-
+	   schnitten an ("im Vergleich anse") -- die Tabelle musste seitlich
+	   gescrollt werden, um den Link ganz zu sehen (gemessen 2026-10-14).
+	   50rem wie beim Tooltip-Block weiter unten. */
+	@media (max-width: 50rem) {
+		.predecessor-vergleich-link {
+			white-space: normal;
+		}
+	}
+
+	/* Unter ca. 22rem (iPhone SE der ersten Generation, 320px) reicht auch
+	   das nicht: die mittlere Spalte richtet sich nach der längsten Pille
+	   aller Zeilen, die Summe der Spalten war 28px breiter als der Platz
+	   und der Link kam wieder abgeschnitten an. Weniger Zellenabstand holt
+	   den Rest zurück. */
+	@media (max-width: 22rem) {
+		.predecessors-table td {
+			padding-inline-end: 0.5rem;
+		}
+	}
+
 	.pill:focus-visible {
 		outline: 2px solid var(--sl-color-accent);
 		outline-offset: 2px;
