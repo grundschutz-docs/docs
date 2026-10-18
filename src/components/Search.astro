@@ -14,6 +14,7 @@
 // Code fuer Tastatur/Fokus/ARIA, den neu zu schreiben nur Risiko ohne
 // Nutzen waere. Ersetzt wurde ausschliesslich der Inhalt des Dialogs.
 import project from 'virtual:starlight/project-context';
+import bausteine from '../data/bausteine.json';
 
 const dataAttributes: DOMStringMap = {};
 if (project.trailingSlash === 'never') dataAttributes['data-strip-trailing-slash'] = '';
@@ -150,6 +151,31 @@ const resultTemplate = `
 									<button type="button" class="gs-chip" data-query="MUSS">MUSS-Anforderungen</button>
 								</div>
 							)}
+							{/* Direktsprung bei einer eingetippten alten Baustein-ID. Pagefind
+							    zerlegt "inf 2" und "OPS 1.1.5" in Woerter und trifft dann
+							    die falsche Seite (Suchen aus der Search Console, Stand
+							    2026-10-18). Die Eintraege stehen fertig im Template, damit das
+							    gescopte CSS greift; das Script unten fuellt ihn. Ein einziger Eintrag
+							    statt 94 versteckter: die waeren 41 KB mehr auf jeder Seite. Nur
+							    deutsch: die Vergleichsseiten gibt es nicht auf Englisch. */}
+							{!isEnglish && (
+								<ul
+									class="gs-direct"
+									id="gs-direct"
+									aria-label="Direkt zum Baustein"
+									data-bausteine={JSON.stringify(bausteine.map((b) => [b.id, b.title, b.slug]))}
+								>
+									<li class="gs-result" hidden>
+										<div class="gs-result-card">
+											<span class="gs-result-type" data-section="Vergleich">Vergleich</span>
+											<p class="gs-result-title">
+												<a class="gs-result-link" href="/vergleich/"></a>
+											</p>
+											<p class="gs-result-excerpt">Nachfolge in Grundschutz++ ansehen</p>
+										</div>
+									</li>
+								</ul>
+							)}
 							<pagefind-results set:html={`<script type="text/pagefind-template">${resultTemplate}<\/script>`} />
 							<pagefind-keyboard-hints />
 						</div>
@@ -242,6 +268,37 @@ const resultTemplate = `
 	}
 
 	customElements.define('site-search', SiteSearch);
+</script>
+
+<script>
+	// Zeigt den Direktsprung, wenn das Suchfeld (in beliebiger Schreibweise)
+	// genau eine Baustein-ID enthaelt: "OPS.1.1.5", "ops 1.1.5" und "ops115"
+	// sind dieselbe Eingabe. Mindestens eine Ziffer, sonst waere schon
+	// "inf" ein Treffer-Kandidat.
+	const wrap = document.getElementById('gs-search');
+	const direct = document.getElementById('gs-direct');
+	const item = direct?.querySelector<HTMLLIElement>('li');
+	const link = item?.querySelector<HTMLAnchorElement>('a');
+	if (wrap && direct && item && link) {
+		const normalize = (s: string) => s.toLowerCase().replace(/[^a-z0-9]/g, '');
+		const byId = new Map<string, [string, string, string]>(
+			(JSON.parse(direct.dataset.bausteine ?? '[]') as [string, string, string][]).map((b) => [
+				normalize(b[0]),
+				b,
+			]),
+		);
+		wrap.addEventListener('input', (event) => {
+			const target = event.target;
+			if (!(target instanceof HTMLInputElement)) return;
+			const q = normalize(target.value);
+			const hit = /\d/.test(q) ? byId.get(q) : undefined;
+			item.hidden = !hit;
+			if (hit) {
+				link.href = `/vergleich/${hit[2]}/`;
+				link.textContent = `${hit[0]} ${hit[1]}`;
+			}
+		});
+	}
 </script>
 
 <script define:vars={{ bundlePath: `${import.meta.env.BASE_URL.replace(/\/$/, '')}/pagefind/`, isDev }}>
@@ -540,6 +597,15 @@ const resultTemplate = `
 			flex-wrap: wrap;
 			align-items: center;
 			gap: 0.5rem;
+		}
+
+		.gs-direct {
+			list-style: none;
+			margin: 0 0 0.75rem;
+			padding: 0;
+		}
+		.gs-direct > [hidden] {
+			display: none;
 		}
 
 		.gs-suggestions-label {

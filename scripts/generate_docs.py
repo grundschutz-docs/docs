@@ -505,6 +505,29 @@ def write_landing_data(catalog, control_index, by_baustein, all_mappings, params
     return data["stats"]
 
 
+def write_bausteine_data(by_baustein, baustein_links):
+    """ID, Titel und Seite der Bausteine mit Vergleichsseite fuer die Suche.
+
+    Search.astro springt damit bei einer eingetippten alten Baustein-ID
+    direkt auf die Vergleichsseite. Pagefind allein trifft "inf 2" oder
+    "OPS 1.1.5" nicht zuverlaessig, weil es an Leerzeichen und Punkten in
+    Woerter zerlegt.
+    """
+    data = [
+        {
+            "id": baustein_id,
+            "title": baustein_title(baustein_id, baustein_links.get(baustein_id)),
+            "slug": baustein_slug(baustein_id),
+        }
+        for baustein_id in sorted(by_baustein)
+    ]
+    DATA_OUT_DIR.mkdir(parents=True, exist_ok=True)
+    (DATA_OUT_DIR / "bausteine.json").write_text(
+        json.dumps(data, indent="\t", ensure_ascii=False) + "\n"
+    )
+    return data
+
+
 def build_control_index(catalog):
     """control-id -> {slug, title} der Gruppenseite, auf der das Control steht.
 
@@ -923,6 +946,19 @@ def check_invariants(catalog, control_index, muss_controls, by_baustein):
             f"landing.json nennt {landing['mappings']} Zuordnungen, "
             f"auf den Seiten stehen {expected_rows}"
         )
+
+    # 9. bausteine.json (Direktsprung der Suche) gegen die geschriebenen
+    # Vergleichsseiten: jede Seite hat genau einen Eintrag, jeder Eintrag eine
+    # Seite, und der Titel steht so auch auf der Seite. Sonst fuehrt der
+    # Direktsprung ins Leere oder nennt einen anderen Titel als die Seite.
+    bausteine = json.loads((DATA_OUT_DIR / "bausteine.json").read_text())
+    seiten = {p.stem: p for p in VERGLEICH_OUT_DIR.glob("*.mdx") if p.name != "index.mdx"}
+    if {b["slug"] for b in bausteine} != set(seiten):
+        problems.append("bausteine.json und die Vergleichsseiten nennen verschiedene Bausteine")
+    for b in bausteine:
+        seite = seiten.get(b["slug"])
+        if seite and f'title: "{b["id"]} {b["title"]}"' not in seite.read_text():
+            problems.append(f"bausteine.json: Titel von {b['id']} weicht von der Seite ab")
 
     # 8. Aus den geschriebenen Rollenseiten zurueckgelesen: die expliziten
     # Anker sind da. Pruefung 4 deckt nur die Katalogseiten ab -- genau
@@ -1823,7 +1859,7 @@ def main():
         catalog, control_index, by_baustein, all_mappings, params_by_id, baustein_links
     )
     write_status_data()
-
+    write_bausteine_data(by_baustein, baustein_links)
 
     # Rollenbasierte Einstiegsseiten (ADR-0007) -- aus denselben Gruppen-
     # Listen wie oben, keine eigene Zielgruppen-Einstufung im Katalog nötig.

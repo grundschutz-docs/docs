@@ -1,0 +1,472 @@
+[
+	{
+		"id": "APP.1.1",
+		"title": "Office-Produkte",
+		"slug": "app-1-1"
+	},
+	{
+		"id": "APP.1.2",
+		"title": "Webbrowser",
+		"slug": "app-1-2"
+	},
+	{
+		"id": "APP.1.4",
+		"title": "Mobile Anwendungen (Apps)",
+		"slug": "app-1-4"
+	},
+	{
+		"id": "APP.2.1",
+		"title": "Allgemeiner Verzeichnisdienst",
+		"slug": "app-2-1"
+	},
+	{
+		"id": "APP.2.2",
+		"title": "Active Directory Domain Services",
+		"slug": "app-2-2"
+	},
+	{
+		"id": "APP.3.1",
+		"title": "Webanwendungen und Webservices",
+		"slug": "app-3-1"
+	},
+	{
+		"id": "APP.3.2",
+		"title": "Webserver",
+		"slug": "app-3-2"
+	},
+	{
+		"id": "APP.3.3",
+		"title": "Fileserver",
+		"slug": "app-3-3"
+	},
+	{
+		"id": "APP.3.4",
+		"title": "Samba",
+		"slug": "app-3-4"
+	},
+	{
+		"id": "APP.3.6",
+		"title": "DNS-Server",
+		"slug": "app-3-6"
+	},
+	{
+		"id": "APP.4.2",
+		"title": "SAP-ERP-System",
+		"slug": "app-4-2"
+	},
+	{
+		"id": "APP.4.3",
+		"title": "Relationale Datenbanken",
+		"slug": "app-4-3"
+	},
+	{
+		"id": "APP.4.4",
+		"title": "Kubernetes",
+		"slug": "app-4-4"
+	},
+	{
+		"id": "APP.4.6",
+		"title": "SAP ABAP-Programmierung",
+		"slug": "app-4-6"
+	},
+	{
+		"id": "APP.5.2",
+		"title": "Microsoft Exchange und Outlook",
+		"slug": "app-5-2"
+	},
+	{
+		"id": "APP.5.3",
+		"title": "Allgemeiner E-Mail-Client und -Server",
+		"slug": "app-5-3"
+	},
+	{
+		"id": "APP.5.4",
+		"title": "Unified Communications und Collaboration (UCC)",
+		"slug": "app-5-4"
+	},
+	{
+		"id": "APP.6",
+		"title": "Allgemeine Software",
+		"slug": "app-6"
+	},
+	{
+		"id": "APP.7",
+		"title": "Entwicklung von Individualsoftware",
+		"slug": "app-7"
+	},
+	{
+		"id": "CON.1",
+		"title": "Kryptokonzept",
+		"slug": "con-1"
+	},
+	{
+		"id": "CON.10",
+		"title": "Entwicklung von Webanwendungen",
+		"slug": "con-10"
+	},
+	{
+		"id": "CON.11.1",
+		"title": "Geheimschutz VS-NUR FÜR DEN DIENSTGEBRAUCH (VS-NfD)",
+		"slug": "con-11-1"
+	},
+	{
+		"id": "CON.7",
+		"title": "Informationssicherheit auf Auslandsreisen",
+		"slug": "con-7"
+	},
+	{
+		"id": "CON.8",
+		"title": "Software-Entwicklung",
+		"slug": "con-8"
+	},
+	{
+		"id": "CON.9",
+		"title": "Informationsaustausch",
+		"slug": "con-9"
+	},
+	{
+		"id": "DER.1",
+		"title": "Detektion von sicherheitsrelevanten Ereignissen",
+		"slug": "der-1"
+	},
+	{
+		"id": "DER.2.1",
+		"title": "Behandlung von Sicherheitsvorfällen",
+		"slug": "der-2-1"
+	},
+	{
+		"id": "DER.2.2",
+		"title": "Vorsorge für die IT-Forensik",
+		"slug": "der-2-2"
+	},
+	{
+		"id": "DER.2.3",
+		"title": "Bereinigung weitreichender Sicherheitsvorfälle",
+		"slug": "der-2-3"
+	},
+	{
+		"id": "DER.3.1",
+		"title": "Audits und Revisionen",
+		"slug": "der-3-1"
+	},
+	{
+		"id": "DER.3.2",
+		"title": "Revisionen auf Basis des Leitfadens IS-Revision",
+		"slug": "der-3-2"
+	},
+	{
+		"id": "DER.4",
+		"title": "Notfallmanagement",
+		"slug": "der-4"
+	},
+	{
+		"id": "IND.1",
+		"title": "Prozessleit- und Automatisierungstechnik",
+		"slug": "ind-1"
+	},
+	{
+		"id": "IND.2.1",
+		"title": "Allgemeine ICS-Komponente",
+		"slug": "ind-2-1"
+	},
+	{
+		"id": "IND.2.4",
+		"title": "Maschine",
+		"slug": "ind-2-4"
+	},
+	{
+		"id": "IND.2.7",
+		"title": "Safety Instrumented Systems",
+		"slug": "ind-2-7"
+	},
+	{
+		"id": "IND.3.2",
+		"title": "Fernwartung im industriellen Umfeld",
+		"slug": "ind-3-2"
+	},
+	{
+		"id": "INF.1",
+		"title": "Allgemeines Gebäude",
+		"slug": "inf-1"
+	},
+	{
+		"id": "INF.10",
+		"title": "Besprechungs-, Veranstaltungs- und Schulungsräume",
+		"slug": "inf-10"
+	},
+	{
+		"id": "INF.11",
+		"title": "Allgemeines Fahrzeug",
+		"slug": "inf-11"
+	},
+	{
+		"id": "INF.12",
+		"title": "Verkabelung",
+		"slug": "inf-12"
+	},
+	{
+		"id": "INF.13",
+		"title": "Technisches Gebäudemanagement",
+		"slug": "inf-13"
+	},
+	{
+		"id": "INF.14",
+		"title": "Gebäudeautomation",
+		"slug": "inf-14"
+	},
+	{
+		"id": "INF.2",
+		"title": "Rechenzentrum sowie Serverraum",
+		"slug": "inf-2"
+	},
+	{
+		"id": "INF.8",
+		"title": "Häuslicher Arbeitsplatz",
+		"slug": "inf-8"
+	},
+	{
+		"id": "ISMS.1",
+		"title": "Sicherheitsmanagement",
+		"slug": "isms-1"
+	},
+	{
+		"id": "NET.1.1",
+		"title": "Netzarchitektur und -design",
+		"slug": "net-1-1"
+	},
+	{
+		"id": "NET.1.2",
+		"title": "Netzmanagement",
+		"slug": "net-1-2"
+	},
+	{
+		"id": "NET.2.1",
+		"title": "WLAN-Betrieb",
+		"slug": "net-2-1"
+	},
+	{
+		"id": "NET.2.2",
+		"title": "WLAN-Nutzung",
+		"slug": "net-2-2"
+	},
+	{
+		"id": "NET.3.1",
+		"title": "Router und Switches",
+		"slug": "net-3-1"
+	},
+	{
+		"id": "NET.3.2",
+		"title": "Firewall",
+		"slug": "net-3-2"
+	},
+	{
+		"id": "NET.3.3",
+		"title": "VPN",
+		"slug": "net-3-3"
+	},
+	{
+		"id": "NET.3.4",
+		"title": "Network Access Control (NAC)",
+		"slug": "net-3-4"
+	},
+	{
+		"id": "NET.4.1",
+		"title": "TK-Anlagen",
+		"slug": "net-4-1"
+	},
+	{
+		"id": "NET.4.2",
+		"title": "VoIP",
+		"slug": "net-4-2"
+	},
+	{
+		"id": "OPS.1.1.1",
+		"title": "Allgemeiner IT-Betrieb",
+		"slug": "ops-1-1-1"
+	},
+	{
+		"id": "OPS.1.1.2",
+		"title": "Ordnungsgemäße IT-Administration",
+		"slug": "ops-1-1-2"
+	},
+	{
+		"id": "OPS.1.1.3",
+		"title": "Patch- und Änderungsmanagement",
+		"slug": "ops-1-1-3"
+	},
+	{
+		"id": "OPS.1.1.4",
+		"title": "Schutz vor Schadprogrammen",
+		"slug": "ops-1-1-4"
+	},
+	{
+		"id": "OPS.1.1.5",
+		"title": "Protokollierung",
+		"slug": "ops-1-1-5"
+	},
+	{
+		"id": "OPS.1.1.6",
+		"title": "Software-Tests und -Freigaben",
+		"slug": "ops-1-1-6"
+	},
+	{
+		"id": "OPS.1.1.7",
+		"title": "Systemmanagement",
+		"slug": "ops-1-1-7"
+	},
+	{
+		"id": "OPS.1.2.2",
+		"title": "Archivierung",
+		"slug": "ops-1-2-2"
+	},
+	{
+		"id": "OPS.1.2.5",
+		"title": "Fernwartung",
+		"slug": "ops-1-2-5"
+	},
+	{
+		"id": "OPS.1.2.6",
+		"title": "NTP-Zeitsynchronisation",
+		"slug": "ops-1-2-6"
+	},
+	{
+		"id": "OPS.2.2",
+		"title": "Cloud-Nutzung",
+		"slug": "ops-2-2"
+	},
+	{
+		"id": "OPS.2.3",
+		"title": "Nutzung von Outsourcing",
+		"slug": "ops-2-3"
+	},
+	{
+		"id": "OPS.3.2",
+		"title": "Anbieten von Outsourcing",
+		"slug": "ops-3-2"
+	},
+	{
+		"id": "ORP.1",
+		"title": "Organisation",
+		"slug": "orp-1"
+	},
+	{
+		"id": "ORP.2",
+		"title": "Personal",
+		"slug": "orp-2"
+	},
+	{
+		"id": "ORP.3",
+		"title": "Sensibilisierung und Schulung zur Informationssicherheit",
+		"slug": "orp-3"
+	},
+	{
+		"id": "ORP.5",
+		"title": "Compliance Management (Anforderungsmanagement)",
+		"slug": "orp-5"
+	},
+	{
+		"id": "SYS.1.1",
+		"title": "Allgemeiner Server",
+		"slug": "sys-1-1"
+	},
+	{
+		"id": "SYS.1.2.3",
+		"title": "Windows Server",
+		"slug": "sys-1-2-3"
+	},
+	{
+		"id": "SYS.1.5",
+		"title": "Virtualisierung",
+		"slug": "sys-1-5"
+	},
+	{
+		"id": "SYS.1.6",
+		"title": "Containerisierung",
+		"slug": "sys-1-6"
+	},
+	{
+		"id": "SYS.1.7",
+		"title": "IBM Z",
+		"slug": "sys-1-7"
+	},
+	{
+		"id": "SYS.1.8",
+		"title": "Speicherlösungen",
+		"slug": "sys-1-8"
+	},
+	{
+		"id": "SYS.1.9",
+		"title": "Terminalserver",
+		"slug": "sys-1-9"
+	},
+	{
+		"id": "SYS.2.1",
+		"title": "Allgemeiner Client",
+		"slug": "sys-2-1"
+	},
+	{
+		"id": "SYS.2.2.3",
+		"title": "Clients unter Windows",
+		"slug": "sys-2-2-3"
+	},
+	{
+		"id": "SYS.2.3",
+		"title": "Clients unter Linux und Unix",
+		"slug": "sys-2-3"
+	},
+	{
+		"id": "SYS.2.5",
+		"title": "Client-Virtualisierung",
+		"slug": "sys-2-5"
+	},
+	{
+		"id": "SYS.2.6",
+		"title": "Virtual Desktop Infrastructure",
+		"slug": "sys-2-6"
+	},
+	{
+		"id": "SYS.3.1",
+		"title": "Laptops",
+		"slug": "sys-3-1"
+	},
+	{
+		"id": "SYS.3.2.1",
+		"title": "Allgemeine Smartphones und Tablets",
+		"slug": "sys-3-2-1"
+	},
+	{
+		"id": "SYS.3.2.2",
+		"title": "Mobile Device Management (MDM)",
+		"slug": "sys-3-2-2"
+	},
+	{
+		"id": "SYS.3.2.4",
+		"title": "Android",
+		"slug": "sys-3-2-4"
+	},
+	{
+		"id": "SYS.3.3",
+		"title": "Mobiltelefon",
+		"slug": "sys-3-3"
+	},
+	{
+		"id": "SYS.4.1",
+		"title": "Drucker, Kopierer und Multifunktionsgeräte",
+		"slug": "sys-4-1"
+	},
+	{
+		"id": "SYS.4.3",
+		"title": "Eingebettete Systeme",
+		"slug": "sys-4-3"
+	},
+	{
+		"id": "SYS.4.4",
+		"title": "Allgemeines IoT-Gerät",
+		"slug": "sys-4-4"
+	},
+	{
+		"id": "SYS.4.5",
+		"title": "Wechseldatenträger",
+		"slug": "sys-4-5"
+	}
+]
