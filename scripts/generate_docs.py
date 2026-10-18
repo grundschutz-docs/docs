@@ -77,10 +77,22 @@ PDCA_CYCLE_IMPORT = "import PdcaCycle from '../../../components/PdcaCycle.astro'
 
 PARAM_RE = re.compile(r"\{\{\s*insert:\s*param,\s*([a-zA-Z0-9._-]+)\s*\}\}")
 
-# Zeitplan laut BSI-Fahrplan (Pilotphase, it-sa-Termin) und Fachpublikationen
-# (Übergangsfrist/Ablösung — vom BSI noch nicht mit einem fixen Datum bestätigt,
-# daher als "geplant" ausgewiesen). Gleiche Quelle wie im OSS-Repo.
-#     (start, end, label_de, detail_de, label_en, detail_en)
+# Zeitplan nach dem Meilensteinplan des BSI ("Meilensteinplan (Stand Oktober
+# 2026)" auf BSI_MEILENSTEINE_URL), die it-sa-Daten zusaetzlich nach BSIs
+# it-sa-Seite. Geprueft am 2026-10-18 gegen den Rohtext beider Seiten.
+#
+# Nur Termine, die das BSI selbst nennt. Frueher standen hier "Uebergangsphase
+# 04/2026 - 12/2029" und "Ablösung ab 01/2029" aus Fachpublikationen -- beide
+# Daten stehen beim BSI nicht (es nennt die Uebergangszeit nur "mehrjaehrig",
+# ohne Enddatum), und die 12/2029 stand als Banner ueber jeder Seite. Das BSI
+# passt den Plan laufend an: vor jeder Aenderung hier die Quelle neu lesen
+# und BSI_MEILENSTEINE_STAND setzen.
+#     (start, end, label_de, detail_de, label_en, detail_en, range_text, banner)
+#
+# range_text ersetzt die aus start/end berechnete Anzeige (z. B. wenn das BSI
+# nur "1. Quartal 2027" nennt oder die Uebergangszeit kein Enddatum hat).
+# start/end steuern dann nur "laeuft" und den Banner. banner=False: Meilensteine,
+# die nicht als "Grundschutz++ ist in ..." im Banner stehen sollen.
 #
 # English fields only back the sitewide Banner.astro status strip (shown on
 # /en/ pages too) -- the zeitplan page itself (render_timeline()) stays
@@ -88,31 +100,82 @@ PARAM_RE = re.compile(r"\{\{\s*insert:\s*param,\s*([a-zA-Z0-9._-]+)\s*\}\}")
 # next to the German text it belongs to is what stops it from drifting out
 # of sync the way the banner's old hand-written text once did (see
 # write_status_data()'s docstring).
+#
+# Reihenfolge = Anzeigereihenfolge. Bei gleich langen laufenden Phasen gewinnt
+# im Banner der spaetere Eintrag, darum steht die Uebergangszeit (Auffang
+# fuer alle Luecken, ohne Enddatum) ganz am Ende.
+BSI_MEILENSTEINE_URL = (
+    "https://www.bsi.bund.de/DE/Themen/Unternehmen-und-Organisationen/"
+    "Standards-und-Zertifizierung/Grundschutz-in-der-Informationssicherheit/"
+    "Grundschutz-Plus-Plus/grundschutz-plus-plus_node.html"
+)
+BSI_MEILENSTEINE_STAND = "18.10.2026"
 TIMELINE = [
     (
-        date(2026, 4, 1), date(2026, 9, 30),
-        "Pilotphase", "Grundschutz++ wird mit Pilotpartnern erprobt.",
-        "pilot phase", "Grundschutz++ is being tested with pilot partners.",
+        date(2026, 4, 1), date(2026, 8, 31),
+        "Pilotierungsphase", "Pilotpartner aus Verwaltung und Wirtschaft erproben die Methodik.",
+        "pilot phase", "Pilot partners from public administration and industry are testing the methodology.",
+        None, True,
+    ),
+    (
+        date(2026, 9, 1), date(2026, 10, 26),
+        "Weiterentwicklung nach der Pilotierung",
+        "Die Erkenntnisse aus der Erprobung fließen in die Methodik ein. Sie soll am 27.10.2026 auf der it-sa veröffentlicht werden.",
+        "post-pilot refinement phase",
+        "Findings from the pilot feed into the methodology, which is due to be published at it-sa on 27 October 2026.",
+        None, True,
     ),
     (
         date(2026, 10, 27), date(2026, 10, 29),
-        "Vorstellung auf der it-sa", "Methodik und Kompendium werden öffentlich vorgestellt.",
-        "public presentation at it-sa", "The methodology and compendium are presented publicly.",
+        "Veröffentlichung der Methodik auf der it-sa",
+        "Das BSI stellt die Methodik auf der it-sa 2026 in Nürnberg vor und der Community zur Anwendung bereit.",
+        "launch week at it-sa",
+        "The BSI presents the methodology at it-sa 2026 in Nuremberg and makes it available to the community.",
+        None, True,
     ),
     (
-        date(2026, 4, 1), date(2029, 12, 31),
-        "Übergangsphase", "Das bisherige IT-Grundschutz-Kompendium bleibt parallel gültig.",
-        "transition phase", "The previous IT-Grundschutz-Kompendium remains valid in parallel.",
+        date(2026, 11, 30), date(2026, 12, 31),
+        "Schulungskonzepte und Anwendungsbeispiel",
+        "Zum 30.11.2026 sollen Schulungskonzepte für GS++-Praktiker und -Berater erscheinen, im Dezember 2026 ein Anwendungsbeispiel anhand der fiktiven Beispielbehörde „BDIT“.",
+        "training concepts and worked example", "Planned by the BSI for 30 November and December 2026.",
+        "30.11. / 12.2026", False,
     ),
     (
         date(2027, 1, 1), None,
-        "Zertifizierung möglich (geplant)", "Eine Zertifizierung nach Grundschutz++ soll ab 2027 möglich sein.",
-        "certification available (planned)", "Certification under Grundschutz++ is planned to become possible from 2027.",
+        "Zertifizierbar",
+        "Zertifizierungsanträge nach ISO 27001 auf Basis von Grundschutz++ können gestellt werden, ebenso für die Zertifizierung zum GS++-Berater und -Auditteamleiter.",
+        "certifiable", "Certification applications under ISO 27001 based on Grundschutz++ can be submitted.",
+        "ab 01.01.2027", False,
     ),
     (
-        date(2029, 1, 1), None,
-        "Vollständige Ablösung (geplant, Datum offen)", "Das bisherige Kompendium soll danach vollständig abgelöst werden.",
-        "full replacement (planned, date open)", "The previous compendium is planned to be fully replaced after this.",
+        date(2027, 1, 1), date(2027, 12, 31),
+        "Early-Adopter-Phase",
+        "Anwender setzen die erste anwendbare Version der Methodik ein. Im 1. Quartal startet außerdem die Fortbildung zum GS++-Berater und -Auditteamleiter für bereits zertifizierte Personen.",
+        "early-adopter phase", "Early adopters apply the first usable version of the methodology.",
+        "1. Quartal – 12/2027", True,
+    ),
+    (
+        date(2027, 2, 26), date(2027, 3, 31),
+        "Leistungsmessung",
+        "Ab 26.02.2027 ist das Konzept zur Leistungsmessung des ISMS in der Methodik, bis 31.03.2027 sollen alle Anforderungen der ISMS-Praktiken Leistungskennzahlen haben.",
+        "performance measurement", "Performance measurement concept and indicators are due.",
+        "26.02. – 31.03.2027", False,
+    ),
+    (
+        date(2031, 11, 30), date(2031, 11, 30),
+        "Ende der Zertifizierbarkeit nach bisherigem IT-Grundschutz",
+        "Fünf Jahre nach Veröffentlichung von Grundschutz++. Ein Enddatum für die Übergangszeit selbst nennt das BSI nicht.",
+        "end of certification under the previous IT-Grundschutz", "Five years after the publication of Grundschutz++.",
+        "30.11.2031", False,
+    ),
+    (
+        # start nur fuer den Banner (Auffang fuer alle Luecken zwischen den
+        # Phasen oben); angezeigt wird range_text, denn das BSI nennt weder
+        # Beginn noch Ende.
+        date(2026, 4, 1), None,
+        "Übergangszeit", "Der bisherige IT-Grundschutz bleibt laut BSI anwendbar.",
+        "transition period", "The previous IT-Grundschutz remains applicable, according to the BSI.",
+        "mehrjährig, Ende nicht festgelegt", True,
     ),
 ]
 
@@ -768,12 +831,12 @@ def format_range(start, end):
 def render_timeline():
     today = date.today()
     lines = ['<ul class="status-timeline">']
-    for start, end, label, detail, _label_en, _detail_en in TIMELINE:
+    for start, end, label, detail, _label_en, _detail_en, range_text, _banner in TIMELINE:
         is_current = start <= today and (end is None or today <= end)
         status = ' data-current="true"' if is_current else ""
         badge = '<span class="status-badge">läuft</span>' if is_current else ""
         lines.append(
-            f'<li{status}><span class="status-range">{format_range(start, end)}</span>'
+            f'<li{status}><span class="status-range">{range_text or format_range(start, end)}</span>'
             f"<strong>{label}</strong>{badge}<p>{detail}</p></li>"
         )
     lines.append("</ul>\n")
@@ -799,7 +862,7 @@ def write_status_data():
     laufend = [
         entry
         for entry in TIMELINE
-        if entry[0] <= today and (entry[1] is None or today <= entry[1])
+        if entry[7] and entry[0] <= today and (entry[1] is None or today <= entry[1])
     ]
     if not laufend:
         raise SystemExit(
@@ -807,8 +870,10 @@ def write_status_data():
             "Die Status-Leiste haette nichts anzuzeigen -- TIMELINE in "
             "scripts/generate_docs.py fortschreiben."
         )
-    start, end, label, detail, label_en, detail_en = min(
-        laufend, key=lambda p: (p[1] - p[0]).days if p[1] else 10**6
+    # Kuerzeste Phase gewinnt; bei Gleichstand der spaetere Eintrag (siehe
+    # Kommentar an TIMELINE).
+    start, end, label, detail, label_en, detail_en, _range_text, _banner = min(
+        reversed(laufend), key=lambda p: (p[1] - p[0]).days if p[1] else 10**6
     )
 
     data = {
@@ -1327,8 +1392,8 @@ def render_isb_page(management, groups_by_id):
         "- **Basisgefährdungen direkt am Control** — jede Anforderung zeigt "
         "die zugeordneten elementaren Gefährdungen (BSI, 47 Stück) als "
         "hoverbare Pille, ohne extra Nachschlagen in `basethreats.csv`.\n"
-        "- **[Status & Zeitplan](/grundschutzpp/zeitplan/)** — Pilotphase, "
-        "Übergangsfrist, geplante Zertifizierung.\n\n"
+        "- **[Status & Zeitplan](/grundschutzpp/zeitplan/)** — Meilensteinplan "
+        "des BSI, Übergangszeit, Zertifizierung.\n\n"
         "Diese Seite ist kein offizielles BSI-Angebot.\n",
     ]
     ROLLEN_OUT_DIR.mkdir(parents=True, exist_ok=True)
@@ -1824,11 +1889,17 @@ def main():
     zeitplan_lines = [
         "---\n"
         f"title: {yaml_quote('Status & Zeitplan')}\n"
-        f"description: {yaml_quote('Pilotphase, Übergangsfrist und geplante Zertifizierung: der Zeitplan für die Ablösung des bisherigen IT-Grundschutz-Kompendiums durch Grundschutz++.')}\n"
+        f"description: {yaml_quote('Der Meilensteinplan des BSI für Grundschutz++: Pilotphase, Veröffentlichung auf der it-sa, Zertifizierbarkeit ab 2027 und Übergangszeit.')}\n"
         "---\n\n",
         "Grundschutz++ ersetzt das bisherige IT-Grundschutz-Kompendium nicht von "
-        "heute auf morgen. Stand nach BSI-Fahrplan und Fachpublikationen "
-        "(nicht offiziell von der BSI in jedem Detail bestätigt):\n",
+        "heute auf morgen. Die Termine folgen dem "
+        f"[Meilensteinplan des BSI]({BSI_MEILENSTEINE_URL}) (Stand Oktober 2026, "
+        f"von uns am {BSI_MEILENSTEINE_STAND} abgerufen); das BSI passt ihn laufend an. "
+        "Der bisherige IT-Grundschutz bleibt laut BSI in einer „mehrjährigen "
+        "Übergangszeit“ anwendbar. Ein Enddatum dafür und ein Datum für die "
+        "vollständige Ablösung des Kompendiums nennt das BSI nicht. Fest steht "
+        "nur das Ende der Zertifizierbarkeit nach bisherigem IT-Grundschutz am "
+        "30.11.2031.\n",
         render_timeline(),
     ]
     (OUT_DIR / "zeitplan.mdx").write_text("\n".join(zeitplan_lines))
