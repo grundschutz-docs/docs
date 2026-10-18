@@ -60,7 +60,7 @@ h6,
 	/* Eigener Ton für die Status-Leiste statt --sl-color-accent-low: das Token
 	   ist für kleine Chip-Füllungen kalibriert, nicht für eine vollflächige
 	   Leiste -- dort reichte der Abstand zur Seiten-BG (schwarz) locker. */
-	--banner-tint: oklch(28% 0.055 75);
+	--banner-tint: oklch(24% 0.03 75);
 	/* Deutlich deckender als --glass-tint: Pill-Tooltips liegen über einem
 	   Feld aus vielen bunten Pills, 55% Deckkraft reicht da nicht für
 	   lesbaren Fließtext (siehe ControlMeta.astro). */
@@ -127,7 +127,7 @@ h6,
 	   99% hellen Seiten-BG, die Leiste verschwand fast. Eigener, satterer
 	   Ton mit spürbarem Abstand, aber bewusst kein volles --sl-color-accent
 	   (das bliebe dem Primary-Button und den Stat-Zahlen vorbehalten). */
-	--banner-tint: oklch(87% 0.06 78);
+	--banner-tint: oklch(94% 0.03 80);
 	--tooltip-bg: oklch(98% 0.01 80 / 0.97);
 
 	--pill-danger-low: oklch(87% 0.065 25);
@@ -188,7 +188,10 @@ h6,
 	inset-block-start: 0;
 	inset-inline: 0;
 	z-index: calc(var(--sl-z-index-navbar) + 1);
-	height: var(--banner-height);
+	/* min-height statt height: Banner.astro misst die tatsaechliche Hoehe und
+	   schreibt sie in --banner-height. Mit fester height blieb der Wert immer
+	   gleich, und umbrechender Text (320 px: fuenf Zeilen) wurde abgeschnitten. */
+	min-height: var(--banner-height);
 	display: flex;
 	align-items: center;
 	justify-content: center;

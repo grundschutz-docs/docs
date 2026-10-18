@@ -252,6 +252,38 @@ const effortInfo = effort ? EFFORT[effort] : undefined;
 	)
 }
 
+<script>
+	// Tag-Pillen sind Links zur Themen-Uebersicht, tragen aber auch eine
+	// Erklaerung als Tooltip. Auf Touch-Geraeten (kein Hover) gibt es keinen
+	// Weg, den Tooltip zu sehen, ohne zu tippen -- und der Tipp wuerde sofort
+	// wegnavigieren. Darum: erster Tipp zeigt die Erklaerung (Fokus loest den
+	// Tooltip aus), zweiter Tipp auf dieselbe Pille folgt dem Link. Eigener
+	// Zustand statt document.activeElement: Safari auf iOS fokussiert Links
+	// beim Antippen nicht, die Pruefung waere dort immer "nicht fokussiert".
+	if (window.matchMedia('(hover: none)').matches) {
+		const links = document.querySelectorAll<HTMLAnchorElement>('a.pill[data-tooltip][href]');
+		links.forEach((a) => {
+			a.dataset.tooltip = `${a.dataset.tooltip} Nochmal tippen: alle Anforderungen zu diesem Thema.`;
+		});
+		let armed: HTMLAnchorElement | null = null;
+		document.addEventListener(
+			'click',
+			(event) => {
+				const link = (event.target as Element | null)?.closest?.('a.pill[data-tooltip][href]');
+				if (!(link instanceof HTMLAnchorElement)) {
+					armed = null;
+					return;
+				}
+				if (armed === link) return;
+				event.preventDefault();
+				armed = link;
+				link.focus();
+			},
+			true,
+		);
+	}
+</script>
+
 <style>
 	.control-meta {
 		display: flex;
@@ -289,8 +321,12 @@ const effortInfo = effort ? EFFORT[effort] : undefined;
 		cursor: pointer;
 	}
 
+	/* Kein filter: ein filter macht die Pille zum Bezugsrahmen fuer
+	   position: fixed-Nachfahren, und der Tooltip-Kasten (::after, unter 50rem
+	   fest am Bildschirmrand) schrumpfte beim Antippen auf die Pillenbreite
+	   (102 x 650 px gemessen, statt 358 px breit am unteren Rand). */
 	a.pill:hover {
-		filter: brightness(1.15);
+		box-shadow: inset 0 0 0 1px currentColor;
 	}
 
 	.predecessors-table {

@@ -292,7 +292,10 @@ const datum = new Intl.DateTimeFormat('de-DE', { dateStyle: 'long' });
 
 	.befund-details {
 		display: grid;
-		grid-template-columns: auto 1fr;
+		/* minmax(0, 1fr) statt 1fr: sonst darf die Spalte nicht unter die
+		   Breite der laengsten Quelle schrumpfen (BSI-URL), und das Umbrechen
+		   in dd greift nie -- Seite 480 px breit auf dem Handy. */
+		grid-template-columns: auto minmax(0, 1fr);
 		gap: 0.3rem 1rem;
 		margin: 0 0 1.75rem;
 		padding-bottom: 1rem;

@@ -120,9 +120,9 @@ TIMELINE = [
     (
         date(2026, 9, 1), date(2026, 10, 26),
         "Weiterentwicklung nach der Pilotierung",
-        "Die Erkenntnisse aus der Erprobung fließen in die Methodik ein. Sie soll am 27.10.2026 auf der it-sa veröffentlicht werden.",
+        "Die Methodik soll am 27.10.2026 auf der it-sa veröffentlicht werden. Die Erkenntnisse aus der Erprobung fließen in sie ein.",
         "post-pilot refinement phase",
-        "Findings from the pilot feed into the methodology, which is due to be published at it-sa on 27 October 2026.",
+        "The methodology is due to be published at it-sa on 27 October 2026. Findings from the pilot feed into it.",
         None, True,
     ),
     (
@@ -891,9 +891,12 @@ def write_status_data():
     data = {
         "phase": label,
         "bis": end.strftime("%m/%Y") if end else None,
-        "detail": detail,
+        # Die Leiste steht auf jeder Seite und soll ein dezenter Hinweis bleiben,
+        # keine zweite Ueberschrift: nur der erste Satz des Detailtexts. Darum
+        # steht in TIMELINE die wichtigste Aussage immer zuerst.
+        "detail": first_sentence(detail),
         "phase_en": label_en,
-        "detail_en": detail_en,
+        "detail_en": first_sentence(detail_en),
     }
     DATA_OUT_DIR.mkdir(parents=True, exist_ok=True)
     (DATA_OUT_DIR / "status.json").write_text(
