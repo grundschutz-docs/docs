@@ -1449,6 +1449,18 @@ def render_baustein_siblings(baustein_id, by_baustein, baustein_links):
     return f"## Weitere Bausteine der Schicht {layer_id} {layer_name}\n\n" + "".join(items)
 
 
+def baustein_search_title(full_name):
+    return f"{full_name}: Nachfolge in Grundschutz++"
+
+
+def baustein_description(full_name, count):
+    noun = "Zuordnung" if count == 1 else "Zuordnungen"
+    return (
+        f"{full_name}: {count} {noun} zur Nachfolge in Grundschutz++ "
+        "nach dem BSI-Mapping, je mit Beziehungstyp."
+    )
+
+
 def render_baustein_page(baustein_id, entries, baustein_links, control_index, group_titles, by_baustein):
     pdf = baustein_links.get(baustein_id)
     title = baustein_title(baustein_id, pdf)
@@ -1465,7 +1477,12 @@ def render_baustein_page(baustein_id, entries, baustein_links, control_index, gr
     lines = [
         "---\n",
         f"title: {yaml_quote(full_name)}\n",
-        f"description: {yaml_quote(f'Welche Anforderungen aus {full_name} (IT-Grundschutz-Kompendium, Edition 2023) in welchen Grundschutz++-Controls aufgehen — je Zuordnung mit Beziehungstyp.')}\n",
+        f"description: {yaml_quote(baustein_description(full_name, len(entries)))}\n",
+        # <title> für die Suchergebnisse; Überschrift und Seitenleiste behalten
+        # den kurzen Titel. Suchende tippen die alte Baustein-ID.
+        "head:\n",
+        "  - tag: title\n",
+        f"    content: {yaml_quote(baustein_search_title(full_name))}\n",
         "---\n",
         "\n",
         pagefind_section("Vergleich"),
