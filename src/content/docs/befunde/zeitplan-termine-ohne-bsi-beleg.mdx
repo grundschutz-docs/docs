@@ -1,0 +1,84 @@
+---
+title: Der Zeitplan nannte Termine, die das BSI nicht nennt
+description: Ein eigener Fehler — Übergangsphase bis 12/2029 und Ablösung ab 01/2029 stammten aus Fachpublikationen, nicht vom BSI, und standen sogar im Banner über jeder Seite.
+befund:
+  typ: fakt
+  status: behoben
+  gefunden: 2026-10-18
+  betrifft: []
+  quelle: https://www.bsi.bund.de/DE/Themen/Unternehmen-und-Organisationen/Standards-und-Zertifizierung/Grundschutz-in-der-Informationssicherheit/Grundschutz-Plus-Plus/grundschutz-plus-plus_node.html
+  meldung:
+    kanal: Eigener Fehler, behoben im selben Repository
+    datum: 2026-10-18
+---
+
+import BefundMeta from '../../../components/BefundMeta.astro';
+
+<BefundMeta
+	typ="fakt"
+	status="behoben"
+	gefunden={new Date('2026-10-18')}
+	quelle="https://www.bsi.bund.de/DE/Themen/Unternehmen-und-Organisationen/Standards-und-Zertifizierung/Grundschutz-in-der-Informationssicherheit/Grundschutz-Plus-Plus/grundschutz-plus-plus_node.html"
+	meldung={{ kanal: 'Eigener Fehler, behoben im selben Repository', datum: new Date('2026-10-18') }}
+/>
+
+Ein eigener Fehler auf einer Seite, deren Thema Fristen sind. Die falschen
+Angaben standen ab dem 2. Oktober 2026 öffentlich im Netz, gut zwei Wochen
+lang.
+
+## Befund
+
+Die Seite [Status & Zeitplan](/grundschutzpp/zeitplan/) führte drei Angaben,
+die das BSI so nicht macht. Im Quelltext standen sie seit dem 28. September
+2026; öffentlich erreichbar war die Seite nach unseren Spuren ab dem
+2. Oktober 2026 (erstes Zertifikat der Domain, ausgestellt am 2.10.2026
+09:18 UTC):
+
+- **Übergangsphase 04/2026 bis 12/2029.** Das BSI spricht nur von einer
+  „mehrjährigen Übergangszeit", ohne Beginn und ohne Ende.
+- **Vollständige Ablösung ab 01/2029.** Ein Datum für die Ablösung des
+  Kompendiums nennt das BSI nicht.
+- **Ende der Pilotphase 09/2026.** Laut BSI-Meilensteinplan endete sie am
+  31. August 2026.
+
+Die erste Angabe stand außerdem in der Statusleiste, die auf jeder Seite
+des Projekts oben sitzt: „Übergangsphase (bis 12/2029)". Auf der Startseite
+stand bis zur Korrektur „aktuell in der Pilotphase", obwohl diese beendet war.
+
+Die Daten stammten aus Fachpublikationen und waren im Generator ohne
+Quellenangabe als Zahlen eingetragen. Auf der Zeitplan-Seite stand der
+Vorbehalt „nicht offiziell von der BSI in jedem Detail bestätigt", in der
+Statusleiste nicht.
+
+## Warum wichtig
+
+Wer Fristen nachschlägt, liest ein Datum und nicht den Vorbehalt dazu. Ein
+Datum in der Kopfzeile jeder Seite trägt keinen Vorbehalt mit, auch wenn die
+Unterseite einen hat. Dass das BSI den Plan laufend anpasst, macht jedes
+nicht belegte Datum noch riskanter.
+
+Der Schaden blieb begrenzt: Es handelt sich um Planungstermine, nicht um
+gesetzliche Fristen, und keine der Angaben begründet für sich eine Pflicht.
+Falsch waren sie trotzdem.
+
+## Was daraus folgte
+
+Der Zeitplan folgt jetzt ausschließlich dem [Meilensteinplan des
+BSI](https://www.bsi.bund.de/DE/Themen/Unternehmen-und-Organisationen/Standards-und-Zertifizierung/Grundschutz-in-der-Informationssicherheit/Grundschutz-Plus-Plus/grundschutz-plus-plus_node.html)
+(Stand Oktober 2026). Jeder Termin wurde am 18. Oktober 2026 gegen den
+Rohtext der BSI-Seite abgeglichen, die it-sa-Daten zusätzlich gegen die
+it-sa-Seite des BSI. Die Seite nennt Quelle und Abrufdatum und sagt
+ausdrücklich, was das BSI nicht festgelegt hat: ein Ende der Übergangszeit
+und ein Datum für die Ablösung. Neu aufgenommen ist der einzige feste
+Endtermin, der 30. November 2031 als Ende der Zertifizierbarkeit nach dem
+bisherigen IT-Grundschutz.
+
+Eine automatische Prüfung gibt es dafür nicht, und sie wäre nur mit einem
+Abruf der BSI-Seite bei jedem Lauf möglich. Stattdessen steht im Generator
+neben den Terminen die Quelle samt Hinweis, sie vor jeder Änderung neu zu
+lesen. Der Plan wird nach der Vorstellung auf der it-sa (27.–29. Oktober
+2026) erneut gegen die BSI-Seite gelesen.
+
+Die Lehre ist dieselbe wie bei den [MUSS-Zahlen](/befunde/muss-zahlen-gf-seite/):
+Eine Angabe, die plausibel aussieht und aus zweiter Hand stammt, braucht eine
+Quelle direkt dabei, bevor sie auf der Seite steht.

@@ -142,8 +142,10 @@ Qdrant indexing script.
 Not promises, just what's on the list — open an issue if you want to pick
 one of these up (see `CONTRIBUTING.md`):
 
-- Filtering the catalog by theme, using the tags already in the source
-  data but not yet exposed in the UI
+- A theme overview: the BSI tags already show up as pills on every
+  control and as a "Thema" filter in search, but there is no page to
+  browse by theme (and the BSI tags cover only 470 of the 1,000
+  controls)
 - An OSCAL explainer page — what it is, and why a German agency adopted a
   NIST-originated format instead of building its own
 - The English side is hand-written pages for foreign companies operating
