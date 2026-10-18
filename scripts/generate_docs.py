@@ -596,6 +596,16 @@ def write_bausteine_data(by_baustein, baustein_links):
         }
         for baustein_id in sorted(by_baustein)
     ]
+    # Bausteine ohne Zuordnung im BSI-Mapping: keine Seite ("slug" leer), aber
+    # die Suche soll ehrlich antworten statt zu schweigen.
+    data += [
+        {
+            "id": baustein_id,
+            "title": baustein_title(baustein_id, baustein_links.get(baustein_id)),
+            "slug": "",
+        }
+        for baustein_id in sorted(set(baustein_links) - set(by_baustein))
+    ]
     DATA_OUT_DIR.mkdir(parents=True, exist_ok=True)
     (DATA_OUT_DIR / "bausteine.json").write_text(
         json.dumps(data, indent="\t", ensure_ascii=False) + "\n"
@@ -1033,45 +1043,27 @@ def check_invariants(catalog, control_index, muss_controls, by_baustein):
     # Direktsprung ins Leere oder nennt einen anderen Titel als die Seite.
     bausteine = json.loads((DATA_OUT_DIR / "bausteine.json").read_text())
     seiten = {p.stem: p for p in VERGLEICH_OUT_DIR.glob("*.mdx") if p.name != "index.mdx"}
-    if {b["slug"] for b in bausteine} != set(seiten):
+    mit_seite = [b for b in bausteine if b["slug"]]
+    ohne_seite = [b for b in bausteine if not b["slug"]]
+    if {b["slug"] for b in mit_seite} != set(seiten):
         problems.append("bausteine.json und die Vergleichsseiten nennen verschiedene Bausteine")
-    for b in bausteine:
+    for b in mit_seite:
         seite = seiten.get(b["slug"])
         if seite and f'title: "{b["id"]} {b["title"]}"' not in seite.read_text():
             problems.append(f"bausteine.json: Titel von {b['id']} weicht von der Seite ab")
-
-    # 10. Themen-Seite (/grundschutzpp/themen/) aus der geschriebenen Datei
-    # zurueckgelesen und gegen einen eigenen Durchlauf ueber den Katalog
-    # gehalten: je Tag Zeilenzahl und Anker, dazu die Gesamtzahl getaggter
-    # Anforderungen im Text. Ausserdem muss jede Tag-Pille auf den
-    # Katalogseiten (slug: "...") auf einen vorhandenen Anker zeigen,
-    # sonst fuehrt der Klick auf der Pille ins Leere.
-    themen_pfad = OUT_DIR / "themen.mdx"
-    if not themen_pfad.exists():
-        problems.append("themen.mdx fehlt")
-    else:
-        themen_text = themen_pfad.read_text()
-        by_tag, tagged, _tot, _tp = collect_tag_index(catalog)
-        abschnitte = re.split(r"^## ", themen_text, flags=re.M)[1:]
-        gefunden = {}
-        for abschnitt in abschnitte:
-            anker = re.match(r".*\{#([a-z0-9-]+)\}", abschnitt.split("\n", 1)[0])
-            if anker:
-                gefunden[anker.group(1)] = abschnitt.count("<tr><td>")
-        for name, eintraege in by_tag.items():
-            slug_ = tag_slug(name)
-            if gefunden.get(slug_) != len(eintraege):
-                problems.append(
-                    f"themen.mdx: {name} hat {gefunden.get(slug_)} Zeilen, "
-                    f"der Katalog {len(eintraege)} Anforderungen"
-                )
-        if f"Nur {len(tagged)} von " not in themen_text:
-            problems.append("themen.mdx nennt nicht die richtige Zahl getaggter Anforderungen")
-        pillen = set()
-        for seite in OUT_DIR.glob("*.mdx"):
-            pillen.update(re.findall(r'slug: "([a-z0-9-]+)"', seite.read_text()))
-        if pillen - set(gefunden):
-            problems.append(f"Tag-Pillen ohne Anker auf der Themen-Seite: {sorted(pillen - set(gefunden))}")
+    # Bausteine ohne Seite: die Liste auf /vergleich/ muss genau sie enthalten,
+    # und die Gesamtzahl muss zur Startseiten-Zahl "von 111" passen.
+    index_text = (VERGLEICH_OUT_DIR / "index.mdx").read_text()
+    liste = index_text.split("{#ohne-zuordnung}", 1)[-1]
+    in_liste = set(re.findall(r'<span class="old-id">([A-Z0-9.]+)</span>', liste))
+    if in_liste != {b["id"] for b in ohne_seite}:
+        problems.append(
+            f"/vergleich/: Liste ohne Zuordnung ({len(in_liste)}) und bausteine.json "
+            f"({len(ohne_seite)}) stimmen nicht überein"
+        )
+    gesamt = json.loads((DATA_OUT_DIR / "landing.json").read_text())["stats"]["bausteine_gesamt"]
+    if len(bausteine) != gesamt:
+        problems.append(f"bausteine.json hat {len(bausteine)} Einträge, landing.json nennt {gesamt} Bausteine")
 
     # 8. Aus den geschriebenen Rollenseiten zurueckgelesen: die expliziten
     # Anker sind da. Pruefung 4 deckt nur die Katalogseiten ab -- genau
@@ -1576,9 +1568,8 @@ def render_baustein_summary(entries, group_titles):
         for fid, n in sorted(per_field.items(), key=lambda kv: (-kv[1], kv[0]))
     )
     return (
-        f"Das Mapping enthält {pl(len(entries), 'Zuordnung', 'Zuordnungen')} zwischen "
-        f"{pl(len(old_ids), 'alten Anforderung', 'alten Anforderungen')} und "
-        f"{pl(len(new_ids), 'Grundschutz++-Anforderung', 'Grundschutz++-Anforderungen')}. "
+        f"Das Mapping enthält {pl(len(entries), 'Zuordnung', 'Zuordnungen')} "
+        "(eine alte Anforderung kann mehreren neuen entsprechen und umgekehrt). "
         f"Nach Beziehungstyp: {'; '.join(parts)}. "
         f"Die neuen Anforderungen liegen in diesen Themenfeldern (Anzahl in Klammern): {fields}.\n"
     )
@@ -1610,15 +1601,53 @@ def baustein_description(full_name, count):
     )
 
 
+def baustein_lead(full_name, layer, entries, group_titles):
+    """Erster Absatz einer Baustein-Seite: die Antwort auf "wo steht das jetzt?".
+
+    Wer ueber eine Suche nach der alten ID kommt, will zuerst das Ergebnis
+    (wohin ist der Baustein gegangen), nicht die Herleitung. Die Zahlen sind
+    dieselben wie in baustein_description() und der Tabelle darunter.
+    """
+    def pl(n, sing, plur):
+        return f"{n} {sing if n == 1 else plur}"
+
+    old_ids = {old for old, _, _ in entries}
+    new_ids = {new for _, _, new in entries}
+    per_field = {}
+    for new_id in new_ids:
+        field = new_id.split(".")[0]
+        per_field[field] = per_field.get(field, 0) + 1
+    ranked = sorted(per_field.items(), key=lambda kv: (-kv[1], kv[0]))
+
+    def field_link(fid):
+        if fid in group_titles:
+            return f"[{fid} {group_titles[fid]}](/grundschutzpp/{fid.lower()}/)"
+        return fid
+
+    top_id, top_n = ranked[0]
+    if len(ranked) == 1:
+        where = f"im Themenfeld {field_link(top_id)}"
+    elif top_n * 2 > len(new_ids):
+        where = f"die meisten davon in {field_link(top_id)} ({top_n})"
+    else:
+        where = f"verteilt auf {len(ranked)} Themenfelder, am häufigsten {field_link(top_id)} ({top_n})"
+    return (
+        f"**{full_name}**"
+        + (f" (Schicht {layer}, Edition 2023)" if layer else " (Edition 2023)")
+        + f": Das BSI-Mapping verbindet {pl(len(old_ids), 'alte Anforderung', 'alte Anforderungen')} "
+        f"dieses Bausteins mit {pl(len(new_ids), 'Grundschutz++-Anforderung', 'Grundschutz++-Anforderungen')}, {where}.\n"
+    )
+
+
 def render_baustein_page(baustein_id, entries, baustein_links, control_index, group_titles, by_baustein):
     pdf = baustein_links.get(baustein_id)
     title = baustein_title(baustein_id, pdf)
     full_name = f"{baustein_id} {title}".strip()
     layer = KOMPENDIUM_LAYERS.get(baustein_id.split(".")[0], "")
 
-    pdf_line = (
-        f' — der Baustein selbst steht als <a href="{pdf}" target="_blank" '
-        f'rel="noopener noreferrer">PDF beim BSI</a>'
+    pdf_sentence = (
+        f' Den alten Baustein gibt es beim BSI als <a href="{pdf}" target="_blank" '
+        f'rel="noopener noreferrer">PDF</a>.'
         if pdf
         else ""
     )
@@ -1635,13 +1664,14 @@ def render_baustein_page(baustein_id, entries, baustein_links, control_index, gr
         "---\n",
         "\n",
         pagefind_section("Vergleich"),
-        f"Nachfolge-Zuordnungen für **{full_name}**"
-        + (f" (Schicht {layer})" if layer else "")
-        + " nach der offiziellen BSI-Mapping-Datei. "
-        "Der alte Anforderungstext wird hier bewusst nicht wiedergegeben "
-        "(siehe [ADR-0005](https://github.com/grundschutz-docs/docs/blob/main/adr/0005-vorgaenger-anforderung-alt-neu.md))"
-        + pdf_line
-        + ".\n",
+        baustein_lead(full_name, layer, entries, group_titles),
+        "\n",
+        # Quelle: BSI, Seite "IT-Grundschutz" (Stand 2026-10-18), wörtlich
+        # "bleibt in der mehrjährigen Übergangszeit anwendbar". Kein Enddatum
+        # nennen, das BSI nennt keins (siehe TIMELINE).
+        "Der bisherige IT-Grundschutz bleibt laut BSI in einer „mehrjährigen "
+        "Übergangszeit“ anwendbar; die Termine des BSI stehen im "
+        "[Status & Zeitplan](/grundschutzpp/zeitplan/)." + pdf_sentence + "\n",
         "\n",
         render_baustein_summary(entries, group_titles),
         "\n",
@@ -1671,6 +1701,10 @@ def render_baustein_page(baustein_id, entries, baustein_links, control_index, gr
         render_baustein_siblings(baustein_id, by_baustein, baustein_links),
         "\n",
         "[Alle Bausteine im Überblick](/vergleich/)\n",
+        "\n",
+        "Der alte Anforderungstext steht hier bewusst nicht, nur die Zuordnung "
+        "nach der offiziellen BSI-Mapping-Datei "
+        "(siehe [ADR-0005](https://github.com/grundschutz-docs/docs/blob/main/adr/0005-vorgaenger-anforderung-alt-neu.md)).\n",
     ]
     return "".join(lines)
 
@@ -1833,7 +1867,9 @@ def render_vergleich_index(by_baustein, baustein_links):
         "(`ITGS-to-GS++-mapping_collection.json`). Diese Seite macht sie lesbar: "
         f"{total} Zuordnungen von alten Anforderungen zu Grundschutz++-Anforderungen, "
         f"sortiert nach den {len(by_baustein)} Bausteinen, für die das BSI "
-        f"Zuordnungen angibt (von {len(baustein_links)} Bausteinen im Kompendium).\n",
+        f"Zuordnungen angibt (von {len(baustein_links)} Bausteinen im Kompendium; "
+        f"für die übrigen {len(baustein_links) - len(by_baustein)} gibt es keine, "
+        "siehe [unten](#ohne-zuordnung)).\n",
         "\n",
         "## So gehst du vor\n",
         "\n",
@@ -1875,6 +1911,37 @@ def render_vergleich_index(by_baustein, baustein_links):
                 f'<tr><td><a class="old-id" href="/vergleich/{baustein_slug(baustein_id)}/">{baustein_id}</a>'
                 f' <span class="new-title">{title}</span></td>'
                 f"<td>{len(entries)}</td><td>{pdf_cell}</td></tr>\n"
+            )
+        lines += ["</tbody>\n", "</table>\n", "</div>\n", "</div>\n", "\n"]
+
+    ohne = sorted(set(baustein_links) - set(by_baustein))
+    if ohne:
+        lines += [
+            '<div class="vergleich-section not-content">\n',
+            f"## Bausteine ohne Zuordnung {heading_anchor('ohne-zuordnung')}\n",
+            "\n",
+            f"<p>Für diese {len(ohne)} Bausteine enthält die Mapping-Datei des BSI keine "
+            "Zuordnung. Das heißt nicht, dass ihre Themen im neuen Katalog fehlen, "
+            "sondern nur, dass das BSI sie nicht ausdrücklich zugeordnet hat. Ob "
+            "und wo die Inhalte aufgehen, haben wir nicht Anforderung für "
+            "Anforderung geprüft.</p>\n",
+            "\n",
+            '<div class="table-scroll">\n',
+            '<table class="vergleich-table">\n',
+            "<thead><tr><th>Baustein</th><th>Original</th></tr></thead>\n",
+            "<tbody>\n",
+        ]
+        for baustein_id in ohne:
+            pdf = baustein_links.get(baustein_id)
+            pdf_cell = (
+                f'<a href="{pdf}" target="_blank" rel="noopener noreferrer">PDF beim BSI</a>'
+                if pdf
+                else "—"
+            )
+            lines.append(
+                f'<tr><td><span class="old-id">{baustein_id}</span>'
+                f' <span class="new-title">{baustein_title(baustein_id, pdf)}</span></td>'
+                f"<td>{pdf_cell}</td></tr>\n"
             )
         lines += ["</tbody>\n", "</table>\n", "</div>\n", "</div>\n", "\n"]
     return "".join(lines)

@@ -287,6 +287,7 @@ const resultTemplate = `
 				b,
 			]),
 		);
+		const excerpt = item.querySelector<HTMLElement>('.gs-result-excerpt');
 		wrap.addEventListener('input', (event) => {
 			const target = event.target;
 			if (!(target instanceof HTMLInputElement)) return;
@@ -294,8 +295,15 @@ const resultTemplate = `
 			const hit = /\d/.test(q) ? byId.get(q) : undefined;
 			item.hidden = !hit;
 			if (hit) {
-				link.href = `/vergleich/${hit[2]}/`;
+				// Ohne slug: Baustein ohne Zuordnung im BSI-Mapping, keine eigene Seite.
+				// Statt zu schweigen verweist der Treffer auf die Erklaerung.
+				link.href = hit[2] ? `/vergleich/${hit[2]}/` : '/vergleich/#ohne-zuordnung';
 				link.textContent = `${hit[0]} ${hit[1]}`;
+				if (excerpt) {
+					excerpt.textContent = hit[2]
+						? 'Nachfolge in Grundschutz++ ansehen'
+						: 'Keine Zuordnung im BSI-Mapping, Erklärung ansehen';
+				}
 			}
 		});
 	}

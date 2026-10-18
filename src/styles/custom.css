@@ -1001,3 +1001,10 @@ site-search dialog::backdrop {
 	font-size: var(--sl-text-sm);
 	color: var(--sl-color-gray-3);
 }
+
+/* Erklaerabsatz unter einer Ueberschrift im Vergleichs-Bereich (z. B. "Bausteine
+   ohne Zuordnung"): .not-content nimmt Starlights Abstaende weg. */
+.vergleich-section > p {
+	margin: 0.75rem 0 1.25rem;
+	max-width: 60ch;
+}
