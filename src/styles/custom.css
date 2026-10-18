@@ -1008,3 +1008,17 @@ site-search dialog::backdrop {
 	margin: 0.75rem 0 1.25rem;
 	max-width: 60ch;
 }
+
+/* Umsteiger-Block auf der Startseite: zwei Karten, die zweite mit Eingabefeld.
+   Gleiche Karten wie die Rollen; ohne Hover-Anhebung bei der Karte mit Feld,
+   sonst springt das Eingabefeld beim Anfahren mit der Maus. */
+.umsteiger-picker {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+	gap: 1rem;
+	margin: 1.5rem 0 2rem;
+}
+.role-card.umsteiger-card:hover {
+	transform: none;
+	border-color: var(--sl-color-hairline);
+}

@@ -55,6 +55,9 @@ hero:
       icon: right-arrow
 ---
 
+import BausteinSprung from '../../components/BausteinSprung.astro';
+import landing from '../../data/landing.json';
+
 ## Wer bist du?
 
 Geschäftsführung, ISB und Entwicklung stellen an denselben Katalog völlig
@@ -76,6 +79,25 @@ unterschiedliche Fragen. Hier kommst du direkt zu deiner:
 		<h3>Direkt zur Umsetzung</h3>
 		<p>Vierzehn operative Themenfelder, mit Pflichtgrad, Aufwand und Gefährdungen direkt am Text.</p>
 	</a>
+</div>
+
+## Du arbeitest heute nach dem IT-Grundschutz-Kompendium?
+
+Dann sind das vermutlich deine ersten Fragen:
+
+<div class="umsteiger-picker">
+	<a class="role-card" href="/grundschutzpp/zeitplan/">
+		<span class="role-kicker">Termine</span>
+		<h3>Muss ich jetzt wechseln?</h3>
+		<p>Laut BSI bleibt der bisherige IT-Grundschutz in einer mehrjährigen Übergangszeit anwendbar. Die Termine des BSI auf einen Blick.</p>
+	</a>
+	<div class="role-card umsteiger-card">
+		<span class="role-kicker">Zuordnung alt → neu</span>
+		<h3>Wo steht mein Baustein jetzt?</h3>
+		<p>Für {landing.stats.bausteine} von {landing.stats.bausteine_gesamt} Bausteinen hat das BSI Zuordnungen veröffentlicht, die Datei ist vom BSI als Entwurf gekennzeichnet.</p>
+		<BausteinSprung />
+		<p><a href="/vergleich/">Alle Bausteine ansehen</a></p>
+	</div>
 </div>
 
 Diese Seite ist **kein offizielles BSI-Angebot**, sondern eine eigene,
