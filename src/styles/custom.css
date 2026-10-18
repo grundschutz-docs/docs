@@ -1022,3 +1022,29 @@ site-search dialog::backdrop {
 	transform: none;
 	border-color: var(--sl-color-hairline);
 }
+
+/* Hinweis zum Entwurfsstatus der BSI-Mapping-Datei (/vergleich/) und die
+   Kurzfassung unter dem Kopf jeder Baustein-Seite. Dezent, kein Warnkasten:
+   es ist eine Eigenschaft der Quelle, kein Fehler der Seite. */
+.mapping-notice {
+	margin: 1.25rem 0 2rem;
+	padding: 0.9rem 1.1rem;
+	border: 1px solid var(--sl-color-hairline);
+	border-inline-start: 3px solid var(--sl-color-accent);
+	border-radius: 0.6rem;
+	background: var(--sl-color-bg-nav);
+	font-size: var(--sl-text-sm);
+}
+.mapping-notice p {
+	margin: 0.4rem 0 0;
+	color: var(--sl-color-gray-2);
+	line-height: 1.55;
+}
+.mapping-note {
+	font-size: var(--sl-text-sm);
+	color: var(--sl-color-gray-3);
+}
+.rel-badge[data-defaulted]::after {
+	content: '*';
+	margin-inline-start: 0.2ch;
+}

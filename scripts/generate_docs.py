@@ -1065,6 +1065,23 @@ def check_invariants(catalog, control_index, muss_controls, by_baustein):
     if len(bausteine) != gesamt:
         problems.append(f"bausteine.json hat {len(bausteine)} Einträge, landing.json nennt {gesamt} Bausteine")
 
+    # 11. Entwurfshinweis der Mapping-Datei: die Sternchen auf den geschriebenen
+    # Baustein-Seiten muessen genau die markierten Zuordnungen sein, und die Zahl
+    # im Hinweis auf /vergleich/ muss dazu passen. Fehlt der Hinweis bei einer
+    # Entwurfsdatei, brechen wir ab: dann steht die Seite wieder ohne Offenlegung da.
+    if MAPPING_INFO["draft"]:
+        sterne = sum(p.read_text().count('data-defaulted="true"') for p in VERGLEICH_OUT_DIR.glob("*.mdx") if p.name != "index.mdx")
+        if sterne != len(MAPPING_INFO["defaulted"]):
+            problems.append(
+                f"{sterne} Sternchen auf den Baustein-Seiten, aber "
+                f"{len(MAPPING_INFO['defaulted'])} als Standardwert markierte Zuordnungen"
+            )
+        if f"bei {len(MAPPING_INFO['defaulted'])} der {expected_rows} Zuordnungen" not in index_text:
+            problems.append("/vergleich/: Hinweis zur Mapping-Datei nennt falsche Zahlen oder fehlt")
+        ohne_note = sum(1 for p in VERGLEICH_OUT_DIR.glob("*.mdx") if p.name != "index.mdx" and 'class="mapping-note"' not in p.read_text())
+        if ohne_note:
+            problems.append(f"{ohne_note} Baustein-Seiten ohne Hinweis auf den Entwurfsstatus")
+
     # 8. Aus den geschriebenen Rollenseiten zurueckgelesen: die expliziten
     # Anker sind da. Pruefung 4 deckt nur die Katalogseiten ab -- genau
     # deshalb fiel am 2026-10-01 nicht auf, dass ein Generatorlauf die Anker
@@ -1496,6 +1513,46 @@ def render_devs_page(themenfelder, groups_by_id):
     (ROLLEN_OUT_DIR / "devs.mdx").write_text("".join(lines))
 
 
+# Angaben der BSI-Mapping-Datei zu sich selbst, von main() gefuellt
+# (read_mapping_info). Die Vergleichsseiten legen offen, dass das BSI die Datei
+# als Entwurf kennzeichnet -- der Hinweis entfaellt von selbst, sobald dort
+# kein "draft" mehr steht.
+MAPPING_INFO = {"draft": False, "stand": "", "defaulted": set(), "defaulted_types": set()}
+
+
+def de_date(iso):
+    """"2026-07-21" -> "21.07.2026"; unveraendert, wenn es kein ISO-Datum ist."""
+    m = re.fullmatch(r"(\d{4})-(\d{2})-(\d{2})", iso or "")
+    return f"{m.group(3)}.{m.group(2)}.{m.group(1)}" if m else (iso or "")
+
+
+def read_mapping_info(mapping_data):
+    """Status, Stand und als Standardwert markierte Zuordnungen der Mapping-Datei.
+
+    Quelle: provenance.status bzw. status je Gruppe ("draft"), metadata.
+    last-modified, und die Eigenschaft relationship_defaulted je Zuordnung.
+    Wie das BSI die Eigenschaft meint, steht im Repo nirgends; die Seiten
+    sagen das und nennen nur, was in der Datei steht.
+    """
+    coll = mapping_data["mapping-collection"]
+    status = {g.get("status") for g in coll.get("mappings", [])}
+    status.add((coll.get("provenance") or {}).get("status"))
+    defaulted, types = set(), set()
+    for group in coll.get("mappings", []):
+        for m in group.get("maps", []):
+            if any(p.get("name") == "relationship_defaulted" and p.get("value") == "true" for p in m.get("props", [])):
+                src = m["sources"][0]["id-ref"]
+                tgt = m["targets"][0]["id-ref"]
+                defaulted.add((src, tgt))
+                types.add(m.get("relationship"))
+    MAPPING_INFO.update(
+        draft="draft" in status,
+        stand=de_date(((coll.get("metadata") or {}).get("last-modified") or "")[:10]),
+        defaulted=defaulted,
+        defaulted_types=types,
+    )
+
+
 def build_all_mappings(mapping_data):
     mappings = []
     for group in mapping_data["mapping-collection"]["mappings"]:
@@ -1639,6 +1696,69 @@ def baustein_lead(full_name, layer, entries, group_titles):
     )
 
 
+MAPPING_NOTE_ANCHOR = "stand-der-mapping-datei"
+
+
+def render_mapping_note(entries):
+    """Kurzer Hinweis unter dem Seitenkopf: Entwurfsstatus und markierte Zeilen.
+
+    Leer, wenn das BSI die Datei nicht mehr als Entwurf fuehrt.
+    """
+    if not MAPPING_INFO["draft"]:
+        return ""
+    stand = MAPPING_INFO["stand"]
+    text = (
+        "Die Mapping-Datei des BSI ist in ihren Metadaten als Entwurf gekennzeichnet"
+        + (f" (Stand {stand})" if stand else "")
+        + f'. <a href="/vergleich/#{MAPPING_NOTE_ANCHOR}">Mehr dazu</a>.'
+    )
+    n_default = sum(1 for old, _rel, new in entries if (old, new) in MAPPING_INFO["defaulted"])
+    if n_default:
+        text += (
+            f" Bei {n_default} von {len(entries)} Zuordnungen dieses Bausteins ist der "
+            "Beziehungstyp in der Datei als Standardwert markiert (in der Tabelle mit * gekennzeichnet)."
+        )
+    return f'<p class="mapping-note">{text}</p>\n\n'
+
+
+def render_mapping_notice(by_baustein, baustein_links, total):
+    """Ausfuehrlicher Hinweis auf /vergleich/: was die Datei ueber sich selbst sagt."""
+    if not MAPPING_INFO["draft"]:
+        return ""
+    stand = MAPPING_INFO["stand"]
+    n_default = len(MAPPING_INFO["defaulted"])
+    ohne = len(baustein_links) - len(by_baustein)
+    parts = [
+        "Das BSI kennzeichnet die Mapping-Datei in ihren Metadaten als Entwurf "
+        "(<code>status: draft</code>"
+        + (f", Stand {stand}" if stand else "")
+        + f"). Für {ohne} der {len(baustein_links)} Bausteine enthält sie keine Zuordnung"
+    ]
+    if n_default:
+        typen = MAPPING_INFO["defaulted_types"]
+        parts.append(
+            f", und bei {n_default} der {total} Zuordnungen ist der Beziehungstyp in der "
+            "Datei als Standardwert markiert (<code>relationship_defaulted</code>"
+            + (
+                f"; alle haben den Typ „{relationship_label(next(iter(typen)))}“"
+                if len(typen) == 1
+                else ""
+            )
+            + "). Auf den Baustein-Seiten sind diese Zeilen mit * gekennzeichnet"
+        )
+    parts.append(
+        ". Wir lesen das so, dass der Typ dort nicht einzeln bewertet wurde; eine "
+        "Beschreibung der Eigenschaft haben wir beim BSI nicht gefunden. Wir geben "
+        "die Datei so wieder, wie das BSI sie veröffentlicht hat, und haben sie nicht korrigiert."
+    )
+    return (
+        f'<aside class="mapping-notice" id="{MAPPING_NOTE_ANCHOR}">\n'
+        "<strong>Stand der Mapping-Datei</strong>\n"
+        f"<p>{''.join(parts)}</p>\n"
+        "</aside>\n\n"
+    )
+
+
 def render_baustein_page(baustein_id, entries, baustein_links, control_index, group_titles, by_baustein):
     pdf = baustein_links.get(baustein_id)
     title = baustein_title(baustein_id, pdf)
@@ -1673,6 +1793,7 @@ def render_baustein_page(baustein_id, entries, baustein_links, control_index, gr
         "Übergangszeit“ anwendbar; die Termine des BSI stehen im "
         "[Status & Zeitplan](/grundschutzpp/zeitplan/)." + pdf_sentence + "\n",
         "\n",
+        render_mapping_note(entries),
         render_baustein_summary(entries, group_titles),
         "\n",
         '<div class="vergleich-section not-content">\n',
@@ -1687,9 +1808,23 @@ def render_baustein_page(baustein_id, entries, baustein_links, control_index, gr
             if pdf
             else f'<span class="old-id">{old_id}</span>'
         )
+        # Als Standardwert markierte Zuordnungen: Marker am Badge selbst
+        # (data-defaulted, der Stern kommt per CSS). Ein "*" im Text liest MDX
+        # als Markdown-Hervorhebung und zerreisst die Tabelle ueber mehrere
+        # Zeilen; ein eigenes Element neben dem Badge rutscht in eine zweite
+        # Zeile und macht diese Zeilen hoeher.
+        if (old_id, new_id) in MAPPING_INFO["defaulted"]:
+            badge = (
+                f'<span class="rel-badge" data-rel="{rel}" data-defaulted="true" '
+                'title="In der BSI-Datei als Standardwert markiert (relationship_defaulted)" '
+                f'aria-label="{relationship_label(rel)}, in der BSI-Datei als Standardwert markiert">'
+                f"{relationship_label(rel)}</span>"
+            )
+        else:
+            badge = f'<span class="rel-badge" data-rel="{rel}">{relationship_label(rel)}</span>'
         lines.append(
             f"<tr><td>{old_cell}</td>"
-            f'<td><span class="rel-badge" data-rel="{rel}">{relationship_label(rel)}</span></td>'
+            f"<td>{badge}</td>"
             f"<td>{control_link(new_id, control_index)}</td></tr>\n"
         )
     lines += [
@@ -1871,6 +2006,7 @@ def render_vergleich_index(by_baustein, baustein_links):
         f"für die übrigen {len(baustein_links) - len(by_baustein)} gibt es keine, "
         "siehe [unten](#ohne-zuordnung)).\n",
         "\n",
+        render_mapping_notice(by_baustein, baustein_links, total),
         "## So gehst du vor\n",
         "\n",
         "1. Suche unten deinen Baustein, z. B. `OPS.1.1.5`, oder tippe die ID ins Filterfeld unten.\n",
@@ -2025,6 +2161,7 @@ def main():
     basethreats_by_id = load_basethreats()
     tags_by_id = load_tags()
     mapping_data = json.loads(MAPPING_FILE.read_text())
+    read_mapping_info(mapping_data)
     predecessor_index = build_predecessor_index(mapping_data)
     bausteine_data = json.loads(BAUSTEINE_LINKS_FILE.read_text())
     baustein_links = bausteine_data["bausteine"]

@@ -9,6 +9,11 @@ import VergleichFilter from '../../../components/VergleichFilter.astro';
 
 Grundschutz++ löst das bisherige IT-Grundschutz-Kompendium schrittweise ab (siehe [Status & Zeitplan](/grundschutzpp/zeitplan/)). Wer heute nach dem Kompendium arbeitet, will wissen: Was wird aus meiner Anforderung? Das BSI hat dafür eine Mapping-Datei veröffentlicht (`ITGS-to-GS++-mapping_collection.json`). Diese Seite macht sie lesbar: 1185 Zuordnungen von alten Anforderungen zu Grundschutz++-Anforderungen, sortiert nach den 94 Bausteinen, für die das BSI Zuordnungen angibt (von 111 Bausteinen im Kompendium; für die übrigen 17 gibt es keine, siehe [unten](#ohne-zuordnung)).
 
+<aside class="mapping-notice" id="stand-der-mapping-datei">
+<strong>Stand der Mapping-Datei</strong>
+<p>Das BSI kennzeichnet die Mapping-Datei in ihren Metadaten als Entwurf (<code>status: draft</code>, Stand 21.07.2026). Für 17 der 111 Bausteine enthält sie keine Zuordnung, und bei 156 der 1185 Zuordnungen ist der Beziehungstyp in der Datei als Standardwert markiert (<code>relationship_defaulted</code>; alle haben den Typ „überschneidet sich mit“). Auf den Baustein-Seiten sind diese Zeilen mit * gekennzeichnet. Wir lesen das so, dass der Typ dort nicht einzeln bewertet wurde; eine Beschreibung der Eigenschaft haben wir beim BSI nicht gefunden. Wir geben die Datei so wieder, wie das BSI sie veröffentlicht hat, und haben sie nicht korrigiert.</p>
+</aside>
+
 ## So gehst du vor
 
 1. Suche unten deinen Baustein, z. B. `OPS.1.1.5`, oder tippe die ID ins Filterfeld unten.
