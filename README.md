@@ -12,6 +12,28 @@ This is an unofficial, independent project — not affiliated with,
 endorsed by, or produced by the Bundesamt für Sicherheit in der
 Informationstechnik (BSI).
 
+<p align="center">
+  <a href="https://grundschutz-docs.de">
+    <picture>
+      <source media="(prefers-color-scheme: dark)" srcset=".github/images/home-dark.png">
+      <img alt="Start page of grundschutz-docs.de: the headline 'Grundschutz++, lesbar aufbereitet', the BSI's raw OSCAL entry for a requirement above and the readable page it becomes below, plus the key figures of the catalog" src=".github/images/home-light.png" width="860">
+    </picture>
+  </a>
+  <br>
+  <sub>The start page: the BSI's raw OSCAL entry above, the readable page it becomes below. German UI, English landing page at <a href="https://grundschutz-docs.de/en/">/en/</a>.</sub>
+</p>
+
+<p align="center">
+  <a href="https://grundschutz-docs.de/vergleich/">
+    <picture>
+      <source media="(prefers-color-scheme: dark)" srcset=".github/images/comparison-dark.png">
+      <img alt="A comparison page: old IT-Grundschutz requirements in the left column, the relationship type as a coloured badge in the middle, the matching Grundschutz++ requirements with links on the right" src=".github/images/comparison-light.png" width="520">
+    </picture>
+  </a>
+  <br>
+  <sub>The comparison: each old requirement next to its Grundschutz++ counterpart, with the relationship type from the BSI's mapping file (which the BSI marks as a draft; the site says so).</sub>
+</p>
+
 ## Why this exists
 
 There's already a community-built viewer for the catalog with more visual
