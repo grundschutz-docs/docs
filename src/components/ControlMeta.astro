@@ -10,7 +10,7 @@ interface Props {
 	effort?: string;
 	threats?: string;
 	threatsHint?: string;
-	tags?: { name: string; hint?: string; synonyms?: string }[];
+	tags?: { name: string; slug?: string; hint?: string; synonyms?: string }[];
 	predecessors?: { oldId: string; relationship: string; link?: string; vergleichHref?: string }[];
 }
 
@@ -177,22 +177,28 @@ const effortInfo = effort ? EFFORT[effort] : undefined;
 					{threatsHint && <span class="pill-hint" aria-hidden="true" data-pagefind-ignore>?</span>}
 				</span>
 			)}
-			{tags && tags.map((t) => (
-				<span
-					class="pill"
-					data-family="calm"
-					data-role="meta"
-					data-tooltip={t.hint}
-					data-pagefind-filter={`Thema:${t.name}`}
-					data-synonyms={t.synonyms}
-					data-pagefind-index-attrs={t.synonyms ? 'data-synonyms' : undefined}
-					aria-label={`Thema: ${t.name}.${t.hint ? ` ${t.hint}` : ''}`}
-					tabindex="0"
-				>
-					{t.name}
-					{t.hint && <span class="pill-hint" aria-hidden="true" data-pagefind-ignore>?</span>}
-				</span>
-			))}
+			{tags && tags.map((t) => {
+				// Die Pille fuehrt zur Themen-Uebersicht (Anker aus dem Generator,
+				// tag_slug()). Ohne slug bleibt sie ein reines Etikett.
+				const Tag = t.slug ? 'a' : 'span';
+				return (
+					<Tag
+						class="pill"
+						data-family="calm"
+						data-role="meta"
+						data-tooltip={t.hint}
+						data-pagefind-filter={`Thema:${t.name}`}
+						data-synonyms={t.synonyms}
+						data-pagefind-index-attrs={t.synonyms ? 'data-synonyms' : undefined}
+						href={t.slug ? `/grundschutzpp/themen/#${t.slug}` : undefined}
+						aria-label={`Thema: ${t.name}.${t.hint ? ` ${t.hint}` : ''}${t.slug ? ' Zur Themen-Übersicht.' : ''}`}
+						tabindex={t.slug ? undefined : 0}
+					>
+						{t.name}
+						{t.hint && <span class="pill-hint" aria-hidden="true" data-pagefind-ignore>?</span>}
+					</Tag>
+				);
+			})}
 		</p>
 	)
 }

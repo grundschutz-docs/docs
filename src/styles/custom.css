@@ -960,3 +960,41 @@ site-search dialog::backdrop {
 	color: var(--sl-color-white);
 	margin-inline-end: 0.35ch;
 }
+
+/* Themen-Uebersicht (/grundschutzpp/themen/): Sprungleiste mit Anzahl je Tag.
+   Dieselbe Pillen-Sprache wie die Beispiel-Chips der Suche. */
+.themen-index {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.4rem;
+	list-style: none;
+	padding: 0;
+	margin: 1.25rem 0 2rem;
+}
+.themen-index li {
+	margin: 0;
+}
+.themen-index a {
+	display: inline-flex;
+	align-items: baseline;
+	gap: 0.5ch;
+	padding: 0.3em 0.75em;
+	border: 1px solid var(--sl-color-hairline);
+	border-radius: 999px;
+	font-size: var(--sl-text-xs);
+	color: var(--sl-color-gray-2);
+	text-decoration: none;
+}
+.themen-index a:hover {
+	border-color: var(--sl-color-accent);
+	color: var(--sl-color-white);
+}
+.themen-count {
+	font-family: 'JetBrains Mono Variable', ui-monospace, monospace;
+	color: var(--sl-color-gray-3);
+}
+.themen-meta {
+	margin: 0 0 0.5rem;
+	font-size: var(--sl-text-sm);
+	color: var(--sl-color-gray-3);
+}

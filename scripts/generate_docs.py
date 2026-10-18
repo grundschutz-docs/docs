@@ -295,6 +295,18 @@ TAG_SYNONYMS = {
 }
 
 
+def tag_slug(name):
+    """Anker-ID eines Themen-Tags auf /grundschutzpp/themen/ ("Password Policy" -> "password-policy").
+
+    Umlaute ausgeschrieben statt verworfen, sonst wuerde "Hochverfügbarkeit"
+    zu "hochverf-gbarkeit" und die Anker waeren schwer zu lesen.
+    """
+    text = name.lower()
+    for a, b in (("ä", "ae"), ("ö", "oe"), ("ü", "ue"), ("ß", "ss")):
+        text = text.replace(a, b)
+    return re.sub(r"[^a-z0-9]+", "-", text).strip("-")
+
+
 def render_tags_prop(control, tags_by_id):
     # Eigenes Array statt eines einzelnen String-Props wie bei "threats": jedes
     # Tag braucht seinen eigenen data-pagefind-filter-Wert (eine Pagefind-
@@ -309,7 +321,7 @@ def render_tags_prop(control, tags_by_id):
         return None
     items = []
     for name in names:
-        obj = f"{{ name: {jsx_string(name)}"
+        obj = f"{{ name: {jsx_string(name)}, slug: {jsx_string(tag_slug(name))}"
         hint = tags_by_id.get(name)
         if hint:
             obj += f", hint: {jsx_string(hint)}"
@@ -1025,6 +1037,39 @@ def check_invariants(catalog, control_index, muss_controls, by_baustein):
         if seite and f'title: "{b["id"]} {b["title"]}"' not in seite.read_text():
             problems.append(f"bausteine.json: Titel von {b['id']} weicht von der Seite ab")
 
+    # 10. Themen-Seite (/grundschutzpp/themen/) aus der geschriebenen Datei
+    # zurueckgelesen und gegen einen eigenen Durchlauf ueber den Katalog
+    # gehalten: je Tag Zeilenzahl und Anker, dazu die Gesamtzahl getaggter
+    # Anforderungen im Text. Ausserdem muss jede Tag-Pille auf den
+    # Katalogseiten (slug: "...") auf einen vorhandenen Anker zeigen,
+    # sonst fuehrt der Klick auf der Pille ins Leere.
+    themen_pfad = OUT_DIR / "themen.mdx"
+    if not themen_pfad.exists():
+        problems.append("themen.mdx fehlt")
+    else:
+        themen_text = themen_pfad.read_text()
+        by_tag, tagged, _tot, _tp = collect_tag_index(catalog)
+        abschnitte = re.split(r"^## ", themen_text, flags=re.M)[1:]
+        gefunden = {}
+        for abschnitt in abschnitte:
+            anker = re.match(r".*\{#([a-z0-9-]+)\}", abschnitt.split("\n", 1)[0])
+            if anker:
+                gefunden[anker.group(1)] = abschnitt.count("<tr><td>")
+        for name, eintraege in by_tag.items():
+            slug_ = tag_slug(name)
+            if gefunden.get(slug_) != len(eintraege):
+                problems.append(
+                    f"themen.mdx: {name} hat {gefunden.get(slug_)} Zeilen, "
+                    f"der Katalog {len(eintraege)} Anforderungen"
+                )
+        if f"Nur {len(tagged)} von " not in themen_text:
+            problems.append("themen.mdx nennt nicht die richtige Zahl getaggter Anforderungen")
+        pillen = set()
+        for seite in OUT_DIR.glob("*.mdx"):
+            pillen.update(re.findall(r'slug: "([a-z0-9-]+)"', seite.read_text()))
+        if pillen - set(gefunden):
+            problems.append(f"Tag-Pillen ohne Anker auf der Themen-Seite: {sorted(pillen - set(gefunden))}")
+
     # 8. Aus den geschriebenen Rollenseiten zurueckgelesen: die expliziten
     # Anker sind da. Pruefung 4 deckt nur die Katalogseiten ab -- genau
     # deshalb fiel am 2026-10-01 nicht auf, dass ein Generatorlauf die Anker
@@ -1636,6 +1681,123 @@ RELATIONSHIP_HINTS = {
 }
 
 
+# Kein Thema im engeren Sinn: laut tags.csv markiert der Tag Anforderungen, die
+# in eine Produktbeschreibung gehoeren. Er steht auf der Themen-Seite trotzdem
+# (die Pille auf den Katalogseiten verlinkt dorthin), aber getrennt am Ende.
+KEIN_THEMA_TAGS = {"Produktbeschreibung"}
+
+
+def collect_tag_index(catalog):
+    """Tag -> [(id, titel, modalverb)] sowie Zahlen je Praktik.
+
+    Zweiter, eigener Zaehlweg gegenueber render_tags_prop(): check_invariants()
+    vergleicht die geschriebene Seite mit genau dieser Auswertung.
+    """
+    by_tag = {}
+    tagged = set()
+    total_by_practice = {}
+    tagged_by_practice = {}
+    for control in collect_controls(catalog):
+        practice = control["id"].split(".")[0]
+        total_by_practice[practice] = total_by_practice.get(practice, 0) + 1
+        value = prop_value(control, "tags")
+        names = [t.strip() for t in value.split(",") if t.strip()] if value else []
+        if not names:
+            continue
+        tagged.add(control["id"])
+        tagged_by_practice[practice] = tagged_by_practice.get(practice, 0) + 1
+        for name in names:
+            by_tag.setdefault(name, []).append(
+                (control["id"], control.get("title", ""), part_prop_value(control, "statement", "modal_verb") or "")
+            )
+    return by_tag, tagged, total_by_practice, tagged_by_practice
+
+
+def render_themen_page(catalog, control_index, tags_by_id):
+    by_tag, tagged, total_by_practice, tagged_by_practice = collect_tag_index(catalog)
+    total = sum(total_by_practice.values())
+
+    slugs = {}
+    for name in by_tag:
+        slugs.setdefault(tag_slug(name), []).append(name)
+    kollision = {k: v for k, v in slugs.items() if len(v) > 1}
+    if kollision:
+        raise SystemExit(f"Themen-Tags mit gleichem Anker: {kollision}")
+
+    def sort_key(name):
+        return name.casefold()
+
+    themen = sorted((n for n in by_tag if n not in KEIN_THEMA_TAGS), key=sort_key)
+    kein_thema = sorted((n for n in by_tag if n in KEIN_THEMA_TAGS), key=sort_key)
+
+    anteile = {
+        pid: round(100 * tagged_by_practice.get(pid, 0) / total_by_practice[pid])
+        for pid in total_by_practice
+    }
+    low_value, high_value = min(anteile.values()), max(anteile.values())
+    low = ", ".join(sorted(k for k, v in anteile.items() if v == low_value))
+    high = ", ".join(sorted(k for k, v in anteile.items() if v == high_value))
+
+    def section(name):
+        rows = sorted(by_tag[name])
+        lines = [f"## {name} {heading_anchor(tag_slug(name))}\n"]
+        meta = [f"{len(rows)} Anforderungen" if len(rows) != 1 else "1 Anforderung"]
+        syn = TAG_SYNONYMS.get(name)
+        if syn:
+            meta.append(f"verwandte Begriffe: {mdx_safe(syn)}")
+        lines.append(f'<p class="themen-meta">{" · ".join(meta)}</p>\n')
+        hint = tags_by_id.get(name)
+        if hint:
+            lines.append(f"{mdx_safe(hint)}\n")
+        lines.append('<div data-pagefind-ignore>')
+        lines.append('<table class="vergleich-table themen-table">')
+        lines.append("<thead><tr><th>Anforderung</th><th>Pflicht</th></tr></thead>\n<tbody>")
+        for cid, title, verb in rows:
+            lines.append(
+                f"<tr><td>{control_link(cid, control_index)}</td><td>{verb}</td></tr>"
+            )
+        lines.append("</tbody>\n</table>\n</div>\n")
+        return "\n".join(lines)
+
+    def chip(name):
+        return (
+            f'<li><a href="#{tag_slug(name)}">{name}'
+            f'<span class="themen-count">{len(by_tag[name])}</span></a></li>'
+        )
+
+    lines = [
+        "---\n",
+        f"title: {yaml_quote('Themen im Katalog')}\n",
+        f"description: {yaml_quote(f'Die {len(by_tag)} Themen-Tags des BSI-Katalogs mit den zugeordneten Anforderungen, von Lieferketten bis Passwortrichtlinie. Die Tags erfassen {len(tagged)} von {total} Anforderungen.')}\n",
+        "---\n\n",
+        pagefind_section("Themen"),
+        "Das BSI versieht einen Teil der Anforderungen mit Themen-Tags. Diese Seite "
+        "sammelt sie: je Thema die zugeordneten Anforderungen mit Pflichtgrad. "
+        "Dieselben Tags stehen als Pillen an den Anforderungen und als Filter in "
+        "der Suche.\n",
+        f"**Vollständig ist das nicht.** Nur {len(tagged)} von {total} Anforderungen "
+        f"tragen überhaupt einen Tag, und sehr ungleich verteilt: der Anteil je "
+        f"Praktik reicht von {low_value} % ({low}) bis {high_value} % ({high}). "
+        "Dass eine Anforderung bei einem Thema fehlt, heißt deshalb nicht, dass "
+        "sie es nicht betrifft. Für eine vollständige Suche nach einem Begriff "
+        "ist die Suche oben besser.\n",
+        '<ul class="themen-index" data-pagefind-ignore>',
+        *[chip(n) for n in themen],
+        "</ul>\n",
+        *[section(n) for n in themen],
+    ]
+    if kein_thema:
+        lines.append("## Kein Thema im engeren Sinn {#kein-thema}\n")
+        lines.append(
+            "Dieser Tag beschreibt keinen Sachverhalt, sondern markiert, welche "
+            "Anforderungen in eine Produktbeschreibung gehören. Er steht hier, "
+            "weil die Pillen an den Anforderungen auf diese Seite verlinken.\n"
+        )
+        lines += [section(n) for n in kein_thema]
+    (OUT_DIR / "themen.mdx").write_text("\n".join(lines))
+    return len(by_tag), len(tagged)
+
+
 def render_vergleich_index(by_baustein, baustein_links):
     by_layer = {}
     for baustein_id, entries in by_baustein.items():
@@ -1903,6 +2065,8 @@ def main():
         render_timeline(),
     ]
     (OUT_DIR / "zeitplan.mdx").write_text("\n".join(zeitplan_lines))
+
+    themen_count, themen_tagged = render_themen_page(catalog, control_index, tags_by_id)
 
     # Vergleichsseiten: eine Uebersicht plus eine Seite je altem Baustein.
     # Frueher war das eine einzige Seite mit ~1200 Zeilen -- unbrauchbar

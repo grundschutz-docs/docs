@@ -222,6 +222,7 @@ export default defineConfig({
 						{ label: 'Übersicht', slug: 'grundschutzpp' },
 						{ label: 'Status & Zeitplan', slug: 'grundschutzpp/zeitplan' },
 						{ label: 'Vergleich: Alt ↔ Neu', slug: 'vergleich' },
+						{ label: 'Themen', slug: 'grundschutzpp/themen' },
 						{
 							label: 'Managementsystem',
 							items: [

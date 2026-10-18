@@ -167,7 +167,7 @@ Wenn Zugangskonten lokal auf jedem Gerät einzeln verwaltet werden, könnte es z
 
 <span class="sr-only" aria-hidden="true" data-pagefind-weight="10">BER.3.2</span>
 
-<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="3" threats="G 0.36, G 0.30, G 0.32" threatsHint="G 0.36 – Identitätsdiebstahl · G 0.30 – Unberechtigte Nutzung oder Administration von Geräten und Systemen · G 0.32 – Missbrauch von Berechtigungen" tags={[{ name: "Change Management", hint: "Strukturierter Ansatz zur Durchführung von Änderungen an IT-Systemen, der die Auswirkungen auf den Betrieb und die Sicherheit minimiert und dokumentiert." }]} />
+<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="3" threats="G 0.36, G 0.30, G 0.32" threatsHint="G 0.36 – Identitätsdiebstahl · G 0.30 – Unberechtigte Nutzung oder Administration von Geräten und Systemen · G 0.32 – Missbrauch von Berechtigungen" tags={[{ name: "Change Management", slug: "change-management", hint: "Strukturierter Ansatz zur Durchführung von Änderungen an IT-Systemen, der die Auswirkungen auf den Betrieb und die Sicherheit minimiert und dokumentiert." }]} />
 
 > Berechtigung SOLLTE die Einrichtung von Zugangskonten durch *[bestimmte Personen oder Rollen]* autorisieren.
 
@@ -177,7 +177,7 @@ Gemeint ist hier die Entscheidungsbefugnis für die Freigabe neuer Zugangskonten
 
 <span class="sr-only" aria-hidden="true" data-pagefind-weight="10">BER.3.3</span>
 
-<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="2" threats="G 0.36, G 0.30, G 0.32" threatsHint="G 0.36 – Identitätsdiebstahl · G 0.30 – Unberechtigte Nutzung oder Administration von Geräten und Systemen · G 0.32 – Missbrauch von Berechtigungen" tags={[{ name: "Change Management", hint: "Strukturierter Ansatz zur Durchführung von Änderungen an IT-Systemen, der die Auswirkungen auf den Betrieb und die Sicherheit minimiert und dokumentiert." }]} />
+<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="2" threats="G 0.36, G 0.30, G 0.32" threatsHint="G 0.36 – Identitätsdiebstahl · G 0.30 – Unberechtigte Nutzung oder Administration von Geräten und Systemen · G 0.32 – Missbrauch von Berechtigungen" tags={[{ name: "Change Management", slug: "change-management", hint: "Strukturierter Ansatz zur Durchführung von Änderungen an IT-Systemen, der die Auswirkungen auf den Betrieb und die Sicherheit minimiert und dokumentiert." }]} />
 
 > Berechtigung SOLLTE das Management von Zugangskonten auf Administrierende einschränken.
 
@@ -207,7 +207,7 @@ Wenn ein Zugangskonto genau einer Identität zugewiesen ist erleichtert dies die
 
 <span class="sr-only" aria-hidden="true" data-pagefind-weight="10">BER.3.6</span>
 
-<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="2" threats="G 0.36, G 0.30, G 0.32" threatsHint="G 0.36 – Identitätsdiebstahl · G 0.30 – Unberechtigte Nutzung oder Administration von Geräten und Systemen · G 0.32 – Missbrauch von Berechtigungen" tags={[{ name: "Privilege Escalation", hint: "Ausweitung von Berechtigungen durch einen Angreifer oder Benutzer, um höhere Rechte zu erlangen als ursprünglich vorgesehen." }, { name: "Insider Threat", hint: "Sicherheitsrisiko, das von Personen innerhalb einer Organisation ausgeht, die aufgrund ihres legitimen Zugriffs sensible Informationen missbrauchen oder Systeme schädigen können.", synonyms: "interne Bedrohung, Innentäter" }, { name: "Privilegierte Rechte", hint: "Erweiterte Zugriffs- und Administrationsrechte, mit denen besonders weitreichende Änderungen an Systemen, Diensten oder Daten vorgenommen werden können." }]} />
+<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="2" threats="G 0.36, G 0.30, G 0.32" threatsHint="G 0.36 – Identitätsdiebstahl · G 0.30 – Unberechtigte Nutzung oder Administration von Geräten und Systemen · G 0.32 – Missbrauch von Berechtigungen" tags={[{ name: "Privilege Escalation", slug: "privilege-escalation", hint: "Ausweitung von Berechtigungen durch einen Angreifer oder Benutzer, um höhere Rechte zu erlangen als ursprünglich vorgesehen." }, { name: "Insider Threat", slug: "insider-threat", hint: "Sicherheitsrisiko, das von Personen innerhalb einer Organisation ausgeht, die aufgrund ihres legitimen Zugriffs sensible Informationen missbrauchen oder Systeme schädigen können.", synonyms: "interne Bedrohung, Innentäter" }, { name: "Privilegierte Rechte", slug: "privilegierte-rechte", hint: "Erweiterte Zugriffs- und Administrationsrechte, mit denen besonders weitreichende Änderungen an Systemen, Diensten oder Daten vorgenommen werden können." }]} />
 
 > Berechtigung für Administrierende SOLLTE separate Zugangskonten für administrative Tätigkeiten (Administrationskonten) verankern.
 
@@ -227,7 +227,7 @@ Bei Single Sign-on authentifizieren sich Nutzende bei einem zentralen Identity P
 
 <span class="sr-only" aria-hidden="true" data-pagefind-weight="10">BER.3.8</span>
 
-<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="3" threats="G 0.36, G 0.30, G 0.32" threatsHint="G 0.36 – Identitätsdiebstahl · G 0.30 – Unberechtigte Nutzung oder Administration von Geräten und Systemen · G 0.32 – Missbrauch von Berechtigungen" tags={[{ name: "Credential Stuffing", hint: "Cyberangriff, bei dem automatisiert gestohlene Benutzernamen und Passwörter auf verschiedenen Websites ausprobiert werden, um von Passwortwiederverwendung zu profitieren." }, { name: "Brute-Force-Attacke", hint: "Angriff, bei dem Zugangsdaten oder kryptografische Schlüssel automatisiert durch massenhaftes Ausprobieren möglicher Werte ermittelt werden sollen." }]} />
+<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="3" threats="G 0.36, G 0.30, G 0.32" threatsHint="G 0.36 – Identitätsdiebstahl · G 0.30 – Unberechtigte Nutzung oder Administration von Geräten und Systemen · G 0.32 – Missbrauch von Berechtigungen" tags={[{ name: "Credential Stuffing", slug: "credential-stuffing", hint: "Cyberangriff, bei dem automatisiert gestohlene Benutzernamen und Passwörter auf verschiedenen Websites ausprobiert werden, um von Passwortwiederverwendung zu profitieren." }, { name: "Brute-Force-Attacke", slug: "brute-force-attacke", hint: "Angriff, bei dem Zugangsdaten oder kryptografische Schlüssel automatisiert durch massenhaftes Ausprobieren möglicher Werte ermittelt werden sollen." }]} />
 
 > Berechtigung für Anwendungen SOLLTE Hinweise darauf, ob ein Zugangskonto existiert bei erfolglosen Anmeldeversuchen deaktivieren.
 
@@ -247,7 +247,7 @@ Ungenutzte Zugangskonten stellen ein unnötiges Risiko für unberechtigte Zugrif
 
 <span class="sr-only" aria-hidden="true" data-pagefind-weight="10">BER.3.10</span>
 
-<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="2" threats="G 0.36, G 0.30, G 0.32" threatsHint="G 0.36 – Identitätsdiebstahl · G 0.30 – Unberechtigte Nutzung oder Administration von Geräten und Systemen · G 0.32 – Missbrauch von Berechtigungen" tags={[{ name: "Credential Stuffing", hint: "Cyberangriff, bei dem automatisiert gestohlene Benutzernamen und Passwörter auf verschiedenen Websites ausprobiert werden, um von Passwortwiederverwendung zu profitieren." }, { name: "Brute-Force-Attacke", hint: "Angriff, bei dem Zugangsdaten oder kryptografische Schlüssel automatisiert durch massenhaftes Ausprobieren möglicher Werte ermittelt werden sollen." }]} predecessors={[{ oldId: "APP.3.1.A1-UA.4", relationship: "intersects-with", link: "https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/06_APP_Anwendungen/APP_3_1_Webanwendungen_und_Webservices_Edition_2023.pdf?__blob=publicationFile&v=3#download=1", vergleichHref: "/vergleich/app-3-1/" }]} />
+<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="2" threats="G 0.36, G 0.30, G 0.32" threatsHint="G 0.36 – Identitätsdiebstahl · G 0.30 – Unberechtigte Nutzung oder Administration von Geräten und Systemen · G 0.32 – Missbrauch von Berechtigungen" tags={[{ name: "Credential Stuffing", slug: "credential-stuffing", hint: "Cyberangriff, bei dem automatisiert gestohlene Benutzernamen und Passwörter auf verschiedenen Websites ausprobiert werden, um von Passwortwiederverwendung zu profitieren." }, { name: "Brute-Force-Attacke", slug: "brute-force-attacke", hint: "Angriff, bei dem Zugangsdaten oder kryptografische Schlüssel automatisiert durch massenhaftes Ausprobieren möglicher Werte ermittelt werden sollen." }]} predecessors={[{ oldId: "APP.3.1.A1-UA.4", relationship: "intersects-with", link: "https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/06_APP_Anwendungen/APP_3_1_Webanwendungen_und_Webservices_Edition_2023.pdf?__blob=publicationFile&v=3#download=1", vergleichHref: "/vergleich/app-3-1/" }]} />
 
 > Berechtigung für IT-Systeme SOLLTE weitere Anmeldeversuche nach Erreichen von *[einem maximalen Schwellwert an]* fehlgeschlagenen Versuchen vorübergehend blockieren.
 
@@ -257,7 +257,7 @@ Betrifft sowohl die lokale Anmeldung über eine Benutzeroberfläche als auch den
 
 <span class="sr-only" aria-hidden="true" data-pagefind-weight="10">BER.3.11</span>
 
-<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="2" threats="G 0.36, G 0.30, G 0.32" threatsHint="G 0.36 – Identitätsdiebstahl · G 0.30 – Unberechtigte Nutzung oder Administration von Geräten und Systemen · G 0.32 – Missbrauch von Berechtigungen" tags={[{ name: "Credential Stuffing", hint: "Cyberangriff, bei dem automatisiert gestohlene Benutzernamen und Passwörter auf verschiedenen Websites ausprobiert werden, um von Passwortwiederverwendung zu profitieren." }, { name: "Brute-Force-Attacke", hint: "Angriff, bei dem Zugangsdaten oder kryptografische Schlüssel automatisiert durch massenhaftes Ausprobieren möglicher Werte ermittelt werden sollen." }]} predecessors={[{ oldId: "SYS.2.1.A1-UA.2", relationship: "intersects-with", link: "https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/07_SYS_IT_Systeme/SYS_2_1_Allgemeiner_Client_Edition_2023.pdf?__blob=publicationFile&v=3#download=1", vergleichHref: "/vergleich/sys-2-1/" }, { oldId: "SYS.2.1.A1-UA.3", relationship: "intersects-with", link: "https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/07_SYS_IT_Systeme/SYS_2_1_Allgemeiner_Client_Edition_2023.pdf?__blob=publicationFile&v=3#download=1", vergleichHref: "/vergleich/sys-2-1/" }]} />
+<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="2" threats="G 0.36, G 0.30, G 0.32" threatsHint="G 0.36 – Identitätsdiebstahl · G 0.30 – Unberechtigte Nutzung oder Administration von Geräten und Systemen · G 0.32 – Missbrauch von Berechtigungen" tags={[{ name: "Credential Stuffing", slug: "credential-stuffing", hint: "Cyberangriff, bei dem automatisiert gestohlene Benutzernamen und Passwörter auf verschiedenen Websites ausprobiert werden, um von Passwortwiederverwendung zu profitieren." }, { name: "Brute-Force-Attacke", slug: "brute-force-attacke", hint: "Angriff, bei dem Zugangsdaten oder kryptografische Schlüssel automatisiert durch massenhaftes Ausprobieren möglicher Werte ermittelt werden sollen." }]} predecessors={[{ oldId: "SYS.2.1.A1-UA.2", relationship: "intersects-with", link: "https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/07_SYS_IT_Systeme/SYS_2_1_Allgemeiner_Client_Edition_2023.pdf?__blob=publicationFile&v=3#download=1", vergleichHref: "/vergleich/sys-2-1/" }, { oldId: "SYS.2.1.A1-UA.3", relationship: "intersects-with", link: "https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/07_SYS_IT_Systeme/SYS_2_1_Allgemeiner_Client_Edition_2023.pdf?__blob=publicationFile&v=3#download=1", vergleichHref: "/vergleich/sys-2-1/" }]} />
 
 > Berechtigung für Anwendungen SOLLTE weitere Anmeldeversuche nach Erreichen von *[einem maximalen Schwellwert an]* fehlgeschlagenen Versuchen vorübergehend blockieren.
 
@@ -267,7 +267,7 @@ Häufen sich Anmeldeversuche, so könnte ein Angreifer Zugangsdaten durchprobier
 
 <span class="sr-only" aria-hidden="true" data-pagefind-weight="10">BER.3.12</span>
 
-<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="2" threats="G 0.36, G 0.30, G 0.32" threatsHint="G 0.36 – Identitätsdiebstahl · G 0.30 – Unberechtigte Nutzung oder Administration von Geräten und Systemen · G 0.32 – Missbrauch von Berechtigungen" tags={[{ name: "Automatic Session Locking", hint: "Sicherheitsfunktion, die eine Benutzersitzung nach einer festgelegten Inaktivitätszeit automatisch sperrt, um unbefugten Zugriff zu verhindern." }]} />
+<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="2" threats="G 0.36, G 0.30, G 0.32" threatsHint="G 0.36 – Identitätsdiebstahl · G 0.30 – Unberechtigte Nutzung oder Administration von Geräten und Systemen · G 0.32 – Missbrauch von Berechtigungen" tags={[{ name: "Automatic Session Locking", slug: "automatic-session-locking", hint: "Sicherheitsfunktion, die eine Benutzersitzung nach einer festgelegten Inaktivitätszeit automatisch sperrt, um unbefugten Zugriff zu verhindern." }]} />
 
 > Berechtigung für IT-Systeme SOLLTE eine Sperre bei Inaktivität nach *[einer Frist]* aktivieren.
 
@@ -277,7 +277,7 @@ Kann durch eine Bildschirmsperre oder Abmeldung (Automatic Session Locking) umge
 
 <span class="sr-only" aria-hidden="true" data-pagefind-weight="10">BER.3.13</span>
 
-<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="2" threats="G 0.36, G 0.30, G 0.32" threatsHint="G 0.36 – Identitätsdiebstahl · G 0.30 – Unberechtigte Nutzung oder Administration von Geräten und Systemen · G 0.32 – Missbrauch von Berechtigungen" tags={[{ name: "Automatic Session Locking", hint: "Sicherheitsfunktion, die eine Benutzersitzung nach einer festgelegten Inaktivitätszeit automatisch sperrt, um unbefugten Zugriff zu verhindern." }]} />
+<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="2" threats="G 0.36, G 0.30, G 0.32" threatsHint="G 0.36 – Identitätsdiebstahl · G 0.30 – Unberechtigte Nutzung oder Administration von Geräten und Systemen · G 0.32 – Missbrauch von Berechtigungen" tags={[{ name: "Automatic Session Locking", slug: "automatic-session-locking", hint: "Sicherheitsfunktion, die eine Benutzersitzung nach einer festgelegten Inaktivitätszeit automatisch sperrt, um unbefugten Zugriff zu verhindern." }]} />
 
 > Berechtigung für Anwendungen SOLLTE eine Sperre bei Inaktivität nach *[einer Frist]* aktivieren.
 
@@ -297,7 +297,7 @@ Wiederverwendung von Zugangskonten meint hier die erneute Vergabe oder Reaktivie
 
 <span class="sr-only" aria-hidden="true" data-pagefind-weight="10">BER.3.15</span>
 
-<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="1" threats="G 0.36, G 0.30, G 0.32" threatsHint="G 0.36 – Identitätsdiebstahl · G 0.30 – Unberechtigte Nutzung oder Administration von Geräten und Systemen · G 0.32 – Missbrauch von Berechtigungen" tags={[{ name: "Credential Stuffing", hint: "Cyberangriff, bei dem automatisiert gestohlene Benutzernamen und Passwörter auf verschiedenen Websites ausprobiert werden, um von Passwortwiederverwendung zu profitieren." }, { name: "Brute-Force-Attacke", hint: "Angriff, bei dem Zugangsdaten oder kryptografische Schlüssel automatisiert durch massenhaftes Ausprobieren möglicher Werte ermittelt werden sollen." }]} />
+<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="1" threats="G 0.36, G 0.30, G 0.32" threatsHint="G 0.36 – Identitätsdiebstahl · G 0.30 – Unberechtigte Nutzung oder Administration von Geräten und Systemen · G 0.32 – Missbrauch von Berechtigungen" tags={[{ name: "Credential Stuffing", slug: "credential-stuffing", hint: "Cyberangriff, bei dem automatisiert gestohlene Benutzernamen und Passwörter auf verschiedenen Websites ausprobiert werden, um von Passwortwiederverwendung zu profitieren." }, { name: "Brute-Force-Attacke", slug: "brute-force-attacke", hint: "Angriff, bei dem Zugangsdaten oder kryptografische Schlüssel automatisiert durch massenhaftes Ausprobieren möglicher Werte ermittelt werden sollen." }]} />
 
 > Berechtigung SOLLTE nicht mehr benötigte Zugangskonten nach Ablauf der Löschfristen löschen.
 
@@ -307,7 +307,7 @@ Die Löschfristen ergeben sich aus gesetzlichen Aufbewahrungs- und Löschfristen
 
 <span class="sr-only" aria-hidden="true" data-pagefind-weight="10">BER.3.16</span>
 
-<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="2" threats="G 0.36, G 0.30, G 0.32" threatsHint="G 0.36 – Identitätsdiebstahl · G 0.30 – Unberechtigte Nutzung oder Administration von Geräten und Systemen · G 0.32 – Missbrauch von Berechtigungen" tags={[{ name: "Insider Threat", hint: "Sicherheitsrisiko, das von Personen innerhalb einer Organisation ausgeht, die aufgrund ihres legitimen Zugriffs sensible Informationen missbrauchen oder Systeme schädigen können.", synonyms: "interne Bedrohung, Innentäter" }]} />
+<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="2" threats="G 0.36, G 0.30, G 0.32" threatsHint="G 0.36 – Identitätsdiebstahl · G 0.30 – Unberechtigte Nutzung oder Administration von Geräten und Systemen · G 0.32 – Missbrauch von Berechtigungen" tags={[{ name: "Insider Threat", slug: "insider-threat", hint: "Sicherheitsrisiko, das von Personen innerhalb einer Organisation ausgeht, die aufgrund ihres legitimen Zugriffs sensible Informationen missbrauchen oder Systeme schädigen können.", synonyms: "interne Bedrohung, Innentäter" }]} />
 
 > Berechtigung SOLLTE Gruppenkonten im Regelbetrieb untersagen.
 
@@ -317,7 +317,7 @@ Ein Gruppenkonto (englisch shared account) bezeichnet hier ein Zugangskonto, das
 
 <span class="sr-only" aria-hidden="true" data-pagefind-weight="10">BER.3.17</span>
 
-<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="4" threats="G 0.36, G 0.30, G 0.32" threatsHint="G 0.36 – Identitätsdiebstahl · G 0.30 – Unberechtigte Nutzung oder Administration von Geräten und Systemen · G 0.32 – Missbrauch von Berechtigungen" tags={[{ name: "Insider Threat", hint: "Sicherheitsrisiko, das von Personen innerhalb einer Organisation ausgeht, die aufgrund ihres legitimen Zugriffs sensible Informationen missbrauchen oder Systeme schädigen können.", synonyms: "interne Bedrohung, Innentäter" }]} />
+<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="4" threats="G 0.36, G 0.30, G 0.32" threatsHint="G 0.36 – Identitätsdiebstahl · G 0.30 – Unberechtigte Nutzung oder Administration von Geräten und Systemen · G 0.32 – Missbrauch von Berechtigungen" tags={[{ name: "Insider Threat", slug: "insider-threat", hint: "Sicherheitsrisiko, das von Personen innerhalb einer Organisation ausgeht, die aufgrund ihres legitimen Zugriffs sensible Informationen missbrauchen oder Systeme schädigen können.", synonyms: "interne Bedrohung, Innentäter" }]} />
 
 > Berechtigung SOLLTE für Gruppenkonten die Mehr-Faktor-Authentisierung aktivieren.
 
@@ -337,7 +337,7 @@ Es kann z.B. anhand von Dienst- oder Anwesenheitsplänen nachvollzogen werden, w
 
 <span class="sr-only" aria-hidden="true" data-pagefind-weight="10">BER.3.19</span>
 
-<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="2" threats="G 0.36, G 0.30, G 0.32" threatsHint="G 0.36 – Identitätsdiebstahl · G 0.30 – Unberechtigte Nutzung oder Administration von Geräten und Systemen · G 0.32 – Missbrauch von Berechtigungen" tags={[{ name: "Password Policy", hint: "Vorgaben für Erstellung, Nutzung, Änderung und Schutz von Passwörtern, um die Sicherheit von Benutzerkonten zu erhöhen.", synonyms: "Passwortrichtlinie, Passwortregeln" }]} />
+<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="2" threats="G 0.36, G 0.30, G 0.32" threatsHint="G 0.36 – Identitätsdiebstahl · G 0.30 – Unberechtigte Nutzung oder Administration von Geräten und Systemen · G 0.32 – Missbrauch von Berechtigungen" tags={[{ name: "Password Policy", slug: "password-policy", hint: "Vorgaben für Erstellung, Nutzung, Änderung und Schutz von Passwörtern, um die Sicherheit von Benutzerkonten zu erhöhen.", synonyms: "Passwortrichtlinie, Passwortregeln" }]} />
 
 > Berechtigung SOLLTE für Gruppenkonten die Änderung von Zugangsdaten bei Weggang von Nutzenden ausführen.
 
@@ -367,7 +367,7 @@ Eine automatische Verwaltung der Zugangsdaten von Dienste-Konten bezeichnet in d
 
 <span class="sr-only" aria-hidden="true" data-pagefind-weight="10">BER.3.22</span>
 
-<ControlMeta modalVerb="KANN" secLevel="erhöht" effort="1" threats="G 0.36, G 0.30, G 0.32" threatsHint="G 0.36 – Identitätsdiebstahl · G 0.30 – Unberechtigte Nutzung oder Administration von Geräten und Systemen · G 0.32 – Missbrauch von Berechtigungen" tags={[{ name: "BCM", hint: "Business Continuity Management, ein Rahmenwerk von Prozessen zur Identifizierung potenzieller Bedrohungen und deren Auswirkungen auf den Geschäftsbetrieb, um Resilienz und Wiederherstellungsfähigkeit zu gewährleisten." }, { name: "Privilegierte Rechte", hint: "Erweiterte Zugriffs- und Administrationsrechte, mit denen besonders weitreichende Änderungen an Systemen, Diensten oder Daten vorgenommen werden können." }]} />
+<ControlMeta modalVerb="KANN" secLevel="erhöht" effort="1" threats="G 0.36, G 0.30, G 0.32" threatsHint="G 0.36 – Identitätsdiebstahl · G 0.30 – Unberechtigte Nutzung oder Administration von Geräten und Systemen · G 0.32 – Missbrauch von Berechtigungen" tags={[{ name: "BCM", slug: "bcm", hint: "Business Continuity Management, ein Rahmenwerk von Prozessen zur Identifizierung potenzieller Bedrohungen und deren Auswirkungen auf den Geschäftsbetrieb, um Resilienz und Wiederherstellungsfähigkeit zu gewährleisten." }, { name: "Privilegierte Rechte", slug: "privilegierte-rechte", hint: "Erweiterte Zugriffs- und Administrationsrechte, mit denen besonders weitreichende Änderungen an Systemen, Diensten oder Daten vorgenommen werden können." }]} />
 
 > Berechtigung KANN Notfallzugangskonten installieren.
 
@@ -377,7 +377,7 @@ Ein Notfallzugangskonto (sog. Break Glass Account) ist ein Zugang mit privilegie
 
 <span class="sr-only" aria-hidden="true" data-pagefind-weight="10">BER.3.23</span>
 
-<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="5" threats="G 0.36, G 0.30, G 0.32" threatsHint="G 0.36 – Identitätsdiebstahl · G 0.30 – Unberechtigte Nutzung oder Administration von Geräten und Systemen · G 0.32 – Missbrauch von Berechtigungen" tags={[{ name: "BCM", hint: "Business Continuity Management, ein Rahmenwerk von Prozessen zur Identifizierung potenzieller Bedrohungen und deren Auswirkungen auf den Geschäftsbetrieb, um Resilienz und Wiederherstellungsfähigkeit zu gewährleisten." }]} />
+<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="5" threats="G 0.36, G 0.30, G 0.32" threatsHint="G 0.36 – Identitätsdiebstahl · G 0.30 – Unberechtigte Nutzung oder Administration von Geräten und Systemen · G 0.32 – Missbrauch von Berechtigungen" tags={[{ name: "BCM", slug: "bcm", hint: "Business Continuity Management, ein Rahmenwerk von Prozessen zur Identifizierung potenzieller Bedrohungen und deren Auswirkungen auf den Geschäftsbetrieb, um Resilienz und Wiederherstellungsfähigkeit zu gewährleisten." }]} />
 
 > Berechtigung für Verzeichnisdienste SOLLTE ein Notfallzugangskonto installieren.
 
@@ -387,7 +387,7 @@ Ein Notfallzugangskonto (sog. Break Glass Account) ist ein Zugang mit privilegie
 
 <span class="sr-only" aria-hidden="true" data-pagefind-weight="10">BER.3.24</span>
 
-<ControlMeta modalVerb="KANN" secLevel="erhöht" effort="5" threats="G 0.36, G 0.30" threatsHint="G 0.36 – Identitätsdiebstahl · G 0.30 – Unberechtigte Nutzung oder Administration von Geräten und Systemen" tags={[{ name: "Produktbeschreibung", hint: "Anforderungen mit diesem Tag sind sinnvolle Bestandteile einer dokumentierten Beschreibung eines IT-Produktes. Die vom Produkt implementierten Anforderungen können (durch Herstellers, Dienstleister oder Lieferanten) als OSCAL component-definition bereitgestellt werden um einen schnellen Abgleich zwischen Grundschutz++ und der Implementierung zu ermöglichen." }]} />
+<ControlMeta modalVerb="KANN" secLevel="erhöht" effort="5" threats="G 0.36, G 0.30" threatsHint="G 0.36 – Identitätsdiebstahl · G 0.30 – Unberechtigte Nutzung oder Administration von Geräten und Systemen" tags={[{ name: "Produktbeschreibung", slug: "produktbeschreibung", hint: "Anforderungen mit diesem Tag sind sinnvolle Bestandteile einer dokumentierten Beschreibung eines IT-Produktes. Die vom Produkt implementierten Anforderungen können (durch Herstellers, Dienstleister oder Lieferanten) als OSCAL component-definition bereitgestellt werden um einen schnellen Abgleich zwischen Grundschutz++ und der Implementierung zu ermöglichen." }]} />
 
 > Berechtigung für IT-Systeme KANN ein ebenso vertrauenswürdiges, alternatives Verfahren zur Authentifizierung verankern.
 
@@ -397,7 +397,7 @@ Wenn Nutzende ein für die reguläre Authentisierung erforderliches Authentisier
 
 <span class="sr-only" aria-hidden="true" data-pagefind-weight="10">BER.3.25</span>
 
-<ControlMeta modalVerb="KANN" secLevel="erhöht" effort="5" threats="G 0.36, G 0.30" threatsHint="G 0.36 – Identitätsdiebstahl · G 0.30 – Unberechtigte Nutzung oder Administration von Geräten und Systemen" tags={[{ name: "Produktbeschreibung", hint: "Anforderungen mit diesem Tag sind sinnvolle Bestandteile einer dokumentierten Beschreibung eines IT-Produktes. Die vom Produkt implementierten Anforderungen können (durch Herstellers, Dienstleister oder Lieferanten) als OSCAL component-definition bereitgestellt werden um einen schnellen Abgleich zwischen Grundschutz++ und der Implementierung zu ermöglichen." }]} />
+<ControlMeta modalVerb="KANN" secLevel="erhöht" effort="5" threats="G 0.36, G 0.30" threatsHint="G 0.36 – Identitätsdiebstahl · G 0.30 – Unberechtigte Nutzung oder Administration von Geräten und Systemen" tags={[{ name: "Produktbeschreibung", slug: "produktbeschreibung", hint: "Anforderungen mit diesem Tag sind sinnvolle Bestandteile einer dokumentierten Beschreibung eines IT-Produktes. Die vom Produkt implementierten Anforderungen können (durch Herstellers, Dienstleister oder Lieferanten) als OSCAL component-definition bereitgestellt werden um einen schnellen Abgleich zwischen Grundschutz++ und der Implementierung zu ermöglichen." }]} />
 
 > Berechtigung für Anwendungen KANN ein ebenso vertrauenswürdiges, alternatives Verfahren zur Authentifizierung verankern.
 
@@ -409,7 +409,7 @@ Wenn Nutzende ihren Primärzugang (z.B. Passwort, Smartphone mit Authentifizieru
 
 <span class="sr-only" aria-hidden="true" data-pagefind-weight="10">BER.4.1</span>
 
-<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="1" threats="G 0.36, G 0.30, G 0.32, G 0.18" threatsHint="G 0.36 – Identitätsdiebstahl · G 0.30 – Unberechtigte Nutzung oder Administration von Geräten und Systemen · G 0.32 – Missbrauch von Berechtigungen · G 0.18 – Fehlplanung oder fehlende Anpassung" tags={[{ name: "Security by Default", hint: "Prinzip, bei dem die sichersten Einstellungen als Standardkonfiguration verwendet werden, sodass Benutzer keine zusätzlichen Maßnahmen ergreifen müssen, um Sicherheit zu gewährleisten." }, { name: "Privilegierte Rechte", hint: "Erweiterte Zugriffs- und Administrationsrechte, mit denen besonders weitreichende Änderungen an Systemen, Diensten oder Daten vorgenommen werden können." }]} />
+<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="1" threats="G 0.36, G 0.30, G 0.32, G 0.18" threatsHint="G 0.36 – Identitätsdiebstahl · G 0.30 – Unberechtigte Nutzung oder Administration von Geräten und Systemen · G 0.32 – Missbrauch von Berechtigungen · G 0.18 – Fehlplanung oder fehlende Anpassung" tags={[{ name: "Security by Default", slug: "security-by-default", hint: "Prinzip, bei dem die sichersten Einstellungen als Standardkonfiguration verwendet werden, sodass Benutzer keine zusätzlichen Maßnahmen ergreifen müssen, um Sicherheit zu gewährleisten." }, { name: "Privilegierte Rechte", slug: "privilegierte-rechte", hint: "Erweiterte Zugriffs- und Administrationsrechte, mit denen besonders weitreichende Änderungen an Systemen, Diensten oder Daten vorgenommen werden können." }]} />
 
 > Berechtigung SOLLTE die Vergabe von Berechtigungen nach dem Prinzip der geringsten Berechtigungen einschränken.
 
@@ -561,7 +561,7 @@ Der Widerruf meint hier die gezielte Ungültigsetzung, Sperrung, Deaktivierung o
 
 <span class="sr-only" aria-hidden="true" data-pagefind-weight="10">BER.5.4</span>
 
-<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="3" threats="G 0.36" threatsHint="G 0.36 – Identitätsdiebstahl" tags={[{ name: "Cryptography", hint: "Wissenschaft der Verschlüsselung von Informationen, um sie vor unbefugtem Zugriff zu schützen und sichere Kommunikation zu ermöglichen." }]} />
+<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="3" threats="G 0.36" threatsHint="G 0.36 – Identitätsdiebstahl" tags={[{ name: "Cryptography", slug: "cryptography", hint: "Wissenschaft der Verschlüsselung von Informationen, um sie vor unbefugtem Zugriff zu schützen und sichere Kommunikation zu ermöglichen." }]} />
 
 > Berechtigung SOLLTE bei kryptografischen Authentifizierungsmitteln die ausschließliche Verwendung etablierter kryptografischer Algorithmen nach *[einem oder mehreren anerkannten Standards]* verankern.
 
@@ -581,7 +581,7 @@ Wenn die Authentifizierung nur biometrisch vorgenommen wird (z.B. anhand von Fin
 
 <span class="sr-only" aria-hidden="true" data-pagefind-weight="10">BER.5.6</span>
 
-<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="1" threats="G 0.36, G 0.30" threatsHint="G 0.36 – Identitätsdiebstahl · G 0.30 – Unberechtigte Nutzung oder Administration von Geräten und Systemen" tags={[{ name: "Advanced Persistent Threats (APT)", hint: "Komplexe, gezielte und langfristige Cyberangriffe, bei denen Angreifer unbemerkt in einer Umgebung verbleiben, um Informationen auszuspähen oder Systeme zu manipulieren.", synonyms: "gezielter Angriff, staatlich gesteuerter Angreifer" }]} />
+<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="1" threats="G 0.36, G 0.30" threatsHint="G 0.36 – Identitätsdiebstahl · G 0.30 – Unberechtigte Nutzung oder Administration von Geräten und Systemen" tags={[{ name: "Advanced Persistent Threats (APT)", slug: "advanced-persistent-threats-apt", hint: "Komplexe, gezielte und langfristige Cyberangriffe, bei denen Angreifer unbemerkt in einer Umgebung verbleiben, um Informationen auszuspähen oder Systeme zu manipulieren.", synonyms: "gezielter Angriff, staatlich gesteuerter Angreifer" }]} />
 
 > Berechtigung für IT-Systeme SOLLTE vorkonfigurierte Authentisierungsmittel deaktivieren.
 
@@ -591,7 +591,7 @@ Herstellerseitige Standardkonten und Default-Passwörter stellen ein beliebtes E
 
 <span class="sr-only" aria-hidden="true" data-pagefind-weight="10">BER.5.7</span>
 
-<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="1" threats="G 0.36, G 0.30" threatsHint="G 0.36 – Identitätsdiebstahl · G 0.30 – Unberechtigte Nutzung oder Administration von Geräten und Systemen" tags={[{ name: "Advanced Persistent Threats (APT)", hint: "Komplexe, gezielte und langfristige Cyberangriffe, bei denen Angreifer unbemerkt in einer Umgebung verbleiben, um Informationen auszuspähen oder Systeme zu manipulieren.", synonyms: "gezielter Angriff, staatlich gesteuerter Angreifer" }]} />
+<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="1" threats="G 0.36, G 0.30" threatsHint="G 0.36 – Identitätsdiebstahl · G 0.30 – Unberechtigte Nutzung oder Administration von Geräten und Systemen" tags={[{ name: "Advanced Persistent Threats (APT)", slug: "advanced-persistent-threats-apt", hint: "Komplexe, gezielte und langfristige Cyberangriffe, bei denen Angreifer unbemerkt in einer Umgebung verbleiben, um Informationen auszuspähen oder Systeme zu manipulieren.", synonyms: "gezielter Angriff, staatlich gesteuerter Angreifer" }]} />
 
 > Berechtigung für Anwendungen SOLLTE vorkonfigurierte Authentisierungsmittel deaktivieren.
 
@@ -601,7 +601,7 @@ Herstellerseitige Standardkonten und Default-Passwörter stellen ein beliebtes E
 
 <span class="sr-only" aria-hidden="true" data-pagefind-weight="10">BER.5.8</span>
 
-<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="3" threats="G 0.36, G 0.30, G 0.42" threatsHint="G 0.36 – Identitätsdiebstahl · G 0.30 – Unberechtigte Nutzung oder Administration von Geräten und Systemen · G 0.42 – Social Engineering" tags={[{ name: "MFA", hint: "Multi-Faktor-Authentifizierung, ein Sicherheitsverfahren, das mindestens zwei unterschiedliche Authentifizierungsfaktoren (Wissen, Besitz, Inhärenz) erfordert, um Identitäten zuverlässiger zu verifizieren." }, { name: "Credential Stuffing", hint: "Cyberangriff, bei dem automatisiert gestohlene Benutzernamen und Passwörter auf verschiedenen Websites ausprobiert werden, um von Passwortwiederverwendung zu profitieren." }, { name: "Brute-Force-Attacke", hint: "Angriff, bei dem Zugangsdaten oder kryptografische Schlüssel automatisiert durch massenhaftes Ausprobieren möglicher Werte ermittelt werden sollen." }]} />
+<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="3" threats="G 0.36, G 0.30, G 0.42" threatsHint="G 0.36 – Identitätsdiebstahl · G 0.30 – Unberechtigte Nutzung oder Administration von Geräten und Systemen · G 0.42 – Social Engineering" tags={[{ name: "MFA", slug: "mfa", hint: "Multi-Faktor-Authentifizierung, ein Sicherheitsverfahren, das mindestens zwei unterschiedliche Authentifizierungsfaktoren (Wissen, Besitz, Inhärenz) erfordert, um Identitäten zuverlässiger zu verifizieren." }, { name: "Credential Stuffing", slug: "credential-stuffing", hint: "Cyberangriff, bei dem automatisiert gestohlene Benutzernamen und Passwörter auf verschiedenen Websites ausprobiert werden, um von Passwortwiederverwendung zu profitieren." }, { name: "Brute-Force-Attacke", slug: "brute-force-attacke", hint: "Angriff, bei dem Zugangsdaten oder kryptografische Schlüssel automatisiert durch massenhaftes Ausprobieren möglicher Werte ermittelt werden sollen." }]} />
 
 > Berechtigung für Anwendungen von Externe Netzanschlüssen SOLLTE Phishing-resistente Mehr-Faktor-Authentisierung für alle Schnittstellen, auf die von Extern zugegriffen werden könnte, aktivieren.
 
@@ -611,7 +611,7 @@ Phishing-resistente Mehr-Faktor-Authentisierung bezeichnet Verfahren zur Anmeldu
 
 <span class="sr-only" aria-hidden="true" data-pagefind-weight="10">BER.5.9</span>
 
-<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="2" threats="G 0.36, G 0.30" threatsHint="G 0.36 – Identitätsdiebstahl · G 0.30 – Unberechtigte Nutzung oder Administration von Geräten und Systemen" tags={[{ name: "MFA", hint: "Multi-Faktor-Authentifizierung, ein Sicherheitsverfahren, das mindestens zwei unterschiedliche Authentifizierungsfaktoren (Wissen, Besitz, Inhärenz) erfordert, um Identitäten zuverlässiger zu verifizieren." }, { name: "Living off the land", hint: "Angriffstechnik, bei der legitime, bereits im System vorhandene Tools und Prozesse für böswillige Zwecke genutzt werden, um Erkennung zu erschweren." }, { name: "Privilege Escalation", hint: "Ausweitung von Berechtigungen durch einen Angreifer oder Benutzer, um höhere Rechte zu erlangen als ursprünglich vorgesehen." }, { name: "Credential Stuffing", hint: "Cyberangriff, bei dem automatisiert gestohlene Benutzernamen und Passwörter auf verschiedenen Websites ausprobiert werden, um von Passwortwiederverwendung zu profitieren." }, { name: "Brute-Force-Attacke", hint: "Angriff, bei dem Zugangsdaten oder kryptografische Schlüssel automatisiert durch massenhaftes Ausprobieren möglicher Werte ermittelt werden sollen." }]} />
+<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="2" threats="G 0.36, G 0.30" threatsHint="G 0.36 – Identitätsdiebstahl · G 0.30 – Unberechtigte Nutzung oder Administration von Geräten und Systemen" tags={[{ name: "MFA", slug: "mfa", hint: "Multi-Faktor-Authentifizierung, ein Sicherheitsverfahren, das mindestens zwei unterschiedliche Authentifizierungsfaktoren (Wissen, Besitz, Inhärenz) erfordert, um Identitäten zuverlässiger zu verifizieren." }, { name: "Living off the land", slug: "living-off-the-land", hint: "Angriffstechnik, bei der legitime, bereits im System vorhandene Tools und Prozesse für böswillige Zwecke genutzt werden, um Erkennung zu erschweren." }, { name: "Privilege Escalation", slug: "privilege-escalation", hint: "Ausweitung von Berechtigungen durch einen Angreifer oder Benutzer, um höhere Rechte zu erlangen als ursprünglich vorgesehen." }, { name: "Credential Stuffing", slug: "credential-stuffing", hint: "Cyberangriff, bei dem automatisiert gestohlene Benutzernamen und Passwörter auf verschiedenen Websites ausprobiert werden, um von Passwortwiederverwendung zu profitieren." }, { name: "Brute-Force-Attacke", slug: "brute-force-attacke", hint: "Angriff, bei dem Zugangsdaten oder kryptografische Schlüssel automatisiert durch massenhaftes Ausprobieren möglicher Werte ermittelt werden sollen." }]} />
 
 > Berechtigung SOLLTE Mehr-Faktor-Authentisierung für weitreichende Berechtigungen aktivieren.
 
@@ -673,7 +673,7 @@ Ein Authentifizierungsmittel gilt als kompromittiert, wenn Anzeichen bestehen, d
 
 <span class="sr-only" aria-hidden="true" data-pagefind-weight="10">BER.6.1</span>
 
-<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="2" threats="G 0.36, G 0.30, G 0.42" threatsHint="G 0.36 – Identitätsdiebstahl · G 0.30 – Unberechtigte Nutzung oder Administration von Geräten und Systemen · G 0.42 – Social Engineering" tags={[{ name: "Password Policy", hint: "Vorgaben für Erstellung, Nutzung, Änderung und Schutz von Passwörtern, um die Sicherheit von Benutzerkonten zu erhöhen.", synonyms: "Passwortrichtlinie, Passwortregeln" }]} />
+<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="2" threats="G 0.36, G 0.30, G 0.42" threatsHint="G 0.36 – Identitätsdiebstahl · G 0.30 – Unberechtigte Nutzung oder Administration von Geräten und Systemen · G 0.42 – Social Engineering" tags={[{ name: "Password Policy", slug: "password-policy", hint: "Vorgaben für Erstellung, Nutzung, Änderung und Schutz von Passwörtern, um die Sicherheit von Benutzerkonten zu erhöhen.", synonyms: "Passwortrichtlinie, Passwortregeln" }]} />
 
 > Berechtigung für Nutzende SOLLTE einen Passwortmanager installieren.
 
@@ -683,7 +683,7 @@ Der Einsatz eines Passwortmanagers, der von der Institution den Nutzenden zur Ve
 
 <span class="sr-only" aria-hidden="true" data-pagefind-weight="10">BER.6.2</span>
 
-<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="3" threats="G 0.36, G 0.30, G 0.42" threatsHint="G 0.36 – Identitätsdiebstahl · G 0.30 – Unberechtigte Nutzung oder Administration von Geräten und Systemen · G 0.42 – Social Engineering" tags={[{ name: "Credential Stuffing", hint: "Cyberangriff, bei dem automatisiert gestohlene Benutzernamen und Passwörter auf verschiedenen Websites ausprobiert werden, um von Passwortwiederverwendung zu profitieren." }, { name: "Privilege Escalation", hint: "Ausweitung von Berechtigungen durch einen Angreifer oder Benutzer, um höhere Rechte zu erlangen als ursprünglich vorgesehen." }, { name: "Password Policy", hint: "Vorgaben für Erstellung, Nutzung, Änderung und Schutz von Passwörtern, um die Sicherheit von Benutzerkonten zu erhöhen.", synonyms: "Passwortrichtlinie, Passwortregeln" }]} />
+<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="3" threats="G 0.36, G 0.30, G 0.42" threatsHint="G 0.36 – Identitätsdiebstahl · G 0.30 – Unberechtigte Nutzung oder Administration von Geräten und Systemen · G 0.42 – Social Engineering" tags={[{ name: "Credential Stuffing", slug: "credential-stuffing", hint: "Cyberangriff, bei dem automatisiert gestohlene Benutzernamen und Passwörter auf verschiedenen Websites ausprobiert werden, um von Passwortwiederverwendung zu profitieren." }, { name: "Privilege Escalation", slug: "privilege-escalation", hint: "Ausweitung von Berechtigungen durch einen Angreifer oder Benutzer, um höhere Rechte zu erlangen als ursprünglich vorgesehen." }, { name: "Password Policy", slug: "password-policy", hint: "Vorgaben für Erstellung, Nutzung, Änderung und Schutz von Passwörtern, um die Sicherheit von Benutzerkonten zu erhöhen.", synonyms: "Passwortrichtlinie, Passwortregeln" }]} />
 
 > Berechtigung für Nutzende SOLLTE die Wiederverwendung von Passwörtern blockieren.
 
@@ -693,7 +693,7 @@ Die Wiederverwendung von Passwörtern („password reuse“) ist die Nutzung ide
 
 <span class="sr-only" aria-hidden="true" data-pagefind-weight="10">BER.6.3</span>
 
-<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="2" threats="G 0.36, G 0.30, G 0.42" threatsHint="G 0.36 – Identitätsdiebstahl · G 0.30 – Unberechtigte Nutzung oder Administration von Geräten und Systemen · G 0.42 – Social Engineering" tags={[{ name: "Credential Stuffing", hint: "Cyberangriff, bei dem automatisiert gestohlene Benutzernamen und Passwörter auf verschiedenen Websites ausprobiert werden, um von Passwortwiederverwendung zu profitieren." }, { name: "Password Policy", hint: "Vorgaben für Erstellung, Nutzung, Änderung und Schutz von Passwörtern, um die Sicherheit von Benutzerkonten zu erhöhen.", synonyms: "Passwortrichtlinie, Passwortregeln" }]} />
+<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="2" threats="G 0.36, G 0.30, G 0.42" threatsHint="G 0.36 – Identitätsdiebstahl · G 0.30 – Unberechtigte Nutzung oder Administration von Geräten und Systemen · G 0.42 – Social Engineering" tags={[{ name: "Credential Stuffing", slug: "credential-stuffing", hint: "Cyberangriff, bei dem automatisiert gestohlene Benutzernamen und Passwörter auf verschiedenen Websites ausprobiert werden, um von Passwortwiederverwendung zu profitieren." }, { name: "Password Policy", slug: "password-policy", hint: "Vorgaben für Erstellung, Nutzung, Änderung und Schutz von Passwörtern, um die Sicherheit von Benutzerkonten zu erhöhen.", synonyms: "Passwortrichtlinie, Passwortregeln" }]} />
 
 > Berechtigung für Nutzende SOLLTE die Verwendung von Trivialpassworten blockieren.
 
@@ -703,7 +703,7 @@ Trivialpasswörter sind leicht zu erratende oder zu diesem Zugangskonto bereits 
 
 <span class="sr-only" aria-hidden="true" data-pagefind-weight="10">BER.6.4</span>
 
-<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="3" threats="G 0.36, G 0.30" threatsHint="G 0.36 – Identitätsdiebstahl · G 0.30 – Unberechtigte Nutzung oder Administration von Geräten und Systemen" tags={[{ name: "Privilege Escalation", hint: "Ausweitung von Berechtigungen durch einen Angreifer oder Benutzer, um höhere Rechte zu erlangen als ursprünglich vorgesehen." }, { name: "Credential Stuffing", hint: "Cyberangriff, bei dem automatisiert gestohlene Benutzernamen und Passwörter auf verschiedenen Websites ausprobiert werden, um von Passwortwiederverwendung zu profitieren." }, { name: "Brute-Force-Attacke", hint: "Angriff, bei dem Zugangsdaten oder kryptografische Schlüssel automatisiert durch massenhaftes Ausprobieren möglicher Werte ermittelt werden sollen." }, { name: "Password Policy", hint: "Vorgaben für Erstellung, Nutzung, Änderung und Schutz von Passwörtern, um die Sicherheit von Benutzerkonten zu erhöhen.", synonyms: "Passwortrichtlinie, Passwortregeln" }, { name: "Cryptography", hint: "Wissenschaft der Verschlüsselung von Informationen, um sie vor unbefugtem Zugriff zu schützen und sichere Kommunikation zu ermöglichen." }]} />
+<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="3" threats="G 0.36, G 0.30" threatsHint="G 0.36 – Identitätsdiebstahl · G 0.30 – Unberechtigte Nutzung oder Administration von Geräten und Systemen" tags={[{ name: "Privilege Escalation", slug: "privilege-escalation", hint: "Ausweitung von Berechtigungen durch einen Angreifer oder Benutzer, um höhere Rechte zu erlangen als ursprünglich vorgesehen." }, { name: "Credential Stuffing", slug: "credential-stuffing", hint: "Cyberangriff, bei dem automatisiert gestohlene Benutzernamen und Passwörter auf verschiedenen Websites ausprobiert werden, um von Passwortwiederverwendung zu profitieren." }, { name: "Brute-Force-Attacke", slug: "brute-force-attacke", hint: "Angriff, bei dem Zugangsdaten oder kryptografische Schlüssel automatisiert durch massenhaftes Ausprobieren möglicher Werte ermittelt werden sollen." }, { name: "Password Policy", slug: "password-policy", hint: "Vorgaben für Erstellung, Nutzung, Änderung und Schutz von Passwörtern, um die Sicherheit von Benutzerkonten zu erhöhen.", synonyms: "Passwortrichtlinie, Passwortregeln" }, { name: "Cryptography", slug: "cryptography", hint: "Wissenschaft der Verschlüsselung von Informationen, um sie vor unbefugtem Zugriff zu schützen und sichere Kommunikation zu ermöglichen." }]} />
 
 > Berechtigung SOLLTE Kriterien für die Qualität von Passwörtern anhand von Lebensdauer und Angriffsmöglichkeiten verankern.
 
@@ -713,7 +713,7 @@ Kriterien für die Qualität von Passwörtern können z.B. eine minimale Entropi
 
 <span class="sr-only" aria-hidden="true" data-pagefind-weight="10">BER.6.5</span>
 
-<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="1" threats="G 0.36, G 0.30, G 0.42" threatsHint="G 0.36 – Identitätsdiebstahl · G 0.30 – Unberechtigte Nutzung oder Administration von Geräten und Systemen · G 0.42 – Social Engineering" tags={[{ name: "Password Policy", hint: "Vorgaben für Erstellung, Nutzung, Änderung und Schutz von Passwörtern, um die Sicherheit von Benutzerkonten zu erhöhen.", synonyms: "Passwortrichtlinie, Passwortregeln" }]} />
+<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="1" threats="G 0.36, G 0.30, G 0.42" threatsHint="G 0.36 – Identitätsdiebstahl · G 0.30 – Unberechtigte Nutzung oder Administration von Geräten und Systemen · G 0.42 – Social Engineering" tags={[{ name: "Password Policy", slug: "password-policy", hint: "Vorgaben für Erstellung, Nutzung, Änderung und Schutz von Passwörtern, um die Sicherheit von Benutzerkonten zu erhöhen.", synonyms: "Passwortrichtlinie, Passwortregeln" }]} />
 
 > Berechtigung SOLLTE einen Passwortwechsel ausschließlich anlassbezogen ausführen.
 
@@ -723,7 +723,7 @@ Ein ausschließlich anlassbezogener Passwortwechsel bedeutet, dass Passwörter n
 
 <span class="sr-only" aria-hidden="true" data-pagefind-weight="10">BER.6.6</span>
 
-<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="3" threats="G 0.36, G 0.30, G 0.18, G 0.47" threatsHint="G 0.36 – Identitätsdiebstahl · G 0.30 – Unberechtigte Nutzung oder Administration von Geräten und Systemen · G 0.18 – Fehlplanung oder fehlende Anpassung · G 0.47 – Schädliche Seiteneffekte IT-gestützter Angriffe" tags={[{ name: "Credential Stuffing", hint: "Cyberangriff, bei dem automatisiert gestohlene Benutzernamen und Passwörter auf verschiedenen Websites ausprobiert werden, um von Passwortwiederverwendung zu profitieren." }, { name: "Password Policy", hint: "Vorgaben für Erstellung, Nutzung, Änderung und Schutz von Passwörtern, um die Sicherheit von Benutzerkonten zu erhöhen.", synonyms: "Passwortrichtlinie, Passwortregeln" }]} />
+<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="3" threats="G 0.36, G 0.30, G 0.18, G 0.47" threatsHint="G 0.36 – Identitätsdiebstahl · G 0.30 – Unberechtigte Nutzung oder Administration von Geräten und Systemen · G 0.18 – Fehlplanung oder fehlende Anpassung · G 0.47 – Schädliche Seiteneffekte IT-gestützter Angriffe" tags={[{ name: "Credential Stuffing", slug: "credential-stuffing", hint: "Cyberangriff, bei dem automatisiert gestohlene Benutzernamen und Passwörter auf verschiedenen Websites ausprobiert werden, um von Passwortwiederverwendung zu profitieren." }, { name: "Password Policy", slug: "password-policy", hint: "Vorgaben für Erstellung, Nutzung, Änderung und Schutz von Passwörtern, um die Sicherheit von Benutzerkonten zu erhöhen.", synonyms: "Passwortrichtlinie, Passwortregeln" }]} />
 
 > Berechtigung SOLLTE Zugangsdaten auf Kompromittierung durch *[einen automatisierten Mechanismus]* überwachen.
 
@@ -735,7 +735,7 @@ Eine Kompromittierung meint hier, dass Zugangsdaten wie Benutzername und Passwor
 
 <span class="sr-only" aria-hidden="true" data-pagefind-weight="10">BER.7.1</span>
 
-<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="2" threats="G 0.36" threatsHint="G 0.36 – Identitätsdiebstahl" tags={[{ name: "Cryptography", hint: "Wissenschaft der Verschlüsselung von Informationen, um sie vor unbefugtem Zugriff zu schützen und sichere Kommunikation zu ermöglichen." }]} predecessors={[{ oldId: "CON.1.A1-UA.1", relationship: "intersects-with", link: "https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/03_CON_Konzepte_und_Vorgehensweisen/CON_1_Kryptokonzept_Edition_2023.pdf?__blob=publicationFile&v=3#download=1", vergleichHref: "/vergleich/con-1/" }]} />
+<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="2" threats="G 0.36" threatsHint="G 0.36 – Identitätsdiebstahl" tags={[{ name: "Cryptography", slug: "cryptography", hint: "Wissenschaft der Verschlüsselung von Informationen, um sie vor unbefugtem Zugriff zu schützen und sichere Kommunikation zu ermöglichen." }]} predecessors={[{ oldId: "CON.1.A1-UA.1", relationship: "intersects-with", link: "https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/03_CON_Konzepte_und_Vorgehensweisen/CON_1_Kryptokonzept_Edition_2023.pdf?__blob=publicationFile&v=3#download=1", vergleichHref: "/vergleich/con-1/" }]} />
 
 > Berechtigung SOLLTE die ausschließliche Verwendung etablierter kryptografischer Algorithmen bei der Schlüsselerzeugung nach *[einem anerkannten Standard]* verankern.
 
@@ -745,7 +745,7 @@ Etablierte kryptografische Algorithmen sind mathematisch fundierte Verschlüssel
 
 <span class="sr-only" aria-hidden="true" data-pagefind-weight="10">BER.7.2</span>
 
-<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="2" threats="G 0.36" threatsHint="G 0.36 – Identitätsdiebstahl" tags={[{ name: "Cryptography", hint: "Wissenschaft der Verschlüsselung von Informationen, um sie vor unbefugtem Zugriff zu schützen und sichere Kommunikation zu ermöglichen." }]} />
+<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="2" threats="G 0.36" threatsHint="G 0.36 – Identitätsdiebstahl" tags={[{ name: "Cryptography", slug: "cryptography", hint: "Wissenschaft der Verschlüsselung von Informationen, um sie vor unbefugtem Zugriff zu schützen und sichere Kommunikation zu ermöglichen." }]} />
 
 > Berechtigung SOLLTE die Schlüssellängen nach *[einem anerkannten Standard]* bei der Schlüsselerzeugung zuweisen.
 
@@ -755,7 +755,7 @@ Für die Sicherheit von Schlüsseln wie Passwörter oder PINs ist die Länge von
 
 <span class="sr-only" aria-hidden="true" data-pagefind-weight="10">BER.7.3</span>
 
-<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="3" threats="G 0.36" threatsHint="G 0.36 – Identitätsdiebstahl" tags={[{ name: "Cryptography", hint: "Wissenschaft der Verschlüsselung von Informationen, um sie vor unbefugtem Zugriff zu schützen und sichere Kommunikation zu ermöglichen." }]} />
+<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="3" threats="G 0.36" threatsHint="G 0.36 – Identitätsdiebstahl" tags={[{ name: "Cryptography", slug: "cryptography", hint: "Wissenschaft der Verschlüsselung von Informationen, um sie vor unbefugtem Zugriff zu schützen und sichere Kommunikation zu ermöglichen." }]} />
 
 > Berechtigung SOLLTE zu jedem öffentlichen Schlüssel die dazugehörige Identität, das Ablaufdatum, den Nutzungszweck, die Schlüsselart und den Algorithmus bei der Schlüsselbeglaubigung dokumentieren.
 
@@ -765,7 +765,7 @@ Im Verzeichnis öffentlicher Schlüssel werden die öffentlichen Schlüssel, die
 
 <span class="sr-only" aria-hidden="true" data-pagefind-weight="10">BER.7.4</span>
 
-<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="2" threats="G 0.36" threatsHint="G 0.36 – Identitätsdiebstahl" tags={[{ name: "Cryptography", hint: "Wissenschaft der Verschlüsselung von Informationen, um sie vor unbefugtem Zugriff zu schützen und sichere Kommunikation zu ermöglichen." }]} />
+<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="2" threats="G 0.36" threatsHint="G 0.36 – Identitätsdiebstahl" tags={[{ name: "Cryptography", slug: "cryptography", hint: "Wissenschaft der Verschlüsselung von Informationen, um sie vor unbefugtem Zugriff zu schützen und sichere Kommunikation zu ermöglichen." }]} />
 
 > Berechtigung SOLLTE die Verwendung eines IT-Systems, welches mindestens dasselbe Schutzniveau bietet, für das der Schlüssel eingesetzt werden soll, bei der Schlüsselerzeugung verankern.
 
@@ -775,7 +775,7 @@ Wird ein Schlüssel auf einem System erzeugt, dass einen geringeren Schutz biete
 
 <span class="sr-only" aria-hidden="true" data-pagefind-weight="10">BER.7.5</span>
 
-<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="3" threats="G 0.36" threatsHint="G 0.36 – Identitätsdiebstahl" tags={[{ name: "Cryptography", hint: "Wissenschaft der Verschlüsselung von Informationen, um sie vor unbefugtem Zugriff zu schützen und sichere Kommunikation zu ermöglichen." }]} />
+<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="3" threats="G 0.36" threatsHint="G 0.36 – Identitätsdiebstahl" tags={[{ name: "Cryptography", slug: "cryptography", hint: "Wissenschaft der Verschlüsselung von Informationen, um sie vor unbefugtem Zugriff zu schützen und sichere Kommunikation zu ermöglichen." }]} />
 
 > Berechtigung SOLLTE *[Kriterien]* für die Qualität von Zufallszahlen bei der Schlüsselerzeugung verankern.
 
@@ -785,7 +785,7 @@ Wenn bei der Schlüsselerzeugung ein ungeeigneter Zufallszahlengenerator verwend
 
 <span class="sr-only" aria-hidden="true" data-pagefind-weight="10">BER.7.6</span>
 
-<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="2" threats="G 0.36" threatsHint="G 0.36 – Identitätsdiebstahl" tags={[{ name: "Cryptography", hint: "Wissenschaft der Verschlüsselung von Informationen, um sie vor unbefugtem Zugriff zu schützen und sichere Kommunikation zu ermöglichen." }]} />
+<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="2" threats="G 0.36" threatsHint="G 0.36 – Identitätsdiebstahl" tags={[{ name: "Cryptography", slug: "cryptography", hint: "Wissenschaft der Verschlüsselung von Informationen, um sie vor unbefugtem Zugriff zu schützen und sichere Kommunikation zu ermöglichen." }]} />
 
 > Berechtigung SOLLTE die ausschließliche Verwendung etablierter kryptografischer Algorithmen beim Transport geheimer Schlüssel verankern.
 
@@ -795,7 +795,7 @@ Aktuelle etablierte Algorithmen sind in BSI TR-02102 zu finden. Der Transport ka
 
 <span class="sr-only" aria-hidden="true" data-pagefind-weight="10">BER.7.7</span>
 
-<ControlMeta modalVerb="KANN" secLevel="erhöht" effort="5" threats="G 0.36" threatsHint="G 0.36 – Identitätsdiebstahl" tags={[{ name: "Cryptography", hint: "Wissenschaft der Verschlüsselung von Informationen, um sie vor unbefugtem Zugriff zu schützen und sichere Kommunikation zu ermöglichen." }]} />
+<ControlMeta modalVerb="KANN" secLevel="erhöht" effort="5" threats="G 0.36" threatsHint="G 0.36 – Identitätsdiebstahl" tags={[{ name: "Cryptography", slug: "cryptography", hint: "Wissenschaft der Verschlüsselung von Informationen, um sie vor unbefugtem Zugriff zu schützen und sichere Kommunikation zu ermöglichen." }]} />
 
 > Berechtigung KANN den Export privater Schlüssel durch *[eine zuständige Person oder Rolle]* autorisieren.
 
@@ -805,7 +805,7 @@ Im Allgemeinen ist es sinnvoll, private Schlüssel nur dort zu erzeugen, wo sie 
 
 <span class="sr-only" aria-hidden="true" data-pagefind-weight="10">BER.7.8</span>
 
-<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="2" threats="G 0.36" threatsHint="G 0.36 – Identitätsdiebstahl" tags={[{ name: "Cryptography", hint: "Wissenschaft der Verschlüsselung von Informationen, um sie vor unbefugtem Zugriff zu schützen und sichere Kommunikation zu ermöglichen." }]} predecessors={[{ oldId: "CON.1.A1-UA.2", relationship: "intersects-with", link: "https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/03_CON_Konzepte_und_Vorgehensweisen/CON_1_Kryptokonzept_Edition_2023.pdf?__blob=publicationFile&v=3#download=1", vergleichHref: "/vergleich/con-1/" }]} />
+<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="2" threats="G 0.36" threatsHint="G 0.36 – Identitätsdiebstahl" tags={[{ name: "Cryptography", slug: "cryptography", hint: "Wissenschaft der Verschlüsselung von Informationen, um sie vor unbefugtem Zugriff zu schützen und sichere Kommunikation zu ermöglichen." }]} predecessors={[{ oldId: "CON.1.A1-UA.2", relationship: "intersects-with", link: "https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/03_CON_Konzepte_und_Vorgehensweisen/CON_1_Kryptokonzept_Edition_2023.pdf?__blob=publicationFile&v=3#download=1", vergleichHref: "/vergleich/con-1/" }]} />
 
 > Berechtigung SOLLTE die ausschließliche Verwendung etablierter Algorithmen bei der Schlüsselnutzung verankern.
 
@@ -815,7 +815,7 @@ Aktuelle etablierte Algorithmen sind in BSI TR-02102 zu finden. Für weitere Det
 
 <span class="sr-only" aria-hidden="true" data-pagefind-weight="10">BER.7.9</span>
 
-<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="2" threats="G 0.36" threatsHint="G 0.36 – Identitätsdiebstahl" tags={[{ name: "Cryptography", hint: "Wissenschaft der Verschlüsselung von Informationen, um sie vor unbefugtem Zugriff zu schützen und sichere Kommunikation zu ermöglichen." }]} />
+<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="2" threats="G 0.36" threatsHint="G 0.36 – Identitätsdiebstahl" tags={[{ name: "Cryptography", slug: "cryptography", hint: "Wissenschaft der Verschlüsselung von Informationen, um sie vor unbefugtem Zugriff zu schützen und sichere Kommunikation zu ermöglichen." }]} />
 
 > Berechtigung SOLLTE Verstöße gegen die Zweckbindung bei der Schlüsselnutzung untersagen.
 
@@ -825,7 +825,7 @@ Zweckbindung bedeutet, dass der Schlüssel ausschließlich zu dem im Verzeichnis
 
 <span class="sr-only" aria-hidden="true" data-pagefind-weight="10">BER.7.10</span>
 
-<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="1" threats="G 0.36, G 0.19, G 0.22" threatsHint="G 0.36 – Identitätsdiebstahl · G 0.19 – Offenlegung schützenswerter Informationen · G 0.22 – Manipulation von Informationen" tags={[{ name: "Cryptography", hint: "Wissenschaft der Verschlüsselung von Informationen, um sie vor unbefugtem Zugriff zu schützen und sichere Kommunikation zu ermöglichen." }]} />
+<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="1" threats="G 0.36, G 0.19, G 0.22" threatsHint="G 0.36 – Identitätsdiebstahl · G 0.19 – Offenlegung schützenswerter Informationen · G 0.22 – Manipulation von Informationen" tags={[{ name: "Cryptography", slug: "cryptography", hint: "Wissenschaft der Verschlüsselung von Informationen, um sie vor unbefugtem Zugriff zu schützen und sichere Kommunikation zu ermöglichen." }]} />
 
 > Berechtigung SOLLTE die Nutzung des Schlüssels zur Verschlüsselung oder Signierung nach Ablauf der Nutzungszeit untersagen.
 
@@ -835,7 +835,7 @@ Schlüssel dürfen nach Ablauf der Nutzungszeit nur noch zur Entschlüsselung od
 
 <span class="sr-only" aria-hidden="true" data-pagefind-weight="10">BER.7.11</span>
 
-<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="1" threats="G 0.36, G 0.19, G 0.22" threatsHint="G 0.36 – Identitätsdiebstahl · G 0.19 – Offenlegung schützenswerter Informationen · G 0.22 – Manipulation von Informationen" tags={[{ name: "Cryptography", hint: "Wissenschaft der Verschlüsselung von Informationen, um sie vor unbefugtem Zugriff zu schützen und sichere Kommunikation zu ermöglichen." }]} />
+<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="1" threats="G 0.36, G 0.19, G 0.22" threatsHint="G 0.36 – Identitätsdiebstahl · G 0.19 – Offenlegung schützenswerter Informationen · G 0.22 – Manipulation von Informationen" tags={[{ name: "Cryptography", slug: "cryptography", hint: "Wissenschaft der Verschlüsselung von Informationen, um sie vor unbefugtem Zugriff zu schützen und sichere Kommunikation zu ermöglichen." }]} />
 
 > Berechtigung SOLLTE die Verifikation der Integrität geheimer Schlüssel vor jeder Nutzung verankern.
 
@@ -845,7 +845,7 @@ Wird die Integrität von Schlüsseln vor der Verwendung nicht geprüft, so könn
 
 <span class="sr-only" aria-hidden="true" data-pagefind-weight="10">BER.7.12</span>
 
-<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="2" threats="G 0.36" threatsHint="G 0.36 – Identitätsdiebstahl" tags={[{ name: "Cryptography", hint: "Wissenschaft der Verschlüsselung von Informationen, um sie vor unbefugtem Zugriff zu schützen und sichere Kommunikation zu ermöglichen." }]} />
+<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="2" threats="G 0.36" threatsHint="G 0.36 – Identitätsdiebstahl" tags={[{ name: "Cryptography", slug: "cryptography", hint: "Wissenschaft der Verschlüsselung von Informationen, um sie vor unbefugtem Zugriff zu schützen und sichere Kommunikation zu ermöglichen." }]} />
 
 > Berechtigung SOLLTE die Verifikation der Authentizität öffentlicher Schlüssel vor jeder Nutzung verankern.
 
@@ -855,7 +855,7 @@ Für die Implementierung genügt es, wenn die eingesetzten IT-Produkte bereits s
 
 <span class="sr-only" aria-hidden="true" data-pagefind-weight="10">BER.7.13</span>
 
-<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="1" threats="G 0.36" threatsHint="G 0.36 – Identitätsdiebstahl" tags={[{ name: "Cryptography", hint: "Wissenschaft der Verschlüsselung von Informationen, um sie vor unbefugtem Zugriff zu schützen und sichere Kommunikation zu ermöglichen." }]} />
+<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="1" threats="G 0.36" threatsHint="G 0.36 – Identitätsdiebstahl" tags={[{ name: "Cryptography", slug: "cryptography", hint: "Wissenschaft der Verschlüsselung von Informationen, um sie vor unbefugtem Zugriff zu schützen und sichere Kommunikation zu ermöglichen." }]} />
 
 > Berechtigung SOLLTE die Verifikation der Gültigkeit des Schlüssels vor jeder Nutzung verankern.
 
@@ -865,7 +865,7 @@ Die Gültigkeit ergibt sich aus Nutzungszeit und Revocation-Status. Für die Imp
 
 <span class="sr-only" aria-hidden="true" data-pagefind-weight="10">BER.7.14</span>
 
-<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="2" threats="G 0.19, G 0.22, G 0.36" threatsHint="G 0.19 – Offenlegung schützenswerter Informationen · G 0.22 – Manipulation von Informationen · G 0.36 – Identitätsdiebstahl" tags={[{ name: "Cryptography", hint: "Wissenschaft der Verschlüsselung von Informationen, um sie vor unbefugtem Zugriff zu schützen und sichere Kommunikation zu ermöglichen." }]} />
+<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="2" threats="G 0.19, G 0.22, G 0.36" threatsHint="G 0.19 – Offenlegung schützenswerter Informationen · G 0.22 – Manipulation von Informationen · G 0.36 – Identitätsdiebstahl" tags={[{ name: "Cryptography", slug: "cryptography", hint: "Wissenschaft der Verschlüsselung von Informationen, um sie vor unbefugtem Zugriff zu schützen und sichere Kommunikation zu ermöglichen." }]} />
 
 > Berechtigung SOLLTE Schlüssel auf das baldige Auslaufen der Nutzungszeit *[regelmäßig]* überprüfen.
 
@@ -875,7 +875,7 @@ Wird die Gültigkeit von Schlüsseln vor dem Auslaufen nicht überwacht, so kön
 
 <span class="sr-only" aria-hidden="true" data-pagefind-weight="10">BER.7.15</span>
 
-<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="3" threats="G 0.19, G 0.22, G 0.36" threatsHint="G 0.19 – Offenlegung schützenswerter Informationen · G 0.22 – Manipulation von Informationen · G 0.36 – Identitätsdiebstahl" tags={[{ name: "Cryptography", hint: "Wissenschaft der Verschlüsselung von Informationen, um sie vor unbefugtem Zugriff zu schützen und sichere Kommunikation zu ermöglichen." }]} />
+<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="3" threats="G 0.19, G 0.22, G 0.36" threatsHint="G 0.19 – Offenlegung schützenswerter Informationen · G 0.22 – Manipulation von Informationen · G 0.36 – Identitätsdiebstahl" tags={[{ name: "Cryptography", slug: "cryptography", hint: "Wissenschaft der Verschlüsselung von Informationen, um sie vor unbefugtem Zugriff zu schützen und sichere Kommunikation zu ermöglichen." }]} />
 
 > Berechtigung SOLLTE eine Vorgehensweise zur Außerbetriebnahme geheimer Schlüssel , sobald sie nicht mehr benötigt werden, verankern.
 
@@ -885,7 +885,7 @@ Werden Schlüssen nicht mehr benötigt, so ist es sinnvoll diese im Einklang mit
 
 <span class="sr-only" aria-hidden="true" data-pagefind-weight="10">BER.7.16</span>
 
-<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="3" threats="G 0.36" threatsHint="G 0.36 – Identitätsdiebstahl" tags={[{ name: "Cryptography", hint: "Wissenschaft der Verschlüsselung von Informationen, um sie vor unbefugtem Zugriff zu schützen und sichere Kommunikation zu ermöglichen." }]} />
+<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="3" threats="G 0.36" threatsHint="G 0.36 – Identitätsdiebstahl" tags={[{ name: "Cryptography", slug: "cryptography", hint: "Wissenschaft der Verschlüsselung von Informationen, um sie vor unbefugtem Zugriff zu schützen und sichere Kommunikation zu ermöglichen." }]} />
 
 > Berechtigung SOLLTE Vorgaben für die Schlüsselbeglaubigung verankern.
 
@@ -895,7 +895,7 @@ Je nach Umfang der Beglaubigungstätigkeit gehören hierzu z.B. Algorithmen, Zwe
 
 <span class="sr-only" aria-hidden="true" data-pagefind-weight="10">BER.7.16.1</span>
 
-<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="4" threats="G 0.36" threatsHint="G 0.36 – Identitätsdiebstahl" tags={[{ name: "Cryptography", hint: "Wissenschaft der Verschlüsselung von Informationen, um sie vor unbefugtem Zugriff zu schützen und sichere Kommunikation zu ermöglichen." }]} />
+<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="4" threats="G 0.36" threatsHint="G 0.36 – Identitätsdiebstahl" tags={[{ name: "Cryptography", slug: "cryptography", hint: "Wissenschaft der Verschlüsselung von Informationen, um sie vor unbefugtem Zugriff zu schützen und sichere Kommunikation zu ermöglichen." }]} />
 
 > Berechtigung SOLLTE die Beglaubigung von Schlüsseln *[einer zuständigen Person oder Rolle]* zuweisen.
 
@@ -905,7 +905,7 @@ Die Beglaubigung von Schlüsseln ist technisch komplex. Gleichzeitig hängt von 
 
 <span class="sr-only" aria-hidden="true" data-pagefind-weight="10">BER.7.16.2</span>
 
-<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="4" threats="G 0.36, G 0.19, G 0.22" threatsHint="G 0.36 – Identitätsdiebstahl · G 0.19 – Offenlegung schützenswerter Informationen · G 0.22 – Manipulation von Informationen" tags={[{ name: "Cryptography", hint: "Wissenschaft der Verschlüsselung von Informationen, um sie vor unbefugtem Zugriff zu schützen und sichere Kommunikation zu ermöglichen." }]} />
+<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="4" threats="G 0.36, G 0.19, G 0.22" threatsHint="G 0.36 – Identitätsdiebstahl · G 0.19 – Offenlegung schützenswerter Informationen · G 0.22 – Manipulation von Informationen" tags={[{ name: "Cryptography", slug: "cryptography", hint: "Wissenschaft der Verschlüsselung von Informationen, um sie vor unbefugtem Zugriff zu schützen und sichere Kommunikation zu ermöglichen." }]} />
 
 > Berechtigung SOLLTE den Schlüssel anhand der Vorgaben für die Schlüsselbeglaubigung bei Beantragung einer Beglaubigung testen.
 
@@ -915,7 +915,7 @@ Schlüsselbeglaubigung (engl. key certification) ist der kryptographische Nachwe
 
 <span class="sr-only" aria-hidden="true" data-pagefind-weight="10">BER.7.16.3</span>
 
-<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="4" threats="G 0.36" threatsHint="G 0.36 – Identitätsdiebstahl" tags={[{ name: "Cryptography", hint: "Wissenschaft der Verschlüsselung von Informationen, um sie vor unbefugtem Zugriff zu schützen und sichere Kommunikation zu ermöglichen." }]} />
+<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="4" threats="G 0.36" threatsHint="G 0.36 – Identitätsdiebstahl" tags={[{ name: "Cryptography", slug: "cryptography", hint: "Wissenschaft der Verschlüsselung von Informationen, um sie vor unbefugtem Zugriff zu schützen und sichere Kommunikation zu ermöglichen." }]} />
 
 > Berechtigung SOLLTE den Schlüssel anhand der Vorgaben für die Schlüsselbeglaubigung bei Erneuerung einer Beglaubigung testen.
 
@@ -925,7 +925,7 @@ Die Erneuerung einer Beglaubigung beschreibt den Vorgang, bei dem ein ablaufende
 
 <span class="sr-only" aria-hidden="true" data-pagefind-weight="10">BER.7.16.4</span>
 
-<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="4" threats="G 0.19, G 0.22, G 0.36" threatsHint="G 0.19 – Offenlegung schützenswerter Informationen · G 0.22 – Manipulation von Informationen · G 0.36 – Identitätsdiebstahl" tags={[{ name: "Cryptography", hint: "Wissenschaft der Verschlüsselung von Informationen, um sie vor unbefugtem Zugriff zu schützen und sichere Kommunikation zu ermöglichen." }]} />
+<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="4" threats="G 0.19, G 0.22, G 0.36" threatsHint="G 0.19 – Offenlegung schützenswerter Informationen · G 0.22 – Manipulation von Informationen · G 0.36 – Identitätsdiebstahl" tags={[{ name: "Cryptography", slug: "cryptography", hint: "Wissenschaft der Verschlüsselung von Informationen, um sie vor unbefugtem Zugriff zu schützen und sichere Kommunikation zu ermöglichen." }]} />
 
 > Berechtigung SOLLTE den Schlüssel anhand der Vorgaben für die Schlüsselbeglaubigung bei Revocation einer Beglaubigung testen.
 
@@ -935,7 +935,7 @@ Die Revocation einer Beglaubigung (engl. revocation of attestation) ist die nach
 
 <span class="sr-only" aria-hidden="true" data-pagefind-weight="10">BER.7.16.5</span>
 
-<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="3" threats="G 0.36" threatsHint="G 0.36 – Identitätsdiebstahl" tags={[{ name: "Cryptography", hint: "Wissenschaft der Verschlüsselung von Informationen, um sie vor unbefugtem Zugriff zu schützen und sichere Kommunikation zu ermöglichen." }]} />
+<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="3" threats="G 0.36" threatsHint="G 0.36 – Identitätsdiebstahl" tags={[{ name: "Cryptography", slug: "cryptography", hint: "Wissenschaft der Verschlüsselung von Informationen, um sie vor unbefugtem Zugriff zu schützen und sichere Kommunikation zu ermöglichen." }]} />
 
 > Berechtigung SOLLTE den Beglaubigungsstatus des Schlüssels im Verzeichnis öffentlicher Schlüssel dokumentieren.
 
@@ -945,7 +945,7 @@ Der Beglaubigungsstatus erfasst, ob der Schlüssel von der Beglaubigungs- oder Z
 
 <span class="sr-only" aria-hidden="true" data-pagefind-weight="10">BER.7.16.6</span>
 
-<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="3" threats="G 0.36" threatsHint="G 0.36 – Identitätsdiebstahl" tags={[{ name: "Cryptography", hint: "Wissenschaft der Verschlüsselung von Informationen, um sie vor unbefugtem Zugriff zu schützen und sichere Kommunikation zu ermöglichen." }]} />
+<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="3" threats="G 0.36" threatsHint="G 0.36 – Identitätsdiebstahl" tags={[{ name: "Cryptography", slug: "cryptography", hint: "Wissenschaft der Verschlüsselung von Informationen, um sie vor unbefugtem Zugriff zu schützen und sichere Kommunikation zu ermöglichen." }]} />
 
 > Berechtigung SOLLTE den Revocationstatus des Schlüssels im Verzeichnis öffentlicher Schlüssel dokumentieren.
 
