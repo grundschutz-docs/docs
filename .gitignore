@@ -34,3 +34,9 @@ ROADMAP.md
 
 # Deploy-Helfer fuer die eigene Instanz, kein Self-Hoster-Tool.
 scripts/deploy.sh
+
+# Analytics-/Search-Console-Exporte (Plausible, Google). scripts/deploy.sh
+# rsynct das ganze Verzeichnis mit --delete, ungetrackte Ordner landen sonst
+# auf dem Server. Besser ausserhalb des Repos ablegen.
+Plausible export*/
+grundschutz-docs.de-Performance-on-Search-*/

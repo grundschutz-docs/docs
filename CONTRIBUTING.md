@@ -114,7 +114,7 @@ written down so you know it beforehand.
 - **Syntax isn't the bar, structure is.** Whether a CSS rule is correct is
   something you can look up. Whether a new page belongs in the generator
   (and gets rewritten on every run) or should be its own hand-maintained
-  file (like `impressum.md`) is a decision that needs someone who wants
+  file (like `impressum.mdx`) is a decision that needs someone who wants
   something. Concretely: do you know what *capability* your change
   actually alters — not just the diff lines? Does it belong in the
   generator or next to it? Does a slug rename silently break the sidebar

@@ -84,6 +84,11 @@ python3 ../Grundschutz-Docs/scripts/generate_docs.py
 cd ../Grundschutz-Docs && pnpm run build
 ```
 
+The generator also writes the role pages (`rollen/`) and the old↔new
+comparison (`vergleich/`). Edit those in `scripts/generate_docs.py`, never
+in the `.mdx` — the next run overwrites them. `DESCRIPTION_OVERRIDES`
+there keeps a few shortened meta descriptions for search results.
+
 In CI, `.github/workflows/sync-catalog.yml` runs on a daily schedule,
 checks the upstream catalog out directly, regenerates the docs, and opens
 a pull request if anything changed — review the diff before merging (see
@@ -98,18 +103,22 @@ every push and pull request.
 ├── scripts/
 │   └── generate_docs.py       # OSCAL catalog → Starlight MDX
 ├── src/
-│   ├── components/            # ControlMeta, PdcaCycle, Befund*, filters
+│   ├── components/            # ControlMeta, PdcaCycle, Befund*, filters, header/hero overrides
+│   ├── data/                  # landing.json, status.json (figures for the homepage and timeline)
 │   ├── content/docs/
-│   │   ├── grundschutzpp/     # generated — one page per topic area
+│   │   ├── grundschutzpp/     # generated — the catalog, one page per practice
 │   │   ├── rollen/            # generated — entry pages per role
 │   │   ├── vergleich/         # generated — one page per old↔new mapping
 │   │   ├── befunde/           # the findings register (see adr/0009)
+│   │   ├── en/                # hand-written English pages (not a catalog translation)
 │   │   ├── index.mdx          # homepage
-│   │   ├── impressum.md       # legal notice template (see adr/0003)
-│   │   └── datenschutz.md     # privacy policy template
+│   │   ├── ueber.mdx          # about
+│   │   ├── impressum.mdx      # legal notice template (see adr/0003)
+│   │   └── datenschutz.mdx    # privacy policy template
 │   └── styles/custom.css      # OKLCH palette, light + dark
-├── astro.config.mjs           # site title, sidebar, Starlight plugins
-└── .env                       # SITE_NAME (see .env.example)
+├── .github/workflows/         # ci.yml (build), sync-catalog.yml (daily catalog PR)
+├── astro.config.mjs           # site title, sidebar, i18n, Starlight plugins
+└── .env                       # SITE_NAME, operator data (see .env.example)
 ```
 
 ## Contributing
@@ -121,6 +130,13 @@ changes need an actual run and diff review, check both color schemes and
 both mobile/desktop layouts); `CODE_OF_CONDUCT.md` has the community
 expectations.
 
+## Related
+
+[`grundschutz-docs/rag`](https://github.com/grundschutz-docs/rag) is the
+data pipeline behind this site for people who want to build their own
+search or chatbot on the catalog: the same controls as JSONL plus a small
+Qdrant indexing script.
+
 ## What's next
 
 Not promises, just what's on the list — open an issue if you want to pick
@@ -130,8 +146,10 @@ one of these up (see `CONTRIBUTING.md`):
   data but not yet exposed in the UI
 - An OSCAL explainer page — what it is, and why a German agency adopted a
   NIST-originated format instead of building its own
-- A real English translation of the catalog content (the i18n scaffold
-  already works, the translation itself doesn't exist yet)
+- The English side is hand-written pages for foreign companies operating
+  in Germany (home, about, legal pages, "operating in Germany"). The
+  catalog itself, the comparison and the findings register are still
+  German-only; a real English translation of the catalog is not started
 
 ## License
 
