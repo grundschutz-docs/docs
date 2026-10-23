@@ -8,10 +8,10 @@ import ControlMeta from '../../../components/ControlMeta.astro';
 <span data-pagefind-meta="section:Anforderung"></span>
 
 <div class="source-note">
-<p>Katalogstand: 24. September 2026 — Quelle: <a href="https://github.com/BSI-Bund/Stand-der-Technik-Bibliothek" target="_blank" rel="noopener noreferrer">BSI Stand-der-Technik-Bibliothek</a>.</p>
+<p>Katalogstand: 22. Oktober 2026 — Quelle: <a href="https://github.com/BSI-Bund/Stand-der-Technik-Bibliothek" target="_blank" rel="noopener noreferrer">BSI Stand-der-Technik-Bibliothek</a>.</p>
 <details>
 <summary>Eine Anforderung von dieser Seite zitieren</summary>
-<p>Maßgeblich ist immer das Original, nicht diese Aufbereitung. Zitierfähig ist: BSI, <em>Anwenderkatalog Grundschutz++</em>, Version 2026-09-24, Dokument-ID ebe77c16-3ddc-42ce-8d53-eff5b6e23334 (RFC 9562), Anforderung <em>&lt;ID&gt;</em> — wobei die ID die Kennung neben der jeweiligen Überschrift ist, etwa <code>GC.5.1.1</code>. Sie bleibt stabil, auch wenn das BSI eine Formulierung ändert.</p>
+<p>Maßgeblich ist immer das Original, nicht diese Aufbereitung. Zitierfähig ist: BSI, <em>Anwenderkatalog Grundschutz++</em>, Version 2026-10-22, Dokument-ID ebe77c16-3ddc-42ce-8d53-eff5b6e23334 (RFC 9562), Anforderung <em>&lt;ID&gt;</em> — wobei die ID die Kennung neben der jeweiligen Überschrift ist, etwa <code>GC.5.1.1</code>. Sie bleibt stabil, auch wenn das BSI eine Formulierung ändert.</p>
 </details>
 </div>
 
@@ -517,33 +517,33 @@ Innerhalb der Institution ist ein Prozess etabliert, mit dem Berechtigungen syst
 
 ## BER.5 Umgang mit Authentisierungsmitteln {#BER.5}
 
-### BER.5.1 – Vorgehensweise zur Ausgabe {#BER.5.1}
+### BER.5.1 – Ausgabe, Registrierung und Zuordnung {#BER.5.1}
 
 <span class="sr-only" aria-hidden="true" data-pagefind-weight="10">BER.5.1</span>
 
 <ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="2" threats="G 0.36" threatsHint="G 0.36 – Identitätsdiebstahl" predecessors={[{ oldId: "APP.4.2.A14-UA.2", relationship: "subset-of", link: "https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/06_APP_Anwendungen/APP_4_2_SAP_ERP_System_Edition_2023.pdf?__blob=publicationFile&v=4#download=1", vergleichHref: "/vergleich/app-4-2/" }]} />
 
-> Berechtigung SOLLTE eine Vorgehensweise zur initialen Ausgabe von Authentifizierungsmitteln verankern.
+> Berechtigung SOLLTE eine Vorgehensweise zur initialen Ausgabe oder Registrierung von Authentifizierungsmitteln und ihrer Zuordnung zu den vorgesehenen Zugangskonten oder Berechtigungsumfängen verankern.
 
 Die initiale Ausgabe von Authentifizierungsmitteln ist die erstmalige, kontrollierte Bereitstellung von Mitteln, mit denen eine natürliche Person oder ein technischer Dienst seine Identität nachweisen kann; hierzu zählen beispielsweise Passwörter oder Einmalpasswörter, Hardware- oder Software-Token, Smartcards, Zertifikate, kryptografische Schlüssel, Passkeys, initiale MFA-Faktoren sowie Aktivierungs- oder Registrierungsinformationen (engl. authentication credentials, authentication factors, authenticators). Die Vorgehensweise zur initialen Ausgabe umfasst dabei insbesondere die nachvollziehbare Feststellung der berechtigten empfangenden Person oder Instanz, die Zuordnung zum vorgesehenen Zugangskonto oder Berechtigungsumfang, einen geschützten Übergabeweg, die Vermeidung unkontrollierter Mehrfachausgaben sowie eine dokumentierbare Bestätigung, dass das Authentifizierungsmittel nur der vorgesehenen empfangenden Stelle zugänglich gemacht wurde. Sinn und Zweck der Vorschrift ist, bereits beim ersten Zugang zu verhindern, dass Authentifizierungsmittel an falsche, nicht hinreichend identifizierte oder nicht mehr berechtigte Empfänger gelangen; andernfalls könnte ein Konto von Beginn an kompromittiert, ein Initialpasswort abgefangen, ein Token an eine falsche Person ausgegeben oder ein Zertifikat missbräuchlich zur Anmeldung verwendet werden.
 
-#### BER.5.1.1 – Initiale Ausgabe {#BER.5.1.1}
+#### BER.5.1.1 – Identität der vorgesehenen Empfänger {#BER.5.1.1}
 
 <span class="sr-only" aria-hidden="true" data-pagefind-weight="10">BER.5.1.1</span>
 
 <ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="2" threats="G 0.36" threatsHint="G 0.36 – Identitätsdiebstahl" />
 
-> Berechtigung SOLLTE vor der Verteilung von Authentifizierungsmitteln die Identität authentifizieren.
+> Berechtigung SOLLTE vor der Verteilung von Authentifizierungsmitteln die Identität der vorgesehenen Personen oder technischen Instanzen authentifizieren.
 
-Identität meint hier die natürliche Person, Gruppe, Rolle, Anwendung oder das IT-System, welches das Authentifizierungsmittel erhält. Verteilung meint hier die initiale Ausgabe, Weiterleitung oder Speicherung des Authentifizierungsfaktors, z.B. die Ausgabe eines initialen Passwortes an Nutzende oder die Speicherung eines X.509-Zertifikates zu einem neuen Hostsystem als vertrauenswürdig in einem Trust Store.
+Identität meint hier die natürliche Person, Gruppe, Rolle, Anwendung oder das IT-System, welches das Authentifizierungsmittel erhält. Verteilung meint hier die initiale Ausgabe, Weiterleitung, Registrierung oder Speicherung des Authentifizierungsfaktors, z.B. die Ausgabe eines initialen Passwortes an Nutzende oder die Speicherung eines X.509-Zertifikates zu einem neuen Hostsystem als vertrauenswürdig in einem Trust Store.
 
-### BER.5.2 – Vorgehensweise zur Zurücksetzung {#BER.5.2}
+### BER.5.2 – Zurücksetzung und Ersetzung von Authentifizierungsmitteln {#BER.5.2}
 
 <span class="sr-only" aria-hidden="true" data-pagefind-weight="10">BER.5.2</span>
 
 <ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="3" threats="G 0.36" threatsHint="G 0.36 – Identitätsdiebstahl" />
 
-> Berechtigung SOLLTE eine Vorgehensweise zur Zurücksetzung von Authentifizierungsmitteln verankern.
+> Berechtigung SOLLTE eine Vorgehensweise zur Zurücksetzung oder Ersetzung von Authentifizierungsmitteln verankern.
 
 Zurücksetzung meint hier die geregelte Wiederherstellung, Erneuerung, Sperrung und Neuvergabe solcher Mittel, wenn sie vergessen, verloren, kompromittiert, technisch unbrauchbar oder aus anderen nachvollziehbaren Gründen nicht mehr sicher verwendbar sind; sie umfasst insbesondere die Prüfung der Identität der berechtigten Person, die Verhinderung unberechtigter Übernahmeversuche und die nachvollziehbare Durchführung des Vorgangs. Eine verankerte Vorgehensweise kann verhindern, dass der Reset selbst zum Einfallstor wird: Ohne klare Regeln könnte ein Angreifer über Social Engineering, manipulierte Helpdesk-Anfragen, abgefangene Wiederherstellungslinks oder missbrauchte Sicherheitsfragen Zugriff auf fremde Konten erhalten. Ebenso könnte eine uneinheitliche Behandlung verlorener Token, vergessener Passwörter oder kompromittierter Zertifikate dazu führen, dass alte Authentifizierungsmittel weiterverwendet werden oder neue Mittel an die falsche Person gelangen.
 
@@ -647,13 +647,13 @@ Lesender Zugriff bezeichnet in diesem Kontext jede Möglichkeit, Authentifizieru
 
 Dient zur Absicherung des Zugriffs auf Daten, deren Vertraulichkeit oder Integrität als hoch einzuschätzen ist, nach dem Vier-Augen-Prinzip. Dazu kann z.B. Person #1 die ersten zehn Stellen eines Passwort kennen und Person #2 die hinteren zehn Stellen eines Passwortes. Oder aber Person #1 erhält einen Hardwaretoken, während Person #2 das Passwort kennt.
 
-### BER.5.13 – Identitätsüberprüfung {#BER.5.13}
+### BER.5.13 – Identität vor Zurücksetzung und Ersetzung {#BER.5.13}
 
 <span class="sr-only" aria-hidden="true" data-pagefind-weight="10">BER.5.13</span>
 
 <ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="3" threats="G 0.18" threatsHint="G 0.18 – Fehlplanung oder fehlende Anpassung" />
 
-> Berechtigung SOLLTE vor dem Zurücksetzen von Berechtigungsmitteln eine Identitätsüberprüfung verankern.
+> Berechtigung SOLLTE vor der Zurücksetzung oder Ersetzung von Authentifizierungsmitteln eine Überprüfung der Identität der anfragenden Person oder technischen Instanz verankern.
 
 Unter einer Identitätsüberprüfung ist hier die Verifikation zu verstehen, ob die anfragende Person tatsächlich die berechtigte Identität besitzt, für die ein neues Passwort vergeben werden soll; in der Fachsprache wird dies häufig als Identity Verification oder Identity Proofing bezeichnet. Ein Passwort-Reset stellt einen besonders sensiblen Vorgang dar, da hierbei bestehende Authentisierungsmerkmale ersetzt werden und eine erfolgreiche Täuschung einem Unbefugten unmittelbar Zugang zu geschützten Informationen und Diensten verschaffen kann. Eine vorgelagerte Identitätsüberprüfung kann das Risiko verringern, dass sich Angreifer durch Social Engineering, gestohlene Kontaktdaten oder die Ausnutzung unzureichender Supportprozesse Zugang zu Benutzerkonten verschaffen könnten. \n\nDas unberechtigte Zurücksetzen von Zugangsdaten ist eine sehr bekannte Angriffsmethode und erfordert vom Täter nur geringe technische Fähigkeiten. Eine eindeutige Identifizierung des Inhabers des Zugangs kann z.B. anhand eines Personalausweises, durch die persönliche Identifikation bei autorisierten Stellen, die Bestätigung über einen unabhängigen zweiten Kommunikationskanal oder die Nutzung bestehender Mehrfaktor-Authentisierung erfolgen.
 
