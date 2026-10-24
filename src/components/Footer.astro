@@ -13,10 +13,27 @@ const legalPrefix = isEnglish ? '/en' : '';
 		<LastUpdated />
 	</div>
 	<Pagination />
-	<div class="legal-links sl-flex">
-		<a href={`${legalPrefix}/ueber/`}>{isEnglish ? 'About this site' : 'Über diese Seite'}</a>
-		<a href={`${legalPrefix}/impressum/`}>{isEnglish ? 'Legal Notice' : 'Impressum'}</a>
-		<a href={`${legalPrefix}/datenschutz/`}>{isEnglish ? 'Privacy Policy' : 'Datenschutz'}</a>
+	{/* Drei Spalten mit Überschrift statt einer Linkzeile: Projekt, Entwickler,
+	    Rechtliches. Die Kopfleiste ist mobil knapp (das GitHub-Symbol sitzt dort
+	    in einer Gruppe, die erst ab mittlerer Breite erscheint), der Footer ist
+	    auf jeder Seite und jedem Gerät da. */}
+	<div class="footer-columns">
+		<nav aria-labelledby="footer-project">
+			<p class="col-title" id="footer-project">{isEnglish ? 'Project' : 'Projekt'}</p>
+			<a href={`${legalPrefix}/ueber/`}>{isEnglish ? 'About this site' : 'Über diese Seite'}</a>
+			<a href={`${legalPrefix}/befunde/`}>{isEnglish ? 'Findings' : 'Befunde'}</a>
+		</nav>
+		<nav aria-labelledby="footer-dev">
+			<p class="col-title" id="footer-dev">{isEnglish ? 'For developers' : 'Für Entwickler'}</p>
+			<a href={`${legalPrefix}/rag/`}>{isEnglish ? 'Catalog as data (RAG)' : 'Katalog als Daten (RAG)'}</a>
+			<a href="https://github.com/grundschutz-docs/docs">{isEnglish ? 'Source code on GitHub' : 'Quellcode auf GitHub'}</a>
+			<a href="https://github.com/BSI-Bund/Stand-der-Technik-Bibliothek">{isEnglish ? 'BSI original catalog' : 'BSI-Originalkatalog'}</a>
+		</nav>
+		<nav aria-labelledby="footer-legal">
+			<p class="col-title" id="footer-legal">{isEnglish ? 'Legal' : 'Rechtliches'}</p>
+			<a href={`${legalPrefix}/impressum/`}>{isEnglish ? 'Legal Notice' : 'Impressum'}</a>
+			<a href={`${legalPrefix}/datenschutz/`}>{isEnglish ? 'Privacy Policy' : 'Datenschutz'}</a>
+		</nav>
 	</div>
 </footer>
 
@@ -37,18 +54,39 @@ const legalPrefix = isEnglish ? '/en' : '';
 		.meta > :global(p:only-child) {
 			margin-inline-start: auto;
 		}
-		.legal-links {
-			gap: 1rem;
-			padding-top: 1rem;
+		.footer-columns {
+			display: grid;
+			grid-template-columns: repeat(3, minmax(0, 1fr));
+			gap: 2rem 1.5rem;
+			padding-top: 1.5rem;
 			border-top: 1px solid var(--sl-color-hairline);
-			font-size: var(--sl-text-xs);
 		}
-		.legal-links a {
+		.footer-columns nav {
+			display: flex;
+			flex-direction: column;
+			align-items: flex-start;
+			gap: 0.6rem;
+			font-size: var(--sl-text-sm);
+		}
+		.col-title {
+			margin: 0 0 0.2rem;
+			font-size: var(--sl-text-xs);
+			font-weight: 600;
+			letter-spacing: 0.08em;
+			text-transform: uppercase;
+			color: var(--sl-color-gray-2);
+		}
+		.footer-columns a {
 			color: var(--sl-color-gray-3);
 			text-decoration: none;
 		}
-		.legal-links a:hover {
+		.footer-columns a:hover {
 			color: var(--sl-color-accent);
+		}
+		@media (max-width: 40rem) {
+			.footer-columns {
+				grid-template-columns: repeat(2, minmax(0, 1fr));
+			}
 		}
 	}
 </style>
