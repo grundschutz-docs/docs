@@ -1048,3 +1048,64 @@ site-search dialog::backdrop {
 	content: '*';
 	margin-inline-start: 0.2ch;
 }
+
+/*
+ * Vergleichstabelle auf /rag/: Auf dem Handy untereinander statt nebeneinander.
+ *
+ * Starlight macht jede Markdown-Tabelle zu einem eigenen Scroll-Kasten. Drei
+ * Spalten mit Satztext sind dort 355-404 px breit in einem 288-px-Kasten
+ * (320-px-Handy), und die dritte Spalte, die mit der Aussage, liegt dann
+ * außerhalb ohne sichtbaren Hinweis zum Wischen. Hier wird jede Zeile ein
+ * Block: Kriterium als Überschrift, darunter die beiden Zellen mit ihrer
+ * Spaltenbezeichnung. Die Bezeichnungen stehen hier statt im Markdown, weil
+ * Markdown-Tabellen keine Zellattribute kennen; sie sind in beiden Sprachen
+ * gleich ("Kompendium 2023", "Grundschutz++"), deshalb ein Satz CSS für beide.
+ * Wer die Spaltenköpfe in der Tabelle umbenennt, muss sie hier mitziehen.
+ * Wirkt nur in einem Wrapper mit class="stack-table".
+ */
+@media (max-width: 40rem) {
+	.stack-table table {
+		display: block;
+		overflow: visible;
+	}
+	.stack-table thead {
+		position: absolute;
+		width: 1px;
+		height: 1px;
+		overflow: hidden;
+		clip: rect(0 0 0 0);
+	}
+	.stack-table tbody,
+	.stack-table tr,
+	.stack-table td {
+		display: block;
+	}
+	.stack-table tr {
+		padding: 1rem 0;
+		border-top: 1px solid var(--sl-color-hairline);
+	}
+	.stack-table tr:last-child {
+		border-bottom: 1px solid var(--sl-color-hairline);
+	}
+	.stack-table td {
+		border: 0;
+		padding: 0.3rem 0;
+	}
+	.stack-table td:first-child {
+		font-weight: 600;
+		color: var(--sl-color-white);
+	}
+	.stack-table td:not(:first-child)::before {
+		display: block;
+		font-size: var(--sl-text-xs);
+		letter-spacing: 0.08em;
+		text-transform: uppercase;
+		color: var(--sl-color-gray-3);
+	}
+	.stack-table td:nth-child(2)::before {
+		content: 'Kompendium 2023';
+	}
+	.stack-table td:nth-child(3)::before {
+		content: 'Grundschutz++';
+	}
+}
