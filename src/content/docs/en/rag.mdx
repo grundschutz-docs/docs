@@ -27,7 +27,7 @@ head:
 
 A language model answers that with confidence, whether it knows the answer or not. For security requirements that is a problem, because a wrong answer sounds just as convincing as a right one.
 
-Anyone who looks it up in the catalog instead has the second problem: not knowing where it is. The word "Penetrationstest" appears in eleven requirements, spread over four topic areas: procurement, detection, service provider management and testing. Search only the "testing" chapter and you see part of it. With 1000 requirements in 20 topic areas, a subject rarely sits in one place, and you only see the angle you asked from.
+Anyone who looks it up in the catalog instead has the second problem: not knowing where it is. The word "Penetrationstest" appears in eleven requirements, spread over four practices: procurement, detection, service provider management and testing. Search only the "testing" chapter and you see part of it. With 1000 requirements in 20 practices, a subject rarely sits in one place, and you only see the angle you asked from.
 
 Both can be tackled once the catalog is available as data. An assistant first looks things up and answers from those passages, not from the model's memory. This is called RAG (*retrieval-augmented generation*). The search goes by the meaning of the question, not by chapter. Every hit comes with an ID and a link to the readable page, so you can check it.
 
@@ -41,7 +41,7 @@ The repository provides the search. Asking questions and getting hits back with 
 
 Everything beyond that you build yourself, and it helps to know what that involves:
 
-- **Narrowing** by modal verb, level, effort or topic area. All of these fields are stored with every hit in Qdrant, and Qdrant can filter on them. The filter itself is missing: `query.sh` has no switch for it.
+- **Narrowing** by modal verb, level, effort or practice. All of these fields are stored with every hit in Qdrant, and Qdrant can filter on them. The filter itself is missing: `query.sh` has no switch for it.
 - **Writing answers.** You need a language model that turns the hits into text. That step is not part of the repository.
 - **Holding your own policies up against the catalog**: read a policy in, search per section, flag the gaps. The repository brings the searchable catalog, you build the comparison.
 - **Going from old to new requirements.** For 322 requirements, the ID of the old requirement and a link to the BSI's PDF are included. Nothing more, the Kompendium text is deliberately not included (see [License](#license-and-use)).
@@ -121,7 +121,7 @@ One line per requirement, shortened here:
 }
 ```
 
-There are more fields, among them topic area, tags, threats, the links to old requirements (`predecessors`) and provenance. All fields and the configuration are in the [repository README](https://github.com/grundschutz-docs/rag#readme).
+There are more fields, among them practice, tags, threats, the links to old requirements (`predecessors`) and provenance. All fields and the configuration are in the [repository README](https://github.com/grundschutz-docs/rag#readme).
 
 `predecessors` comes from the BSI's mapping file between the old and the new catalog. The BSI marks it as a draft (`status: draft`), and 17 Bausteine have no mapping yet. The details are in [the finding](/befunde/mapping-datei-ist-entwurf/) (German).
 

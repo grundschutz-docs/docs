@@ -29,7 +29,7 @@ head:
 
 Ein Sprachmodell antwortet darauf selbstsicher, ob es die Antwort kennt oder nicht. Bei Sicherheitsanforderungen ist das ein Problem, denn eine falsche Antwort klingt genauso überzeugend wie eine richtige.
 
-Wer deshalb selbst im Katalog nachschlägt, hat das zweite Problem: Er weiß nicht, wo es steht. Das Wort „Penetrationstest“ kommt in elf Anforderungen vor, verteilt auf vier Themenfelder: Beschaffung, Detektion, Dienstleistersteuerung und Tests. Wer nur im Kapitel „Tests“ sucht, sieht einen Teil davon. Bei 1000 Anforderungen in 20 Themenfeldern liegt ein Thema selten an einer Stelle, und man sieht nur den Winkel, aus dem man gefragt hat.
+Wer deshalb selbst im Katalog nachschlägt, hat das zweite Problem: Er weiß nicht, wo es steht. Das Wort „Penetrationstest“ kommt in elf Anforderungen vor, verteilt auf vier Praktiken: Beschaffung, Detektion, Dienstleistersteuerung und Tests. Wer nur im Kapitel „Tests“ sucht, sieht einen Teil davon. Bei 1000 Anforderungen in 20 Praktiken liegt ein Thema selten an einer Stelle, und man sieht nur den Winkel, aus dem man gefragt hat.
 
 Beides lässt sich angehen, wenn der Katalog als Daten vorliegt. Ein Assistent schlägt dann zuerst nach und antwortet auf Grundlage dieser Textstellen, nicht aus dem Gedächtnis des Modells. Das nennt man RAG (*Retrieval-Augmented Generation*). Gesucht wird nach der Bedeutung der Frage, nicht nach dem Kapitel. Jeder Treffer kommt mit ID und Link zur lesbaren Seite, du kannst ihn also gegenlesen.
 
@@ -43,7 +43,7 @@ Das Repository liefert die Suche. Fragen stellen und Treffer mit ID, Treffergüt
 
 Alles darüber hinaus baust du selbst, und es lohnt sich zu wissen, was dazugehört:
 
-- **Eingrenzen** nach Pflichtgrad, Stufe, Aufwand oder Themenfeld. Alle diese Felder liegen in Qdrant bei jedem Treffer, und Qdrant kann danach filtern. Der Filter selbst fehlt: `query.sh` hat keinen Schalter dafür.
+- **Eingrenzen** nach Pflichtgrad, Stufe, Aufwand oder Praktik. Alle diese Felder liegen in Qdrant bei jedem Treffer, und Qdrant kann danach filtern. Der Filter selbst fehlt: `query.sh` hat keinen Schalter dafür.
 - **Antworten formulieren** lassen. Dafür brauchst du ein Sprachmodell, das aus den Treffern einen Text macht. Dieser Schritt gehört nicht zum Repository.
 - **Eigene Richtlinien gegen den Katalog halten**: eine Richtlinie einlesen, je Abschnitt suchen lassen, Lücken markieren. Das Repository bringt den durchsuchbaren Katalog mit, den Vergleich baust du.
 - **Von alten zu neuen Anforderungen** gehen. Bei 322 Anforderungen steht die ID der alten Anforderung samt Link zum BSI-PDF. Mehr nicht, der Text des Kompendiums ist bewusst nicht enthalten (siehe [Lizenz](#lizenz-und-nutzung)).
@@ -123,7 +123,7 @@ Eine Zeile je Anforderung, hier gekürzt:
 }
 ```
 
-Zusätzlich gibt es unter anderem Themenfeld, Tags, Gefährdungen, die Verweise auf alte Anforderungen (`predecessors`) und die Herkunft. Alle Felder und die Konfiguration stehen in der [README des Repositorys](https://github.com/grundschutz-docs/rag#readme) (Englisch).
+Zusätzlich gibt es unter anderem Praktik, Tags, Gefährdungen, die Verweise auf alte Anforderungen (`predecessors`) und die Herkunft. Alle Felder und die Konfiguration stehen in der [README des Repositorys](https://github.com/grundschutz-docs/rag#readme) (Englisch).
 
 Die `predecessors` stammen aus der Mapping-Datei des BSI zwischen altem und neuem Katalog. Das BSI führt sie als Entwurf (`status: draft`), und 17 Bausteine haben noch keine Zuordnung. Die Einzelheiten stehen im [Befund](/befunde/mapping-datei-ist-entwurf/).
 
