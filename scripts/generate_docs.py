@@ -1493,7 +1493,9 @@ def render_devs_page(themenfelder, groups_by_id):
         "Jede Anforderung zeigt Pflichtgrad, Sicherheitsstufe, "
         "Aufwandsschätzung und zugeordnete Basisgefährdungen direkt am "
         "Text, als Badges mit Hover-Erklärung — keine ISMS-Prozess-"
-        "Erklärung davor, kein Umweg über das Managementsystem.\n\n",
+        "Erklärung davor, kein Umweg über das Managementsystem.\n\n"
+        "Für eigene Werkzeuge gibt es den Katalog auch als "
+        "[Daten für Sprachmodelle (RAG)](/rag/).\n\n",
         render_index_section(
             "Technische Umsetzung",
             "Das betrifft dich direkt — Architektur, Konfiguration, Code, Zugriffe, Betrieb.",
