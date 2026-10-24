@@ -1,0 +1,142 @@
+---
+title: Grundschutz++ as data for RAG and language models
+description: Grundschutz++ as a JSONL file with all 1000 requirements, plus a script for Qdrant. Runs locally, so your questions stay with you.
+head:
+  # Dataset markup for Google's dataset search. Deliberately without creator
+  # and publisher: the material is the BSI's, and this site is not an
+  # official BSI offering (see Head.astro). Same reasoning as the German page.
+  - tag: script
+    attrs:
+      type: application/ld+json
+    content: >-
+      {"@context":"https://schema.org","@type":"Dataset",
+      "name":"Grundschutz++ catalog as JSONL, one requirement per line",
+      "description":"All 1000 requirements of the BSI's Grundschutz++ catalog with modal verb, security level, effort, threats and tags as a JSONL file, without embeddings, ready to embed into a vector database.",
+      "url":"https://grundschutz-docs.de/en/rag/","inLanguage":"en",
+      "isAccessibleForFree":true,
+      "license":"https://creativecommons.org/licenses/by-sa/4.0/",
+      "isBasedOn":"https://github.com/BSI-Bund/Stand-der-Technik-Bibliothek",
+      "keywords":["Grundschutz++","OSCAL","RAG","language models","JSONL","Qdrant"],
+      "distribution":[{"@type":"DataDownload","encodingFormat":"application/x-ndjson",
+      "contentUrl":"https://raw.githubusercontent.com/grundschutz-docs/rag/main/data/grundschutzpp-controls.jsonl"}]}
+---
+
+> This is a data foundation, not an answer service. The search returns similar requirements, not answers, and whatever an assistant built on it says is neither a statement by the BSI nor legal advice. The BSI's original catalog is always authoritative. The project is independent and not affiliated with the BSI. As of October 2026.
+
+"How often must a penetration test be performed?"
+
+A language model answers that with confidence, whether it knows the answer or not. For security requirements that is a problem, because a wrong answer sounds just as convincing as a right one.
+
+Anyone who looks it up in the catalog instead has the second problem: not knowing where it is. The word "Penetrationstest" appears in eleven requirements, spread over four topic areas: procurement, detection, service provider management and testing. Search only the "testing" chapter and you see part of it. With 1000 requirements in 20 topic areas, a subject rarely sits in one place, and you only see the angle you asked from.
+
+Both can be tackled once the catalog is available as data. An assistant first looks things up and answers from those passages, not from the model's memory. This is called RAG (*retrieval-augmented generation*). The search goes by the meaning of the question, not by chapter. Every hit comes with an ID and a link to the readable page, so you can check it.
+
+Everything for that is here: [`grundschutz-docs/rag`](https://github.com/grundschutz-docs/rag) holds all requirements as a single JSONL file, synced with the BSI every day, and a script that writes them into the vector database [Qdrant](https://qdrant.tech).
+
+I have spent a lot of time on RAG and often worked with the Grundschutz++ catalog along the way. My impression: for operators of critical infrastructure and similar sectors, working with your own data on your own hardware matters. The catalog is already prepared here anyway, so the step to a finished file for programs was small.
+
+## What you can do with it
+
+The repository provides the search. Asking questions and getting hits back with ID, score and link works straight away: `query.sh` prints the five most similar requirements. Which hits a particular question returns depends on the embedding model you choose. Try it with your own questions before you rely on it.
+
+Everything beyond that you build yourself, and it helps to know what that involves:
+
+- **Narrowing** by modal verb, level, effort or topic area. All of these fields are stored with every hit in Qdrant, and Qdrant can filter on them. The filter itself is missing: `query.sh` has no switch for it.
+- **Writing answers.** You need a language model that turns the hits into text. That step is not part of the repository.
+- **Holding your own policies up against the catalog**: read a policy in, search per section, flag the gaps. The repository brings the searchable catalog, you build the comparison.
+- **Going from old to new requirements.** For 322 requirements, the ID of the old requirement and a link to the BSI's PDF are included. Nothing more, the Kompendium text is deliberately not included (see [License](#license-and-use)).
+
+Some things you can settle without a database. The file contains 149 MUSS, 627 SOLLTE and 224 KANN requirements. All 149 MUSS requirements are at level *normal-SdT*, and all 224 KANN requirements at level *erhöht*. "What is the minimum I have to implement?" is therefore a filter, not a search problem.
+
+## Why Grundschutz++ suits this better than the Kompendium
+
+The BSI publishes Grundschutz++ in [OSCAL](https://pages.nist.gov/OSCAL/), a machine-readable format for security requirements. The IT-Grundschutz-Kompendium exists as PDF, Word and DocBook XML, that is, as a document.
+
+| | Kompendium 2023 | Grundschutz++ |
+|---|---|---|
+| Format | PDF, Word, DocBook XML, one document per Baustein | OSCAL JSON, one catalog |
+| Unit | Chapters and running text. A program has to extract the requirements first. | Every requirement is its own entry with its own text |
+| Properties | Level and roles as abbreviations in the text | Modal verb, level, effort 0 to 5, threats and tags are fields |
+| Identifier | Baustein ID, references in running text | Stable ID that stays when the wording changes |
+| Version | One edition, last in 2023 | Versioned, every change can be traced |
+| License | Free downloads for non-commercial purposes only | CC BY-SA 4.0, redistribution and commercial use allowed with attribution |
+
+The last row decides what you may build. With Grundschutz++ you can embed the text and pass the result on, including in a product. For the Kompendium, the [BSI's terms of use](https://www.bsi.bund.de/DE/Service/Nutzungsbedingungen/Nutzungsbedingungen_node.html) (German) do not provide for that without consent. That is why the repository contains none of its text.
+
+## Your questions stay with you
+
+A question such as "Which requirements concern our backups?" says something about your own IT. The catalog is public, your questions and later your policies are not. Where they go is a setting:
+
+| Setup | What leaves your environment |
+|---|---|
+| Qdrant and the embedding server both local (the `docker-compose.yml` default) | **Nothing.** Only the one-time download of the scripts and the model. |
+| An embedding server in your own infrastructure (for example vLLM) | Nothing outward. The questions stay in your network. |
+| An embedding API such as OpenAI's | The catalog text when indexing, and every search question |
+| Qdrant Cloud | The index with the catalog text, and search queries as vectors |
+
+The embedding server is only an address in the `.env` file. Any server that speaks the OpenAI embeddings API will do. Ollama, vLLM and OpenAI are examples. So you move between these setups by changing a setting, not code.
+
+The language model that finally writes the answer you choose separately. There too you can use a model you run yourself.
+
+## How it works
+
+1. **The BSI publishes the catalog** as OSCAL JSON in the public [Stand-der-Technik-Bibliothek](https://github.com/BSI-Bund/Stand-der-Technik-Bibliothek) repository. That is the only source.
+2. **`export.py` turns it into lines.** It runs daily in CI and needs only Python's standard library. It writes one line per requirement, resolves threats and tags into plain text, attaches the links to the old requirements, and joins title, modal verb, requirement and guidance into one `text` block that can be embedded as it is.
+3. **The JSONL file sits ready in the repository**, deliberately without embeddings. You pick the model yourself, and the file stays useful for any other tool. If you do not trust the export, generate it yourself from the BSI original with `export.py`.
+4. **`run.sh` embeds and indexes.** Each `text` block becomes a vector, a row of numbers that represents its meaning. Vector and full record go into Qdrant. The entry's ID derives from the requirement ID, so running it again after a catalog update overwrites instead of duplicating.
+5. **`query.sh` searches.** The question is embedded with the same model, and Qdrant returns the nearest requirements.
+
+## Try it yourself
+
+You need Python 3 and Git. On first start the scripts create a virtual environment and install `requirements.txt`.
+
+If Qdrant and an embedding server (Ollama by default) are already running:
+
+```bash
+git clone https://github.com/grundschutz-docs/rag.git
+cd rag
+cp .env.example .env   # adjust the addresses, or keep the localhost defaults
+./run.sh               # embeds the JSONL file and writes it to Qdrant
+./query.sh "How often must a penetration test be performed?"
+```
+
+If nothing is installed yet, `docker compose up -d` starts a local Qdrant and a local Ollama and pulls the bge-m3 model. The defaults in `.env.example` then fit, and you continue with the commands above.
+
+For a different embedding server, set `EMBEDDING_BASE_URL`, `EMBEDDING_MODEL` and, if the server wants one, `EMBEDDING_API_KEY` in `.env`. Every model returns vectors of its own size, so after switching models you need a new collection (`QDRANT_COLLECTION`). The script stops with a message otherwise.
+
+## The data
+
+One line per requirement, shortened here:
+
+```json
+{
+  "id": "NOT.4.10",
+  "title": "Getrennte Aufbewahrung",
+  "modal_verb": "SOLLTE",
+  "sec_level": "normal-SdT",
+  "effort_level": "3",
+  "statement": "Notfallplanung SOLLTE die Datensicherung getrennt von den Originaldaten platzieren.",
+  "text": "NOT.4.10 – Getrennte Aufbewahrung …",
+  "source_url": "https://grundschutz-docs.de/grundschutzpp/not/#NOT.4.10"
+}
+```
+
+There are more fields, among them topic area, tags, threats, the links to old requirements (`predecessors`) and provenance. All fields and the configuration are in the [repository README](https://github.com/grundschutz-docs/rag#readme).
+
+`predecessors` comes from the BSI's mapping file between the old and the new catalog. The BSI marks it as a draft (`status: draft`), and 17 Bausteine have no mapping yet. The details are in [the finding](/befunde/mapping-datei-ist-entwurf/) (German).
+
+## What this is not
+
+- It is not a finished chatbot, it is the data foundation for one. There is no demo.
+- It is not an answer service. The search finds similar requirements. Whether one of them applies in your case, it does not say.
+- It does not replace the original. For documentation and audit evidence, cite the BSI original.
+
+## License and use
+
+- **Code** in the repository: MIT.
+- **Catalog text** in the JSONL file: CC BY-SA 4.0, © BSI-Bund, following the license of the original catalog. If you build on it, credit the BSI and keep the license on derivatives of the catalog text.
+- **Old Kompendium**: not included, not even in part. The BSI's terms of use allow free downloads "only for non-commercial purposes", and "any further use, in particular commercial or publishing use, requires the BSI's prior consent" (our translation). For commercial use of IT-Grundschutz content the BSI asks for a licensing agreement. The repository therefore carries only the ID, the type of relationship and the link to the BSI's PDF.
+
+This section describes how the project handles the licenses. It is not legal advice. For your own project, the wording of the [terms of use](https://www.bsi.bund.de/DE/Service/Nutzungsbedingungen/Nutzungsbedingungen_node.html) (German) applies, read in October 2026, and the German text governs.
+
+Who is behind this is on [About this site](/en/ueber/).

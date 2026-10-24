@@ -1,0 +1,144 @@
+---
+title: Grundschutz++ als Daten für RAG und Sprachmodelle
+description: Grundschutz++ als JSONL-Datei mit allen 1000 Anforderungen, dazu ein Skript für Qdrant. Läuft lokal, deine Fragen bleiben bei dir.
+head:
+  # Dataset-Auszeichnung für Googles Datensatzsuche. Bewusst ohne creator und
+  # publisher: das Material stammt vom BSI, und die Seite ist kein offizielles
+  # BSI-Angebot (siehe Head.astro). isBasedOn nennt die Quelle, license die
+  # Lizenz des Katalogs. Kein dateModified, weil der tägliche Sync es sonst
+  # von Hand nachziehen müsste und ein fester Wert schnell lügt.
+  - tag: script
+    attrs:
+      type: application/ld+json
+    content: >-
+      {"@context":"https://schema.org","@type":"Dataset",
+      "name":"Grundschutz++-Katalog als JSONL, eine Anforderung je Zeile",
+      "description":"Alle 1000 Anforderungen des BSI-Katalogs Grundschutz++ mit Pflichtgrad, Sicherheitsstufe, Aufwand, Gefährdungen und Tags als JSONL-Datei, ohne Embeddings, zum Einbetten in eine Vektordatenbank.",
+      "url":"https://grundschutz-docs.de/rag/","inLanguage":"de",
+      "isAccessibleForFree":true,
+      "license":"https://creativecommons.org/licenses/by-sa/4.0/",
+      "isBasedOn":"https://github.com/BSI-Bund/Stand-der-Technik-Bibliothek",
+      "keywords":["Grundschutz++","OSCAL","RAG","Sprachmodelle","JSONL","Qdrant"],
+      "distribution":[{"@type":"DataDownload","encodingFormat":"application/x-ndjson",
+      "contentUrl":"https://raw.githubusercontent.com/grundschutz-docs/rag/main/data/grundschutzpp-controls.jsonl"}]}
+---
+
+> Das ist eine Datengrundlage, keine Auskunft. Die Suche liefert ähnliche Anforderungen, keine Antworten, und was ein darauf gebauter Assistent sagt, ist weder eine Aussage des BSI noch eine Rechtsberatung. Maßgeblich ist immer der Originalkatalog des BSI. Das Projekt ist unabhängig und nicht mit dem BSI verbunden. Stand: Oktober 2026.
+
+„Wie oft muss ein Penetrationstest durchgeführt werden?“
+
+Ein Sprachmodell antwortet darauf selbstsicher, ob es die Antwort kennt oder nicht. Bei Sicherheitsanforderungen ist das ein Problem, denn eine falsche Antwort klingt genauso überzeugend wie eine richtige.
+
+Wer deshalb selbst im Katalog nachschlägt, hat das zweite Problem: Er weiß nicht, wo es steht. Das Wort „Penetrationstest“ kommt in elf Anforderungen vor, verteilt auf vier Themenfelder: Beschaffung, Detektion, Dienstleistersteuerung und Tests. Wer nur im Kapitel „Tests“ sucht, sieht einen Teil davon. Bei 1000 Anforderungen in 20 Themenfeldern liegt ein Thema selten an einer Stelle, und man sieht nur den Winkel, aus dem man gefragt hat.
+
+Beides lässt sich angehen, wenn der Katalog als Daten vorliegt. Ein Assistent schlägt dann zuerst nach und antwortet auf Grundlage dieser Textstellen, nicht aus dem Gedächtnis des Modells. Das nennt man RAG (*Retrieval-Augmented Generation*). Gesucht wird nach der Bedeutung der Frage, nicht nach dem Kapitel. Jeder Treffer kommt mit ID und Link zur lesbaren Seite, du kannst ihn also gegenlesen.
+
+Dafür liegt hier alles bereit: [`grundschutz-docs/rag`](https://github.com/grundschutz-docs/rag) enthält alle Anforderungen als eine JSONL-Datei, täglich mit dem BSI abgeglichen, und ein Skript, das sie in die Vektordatenbank [Qdrant](https://qdrant.tech) schreibt.
+
+Ich habe mich viel mit RAG beschäftigt und dabei oft mit dem Grundschutz++-Katalog gearbeitet. Mein Eindruck: Gerade für Betreiber kritischer Infrastrukturen und ähnliche Branchen zählt es, mit den eigenen Daten auf eigener Hardware zu arbeiten. Der Katalog liegt hier ohnehin schon aufbereitet vor, der Schritt zur fertigen Datei für Programme war deshalb klein.
+
+## Was du damit machen kannst
+
+Das Repository liefert die Suche. Fragen stellen und Treffer mit ID, Treffergüte und Link zurückbekommen geht sofort: `query.sh` gibt die fünf ähnlichsten Anforderungen aus. Welche Treffer eine bestimmte Frage liefert, hängt vom Embedding-Modell ab, das du wählst. Teste es mit deinen eigenen Fragen, bevor du dich darauf verlässt.
+
+Alles darüber hinaus baust du selbst, und es lohnt sich zu wissen, was dazugehört:
+
+- **Eingrenzen** nach Pflichtgrad, Stufe, Aufwand oder Themenfeld. Alle diese Felder liegen in Qdrant bei jedem Treffer, und Qdrant kann danach filtern. Der Filter selbst fehlt: `query.sh` hat keinen Schalter dafür.
+- **Antworten formulieren** lassen. Dafür brauchst du ein Sprachmodell, das aus den Treffern einen Text macht. Dieser Schritt gehört nicht zum Repository.
+- **Eigene Richtlinien gegen den Katalog halten**: eine Richtlinie einlesen, je Abschnitt suchen lassen, Lücken markieren. Das Repository bringt den durchsuchbaren Katalog mit, den Vergleich baust du.
+- **Von alten zu neuen Anforderungen** gehen. Bei 322 Anforderungen steht die ID der alten Anforderung samt Link zum BSI-PDF. Mehr nicht, der Text des Kompendiums ist bewusst nicht enthalten (siehe [Lizenz](#lizenz-und-nutzung)).
+
+Manches lässt sich auch ohne Datenbank klären. In der Datei stehen 149 MUSS-, 627 SOLLTE- und 224 KANN-Anforderungen. Alle 149 MUSS-Anforderungen gehören zur Stufe *normal-SdT*, alle 224 KANN-Anforderungen zur Stufe *erhöht*. Die Frage „Was muss ich mindestens umsetzen?“ ist damit ein Filter und kein Suchproblem.
+
+## Warum Grundschutz++ dafür besser taugt als das Kompendium
+
+Das BSI veröffentlicht Grundschutz++ in [OSCAL](https://pages.nist.gov/OSCAL/), einem maschinenlesbaren Format für Sicherheitsanforderungen. Das IT-Grundschutz-Kompendium gibt es als PDF, Word und DocBook-XML, also als Dokument.
+
+| | Kompendium 2023 | Grundschutz++ |
+|---|---|---|
+| Format | PDF, Word, DocBook-XML, ein Dokument je Baustein | OSCAL-JSON, ein Katalog |
+| Einheit | Kapitel und Fließtext. Anforderungen muss ein Programm erst herauslösen. | Jede Anforderung ist ein eigener Eintrag mit eigenem Text |
+| Eigenschaften | Stufe und Rollen stehen als Kürzel im Text | Pflichtgrad, Stufe, Aufwand 0 bis 5, Gefährdungen und Tags sind Felder |
+| Kennung | Baustein-ID, Verweise im Fließtext | Stabile ID, auch wenn sich der Wortlaut ändert |
+| Version | Eine Ausgabe, zuletzt 2023 | Versioniert, jede Änderung lässt sich nachvollziehen |
+| Lizenz | Kostenlose Downloads nur für nicht kommerzielle Zwecke | CC BY-SA 4.0, Weitergabe und kommerzielle Nutzung mit Namensnennung erlaubt |
+
+Die letzte Zeile entscheidet, was du bauen darfst. Mit Grundschutz++ kannst du den Text einbetten und das Ergebnis weitergeben, auch in einem Produkt. Beim Kompendium sehen die [Nutzungsbedingungen des BSI](https://www.bsi.bund.de/DE/Service/Nutzungsbedingungen/Nutzungsbedingungen_node.html) das ohne Zustimmung nicht vor. Deshalb enthält das Repository keinen Text daraus.
+
+## Deine Fragen bleiben bei dir
+
+Eine Frage wie „Welche Anforderungen betreffen unsere Datensicherung?“ verrät etwas über deine eigene IT. Der Katalog ist öffentlich, deine Fragen und später deine Richtlinien sind es nicht. Wohin sie gehen, ist eine Einstellung:
+
+| Betriebsart | Was deine Umgebung verlässt |
+|---|---|
+| Qdrant und Embedding-Server laufen lokal (Voreinstellung von `docker-compose.yml`) | **Nichts.** Nur beim ersten Mal der Download der Skripte und des Modells. |
+| Embedding-Server in deiner eigenen Infrastruktur (zum Beispiel vLLM) | Nichts nach außen. Die Fragen bleiben in deinem Netz. |
+| Eine Embedding-API wie die von OpenAI | Der Katalogtext beim Indexieren und jede Suchfrage |
+| Qdrant Cloud | Der Index mit dem Katalogtext, und Suchanfragen als Vektoren |
+
+Der Embedding-Server ist nur eine Adresse in der Datei `.env`. Es genügt ein Server, der die OpenAI-Embeddings-Schnittstelle spricht. Ollama, vLLM und OpenAI sind Beispiele. Zwischen den Betriebsarten wechselst du also per Einstellung, ohne Code zu ändern.
+
+Das Sprachmodell, das am Ende die Antwort schreibt, wählst du getrennt davon. Auch dort kannst du ein selbst betriebenes Modell nehmen.
+
+## So funktioniert es
+
+1. **Das BSI veröffentlicht den Katalog** als OSCAL-JSON im öffentlichen Repository [Stand-der-Technik-Bibliothek](https://github.com/BSI-Bund/Stand-der-Technik-Bibliothek). Das ist die einzige Quelle.
+2. **`export.py` macht daraus Zeilen.** Es läuft täglich in der CI und braucht nur die Standardbibliothek von Python. Es schreibt eine Zeile je Anforderung, löst Gefährdungen und Tags in Klartext auf, hängt die Verweise auf die alten Anforderungen an und setzt Titel, Pflichtgrad, Anforderung und Erläuterung zu einem Block `text` zusammen, der sich direkt einbetten lässt.
+3. **Die JSONL-Datei liegt fertig im Repository**, bewusst ohne Embeddings. So wählst du das Modell selbst, und die Datei bleibt für jedes andere Werkzeug brauchbar. Wer dem Export nicht traut, erzeugt ihn mit `export.py` selbst aus dem BSI-Original.
+4. **`run.sh` bettet ein und indexiert.** Jeder `text`-Block wird zu einem Vektor, einer Zahlenreihe, die seine Bedeutung abbildet. Vektor und vollständiger Datensatz landen in Qdrant. Die ID des Eintrags leitet sich von der Anforderungs-ID ab, ein erneuter Lauf nach einer Katalogänderung überschreibt also, statt zu verdoppeln.
+5. **`query.sh` sucht.** Die Frage wird mit demselben Modell eingebettet, Qdrant liefert die nächsten Anforderungen.
+
+## Selbst ausprobieren
+
+Du brauchst Python 3 und Git. Die Skripte legen beim ersten Start eine virtuelle Umgebung an und installieren `requirements.txt`.
+
+Wenn Qdrant und ein Embedding-Server (standardmäßig Ollama) schon laufen:
+
+```bash
+git clone https://github.com/grundschutz-docs/rag.git
+cd rag
+cp .env.example .env   # Adressen anpassen oder die localhost-Voreinstellungen lassen
+./run.sh               # bettet die JSONL-Datei ein und schreibt sie nach Qdrant
+./query.sh "Wie oft muss ein Penetrationstest durchgeführt werden?"
+```
+
+Wenn noch nichts installiert ist, startet `docker compose up -d` ein lokales Qdrant und ein lokales Ollama und lädt das Modell bge-m3. Danach passen die Voreinstellungen aus `.env.example`, und du machst mit den Befehlen oben weiter.
+
+Für einen anderen Embedding-Server trägst du in `.env` `EMBEDDING_BASE_URL`, `EMBEDDING_MODEL` und, falls der Server einen verlangt, `EMBEDDING_API_KEY` ein. Jedes Modell liefert Vektoren eigener Größe. Nach einem Modellwechsel brauchst du deshalb eine neue Collection (`QDRANT_COLLECTION`). Das Skript bricht sonst mit einem Hinweis ab.
+
+## Die Daten
+
+Eine Zeile je Anforderung, hier gekürzt:
+
+```json
+{
+  "id": "NOT.4.10",
+  "title": "Getrennte Aufbewahrung",
+  "modal_verb": "SOLLTE",
+  "sec_level": "normal-SdT",
+  "effort_level": "3",
+  "statement": "Notfallplanung SOLLTE die Datensicherung getrennt von den Originaldaten platzieren.",
+  "text": "NOT.4.10 – Getrennte Aufbewahrung …",
+  "source_url": "https://grundschutz-docs.de/grundschutzpp/not/#NOT.4.10"
+}
+```
+
+Zusätzlich gibt es unter anderem Themenfeld, Tags, Gefährdungen, die Verweise auf alte Anforderungen (`predecessors`) und die Herkunft. Alle Felder und die Konfiguration stehen in der [README des Repositorys](https://github.com/grundschutz-docs/rag#readme) (Englisch).
+
+Die `predecessors` stammen aus der Mapping-Datei des BSI zwischen altem und neuem Katalog. Das BSI führt sie als Entwurf (`status: draft`), und 17 Bausteine haben noch keine Zuordnung. Die Einzelheiten stehen im [Befund](/befunde/mapping-datei-ist-entwurf/).
+
+## Was das nicht ist
+
+- Es ist kein fertiger Chatbot, sondern die Datengrundlage dafür. Eine Demo gibt es nicht.
+- Es ist keine Auskunft. Die Suche findet ähnliche Anforderungen. Ob und wie eine davon in deinem Fall gilt, sagt sie nicht.
+- Es ersetzt nicht das Original. Für Dokumentation und Auditnachweise gehört das BSI-Original zitiert.
+
+## Lizenz und Nutzung
+
+- **Code** im Repository: MIT.
+- **Katalogtext** in der JSONL-Datei: CC BY-SA 4.0, © BSI-Bund, gemäß der Lizenz des Originalkatalogs. Wer darauf aufbaut, nennt das BSI und behält die Lizenz für Ableitungen des Katalogtexts bei.
+- **Altes Kompendium**: nicht enthalten, auch nicht auszugsweise. Die Nutzungsbedingungen des BSI erlauben kostenlos angebotene Downloads „nur zu nicht kommerziellen Zwecken“, und „eine weitergehende, insbesondere kommerzielle oder publizistische Verwendung bedarf der vorherigen Zustimmung durch das BSI“. Für kommerzielle Verwendung von IT-Grundschutz-Inhalten verlangt das BSI eine „lizenzrechtliche Vereinbarung“. Aus dem Repository stammen deshalb nur ID, Art der Beziehung und der Link zum BSI-PDF.
+
+Dieser Abschnitt beschreibt, wie das Projekt mit den Lizenzen umgeht. Er ist keine Rechtsberatung. Für dein eigenes Vorhaben gilt der Wortlaut der [Nutzungsbedingungen](https://www.bsi.bund.de/DE/Service/Nutzungsbedingungen/Nutzungsbedingungen_node.html), gelesen im Oktober 2026.
+
+Wer dahintersteht, steht unter [Über diese Seite](/ueber/).

@@ -217,6 +217,14 @@ export default defineConfig({
 					items: [{ autogenerate: { directory: 'befunde' } }],
 				},
 				{
+					// Eigene Gruppe: RAG ist ein Werkzeug auf dem Katalog, nicht Teil
+					// des Katalogs. Die Übersetzung steht hier, weil die Gruppe sonst
+					// unter /en/ mit deutschem Namen erscheint.
+					label: 'Daten & Werkzeuge',
+					translations: { en: 'Data & tools' },
+					items: [{ label: 'Katalog für Sprachmodelle (RAG)', translations: { en: 'Catalog for language models (RAG)' }, slug: 'rag' }],
+				},
+				{
 					label: 'Grundschutz++',
 					items: [
 						{ label: 'Übersicht', slug: 'grundschutzpp' },
