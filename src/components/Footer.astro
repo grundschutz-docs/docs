@@ -13,11 +13,18 @@ const legalPrefix = isEnglish ? '/en' : '';
 		<LastUpdated />
 	</div>
 	<Pagination />
-	{/* Drei Spalten mit Überschrift statt einer Linkzeile: Projekt, Entwickler,
-	    Rechtliches. Die Kopfleiste ist mobil knapp (das GitHub-Symbol sitzt dort
+	{/* Vier Spalten mit Überschrift statt einer Linkzeile: Grundschutz++, Projekt,
+	    Entwickler, Rechtliches. Die Kopfleiste ist mobil knapp (das GitHub-Symbol sitzt dort
 	    in einer Gruppe, die erst ab mittlerer Breite erscheint), der Footer ist
 	    auf jeder Seite und jedem Gerät da. */}
 	<div class="footer-columns">
+		<nav aria-labelledby="footer-gspp">
+			<p class="col-title" id="footer-gspp">Grundschutz++</p>
+			<a href="/grundschutzpp/">{isEnglish ? 'Catalog (German)' : 'Katalog'}</a>
+			<a href={`${legalPrefix}/methodik/`}>{isEnglish ? 'Methodology' : 'Methodik'}</a>
+			<a href="/grundschutzpp/zeitplan/">{isEnglish ? 'Status & timeline (German)' : 'Status & Zeitplan'}</a>
+			<a href="/vergleich/">{isEnglish ? 'Old ↔ new (German)' : 'Alt ↔ Neu'}</a>
+		</nav>
 		<nav aria-labelledby="footer-project">
 			<p class="col-title" id="footer-project">{isEnglish ? 'Project' : 'Projekt'}</p>
 			<a href={`${legalPrefix}/ueber/`}>{isEnglish ? 'About this site' : 'Über diese Seite'}</a>
@@ -56,7 +63,7 @@ const legalPrefix = isEnglish ? '/en' : '';
 		}
 		.footer-columns {
 			display: grid;
-			grid-template-columns: repeat(3, minmax(0, 1fr));
+			grid-template-columns: repeat(4, minmax(0, 1fr));
 			gap: 2rem 1.5rem;
 			padding-top: 1.5rem;
 			border-top: 1px solid var(--sl-color-hairline);
