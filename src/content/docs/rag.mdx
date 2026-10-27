@@ -2,10 +2,12 @@
 title: Grundschutz++ als Daten für RAG und Sprachmodelle
 description: Grundschutz++ als JSONL-Datei mit allen 1000 Anforderungen, dazu ein Skript für Qdrant. Läuft lokal, deine Fragen bleiben bei dir.
 head:
-  # Dataset-Auszeichnung für Googles Datensatzsuche. Bewusst ohne creator und
-  # publisher: das Material stammt vom BSI, und die Seite ist kein offizielles
-  # BSI-Angebot (siehe Head.astro). isBasedOn nennt die Quelle, license die
-  # Lizenz des Katalogs. Kein dateModified, weil der tägliche Sync es sonst
+  # Dataset-Auszeichnung für Googles Datensatzsuche. creator ist die
+  # GitHub-Organisation, die die JSONL-Datei erzeugt und pflegt, nicht das
+  # BSI: das Material stammt vom BSI, die Seite ist kein offizielles
+  # BSI-Angebot (siehe Head.astro). Ohne creator meldet die Search Console
+  # eine Warnung. Bewusst ohne publisher. isBasedOn nennt die Quelle, license
+  # die Lizenz des Katalogs. Kein dateModified, weil der tägliche Sync es sonst
   # von Hand nachziehen müsste und ein fester Wert schnell lügt.
   - tag: script
     attrs:
@@ -17,6 +19,7 @@ head:
       "url":"https://grundschutz-docs.de/rag/","inLanguage":"de",
       "isAccessibleForFree":true,
       "license":"https://creativecommons.org/licenses/by-sa/4.0/",
+      "creator":{"@type":"Organization","name":"grundschutz-docs","url":"https://github.com/grundschutz-docs"},
       "isBasedOn":"https://github.com/BSI-Bund/Stand-der-Technik-Bibliothek",
       "keywords":["Grundschutz++","OSCAL","RAG","Sprachmodelle","JSONL","Qdrant"],
       "distribution":[{"@type":"DataDownload","encodingFormat":"application/x-ndjson",
