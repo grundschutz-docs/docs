@@ -70,9 +70,9 @@ Hier entsteht aus dem Katalog ein **individuelles Anforderungspaket** für den I
 
 Das Paket besteht aus drei Arten von Anforderungen (3.4):
 
-- **Methodik-Anforderungen** gelten für jeden Informationsverbund und sind verpflichtend. Sie stehen in den Methodik-Praktiken (GC, STM, UMS, VRB, PERF, RISK) und bilden die ISO-27001-Kapitel 4 bis 10 ab. „Ein individuelles Vorgehen ist nicht vorgesehen“ (3.4.1).
-- **Anforderungen ohne Zielobjektkategorie** sind ebenfalls verpflichtend ([STM.2.1.5](/grundschutzpp/stm/#STM.2.1.5)).
-- **Anforderungen mit Zielobjektkategorie** gelten, soweit man Assets dieser Kategorie hat ([STM.2.1.4](/grundschutzpp/stm/#STM.2.1.4)).
+- **Methodik-Anforderungen** gelten für jeden Informationsverbund und sind verpflichtend. Sie stehen in den Methodik-Praktiken (GC, STM, UMS, VRB, PERF, RISK) und bilden die ISO-27001-Kapitel 4 bis 10 ab. „Ein individuelles Vorgehen ist nicht vorgesehen“ (3.4.1). Im Katalog sind das **99** Anforderungen.
+- **Anforderungen ohne Zielobjektkategorie** aus den technischen und organisatorischen Praktiken sind ebenfalls verpflichtend ([STM.2.1.5](/grundschutzpp/stm/#STM.2.1.5)). Im Katalog sind das **265**.
+- **Anforderungen mit Zielobjektkategorie** gelten, soweit man Assets dieser Kategorie hat ([STM.2.1.4](/grundschutzpp/stm/#STM.2.1.4)). Im Katalog tragen **636** Anforderungen die Kategorie als Feld `target_object_categories`. Zusammen mit den beiden anderen Gruppen ergibt das die 1.000 Anforderungen.
 
 Eine Anforderung, die mehrere Assets derselben Kategorie betrifft, kommt nur einmal ins Paket ([STM.2.1.4.2](/grundschutzpp/stm/#STM.2.1.4.2)).
 
@@ -157,8 +157,8 @@ Die kontinuierliche Verbesserung (6) schließt den Kreis: Nicht-Konformitäten a
 
 ## Was ich nicht geprüft habe
 
-- Die Zielobjektkategorien stehen nicht im Anwenderkatalog, den diese Seite aufbereitet, sondern im Standard und in einer [CSV-Datei](https://github.com/BSI-Bund/Stand-der-Technik-Bibliothek/blob/main/documentation/namespaces/target_object_categories.csv) des BSI. Sie sind auf dieser Seite nicht aufbereitet.
-- Was **Blaupausen** konkret sind und welche es gibt, sagt der Standard nur allgemein. Das BSI-Repository enthält neben dem Anwenderkatalog weitere Kataloge, etwa zu WLAN und Lieferkettensicherheit. Ob das die Blaupausen sind, habe ich nicht geklärt.
+- Die Zielobjektkategorien sind im Katalog je Anforderung hinterlegt (Feld `target_object_categories`, alle 39 Kategorien kommen vor und stimmen mit der [CSV-Datei](https://github.com/BSI-Bund/Stand-der-Technik-Bibliothek/blob/main/documentation/namespaces/target_object_categories.csv) des BSI überein). Diese Seite zeigt das Feld bei den Anforderungen noch nicht an.
+- Was **Blaupausen** konkret sind, sagt der Standard nur allgemein. Das BSI-Repository enthält neben dem Anwenderkatalog Kataloge zu WLAN (48 Anforderungen) und Lieferkettensicherheit (146). Sie passen zur Beschreibung im Standard (zugeschnitten auf ein Anwendungsszenario), das BSI nennt sie dort aber nicht Blaupausen. Ob es Blaupausen im Sinne des Standards schon gibt, habe ich nicht geklärt.
 - Für Pflichten aus dem Gesetz ist diese Seite die falsche Quelle. Dazu siehe [Für Geschäftsführung](/rollen/geschaeftsfuehrung/).
 
 ## Quellen

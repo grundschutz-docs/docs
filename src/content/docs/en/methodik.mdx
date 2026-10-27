@@ -67,9 +67,9 @@ This step turns the catalog into an **individual requirements package** (*Anford
 
 The package contains three kinds of requirements (3.4):
 
-- **Methodology requirements** apply to every information domain and are mandatory. They sit in the methodology practices (GC, STM, UMS, VRB, PERF, RISK) and reflect ISO 27001 clauses 4 to 10. "An individual approach is not intended" (3.4.1).
-- **Requirements without a target object category** are likewise mandatory ([STM.2.1.5](/grundschutzpp/stm/#STM.2.1.5)).
-- **Requirements with a target object category** apply as far as you have assets in that category ([STM.2.1.4](/grundschutzpp/stm/#STM.2.1.4)).
+- **Methodology requirements** apply to every information domain and are mandatory. They sit in the methodology practices (GC, STM, UMS, VRB, PERF, RISK) and reflect ISO 27001 clauses 4 to 10. "An individual approach is not intended" (3.4.1). In the catalog that is **99** requirements.
+- **Requirements without a target object category** from the technical and organizational practices are likewise mandatory ([STM.2.1.5](/grundschutzpp/stm/#STM.2.1.5)). In the catalog that is **265**.
+- **Requirements with a target object category** apply as far as you have assets in that category ([STM.2.1.4](/grundschutzpp/stm/#STM.2.1.4)). In the catalog, **636** requirements carry the category in a field called `target_object_categories`. Together with the other two groups that makes the 1,000 requirements.
 
 A requirement that affects several assets of the same category enters the package only once ([STM.2.1.4.2](/grundschutzpp/stm/#STM.2.1.4.2)).
 
@@ -154,8 +154,8 @@ Continual improvement (6) closes the loop: analyse non-conformities, assess impr
 
 ## What I have not checked
 
-- The target object categories are not in the user catalog (*Anwenderkatalog*) this site renders, but in the standard and in a [CSV file](https://github.com/BSI-Bund/Stand-der-Technik-Bibliothek/blob/main/documentation/namespaces/target_object_categories.csv) from the BSI. They are not rendered on this page.
-- What **blueprints** are in practice, and which exist, the standard says only in general terms. Besides the user catalog, the BSI repository contains further catalogs, for example on WLAN and supply chain security. I have not established whether those are the blueprints.
+- The target object categories are stored per requirement in the catalog (field `target_object_categories`; all 39 categories occur and match the BSI's [CSV file](https://github.com/BSI-Bund/Stand-der-Technik-Bibliothek/blob/main/documentation/namespaces/target_object_categories.csv)). This page does not yet show that field next to the requirements.
+- What **blueprints** are in practice, the standard says only in general terms. Besides the user catalog, the BSI repository contains catalogs on WLAN (48 requirements) and supply chain security (146). They fit the standard's description (tailored to an application scenario), but the BSI does not call them blueprints there. I have not established whether blueprints in the standard's sense exist yet.
 - This page is the wrong source for duties under the law. For that, see [If your company operates in Germany](/en/operating-in-germany/).
 
 ## Sources
