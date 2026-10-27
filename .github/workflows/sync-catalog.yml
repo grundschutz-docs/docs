@@ -24,10 +24,10 @@ jobs:
         uses: actions/checkout@v7
         with:
           repository: BSI-Bund/Stand-der-Technik-Bibliothek
-          # generate_docs.py reads three things out of this repo, not just
-          # the catalog: basethreats.csv (threat labels on the Gefährdungs-
-          # pill) and the old-Kompendium mapping file (every /vergleich/
-          # page). The first scheduled run failed on exactly this — only
+          # generate_docs.py reads more than the catalog out of this repo:
+          # basethreats.csv (threat labels on the Gefährdungs-pill),
+          # tags.csv, target_object_categories.csv (the "Gilt für" pill) and
+          # the old-Kompendium mapping file (every /vergleich/ page). The first scheduled run failed on exactly this — only
           # the catalog subtree was ever checked out.
           sparse-checkout: |
             control_layer/Grundschutz++
@@ -45,6 +45,7 @@ jobs:
           GRUNDSCHUTZPP_BASETHREATS: upstream/documentation/namespaces/basethreats.csv
           GRUNDSCHUTZPP_MAPPING: upstream/control_layer/Mappings/IT-GS2023-zu-GSpp/ITGS-to-GS++-mapping_collection.json
           GRUNDSCHUTZPP_TAGS: upstream/documentation/namespaces/tags.csv
+          GRUNDSCHUTZPP_TARGETS: upstream/documentation/namespaces/target_object_categories.csv
         run: python3 scripts/generate_docs.py
 
       - name: Open a PR if anything changed

@@ -44,6 +44,12 @@ BASETHREATS_FILE = (
     Path(os.environ["GRUNDSCHUTZPP_BASETHREATS"]) if os.environ.get("GRUNDSCHUTZPP_BASETHREATS") else DEFAULT_BASETHREATS_FILE
 )
 TAGS_FILE = Path(os.environ["GRUNDSCHUTZPP_TAGS"]) if os.environ.get("GRUNDSCHUTZPP_TAGS") else DEFAULT_TAGS_FILE
+DEFAULT_TARGETS_FILE = (
+    REPO_ROOT / "Grundschutz-PlusPlus" / "documentation" / "namespaces" / "target_object_categories.csv"
+)
+TARGETS_FILE = (
+    Path(os.environ["GRUNDSCHUTZPP_TARGETS"]) if os.environ.get("GRUNDSCHUTZPP_TARGETS") else DEFAULT_TARGETS_FILE
+)
 DEFAULT_MAPPING_FILE = (
     REPO_ROOT / "Grundschutz-PlusPlus" / "control_layer" / "Mappings" / "IT-GS2023-zu-GSpp" / "ITGS-to-GS++-mapping_collection.json"
 )
@@ -270,6 +276,70 @@ def threats_hint(threats, basethreats_by_id):
 def load_tags():
     with TAGS_FILE.open(newline="", encoding="utf-8") as f:
         return {row["Tag"]: row["Bedeutung"] for row in csv.DictReader(f)}
+
+
+# Zielobjektkategorien (ZOK) aus der CSV des BSI: Name -> Definition, Beispiele,
+# Elternkategorie, Synonyme. Wie BAUSTEIN_TITLES einmal in main() befuellt, damit
+# die Zielobjekte nicht durch render_group/render_control/render_control_meta
+# gereicht werden muessen. Die Zuordnung zur Anforderung steht im Katalog selbst
+# (statement-Prop "target_object_categories", bei 636 von 1000 Anforderungen);
+# die CSV liefert nur die Erklaerung dazu.
+TARGETS = {}
+
+
+def load_targets():
+    with TARGETS_FILE.open(newline="", encoding="utf-8") as f:
+        rows = list(csv.DictReader(f))
+    name_by_uuid = {row["UUID"]: row["Zielobjekt"] for row in rows}
+    return {
+        row["Zielobjekt"]: {
+            "definition": row["Definition"].strip(),
+            "example": row["Beispiel"].strip(),
+            "parent": name_by_uuid.get(row["ChildOfUUID"]),
+            "synonyms": row["Synonyme"].strip(),
+        }
+        for row in rows
+    }
+
+
+def control_targets(control):
+    value = part_prop_value(control, "statement", "target_object_categories")
+    return [t.strip() for t in value.split(",") if t.strip()] if value else []
+
+
+def target_hint(name):
+    # Erster Satz der Definition, dann Beispiele und die Elternkategorie: die
+    # volle Definition ist bei "Anwendungen" ueber 400 Zeichen -- zu lang fuer
+    # einen Tooltip, und die Pille soll erklaeren, nicht die Seite sprengen.
+    info = TARGETS.get(name)
+    if not info:
+        return None
+    parts = [first_sentence(info["definition"])]
+    if info["example"]:
+        parts.append(f"Beispiele: {info['example']}.")
+    if info["parent"]:
+        parts.append(f"Teil von: {info['parent']}.")
+    return " ".join(p for p in parts if p)
+
+
+def render_targets_prop(control):
+    # Eigenes Array wie bei tags: jede Kategorie bekommt ihre eigene Pille und
+    # ihren eigenen Pagefind-Filterwert.
+    names = control_targets(control)
+    if not names:
+        return None
+    items = []
+    for name in names:
+        obj = f"{{ name: {jsx_string(name)}"
+        hint = target_hint(name)
+        if hint:
+            obj += f", hint: {jsx_string(hint)}"
+        synonyms = (TARGETS.get(name) or {}).get("synonyms")
+        if synonyms:
+            obj += f", synonyms: {jsx_string(synonyms)}"
+        obj += " }"
+        items.append(obj)
+    return "[" + ", ".join(items) + "]"
 
 
 # Handkuratiert, nicht alle ~50 vergebenen Tags: deckt die Begriffe ab, bei
@@ -701,8 +771,9 @@ def render_control_meta(control, basethreats_by_id, tags_by_id, predecessor_inde
     effort = prop_value(control, "effort_level")
     threats = prop_value(control, "threats")
     tags = render_tags_prop(control, tags_by_id)
+    targets = render_targets_prop(control)
     predecessors = render_predecessors_prop(control["id"], predecessor_index, baustein_links)
-    if not (modal_verb or sec_level or effort or threats or tags or predecessors):
+    if not (modal_verb or sec_level or effort or threats or tags or targets or predecessors):
         return None
     attrs = []
     if modal_verb:
@@ -718,6 +789,12 @@ def render_control_meta(control, basethreats_by_id, tags_by_id, predecessor_inde
             attrs.append(f'threatsHint="{attr_escape(hint)}"')
     if tags:
         attrs.append(f"tags={{{tags}}}")
+    if targets:
+        attrs.append(f"targets={{{targets}}}")
+    else:
+        # Keine Zielobjektkategorie: laut Standard 300-1 (3.4.1) gehoert die
+        # Anforderung in jedes Anforderungspaket. 364 von 1000 Anforderungen.
+        attrs.append("noTarget")
     if predecessors:
         attrs.append(f"predecessors={{{predecessors}}}")
     return f"<ControlMeta {' '.join(attrs)} />\n"
@@ -995,6 +1072,29 @@ def check_invariants(catalog, control_index, muss_controls, by_baustein):
         problems.append(
             f"{len(missing_anchors)} Controls ohne {{#id}}-Anker in den Katalogseiten "
             f"(z. B. {missing_anchors[:5]})"
+        )
+
+    # 4b. Zielobjektkategorien. Zwei Wege, die sich gegenseitig pruefen:
+    #     (1) Jede im Katalog genannte Kategorie steht in der CSV des BSI --
+    #         sonst haette die Pille keinen Tooltip und der Filterwert waere
+    #         ein Name ohne Definition. Umgekehrt ist eine ungenutzte
+    #         CSV-Zeile kein Fehler.
+    #     (2) Aus den geschriebenen Seiten zurueckgelesen: je Anforderung genau
+    #         eine ControlMeta-Angabe, entweder targets={[ oder noTarget. Pro
+    #         Anforderung gezaehlt, nicht nur als Summe (siehe Pruefung 4).
+    unbekannt = sorted({t for c in all_controls for t in control_targets(c)} - set(TARGETS))
+    if unbekannt:
+        problems.append(
+            f"Zielobjektkategorien im Katalog, aber nicht in target_object_categories.csv: {unbekannt}"
+        )
+    mit_ziel = sum(1 for c in all_controls if control_targets(c))
+    ohne_ziel = len(all_controls) - mit_ziel
+    gelesen_mit = catalog_text.count(" targets={[")
+    gelesen_ohne = catalog_text.count(" noTarget")
+    if (gelesen_mit, gelesen_ohne) != (mit_ziel, ohne_ziel):
+        problems.append(
+            f"Zielobjekt-Angaben auf den Katalogseiten ({gelesen_mit} mit, {gelesen_ohne} ohne) "
+            f"!= Katalog ({mit_ziel} mit, {ohne_ziel} ohne)"
         )
 
     # 5. Aus der geschriebenen GF-Seite zurueckgelesen: eine Zeile je MUSS.
@@ -2162,6 +2262,7 @@ def main():
     control_index = build_control_index(catalog)
     basethreats_by_id = load_basethreats()
     tags_by_id = load_tags()
+    TARGETS.update(load_targets())
     mapping_data = json.loads(MAPPING_FILE.read_text())
     read_mapping_info(mapping_data)
     predecessor_index = build_predecessor_index(mapping_data)

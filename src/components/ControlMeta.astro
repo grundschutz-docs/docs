@@ -11,10 +11,18 @@ interface Props {
 	threats?: string;
 	threatsHint?: string;
 	tags?: { name: string; slug?: string; hint?: string; synonyms?: string }[];
+	// Zielobjektkategorien (Standard 300-1, 3.4): auf welche Art von Asset die
+	// Anforderung zielt. noTarget = keine Kategorie, dann gehoert sie laut
+	// Standard (3.4.1) in jedes Anforderungspaket.
+	targets?: { name: string; hint?: string; synonyms?: string }[];
+	noTarget?: boolean;
 	predecessors?: { oldId: string; relationship: string; link?: string; vergleichHref?: string }[];
 }
 
-const { modalVerb, secLevel, effort, threats, threatsHint, tags, predecessors } = Astro.props;
+const { modalVerb, secLevel, effort, threats, threatsHint, tags, targets, noTarget, predecessors } = Astro.props;
+
+const NO_TARGET_HINT =
+	'Keine Zielobjektkategorie: Nach dem BSI-Standard 300-1 (3.4.1) gehört diese Anforderung in jedes Anforderungspaket, unabhängig davon, welche Assets es gibt.';
 
 // OSCAL-Beziehungstypen aus der Mapping-Datei sind englisches
 // Standard-Vokabular -- auf einer sonst durchgehend deutschen Seite mit
@@ -116,7 +124,7 @@ const effortInfo = effort ? EFFORT[effort] : undefined;
 ---
 
 {
-	(modalInfo || secInfo || effortInfo || threats || (tags && tags.length > 0)) && (
+	(modalInfo || secInfo || effortInfo || threats || (tags && tags.length > 0) || (targets && targets.length > 0) || noTarget) && (
 		<p class="control-meta not-content">
 			{modalInfo && (
 				<span
@@ -175,6 +183,39 @@ const effortInfo = effort ? EFFORT[effort] : undefined;
 				>
 					Gefährdungen: {threats}
 					{threatsHint && <span class="pill-hint" aria-hidden="true" data-pagefind-ignore>?</span>}
+				</span>
+			)}
+			{targets && targets.map((t) => (
+				<span
+					class="pill"
+					data-family="neutral"
+					data-role="meta"
+					data-tooltip={t.hint}
+					data-pagefind-filter={`Zielobjekt:${t.name}`}
+					data-synonyms={t.synonyms}
+					data-pagefind-index-attrs={t.synonyms ? 'data-synonyms' : undefined}
+					aria-label={`Zielobjektkategorie: ${t.name}.${t.hint ? ` ${t.hint}` : ''}`}
+					tabindex="0"
+				>
+					Gilt für: {t.name}
+					{t.hint && <span class="pill-hint" aria-hidden="true" data-pagefind-ignore>?</span>}
+				</span>
+			))}
+			{noTarget && (
+				<span
+					class="pill"
+					data-family="neutral"
+					data-role="meta"
+					data-tooltip={NO_TARGET_HINT}
+					data-pagefind-filter="Zielobjekt:Ohne Zielobjektkategorie"
+					aria-label={`Immer im Anforderungspaket. ${NO_TARGET_HINT}`}
+					tabindex="0"
+				>
+					{/* Vom Suchindex ausgenommen: sonst traefe "Paket" 364 Anforderungen,
+					    obwohl keine davon vom Anforderungspaket handeln muss. Der
+					    Filterwert am Elternelement bleibt. */}
+					<span data-pagefind-ignore>Immer im Paket</span>
+					<span class="pill-hint" aria-hidden="true" data-pagefind-ignore>?</span>
 				</span>
 			)}
 			{tags && tags.map((t) => {
