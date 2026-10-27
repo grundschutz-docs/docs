@@ -3,6 +3,8 @@ title: "Methodology: how to apply Grundschutz++"
 description: "BSI Standard 300-1 in five steps: protection needs, the requirements package, MUSS, SOLLTE and KANN, and when a risk assessment is mandatory. With links to the requirements in the catalog."
 ---
 
+import MethodikKreislauf from '../../../components/MethodikKreislauf.astro';
+
 > This is a reading aid, not advice and not legal advice. The authority is [BSI Standard 300-1](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/BSI_Standards/standard_300-1.pdf?__blob=publicationFile) itself, which is in German. Translations and paraphrases are ours and the German text governs. This project is independent and not affiliated with the BSI. Chapter references such as "(3.4)" point to the standard. The catalog pages linked here are in German.
 
 The catalog says **what** an organization should implement. The methodology says **how** to get there: in what order, with which decisions, and when to look closer. The BSI has published it as **BSI Standard 300-1 "Methodik Grundschutz++"** ([press release of 26 October 2026](https://www.bsi.bund.de/DE/Service-Navi/Presse/Alle-Meldungen-News/Meldungen/2026/BSI-Standard_300-1_261026.html), in German). The PDF is version 1.0, and its change history gives 20 October 2026 as the date.
@@ -11,7 +13,9 @@ According to the standard, version 1.0 is aimed first of all at **early adopters
 
 ## The five steps
 
-The methodology describes a PDCA cycle (Plan, Do, Check, Act) with five process steps. Each step is itself run iteratively (1).
+The methodology describes a PDCA cycle (Plan, Do, Check, Act) with five process steps. Each step is itself run iteratively (1). Figure 1 of the standard assigns them like this: **Plan** is steps 1 and 2, **Do** is step 3, **Check** is step 4 and **Act** is step 5.
+
+<MethodikKreislauf lang="en" />
 
 - **1 Survey and planning** (chapter 2 of the standard, ISO/IEC 27001 clauses 4 and 5): [GC](/grundschutzpp/gc/) Governance and compliance
 - **2 Requirements analysis** (chapter 3, ISO/IEC 27001 clauses 6 and 10): [STM](/grundschutzpp/stm/) Structure modelling
@@ -19,7 +23,7 @@ The methodology describes a PDCA cycle (Plan, Do, Check, Act) with five process 
 - **4 Monitoring** (chapter 5): [PERF](/grundschutzpp/perf/) Monitoring and evaluation
 - **5 Continual improvement** (chapter 6): [VRB](/grundschutzpp/vrb/) Improvement
 
-The standard names ISO clauses explicitly only for steps 1 and 2. The practice after the colon is **my own mapping** by topic and title, not a statement by the BSI.
+The standard names ISO clauses explicitly only for steps 1 and 2. The practice after the colon is **my own mapping** by topic and title, not a statement by the BSI. Only the grouping of the practices into three groups comes from the standard (figure 2): **methodology** (GC, STM, UMS, VRB, PERF, RISK), **technical** (ARCH, BER, DET, REA, KONF, DEV) and **organizational** (ASST, PERS, BES, DLS, TEST, GEB, SENS, NOT).
 
 ## Step 1: survey and planning
 
@@ -55,15 +59,15 @@ If you are setting up an ISMS for the first time, the standard says to start wit
 This step turns the catalog into an **individual requirements package** (*Anforderungspaket*) for your information domain (3.4). The way there:
 
 1. **Delimit the information domain** (3.1), [STM.1.1](/grundschutzpp/stm/#STM.1.1) and [STM.1.2](/grundschutzpp/stm/#STM.1.2). The scope sets the formal extent of the ISMS; the information domain maps it in terms of content and technology.
-2. **Record the assets** (3.2), [STM.2.1.2](/grundschutzpp/stm/#STM.2.1.2). For high protection needs you must document which assets belong to the business process and how they depend on each other. For normal protection needs, document at least the dependencies between applications, IT systems and rooms.
-3. **Map assets to target object categories** (3.4.2), [STM.2.1.3](/grundschutzpp/stm/#STM.2.1.3). These are standardized classes such as "web servers", "cloud services" or "server rooms". Annex 1 of the standard defines around 40 of them. They form a hierarchy: an asset also receives the categories above its own ([STM.2.1.4.1](/grundschutzpp/stm/#STM.2.1.4.1)).
+2. **Record the assets** (3.2), [STM.2.1.2](/grundschutzpp/stm/#STM.2.1.2). For high protection needs you must document which assets belong to the business process and how they depend on each other. For normal protection needs, document at least the dependencies between applications, IT systems and rooms. Figures 3 and 4 show the chains: for high protection needs business process, application, IT system, network or network component, room. For normal protection needs it is application to IT system and IT system to room.
+3. **Map assets to target object categories** (3.4.2), [STM.2.1.3](/grundschutzpp/stm/#STM.2.1.3). These are standardized classes such as "web servers", "cloud services" or "server rooms". Annex 1 of the standard defines 39 of them, and the BSI also provides them as a [CSV file](https://github.com/BSI-Bund/Stand-der-Technik-Bibliothek/blob/main/documentation/namespaces/target_object_categories.csv). They form a hierarchy of seven root nodes and four levels (figure 6): an asset also receives the categories above its own ([STM.2.1.4.1](/grundschutzpp/stm/#STM.2.1.4.1)).
 4. **Consider blueprints** (3.3). A blueprint is a ready-made catalog of requirements for a particular scenario, with predefined parameters. For some organizations there may be mandatory blueprints.
 5. **Add requirements** (3.4.3) if an asset is not covered by the catalog or if duties arise from compliance or the stakeholder analysis: [STM.2.1.6](/grundschutzpp/stm/#STM.2.1.6) and [STM.2.1.7](/grundschutzpp/stm/#STM.2.1.7).
 6. **Set parameters** (3.5), [STM.5.1](/grundschutzpp/stm/#STM.5.1). Parameters are the variable parts of a requirement, such as "regularly". The organization makes them concrete.
 
 The package contains three kinds of requirements (3.4):
 
-- **Methodology requirements** apply to every information domain and are mandatory. They reflect ISO 27001 clauses 4 to 10. "An individual approach is not intended" (3.4.1).
+- **Methodology requirements** apply to every information domain and are mandatory. They sit in the methodology practices (GC, STM, UMS, VRB, PERF, RISK) and reflect ISO 27001 clauses 4 to 10. "An individual approach is not intended" (3.4.1).
 - **Requirements without a target object category** are likewise mandatory ([STM.2.1.5](/grundschutzpp/stm/#STM.2.1.5)).
 - **Requirements with a target object category** apply as far as you have assets in that category ([STM.2.1.4](/grundschutzpp/stm/#STM.2.1.4)).
 
@@ -94,10 +98,10 @@ The catalog puts it more briefly: the status is basically "implemented (yes)" or
 
 ### What happens when a requirement is not met
 
-That depends on the modal verb (4.1.2):
+If a requirement is not yet met but already in the implementation plan, the risk that is not yet covered must be identified and reported to top management, which has to bear it (4.1.1). Everything else depends on the modal verb (4.1.2):
 
 - **KANN:** optional, need not be considered.
-- **SOLLTE, temporarily not met:** fulfilment is planned for later. A sound justification is enough. This does not trigger a risk assessment. The risk that is not yet covered must be reported to top management, which has to bear it.
+- **SOLLTE, temporarily not met:** fulfilment is planned for later. A sound justification is enough. This does not trigger a risk assessment.
 - **SOLLTE, permanently not met:** meaning "for the foreseeable future or for good". Then a **risk assessment** is mandatory, and the residual risk goes to top management for approval.
 - **MUSS:** mandatory. A risk assessment **cannot replace** fulfilment. According to the standard, an exemption or risk acceptance is **not possible**.
 
@@ -150,8 +154,8 @@ Continual improvement (6) closes the loop: analyse non-conformities, assess impr
 
 ## What I have not checked
 
-- I have not evaluated the standard's **figures** (PDCA cycle, dependencies, the target object category hierarchy), only the text.
-- The target object categories are not in the catalog this site renders, only in the standard. I have not established whether or how the BSI provides them in machine-readable form.
+- The target object categories are not in the user catalog (*Anwenderkatalog*) this site renders, but in the standard and in a [CSV file](https://github.com/BSI-Bund/Stand-der-Technik-Bibliothek/blob/main/documentation/namespaces/target_object_categories.csv) from the BSI. They are not rendered on this page.
+- What **blueprints** are in practice, and which exist, the standard says only in general terms. Besides the user catalog, the BSI repository contains further catalogs, for example on WLAN and supply chain security. I have not established whether those are the blueprints.
 - This page is the wrong source for duties under the law. For that, see [If your company operates in Germany](/en/operating-in-germany/).
 
 ## Sources

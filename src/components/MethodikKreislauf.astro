@@ -1,0 +1,262 @@
+---
+// Die fünf Prozessschritte des BSI-Standards 300-1 als Kreislauf, mit der
+// PDCA-Zuordnung aus Abbildung 1 des Standards: Plan = Schritt 1 und 2,
+// Do = 3, Check = 4, Act = 5. Eigene Zeichnung, nicht die des BSI.
+//
+// Nicht zu verwechseln mit PdcaCycle.astro: Der zeigt die sechs
+// Management-Praktiken des Katalogs (GC bis RISK), dieser die fünf Schritte
+// der Methodik.
+//
+// Zwei Darstellungen, weil Text in einer skalierten SVG auf einem 320-px-
+// Handy auf rund 8 px schrumpft: ab 40rem der Kreis, darunter eine senkrechte
+// Kette mit Rücksprung zu Schritt 1. Beide stehen im HTML, CSS blendet eine aus.
+interface Props {
+	lang?: 'de' | 'en';
+}
+const { lang = 'de' } = Astro.props;
+
+const TEXT = {
+	de: {
+		label:
+			'Kreislauf der Methodik Grundschutz++ in fünf Schritten: Erhebung und Planung, Anforderungsanalyse, Realisierung, Überwachung, kontinuierliche Verbesserung. Danach beginnt der Kreislauf von vorn.',
+		back: 'weiter bei Schritt 1',
+		center: 'PDCA',
+		steps: [
+			{ phase: 'Plan', lines: ['Erhebung', 'und Planung'], href: '#schritt-1-erhebung-und-planung' },
+			{ phase: 'Plan', lines: ['Anforderungs-', 'analyse'], href: '#schritt-2-anforderungsanalyse' },
+			{ phase: 'Do', lines: ['Realisierung'], href: '#schritt-3-realisierung' },
+			{ phase: 'Check', lines: ['Überwachung'], href: '#schritt-4-und-5-überwachen-und-verbessern' },
+			{ phase: 'Act', lines: ['Kontinuierliche', 'Verbesserung'], href: '#schritt-4-und-5-überwachen-und-verbessern' },
+		],
+	},
+	en: {
+		label:
+			'Cycle of the Grundschutz++ methodology in five steps: survey and planning, requirements analysis, realization, monitoring, continual improvement. Then the cycle starts again.',
+		back: 'back to step 1',
+		center: 'PDCA',
+		steps: [
+			{ phase: 'Plan', lines: ['Survey', 'and planning'], href: '#step-1-survey-and-planning' },
+			{ phase: 'Plan', lines: ['Requirements', 'analysis'], href: '#step-2-requirements-analysis' },
+			{ phase: 'Do', lines: ['Realization'], href: '#step-3-realization' },
+			{ phase: 'Check', lines: ['Monitoring'], href: '#steps-4-and-5-monitor-and-improve' },
+			{ phase: 'Act', lines: ['Continual', 'improvement'], href: '#steps-4-and-5-monitor-and-improve' },
+		],
+	},
+}[lang];
+
+// Regelmäßiges Fünfeck, Start oben, im Uhrzeigersinn. Kartengröße 150x70.
+const W = 500;
+const H = 430;
+const CX = W / 2;
+const CY = 214;
+const R = 170;
+const CARD_W = 162;
+const CARD_H = 70;
+const GAP = 7;
+
+const angles = [0, 1, 2, 3, 4].map((i) => (-90 + i * 72) * (Math.PI / 180));
+const pos = angles.map((a) => ({ x: CX + R * Math.cos(a), y: CY + R * Math.sin(a) }));
+
+// Bogenenden: vom Kartenrand weg entlang des Kreises, bis der Punkt mit GAP
+// Abstand außerhalb beider Karten liegt. Ein fester Winkel passt nicht für
+// alle fünf, weil die Karten oben schmal und unten breit in Bogenrichtung stehen.
+function outside(p: { x: number; y: number }, c: { x: number; y: number }) {
+	return Math.abs(p.x - c.x) > CARD_W / 2 + GAP || Math.abs(p.y - c.y) > CARD_H / 2 + GAP;
+}
+const arcs = angles.map((a, i) => {
+	const from = pos[i];
+	const to = pos[(i + 1) % 5];
+	const aEnd = a + 72 * (Math.PI / 180);
+	let s = a;
+	while (s < aEnd && !outside({ x: CX + R * Math.cos(s), y: CY + R * Math.sin(s) }, from)) s += 0.005;
+	let e = aEnd;
+	while (e > s && !outside({ x: CX + R * Math.cos(e), y: CY + R * Math.sin(e) }, to)) e -= 0.005;
+	const f = (t: number) => `${(CX + R * Math.cos(t)).toFixed(1)} ${(CY + R * Math.sin(t)).toFixed(1)}`;
+	return `M ${f(s)} A ${R} ${R} 0 0 1 ${f(e)}`;
+});
+---
+
+<figure class="kreislauf">
+	<svg class="kreislauf-circle" viewBox={`0 0 ${W} ${H}`} xmlns="http://www.w3.org/2000/svg" role="img" aria-label={TEXT.label}>
+		<defs>
+			<marker id={`kl-arrow-${lang}`} viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+				<path d="M 0 0 L 10 5 L 0 10 z" class="kl-arrowhead"></path>
+			</marker>
+		</defs>
+		{arcs.map((d) => <path d={d} class="kl-arc" marker-end={`url(#kl-arrow-${lang})`}></path>)}
+		<text x={CX} y={CY + 10} class="kl-center" text-anchor="middle">{TEXT.center}</text>
+		{
+			TEXT.steps.map((s, i) => (
+				<a href={s.href}>
+					<g transform={`translate(${pos[i].x - CARD_W / 2} ${pos[i].y - CARD_H / 2})`}>
+						<rect width={CARD_W} height={CARD_H} rx="14" class="kl-card"></rect>
+						<text x="14" y="23" class="kl-phase">{`${i + 1} · ${s.phase.toUpperCase()}`}</text>
+						{s.lines.map((line, j) => (
+							<text x="14" y={s.lines.length === 1 ? 50 : 43 + j * 20} class="kl-title">{line}</text>
+						))}
+					</g>
+				</a>
+			))
+		}
+	</svg>
+
+	<ol class="kreislauf-list">
+		{
+			TEXT.steps.map((s, i) => (
+				<li>
+					<a href={s.href}>
+						<span class="kl-num">{i + 1}</span>
+						<span class="kl-body">
+							<span class="kl-l-phase">{s.phase}</span>
+							<span class="kl-l-title">{s.lines.join(' ').replace('- ', '')}</span>
+						</span>
+					</a>
+				</li>
+			))
+		}
+		<li class="kl-back"><span aria-hidden="true">↻</span> {TEXT.back}</li>
+	</ol>
+</figure>
+
+<style>
+	.kreislauf {
+		margin: 1.5rem 0 2rem;
+	}
+
+	.kreislauf-circle {
+		display: none;
+		width: 100%;
+		max-width: 30rem;
+		margin-inline: auto;
+		overflow: visible;
+	}
+
+	.kl-arc {
+		fill: none;
+		stroke: var(--sl-color-accent);
+		stroke-width: 2.5;
+	}
+
+	.kl-arrowhead {
+		fill: var(--sl-color-accent);
+	}
+
+	.kl-card {
+		fill: var(--sl-color-bg-nav);
+		stroke: var(--sl-color-hairline);
+		stroke-width: 1;
+		transition:
+			fill 0.15s ease,
+			stroke 0.15s ease;
+	}
+
+	a:hover .kl-card {
+		fill: var(--sl-color-accent-low);
+		stroke: var(--sl-color-accent);
+	}
+
+	.kl-phase {
+		font-family: 'JetBrains Mono Variable', ui-monospace, monospace;
+		font-size: 13px;
+		font-weight: 700;
+		letter-spacing: 0.06em;
+		fill: var(--sl-color-accent-high);
+	}
+
+	.kl-title {
+		font-family: 'Karla Variable', system-ui, sans-serif;
+		font-size: 17px;
+		font-weight: 600;
+		fill: var(--sl-color-white);
+	}
+
+	.kl-center {
+		font-family: 'Fraunces Variable', 'Karla Variable', serif;
+		font-size: 34px;
+		font-weight: 700;
+		fill: var(--sl-color-gray-3);
+	}
+
+	.kreislauf-list {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+	}
+
+	.kreislauf-list li {
+		margin: 0;
+		position: relative;
+	}
+
+	/* Pfeil nach unten zwischen den Karten, an der letzten schließt der Rücksprung den Kreis. */
+	.kreislauf-list li:not(:last-child)::after {
+		content: '↓';
+		display: block;
+		text-align: center;
+		line-height: 1.6;
+		color: var(--sl-color-accent);
+	}
+
+	.kreislauf-list a {
+		display: flex;
+		align-items: center;
+		gap: 0.85rem;
+		padding: 0.7rem 0.9rem;
+		border: 1px solid var(--sl-color-hairline);
+		border-radius: 1rem;
+		background: var(--sl-color-bg-nav);
+		text-decoration: none;
+	}
+
+	.kreislauf-list a:hover {
+		border-color: var(--sl-color-accent);
+		background: var(--sl-color-accent-low);
+	}
+
+	.kl-num {
+		flex: none;
+		display: grid;
+		place-items: center;
+		width: 2rem;
+		height: 2rem;
+		border-radius: 50%;
+		background: var(--sl-color-accent-low);
+		color: var(--sl-color-accent-high);
+		font-family: 'JetBrains Mono Variable', ui-monospace, monospace;
+		font-weight: 700;
+	}
+
+	.kl-body {
+		display: flex;
+		flex-direction: column;
+	}
+
+	.kl-l-phase {
+		font-family: 'JetBrains Mono Variable', ui-monospace, monospace;
+		font-size: var(--sl-text-xs);
+		letter-spacing: 0.06em;
+		text-transform: uppercase;
+		color: var(--sl-color-gray-3);
+	}
+
+	.kl-l-title {
+		color: var(--sl-color-white);
+		font-weight: 600;
+	}
+
+	.kl-back {
+		margin-top: 0.4rem;
+		text-align: center;
+		font-size: var(--sl-text-sm);
+		color: var(--sl-color-accent);
+	}
+
+	@media (min-width: 40rem) {
+		.kreislauf-circle {
+			display: block;
+		}
+		.kreislauf-list {
+			display: none;
+		}
+	}
+</style>
