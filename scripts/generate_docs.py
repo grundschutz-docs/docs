@@ -127,7 +127,7 @@ TIMELINE = [
     ),
     (
         date(2026, 10, 27), date(2026, 10, 29),
-        "Veröffentlichung der Methodik auf der it-sa",
+        "Veröffentlichungswoche der Methodik auf der it-sa",
         "Das BSI stellt die Methodik auf der it-sa 2026 in Nürnberg vor und der Community zur Anwendung bereit.",
         "launch week at it-sa",
         "The BSI presents the methodology at it-sa 2026 in Nuremberg and makes it available to the community.",
