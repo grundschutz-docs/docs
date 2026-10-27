@@ -128,9 +128,9 @@ TIMELINE = [
     (
         date(2026, 10, 27), date(2026, 10, 29),
         "Veröffentlichungswoche der Methodik auf der it-sa",
-        "Das BSI stellt die Methodik auf der it-sa 2026 in Nürnberg vor und der Community zur Anwendung bereit.",
+        "Das BSI hat die Methodik am 26.10.2026 als BSI-Standard 300-1 veröffentlicht und stellt sie auf der it-sa 2026 in Nürnberg vor.",
         "launch week at it-sa",
-        "The BSI presents the methodology at it-sa 2026 in Nuremberg and makes it available to the community.",
+        "The BSI published the methodology as BSI Standard 300-1 on 26 October 2026 and presents it at it-sa 2026 in Nuremberg.",
         None, True,
     ),
     (
