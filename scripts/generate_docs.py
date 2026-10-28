@@ -1419,6 +1419,20 @@ def check_export(catalog):
             if lizenz.get(feld) and lizenz[feld] not in daten["quelle"]:
                 problems.append(f"Quelle-Spalte nennt lizenz.{feld} nicht")
 
+    # Jede Praktik-Seite verweist auf ihre Export-Datei: die Datei muss es geben und der
+    # Link auf der Seite muss zu ihr und zur vorgewaehlten Exportseite passen.
+    for p in daten["praktiken"]:
+        pid, slug = p["id"], p["id"].lower()
+        datei = EXPORT_OUT_DIR / f"grundschutzpp-anforderungen-{slug}.csv"
+        seite = OUT_DIR / f"{slug}.mdx"
+        text = seite.read_text() if seite.exists() else ""
+        if not datei.exists():
+            problems.append(f"{pid}: {datei.name} fehlt")
+        if f'/downloads/{datei.name}" download>' not in text:
+            problems.append(f"{pid}: die Praktik-Seite verlinkt {datei.name} nicht als Download")
+        if f'/export/?praktik={pid}"' not in text:
+            problems.append(f"{pid}: die Praktik-Seite verlinkt die Exportseite nicht mit praktik={pid}")
+
     # Dokumentenuebersicht: ihre Summe muss die 961 Anforderungen mit Dokument
     # ergeben (Rohtext), und jede Zeile muss sich aus der CSV nachzaehlen lassen,
     # nicht aus den Daten, mit denen sie gebaut wurde.
@@ -2690,7 +2704,7 @@ def catalog_source(catalog):
     }
 
 
-def render_source_block(src):
+def render_source_block(src, praktik_id=None):
     """Katalogstand und Zitierhinweis am Kopf jeder Katalogseite.
 
     Zwei verschiedene Fragen, die beide vor dem Inhalt kommen:
@@ -2711,12 +2725,23 @@ def render_source_block(src):
     """
     zeile = f"Katalogstand: {format_iso_date(src['version'])}" if src["version"] else "Katalogstand unbekannt"
     doc = f"Dokument-ID {src['dokument_id']} (RFC 9562), " if src["dokument_id"] else ""
+    # Wer ueber Suche oder ein Sprachmodell mitten in einer Praktik einsteigt, sieht die
+    # ISB-Seite nie. Der Excel-Link fuehrt auf die Exportseite mit dieser Praktik
+    # vorgewaehlt, die CSV laedt direkt (eine fertige xlsx je Praktik gibt es nicht, ihre
+    # Bytes aenderten sich bei jedem Sync-Lauf).
+    export_line = ""
+    if praktik_id:
+        export_line = (
+            f'<p>Diese Praktik als Tabelle: <a href="/export/?praktik={praktik_id}">Excel exportieren</a> · '
+            f'<a href="/downloads/grundschutzpp-anforderungen-{praktik_id.lower()}.csv" download>CSV</a></p>\n'
+        )
     return (
         '<div class="source-note">\n'
         f"<p>{zeile} — Quelle: "
         '<a href="https://github.com/BSI-Bund/Stand-der-Technik-Bibliothek" '
         'target="_blank" rel="noopener noreferrer">BSI Stand-der-Technik-Bibliothek</a>.</p>\n'
-        "<details>\n<summary>Eine Anforderung von dieser Seite zitieren</summary>\n"
+        + (export_line if praktik_id else "")
+        + "<details>\n<summary>Eine Anforderung von dieser Seite zitieren</summary>\n"
         "<p>Maßgeblich ist immer das Original, nicht diese Aufbereitung. "
         f"Zitierfähig ist: BSI, <em>{src['titel']}</em>, Version "
         f"{src['version'] or '—'}, {doc}"
@@ -2815,7 +2840,7 @@ def main():
             f"description: {yaml_quote(meta_description)}\n"
             "---\n\n"
         )
-        write_mdx(OUT_DIR / f"{slug}.mdx", frontmatter, render_source_block(src) + body, section="Anforderung")
+        write_mdx(OUT_DIR / f"{slug}.mdx", frontmatter, render_source_block(src, group["id"]) + body, section="Anforderung")
 
         entry = (group["id"], group["title"], slug, summary)
         (management if group["id"] in MANAGEMENT_CYCLE_IDS else themenfelder).append(entry)
