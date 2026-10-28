@@ -143,3 +143,4 @@ Zwei Schritte, die auf dieser ADR aufbauen und eigene ADRs verdienen:
 |------------|----------|--------------|
 | 2026-10-28 | Erstellt | giordano137  |
 | 2026-10-28 | Status Angenommen; die vier offenen Punkte sind festgelegt (Adresse, Reihenfolge, Typen ohne Beschreibung, Zielobjekt als Zeile) | giordano137  |
+| 2026-10-28 | Beim Bauen ergänzt: Typen ohne Kategorie und Typen ohne Beschreibung stehen in zwei getrennten Endgruppen (3 bzw. 7). Die Dokument-Seite hat eine Zeile „Nach Zielobjekt“ mit Links auf die Kategorieseiten, damit Dokumente und Zielobjekte sich gegenseitig verweisen. Die Stufe steht auf dem Handy als „Standard“/„Erhöht“, weil das volle Wort die Spalte auf 320 px in vier Zeilen zerlegt. | giordano137  |
