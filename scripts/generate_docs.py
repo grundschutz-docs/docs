@@ -2029,6 +2029,9 @@ def render_isb_page(management, groups_by_id):
             entries,
         ),
         "## Werkzeuge für den Alltag {#werkzeuge-fuer-den-alltag}\n\n"
+        "- **[Export für Excel](/export/)** — alle Anforderungen oder deine "
+        "Auswahl als Excel-Datei, mit Spalten für Status, Verantwortliche und "
+        "Frist und einer Übersicht der Dokumente, die der Katalog nennt.\n"
         "- **[Vergleich: Altes Kompendium ↔ Grundschutz++](/vergleich/)** — "
         "jede Zuordnung zwischen alter und neuer Anforderung, mit "
         f"Beziehungstyp ({'/'.join(RELATIONSHIP_LABELS.values())}) und "
