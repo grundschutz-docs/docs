@@ -158,12 +158,15 @@ Irreführung, nicht den Nutzen.
 3. **Reihenfolge innerhalb eines Teils:** nach Pflichtgrad (MUSS, SOLLTE, KANN), dann
    nach ID. Wer die Liste abarbeitet oder auf ein Audit vorbereitet, will das
    Verbindliche zuerst. Eine Spalte „Praktik" zeigt die Herkunft. Das Tabellenformat
-   folgt der Themen-Seite (Anforderung, Pflicht, Stufe, Praktik).
-4. **Übersichtsseite:** die Hierarchie mit drei Zahlen je Kategorie: *direkt*, *mit
-   Vererbung* und *Paket gesamt* (mit Vererbung plus die 364 ohne Kategorie; für
-   Webserver 6, 87 und 451, wie der Export). Oben stehen zwei, drei Sätze zur
-   Vererbung mit dem Webserver als Beispiel und ein Link auf die Methodik. Auf den
-   Kategorieseiten steht nur ein Einzeiler dazu.
+   folgt der Themen-Seite (Anforderung, Pflicht, Stufe). Die Herkunft steht schon im Anfang der ID.
+4. **Übersichtsseite:** eine Tabelle mit der Hierarchie (Einrückung) und zwei Zahlen je
+   Kategorie: *direkt* und *mit Vererbung*. Die Kopfzeile steht einmal, die Zahlen
+   stehen rechtsbündig untereinander. Unter dem Namen stehen die Synonyme und Beispiele
+   aus der BSI-Tabelle (28 bzw. 26 von 39 Kategorien tragen sie), damit findet auch,
+   wer „Firewall" oder „NAS" sagt, seine Kategorie. Die 364 Anforderungen ohne
+   Kategorie stehen einmal darüber („kommen immer dazu"). „Paket gesamt" steht nur auf
+   den Kategorieseiten. Oben stehen zwei, drei Sätze zur Vererbung mit dem Webserver als
+   Beispiel und ein Link auf die Methodik.
 
 ## Changelog
 
@@ -172,3 +175,5 @@ Irreführung, nicht den Nutzen.
 | 2026-10-28 | Erstellt | giordano137  |
 | 2026-10-28 | Status Angenommen; die vier offenen Punkte sind festgelegt (Adresse, Kennung, Reihenfolge, Übersichtsseite) | giordano137  |
 | 2026-10-28 | Tabellenformat der Themen-Seite statt der MUSS-Tabelle der Geschäftsführungsseite: Dort steht keine Spalte „Pflicht“, weil alles MUSS ist; hier gibt es alle drei Pflichtgrade. | giordano137  |
+| 2026-10-28 | Übersicht als Tabelle mit zwei Zahlen statt Liste mit drei, dazu Synonyme und Beispiele der BSI-Tabelle: Beim Ansehen war die Liste mit drei wiederholten Zahlen je Zeile nicht vergleichbar, und „Paket gesamt" schwankt nur zwischen 369 und 472, weil immer dieselben 364 dazukommen. | giordano137  |
+| 2026-10-28 | Spalte „Praktik“ entfällt: Sie wiederholt den Anfang der ID und ragte auf dem Handy über den Rand. | giordano137  |

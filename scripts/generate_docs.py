@@ -2758,7 +2758,7 @@ def render_zielobjekt_table(teil, ids, controls, control_index, direkt_von, bezu
     lines = [
         f'<div class="zielobjekt-teil" data-teil="{attr_escape(teil)}" data-pagefind-ignore>\n',
         '<table class="vergleich-table themen-table zielobjekt-table">\n',
-        "<thead><tr><th>Anforderung</th><th>Pflicht</th><th>Stufe</th><th>Praktik</th></tr></thead>\n<tbody>\n",
+        "<thead><tr><th>Anforderung</th><th>Pflicht</th><th>Stufe</th></tr></thead>\n<tbody>\n",
     ]
     for cid in ids:
         control = controls[cid]
@@ -2773,8 +2773,7 @@ def render_zielobjekt_table(teil, ids, controls, control_index, direkt_von, bezu
             f'<tr data-sec="{attr_escape(sec_level)}" data-id="{cid}">'
             f"<td>{control_link(cid, control_index)}{zusatz}</td>"
             f'<td>{part_prop_value(control, "statement", "modal_verb") or ""}</td>'
-            f"<td>{SEC_LEVEL_LABELS.get(sec_level, sec_level)}</td>"
-            f'<td>{control_index[cid]["slug"].upper()}</td></tr>\n'
+            f"<td>{SEC_LEVEL_LABELS.get(sec_level, sec_level)}</td></tr>\n"
         )
     lines.append("</tbody>\n</table>\n</div>\n")
     return "".join(lines)
@@ -2810,6 +2809,8 @@ def render_zielobjekt_pages(catalog, control_index):
         ]
         if definition:
             lines.append(f"{mdx_safe(definition)}\n")
+        if info["synonyms"]:
+            lines.append(f"Auch genannt: {mdx_safe(info['synonyms'])}.\n")
         if info["example"]:
             lines.append(f"Beispiele: {mdx_safe(info['example'])}.\n")
         if info["parent"]:
@@ -2851,15 +2852,24 @@ def render_zielobjekt_pages(catalog, control_index):
         )
         (ZIELOBJEKTE_OUT_DIR / f"{tag_slug(name)}.mdx").write_text("\n".join(lines))
 
-    def li(name):
-        direkt, mit_vererbung, gesamt = zielobjekt_zahlen(model, name, len(ohne))
-        kinder = "".join(li(k) for k in model[name]["kinder"])
-        return (
-            f'<li><a href="/zielobjekte/{tag_slug(name)}/">{name}</a> '
-            f'<span class="themen-count">direkt {direkt} · mit Vererbung {mit_vererbung} · Paket gesamt {gesamt}</span>'
-            + (f"<ul>{kinder}</ul>" if kinder else "")
-            + "</li>"
+    def begriffe(name):
+        """Synonyme und Beispiele aus der BSI-Tabelle: so findet, wer "Firewall" oder "NAS" sagt,
+        seine Kategorie. Leer, wenn das BSI nichts eintraegt (11 bzw. 13 von 39)."""
+        info, teile = TARGETS[name], []
+        if info["synonyms"]:
+            teile.append(f"auch: {mdx_safe(info['synonyms'])}")
+        if info["example"]:
+            teile.append(f"z. B. {mdx_safe(info['example'])}")
+        return f'<span class="zielobjekt-begriffe">{" · ".join(teile)}</span>' if teile else ""
+
+    def zeilen(name, tiefe):
+        direkt, mit_vererbung, _ = zielobjekt_zahlen(model, name, len(ohne))
+        zeile = (
+            f'<tr data-tiefe="{tiefe}" data-slug="{tag_slug(name)}">'
+            f'<td><a href="/zielobjekte/{tag_slug(name)}/">{name}</a>{begriffe(name)}</td>'
+            f"<td>{direkt}</td><td>{mit_vererbung}</td></tr>\n"
         )
+        return zeile + "".join(zeilen(k, tiefe + 1) for k in model[name]["kinder"])
 
     wurzeln = sorted(n for n, i in TARGETS.items() if not i["parent"])
     zwei = sum(1 for c in controls.values() if len(control_targets(c)) > 1)
@@ -2881,7 +2891,11 @@ def render_zielobjekt_pages(catalog, control_index):
         f"{b_mit - b_direkt} Anforderungen übersehen.\n",
         f"Anforderungen mit zwei Kategorien ({zwei}) stehen bei beiden. Der Katalog sagt nicht, ob „oder“ oder "
         "„und“ gemeint ist; wir lesen es als „oder“. Das ist unsere Lesart, keine Aussage des BSI.\n",
-        "<ul>" + "".join(li(w) for w in wurzeln) + "</ul>\n",
+        f"Zu jeder Zahl kommen immer die {len(ohne)} Anforderungen ohne Zielobjektkategorie dazu.\n",
+        '<table class="vergleich-table zielobjekt-uebersicht">\n'
+        "<thead><tr><th>Kategorie</th><th>direkt</th><th>mit Vererbung</th></tr></thead>\n<tbody>\n"
+        + "".join(zeilen(w, 0) for w in wurzeln)
+        + "</tbody>\n</table>\n",
     ]
     (ZIELOBJEKTE_OUT_DIR / "index.mdx").write_text("\n".join(index))
     return len(TARGETS)
@@ -3410,10 +3424,10 @@ def check_zielobjekte(catalog):
         problems.append(f"Export-CSV hat {csv_ohne} Anforderungen ohne Kategorie, der Katalog {len(ohne)}")
     uebersicht = {}
     for m in re.finditer(
-        r'href="/zielobjekte/([a-z0-9-]+)/">[^<]*</a> <span class="themen-count">direkt (\d+) · mit Vererbung (\d+) · Paket gesamt (\d+)</span>',
+        r'<tr data-tiefe="(\d+)" data-slug="([a-z0-9-]+)">.*?</a>.*?</td><td>(\d+)</td><td>(\d+)</td></tr>',
         (ZIELOBJEKTE_OUT_DIR / "index.mdx").read_text(),
     ):
-        uebersicht[m.group(1)] = tuple(int(x) for x in m.groups()[1:])
+        uebersicht[m.group(2)] = (int(m.group(1)), int(m.group(3)), int(m.group(4)))
     if set(uebersicht) != set(erwartet):
         problems.append("Zielobjekt-Uebersicht nennt nicht genau die Kategorien der Tabelle")
     for name in eltern_von:
@@ -3421,9 +3435,17 @@ def check_zielobjekte(catalog):
         unter = lambda r: {x for x in r[col["Gilt auch für Unterkategorien"]].split("; ") if x}
         gilt = sum(1 for r in rumpf if name in eigen(r) or name in unter(r))
         direkt = sum(1 for r in rumpf if name in eigen(r))
-        soll = (direkt, gilt, gilt + csv_ohne)
+        # (Einrueckungstiefe = Zahl der Elternkategorien, direkt, mit Vererbung)
+        soll = (len(ueber(name)), direkt, gilt)
         if uebersicht.get(tag_slug(name)) != soll:
             problems.append(f"{name}: Uebersicht {uebersicht.get(tag_slug(name))}, Export-CSV {soll}")
+        # Die Saetze auf der Kategorieseite nennen dieselben Zahlen, "zusammen" inklusive der ohne Kategorie.
+        seitentext = (ZIELOBJEKTE_OUT_DIR / f"{tag_slug(name)}.mdx").read_text()
+        genannt = "**1 Anforderung**" if gilt == 1 else f"**{gilt} Anforderungen**"
+        if f"{genannt} gelten" not in seitentext:
+            problems.append(f"{name}: Seitentext nennt nicht {gilt} Anforderungen")
+        if f"**zusammen {gilt + csv_ohne}**" not in seitentext:
+            problems.append(f"{name}: Seitentext nennt nicht zusammen {gilt + csv_ohne}")
 
     # Die Zahl der Anforderungen mit zwei Kategorien im Text der Uebersicht.
     m = re.search(r"Anforderungen mit zwei Kategorien \((\d+)\)", (ZIELOBJEKTE_OUT_DIR / "index.mdx").read_text())
