@@ -158,7 +158,7 @@ Ein Geschäftsfortführungsplan (GFP) legt fest, wie ein Geschäftsprozess in ei
 
 <span class="sr-only" aria-hidden="true" data-pagefind-weight="10">NOT.3.3</span>
 
-<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="4" threats="G 0.25, G 0.27, G 0.40" threatsHint="G 0.25 – Ausfall von Geräten oder Systemen · G 0.27 – Ressourcenmangel · G 0.40 – Verhinderung von Diensten (Denial of Service)" tags={[{ name: "Kompetenzmanagement", slug: "kompetenzmanagement", hint: "Inhalte, bei denen Kompetenzen gefordert werden. Kompetenz ist die Fähigkeit, Wissen und Fertigkeiten effektiv einzusetzen, um bestimmte Aufgaben zu erfüllen, oft mit einer nachweisbaren Befähigung verbunden.", synonyms: "Schulung, Weiterbildung, Qualifikation" }]} targets={[{ name: "Nutzende", hint: "Alle natürlichen Personen, welche regelmäßig die Assets  im Informationsverbund für die Institution benutzen können, unabhängig davon ob sie aus Sicht der Institution intern oder extern sind. Beispiele: externe Berater.", synonyms: "Nutzer, User" }]} inheritedTargets={["Administrierende", "Führungskräfte", "Institutionsleitung", "Mitarbeitende"]} />
+<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="4" threats="G 0.25, G 0.27, G 0.40" threatsHint="G 0.25 – Ausfall von Geräten oder Systemen · G 0.27 – Ressourcenmangel · G 0.40 – Verhinderung von Diensten (Denial of Service)" tags={[{ name: "Kompetenzmanagement", slug: "kompetenzmanagement", hint: "Inhalte, bei denen Kompetenzen gefordert werden. Kompetenz ist die Fähigkeit, Wissen und Fertigkeiten effektiv einzusetzen, um bestimmte Aufgaben zu erfüllen, oft mit einer nachweisbaren Befähigung verbunden.", synonyms: "Schulung, Weiterbildung, Qualifikation" }]} targets={[{ name: "Nutzende", slug: "nutzende", hint: "Alle natürlichen Personen, welche regelmäßig die Assets  im Informationsverbund für die Institution benutzen können, unabhängig davon ob sie aus Sicht der Institution intern oder extern sind. Beispiele: externe Berater.", synonyms: "Nutzer, User" }]} inheritedTargets={["Administrierende", "Führungskräfte", "Institutionsleitung", "Mitarbeitende"]} />
 
 > Notfallplanung für Nutzende SOLLTE zur Vorgehensweise in Notfällen und Krisen sensibilisieren.
 
@@ -210,7 +210,7 @@ Datensicherungen dienen der Wiederherstellung von Daten nach Vorfällen. Aufgrun
 
 <span class="sr-only" aria-hidden="true" data-pagefind-weight="10">NOT.4.2</span>
 
-<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="3" threats="G 0.45, G 0.39, G 0.25" threatsHint="G 0.45 – Datenverlust · G 0.39 – Schadprogramme · G 0.25 – Ausfall von Geräten oder Systemen" targets={[{ name: "IT-Systeme", hint: "Informationstechnische Systeme zur elektronischen Datenverarbeitung.", synonyms: "Computer, Computersystem" }]} inheritedTargets={["Hostsysteme", "Mobile Endgeräte"]} />
+<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="3" threats="G 0.45, G 0.39, G 0.25" threatsHint="G 0.45 – Datenverlust · G 0.39 – Schadprogramme · G 0.25 – Ausfall von Geräten oder Systemen" targets={[{ name: "IT-Systeme", slug: "it-systeme", hint: "Informationstechnische Systeme zur elektronischen Datenverarbeitung.", synonyms: "Computer, Computersystem" }]} inheritedTargets={["Hostsysteme", "Mobile Endgeräte"]} />
 
 > Notfallplanung für IT-Systeme SOLLTE deren Datensicherung *[regelmäßig]* ausführen.
 
@@ -220,7 +220,7 @@ Zu den erforderlichen Daten können z.B. Konfigurationsdateien des Betriebssyste
 
 <span class="sr-only" aria-hidden="true" data-pagefind-weight="10">NOT.4.3</span>
 
-<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="3" threats="G 0.45, G 0.39, G 0.25" threatsHint="G 0.45 – Datenverlust · G 0.39 – Schadprogramme · G 0.25 – Ausfall von Geräten oder Systemen" targets={[{ name: "Anwendungen", hint: "Eine Software, ein Computerprogramm oder ein Softwaredienst, der definierte fachliche oder technische Funktionen zur Verarbeitung, Bereitstellung oder Verwaltung von Informationen zur Verfügung stellt. Beispiele: Textverarbeitungen, Betriebssysteme, mobile Applikationen.", synonyms: "Apps" }]} inheritedTargets={["DNS-Server", "Dateiserver", "E-Mail", "Faxanwendungen", "Interpersonelle Kommunikation", "Office-Anwendungen", "TK-Anwendungen", "VK-Anwendungen", "Verzeichnisdienste", "Virtualisierungslösungen", "Webanwendungen", "Webbrowser", "Webserver"]} />
+<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="3" threats="G 0.45, G 0.39, G 0.25" threatsHint="G 0.45 – Datenverlust · G 0.39 – Schadprogramme · G 0.25 – Ausfall von Geräten oder Systemen" targets={[{ name: "Anwendungen", slug: "anwendungen", hint: "Eine Software, ein Computerprogramm oder ein Softwaredienst, der definierte fachliche oder technische Funktionen zur Verarbeitung, Bereitstellung oder Verwaltung von Informationen zur Verfügung stellt. Beispiele: Textverarbeitungen, Betriebssysteme, mobile Applikationen.", synonyms: "Apps" }]} inheritedTargets={["DNS-Server", "Dateiserver", "E-Mail", "Faxanwendungen", "Interpersonelle Kommunikation", "Office-Anwendungen", "TK-Anwendungen", "VK-Anwendungen", "Verzeichnisdienste", "Virtualisierungslösungen", "Webanwendungen", "Webbrowser", "Webserver"]} />
 
 > Notfallplanung für Anwendungen SOLLTE deren Datensicherung *[regelmäßig]* ausführen.
 
@@ -230,7 +230,7 @@ Hierzu können z.B. sowohl die Daten einer Backend-Datenbank, als auch Konfigura
 
 <span class="sr-only" aria-hidden="true" data-pagefind-weight="10">NOT.4.4</span>
 
-<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="3" threats="G 0.45, G 0.39" threatsHint="G 0.45 – Datenverlust · G 0.39 – Schadprogramme" targets={[{ name: "Daten", hint: "Schützenswerte Informationen, die automatisiert verarbeitet werden oder in einem Dateisystem gespeichert sind. Beispiele: Aktenordner, Kundendaten. Teil von: Informationen.", synonyms: "dokumentierte Informationen" }]} />
+<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="3" threats="G 0.45, G 0.39" threatsHint="G 0.45 – Datenverlust · G 0.39 – Schadprogramme" targets={[{ name: "Daten", slug: "daten", hint: "Schützenswerte Informationen, die automatisiert verarbeitet werden oder in einem Dateisystem gespeichert sind. Beispiele: Aktenordner, Kundendaten. Teil von: Informationen.", synonyms: "dokumentierte Informationen" }]} />
 
 > Notfallplanung für Daten SOLLTE die Datensicherung durch *[einen automatisierten Mechanismus]* ausführen.
 
@@ -240,7 +240,7 @@ Ein automatisierter Mechanismus (engl. automated mechanism) ist hier ein technis
 
 <span class="sr-only" aria-hidden="true" data-pagefind-weight="10">NOT.4.5</span>
 
-<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="4" threats="G 0.45, G 0.39" threatsHint="G 0.45 – Datenverlust · G 0.39 – Schadprogramme" targets={[{ name: "Daten", hint: "Schützenswerte Informationen, die automatisiert verarbeitet werden oder in einem Dateisystem gespeichert sind. Beispiele: Aktenordner, Kundendaten. Teil von: Informationen.", synonyms: "dokumentierte Informationen" }]} />
+<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="4" threats="G 0.45, G 0.39" threatsHint="G 0.45 – Datenverlust · G 0.39 – Schadprogramme" targets={[{ name: "Daten", slug: "daten", hint: "Schützenswerte Informationen, die automatisiert verarbeitet werden oder in einem Dateisystem gespeichert sind. Beispiele: Aktenordner, Kundendaten. Teil von: Informationen.", synonyms: "dokumentierte Informationen" }]} />
 
 > Notfallplanung für Daten SOLLTE die Archivierung langfristig benötigter Daten *[regelmäßig]* ausführen.
 
@@ -250,7 +250,7 @@ Archivierung meint hier die langfristige Aufbewahrung derjenigen Daten, die übe
 
 <span class="sr-only" aria-hidden="true" data-pagefind-weight="10">NOT.4.5.1</span>
 
-<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="4" threats="G 0.45, G 0.39, G 0.25" threatsHint="G 0.45 – Datenverlust · G 0.39 – Schadprogramme · G 0.25 – Ausfall von Geräten oder Systemen" targets={[{ name: "Daten", hint: "Schützenswerte Informationen, die automatisiert verarbeitet werden oder in einem Dateisystem gespeichert sind. Beispiele: Aktenordner, Kundendaten. Teil von: Informationen.", synonyms: "dokumentierte Informationen" }]} />
+<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="4" threats="G 0.45, G 0.39, G 0.25" threatsHint="G 0.45 – Datenverlust · G 0.39 – Schadprogramme · G 0.25 – Ausfall von Geräten oder Systemen" targets={[{ name: "Daten", slug: "daten", hint: "Schützenswerte Informationen, die automatisiert verarbeitet werden oder in einem Dateisystem gespeichert sind. Beispiele: Aktenordner, Kundendaten. Teil von: Informationen.", synonyms: "dokumentierte Informationen" }]} />
 
 > Notfallplanung für Daten SOLLTE die Archivierung von Assets, die zur Verwendung von archivierten Daten erforderlich sind, *[regelmäßig]* ausführen.
 
@@ -260,7 +260,7 @@ Je nach Art der Daten können zu deren Nutzung z.B. bestimmte (physische oder vi
 
 <span class="sr-only" aria-hidden="true" data-pagefind-weight="10">NOT.4.5.2</span>
 
-<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="4" threats="G 0.45, G 0.39, G 0.18, G 0.37" threatsHint="G 0.45 – Datenverlust · G 0.39 – Schadprogramme · G 0.18 – Fehlplanung oder fehlende Anpassung · G 0.37 – Abstreiten von Handlungen" targets={[{ name: "Daten", hint: "Schützenswerte Informationen, die automatisiert verarbeitet werden oder in einem Dateisystem gespeichert sind. Beispiele: Aktenordner, Kundendaten. Teil von: Informationen.", synonyms: "dokumentierte Informationen" }]} />
+<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="4" threats="G 0.45, G 0.39, G 0.18, G 0.37" threatsHint="G 0.45 – Datenverlust · G 0.39 – Schadprogramme · G 0.18 – Fehlplanung oder fehlende Anpassung · G 0.37 – Abstreiten von Handlungen" targets={[{ name: "Daten", slug: "daten", hint: "Schützenswerte Informationen, die automatisiert verarbeitet werden oder in einem Dateisystem gespeichert sind. Beispiele: Aktenordner, Kundendaten. Teil von: Informationen.", synonyms: "dokumentierte Informationen" }]} />
 
 > Notfallplanung für Daten SOLLTE die Archivierung von Dokumentationen, die zur Verwendung von archivierten Daten erforderlich sind, *[regelmäßig]* ausführen.
 
@@ -340,7 +340,7 @@ Werden Datensicherungen in der Nähe von Originaldaten aufbewahrt, so könnten b
 
 <span class="sr-only" aria-hidden="true" data-pagefind-weight="10">NOT.4.13</span>
 
-<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="3" threats="G 0.45, G 0.39, G 0.25" threatsHint="G 0.45 – Datenverlust · G 0.39 – Schadprogramme · G 0.25 – Ausfall von Geräten oder Systemen" targets={[{ name: "Outsourcing", hint: "Dienstleistungen zur Ausübung und Unterstützung von Geschäftsprozessen. Beispiele: RZ-Housing. Teil von: Dienstleistungen." }]} inheritedTargets={["Cloud-Dienste"]} />
+<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="3" threats="G 0.45, G 0.39, G 0.25" threatsHint="G 0.45 – Datenverlust · G 0.39 – Schadprogramme · G 0.25 – Ausfall von Geräten oder Systemen" targets={[{ name: "Outsourcing", slug: "outsourcing", hint: "Dienstleistungen zur Ausübung und Unterstützung von Geschäftsprozessen. Beispiele: RZ-Housing. Teil von: Dienstleistungen." }]} inheritedTargets={["Cloud-Dienste"]} />
 
 > Notfallplanung für Outsourcing SOLLTE die Datensicherung von Daten, die bei einem Dienstleister verarbeitet werden, nach *[einem anerkannten Standard]* *[regelmäßig]* ausführen.
 
@@ -350,7 +350,7 @@ Dies dient dazu bei einem Ausfall des Dienstleisters die Daten schnell bei einem
 
 <span class="sr-only" aria-hidden="true" data-pagefind-weight="10">NOT.4.14</span>
 
-<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="3" threats="G 0.45, G 0.39, G 0.25, G 0.1" threatsHint="G 0.45 – Datenverlust · G 0.39 – Schadprogramme · G 0.25 – Ausfall von Geräten oder Systemen · G 0.1 – Feuer" targets={[{ name: "Daten", hint: "Schützenswerte Informationen, die automatisiert verarbeitet werden oder in einem Dateisystem gespeichert sind. Beispiele: Aktenordner, Kundendaten. Teil von: Informationen.", synonyms: "dokumentierte Informationen" }]} />
+<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="3" threats="G 0.45, G 0.39, G 0.25, G 0.1" threatsHint="G 0.45 – Datenverlust · G 0.39 – Schadprogramme · G 0.25 – Ausfall von Geräten oder Systemen · G 0.1 – Feuer" targets={[{ name: "Daten", slug: "daten", hint: "Schützenswerte Informationen, die automatisiert verarbeitet werden oder in einem Dateisystem gespeichert sind. Beispiele: Aktenordner, Kundendaten. Teil von: Informationen.", synonyms: "dokumentierte Informationen" }]} />
 
 > Notfallplanung für Daten SOLLTE eine Offline-Kopie *[regelmäßig]* ausführen.
 
@@ -370,7 +370,7 @@ Die Dokumentation der Vorgehensweise zur Wiederherstellung dient dazu, im Notfal
 
 <span class="sr-only" aria-hidden="true" data-pagefind-weight="10">NOT.4.16</span>
 
-<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="3" threats="G 0.45, G 0.39" threatsHint="G 0.45 – Datenverlust · G 0.39 – Schadprogramme" targets={[{ name: "Daten", hint: "Schützenswerte Informationen, die automatisiert verarbeitet werden oder in einem Dateisystem gespeichert sind. Beispiele: Aktenordner, Kundendaten. Teil von: Informationen.", synonyms: "dokumentierte Informationen" }]} />
+<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="3" threats="G 0.45, G 0.39" threatsHint="G 0.45 – Datenverlust · G 0.39 – Schadprogramme" targets={[{ name: "Daten", slug: "daten", hint: "Schützenswerte Informationen, die automatisiert verarbeitet werden oder in einem Dateisystem gespeichert sind. Beispiele: Aktenordner, Kundendaten. Teil von: Informationen.", synonyms: "dokumentierte Informationen" }]} />
 
 > Notfallplanung für Daten SOLLTE den Erfolg der Datensicherung *[regelmäßig]* überprüfen.
 
@@ -380,7 +380,7 @@ Die Überprüfung der Vollständigkeit kann durch Statistiken des Datenumfangs p
 
 <span class="sr-only" aria-hidden="true" data-pagefind-weight="10">NOT.4.16.1</span>
 
-<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="3" threats="G 0.45, G 0.39, G 0.25" threatsHint="G 0.45 – Datenverlust · G 0.39 – Schadprogramme · G 0.25 – Ausfall von Geräten oder Systemen" targets={[{ name: "Daten", hint: "Schützenswerte Informationen, die automatisiert verarbeitet werden oder in einem Dateisystem gespeichert sind. Beispiele: Aktenordner, Kundendaten. Teil von: Informationen.", synonyms: "dokumentierte Informationen" }]} />
+<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="3" threats="G 0.45, G 0.39, G 0.25" threatsHint="G 0.45 – Datenverlust · G 0.39 – Schadprogramme · G 0.25 – Ausfall von Geräten oder Systemen" targets={[{ name: "Daten", slug: "daten", hint: "Schützenswerte Informationen, die automatisiert verarbeitet werden oder in einem Dateisystem gespeichert sind. Beispiele: Aktenordner, Kundendaten. Teil von: Informationen.", synonyms: "dokumentierte Informationen" }]} />
 
 > Notfallplanung für Daten SOLLTE die Wiederherstellung mindestens anhand von repräsentativen Stichproben *[regelmäßig]* überprüfen.
 
@@ -390,7 +390,7 @@ Unter „Erfolg der Datensicherung“ ist hier die Vollständigkeit („complete
 
 <span class="sr-only" aria-hidden="true" data-pagefind-weight="10">NOT.4.17</span>
 
-<ControlMeta modalVerb="KANN" secLevel="erhöht" effort="5" threats="G 0.45, G 0.39, G 0.25" threatsHint="G 0.45 – Datenverlust · G 0.39 – Schadprogramme · G 0.25 – Ausfall von Geräten oder Systemen" targets={[{ name: "Anwendungen", hint: "Eine Software, ein Computerprogramm oder ein Softwaredienst, der definierte fachliche oder technische Funktionen zur Verarbeitung, Bereitstellung oder Verwaltung von Informationen zur Verfügung stellt. Beispiele: Textverarbeitungen, Betriebssysteme, mobile Applikationen.", synonyms: "Apps" }]} inheritedTargets={["DNS-Server", "Dateiserver", "E-Mail", "Faxanwendungen", "Interpersonelle Kommunikation", "Office-Anwendungen", "TK-Anwendungen", "VK-Anwendungen", "Verzeichnisdienste", "Virtualisierungslösungen", "Webanwendungen", "Webbrowser", "Webserver"]} />
+<ControlMeta modalVerb="KANN" secLevel="erhöht" effort="5" threats="G 0.45, G 0.39, G 0.25" threatsHint="G 0.45 – Datenverlust · G 0.39 – Schadprogramme · G 0.25 – Ausfall von Geräten oder Systemen" targets={[{ name: "Anwendungen", slug: "anwendungen", hint: "Eine Software, ein Computerprogramm oder ein Softwaredienst, der definierte fachliche oder technische Funktionen zur Verarbeitung, Bereitstellung oder Verwaltung von Informationen zur Verfügung stellt. Beispiele: Textverarbeitungen, Betriebssysteme, mobile Applikationen.", synonyms: "Apps" }]} inheritedTargets={["DNS-Server", "Dateiserver", "E-Mail", "Faxanwendungen", "Interpersonelle Kommunikation", "Office-Anwendungen", "TK-Anwendungen", "VK-Anwendungen", "Verzeichnisdienste", "Virtualisierungslösungen", "Webanwendungen", "Webbrowser", "Webserver"]} />
 
 > Notfallplanung für Anwendungen KANN deren Funktionsfähigkeit nach Wiederherstellung *[regelmäßig]* überprüfen.
 

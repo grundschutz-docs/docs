@@ -73,6 +73,7 @@ OUT_DIR = Path(__file__).resolve().parent.parent / "src" / "content" / "docs" / 
 # die Gruppen-Seiten, aber in einem eigenen Unterordner (eigene Sidebar-Gruppe).
 ROLLEN_OUT_DIR = Path(__file__).resolve().parent.parent / "src" / "content" / "docs" / "rollen"
 VERGLEICH_OUT_DIR = Path(__file__).resolve().parent.parent / "src" / "content" / "docs" / "vergleich"
+ZIELOBJEKTE_OUT_DIR = Path(__file__).resolve().parent.parent / "src" / "content" / "docs" / "zielobjekte"
 DATA_OUT_DIR = Path(__file__).resolve().parent.parent / "src" / "data"
 CONTROL_META_IMPORT = "import ControlMeta from '../../../components/ControlMeta.astro';\n"
 # vergleich.mdx liegt eine Ebene flacher (direkt in src/content/docs/), daher
@@ -342,7 +343,7 @@ def render_targets_prop(control):
         return None
     items = []
     for name in names:
-        obj = f"{{ name: {jsx_string(name)}"
+        obj = f"{{ name: {jsx_string(name)}, slug: {jsx_string(tag_slug(name))}"
         hint = target_hint(name)
         if hint:
             obj += f", hint: {jsx_string(hint)}"
@@ -2695,6 +2696,197 @@ def render_themen_page(catalog, control_index, tags_by_id):
     return len(by_tag), len(tagged)
 
 
+# --- Zielobjekt-Seiten (ADR-0011) ---------------------------------------------
+# Eine Seite je Zielobjektkategorie: direkt zugeordnete Anforderungen, dazu die
+# von den uebergeordneten Kategorien geerbten (STM.2.1.4.1), gruppiert nach der
+# Elternkategorie. Anforderungen ohne Kategorie (immer im Paket, Standard 300-1
+# 3.4.1) werden nur gezaehlt. check_zielobjekte() liest die Seiten zurueck und
+# rechnet auf zwei anderen Wegen nach.
+PFLICHT_REIHENFOLGE = {"MUSS": 0, "SOLLTE": 1, "KANN": 2}
+
+
+def natural_id_key(control_id):
+    """ARCH.2.1.10 nach ARCH.2.1.9: die Zahlen als Zahlen vergleichen."""
+    return [int(t) if t.isdigit() else t for t in re.split(r"(\d+)", control_id)]
+
+
+def zielobjekt_model(catalog):
+    """Je Kategorie: direkt zugeordnete Anforderungen und geerbte, nach Elternkategorie.
+
+    Rueckgabe: (model, ohne_kategorie, controls). model[name] = {"direkt": [ids],
+    "geerbt": [(elternname, [ids]), ...] (naechste Elternkategorie zuerst), "kinder": [namen]}.
+    """
+    controls = {}
+    for control in collect_controls(catalog):
+        controls[control["id"]] = control
+    direkt_von = {cid: control_targets(c) for cid, c in controls.items()}
+    ohne = sorted((cid for cid, ks in direkt_von.items() if not ks), key=natural_id_key)
+
+    model = {}
+    for name, info in TARGETS.items():
+        direkt = [cid for cid, ks in direkt_von.items() if name in ks]
+        geerbt, parent, gesehen = [], info["parent"], set()
+        while parent and parent not in gesehen:
+            gesehen.add(parent)
+            ids = [cid for cid, ks in direkt_von.items() if parent in ks and cid not in direkt]
+            geerbt.append((parent, ids))
+            parent = TARGETS[parent]["parent"]
+        model[name] = {
+            "direkt": sorted(direkt, key=natural_id_key),
+            "geerbt": [(p, sorted(ids, key=natural_id_key)) for p, ids in geerbt],
+            "kinder": sorted(n for n, i in TARGETS.items() if i["parent"] == name),
+        }
+    return model, ohne, controls
+
+
+def zielobjekt_zahlen(model, name, ohne_anzahl):
+    direkt = len(model[name]["direkt"])
+    geerbt = sum(len(ids) for _, ids in model[name]["geerbt"])
+    return direkt, direkt + geerbt, direkt + geerbt + ohne_anzahl
+
+
+def render_zielobjekt_table(teil, ids, controls, control_index, direkt_von, bezug):
+    # bezug: die Kategorie, derentwegen die Anforderung in dieser Tabelle steht (die Seite selbst
+    # oder die Elternkategorie); "auch fuer" nennt die jeweils andere.
+    ids = sorted(
+        ids,
+        key=lambda cid: (
+            PFLICHT_REIHENFOLGE.get(part_prop_value(controls[cid], "statement", "modal_verb"), 9),
+            natural_id_key(cid),
+        ),
+    )
+    lines = [
+        f'<div class="zielobjekt-teil" data-teil="{attr_escape(teil)}" data-pagefind-ignore>\n',
+        '<table class="vergleich-table themen-table zielobjekt-table">\n',
+        "<thead><tr><th>Anforderung</th><th>Pflicht</th><th>Stufe</th><th>Praktik</th></tr></thead>\n<tbody>\n",
+    ]
+    for cid in ids:
+        control = controls[cid]
+        sec_level = prop_value(control, "sec_level") or ""
+        auch = [k for k in direkt_von[cid] if k != bezug]
+        # Bei zwei Kategorien (39 Anforderungen) sagt der Katalog nicht, ob "oder" oder "und"
+        # gemeint ist; die Seite nennt die zweite Kategorie, damit das sichtbar bleibt.
+        zusatz = (
+            f' <span class="new-title">(auch für {mdx_safe(", ".join(auch))})</span>' if len(direkt_von[cid]) > 1 else ""
+        )
+        lines.append(
+            f'<tr data-sec="{attr_escape(sec_level)}" data-id="{cid}">'
+            f"<td>{control_link(cid, control_index)}{zusatz}</td>"
+            f'<td>{part_prop_value(control, "statement", "modal_verb") or ""}</td>'
+            f"<td>{SEC_LEVEL_LABELS.get(sec_level, sec_level)}</td>"
+            f'<td>{control_index[cid]["slug"].upper()}</td></tr>\n'
+        )
+    lines.append("</tbody>\n</table>\n</div>\n")
+    return "".join(lines)
+
+
+def render_zielobjekt_pages(catalog, control_index):
+    slugs = {}
+    for name in TARGETS:
+        slugs.setdefault(tag_slug(name), []).append(name)
+    kollision = {k: v for k, v in slugs.items() if len(v) > 1}
+    if kollision:
+        raise SystemExit(f"Zielobjektkategorien mit gleicher Adresse: {kollision}")
+
+    model, ohne, controls = zielobjekt_model(catalog)
+    direkt_von = {cid: control_targets(c) for cid, c in controls.items()}
+    ZIELOBJEKTE_OUT_DIR.mkdir(parents=True, exist_ok=True)
+    for alt in ZIELOBJEKTE_OUT_DIR.glob("*.mdx"):
+        alt.unlink()
+
+    def plural(n):
+        return "1 Anforderung" if n == 1 else f"{n} Anforderungen"
+
+    for name, info in TARGETS.items():
+        m = model[name]
+        direkt, mit_vererbung, gesamt = zielobjekt_zahlen(model, name, len(ohne))
+        definition = first_sentence(info["definition"])
+        lines = [
+            "---\n",
+            f"title: {yaml_quote(f'Anforderungen für {name}')}\n",
+            f"description: {yaml_quote(f'Alle Grundschutz++-Anforderungen für die Zielobjektkategorie {name}: {direkt} direkt zugeordnet, {mit_vererbung} mit den geerbten der übergeordneten Kategorien.')}\n",
+            "---\n\n",
+            pagefind_section("Zielobjekt"),
+        ]
+        if definition:
+            lines.append(f"{mdx_safe(definition)}\n")
+        if info["example"]:
+            lines.append(f"Beispiele: {mdx_safe(info['example'])}.\n")
+        if info["parent"]:
+            lines.append(f"Teil von [{info['parent']}](/zielobjekte/{tag_slug(info['parent'])}/).\n")
+        lines.append(
+            f"**{plural(mit_vererbung)}** gelten für ein Asset dieser Kategorie: "
+            f"{direkt} direkt zugeordnet"
+            + (f", {mit_vererbung - direkt} geerbt" if info["parent"] else "")
+            + f". Dazu kommen die {len(ohne)} Anforderungen ohne Zielobjektkategorie, "
+            f"die in jedes Anforderungspaket gehören: **zusammen {gesamt}**. "
+            "Nach [STM.2.1.4.1](/grundschutzpp/stm/#STM.2.1.4.1) erhält ein Asset auch die "
+            "Kategorien über seiner eigenen, [so rechnet die Übersicht](/zielobjekte/).\n"
+        )
+        if m["kinder"]:
+            kinder = ", ".join(f"[{k}](/zielobjekte/{tag_slug(k)}/)" for k in m["kinder"])
+            lines.append(
+                f"Unterkategorien: {kinder}. Deren eigene Anforderungen stehen nicht hier, "
+                "sie gelten nur für die jeweilige Unterkategorie.\n"
+            )
+        lines.append(f"## Direkt zugeordnet ({direkt}) {heading_anchor('direkt')}\n")
+        if m["direkt"]:
+            lines.append(render_zielobjekt_table("direkt", m["direkt"], controls, control_index, direkt_von, name))
+        else:
+            lines.append("Keine Anforderung nennt diese Kategorie direkt.\n")
+        for parent, ids in m["geerbt"]:
+            lines.append(
+                f"## Geerbt von {parent} ({len(ids)}) {heading_anchor('geerbt-' + tag_slug(parent))}\n"
+            )
+            lines.append(
+                f"Gilt für ein Asset dieser Kategorie, weil {name} unter "
+                f"[{parent}](/zielobjekte/{tag_slug(parent)}/) steht.\n"
+            )
+            lines.append(render_zielobjekt_table(f"geerbt:{parent}", ids, controls, control_index, direkt_von, parent))
+        lines.append(f"## Ohne Zielobjektkategorie ({len(ohne)}) {heading_anchor('ohne-kategorie')}\n")
+        lines.append(
+            f"{len(ohne)} Anforderungen nennen keine Kategorie. Nach dem BSI-Standard 300-1 (3.4.1) "
+            "gehören sie in jedes Anforderungspaket. Sie stehen hier nicht einzeln, die Liste gibt es im "
+            "[Export](/export/) (Auswahl: „ohne Zielobjektkategorie“).\n"
+        )
+        (ZIELOBJEKTE_OUT_DIR / f"{tag_slug(name)}.mdx").write_text("\n".join(lines))
+
+    def li(name):
+        direkt, mit_vererbung, gesamt = zielobjekt_zahlen(model, name, len(ohne))
+        kinder = "".join(li(k) for k in model[name]["kinder"])
+        return (
+            f'<li><a href="/zielobjekte/{tag_slug(name)}/">{name}</a> '
+            f'<span class="themen-count">direkt {direkt} · mit Vererbung {mit_vererbung} · Paket gesamt {gesamt}</span>'
+            + (f"<ul>{kinder}</ul>" if kinder else "")
+            + "</li>"
+        )
+
+    wurzeln = sorted(n for n, i in TARGETS.items() if not i["parent"])
+    zwei = sum(1 for c in controls.values() if len(control_targets(c)) > 1)
+    bsp = "Webserver"
+    b_direkt, b_mit, b_gesamt = zielobjekt_zahlen(model, bsp, len(ohne))
+    index = [
+        "---\n",
+        f"title: {yaml_quote('Anforderungen nach Zielobjektkategorie')}\n",
+        f"description: {yaml_quote(f'Die {len(TARGETS)} Zielobjektkategorien des BSI mit den Anforderungen, die für ein Asset der Kategorie gelten, direkt und geerbt, von Webserver bis Cloud-Dienste.')}\n",
+        "---\n\n",
+        pagefind_section("Zielobjekt"),
+        f"Wer ein System betreibt, fragt nicht nach einer Praktik, sondern: Was gilt für meinen "
+        f"{bsp}? Diese Seiten beantworten das je Zielobjektkategorie, in der Hierarchie des BSI.\n",
+        f"**Die Regel:** Ein Asset erhält auch die Kategorien über seiner eigenen "
+        f"([STM.2.1.4.1](/grundschutzpp/stm/#STM.2.1.4.1), Schritt 2 der [Methodik](/methodik/)). "
+        f"{bsp} steht unter {TARGETS[bsp]['parent']}. Für {bsp} nennt der Katalog {b_direkt} Anforderungen direkt, "
+        f"mit den geerbten gelten {b_mit}. Dazu kommen die {len(ohne)} Anforderungen ohne Kategorie, die in jedes "
+        f"Anforderungspaket gehören, zusammen {b_gesamt}. Nur auf die direkte Angabe zu schauen, würde "
+        f"{b_mit - b_direkt} Anforderungen übersehen.\n",
+        f"Anforderungen mit zwei Kategorien ({zwei}) stehen bei beiden. Der Katalog sagt nicht, ob „oder“ oder "
+        "„und“ gemeint ist; wir lesen es als „oder“. Das ist unsere Lesart, keine Aussage des BSI.\n",
+        "<ul>" + "".join(li(w) for w in wurzeln) + "</ul>\n",
+    ]
+    (ZIELOBJEKTE_OUT_DIR / "index.mdx").write_text("\n".join(index))
+    return len(TARGETS)
+
+
 def render_vergleich_index(by_baustein, baustein_links):
     by_layer = {}
     for baustein_id, entries in by_baustein.items():
@@ -3137,6 +3329,125 @@ def update_changelog(catalog_file, threat_labels=None):
     return {"neu": len(added_commits), "gesamt": len(data["eintraege"]), "commits": added_commits}
 
 
+def check_zielobjekte(catalog):
+    """Liest die Zielobjekt-Seiten zurueck und rechnet auf zwei anderen Wegen nach als
+    render_zielobjekt_pages() (ADR-0011). Gleiche Regel wie bei check_export(): kein
+    Test auf demselben Codepfad wie der Renderer.
+
+    Weg 1: Anforderungen und direkte Kategorien aus dem *Rohbaum* des Katalogs, die
+    Hierarchie ueber UUID/ChildOfUUID aus der frisch gelesenen BSI-Tabelle. Verglichen
+    wird je Seite und Teil die Menge der IDs, nicht nur die Anzahl.
+    Weg 2: die Zahlen auf der Uebersicht gegen die fertige Export-CSV, die Nutzende
+    herunterladen (Spalten "Zielobjektkategorien" und "Gilt auch fuer Unterkategorien")."""
+    problems = []
+    with TARGETS_FILE.open(newline="", encoding="utf-8") as fh:
+        zeilen = list(csv.DictReader(fh))
+    name_von = {z["UUID"]: z["Zielobjekt"] for z in zeilen}
+    eltern_von = {z["Zielobjekt"]: name_von.get(z["ChildOfUUID"]) for z in zeilen}
+
+    def ueber(name):
+        out, k = [], eltern_von.get(name)
+        while k and k not in out:
+            out.append(k)
+            k = eltern_von.get(k)
+        return out
+
+    direkt_von = {}
+
+    def sammle(knoten):
+        for c in knoten.get("controls", []):
+            st = next(p for p in c["parts"] if p["name"] == "statement")
+            v = next((x["value"] for x in st["props"] if x["name"] == "target_object_categories"), "")
+            direkt_von[c["id"]] = {x.strip() for x in v.split(",") if x.strip()}
+            sammle(c)
+        for g in knoten.get("groups", []):
+            sammle(g)
+
+    sammle(json.loads(CATALOG_FILE.read_text())["catalog"])
+    ohne = {cid for cid, ks in direkt_von.items() if not ks}
+
+    erwartet = {}
+    for name in eltern_von:
+        direkt = {cid for cid, ks in direkt_von.items() if name in ks}
+        teile = {"direkt": direkt}
+        for a in ueber(name):
+            teile[f"geerbt:{a}"] = {cid for cid, ks in direkt_von.items() if a in ks} - direkt
+        erwartet[tag_slug(name)] = teile
+
+    # Seiten zurueckgelesen: je Teil die IDs der Tabellenzeilen.
+    seiten = {}
+    for datei in ZIELOBJEKTE_OUT_DIR.glob("*.mdx"):
+        if datei.name == "index.mdx":
+            continue
+        teile, aktuell = {}, None
+        for zeile in datei.read_text().splitlines():
+            m = re.search(r'<div class="zielobjekt-teil" data-teil="([^"]*)"', zeile)
+            if m:
+                aktuell = m.group(1)
+                teile[aktuell] = set()
+            m = re.search(r'<tr data-sec="[^"]*" data-id="([^"]+)"', zeile)
+            if m and aktuell is not None:
+                teile[aktuell].add(m.group(1))
+        seiten[datei.stem] = teile
+    if set(seiten) != set(erwartet):
+        problems.append(f"Zielobjekt-Seiten weichen von den Kategorien ab (nur Seite: {sorted(set(seiten) - set(erwartet))[:3]}, nur Tabelle: {sorted(set(erwartet) - set(seiten))[:3]})")
+    for slug, teile in erwartet.items():
+        ist = seiten.get(slug, {})
+        for teil, ids in teile.items():
+            # Ein leerer Teil bekommt keine Tabelle, das ist kein Fehler.
+            if ist.get(teil, set()) != ids:
+                problems.append(f"{slug}, Teil {teil}: {len(ist.get(teil, set()))} Zeilen auf der Seite, Nachrechnung {len(ids)}")
+        for teil in set(ist) - set(teile):
+            problems.append(f"{slug}: unerwarteter Teil {teil}")
+
+    # Weg 2: Uebersicht gegen die Export-CSV.
+    with (EXPORT_OUT_DIR / "grundschutzpp-anforderungen.csv").open(newline="", encoding="utf-8-sig") as f:
+        tabelle = list(csv.reader(f, delimiter=";"))
+    kopf, rumpf = tabelle[0], tabelle[1:]
+    col = {n: i for i, n in enumerate(kopf)}
+    csv_ohne = sum(1 for r in rumpf if r[col["Zielobjektkategorien"]] == EXPORT_NO_TARGET)
+    if csv_ohne != len(ohne):
+        problems.append(f"Export-CSV hat {csv_ohne} Anforderungen ohne Kategorie, der Katalog {len(ohne)}")
+    uebersicht = {}
+    for m in re.finditer(
+        r'href="/zielobjekte/([a-z0-9-]+)/">[^<]*</a> <span class="themen-count">direkt (\d+) · mit Vererbung (\d+) · Paket gesamt (\d+)</span>',
+        (ZIELOBJEKTE_OUT_DIR / "index.mdx").read_text(),
+    ):
+        uebersicht[m.group(1)] = tuple(int(x) for x in m.groups()[1:])
+    if set(uebersicht) != set(erwartet):
+        problems.append("Zielobjekt-Uebersicht nennt nicht genau die Kategorien der Tabelle")
+    for name in eltern_von:
+        eigen = lambda r: {x for x in r[col["Zielobjektkategorien"]].split("; ") if x}
+        unter = lambda r: {x for x in r[col["Gilt auch für Unterkategorien"]].split("; ") if x}
+        gilt = sum(1 for r in rumpf if name in eigen(r) or name in unter(r))
+        direkt = sum(1 for r in rumpf if name in eigen(r))
+        soll = (direkt, gilt, gilt + csv_ohne)
+        if uebersicht.get(tag_slug(name)) != soll:
+            problems.append(f"{name}: Uebersicht {uebersicht.get(tag_slug(name))}, Export-CSV {soll}")
+
+    # Die Zahl der Anforderungen mit zwei Kategorien im Text der Uebersicht.
+    m = re.search(r"Anforderungen mit zwei Kategorien \((\d+)\)", (ZIELOBJEKTE_OUT_DIR / "index.mdx").read_text())
+    zwei = sum(1 for ks in direkt_von.values() if len(ks) > 1)
+    if not m or int(m.group(1)) != zwei:
+        problems.append(f"Uebersicht nennt {m.group(1) if m else 'keine'} Anforderungen mit zwei Kategorien, der Katalog {zwei}")
+
+    # Jede Pille verlinkt auf eine vorhandene Seite.
+    katalogtext = "\n".join(p.read_text() for p in OUT_DIR.glob("*.mdx"))
+    verlinkt = {
+        slug
+        for attr in re.findall(r" targets=\{\[(.*?)\]\} ", katalogtext)
+        for slug in re.findall(r'\{ name: "[^"]+", slug: "([^"]+)"', attr)
+    }
+    if not verlinkt:
+        problems.append("Keine Pille mit Zielobjekt-Link auf den Katalogseiten gefunden")
+    if not verlinkt <= set(seiten):
+        problems.append(f"Pillen verlinken auf Zielobjekt-Seiten, die es nicht gibt: {sorted(verlinkt - set(seiten))[:3]}")
+
+    if problems:
+        raise SystemExit("Zielobjekt-Seiten passen nicht zum Katalog:\n  - " + "\n  - ".join(problems))
+    print(f"Zielobjekt-Seiten ok: {len(seiten)} Seiten, je Teil gegen den Rohkatalog und die Export-CSV nachgerechnet")
+
+
 def check_changelog(catalog, nur=None):
     """Rechnet changelog.json auf einem anderen Weg nach als update_changelog().
 
@@ -3417,6 +3728,7 @@ def main():
     (OUT_DIR / "zeitplan.mdx").write_text("\n".join(zeitplan_lines))
 
     themen_count, themen_tagged = render_themen_page(catalog, control_index, tags_by_id)
+    zielobjekt_count = render_zielobjekt_pages(catalog, control_index)
 
     # Vergleichsseiten: eine Uebersicht plus eine Seite je altem Baustein.
     # Frueher war das eine einzige Seite mit ~1200 Zeilen -- unbrauchbar
@@ -3465,6 +3777,7 @@ def main():
         by_baustein,
     )
     check_export(catalog)
+    check_zielobjekte(catalog)
     check_changelog(
         catalog,
         None if os.environ.get("CHANGELOG_CHECK_ALL") else set(changelog_stats.get("commits", [])),
@@ -3474,6 +3787,7 @@ def main():
     print(f"{total} Gruppen-Seiten (.mdx) erzeugt in {OUT_DIR}")
     print(f"3 Rollen-Seiten (.mdx) erzeugt in {ROLLEN_OUT_DIR}")
     print(f"{len(by_baustein)} Baustein-Seiten + Übersicht erzeugt in {VERGLEICH_OUT_DIR}")
+    print(f"{zielobjekt_count} Zielobjekt-Seiten + Übersicht erzeugt in {ZIELOBJEKTE_OUT_DIR}")
     print(f"Startseiten-Daten: {stats}")
     print(f"Aenderungsprotokoll: {changelog_stats['neu']} neu, {changelog_stats['gesamt']} Staende in changelog.json")
     print(f"Export-Dateien in {EXPORT_OUT_DIR}: {export_stats}")

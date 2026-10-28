@@ -271,6 +271,7 @@ export default defineConfig({
 						{ label: 'Methodik (BSI-Standard 300-1)', translations: { en: 'Methodology (BSI Standard 300-1)' }, slug: 'methodik' },
 						{ label: 'Vergleich: Alt ↔ Neu', slug: 'vergleich' },
 						{ label: 'Themen', slug: 'grundschutzpp/themen' },
+						{ label: 'Zielobjekte', slug: 'zielobjekte' },
 						{
 							label: 'Managementsystem',
 							items: [
