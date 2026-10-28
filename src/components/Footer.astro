@@ -24,15 +24,15 @@ const legalPrefix = isEnglish ? '/en' : '';
 			<a href={`${legalPrefix}/methodik/`}>{isEnglish ? 'Methodology' : 'Methodik'}</a>
 			<a href="/grundschutzpp/zeitplan/">{isEnglish ? 'Status & timeline (German)' : 'Status & Zeitplan'}</a>
 			<a href="/vergleich/">{isEnglish ? 'Old ↔ new (German)' : 'Alt ↔ Neu'}</a>
-			<a href="/export/">{isEnglish ? 'Export for Excel (German)' : 'Export für Excel'}</a>
 		</nav>
 		<nav aria-labelledby="footer-project">
 			<p class="col-title" id="footer-project">{isEnglish ? 'Project' : 'Projekt'}</p>
 			<a href={`${legalPrefix}/ueber/`}>{isEnglish ? 'About this site' : 'Über diese Seite'}</a>
 			<a href={`${legalPrefix}/befunde/`}>{isEnglish ? 'Findings' : 'Befunde'}</a>
 		</nav>
-		<nav aria-labelledby="footer-dev">
-			<p class="col-title" id="footer-dev">{isEnglish ? 'For developers' : 'Für Entwickler'}</p>
+		<nav aria-labelledby="footer-tools">
+			<p class="col-title" id="footer-tools">{isEnglish ? 'Data & tools' : 'Daten & Werkzeuge'}</p>
+			<a href="/export/">{isEnglish ? 'Export for Excel (German)' : 'Export für Excel'}</a>
 			<a href={`${legalPrefix}/rag/`}>{isEnglish ? 'Catalog as data (RAG)' : 'Katalog als Daten (RAG)'}</a>
 			<a href="https://github.com/grundschutz-docs/docs">{isEnglish ? 'Source code on GitHub' : 'Quellcode auf GitHub'}</a>
 			<a href="https://github.com/BSI-Bund/Stand-der-Technik-Bibliothek">{isEnglish ? 'BSI original catalog' : 'BSI-Originalkatalog'}</a>

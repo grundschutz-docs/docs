@@ -222,7 +222,10 @@ export default defineConfig({
 					// unter /en/ mit deutschem Namen erscheint.
 					label: 'Daten & Werkzeuge',
 					translations: { en: 'Data & tools' },
-					items: [{ label: 'Katalog für Sprachmodelle (RAG)', translations: { en: 'Catalog for language models (RAG)' }, slug: 'rag' }],
+					items: [
+						{ label: 'Export für Excel', translations: { en: 'Excel export (German)' }, slug: 'export' },
+						{ label: 'Katalog für Sprachmodelle (RAG)', translations: { en: 'Catalog for language models (RAG)' }, slug: 'rag' },
+					],
 				},
 				{
 					label: 'Grundschutz++',
@@ -231,7 +234,6 @@ export default defineConfig({
 						{ label: 'Status & Zeitplan', slug: 'grundschutzpp/zeitplan' },
 						{ label: 'Methodik (BSI-Standard 300-1)', translations: { en: 'Methodology (BSI Standard 300-1)' }, slug: 'methodik' },
 						{ label: 'Vergleich: Alt ↔ Neu', slug: 'vergleich' },
-						{ label: 'Export für Excel', slug: 'export' },
 						{ label: 'Themen', slug: 'grundschutzpp/themen' },
 						{
 							label: 'Managementsystem',
