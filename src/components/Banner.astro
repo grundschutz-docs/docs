@@ -63,6 +63,11 @@ const isEnglish = Astro.currentLocale === 'en';
 		const setHeight = () => {
 			document.documentElement.style.setProperty('--banner-height', `${banner.offsetHeight}px`);
 		};
+		// Dieser eine Lesezugriff vor dem Observer bleibt bewusst: Die Hoehe des Banners haengt ueber
+		// min-height an --banner-height, setzt der Observer die Variable erst beim ersten Melden,
+		// aendert sich der Banner dabei selbst, und der Browser meldet in Chrome "ResizeObserver
+		// loop completed with undelivered notifications" in die Konsole (beobachtet 2026-10-29).
+		// Der Header hat diese Rueckkopplung nicht und kommt ohne Vorab-Lesen aus (Header.astro).
 		setHeight();
 		new ResizeObserver(setHeight).observe(banner);
 	}
