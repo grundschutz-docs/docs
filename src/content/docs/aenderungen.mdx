@@ -1,0 +1,31 @@
+---
+title: Änderungen am Katalog
+description: "Was das BSI an den Anforderungen von Grundschutz++ zwischen zwei veröffentlichten Ständen geändert hat, im Diff-Stil: alter und neuer Wortlaut nebeneinander."
+---
+
+import Aenderungsprotokoll from '../../components/Aenderungsprotokoll.astro';
+
+<span data-pagefind-meta="section:Katalog"></span>
+
+Das BSI veröffentlicht den Katalog in Ständen. Die Commit-Meldungen dazu lauten
+fast durchgehend „chore: publish rolling artifacts“ und nennen keine Inhalte.
+Diese Seite ist das Änderungsprotokoll (englisch: Changelog) dazu: Sie vergleicht
+jeweils zwei veröffentlichte Stände und zeigt, was sich an den Anforderungen
+geändert hat: Titel, Anforderungstext, Erläuterung, Pflichtgrad,
+Stufe, Aufwand, Ergebnis, Dokument, Zielobjekte, Gefährdungen und Tags.
+
+Die Seite entsteht automatisch aus der Git-Historie des
+[BSI-Repositories](https://github.com/BSI-Bund/Stand-der-Technik-Bibliothek). Sie
+nennt, was vorher da stand und was jetzt dasteht, und bewertet nichts. Wie
+bedeutsam eine Änderung ist, muss man selbst beurteilen. Maßgeblich ist immer das
+Original des BSI.
+
+**So liest du die Einträge:** Die Darstellung entspricht einem Diff. `−` ist der
+Wortlaut des vorherigen Stands, `+` der des neuen. Wörter, die sich geändert haben, sind hervorgehoben. Bei Listen
+(Gefährdungen, Tags, Zielobjekte) steht nur, was wegfiel und was dazukam.
+
+Erfasst sind die Stände seit dem 27. Juli 2026, als das BSI das Repository auf
+eine neue Struktur umgestellt hat. Frühere Stände liegen dort an einem anderen
+Pfad und sind hier nicht enthalten.
+
+<Aenderungsprotokoll />

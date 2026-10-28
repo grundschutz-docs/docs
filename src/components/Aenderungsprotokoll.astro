@@ -1,0 +1,164 @@
+---
+// Änderungsprotokoll des Katalogs im Stil eines Diffs. Die Daten kommen aus
+// src/data/changelog.json, das der Generator aus der Git-Historie des BSI-Repos
+// schreibt (scripts/generate_docs.py, update_changelog). Diese Komponente rechnet
+// nichts nach und bewertet nichts: sie zeigt "vorher" und "nachher".
+//
+// Aufbau je Stand: Datum, Zahl der geänderten Anforderungen, Link auf den BSI-Commit.
+// Je geänderter Anforderung eine Zeile "−" mit dem alten und eine mit "+" dem neuen
+// Wortlaut, geänderte Wörter hervorgehoben. Listenfelder (Gefährdungen, Tags,
+// Zielobjekte) werden als einzelne Einträge verglichen, nicht als ein langer Text.
+// Nur CSS-Klassen hier, die Regeln liegen global in custom.css (wie bei den anderen
+// Komponenten dieser Seite).
+import data from '../data/changelog.json';
+
+type Seg = [string, string];
+type Feld = { feld: string; name: string; alt: string; neu: string; diff?: Seg[]; bezeichnungen?: Record<string, string> };
+type Aenderung = { id: string; titel: string; praktik: string; felder: Feld[] };
+type Technisch = { pfad: string; anzahl: number; beispiel: { id: string; alt: string; neu: string } };
+type Eintrag = {
+	commit: string;
+	veroeffentlicht: string;
+	katalog_version: string;
+	aenderungen: Aenderung[];
+	technische_aenderungen: Technisch[];
+};
+
+const COMMIT_URL = 'https://github.com/BSI-Bund/Stand-der-Technik-Bibliothek/commit';
+const LIST_FIELDS = new Set(['zielobjekte', 'gefaehrdungen', 'tags']);
+const entries = data.eintraege as unknown as Eintrag[];
+
+const MONTHS = ['Januar', 'Februar', 'März', 'April', 'Mai', 'Juni', 'Juli', 'August', 'September', 'Oktober', 'November', 'Dezember'];
+// Nur der Datumsteil des ISO-Strings: der Stand gilt für den Tag der Veröffentlichung,
+// eine Umrechnung der Zeitzone könnte ihn verschieben.
+const dateDe = (iso: string) => {
+	const [y, m, d] = iso.slice(0, 10).split('-').map(Number);
+	return `${d}. ${MONTHS[m - 1]} ${y}`;
+};
+
+// Bei Gefährdungen steht hinter der ID der Name aus der BSI-Tabelle, wenn bekannt.
+const label = (f: Feld, id: string) => (f.bezeichnungen?.[id] ? `${id} – ${f.bezeichnungen[id]}` : id);
+
+const items = (s: string) => s.split(',').map((x) => x.trim()).filter(Boolean);
+
+// Lange unveränderte Stücke kürzen, damit die geänderten Wörter im Blick bleiben.
+const CONTEXT = 90;
+function trimmed(segs: Seg[], keep: '-' | '+') {
+	const out: { op: string; text: string }[] = [];
+	segs.forEach(([op, text], i) => {
+		if (op !== '=' && op !== keep) return;
+		if (op === '=' && text.length > CONTEXT * 2 + 20) {
+			const first = i === 0;
+			const last = i === segs.length - 1;
+			text = (first ? '… ' : text.slice(0, CONTEXT) + ' … ') + (last ? text.slice(0, CONTEXT) + ' …' : text.slice(-CONTEXT));
+			if (first && last) text = '… ' + text.slice(2);
+		}
+		out.push({ op, text });
+	});
+	return out;
+}
+
+const withChanges = entries.filter((e) => e.aenderungen.length > 0);
+const totalChanges = entries.reduce((n, e) => n + e.aenderungen.length, 0);
+const uniqueIds = new Set(entries.flatMap((e) => e.aenderungen.map((a) => a.id))).size;
+const oldest = (data as { basis?: { veroeffentlicht: string } }).basis?.veroeffentlicht;
+
+const fieldCounts = (e: Eintrag) => {
+	const c = new Map<string, number>();
+	e.aenderungen.forEach((a) => a.felder.forEach((f) => c.set(f.name, (c.get(f.name) ?? 0) + 1)));
+	return [...c.entries()].sort((a, b) => b[1] - a[1]);
+};
+const plural = (n: number, one: string, many: string) => `${n} ${n === 1 ? one : many}`;
+---
+
+<div class="cl">
+	<p class="cl-summary">
+		{oldest ? `Seit dem ${dateDe(oldest)}: ` : ''}<strong>{plural(totalChanges, 'Änderung', 'Änderungen')}</strong>{' an '}<strong>{plural(uniqueIds, 'Anforderung', 'Anforderungen')}</strong>{' in '}{plural(withChanges.length, 'Stand', 'Ständen')}{`, ${plural(entries.length, 'veröffentlichter Stand', 'veröffentlichte Stände')} verglichen.`}
+	</p>
+
+	{
+		entries.map((e, i) =>
+			e.aenderungen.length === 0 && e.technische_aenderungen.length === 0 ? (
+				<p class="cl-entry cl-entry-empty">
+					<span class="cl-date">{dateDe(e.veroeffentlicht)}</span>
+					<span class="cl-count">Keine Änderung an Anforderungen</span>
+					<a class="cl-commit" href={`${COMMIT_URL}/${e.commit}`} target="_blank" rel="noopener noreferrer">
+						BSI-Commit {e.commit.slice(0, 7)}
+					</a>
+				</p>
+			) : (
+				<details class="cl-entry" id={`stand-${e.commit.slice(0, 7)}`} open={i === 0}>
+					<summary>
+						<span class="cl-date">{dateDe(e.veroeffentlicht)}</span>
+						<span class="cl-count">
+							{e.aenderungen.length > 0
+								? `${plural(e.aenderungen.length, 'Anforderung', 'Anforderungen')} geändert`
+								: 'Keine Änderung an Anforderungen'}
+						</span>
+						<span class="cl-fields">{fieldCounts(e).map(([n, c]) => `${n} ${c}`).join(' · ')}</span>
+					</summary>
+					<p class="cl-meta">
+						Katalogversion <code>{e.katalog_version?.slice(0, 10)}</code>{' · '}
+						<a href={`${COMMIT_URL}/${e.commit}`} target="_blank" rel="noopener noreferrer">BSI-Commit {e.commit.slice(0, 7)}</a>
+					</p>
+
+					{e.aenderungen.map((a) => (
+						<article class="cl-change">
+							<h4 class="cl-change-head">
+								<a class="cl-id" href={`/grundschutzpp/${a.praktik.toLowerCase()}/#${a.id}`}>{a.id}</a>
+								<span class="cl-title">{a.titel}</span>
+							</h4>
+							{a.felder.map((f) => {
+								const alt = items(f.alt);
+								const neu = items(f.neu);
+								return (
+									<div class="cl-field">
+										<div class="cl-field-name">{f.name}</div>
+										{LIST_FIELDS.has(f.feld) ? (
+											<>
+												{alt.filter((x) => !neu.includes(x)).map((x) => (
+													<p class="cl-line cl-del"><span class="cl-sign" aria-hidden="true">−</span><span class="sr-only">entfernt: </span><span class="cl-text">{label(f, x)}</span></p>
+												))}
+												{neu.filter((x) => !alt.includes(x)).map((x) => (
+													<p class="cl-line cl-ins"><span class="cl-sign" aria-hidden="true">+</span><span class="sr-only">neu: </span><span class="cl-text">{label(f, x)}</span></p>
+												))}
+											</>
+										) : f.diff ? (
+											<>
+												<p class="cl-line cl-del">
+													<span class="cl-sign" aria-hidden="true">−</span><span class="sr-only">vorher: </span>
+													<span class="cl-text">{trimmed(f.diff, '-').map((s) => (s.op === '-' ? <del>{s.text}</del> : s.text))}</span>
+												</p>
+												<p class="cl-line cl-ins">
+													<span class="cl-sign" aria-hidden="true">+</span><span class="sr-only">nachher: </span>
+													<span class="cl-text">{trimmed(f.diff, '+').map((s) => (s.op === '+' ? <ins>{s.text}</ins> : s.text))}</span>
+												</p>
+											</>
+										) : (
+											<>
+												<p class="cl-line cl-del"><span class="cl-sign" aria-hidden="true">−</span><span class="sr-only">vorher: </span><span class="cl-text">{f.alt || '(leer)'}</span></p>
+												<p class="cl-line cl-ins"><span class="cl-sign" aria-hidden="true">+</span><span class="sr-only">nachher: </span><span class="cl-text">{f.neu || '(leer)'}</span></p>
+											</>
+										)}
+									</div>
+								);
+							})}
+						</article>
+					))}
+
+					{e.technische_aenderungen.length > 0 && (
+						<div class="cl-tech">
+							<div class="cl-field-name">Technische Änderungen ohne Auswirkung auf den Text</div>
+							{e.technische_aenderungen.map((t) => (
+								<p class="cl-tech-item">
+									Feld <code>{t.pfad}</code> bei {plural(t.anzahl, 'Anforderung', 'Anforderungen')}, zum Beispiel {t.beispiel.id}:
+									<code>{t.beispiel.alt}</code> → <code>{t.beispiel.neu}</code>
+								</p>
+							))}
+						</div>
+					)}
+				</details>
+			),
+		)
+	}
+</div>

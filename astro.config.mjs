@@ -246,6 +246,7 @@ export default defineConfig({
 					items: [
 						{ label: 'Übersicht', slug: 'grundschutzpp' },
 						{ label: 'Status & Zeitplan', slug: 'grundschutzpp/zeitplan' },
+						{ label: 'Änderungen am Katalog', slug: 'aenderungen' },
 						{ label: 'Methodik (BSI-Standard 300-1)', translations: { en: 'Methodology (BSI Standard 300-1)' }, slug: 'methodik' },
 						{ label: 'Vergleich: Alt ↔ Neu', slug: 'vergleich' },
 						{ label: 'Themen', slug: 'grundschutzpp/themen' },

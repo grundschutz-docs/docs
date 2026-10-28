@@ -1284,3 +1284,173 @@ site-search dialog::backdrop {
 		font-size: var(--sl-text-sm);
 	}
 }
+
+/* Änderungsprotokoll (Aenderungsprotokoll.astro): Diff-Optik. Entfernt = danger,
+   neu = calm, beide aus den Pill-Farben, damit hell und dunkel stimmen. Das Zeichen
+   (− / +) trägt die Bedeutung, die Farbe unterstützt nur: ohne Farbe bleibt es lesbar. */
+.cl-summary {
+	margin: 0 0 1.25rem;
+	padding: 0.85rem 1.1rem;
+	border: 1px solid var(--sl-color-hairline);
+	border-radius: 1rem;
+	background: var(--sl-color-bg-nav);
+	font-size: var(--sl-text-sm);
+}
+
+.cl-entry {
+	margin: 0 0 0.9rem;
+	border: 1px solid var(--sl-color-hairline);
+	border-radius: 1rem;
+	background: var(--sl-color-bg-nav);
+}
+
+.cl-entry > summary,
+.cl-entry-empty {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: baseline;
+	gap: 0.25rem 1rem;
+	padding: 0.8rem 1.1rem;
+	cursor: pointer;
+}
+
+.cl-entry-empty {
+	margin: 0 0 0.9rem;
+	cursor: default;
+	color: var(--sl-color-gray-3);
+	font-size: var(--sl-text-sm);
+}
+
+.cl-date {
+	font-weight: 700;
+}
+
+.cl-count {
+	color: var(--sl-color-gray-2);
+	font-size: var(--sl-text-sm);
+}
+
+.cl-fields {
+	color: var(--sl-color-gray-3);
+	font-size: var(--sl-text-xs);
+}
+
+.cl-commit {
+	font-size: var(--sl-text-xs);
+}
+
+.cl-meta {
+	margin: 0;
+	padding: 0 1.1rem 0.6rem;
+	color: var(--sl-color-gray-3);
+	font-size: var(--sl-text-xs);
+}
+
+.cl-change {
+	margin: 0;
+	padding: 0.85rem 1.1rem;
+	border-top: 1px solid var(--sl-color-hairline);
+}
+
+.cl-change-head {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: baseline;
+	gap: 0.2rem 0.7rem;
+	margin: 0 0 0.5rem;
+	font-size: var(--sl-text-base);
+}
+
+.cl-id {
+	font-family: var(--sl-font-mono);
+	font-size: var(--sl-text-sm);
+	font-weight: 600;
+}
+
+.cl-field {
+	margin: 0 0 0.6rem;
+}
+
+.cl-field:last-child {
+	margin-bottom: 0;
+}
+
+.cl-field-name {
+	margin: 0 0 0.2rem;
+	color: var(--sl-color-gray-3);
+	font-size: var(--sl-text-xs);
+	font-weight: 600;
+	text-transform: uppercase;
+	letter-spacing: 0.04em;
+}
+
+.cl-line {
+	display: grid;
+	grid-template-columns: 1.3rem 1fr;
+	margin: 0;
+	padding: 0.25rem 0.6rem;
+	font-size: var(--sl-text-sm);
+	line-height: 1.5;
+	color: var(--sl-color-text);
+}
+
+.cl-line:first-of-type {
+	border-radius: 0.5rem 0.5rem 0 0;
+}
+
+.cl-line:last-of-type {
+	border-radius: 0 0 0.5rem 0.5rem;
+}
+
+.cl-sign {
+	font-family: var(--sl-font-mono);
+	font-weight: 700;
+	user-select: none;
+}
+
+.cl-del {
+	background: var(--pill-danger-low);
+}
+
+.cl-del .cl-sign {
+	color: var(--pill-danger-high);
+}
+
+.cl-ins {
+	background: var(--pill-calm-low);
+}
+
+.cl-ins .cl-sign {
+	color: var(--pill-calm-high);
+}
+
+.cl-del del,
+.cl-ins ins {
+	padding: 0 0.15em;
+	border-radius: 0.25em;
+	color: inherit;
+	font-weight: 600;
+}
+
+.cl-del del {
+	background: color-mix(in oklab, var(--pill-danger-high) 32%, transparent);
+	text-decoration: line-through;
+	text-decoration-thickness: 1px;
+}
+
+.cl-ins ins {
+	background: color-mix(in oklab, var(--pill-calm-high) 32%, transparent);
+	text-decoration: none;
+}
+
+.cl-tech {
+	margin: 0;
+	padding: 0.85rem 1.1rem;
+	border-top: 1px solid var(--sl-color-hairline);
+}
+
+.cl-tech-item {
+	margin: 0;
+	font-size: var(--sl-text-sm);
+	color: var(--sl-color-gray-2);
+}

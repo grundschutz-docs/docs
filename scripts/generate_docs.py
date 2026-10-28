@@ -2059,7 +2059,10 @@ def render_isb_page(management, groups_by_id):
         "die zugeordneten elementaren Gefährdungen (BSI, 47 Stück) als "
         "hoverbare Pille, ohne extra Nachschlagen in `basethreats.csv`.\n"
         "- **[Status & Zeitplan](/grundschutzpp/zeitplan/)** — Meilensteinplan "
-        "des BSI, Übergangszeit, Zertifizierung.\n\n"
+        "des BSI, Übergangszeit, Zertifizierung.\n"
+        "- **[Änderungen am Katalog](/aenderungen/)** — was das BSI zwischen "
+        "zwei veröffentlichten Ständen an den Anforderungen geändert hat, mit "
+        "altem und neuem Wortlaut.\n\n"
         "Diese Seite ist kein offizielles BSI-Angebot.\n",
     ]
     ROLLEN_OUT_DIR.mkdir(parents=True, exist_ok=True)
