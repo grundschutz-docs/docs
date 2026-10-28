@@ -1,0 +1,53 @@
+---
+
+title: "Datensicherungskonzept"
+
+description: "Der Dokumenttyp Datensicherungskonzept im Grundschutz++-Katalog: 20 Anforderungen, davon 0 MUSS, mit der Beschreibung des BSI, soweit vorhanden."
+
+---
+
+
+<span data-pagefind-meta="section:Dokument"></span>
+
+
+BSI-Kategorie: Betrieb & Prozesse · Zielgruppe: Prozessverantwortliche
+
+**Beschreibung des BSI**
+
+> Konzept zur Datenverfügbarkeit und -wiederherstellung: Legt verbindlich fest, welche Daten wie oft (Backup-Frequenz), mit welcher Methode (z.B. voll, differentiell, inkrementell) und wohin gesichert werden. Es definiert zudem die Aufbewahrungsfristen und die Prozesse für die Datenwiederherstellung. Wichtige Kennzahlen sind hier das Recovery Time Objective (RTO – maximale Ausfallzeit) und das Recovery Point Objective (RPO – maximaler Datenverlust).
+
+Quelle: [BSI, documentation_guidelines.csv](https://github.com/BSI-Bund/Stand-der-Technik-Bibliothek/blob/main/documentation/namespaces/documentation_guidelines.csv), CC BY-SA 4.0.
+
+**20 Anforderungen**, davon 0 MUSS, nennen Datensicherungskonzept als Ort, an dem das Ergebnis festzuhalten ist. Praktik: NOT. Das ist kein Nachweis und keine Prüfvorgabe. Aus dem Katalog allein geht nicht hervor, ob daraus ein eigenes Dokument oder ein Abschnitt in einem anderen wird.
+
+## Anforderungen (20) {#anforderungen}
+
+<div class="zielobjekt-teil" data-teil="anforderungen" data-pagefind-ignore>
+<table class="vergleich-table themen-table anforderungs-tabelle">
+<thead><tr><th>Anforderung</th><th>Pflicht</th><th>Stufe</th></tr></thead>
+<tbody>
+<tr data-sec="normal-SdT" data-id="NOT.4.1"><td><a class="new-id" href="/grundschutzpp/not/#NOT.4.1">NOT.4.1</a> <span class="new-title">Dokumentation der Quellen</span> <span class="zeile-zusatz">ohne Zielobjektkategorie</span></td><td>SOLLTE</td><td><span class="stufe-lang">Standard-Sicherheitsstufe</span><span class="stufe-kurz">Standard</span></td></tr>
+<tr data-sec="normal-SdT" data-id="NOT.4.2"><td><a class="new-id" href="/grundschutzpp/not/#NOT.4.2">NOT.4.2</a> <span class="new-title">Sicherung des Systems</span> <span class="zeile-zusatz">Zielobjekt: IT-Systeme</span></td><td>SOLLTE</td><td><span class="stufe-lang">Standard-Sicherheitsstufe</span><span class="stufe-kurz">Standard</span></td></tr>
+<tr data-sec="normal-SdT" data-id="NOT.4.3"><td><a class="new-id" href="/grundschutzpp/not/#NOT.4.3">NOT.4.3</a> <span class="new-title">Sicherung der Anwendung</span> <span class="zeile-zusatz">Zielobjekt: Anwendungen</span></td><td>SOLLTE</td><td><span class="stufe-lang">Standard-Sicherheitsstufe</span><span class="stufe-kurz">Standard</span></td></tr>
+<tr data-sec="normal-SdT" data-id="NOT.4.4"><td><a class="new-id" href="/grundschutzpp/not/#NOT.4.4">NOT.4.4</a> <span class="new-title">Automatische Datensicherung</span> <span class="zeile-zusatz">Zielobjekt: Daten</span></td><td>SOLLTE</td><td><span class="stufe-lang">Standard-Sicherheitsstufe</span><span class="stufe-kurz">Standard</span></td></tr>
+<tr data-sec="normal-SdT" data-id="NOT.4.5"><td><a class="new-id" href="/grundschutzpp/not/#NOT.4.5">NOT.4.5</a> <span class="new-title">Archivierung langfristig benötigter Daten</span> <span class="zeile-zusatz">Zielobjekt: Daten</span></td><td>SOLLTE</td><td><span class="stufe-lang">Standard-Sicherheitsstufe</span><span class="stufe-kurz">Standard</span></td></tr>
+<tr data-sec="normal-SdT" data-id="NOT.4.5.1"><td><a class="new-id" href="/grundschutzpp/not/#NOT.4.5.1">NOT.4.5.1</a> <span class="new-title">Zum Archiv gehörende Assets</span> <span class="zeile-zusatz">Zielobjekt: Daten</span></td><td>SOLLTE</td><td><span class="stufe-lang">Standard-Sicherheitsstufe</span><span class="stufe-kurz">Standard</span></td></tr>
+<tr data-sec="normal-SdT" data-id="NOT.4.5.2"><td><a class="new-id" href="/grundschutzpp/not/#NOT.4.5.2">NOT.4.5.2</a> <span class="new-title">Zum Archiv gehörende Dokumentation</span> <span class="zeile-zusatz">Zielobjekt: Daten</span></td><td>SOLLTE</td><td><span class="stufe-lang">Standard-Sicherheitsstufe</span><span class="stufe-kurz">Standard</span></td></tr>
+<tr data-sec="normal-SdT" data-id="NOT.4.6"><td><a class="new-id" href="/grundschutzpp/not/#NOT.4.6">NOT.4.6</a> <span class="new-title">Geschützte Aufbewahrung</span> <span class="zeile-zusatz">ohne Zielobjektkategorie</span></td><td>SOLLTE</td><td><span class="stufe-lang">Standard-Sicherheitsstufe</span><span class="stufe-kurz">Standard</span></td></tr>
+<tr data-sec="normal-SdT" data-id="NOT.4.7"><td><a class="new-id" href="/grundschutzpp/not/#NOT.4.7">NOT.4.7</a> <span class="new-title">Versionierte Datensicherung</span> <span class="zeile-zusatz">ohne Zielobjektkategorie</span></td><td>SOLLTE</td><td><span class="stufe-lang">Standard-Sicherheitsstufe</span><span class="stufe-kurz">Standard</span></td></tr>
+<tr data-sec="normal-SdT" data-id="NOT.4.8"><td><a class="new-id" href="/grundschutzpp/not/#NOT.4.8">NOT.4.8</a> <span class="new-title">Verschlüsselte Datensicherung</span> <span class="zeile-zusatz">ohne Zielobjektkategorie</span></td><td>SOLLTE</td><td><span class="stufe-lang">Standard-Sicherheitsstufe</span><span class="stufe-kurz">Standard</span></td></tr>
+<tr data-sec="normal-SdT" data-id="NOT.4.9"><td><a class="new-id" href="/grundschutzpp/not/#NOT.4.9">NOT.4.9</a> <span class="new-title">Speichermedien</span> <span class="zeile-zusatz">ohne Zielobjektkategorie</span></td><td>SOLLTE</td><td><span class="stufe-lang">Standard-Sicherheitsstufe</span><span class="stufe-kurz">Standard</span></td></tr>
+<tr data-sec="normal-SdT" data-id="NOT.4.10"><td><a class="new-id" href="/grundschutzpp/not/#NOT.4.10">NOT.4.10</a> <span class="new-title">Getrennte Aufbewahrung</span> <span class="zeile-zusatz">ohne Zielobjektkategorie</span></td><td>SOLLTE</td><td><span class="stufe-lang">Standard-Sicherheitsstufe</span><span class="stufe-kurz">Standard</span></td></tr>
+<tr data-sec="normal-SdT" data-id="NOT.4.11"><td><a class="new-id" href="/grundschutzpp/not/#NOT.4.11">NOT.4.11</a> <span class="new-title">Datenträgerarchiv</span> <span class="zeile-zusatz">ohne Zielobjektkategorie</span></td><td>SOLLTE</td><td><span class="stufe-lang">Standard-Sicherheitsstufe</span><span class="stufe-kurz">Standard</span></td></tr>
+<tr data-sec="normal-SdT" data-id="NOT.4.13"><td><a class="new-id" href="/grundschutzpp/not/#NOT.4.13">NOT.4.13</a> <span class="new-title">Datensouveränität</span> <span class="zeile-zusatz">Zielobjekt: Outsourcing</span></td><td>SOLLTE</td><td><span class="stufe-lang">Standard-Sicherheitsstufe</span><span class="stufe-kurz">Standard</span></td></tr>
+<tr data-sec="normal-SdT" data-id="NOT.4.14"><td><a class="new-id" href="/grundschutzpp/not/#NOT.4.14">NOT.4.14</a> <span class="new-title">Offline-Kopie</span> <span class="zeile-zusatz">Zielobjekt: Daten</span></td><td>SOLLTE</td><td><span class="stufe-lang">Standard-Sicherheitsstufe</span><span class="stufe-kurz">Standard</span></td></tr>
+<tr data-sec="normal-SdT" data-id="NOT.4.15"><td><a class="new-id" href="/grundschutzpp/not/#NOT.4.15">NOT.4.15</a> <span class="new-title">Vorgehen zur Wiederherstellung</span> <span class="zeile-zusatz">ohne Zielobjektkategorie</span></td><td>SOLLTE</td><td><span class="stufe-lang">Standard-Sicherheitsstufe</span><span class="stufe-kurz">Standard</span></td></tr>
+<tr data-sec="normal-SdT" data-id="NOT.4.16"><td><a class="new-id" href="/grundschutzpp/not/#NOT.4.16">NOT.4.16</a> <span class="new-title">Test der Datensicherung</span> <span class="zeile-zusatz">Zielobjekt: Daten</span></td><td>SOLLTE</td><td><span class="stufe-lang">Standard-Sicherheitsstufe</span><span class="stufe-kurz">Standard</span></td></tr>
+<tr data-sec="normal-SdT" data-id="NOT.4.16.1"><td><a class="new-id" href="/grundschutzpp/not/#NOT.4.16.1">NOT.4.16.1</a> <span class="new-title">Test der Wiederherstellung</span> <span class="zeile-zusatz">Zielobjekt: Daten</span></td><td>SOLLTE</td><td><span class="stufe-lang">Standard-Sicherheitsstufe</span><span class="stufe-kurz">Standard</span></td></tr>
+<tr data-sec="erhöht" data-id="NOT.4.12"><td><a class="new-id" href="/grundschutzpp/not/#NOT.4.12">NOT.4.12</a> <span class="new-title">Georedundanz</span> <span class="zeile-zusatz">ohne Zielobjektkategorie</span></td><td>KANN</td><td><span class="stufe-lang">Erhöhte Sicherheitsstufe</span><span class="stufe-kurz">Erhöht</span></td></tr>
+<tr data-sec="erhöht" data-id="NOT.4.17"><td><a class="new-id" href="/grundschutzpp/not/#NOT.4.17">NOT.4.17</a> <span class="new-title">Anwendungstest</span> <span class="zeile-zusatz">Zielobjekt: Anwendungen</span></td><td>KANN</td><td><span class="stufe-lang">Erhöhte Sicherheitsstufe</span><span class="stufe-kurz">Erhöht</span></td></tr>
+</tbody>
+</table>
+</div>
+
+Alle Dokumenttypen: [Dokumente im Katalog](/dokumente/).

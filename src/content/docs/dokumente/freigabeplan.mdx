@@ -1,0 +1,56 @@
+---
+
+title: "Freigabeplan"
+
+description: "Der Dokumenttyp Freigabeplan im Grundschutz++-Katalog: 23 Anforderungen, davon 0 MUSS, mit der Beschreibung des BSI, soweit vorhanden."
+
+---
+
+
+<span data-pagefind-meta="section:Dokument"></span>
+
+
+BSI-Kategorie: Änderungen und Tests · Zielgruppe: Prozessverantwortliche
+
+**Beschreibung des BSI**
+
+> Der Freigabeplan stellt sicher, dass Änderungen an IT-Systemen, Anwendungen und Prozessen kontrolliert und nachvollziehbar in den Betrieb überführt werden. Er beschreibt die einzelnen Schritte von der Planung über die Tests bis hin zur Abnahme und der finalen Freigabe. Ziel ist es, Risiken bei der Umsetzung zu minimieren, Abhängigkeiten transparent zu machen und die Qualität der Änderungen zu gewährleisten. Der Schwerpunkt liegt auf der Definition von Rollen, Verantwortlichkeiten und Prüfschritten, die notwendig sind, um einen sicheren und geordneten Übergang in den produktiven Betrieb zu gewährleisten.
+
+Quelle: [BSI, documentation_guidelines.csv](https://github.com/BSI-Bund/Stand-der-Technik-Bibliothek/blob/main/documentation/namespaces/documentation_guidelines.csv), CC BY-SA 4.0.
+
+**23 Anforderungen**, davon 0 MUSS, nennen Freigabeplan als Ort, an dem das Ergebnis festzuhalten ist. Praktiken: TEST, DEV. Das ist kein Nachweis und keine Prüfvorgabe. Aus dem Katalog allein geht nicht hervor, ob daraus ein eigenes Dokument oder ein Abschnitt in einem anderen wird.
+
+## Anforderungen (23) {#anforderungen}
+
+<div class="zielobjekt-teil" data-teil="anforderungen" data-pagefind-ignore>
+<table class="vergleich-table themen-table anforderungs-tabelle">
+<thead><tr><th>Anforderung</th><th>Pflicht</th><th>Stufe</th></tr></thead>
+<tbody>
+<tr data-sec="normal-SdT" data-id="DEV.2.3"><td><a class="new-id" href="/grundschutzpp/dev/#DEV.2.3">DEV.2.3</a> <span class="new-title">Ausführbarkeit mit minimalen Rechten</span> <span class="zeile-zusatz">Zielobjekt: Anwendungen</span></td><td>SOLLTE</td><td><span class="stufe-lang">Standard-Sicherheitsstufe</span><span class="stufe-kurz">Standard</span></td></tr>
+<tr data-sec="normal-SdT" data-id="DEV.2.6"><td><a class="new-id" href="/grundschutzpp/dev/#DEV.2.6">DEV.2.6</a> <span class="new-title">Widerstandsfähigkeit gegen gängige Angriffsmuster</span> <span class="zeile-zusatz">Zielobjekt: Anwendungen</span></td><td>SOLLTE</td><td><span class="stufe-lang">Standard-Sicherheitsstufe</span><span class="stufe-kurz">Standard</span></td></tr>
+<tr data-sec="normal-SdT" data-id="DEV.2.6.1"><td><a class="new-id" href="/grundschutzpp/dev/#DEV.2.6.1">DEV.2.6.1</a> <span class="new-title">Eingabevalidierung</span> <span class="zeile-zusatz">Zielobjekt: Anwendungen</span></td><td>SOLLTE</td><td><span class="stufe-lang">Standard-Sicherheitsstufe</span><span class="stufe-kurz">Standard</span></td></tr>
+<tr data-sec="normal-SdT" data-id="DEV.2.6.2"><td><a class="new-id" href="/grundschutzpp/dev/#DEV.2.6.2">DEV.2.6.2</a> <span class="new-title">Ausgabekodierung</span> <span class="zeile-zusatz">Zielobjekt: Anwendungen</span></td><td>SOLLTE</td><td><span class="stufe-lang">Standard-Sicherheitsstufe</span><span class="stufe-kurz">Standard</span></td></tr>
+<tr data-sec="normal-SdT" data-id="DEV.3.1"><td><a class="new-id" href="/grundschutzpp/dev/#DEV.3.1">DEV.3.1</a> <span class="new-title">Replay-Angriffe</span> <span class="zeile-zusatz">Zielobjekt: Anwendungen</span></td><td>SOLLTE</td><td><span class="stufe-lang">Standard-Sicherheitsstufe</span><span class="stufe-kurz">Standard</span></td></tr>
+<tr data-sec="normal-SdT" data-id="DEV.3.2"><td><a class="new-id" href="/grundschutzpp/dev/#DEV.3.2">DEV.3.2</a> <span class="new-title">Routinen zur Fehlerbehandlung</span> <span class="zeile-zusatz">Zielobjekt: Anwendungen</span></td><td>SOLLTE</td><td><span class="stufe-lang">Standard-Sicherheitsstufe</span><span class="stufe-kurz">Standard</span></td></tr>
+<tr data-sec="normal-SdT" data-id="DEV.3.3"><td><a class="new-id" href="/grundschutzpp/dev/#DEV.3.3">DEV.3.3</a> <span class="new-title">Deaktivierung der Ausgabe schützenswerter Daten durch Fehlermeldungen</span> <span class="zeile-zusatz">Zielobjekt: Anwendungen</span></td><td>SOLLTE</td><td><span class="stufe-lang">Standard-Sicherheitsstufe</span><span class="stufe-kurz">Standard</span></td></tr>
+<tr data-sec="normal-SdT" data-id="DEV.3.4"><td><a class="new-id" href="/grundschutzpp/dev/#DEV.3.4">DEV.3.4</a> <span class="new-title">Passwort-Hashing</span> <span class="zeile-zusatz">Zielobjekt: Anwendungen</span></td><td>SOLLTE</td><td><span class="stufe-lang">Standard-Sicherheitsstufe</span><span class="stufe-kurz">Standard</span></td></tr>
+<tr data-sec="normal-SdT" data-id="DEV.4.1"><td><a class="new-id" href="/grundschutzpp/dev/#DEV.4.1">DEV.4.1</a> <span class="new-title">Nutzerinformation bei kritischen Ereignissen</span> <span class="zeile-zusatz">Zielobjekt: Anwendungen</span></td><td>SOLLTE</td><td><span class="stufe-lang">Standard-Sicherheitsstufe</span><span class="stufe-kurz">Standard</span></td></tr>
+<tr data-sec="normal-SdT" data-id="DEV.4.4"><td><a class="new-id" href="/grundschutzpp/dev/#DEV.4.4">DEV.4.4</a> <span class="new-title">Integrität externer Software</span> <span class="zeile-zusatz">Zielobjekt: Anwendungen</span></td><td>SOLLTE</td><td><span class="stufe-lang">Standard-Sicherheitsstufe</span><span class="stufe-kurz">Standard</span></td></tr>
+<tr data-sec="normal-SdT" data-id="DEV.4.5"><td><a class="new-id" href="/grundschutzpp/dev/#DEV.4.5">DEV.4.5</a> <span class="new-title">Updates externer Software</span> <span class="zeile-zusatz">Zielobjekt: Anwendungen</span></td><td>SOLLTE</td><td><span class="stufe-lang">Standard-Sicherheitsstufe</span><span class="stufe-kurz">Standard</span></td></tr>
+<tr data-sec="normal-SdT" data-id="DEV.4.6"><td><a class="new-id" href="/grundschutzpp/dev/#DEV.4.6">DEV.4.6</a> <span class="new-title">Compileroptionen</span> <span class="zeile-zusatz">Zielobjekt: Anwendungen</span></td><td>SOLLTE</td><td><span class="stufe-lang">Standard-Sicherheitsstufe</span><span class="stufe-kurz">Standard</span></td></tr>
+<tr data-sec="normal-SdT" data-id="DEV.4.11"><td><a class="new-id" href="/grundschutzpp/dev/#DEV.4.11">DEV.4.11</a> <span class="new-title">Test bei Änderungen am Quellcode</span> <span class="zeile-zusatz">Zielobjekt: Anwendungen</span></td><td>SOLLTE</td><td><span class="stufe-lang">Standard-Sicherheitsstufe</span><span class="stufe-kurz">Standard</span></td></tr>
+<tr data-sec="normal-SdT" data-id="TEST.3.1"><td><a class="new-id" href="/grundschutzpp/test/#TEST.3.1">TEST.3.1</a> <span class="new-title">Sicherheitstest</span> <span class="zeile-zusatz">ohne Zielobjektkategorie</span></td><td>SOLLTE</td><td><span class="stufe-lang">Standard-Sicherheitsstufe</span><span class="stufe-kurz">Standard</span></td></tr>
+<tr data-sec="normal-SdT" data-id="TEST.3.1.1"><td><a class="new-id" href="/grundschutzpp/test/#TEST.3.1.1">TEST.3.1.1</a> <span class="new-title">Dokumentation von Testergebnissen</span> <span class="zeile-zusatz">ohne Zielobjektkategorie</span></td><td>SOLLTE</td><td><span class="stufe-lang">Standard-Sicherheitsstufe</span><span class="stufe-kurz">Standard</span></td></tr>
+<tr data-sec="normal-SdT" data-id="TEST.3.1.2"><td><a class="new-id" href="/grundschutzpp/test/#TEST.3.1.2">TEST.3.1.2</a> <span class="new-title">Verwendung externer Software</span> <span class="zeile-zusatz">ohne Zielobjektkategorie</span></td><td>SOLLTE</td><td><span class="stufe-lang">Standard-Sicherheitsstufe</span><span class="stufe-kurz">Standard</span></td></tr>
+<tr data-sec="normal-SdT" data-id="TEST.3.1.3"><td><a class="new-id" href="/grundschutzpp/test/#TEST.3.1.3">TEST.3.1.3</a> <span class="new-title">Integritätstest</span> <span class="zeile-zusatz">ohne Zielobjektkategorie</span></td><td>SOLLTE</td><td><span class="stufe-lang">Standard-Sicherheitsstufe</span><span class="stufe-kurz">Standard</span></td></tr>
+<tr data-sec="erhöht" data-id="TEST.3.1.6"><td><a class="new-id" href="/grundschutzpp/test/#TEST.3.1.6">TEST.3.1.6</a> <span class="new-title">Kontinuierliche Tests</span> <span class="zeile-zusatz">ohne Zielobjektkategorie</span></td><td>KANN</td><td><span class="stufe-lang">Erhöhte Sicherheitsstufe</span><span class="stufe-kurz">Erhöht</span></td></tr>
+<tr data-sec="erhöht" data-id="TEST.3.1.7"><td><a class="new-id" href="/grundschutzpp/test/#TEST.3.1.7">TEST.3.1.7</a> <span class="new-title">Chaos Engineering</span> <span class="zeile-zusatz">ohne Zielobjektkategorie</span></td><td>KANN</td><td><span class="stufe-lang">Erhöhte Sicherheitsstufe</span><span class="stufe-kurz">Erhöht</span></td></tr>
+<tr data-sec="erhöht" data-id="TEST.3.1.8"><td><a class="new-id" href="/grundschutzpp/test/#TEST.3.1.8">TEST.3.1.8</a> <span class="new-title">Analyse der Zusammensetzung</span> <span class="zeile-zusatz">ohne Zielobjektkategorie</span></td><td>KANN</td><td><span class="stufe-lang">Erhöhte Sicherheitsstufe</span><span class="stufe-kurz">Erhöht</span></td></tr>
+<tr data-sec="erhöht" data-id="TEST.3.1.9"><td><a class="new-id" href="/grundschutzpp/test/#TEST.3.1.9">TEST.3.1.9</a> <span class="new-title">Fuzzing</span> <span class="zeile-zusatz">ohne Zielobjektkategorie</span></td><td>KANN</td><td><span class="stufe-lang">Erhöhte Sicherheitsstufe</span><span class="stufe-kurz">Erhöht</span></td></tr>
+<tr data-sec="erhöht" data-id="TEST.3.1.10"><td><a class="new-id" href="/grundschutzpp/test/#TEST.3.1.10">TEST.3.1.10</a> <span class="new-title">Lasttest</span> <span class="zeile-zusatz">ohne Zielobjektkategorie</span></td><td>KANN</td><td><span class="stufe-lang">Erhöhte Sicherheitsstufe</span><span class="stufe-kurz">Erhöht</span></td></tr>
+<tr data-sec="erhöht" data-id="TEST.3.1.11"><td><a class="new-id" href="/grundschutzpp/test/#TEST.3.1.11">TEST.3.1.11</a> <span class="new-title">Penetrationstest bei Änderungen</span> <span class="zeile-zusatz">ohne Zielobjektkategorie</span></td><td>KANN</td><td><span class="stufe-lang">Erhöhte Sicherheitsstufe</span><span class="stufe-kurz">Erhöht</span></td></tr>
+</tbody>
+</table>
+</div>
+
+Alle Dokumenttypen: [Dokumente im Katalog](/dokumente/).

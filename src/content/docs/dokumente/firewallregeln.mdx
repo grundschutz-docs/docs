@@ -1,0 +1,48 @@
+---
+
+title: "Firewallregeln"
+
+description: "Der Dokumenttyp Firewallregeln im Grundschutz++-Katalog: 15 Anforderungen, davon 0 MUSS, mit der Beschreibung des BSI, soweit vorhanden."
+
+---
+
+
+<span data-pagefind-meta="section:Dokument"></span>
+
+
+BSI-Kategorie: Technisches Management · Zielgruppe: Administrierende
+
+**Beschreibung des BSI**
+
+> Regelwerk für die Netzwerkfilterung: Enthält die vollständige Liste aller erlaubten und blockierten Netzwerkverbindungen zwischen verschiedenen Netzzonen (z.B. Internet, DMZ, internes Netz). Jede Regel sollte einen Besitzer, einen Zweck und ein Überprüfungsdatum haben, um veraltete oder zu weitreichende Freischaltungen (""any/any"") zu vermeiden.
+
+Quelle: [BSI, documentation_guidelines.csv](https://github.com/BSI-Bund/Stand-der-Technik-Bibliothek/blob/main/documentation/namespaces/documentation_guidelines.csv), CC BY-SA 4.0.
+
+**15 Anforderungen**, davon 0 MUSS, nennen Firewallregeln als Ort, an dem das Ergebnis festzuhalten ist. Praktik: ARCH. Das ist kein Nachweis und keine Prüfvorgabe. Aus dem Katalog allein geht nicht hervor, ob daraus ein eigenes Dokument oder ein Abschnitt in einem anderen wird.
+
+## Anforderungen (15) {#anforderungen}
+
+<div class="zielobjekt-teil" data-teil="anforderungen" data-pagefind-ignore>
+<table class="vergleich-table themen-table anforderungs-tabelle">
+<thead><tr><th>Anforderung</th><th>Pflicht</th><th>Stufe</th></tr></thead>
+<tbody>
+<tr data-sec="normal-SdT" data-id="ARCH.5.1"><td><a class="new-id" href="/grundschutzpp/arch/#ARCH.5.1">ARCH.5.1</a> <span class="new-title">Einschränkung und Inspektion von Verbindungen</span> <span class="zeile-zusatz">Zielobjekt: Netze</span></td><td>SOLLTE</td><td><span class="stufe-lang">Standard-Sicherheitsstufe</span><span class="stufe-kurz">Standard</span></td></tr>
+<tr data-sec="normal-SdT" data-id="ARCH.5.1.1"><td><a class="new-id" href="/grundschutzpp/arch/#ARCH.5.1.1">ARCH.5.1.1</a> <span class="new-title">Blockieren anfälliger Netzprotokolle</span> <span class="zeile-zusatz">Zielobjekt: Netze</span></td><td>SOLLTE</td><td><span class="stufe-lang">Standard-Sicherheitsstufe</span><span class="stufe-kurz">Standard</span></td></tr>
+<tr data-sec="normal-SdT" data-id="ARCH.5.1.2"><td><a class="new-id" href="/grundschutzpp/arch/#ARCH.5.1.2">ARCH.5.1.2</a> <span class="new-title">Netzbasierte Angriffe</span> <span class="zeile-zusatz">Zielobjekt: Netze</span></td><td>SOLLTE</td><td><span class="stufe-lang">Standard-Sicherheitsstufe</span><span class="stufe-kurz">Standard</span></td></tr>
+<tr data-sec="normal-SdT" data-id="ARCH.5.1.3"><td><a class="new-id" href="/grundschutzpp/arch/#ARCH.5.1.3">ARCH.5.1.3</a> <span class="new-title">TCP-basierte Angriffe</span> <span class="zeile-zusatz">Zielobjekt: Netze</span></td><td>SOLLTE</td><td><span class="stufe-lang">Standard-Sicherheitsstufe</span><span class="stufe-kurz">Standard</span></td></tr>
+<tr data-sec="normal-SdT" data-id="ARCH.5.1.4"><td><a class="new-id" href="/grundschutzpp/arch/#ARCH.5.1.4">ARCH.5.1.4</a> <span class="new-title">UDP-basierte Angriffe</span> <span class="zeile-zusatz">Zielobjekt: Netze</span></td><td>SOLLTE</td><td><span class="stufe-lang">Standard-Sicherheitsstufe</span><span class="stufe-kurz">Standard</span></td></tr>
+<tr data-sec="normal-SdT" data-id="ARCH.5.1.5"><td><a class="new-id" href="/grundschutzpp/arch/#ARCH.5.1.5">ARCH.5.1.5</a> <span class="new-title">Deaktivierung von Split Tunneling</span> <span class="zeile-zusatz">Zielobjekt: Externe Netzanschlüsse</span></td><td>SOLLTE</td><td><span class="stufe-lang">Standard-Sicherheitsstufe</span><span class="stufe-kurz">Standard</span></td></tr>
+<tr data-sec="normal-SdT" data-id="ARCH.5.1.6"><td><a class="new-id" href="/grundschutzpp/arch/#ARCH.5.1.6">ARCH.5.1.6</a> <span class="new-title">Blockieren direkter Management-Verbindungen</span> <span class="zeile-zusatz">Zielobjekt: Externe Netzanschlüsse</span></td><td>SOLLTE</td><td><span class="stufe-lang">Standard-Sicherheitsstufe</span><span class="stufe-kurz">Standard</span></td></tr>
+<tr data-sec="normal-SdT" data-id="ARCH.5.1.7"><td><a class="new-id" href="/grundschutzpp/arch/#ARCH.5.1.7">ARCH.5.1.7</a> <span class="new-title">Edge-Routing</span> <span class="zeile-zusatz">Zielobjekt: Externe Netzanschlüsse</span></td><td>SOLLTE</td><td><span class="stufe-lang">Standard-Sicherheitsstufe</span><span class="stufe-kurz">Standard</span></td></tr>
+<tr data-sec="normal-SdT" data-id="ARCH.5.1.8"><td><a class="new-id" href="/grundschutzpp/arch/#ARCH.5.1.8">ARCH.5.1.8</a> <span class="new-title">Inspektion verschlüsselter Verbindungen</span> <span class="zeile-zusatz">Zielobjekt: Externe Netzanschlüsse</span></td><td>SOLLTE</td><td><span class="stufe-lang">Standard-Sicherheitsstufe</span><span class="stufe-kurz">Standard</span></td></tr>
+<tr data-sec="normal-SdT" data-id="ARCH.5.1.9"><td><a class="new-id" href="/grundschutzpp/arch/#ARCH.5.1.9">ARCH.5.1.9</a> <span class="new-title">Filterung von DNS</span> <span class="zeile-zusatz">Zielobjekt: Externe Netzanschlüsse</span></td><td>SOLLTE</td><td><span class="stufe-lang">Standard-Sicherheitsstufe</span><span class="stufe-kurz">Standard</span></td></tr>
+<tr data-sec="normal-SdT" data-id="ARCH.5.1.10"><td><a class="new-id" href="/grundschutzpp/arch/#ARCH.5.1.10">ARCH.5.1.10</a> <span class="new-title">Webfilterung</span> <span class="zeile-zusatz">Zielobjekt: Externe Netzanschlüsse</span></td><td>SOLLTE</td><td><span class="stufe-lang">Standard-Sicherheitsstufe</span><span class="stufe-kurz">Standard</span></td></tr>
+<tr data-sec="normal-SdT" data-id="ARCH.5.1.10.1"><td><a class="new-id" href="/grundschutzpp/arch/#ARCH.5.1.10.1">ARCH.5.1.10.1</a> <span class="new-title">Bekannte schädliche Inhalte</span> <span class="zeile-zusatz">Zielobjekt: Externe Netzanschlüsse</span></td><td>SOLLTE</td><td><span class="stufe-lang">Standard-Sicherheitsstufe</span><span class="stufe-kurz">Standard</span></td></tr>
+<tr data-sec="normal-SdT" data-id="ARCH.5.1.10.2"><td><a class="new-id" href="/grundschutzpp/arch/#ARCH.5.1.10.2">ARCH.5.1.10.2</a> <span class="new-title">Bekannte illegale Inhalte</span> <span class="zeile-zusatz">Zielobjekt: Externe Netzanschlüsse</span></td><td>SOLLTE</td><td><span class="stufe-lang">Standard-Sicherheitsstufe</span><span class="stufe-kurz">Standard</span></td></tr>
+<tr data-sec="normal-SdT" data-id="ARCH.5.1.10.3"><td><a class="new-id" href="/grundschutzpp/arch/#ARCH.5.1.10.3">ARCH.5.1.10.3</a> <span class="new-title">Speicherdienste</span> <span class="zeile-zusatz">Zielobjekt: Externe Netzanschlüsse</span></td><td>SOLLTE</td><td><span class="stufe-lang">Standard-Sicherheitsstufe</span><span class="stufe-kurz">Standard</span></td></tr>
+<tr data-sec="normal-SdT" data-id="ARCH.5.2"><td><a class="new-id" href="/grundschutzpp/arch/#ARCH.5.2">ARCH.5.2</a> <span class="new-title">Blockieren direkter öffentlicher Verbindungen</span> <span class="zeile-zusatz">Zielobjekt: IT-Systeme</span></td><td>SOLLTE</td><td><span class="stufe-lang">Standard-Sicherheitsstufe</span><span class="stufe-kurz">Standard</span></td></tr>
+</tbody>
+</table>
+</div>
+
+Alle Dokumenttypen: [Dokumente im Katalog](/dokumente/).

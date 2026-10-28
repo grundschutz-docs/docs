@@ -272,6 +272,7 @@ export default defineConfig({
 						{ label: 'Vergleich: Alt ↔ Neu', slug: 'vergleich' },
 						{ label: 'Themen', slug: 'grundschutzpp/themen' },
 						{ label: 'Zielobjekte', slug: 'zielobjekte' },
+						{ label: 'Dokumente', slug: 'dokumente' },
 						{
 							label: 'Managementsystem',
 							items: [

@@ -74,6 +74,7 @@ OUT_DIR = Path(__file__).resolve().parent.parent / "src" / "content" / "docs" / 
 ROLLEN_OUT_DIR = Path(__file__).resolve().parent.parent / "src" / "content" / "docs" / "rollen"
 VERGLEICH_OUT_DIR = Path(__file__).resolve().parent.parent / "src" / "content" / "docs" / "vergleich"
 ZIELOBJEKTE_OUT_DIR = Path(__file__).resolve().parent.parent / "src" / "content" / "docs" / "zielobjekte"
+DOKUMENTE_OUT_DIR = Path(__file__).resolve().parent.parent / "src" / "content" / "docs" / "dokumente"
 DATA_OUT_DIR = Path(__file__).resolve().parent.parent / "src" / "data"
 CONTROL_META_IMPORT = "import ControlMeta from '../../../components/ControlMeta.astro';\n"
 # vergleich.mdx liegt eine Ebene flacher (direkt in src/content/docs/), daher
@@ -2917,6 +2918,137 @@ def render_zielobjekt_pages(catalog, control_index):
     return len(TARGETS)
 
 
+# --- Dokumenten-Landkarte (ADR-0012) -------------------------------------------
+# Eine Seite je Dokumenttyp, den der Katalog im Feld "documentation" nennt, und eine
+# Uebersicht nach BSI-Kategorie. "Dokumentiert in" heisst nur: In diesem Dokumenttyp ist das
+# Ergebnis festzuhalten. Es ist weder ein Nachweis noch eine Pruefvorgabe, und `result` wird
+# nicht als Nachweis ausgegeben (ADR-0012). Beschreibung, Kategorie und Zielgruppe stehen nur
+# da, wo export_documents() sie der BSI-Tabelle zuordnen konnte.
+DOKUMENT_QUELLE_URL = (
+    "https://github.com/BSI-Bund/Stand-der-Technik-Bibliothek/blob/main/"
+    "documentation/namespaces/documentation_guidelines.csv"
+)
+DOKUMENT_OHNE_KATEGORIE = "Ohne Kategorie im BSI"
+DOKUMENT_OHNE_BESCHREIBUNG = "Ohne Beschreibung des BSI"
+
+
+def dokument_gruppe(d):
+    if not d["zuordnung"]:
+        return DOKUMENT_OHNE_BESCHREIBUNG
+    if d["kategorie"] in ("", "???"):
+        return DOKUMENT_OHNE_KATEGORIE
+    return d["kategorie"]
+
+
+def render_dokument_pages(catalog, control_index, params_by_id, basethreats_by_id, predecessor_index, guidelines):
+    rows = export_rows(catalog, params_by_id, basethreats_by_id, predecessor_index)
+    dokumente = export_documents(rows, guidelines, [g["id"] for g in catalog["groups"]])
+    slugs = {}
+    for d in dokumente:
+        slugs.setdefault(tag_slug(d["dokument"]), []).append(d["dokument"])
+    kollision = {k: v for k, v in slugs.items() if len(v) > 1}
+    if kollision:
+        raise SystemExit(f"Dokumenttypen mit gleicher Adresse: {kollision}")
+
+    _, _, controls = zielobjekt_model(catalog)
+    direkt_von = {cid: control_targets(c) for cid, c in controls.items()}
+    DOKUMENTE_OUT_DIR.mkdir(parents=True, exist_ok=True)
+    for alt in DOKUMENTE_OUT_DIR.glob("*.mdx"):
+        alt.unlink()
+
+    def plural(n):
+        return "1 Anforderung" if n == 1 else f"{n} Anforderungen"
+
+    for d in dokumente:
+        name = d["dokument"]
+        ids = [cid for cid, c in controls.items() if part_prop_value(c, "statement", "documentation") == name]
+        beschr = first_sentence(d["beschreibung"]) if d["beschreibung"] else ""
+        lines = [
+            "---\n",
+            f"title: {yaml_quote(name)}\n",
+            "description: "
+            + yaml_quote(
+                f"Der Dokumenttyp {name} im Grundschutz++-Katalog: {plural(d['anzahl'])}, davon {d['muss']} MUSS, "
+                "mit der Beschreibung des BSI, soweit vorhanden."
+            )
+            + "\n",
+            "---\n\n",
+            pagefind_section("Dokument"),
+        ]
+        angaben = []
+        if d["kategorie"] not in ("", "???"):
+            angaben.append(f"BSI-Kategorie: {mdx_safe(d['kategorie'])}")
+        if d["zielgruppe"] not in ("", "???"):
+            angaben.append(f"Zielgruppe: {mdx_safe(d['zielgruppe'])}")
+        if angaben:
+            lines.append(" · ".join(angaben) + "\n")
+        if d["beschreibung"]:
+            lines.append("**Beschreibung des BSI**\n")
+            lines.append("\n".join(f"> {mdx_safe(p)}" for p in d["beschreibung"].split("\n") if p.strip()) + "\n")
+            hinweis = f"Quelle: [BSI, documentation_guidelines.csv]({DOKUMENT_QUELLE_URL}), CC BY-SA 4.0."
+            if d["zuordnung"] == "schreibweise":
+                hinweis += f" Der Katalog nennt das Dokument „{name}“, die Tabelle „{d['bsi_name']}“; sie unterscheiden sich nur in der Schreibweise."
+            lines.append(hinweis + "\n")
+        else:
+            lines.append(
+                "Zu diesem Dokumenttyp liefert das BSI keine Beschreibung: Der Katalog nennt ihn, "
+                "die Dokumentationstabelle des BSI führt ihn unter diesem Namen nicht.\n"
+            )
+        lines.append(
+            f"**{plural(d['anzahl'])}**, davon {d['muss']} MUSS, nennen {name} als Ort, an dem das Ergebnis "
+            f"festzuhalten ist. Praktik{'en' if len(d['praktiken']) > 1 else ''}: {', '.join(d['praktiken'])}. "
+            "Das ist kein Nachweis und keine Prüfvorgabe. "
+            "Aus dem Katalog allein geht nicht hervor, ob daraus ein eigenes Dokument oder ein Abschnitt in einem "
+            "anderen wird.\n"
+        )
+
+        def zusatz(cid):
+            ziele = direkt_von[cid]
+            return f"Zielobjekt: {mdx_safe(', '.join(ziele))}" if ziele else "ohne Zielobjektkategorie"
+
+        lines.append(f"## Anforderungen ({d['anzahl']}) {heading_anchor('anforderungen')}\n")
+        lines.append(render_anforderungs_tabelle("anforderungen", ids, controls, control_index, zusatz))
+        lines.append("Alle Dokumenttypen: [Dokumente im Katalog](/dokumente/).\n")
+        (DOKUMENTE_OUT_DIR / f"{tag_slug(name)}.mdx").write_text("\n".join(lines))
+
+    gruppen = {}
+    for d in dokumente:
+        gruppen.setdefault(dokument_gruppe(d), []).append(d)
+    ende = [DOKUMENT_OHNE_KATEGORIE, DOKUMENT_OHNE_BESCHREIBUNG]
+    reihenfolge = sorted(
+        (g for g in gruppen if g not in ende), key=lambda g: (-sum(d["muss"] for d in gruppen[g]), g)
+    ) + [g for g in ende if g in gruppen]
+    mit_dokument = sum(d["anzahl"] for d in dokumente)
+    index = [
+        "---\n",
+        f"title: {yaml_quote('Dokumente im Katalog')}\n",
+        f"description: {yaml_quote(f'Die {len(dokumente)} Dokumenttypen, die der Grundschutz++-Katalog nennt, mit der Beschreibung des BSI und den Anforderungen dahinter.')}\n",
+        "---\n\n",
+        pagefind_section("Dokument"),
+        f"Bei {mit_dokument} von {len(controls)} Anforderungen nennt der Katalog einen Dokumenttyp, in dem das "
+        f"Ergebnis festzuhalten ist, insgesamt {len(dokumente)} verschiedene. Diese Seiten ordnen sie: je Typ die "
+        "Beschreibung des BSI und die Anforderungen, die ihn nennen.\n",
+        "**Was „Dokumentiert in“ bedeutet:** der Dokumenttyp, in dem das Ergebnis festgehalten wird. Es ist kein "
+        "Nachweis und keine Prüfvorgabe, und der Katalog sagt nicht, ob jeder Typ ein eigenes Dokument sein muss.\n",
+    ]
+    for gruppe in reihenfolge:
+        eintraege = sorted(gruppen[gruppe], key=lambda d: (-d["muss"], -d["anzahl"], d["dokument"].casefold()))
+        index.append(f"## {gruppe} ({len(eintraege)}) {heading_anchor(tag_slug(gruppe))}\n")
+        if gruppe == DOKUMENT_OHNE_BESCHREIBUNG:
+            index.append("Der Katalog nennt diese Dokumenttypen, die Tabelle des BSI beschreibt sie unter diesem Namen nicht.\n")
+        index.append('<table class="vergleich-table zahlen-tabelle">\n')
+        index.append("<thead><tr><th>Dokument</th><th>Anforderungen</th><th>davon MUSS</th></tr></thead>\n<tbody>\n")
+        for d in eintraege:
+            zg = f'<span class="zeile-zusatz">{mdx_safe(d["zielgruppe"])}</span>' if d["zielgruppe"] not in ("", "???") else ""
+            index.append(
+                f'<tr data-slug="{tag_slug(d["dokument"])}"><td><a href="/dokumente/{tag_slug(d["dokument"])}/">{mdx_safe(d["dokument"])}</a>{zg}</td>'
+                f'<td>{d["anzahl"]}</td><td>{d["muss"]}</td></tr>\n'
+            )
+        index.append("</tbody>\n</table>\n")
+    (DOKUMENTE_OUT_DIR / "index.mdx").write_text("\n".join(index))
+    return len(dokumente)
+
+
 def render_vergleich_index(by_baustein, baustein_links):
     by_layer = {}
     for baustein_id, entries in by_baustein.items():
@@ -3486,6 +3618,84 @@ def check_zielobjekte(catalog):
     print(f"Zielobjekt-Seiten ok: {len(seiten)} Seiten, je Teil gegen den Rohkatalog und die Export-CSV nachgerechnet")
 
 
+def check_dokumente(catalog):
+    """Liest die Dokument-Seiten zurueck und rechnet auf zwei anderen Wegen nach als
+    render_dokument_pages() (ADR-0012), nach derselben Regel wie check_zielobjekte().
+
+    Weg 1: je Dokumenttyp die Anforderungen und das Modalverb aus dem *Rohbaum* des Katalogs
+    (nicht aus collect_controls() oder export_rows()). Verglichen wird je Seite die Menge der
+    IDs, nicht nur die Anzahl, dazu die Saetze "N Anforderungen, davon M MUSS".
+    Weg 2: die Zahlen der Uebersicht und die Zahl der Typen gegen die fertige Export-CSV, die
+    Nutzende herunterladen (Spalten "Dokumentiert in" und "Pflichtgrad")."""
+    problems = []
+    erwartet = {}
+
+    def sammle(knoten):
+        for c in knoten.get("controls", []):
+            st = next(p for p in c["parts"] if p["name"] == "statement")
+            doku = next((x["value"] for x in st["props"] if x["name"] == "documentation"), "")
+            verb = next(x["value"] for x in st["props"] if x["name"] == "modal_verb")
+            if doku:
+                e = erwartet.setdefault(tag_slug(doku), {"name": doku, "ids": set(), "muss": 0})
+                e["ids"].add(c["id"])
+                e["muss"] += verb == "MUSS"
+            sammle(c)
+        for g in knoten.get("groups", []):
+            sammle(g)
+
+    sammle(json.loads(CATALOG_FILE.read_text())["catalog"])
+
+    seiten = {}
+    for datei in DOKUMENTE_OUT_DIR.glob("*.mdx"):
+        if datei.name == "index.mdx":
+            continue
+        text = datei.read_text()
+        ids = set(re.findall(r'<tr data-sec="[^"]*" data-id="([^"]+)"', text))
+        m = re.search(r"\*\*(\d+) Anforderung(?:en)?\*\*, davon (\d+) MUSS, nennen", text)
+        seiten[datei.stem] = (ids, (int(m.group(1)), int(m.group(2))) if m else None)
+    if set(seiten) != set(erwartet):
+        problems.append(
+            f"Dokument-Seiten weichen von den Dokumenttypen ab (nur Seite: {sorted(set(seiten) - set(erwartet))[:3]}, "
+            f"nur Katalog: {sorted(set(erwartet) - set(seiten))[:3]})"
+        )
+    for slug, e in erwartet.items():
+        ids, zahlen = seiten.get(slug, (set(), None))
+        if ids != e["ids"]:
+            problems.append(f"{e['name']}: {len(ids)} Zeilen auf der Seite, Nachrechnung {len(e['ids'])}")
+        if zahlen != (len(e["ids"]), e["muss"]):
+            problems.append(f"{e['name']}: Satz nennt {zahlen}, Nachrechnung {(len(e['ids']), e['muss'])}")
+
+    # Weg 2: Uebersicht gegen die Export-CSV.
+    with (EXPORT_OUT_DIR / "grundschutzpp-anforderungen.csv").open(newline="", encoding="utf-8-sig") as f:
+        tabelle = list(csv.reader(f, delimiter=";"))
+    kopf, rumpf = tabelle[0], tabelle[1:]
+    col = {n: i for i, n in enumerate(kopf)}
+    aus_csv = {}
+    for r in rumpf:
+        name = r[col["Dokumentiert in"]]
+        if name:
+            z = aus_csv.setdefault(tag_slug(name), [0, 0])
+            z[0] += 1
+            z[1] += r[col["Pflichtgrad"]] == "MUSS"
+    uebersicht = {}
+    text = (DOKUMENTE_OUT_DIR / "index.mdx").read_text()
+    for m in re.finditer(r'<tr data-slug="([a-z0-9-]+)">.*?</td><td>(\d+)</td><td>(\d+)</td></tr>', text):
+        uebersicht[m.group(1)] = [int(m.group(2)), int(m.group(3))]
+    if uebersicht != aus_csv:
+        falsch = sorted(k for k in set(uebersicht) | set(aus_csv) if uebersicht.get(k) != aus_csv.get(k))[:3]
+        problems.append(f"Dokument-Uebersicht weicht von der Export-CSV ab (z. B. {falsch})")
+    if {k: v for k, v in uebersicht.items()} != {k: [len(e["ids"]), e["muss"]] for k, e in erwartet.items()}:
+        problems.append("Dokument-Uebersicht weicht vom Rohkatalog ab")
+    gesamt = sum(e[0] for e in uebersicht.values())
+    m = re.search(r"Bei (\d+) von (\d+) Anforderungen nennt der Katalog einen Dokumenttyp, .*?insgesamt (\d+) verschiedene", text, re.S)
+    if not m or (int(m.group(1)), int(m.group(2)), int(m.group(3))) != (gesamt, len(rumpf), len(erwartet)):
+        problems.append(f"Einleitung der Dokument-Uebersicht nennt {m.groups() if m else 'nichts'}, erwartet {(gesamt, len(rumpf), len(erwartet))}")
+
+    if problems:
+        raise SystemExit("Dokument-Seiten passen nicht zum Katalog:\n  - " + "\n  - ".join(problems))
+    print(f"Dokument-Seiten ok: {len(seiten)} Seiten, je Typ gegen den Rohkatalog und die Export-CSV nachgerechnet")
+
+
 def check_changelog(catalog, nur=None):
     """Rechnet changelog.json auf einem anderen Weg nach als update_changelog().
 
@@ -3768,6 +3978,9 @@ def main():
 
     themen_count, themen_tagged = render_themen_page(catalog, control_index, tags_by_id)
     zielobjekt_count = render_zielobjekt_pages(catalog, control_index)
+    dokument_count = render_dokument_pages(
+        catalog, control_index, params_by_id, basethreats_by_id, predecessor_index, load_documentation_guidelines()
+    )
 
     # Vergleichsseiten: eine Uebersicht plus eine Seite je altem Baustein.
     # Frueher war das eine einzige Seite mit ~1200 Zeilen -- unbrauchbar
@@ -3817,6 +4030,7 @@ def main():
     )
     check_export(catalog)
     check_zielobjekte(catalog)
+    check_dokumente(catalog)
     check_changelog(
         catalog,
         None if os.environ.get("CHANGELOG_CHECK_ALL") else set(changelog_stats.get("commits", [])),
@@ -3827,6 +4041,7 @@ def main():
     print(f"3 Rollen-Seiten (.mdx) erzeugt in {ROLLEN_OUT_DIR}")
     print(f"{len(by_baustein)} Baustein-Seiten + Übersicht erzeugt in {VERGLEICH_OUT_DIR}")
     print(f"{zielobjekt_count} Zielobjekt-Seiten + Übersicht erzeugt in {ZIELOBJEKTE_OUT_DIR}")
+    print(f"{dokument_count} Dokument-Seiten + Übersicht erzeugt in {DOKUMENTE_OUT_DIR}")
     print(f"Startseiten-Daten: {stats}")
     print(f"Aenderungsprotokoll: {changelog_stats['neu']} neu, {changelog_stats['gesamt']} Staende in changelog.json")
     print(f"Export-Dateien in {EXPORT_OUT_DIR}: {export_stats}")
