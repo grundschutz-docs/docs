@@ -996,54 +996,72 @@ site-search dialog::backdrop {
 	font-family: 'JetBrains Mono Variable', ui-monospace, monospace;
 	color: var(--sl-color-gray-3);
 }
-/* Uebersicht der Zielobjektkategorien (ADR-0011): eine Tabelle, Hierarchie durch Einrueckung,
+/* Zahlen-Tabelle der Uebersichten (Zielobjekte ADR-0011, Dokumente ADR-0012): Hierarchie durch Einrueckung,
    Zahlen rechtsbuendig untereinander. Die Tiefe steht als data-tiefe, weil MDX in rohem HTML
    kein style="..." als Zeichenkette zulaesst. */
-.zielobjekt-uebersicht th:not(:first-child),
-.zielobjekt-uebersicht td:not(:first-child) {
+.zahlen-tabelle th:not(:first-child),
+.zahlen-tabelle td:not(:first-child) {
 	text-align: end;
 	font-variant-numeric: tabular-nums;
 	padding-inline-start: 1rem;
 }
 /* Nur die Zahlen bleiben in einer Zeile; die Ueberschrift "mit Vererbung" darf auf dem Handy
    umbrechen, sonst ragt sie ueber die Tabelle hinaus (am Desktop steht sie in einer Zeile). */
-.zielobjekt-uebersicht td:not(:first-child) {
+.zahlen-tabelle td:not(:first-child) {
 	white-space: nowrap;
 }
 @media (min-width: 30rem) {
-	.zielobjekt-uebersicht th:not(:first-child) {
+	.zahlen-tabelle th:not(:first-child) {
 		white-space: nowrap;
 	}
 }
 /* Zahlen auf der Hoehe des Namens, nicht in der Mitte einer zweizeiligen Zeile. */
-.zielobjekt-uebersicht td {
+.zahlen-tabelle td {
 	vertical-align: top;
 	padding-block: 0.3rem;
 }
-.zielobjekt-uebersicht tr[data-tiefe='0'] a {
+.zahlen-tabelle tr[data-tiefe='0'] a {
 	font-weight: 600;
 }
-.zielobjekt-uebersicht tr[data-tiefe='1'] td:first-child { padding-inline-start: 1.25rem; }
-.zielobjekt-uebersicht tr[data-tiefe='2'] td:first-child { padding-inline-start: 2.5rem; }
-.zielobjekt-uebersicht tr[data-tiefe='3'] td:first-child { padding-inline-start: 3.75rem; }
+.zahlen-tabelle tr[data-tiefe='1'] td:first-child { padding-inline-start: 1.25rem; }
+.zahlen-tabelle tr[data-tiefe='2'] td:first-child { padding-inline-start: 2.5rem; }
+.zahlen-tabelle tr[data-tiefe='3'] td:first-child { padding-inline-start: 3.75rem; }
 /* Tabellen auf den Kategorieseiten: auf dem Handy duerfen auch lange Woerter umbrechen
    ("Sicherheitsstufe"), sonst ragt die Stufe-Spalte bei 320 px ueber den Rand. */
 @media (max-width: 30rem) {
-	.zielobjekt-table th,
-	.zielobjekt-table td {
+	.anforderungs-tabelle th,
+	.anforderungs-tabelle td {
 		padding-inline-end: 0.5rem;
 		overflow-wrap: anywhere;
 		hyphens: auto;
 	}
-	/* Pflichtgrad (MUSS/SOLLTE/KANN) bleibt ein Wort. */
-	.zielobjekt-table th:nth-child(2),
-	.zielobjekt-table td:nth-child(2) {
+	/* Pflichtgrad (MUSS/SOLLTE/KANN) und Stufe (Standard/Erhöht) bleiben je ein Wort. */
+	.anforderungs-tabelle th:nth-child(n + 2),
+	.anforderungs-tabelle td:nth-child(n + 2) {
 		white-space: nowrap;
 		overflow-wrap: normal;
 		hyphens: manual;
 	}
 }
-.zielobjekt-begriffe {
+/* Pflichtgrad und Stufe bleiben in jeder Breite je ein Wort; die erste Spalte (ID und Titel)
+   nimmt den Platz. */
+.anforderungs-tabelle th:nth-child(n + 2),
+.anforderungs-tabelle td:nth-child(n + 2) {
+	white-space: nowrap;
+}
+/* Sicherheitsstufe in den Anforderungs-Tabellen: Handy kurz, Desktop das volle Wort des BSI. */
+.anforderungs-tabelle .stufe-kurz {
+	display: none;
+}
+@media (max-width: 30rem) {
+	.anforderungs-tabelle .stufe-lang {
+		display: none;
+	}
+	.anforderungs-tabelle .stufe-kurz {
+		display: inline;
+	}
+}
+.zeile-zusatz {
 	display: block;
 	line-height: 1.35;
 	font-size: var(--sl-text-xs);
@@ -1052,17 +1070,17 @@ site-search dialog::backdrop {
 @media (max-width: 30rem) {
 	/* Auf dem Handy darf auch ein langer Name umbrechen ("Rechenzentrumsraum"), sonst ragt die
 	   Tabelle ueber den Rand. */
-	.zielobjekt-uebersicht td:first-child {
+	.zahlen-tabelle td:first-child {
 		overflow-wrap: anywhere;
 		hyphens: auto;
 	}
-	.zielobjekt-uebersicht th:not(:first-child),
-	.zielobjekt-uebersicht td:not(:first-child) {
+	.zahlen-tabelle th:not(:first-child),
+	.zahlen-tabelle td:not(:first-child) {
 		padding-inline-start: 0.5rem;
 	}
-	.zielobjekt-uebersicht tr[data-tiefe='1'] td:first-child { padding-inline-start: 0.75rem; }
-	.zielobjekt-uebersicht tr[data-tiefe='2'] td:first-child { padding-inline-start: 1.5rem; }
-	.zielobjekt-uebersicht tr[data-tiefe='3'] td:first-child { padding-inline-start: 2.25rem; }
+	.zahlen-tabelle tr[data-tiefe='1'] td:first-child { padding-inline-start: 0.75rem; }
+	.zahlen-tabelle tr[data-tiefe='2'] td:first-child { padding-inline-start: 1.5rem; }
+	.zahlen-tabelle tr[data-tiefe='3'] td:first-child { padding-inline-start: 2.25rem; }
 }
 .themen-meta {
 	margin: 0 0 0.5rem;

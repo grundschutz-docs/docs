@@ -2706,6 +2706,7 @@ def render_themen_page(catalog, control_index, tags_by_id):
 # 3.4.1) werden nur gezaehlt. check_zielobjekte() liest die Seiten zurueck und
 # rechnet auf zwei anderen Wegen nach.
 PFLICHT_REIHENFOLGE = {"MUSS": 0, "SOLLTE": 1, "KANN": 2}
+SEC_LEVEL_KURZ = {"normal-SdT": "Standard", "erhöht": "Erhöht"}
 
 
 def natural_id_key(control_id):
@@ -2748,9 +2749,10 @@ def zielobjekt_zahlen(model, name, ohne_anzahl):
     return direkt, direkt + geerbt, direkt + geerbt + ohne_anzahl
 
 
-def render_zielobjekt_table(teil, ids, controls, control_index, direkt_von, bezug):
-    # bezug: die Kategorie, derentwegen die Anforderung in dieser Tabelle steht (die Seite selbst
-    # oder die Elternkategorie); "auch fuer" nennt die jeweils andere.
+def render_anforderungs_tabelle(teil, ids, controls, control_index, zusatz):
+    """Tabelle der Anforderungen (ID und Titel, Pflicht, Stufe), MUSS zuerst, dann nach ID.
+    zusatz(cid) liefert eine kleine Zeile unter dem Titel (oder ""): so bleibt die Tabelle auch
+    auf dem Handy bei drei Spalten, statt eine vierte breite Spalte aufzumachen."""
     ids = sorted(
         ids,
         key=lambda cid: (
@@ -2760,26 +2762,37 @@ def render_zielobjekt_table(teil, ids, controls, control_index, direkt_von, bezu
     )
     lines = [
         f'<div class="zielobjekt-teil" data-teil="{attr_escape(teil)}" data-pagefind-ignore>\n',
-        '<table class="vergleich-table themen-table zielobjekt-table">\n',
+        '<table class="vergleich-table themen-table anforderungs-tabelle">\n',
         "<thead><tr><th>Anforderung</th><th>Pflicht</th><th>Stufe</th></tr></thead>\n<tbody>\n",
     ]
     for cid in ids:
         control = controls[cid]
         sec_level = prop_value(control, "sec_level") or ""
-        auch = [k for k in direkt_von[cid] if k != bezug]
-        # Bei zwei Kategorien (39 Anforderungen) sagt der Katalog nicht, ob "oder" oder "und"
-        # gemeint ist; die Seite nennt die zweite Kategorie, damit das sichtbar bleibt.
-        zusatz = (
-            f' <span class="new-title">(auch für {mdx_safe(", ".join(auch))})</span>' if len(direkt_von[cid]) > 1 else ""
-        )
+        zeile = zusatz(cid)
         lines.append(
             f'<tr data-sec="{attr_escape(sec_level)}" data-id="{cid}">'
-            f"<td>{control_link(cid, control_index)}{zusatz}</td>"
+            f"<td>{control_link(cid, control_index)}"
+            + (f' <span class="zeile-zusatz">{zeile}</span>' if zeile else "")
+            + "</td>"
             f'<td>{part_prop_value(control, "statement", "modal_verb") or ""}</td>'
-            f"<td>{SEC_LEVEL_LABELS.get(sec_level, sec_level)}</td></tr>\n"
+            # Auf dem Handy steht nur "Standard"/"Erhöht" (CSS), am Desktop das volle Wort des BSI.
+            f'<td><span class="stufe-lang">{SEC_LEVEL_LABELS.get(sec_level, sec_level)}</span>'
+            f'<span class="stufe-kurz">{SEC_LEVEL_KURZ.get(sec_level, sec_level)}</span></td></tr>\n'
         )
     lines.append("</tbody>\n</table>\n</div>\n")
     return "".join(lines)
+
+
+def render_zielobjekt_table(teil, ids, controls, control_index, direkt_von, bezug):
+    # bezug: die Kategorie, derentwegen die Anforderung in dieser Tabelle steht (die Seite selbst
+    # oder die Elternkategorie); "auch fuer" nennt die jeweils andere. Bei zwei Kategorien (39
+    # Anforderungen) sagt der Katalog nicht, ob "oder" oder "und" gemeint ist; die Seite nennt
+    # die zweite Kategorie, damit das sichtbar bleibt.
+    def zusatz(cid):
+        auch = [k for k in direkt_von[cid] if k != bezug]
+        return f"(auch für {mdx_safe(', '.join(auch))})" if len(direkt_von[cid]) > 1 else ""
+
+    return render_anforderungs_tabelle(teil, ids, controls, control_index, zusatz)
 
 
 def render_zielobjekt_pages(catalog, control_index):
@@ -2863,7 +2876,7 @@ def render_zielobjekt_pages(catalog, control_index):
             teile.append(f"auch: {mdx_safe(info['synonyms'])}")
         if info["example"]:
             teile.append(f"z. B. {mdx_safe(info['example'])}")
-        return f'<span class="zielobjekt-begriffe">{" · ".join(teile)}</span>' if teile else ""
+        return f'<span class="zeile-zusatz">{" · ".join(teile)}</span>' if teile else ""
 
     def zeilen(name, tiefe):
         direkt, mit_vererbung, _ = zielobjekt_zahlen(model, name, len(ohne))
@@ -2895,7 +2908,7 @@ def render_zielobjekt_pages(catalog, control_index):
         f"Anforderungen mit zwei Kategorien ({zwei}) stehen bei beiden. Der Katalog sagt nicht, ob „oder“ oder "
         "„und“ gemeint ist; wir lesen es als „oder“. Das ist unsere Lesart, keine Aussage des BSI.\n",
         f"Zu jeder Zahl kommen immer die {len(ohne)} Anforderungen ohne Zielobjektkategorie dazu.\n",
-        '<table class="vergleich-table zielobjekt-uebersicht">\n'
+        '<table class="vergleich-table zahlen-tabelle">\n'
         "<thead><tr><th>Kategorie</th><th>direkt</th><th>mit Vererbung</th></tr></thead>\n<tbody>\n"
         + "".join(zeilen(w, 0) for w in wurzeln)
         + "</tbody>\n</table>\n",
