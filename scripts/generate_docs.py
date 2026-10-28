@@ -3033,6 +3033,18 @@ def render_dokument_pages(catalog, control_index, params_by_id, basethreats_by_i
             ziele = direkt_von[cid]
             return f"Zielobjekt: {mdx_safe(', '.join(ziele))}" if ziele else "ohne Zielobjektkategorie"
 
+        # Nach Zielobjekt: aus welchen direkt zugeordneten Kategorien die Anforderungen kommen (ADR-0012).
+        je_ziel, ohne_ziel = {}, 0
+        for cid in ids:
+            if direkt_von[cid]:
+                for k in direkt_von[cid]:
+                    je_ziel[k] = je_ziel.get(k, 0) + 1
+            else:
+                ohne_ziel += 1
+        teile = [f"[{k}](/zielobjekte/{tag_slug(k)}/) ({n})" for k, n in sorted(je_ziel.items())]
+        if ohne_ziel:
+            teile.append(f"ohne Zielobjektkategorie ({ohne_ziel})")
+        lines.append("Nach Zielobjekt: " + ", ".join(teile) + ".\n")
         lines.append(f"## Anforderungen ({d['anzahl']}) {heading_anchor('anforderungen')}\n")
         lines.append(render_anforderungs_tabelle("anforderungen", ids, controls, control_index, zusatz))
         lines.append("Alle Dokumenttypen: [Dokumente im Katalog](/dokumente/).\n")
@@ -3735,6 +3747,23 @@ def check_dokumente(catalog):
         je_pille[slug] = je_pille.get(slug, 0) + 1
     if je_pille != {k: len(e["ids"]) for k, e in erwartet.items()}:
         problems.append("Pillen je Dokumenttyp weichen vom Rohkatalog ab")
+
+    # (b) "Nach Zielobjekt" auf den Dokument-Seiten: je direkt zugeordneter Kategorie und ohne Kategorie.
+    for slug, e in erwartet.items():
+        soll = {}
+        soll_ohne = 0
+        for cid in e["ids"]:
+            ks = roh[cid][2]
+            if ks:
+                for k in ks:
+                    soll[k] = soll.get(k, 0) + 1
+            else:
+                soll_ohne += 1
+        zeile = re.search(r"^Nach Zielobjekt: (.*)\.$", (DOKUMENTE_OUT_DIR / f"{slug}.mdx").read_text(), re.M)
+        ist = {m.group(1): int(m.group(2)) for m in re.finditer(r"\[([^\]]+)\]\(/zielobjekte/[a-z0-9-]+/\) \((\d+)\)", zeile.group(1))} if zeile else None
+        ist_ohne = re.search(r"ohne Zielobjektkategorie \((\d+)\)", zeile.group(1)) if zeile else None
+        if ist != soll or (int(ist_ohne.group(1)) if ist_ohne else 0) != soll_ohne:
+            problems.append(f"{e['name']}: 'Nach Zielobjekt' weicht von der Nachrechnung ab")
 
     # (c) Tabelle "Dokumente zu diesen Anforderungen" auf den Kategorieseiten: Weg 1 aus dem Rohkatalog
     # und der BSI-Hierarchie (UUID), Weg 2 aus der Export-CSV (Spalten "Zielobjektkategorien",
