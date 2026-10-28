@@ -150,6 +150,20 @@ export default defineConfig({
 				{ tag: 'meta', attrs: { property: 'og:image:height', content: '630' } },
 				{ tag: 'meta', attrs: { name: 'twitter:card', content: 'summary_large_image' } },
 				{ tag: 'meta', attrs: { name: 'twitter:image', content: `${SITE_URL}/og.png` } },
+				// Download-Links unter /downloads/ (Export-CSV): Plausibles file-downloads-
+				// Skript fängt solche Klicks ab, unterbindet das normale Verhalten und
+				// navigiert danach selbst per window.location zur Datei. Dabei geht das
+				// download-Attribut verloren, und der Browser zeigt eine CSV als Text, statt
+				// sie zu speichern. Dieser Handler läuft in der Capture-Phase vor dem von
+				// Plausible, stoppt die Weitergabe, lässt dem Browser aber sein Speichern
+				// und meldet das Ereignis selbst (gleicher Name und gleiche Eigenschaft wie
+				// Plausibles eigener Aufruf, die Download-Zählung bleibt also vergleichbar).
+				// Ohne Plausible (Forks) ist er harmlos: window.plausible fehlt dann einfach.
+				{
+					tag: 'script',
+					content:
+						"document.addEventListener('click',function(e){var a=e.target&&e.target.closest&&e.target.closest('a[download]');if(!a||a.origin!==location.origin||a.pathname.indexOf('/downloads/')!==0)return;e.stopPropagation();if(window.plausible)window.plausible('File Download',{props:{url:a.href}})},true)",
+				},
 				// Nur vorhanden, wenn PLAUSIBLE_SCRIPT_URL gesetzt ist -- siehe
 				// Kommentar bei der Konstante weiter oben. Der zweite Tag ist
 				// Plausibles Event-Queue-Shim: ohne ihn würfe ein plausible(...)-Aufruf,
