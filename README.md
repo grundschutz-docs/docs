@@ -51,6 +51,10 @@ translated.
 - **Methodology** (`/methodik/`) — the BSI Standard 300-1 in five steps, as
   an own summary
 - **Status & timeline** (`/grundschutzpp/zeitplan/`) — the BSI's milestones
+- **Target object categories** (`/zielobjekte/`) — one page per category of the
+  BSI hierarchy (39): the requirements that apply directly, and those inherited
+  from the categories above (STM.2.1.4.1), with the BSI's synonyms and examples
+  to find a category by the word you use for your system
 - **Export** (`/export/`) — the requirements as an Excel file or CSV,
   filterable by practice, obligation level, security level, effort and target
   object category (the categories above a chosen one are included, as the

@@ -2219,7 +2219,10 @@ def render_devs_page(themenfelder, groups_by_id):
         "Erklärung davor, kein Umweg über das Managementsystem.\n\n"
         "Für eigene Werkzeuge gibt es den Katalog auch als "
         "[Daten für Sprachmodelle (RAG)](/rag/) und als "
-        "[Tabelle (CSV oder Excel)](/export/), auch je Praktik.\n\n",
+        "[Tabelle (CSV oder Excel)](/export/), auch je Praktik.\n\n"
+        "Du betreibst ein bestimmtes System, zum Beispiel einen Webserver oder Cloud-Dienste? "
+        "Dann sortiere nach [Zielobjektkategorie](/zielobjekte/): je Kategorie die "
+        "Anforderungen, direkt und geerbt.\n\n",
         render_index_section(
             "Technische Umsetzung",
             "Das betrifft dich direkt — Architektur, Konfiguration, Code, Zugriffe, Betrieb.",
@@ -3713,7 +3716,8 @@ def main():
         "---\n\n",
         "Automatisch generiert aus dem OSCAL-Katalog. "
         "Nicht Teil des offiziellen BSI-Materials — eigene lesbare Aufbereitung.\n\n"
-        "Alle Anforderungen als Tabelle: [als Excel-Datei exportieren](/export/).\n\n",
+        "Alle Anforderungen als Tabelle: [als Excel-Datei exportieren](/export/). "
+        "Nach System statt nach Praktik: [Anforderungen nach Zielobjektkategorie](/zielobjekte/).\n\n",
         render_index_section(
             "Managementsystem",
             "Diese sechs Praktiken bilden den PDCA-Zyklus des ISMS — von der "
