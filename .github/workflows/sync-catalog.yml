@@ -46,6 +46,7 @@ jobs:
           GRUNDSCHUTZPP_MAPPING: upstream/control_layer/Mappings/IT-GS2023-zu-GSpp/ITGS-to-GS++-mapping_collection.json
           GRUNDSCHUTZPP_TAGS: upstream/documentation/namespaces/tags.csv
           GRUNDSCHUTZPP_TARGETS: upstream/documentation/namespaces/target_object_categories.csv
+          GRUNDSCHUTZPP_DOCUMENTATION: upstream/documentation/namespaces/documentation_guidelines.csv
         run: python3 scripts/generate_docs.py
 
       - name: Open a PR if anything changed
@@ -67,9 +68,11 @@ jobs:
           branch: sync/upstream-catalog
           # The generator also writes rollen/, vergleich/, and src/data/
           # (landing.json, status.json) — not just grundschutzpp/. Those
-          # were silently excluded from every sync PR until now.
+          # were silently excluded from every sync PR until now. The same
+          # goes for public/downloads/ (the CSV/JSON export files).
           add-paths: |
             src/content/docs/grundschutzpp/**
             src/content/docs/rollen/**
             src/content/docs/vergleich/**
             src/data/*.json
+            public/downloads/**

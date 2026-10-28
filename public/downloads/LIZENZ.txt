@@ -1,0 +1,37 @@
+Grundschutz++ – Anforderungen als Tabelle (CSV und Excel)
+===========================================================
+
+Datenstand des Katalogs: 22.10.2026
+
+Urheber:   Bundesamt für Sicherheit in der Informationstechnik (BSI-Bund)
+Werk:      Grundschutz++ (Anwenderkatalog), OSCAL-Katalog
+Original:  https://github.com/BSI-Bund/Stand-der-Technik-Bibliothek
+Lizenz:    Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)
+           https://creativecommons.org/licenses/by-sa/4.0/
+
+Änderungen: Diese Dateien sind eine Bearbeitung des Originals und keine Datei des BSI. Sie
+            wurden von grundschutz-docs.de aus dem Katalog erzeugt: Auswahl der Felder,
+            Texte ohne Formatierung, Parameter als [Platzhalter], Zielobjektkategorien,
+            Ergebnis, Dokument, Gefährdungen und die ID der Vorgänger-Anforderung aus dem
+            Mapping ergänzt, Spalten für die eigene Arbeit angehängt. Der Inhalt der
+            Anforderungen ist nicht verändert.
+
+Dokumente: Das Excel-Blatt "Dokumente" fasst zusammen, in welchen Dokumenten der Katalog
+           Ergebnisse festhalten lässt. Beschreibung, Kategorie und Zielgruppe eines
+           Dokumenttyps stammen aus documentation_guidelines.csv des BSI (ebenfalls CC BY-SA
+           4.0). Sie werden einem Dokumenttyp nur zugeordnet, wenn der Name dort exakt
+           vorkommt oder sich nur in Groß-/Kleinschreibung, Leerzeichen und Bindestrichen
+           unterscheidet; die Spalte "Hinweis zur Beschreibung" sagt, wie es zustande kam.
+           Bei allen anderen Dokumenttypen bleibt die Beschreibung leer.
+
+Eigene Werte: Die Werte der Dropdown-Listen (Umsetzungsstatus, Vorhanden) sind eine Wahl von
+              grundschutz-docs.de und stammen nicht aus dem Katalog des BSI.
+
+Weitergabe: Die Bearbeitung steht ebenfalls unter CC BY-SA 4.0. Wer sie weitergibt, nennt
+            das BSI als Urheber, verweist auf die Lizenz und gibt eigene Änderungen an.
+
+Nicht enthalten: Text des IT-Grundschutz-Kompendiums 2023 und des BSI-Standards 300-1. Für
+                 diese gelten die Nutzungsbedingungen des BSI, nicht CC BY-SA. In der Spalte
+                 "Vorgänger im Kompendium 2023" stehen nur die IDs der alten Anforderungen.
+
+Diese Dateien sind kein offizielles Angebot des BSI und keine Rechtsberatung.

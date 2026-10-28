@@ -1003,6 +1003,493 @@ def render_index_section(heading, intro, entries):
     return "\n".join(lines)
 
 
+# --- Export (CSV/JSON) --------------------------------------------------------
+# Download-Dateien fuer den IT-Grundschutz-Check: alle Anforderungen, je Praktik
+# eine Datei, dazu die JSON-Datei, aus der die Exportseite im Browser filtert.
+# Liegt in public/, wird also unveraendert ausgeliefert. Der Dateistand kommt aus
+# dem Katalog (metadata.last-modified), nicht aus dem Tagesdatum: sonst aenderte
+# jeder Sync-Lauf alle Dateien, auch wenn der Katalog gleich geblieben ist.
+EXPORT_OUT_DIR = Path(__file__).resolve().parent.parent / "public" / "downloads"
+EXPORT_SITE_URL = os.environ.get("SITE_URL", "https://grundschutz-docs.de").rstrip("/")
+EXPORT_NO_TARGET = "Ohne Zielobjektkategorie"
+EXPORT_LICENSE_URL = "https://creativecommons.org/licenses/by-sa/4.0/"
+EXPORT_SOURCE_URL = "https://github.com/BSI-Bund/Stand-der-Technik-Bibliothek"
+DEFAULT_DOCUMENTATION_FILE = (
+    REPO_ROOT / "Grundschutz-PlusPlus" / "documentation" / "namespaces" / "documentation_guidelines.csv"
+)
+DOCUMENTATION_FILE = (
+    Path(os.environ["GRUNDSCHUTZPP_DOCUMENTATION"])
+    if os.environ.get("GRUNDSCHUTZPP_DOCUMENTATION")
+    else DEFAULT_DOCUMENTATION_FILE
+)
+
+# Reihenfolge = Spalten in der CSV. Die vier Leerspalten dahinter sind fuer den
+# Soll-Ist-Abgleich gedacht und gehoeren nicht zum Katalog.
+EXPORT_COLUMNS = [
+    "ID", "Titel", "Praktik", "Anforderung", "Pflichtgrad", "Sicherheitsstufe", "Aufwand",
+    "Zielobjektkategorien", "Ergebnis", "Dokumentiert in", "Gefährdungen",
+    "Vorgänger im Kompendium 2023", "Seite",
+]
+EXPORT_WORKSHEET_COLUMNS = ["Umsetzungsstatus", "Verantwortlich", "Frist", "Bemerkung"]
+EXPORT_SOURCE_COLUMN = "Quelle"
+
+
+def load_documentation_guidelines():
+    # documentation_guidelines.csv des BSI: Dokumenttyp -> Beschreibung, Kategorie,
+    # Zielgruppe. Die Tabelle ist beim BSI nicht fertig: einzelne Zeilen tragen "???".
+    # Die gelten hier als "unbekannt" und werden nicht als Text uebernommen.
+    def clean(value):
+        value = (value or "").strip()
+        return "" if value == "???" else value
+
+    with DOCUMENTATION_FILE.open(newline="", encoding="utf-8") as f:
+        return {
+            row["Begriff"].strip(): {
+                "beschreibung": clean(row["Definition"]),
+                "kategorie": clean(row["Kategorie"]),
+                "zielgruppe": clean(row["Zielgruppe"]),
+            }
+            for row in csv.DictReader(f)
+        }
+
+
+def export_stand(catalog):
+    iso = catalog["metadata"]["last-modified"][:10]
+    y, m, d = iso.split("-")
+    return f"{d}.{m}.{y}"
+
+
+def export_source_note(stand):
+    return (
+        f"BSI Grundschutz++ (Anwenderkatalog), Stand {stand}, © BSI-Bund, CC BY-SA 4.0 "
+        f"({EXPORT_LICENSE_URL}); bearbeitet (Auswahl, Spalten) von grundschutz-docs.de; "
+        f"Original: {EXPORT_SOURCE_URL}"
+    )
+
+
+def export_plain_text(text, params_by_id):
+    # Klartext fuer Tabellen: Parameter als [Label], wie in der RAG-Datei.
+    if not text:
+        return ""
+    return " ".join(PARAM_RE.sub(lambda m: f"[{params_by_id.get(m.group(1), m.group(1))}]", text).split())
+
+
+def export_rows(catalog, params_by_id, basethreats_by_id, predecessor_index):
+    rows = []
+    for group in catalog["groups"]:
+        slug = group["id"].lower()
+        for control in collect_controls(group):
+            cid = control["id"]
+            threat_ids = [t.strip() for t in (prop_value(control, "threats") or "").split(",") if t.strip()]
+            sec = prop_value(control, "sec_level")
+            rows.append(
+                {
+                    "id": cid,
+                    "titel": control.get("title", ""),
+                    "praktik_id": group["id"],
+                    "praktik": f"{group['id']} {group['title']}",
+                    "anforderung": export_plain_text(part_text(control, "statement"), params_by_id),
+                    "pflichtgrad": part_prop_value(control, "statement", "modal_verb") or "",
+                    "stufe": SEC_LEVEL_LABELS.get(sec, sec or ""),
+                    "aufwand": prop_value(control, "effort_level") or "",
+                    "zielobjekte": control_targets(control) or [EXPORT_NO_TARGET],
+                    "ergebnis": part_prop_value(control, "statement", "result") or "",
+                    "dokument": part_prop_value(control, "statement", "documentation") or "",
+                    "gefaehrdungen": [f"{t} – {basethreats_by_id[t]}" for t in threat_ids if t in basethreats_by_id],
+                    "vorgaenger": [
+                        f"{old} ({relationship_label(rel)})" for old, rel in predecessor_index.get(cid, [])
+                    ],
+                    "seite": f"{EXPORT_SITE_URL}/grundschutzpp/{slug}/#{cid}",
+                }
+            )
+    return rows
+
+
+def export_name_key(name):
+    # Die einzige erlaubte Abweichung zwischen zwei Dokumentnamen: Gross-/Kleinschreibung,
+    # Leerzeichen und Bindestriche. Alles andere gilt als anderer Name.
+    return name.casefold().replace(" ", "").replace("-", "")
+
+
+def export_documents(rows, guidelines, praktik_order):
+    """Eine Zeile je Dokumenttyp, auf den Anforderungen einzahlen.
+
+    Die Anforderung nennt im Katalog das Dokument, in dem ihr Ergebnis festgehalten
+    werden soll (statement-Prop "documentation"). Hier wird das umgedreht: Welche
+    Dokumente muss es geben, und wie viele Anforderungen haengen daran?
+
+    Die Namen im Katalog und in documentation_guidelines.csv stimmen nicht immer
+    ueberein ("Beschaffungskriterien" gegen "Leistungsbeschreibung"). Beschreibung,
+    Kategorie und Zielgruppe gibt es nur, wenn der Name entweder exakt gleich ist
+    ("exakt") oder sich ausschliesslich in Gross-/Kleinschreibung, Leerzeichen und
+    Bindestrichen unterscheidet ("schreibweise"). Dafuer muessen alle vier gelten:
+      1. der Name steht nicht schon exakt in der Tabelle (exakt hat Vorrang),
+      2. die Namen sind nach export_name_key() gleich,
+      3. genau ein Begriff der Tabelle passt (bei zwei gilt keiner),
+      4. dieser Begriff wird im Katalog nicht selbst exakt verwendet, sonst bekaemen
+         zwei Dokumenttypen dieselbe Beschreibung.
+    Alles andere bleibt ohne Beschreibung ("") -- geraten wird nicht.
+    """
+    by_name = {}
+    for row in rows:
+        if not row["dokument"]:
+            continue
+        entry = by_name.setdefault(row["dokument"], {"anzahl": 0, "muss": 0, "praktiken": set()})
+        entry["anzahl"] += 1
+        entry["muss"] += row["pflichtgrad"] == "MUSS"
+        entry["praktiken"].add(row["praktik_id"])
+    used = set(by_name)
+    by_key = {}
+    for begriff in guidelines:
+        by_key.setdefault(export_name_key(begriff), []).append(begriff)
+    docs = []
+    for name, entry in by_name.items():
+        if name in guidelines:
+            bsi_name, zuordnung = name, "exakt"
+        else:
+            kandidaten = [b for b in by_key.get(export_name_key(name), []) if b not in used]
+            bsi_name, zuordnung = (kandidaten[0], "schreibweise") if len(kandidaten) == 1 else ("", "")
+        info = guidelines.get(bsi_name)
+        docs.append(
+            {
+                "dokument": name,
+                "anzahl": entry["anzahl"],
+                "muss": entry["muss"],
+                "praktiken": sorted(entry["praktiken"], key=praktik_order.index),
+                "beschreibung": info["beschreibung"] if info else "",
+                "kategorie": info["kategorie"] if info else "",
+                "zielgruppe": info["zielgruppe"] if info else "",
+                "zuordnung": zuordnung,
+                "bsi_name": bsi_name,
+            }
+        )
+    docs.sort(key=lambda d: (-d["anzahl"], d["dokument"]))
+    return docs
+
+
+def export_csv_line(row, source_note):
+    return [
+        row["id"], row["titel"], row["praktik"], row["anforderung"], row["pflichtgrad"], row["stufe"],
+        row["aufwand"], "; ".join(row["zielobjekte"]), row["ergebnis"], row["dokument"],
+        "; ".join(row["gefaehrdungen"]), "; ".join(row["vorgaenger"]), row["seite"],
+        "", "", "", "",
+        source_note,
+    ]
+
+
+def write_export_csv(path, rows, source_note):
+    # Deutsches Excel erwartet Semikolon als Trenner und UTF-8 mit BOM, sonst
+    # stehen alle Spalten in einer Zelle bzw. die Umlaute sind kaputt.
+    with path.open("w", newline="", encoding="utf-8-sig") as f:
+        w = csv.writer(f, delimiter=";", lineterminator="\r\n")
+        w.writerow(EXPORT_COLUMNS + EXPORT_WORKSHEET_COLUMNS + [EXPORT_SOURCE_COLUMN])
+        for row in rows:
+            w.writerow(export_csv_line(row, source_note))
+
+
+def export_license(stand):
+    """Alle Hinweise zu Quelle und Lizenz an einer Stelle.
+
+    LIZENZ.txt, das Info-Blatt der Excel-Datei und die JSON-Datei lesen von hier.
+    Stuende der Text an drei Stellen, liefen sie bei der naechsten Aenderung
+    auseinander, und die Quellenangabe waere in einer der Dateien falsch."""
+    return {
+        "stand": stand,
+        "urheber": "Bundesamt für Sicherheit in der Informationstechnik (BSI-Bund)",
+        "werk": "Grundschutz++ (Anwenderkatalog), OSCAL-Katalog",
+        "original": EXPORT_SOURCE_URL,
+        "lizenz": "Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)",
+        "lizenz_url": EXPORT_LICENSE_URL,
+        "aenderungen": (
+            "Diese Dateien sind eine Bearbeitung des Originals und keine Datei des BSI. Sie wurden von "
+            "grundschutz-docs.de aus dem Katalog erzeugt: Auswahl der Felder, Texte ohne Formatierung, "
+            "Parameter als [Platzhalter], Zielobjektkategorien, Ergebnis, Dokument, Gefährdungen und die ID "
+            "der Vorgänger-Anforderung aus dem Mapping ergänzt, Spalten für die eigene Arbeit angehängt. "
+            "Der Inhalt der Anforderungen ist nicht verändert."
+        ),
+        "dokumente": (
+            "Das Excel-Blatt \"Dokumente\" fasst zusammen, in welchen Dokumenten der Katalog Ergebnisse "
+            "festhalten lässt. Beschreibung, Kategorie und Zielgruppe eines Dokumenttyps stammen aus "
+            "documentation_guidelines.csv des BSI (ebenfalls CC BY-SA 4.0). Sie werden einem Dokumenttyp nur "
+            "zugeordnet, wenn der Name dort exakt vorkommt oder sich nur in Groß-/Kleinschreibung, Leerzeichen "
+            "und Bindestrichen unterscheidet; die Spalte \"Hinweis zur Beschreibung\" sagt, wie es zustande "
+            "kam. Bei allen anderen Dokumenttypen bleibt die Beschreibung leer."
+        ),
+        "eigene_werte": (
+            "Die Werte der Dropdown-Listen (Umsetzungsstatus, Vorhanden) sind eine Wahl von "
+            "grundschutz-docs.de und stammen nicht aus dem Katalog des BSI."
+        ),
+        "weitergabe": (
+            "Die Bearbeitung steht ebenfalls unter CC BY-SA 4.0. Wer sie weitergibt, nennt das BSI als "
+            "Urheber, verweist auf die Lizenz und gibt eigene Änderungen an."
+        ),
+        "nicht_enthalten": (
+            "Text des IT-Grundschutz-Kompendiums 2023 und des BSI-Standards 300-1. Für diese gelten die "
+            "Nutzungsbedingungen des BSI, nicht CC BY-SA. In der Spalte \"Vorgänger im Kompendium 2023\" "
+            "stehen nur die IDs der alten Anforderungen."
+        ),
+        "hinweis": "Diese Dateien sind kein offizielles Angebot des BSI und keine Rechtsberatung.",
+    }
+
+
+def export_license_text(stand, lizenz):
+    import textwrap
+
+    def absatz(titel, text):
+        return textwrap.fill(f"{titel} {text}", width=92, subsequent_indent=" " * (len(titel) + 1)) + "\n\n"
+
+    return (
+        "Grundschutz++ – Anforderungen als Tabelle (CSV und Excel)\n"
+        "===========================================================\n\n"
+        f"Datenstand des Katalogs: {stand}\n\n"
+        f"Urheber:   {lizenz['urheber']}\n"
+        f"Werk:      {lizenz['werk']}\n"
+        f"Original:  {lizenz['original']}\n"
+        f"Lizenz:    {lizenz['lizenz']}\n"
+        f"           {lizenz['lizenz_url']}\n\n"
+        + absatz("Änderungen:", lizenz["aenderungen"])
+        + absatz("Dokumente:", lizenz["dokumente"])
+        + absatz("Eigene Werte:", lizenz["eigene_werte"])
+        + absatz("Weitergabe:", lizenz["weitergabe"])
+        + absatz("Nicht enthalten:", lizenz["nicht_enthalten"])
+        + lizenz["hinweis"]
+        + "\n"
+    )
+
+
+def write_export_data(catalog, params_by_id, basethreats_by_id, predecessor_index, guidelines):
+    stand = export_stand(catalog)
+    note = export_source_note(stand)
+    lizenz = export_license(stand)
+    rows = export_rows(catalog, params_by_id, basethreats_by_id, predecessor_index)
+    praktik_order = [g["id"] for g in catalog["groups"]]
+    dokumente = export_documents(rows, guidelines, praktik_order)
+
+    EXPORT_OUT_DIR.mkdir(parents=True, exist_ok=True)
+    for old in EXPORT_OUT_DIR.glob("*"):
+        old.unlink()
+
+    write_export_csv(EXPORT_OUT_DIR / "grundschutzpp-anforderungen.csv", rows, note)
+    by_praktik = {}
+    for row in rows:
+        by_praktik.setdefault(row["praktik_id"], []).append(row)
+    for pid, praktik_rows in by_praktik.items():
+        write_export_csv(EXPORT_OUT_DIR / f"grundschutzpp-anforderungen-{pid.lower()}.csv", praktik_rows, note)
+
+    (EXPORT_OUT_DIR / "grundschutzpp-anforderungen.json").write_text(
+        json.dumps(
+            {
+                "stand": stand,
+                "quelle": note,
+                "lizenz": lizenz,
+                "spalten": EXPORT_COLUMNS,
+                "arbeitsspalten": EXPORT_WORKSHEET_COLUMNS,
+                "praktiken": [{"id": g["id"], "titel": g["title"]} for g in catalog["groups"]],
+                "anforderungen": rows,
+                "dokumente": dokumente,
+            },
+            ensure_ascii=False,
+            separators=(",", ":"),
+        )
+        + "\n",
+        encoding="utf-8",
+    )
+
+    (EXPORT_OUT_DIR / "LIZENZ.txt").write_text(export_license_text(stand, lizenz), encoding="utf-8")
+    per_schreibweise = [f"{d['dokument']} -> {d['bsi_name']}" for d in dokumente if d["zuordnung"] == "schreibweise"]
+    ohne_beschreibung = [d["dokument"] for d in dokumente if not d["zuordnung"]]
+    if per_schreibweise:
+        print(
+            f"HINWEIS: {len(per_schreibweise)} Dokumenttypen nur ueber die Schreibweise der BSI-Tabelle "
+            f"zugeordnet: {'; '.join(per_schreibweise)}",
+            file=sys.stderr,
+        )
+    if ohne_beschreibung:
+        print(
+            f"HINWEIS: {len(ohne_beschreibung)} Dokumenttypen aus dem Katalog stehen nicht unter "
+            f"diesem Namen in documentation_guidelines.csv (keine Beschreibung im Export): "
+            f"{', '.join(ohne_beschreibung)}",
+            file=sys.stderr,
+        )
+    return {
+        "anforderungen": len(rows),
+        "praktiken": len(by_praktik),
+        "dokumente": len(dokumente),
+        "stand": stand,
+    }
+
+
+def check_export(catalog):
+    """Liest die fertigen Export-Dateien zurueck und zaehlt gegen den *Rohtext*
+    des Katalogs -- nicht gegen collect_controls(), das der Export selbst nutzt.
+    Gleiche Regel wie bei check_invariants: ein Test auf demselben Codepfad
+    bestaetigt nur den gemeinsamen Fehler."""
+    problems = []
+    raw = CATALOG_FILE.read_text()
+    # Anforderungen tragen direkt nach der ID ein "class", Untergruppen (ARCH.1)
+    # nicht -- ohne diese Unterscheidung kaemen 160 Gruppen-IDs dazu.
+    raw_ids = set(re.findall(r'"id": "([A-Z]+(?:\.[0-9]+)+)",\s*"class":', raw))
+    raw_rows = raw.count('"name": "modal_verb"')
+    raw_muss = len(re.findall(r'"name": "modal_verb",\s*"ns": "[^"]*",\s*"value": "MUSS"', raw))
+    raw_targets = raw.count('"name": "target_object_categories"')
+    raw_documented = raw.count('"name": "documentation"')
+    raw_results = raw.count('"name": "result"')
+
+    with (EXPORT_OUT_DIR / "grundschutzpp-anforderungen.csv").open(newline="", encoding="utf-8-sig") as f:
+        table = list(csv.reader(f, delimiter=";"))
+    head, body = table[0], table[1:]
+    if (EXPORT_OUT_DIR / "grundschutzpp-anforderungen.csv").read_bytes()[:3] != b"\xef\xbb\xbf":
+        problems.append("CSV ohne UTF-8-BOM: Excel zeigt Umlaute falsch")
+    expected_head = EXPORT_COLUMNS + EXPORT_WORKSHEET_COLUMNS + [EXPORT_SOURCE_COLUMN]
+    if head != expected_head:
+        problems.append("CSV-Kopfzeile weicht von EXPORT_COLUMNS ab")
+    if any(len(r) != len(head) for r in body):
+        problems.append("CSV: Zeilen mit falscher Spaltenzahl")
+
+    # Spalten ueber den Namen ansprechen: bei einer neuen Spalte darf die Pruefung
+    # nicht stillschweigend die falsche lesen.
+    col = {name: i for i, name in enumerate(head)}
+    ids = [r[col["ID"]] for r in body]
+    if len(body) != raw_rows:
+        problems.append(f"CSV hat {len(body)} Zeilen, der Katalogtext hat {raw_rows} modal_verb-Eintraege")
+    if len(set(ids)) != len(ids):
+        problems.append("CSV: doppelte IDs")
+    if set(ids) != raw_ids:
+        problems.append(
+            f"CSV-IDs und Katalog-IDs weichen ab (nur CSV: {sorted(set(ids) - raw_ids)[:3]}, "
+            f"nur Katalog: {sorted(raw_ids - set(ids))[:3]})"
+        )
+    muss = sum(1 for r in body if r[col["Pflichtgrad"]] == "MUSS")
+    if muss != raw_muss:
+        problems.append(f"CSV hat {muss} MUSS, der Katalogtext {raw_muss}")
+    with_target = sum(1 for r in body if r[col["Zielobjektkategorien"]] != EXPORT_NO_TARGET)
+    if with_target != raw_targets:
+        problems.append(f"CSV hat {with_target} Zeilen mit Zielobjekt, der Katalogtext {raw_targets}")
+    if any("{{" in r[col["Anforderung"]] or "insert:" in r[col["Anforderung"]] for r in body):
+        problems.append("CSV: unersetzter Parameter im Anforderungstext")
+    if any(r[col["Anforderung"]] == "" or r[col["Pflichtgrad"]] not in {"MUSS", "SOLLTE", "KANN"} for r in body):
+        problems.append("CSV: leerer Anforderungstext oder unbekannter Pflichtgrad")
+
+    # Ergebnis und Dokument: jede Anforderung hat im Katalog genau ein Ergebnis, ein
+    # Dokument nur 961 von 1000. Beide Zahlen aus dem Rohtext gezaehlt.
+    with_result = sum(1 for r in body if r[col["Ergebnis"]])
+    documented = sum(1 for r in body if r[col["Dokumentiert in"]])
+    if with_result != raw_results:
+        problems.append(f"CSV hat {with_result} Zeilen mit Ergebnis, der Katalogtext {raw_results}")
+    if documented != raw_documented:
+        problems.append(f"CSV hat {documented} Zeilen mit Dokument, der Katalogtext {raw_documented}")
+    # CSV-Injection: eine Zelle, die mit = + - @ beginnt, wuerde Excel als Formel lesen.
+    if any(cell[:1] in "=+-@" for r in body for cell in r[: len(EXPORT_COLUMNS)] if cell):
+        problems.append("CSV: Zelle beginnt mit = + - oder @ (Excel liest das als Formel)")
+
+    # Jede Datei je Praktik zusammen ergibt wieder die Gesamtdatei.
+    summe = 0
+    for datei in EXPORT_OUT_DIR.glob("grundschutzpp-anforderungen-*.csv"):
+        with datei.open(newline="", encoding="utf-8-sig") as f:
+            summe += len(list(csv.reader(f, delimiter=";"))) - 1
+    if summe != len(body):
+        problems.append(f"Praktik-Dateien ergeben {summe} Zeilen, die Gesamtdatei {len(body)}")
+
+    # Der Link in der Spalte "Seite" muss auf einen existierenden Anker zeigen.
+    for r in body:
+        m = re.match(r".*/grundschutzpp/([a-z]+)/#(.+)$", r[col["Seite"]])
+        seite = OUT_DIR / f"{m.group(1)}.mdx" if m else None
+        if not m or not seite.exists() or f"{{#{m.group(2)}}}" not in seite.read_text():
+            problems.append(f"CSV: Link fuer {r[0]} zeigt auf keinen Anker ({r[col['Seite']]})")
+            break
+
+    daten = json.loads((EXPORT_OUT_DIR / "grundschutzpp-anforderungen.json").read_text())
+    if [a["id"] for a in daten["anforderungen"]] != ids:
+        problems.append("JSON und CSV nennen verschiedene Anforderungen oder eine andere Reihenfolge")
+    if not (EXPORT_OUT_DIR / "LIZENZ.txt").exists():
+        problems.append("LIZENZ.txt fehlt")
+    else:
+        text = (EXPORT_OUT_DIR / "LIZENZ.txt").read_text(encoding="utf-8")
+        lizenz = daten.get("lizenz") or {}
+        for feld in ("stand", "urheber", "original", "lizenz", "lizenz_url", "aenderungen", "weitergabe", "nicht_enthalten"):
+            if not lizenz.get(feld):
+                problems.append(f"JSON: lizenz.{feld} fehlt oder ist leer")
+            elif feld in ("stand", "urheber", "original", "lizenz_url") and lizenz[feld] not in text:
+                problems.append(f"LIZENZ.txt nennt lizenz.{feld} nicht")
+        # Der Quellenhinweis je Zeile (Spalte "Quelle") muss dieselben Angaben tragen.
+        for feld in ("stand", "original", "lizenz_url"):
+            if lizenz.get(feld) and lizenz[feld] not in daten["quelle"]:
+                problems.append(f"Quelle-Spalte nennt lizenz.{feld} nicht")
+
+    # Dokumentenuebersicht: ihre Summe muss die 961 Anforderungen mit Dokument
+    # ergeben (Rohtext), und jede Zeile muss sich aus der CSV nachzaehlen lassen,
+    # nicht aus den Daten, mit denen sie gebaut wurde.
+    dokumente = daten["dokumente"]
+    if sum(d["anzahl"] for d in dokumente) != raw_documented:
+        problems.append(
+            f"Dokumentenuebersicht ergibt {sum(d['anzahl'] for d in dokumente)} Anforderungen, "
+            f"der Katalogtext {raw_documented}"
+        )
+    nachgezaehlt = {}
+    for r in body:
+        name = r[col["Dokumentiert in"]]
+        if name:
+            z = nachgezaehlt.setdefault(name, [0, 0])
+            z[0] += 1
+            z[1] += r[col["Pflichtgrad"]] == "MUSS"
+    if {d["dokument"]: [d["anzahl"], d["muss"]] for d in dokumente} != nachgezaehlt:
+        problems.append("Dokumentenuebersicht passt nicht zu den Zeilen der CSV (Anzahl oder MUSS je Dokument)")
+    if len({d["dokument"] for d in dokumente}) != len(dokumente):
+        problems.append("Dokumentenuebersicht: ein Dokumenttyp kommt doppelt vor")
+
+    # Zuordnung der Beschreibungen: die Regel wird hier mit einer anderen Umsetzung
+    # (regulaerer Ausdruck, CSV neu gelesen) nachgerechnet, nicht mit export_name_key().
+    def key(name):
+        return re.sub(r"[ \-]", "", name.casefold())
+
+    with DOCUMENTATION_FILE.open(newline="", encoding="utf-8") as f:
+        csv_rows = {r["Begriff"].strip(): r for r in csv.DictReader(f)}
+    katalog_namen = {d["dokument"] for d in dokumente}
+    for d in dokumente:
+        name, z, bsi = d["dokument"], d["zuordnung"], d["bsi_name"]
+        if z not in {"exakt", "schreibweise", ""}:
+            problems.append(f"{name}: unbekannte Zuordnung {z!r}")
+            continue
+        if z == "exakt" and (name != bsi or name not in csv_rows):
+            problems.append(f"{name}: als exakt markiert, steht aber nicht exakt in der Tabelle")
+        if z == "schreibweise":
+            if bsi not in csv_rows or bsi == name:
+                problems.append(f"{name}: Schreibweise-Zuordnung auf {bsi!r}, das nicht (anders) in der Tabelle steht")
+            elif key(name) != key(bsi):
+                problems.append(f"{name}: Zuordnung zu {bsi!r}, obwohl sich die Namen nicht nur in Schreibweise unterscheiden")
+            elif bsi in katalog_namen:
+                problems.append(f"{name}: {bsi!r} wird im Katalog selbst verwendet, doppelte Zuordnung")
+        if z == "":
+            frei = [b for b in csv_rows if key(b) == key(name) and b not in katalog_namen]
+            if name in csv_rows or frei:
+                problems.append(f"{name}: ohne Zuordnung, obwohl die Tabelle {name if name in csv_rows else frei} kennt")
+            if d["beschreibung"] or d["kategorie"] or d["zielgruppe"]:
+                problems.append(f"{name}: Beschreibung ohne Zuordnung")
+        if z:
+            erwartet = {
+                "beschreibung": (csv_rows[bsi]["Definition"] or "").strip(),
+                "kategorie": (csv_rows[bsi]["Kategorie"] or "").strip(),
+                "zielgruppe": (csv_rows[bsi]["Zielgruppe"] or "").strip(),
+            }
+            for feld, wert in erwartet.items():
+                wert = "" if wert == "???" else wert
+                if d[feld] != wert:
+                    problems.append(f"{name}: {feld} weicht von der Tabelle ab")
+    zuordnungen = [d["bsi_name"] for d in dokumente if d["zuordnung"]]
+    if len(set(zuordnungen)) != len(zuordnungen):
+        problems.append("Dokumentenuebersicht: ein Begriff der BSI-Tabelle ist mehreren Dokumenttypen zugeordnet")
+    stats = {z: sum(1 for d in dokumente if d["zuordnung"] == z) for z in ("exakt", "schreibweise", "")}
+
+    if problems:
+        raise SystemExit("Export passt nicht zum Katalog:\n  - " + "\n  - ".join(problems))
+    print(
+        f"Export ok: {len(body)} Zeilen ({muss} MUSS, {with_target} mit Zielobjekt), {len(ids)} eindeutige IDs; "
+        f"{len(dokumente)} Dokumenttypen ({stats['exakt']} exakt, {stats['schreibweise']} per Schreibweise, "
+        f"{stats['']} ohne Beschreibung)"
+    )
+
+
+
 def check_invariants(catalog, control_index, muss_controls, by_baustein):
     """Bricht den Lauf ab, wenn eine Zahl auf der Seite nicht zur Quelle passt.
 
@@ -2405,6 +2892,9 @@ def main():
     )
     write_status_data()
     write_bausteine_data(by_baustein, baustein_links)
+    export_stats = write_export_data(
+        catalog, params_by_id, basethreats_by_id, predecessor_index, load_documentation_guidelines()
+    )
 
     # Rollenbasierte Einstiegsseiten (ADR-0007) -- aus denselben Gruppen-
     # Listen wie oben, keine eigene Zielgruppen-Einstufung im Katalog nötig.
@@ -2420,12 +2910,14 @@ def main():
         [c for c in collect_controls(catalog) if is_muss(c)],
         by_baustein,
     )
+    check_export(catalog)
 
     total = len(management) + len(themenfelder)
     print(f"{total} Gruppen-Seiten (.mdx) erzeugt in {OUT_DIR}")
     print(f"3 Rollen-Seiten (.mdx) erzeugt in {ROLLEN_OUT_DIR}")
     print(f"{len(by_baustein)} Baustein-Seiten + Übersicht erzeugt in {VERGLEICH_OUT_DIR}")
     print(f"Startseiten-Daten: {stats}")
+    print(f"Export-Dateien in {EXPORT_OUT_DIR}: {export_stats}")
 
     def sidebar_group(label, entries):
         items = ",\n\t\t\t\t\t\t".join(
