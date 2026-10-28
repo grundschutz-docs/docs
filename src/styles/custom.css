@@ -1005,10 +1005,20 @@ site-search dialog::backdrop {
 	font-variant-numeric: tabular-nums;
 	padding-inline-start: 1rem;
 }
-/* Nur die Zahlen bleiben in einer Zeile; die Ueberschrift "mit Vererbung" darf umbrechen,
-   sonst ragt sie auf dem Handy ueber die Tabelle hinaus. */
+/* Nur die Zahlen bleiben in einer Zeile; die Ueberschrift "mit Vererbung" darf auf dem Handy
+   umbrechen, sonst ragt sie ueber die Tabelle hinaus (am Desktop steht sie in einer Zeile). */
 .zielobjekt-uebersicht td:not(:first-child) {
 	white-space: nowrap;
+}
+@media (min-width: 30rem) {
+	.zielobjekt-uebersicht th:not(:first-child) {
+		white-space: nowrap;
+	}
+}
+/* Zahlen auf der Hoehe des Namens, nicht in der Mitte einer zweizeiligen Zeile. */
+.zielobjekt-uebersicht td {
+	vertical-align: top;
+	padding-block: 0.3rem;
 }
 .zielobjekt-uebersicht tr[data-tiefe='0'] a {
 	font-weight: 600;
@@ -1035,6 +1045,7 @@ site-search dialog::backdrop {
 }
 .zielobjekt-begriffe {
 	display: block;
+	line-height: 1.35;
 	font-size: var(--sl-text-xs);
 	color: var(--sl-color-gray-3);
 }
