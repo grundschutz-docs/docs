@@ -1049,15 +1049,16 @@ site-search dialog::backdrop {
 .anforderungs-tabelle td:nth-child(n + 2) {
 	white-space: nowrap;
 }
-/* Sicherheitsstufe in den Anforderungs-Tabellen: Handy kurz, Desktop das volle Wort des BSI. */
-.anforderungs-tabelle .stufe-kurz {
+/* Sicherheitsstufe in Tabellen (Anforderungs-Tabellen, MUSS-Tabelle der Geschaeftsfuehrung):
+   Handy kurz, Desktop das volle Wort des BSI. */
+.stufe-kurz {
 	display: none;
 }
 @media (max-width: 30rem) {
-	.anforderungs-tabelle .stufe-lang {
+	.stufe-lang {
 		display: none;
 	}
-	.anforderungs-tabelle .stufe-kurz {
+	.stufe-kurz {
 		display: inline;
 	}
 }

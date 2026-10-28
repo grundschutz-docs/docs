@@ -1864,6 +1864,8 @@ def is_muss(control):
 # nur diese zwei Werte existieren im Katalog (kein Basis/Standard/Kern wie im
 # alten Kompendium), siehe ADR-0007.
 SEC_LEVEL_LABELS = {"normal-SdT": "Standard-Sicherheitsstufe", "erhöht": "Erhöhte Sicherheitsstufe"}
+# Kurzform fuer schmale Bildschirme (CSS blendet zwischen "stufe-lang" und "stufe-kurz" um).
+SEC_LEVEL_KURZ = {"normal-SdT": "Standard", "erhöht": "Erhöht"}
 
 
 def render_muss_table(group_id, group_title, slug, muss_controls):
@@ -1881,7 +1883,7 @@ def render_muss_table(group_id, group_title, slug, muss_controls):
             # render_control().
             f'<td><a class="new-id" href="/grundschutzpp/{slug}/#{control["id"]}">'
             f'{control["id"]} – {control["title"]}</a></td>'
-            f'<td>{sec_label}</td></tr>\n'
+            f'<td><span class="stufe-lang">{sec_label}</span><span class="stufe-kurz">{SEC_LEVEL_KURZ.get(sec_level, sec_level)}</span></td></tr>\n'
         )
     lines.append("</tbody>\n</table>\n</div>\n\n")
     return "".join(lines)
@@ -2717,7 +2719,6 @@ def render_themen_page(catalog, control_index, tags_by_id):
 # 3.4.1) werden nur gezaehlt. check_zielobjekte() liest die Seiten zurueck und
 # rechnet auf zwei anderen Wegen nach.
 PFLICHT_REIHENFOLGE = {"MUSS": 0, "SOLLTE": 1, "KANN": 2}
-SEC_LEVEL_KURZ = {"normal-SdT": "Standard", "erhöht": "Erhöht"}
 
 
 def natural_id_key(control_id):
