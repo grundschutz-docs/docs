@@ -1322,7 +1322,12 @@ site-search dialog::backdrop {
 }
 
 .cl-date {
+	margin: 0;
+	border: 0;
+	padding: 0;
+	font-size: var(--sl-text-base);
 	font-weight: 700;
+	line-height: inherit;
 }
 
 .cl-count {

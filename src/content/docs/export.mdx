@@ -1,6 +1,31 @@
 ---
 title: Anforderungen als Excel-Tabelle exportieren
 description: Alle Grundschutz++-Anforderungen als Excel-Datei, filterbar nach Praktik, Pflichtgrad, Stufe, Aufwand und Zielobjekt, mit Spalten für den Soll-Ist-Abgleich und einer Übersicht der geforderten Dokumente.
+head:
+  # Dataset-Auszeichnung für Googles Datensatzsuche, nach dem Muster von rag.mdx:
+  # creator ist die GitHub-Organisation, die die Dateien erzeugt, nicht das BSI
+  # (ohne creator meldet die Search Console eine Warnung); isBasedOn nennt die
+  # Quelle, license die Lizenz des Katalogs. Bewusst ohne publisher, ohne
+  # dateModified (der tägliche Sync müsste es nachziehen, ein fester Wert würde
+  # lügen) und ohne Zahl im Text (Zahlen auf der Seite stehen nur, wenn der
+  # Generator sie prüft). Die Excel-Datei entsteht erst im Browser und hat keine
+  # Adresse, deshalb steht nur, was es als Datei gibt: CSV und JSON.
+  - tag: script
+    attrs:
+      type: application/ld+json
+    content: >-
+      {"@context":"https://schema.org","@type":"Dataset",
+      "name":"Grundschutz++-Anforderungen als Tabelle (CSV und JSON)",
+      "description":"Alle Anforderungen des BSI-Katalogs Grundschutz++ mit Pflichtgrad, Sicherheitsstufe, Aufwand, Zielobjektkategorien, Ergebnis, Dokument, Gefährdungen und den Vorgängern im alten Kompendium, als CSV (alle und je Praktik, mit leeren Spalten für den Soll-Ist-Abgleich) und als JSON.",
+      "url":"https://grundschutz-docs.de/export/","inLanguage":"de",
+      "isAccessibleForFree":true,
+      "license":"https://creativecommons.org/licenses/by-sa/4.0/",
+      "creator":{"@type":"Organization","name":"grundschutz-docs","url":"https://github.com/grundschutz-docs"},
+      "isBasedOn":"https://github.com/BSI-Bund/Stand-der-Technik-Bibliothek",
+      "keywords":["Grundschutz++","IT-Grundschutz","Soll-Ist-Abgleich","Excel","CSV","ISMS"],
+      "distribution":[
+      {"@type":"DataDownload","encodingFormat":"text/csv","contentUrl":"https://grundschutz-docs.de/downloads/grundschutzpp-anforderungen.csv"},
+      {"@type":"DataDownload","encodingFormat":"application/json","contentUrl":"https://grundschutz-docs.de/downloads/grundschutzpp-anforderungen.json"}]}
 ---
 
 import ExportTabelle from '../../components/ExportTabelle.astro';

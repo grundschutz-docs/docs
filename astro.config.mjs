@@ -8,6 +8,27 @@ import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
 import { satteri } from '@astrojs/markdown-satteri';
 
+/**
+ * @param {string} file relativ zu dieser Datei
+ * @param {(data: any) => string | undefined} pick
+ */
+const dataDate = (file, pick) => {
+	try {
+		return pick(JSON.parse(readFileSync(new URL(file, import.meta.url), 'utf-8')));
+	} catch {
+		return undefined;
+	}
+};
+/** @type {Record<string, string | undefined>} */
+const LASTMOD = {
+	// "stand" der Export-Daten ist der Katalogstand als TT.MM.JJJJ
+	'/export/': dataDate('./public/downloads/grundschutzpp-anforderungen.json', (d) => {
+		const [day, month, year] = String(d.stand).split('.');
+		return year && month && day ? `${year}-${month}-${day}` : undefined;
+	}),
+	'/aenderungen/': dataDate('./src/data/changelog.json', (d) => d.stand?.veroeffentlicht?.slice(0, 10)),
+};
+
 // Welche Seiten unter /en/ *wirklich* übersetzt sind, statt Starlights
 // Fallback-Kopie des deutschen Originals zu zeigen. Von der Dateistruktur
 // unter src/content/docs/en/ abgeleitet statt von Hand gepflegt -- aus
@@ -292,6 +313,16 @@ export default defineConfig({
 		// deutschen Fallback-Seiten unter /en/... in der Sitemap, als gaebe es
 		// dort echten englischen Inhalt.
 		sitemap({
+			// lastmod nur dort, wo das Datum aus den Daten der Seite selbst kommt: Google
+			// wertet die Angabe nur, wenn sie verlässlich ist, und für die übrigen Seiten
+			// gibt es kein zuverlässiges Datum (im Docker-Build fehlt .git). /export/ ändert
+			// sich mit dem Katalogstand, /aenderungen/ mit dem neuesten Eintrag. Fehlt die
+			// Datei (Fork), entfällt die Angabe.
+			serialize(item) {
+				const lastmod = LASTMOD[new URL(item.url).pathname];
+				if (lastmod) item.lastmod = lastmod;
+				return item;
+			},
 			i18n: {
 				defaultLocale: 'root',
 				locales: { root: 'de', en: 'en' },

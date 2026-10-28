@@ -80,7 +80,7 @@ const plural = (n: number, one: string, many: string) => `${n} ${n === 1 ? one :
 		entries.map((e, i) =>
 			e.aenderungen.length === 0 && e.technische_aenderungen.length === 0 ? (
 				<p class="cl-entry cl-entry-empty">
-					<span class="cl-date">{dateDe(e.veroeffentlicht)}</span>
+					<span class="cl-date"><time datetime={e.veroeffentlicht.slice(0, 10)}>{dateDe(e.veroeffentlicht)}</time></span>
 					<span class="cl-count">Keine Änderung an Anforderungen</span>
 					<a class="cl-commit" href={`${COMMIT_URL}/${e.commit}`} target="_blank" rel="noopener noreferrer">
 						BSI-Commit {e.commit.slice(0, 7)}
@@ -89,7 +89,7 @@ const plural = (n: number, one: string, many: string) => `${n} ${n === 1 ? one :
 			) : (
 				<details class="cl-entry" id={`stand-${e.commit.slice(0, 7)}`} open={i === 0}>
 					<summary>
-						<span class="cl-date">{dateDe(e.veroeffentlicht)}</span>
+						<h2 class="cl-date"><time datetime={e.veroeffentlicht.slice(0, 10)}>{dateDe(e.veroeffentlicht)}</time></h2>
 						<span class="cl-count">
 							{e.aenderungen.length > 0
 								? `${plural(e.aenderungen.length, 'Anforderung', 'Anforderungen')} geändert`
@@ -104,10 +104,10 @@ const plural = (n: number, one: string, many: string) => `${n} ${n === 1 ? one :
 
 					{e.aenderungen.map((a) => (
 						<article class="cl-change">
-							<h4 class="cl-change-head">
+							<h3 class="cl-change-head">
 								<a class="cl-id" href={`/grundschutzpp/${a.praktik.toLowerCase()}/#${a.id}`}>{a.id}</a>
 								<span class="cl-title">{a.titel}</span>
-							</h4>
+							</h3>
 							{a.felder.map((f) => {
 								const alt = items(f.alt);
 								const neu = items(f.neu);
