@@ -1,12 +1,14 @@
 # Grundschutz++ Docs
 
-The BSI ships its Grundschutz++ security catalog as a 10k+ line OSCAL JSON
+The BSI ships its Grundschutz++ security catalog as a 92,000-line OSCAL JSON
 file — built for SSP-generation tooling, unreadable by a human who just
 wants to know what a control requires. This project turns that same JSON
 into a site you'd actually want to read: full-text search, one permalink
-per control, security level / effort / base threats shown inline, a
-side-by-side mapping to the old IT-Grundschutz-Kompendium control it
-replaces, dark mode, and a print-to-PDF per topic area.
+per control, security level / effort / base threats / target object
+categories shown inline, a side-by-side mapping to the old
+IT-Grundschutz-Kompendium control it replaces, entry pages per role, a
+summary of the BSI methodology, an Excel/CSV export, a changelog of the
+catalog, dark mode, and a print-to-PDF per topic area.
 
 This is an unofficial, independent project — not affiliated with,
 endorsed by, or produced by the Bundesamt für Sicherheit in der
@@ -34,6 +36,35 @@ Informationstechnik (BSI).
   <sub>The comparison: each old requirement next to its Grundschutz++ counterpart, with the relationship type from the BSI's mapping file (which the BSI marks as a draft; the site says so).</sub>
 </p>
 
+## What's on the site
+
+The UI is German; the catalog text is the BSI's German original and is not
+translated.
+
+- **Catalog** (`/grundschutzpp/`) — every requirement, one page per practice,
+  with obligation level, security level, effort, base threats and target
+  object categories inline, and the BSI's topic tags (`/grundschutzpp/themen/`)
+- **Roles** (`/rollen/geschaeftsfuehrung/`, `/rollen/isb/`, `/rollen/devs/`) —
+  entry pages for management, ISB and developers
+- **Comparison** (`/vergleich/`) — old Kompendium requirement ↔ new
+  requirement, from the BSI's mapping file
+- **Methodology** (`/methodik/`) — the BSI Standard 300-1 in five steps, as
+  an own summary
+- **Status & timeline** (`/grundschutzpp/zeitplan/`) — the BSI's milestones
+- **Export** (`/export/`) — the requirements as an Excel file or CSV,
+  filterable by practice, obligation level, security level, effort and target
+  object category, with columns for tracking the implementation status and an
+  overview of the documents the catalog names. The Excel file is built in the
+  browser; nothing is sent to a server
+- **Changelog** (`/aenderungen/`) — what changed in the catalog between two
+  published versions, as a diff (old and new wording, changed words
+  highlighted). Built from the git history of the BSI repository; it
+  describes, it doesn't rate
+- **Findings** (`/befunde/`) — a public register of inconsistencies found in
+  the catalog, and of this site's own mistakes
+- **Data for language models** (`/rag/`) — the catalog as JSONL, see
+  [Related](#related)
+
 ## Why this exists
 
 There's already a community-built viewer for the catalog with more visual
@@ -55,6 +86,13 @@ such, with a status from open to fixed. The site's own bugs go in the same
 register, in the same format: a register that only points outward is an
 instrument, not a register.
 
+Two tools go with the reading. The export puts the requirements into a table
+with columns for status, responsible person and deadline. The changelog
+shows what changed between two published versions of the catalog: the
+commit messages for those versions mostly read "publish rolling artifacts"
+and don't say what changed, so the changelog compares the versions
+themselves.
+
 ## Hosted instance
 
 A hosted instance is live at [grundschutz-docs.de](https://grundschutz-docs.de)
@@ -74,7 +112,8 @@ The upstream catalog is being phased in alongside the existing
 IT-Grundschutz-Kompendium, on a multi-year timeline (pilot, public
 presentation, optional certification, eventual full replacement). The
 site tracks whatever the catalog looks like at build time — see the
-in-site "Status & Zeitplan" page for the current phase and dates.
+in-site "Status & Zeitplan" page for the current phase and dates, and the
+changelog for what has changed in the catalog itself.
 
 ## Getting started
 
@@ -86,6 +125,20 @@ pnpm run preview  # preview the production build locally
 ```
 
 Requires the pnpm version pinned in `package.json` (`packageManager`).
+Site name and operator data (imprint, privacy policy) come from `.env`, see
+`.env.example`. Analytics (Plausible) is only included if
+`PLAUSIBLE_SCRIPT_URL` is set.
+
+### Self-hosting
+
+```sh
+docker compose up -d   # http://localhost:8080
+```
+
+The `Dockerfile` builds the site with Node and serves the result with nginx
+(`docker/nginx.conf`). `.env` is read at build time, so changing it means
+rebuilding the image. The generated pages are committed, so the build needs
+neither Python nor access to the BSI catalog.
 
 ## How the docs are generated
 
@@ -94,11 +147,14 @@ hand-written. `scripts/generate_docs.py` reads the BSI's
 `Grundschutz++-resolved_catalog.json` (OSCAL) and renders Starlight MDX
 from it — MDX rather than plain markdown so the generated pages can use
 real components (`ControlMeta` for the obligation/level/effort pills,
-`PdcaCycle`, the filter inputs) instead of bold-text metadata.
+`PdcaCycle`, the filter inputs) instead of bold-text metadata. It needs
+`python3` and nothing from PyPI (standard library only), plus `git` for the
+changelog.
 
 Locally, it expects a `Grundschutz-PlusPlus` checkout of
 [`BSI-Bund/Stand-der-Technik-Bibliothek`](https://github.com/BSI-Bund/Stand-der-Technik-Bibliothek)
-as a sibling directory:
+as a sibling directory. Make it a full clone, not a shallow one: the
+changelog compares the published versions, so it needs the history.
 
 ```sh
 cd Grundschutz-PlusPlus && git pull
@@ -106,27 +162,72 @@ python3 ../Grundschutz-Docs/scripts/generate_docs.py
 cd ../Grundschutz-Docs && pnpm run build
 ```
 
-The generator also writes the role pages (`rollen/`) and the old↔new
-comparison (`vergleich/`). Edit those in `scripts/generate_docs.py`, never
-in the `.mdx` — the next run overwrites them. `DESCRIPTION_OVERRIDES`
-there keeps a few shortened meta descriptions for search results.
+What a run writes:
+
+- the pages under `src/content/docs/` `grundschutzpp/`, `rollen/` and
+  `vergleich/`. Edit those in `scripts/generate_docs.py`, never in the
+  `.mdx` — the next run overwrites them. `DESCRIPTION_OVERRIDES` there keeps
+  a few shortened meta descriptions for search results
+- `src/data/*.json` — the figures for the homepage and timeline, the
+  baustein lookup, and `changelog.json`
+- `public/downloads/` — the CSV files (all requirements and one per practice),
+  the JSON the export page filters from, and `LIZENZ.txt`
+
+**The changelog is incremental.** `changelog.json` has one entry per BSI
+commit that changed the catalog. A run only computes commits that are not in
+the file yet. Without git history (shallow clone, no git repository) it says
+so and leaves the file alone. The oldest version covered is 27 July 2026;
+before that the catalog lived at a different path in the BSI repository.
+
+**The generator refuses to write something wrong.** After a run it checks the
+numbers on the pages (`check_invariants()`), the export files
+(`check_export()`) and the changelog (`check_changelog()`) against the source,
+each recomputed by a second path that does not reuse the code that produced the
+value (for the changelog it reads the same git history, but flattens the whole
+tree instead of picking fields). The rule and the incident behind it are in `CONTRIBUTING.md`
+("Numbers on the site").
 
 In CI, `.github/workflows/sync-catalog.yml` runs on a daily schedule,
-checks the upstream catalog out directly, regenerates the docs, and opens
-a pull request if anything changed — review the diff before merging (see
+checks the upstream catalog out directly (with its full history, without file
+contents, they are loaded on demand), regenerates everything above, and opens a
+pull request if anything changed — review the diff before merging (see
 CONTRIBUTING.md). `.github/workflows/ci.yml` runs a production build on
 every push and pull request.
+
+### The Excel export
+
+The export page builds the Excel file in the browser with a small writer of
+its own (`src/lib/xlsx/`, on top of `fflate`) instead of a general-purpose
+library: the export needs a handful of features (several sheets, frozen rows,
+autofilter, dropdowns, hyperlinks), and a general-purpose library would have
+brought about 175 transitive packages. The writer is only loaded when
+the button is clicked.
+
+Excel is strict about the order of XML elements and answers a mistake with
+"repair this file" and no hint what is wrong. `scripts/xlsx/verify.py`
+checks a file four independent ways (the ECMA-376 schema, package
+consistency, a read-back with `exceljs`, and LibreOffice), and
+`scripts/xlsx/compare.py` compares every cell with the CSV the generator
+wrote. Both need things that are not in this repository (the schema,
+`exceljs`); the header of `verify.py` says where to get them. They run by
+hand, not in CI.
 
 ## Project structure
 
 ```
 .
 ├── adr/                       # architecture decisions, with the reasoning
+├── docker/nginx.conf          # web server config for the image
+├── Dockerfile                 # build with Node, serve with nginx
+├── docker-compose.yml         # generic self-hosting template
+├── public/downloads/          # generated — CSV, JSON and license text of the export
 ├── scripts/
-│   └── generate_docs.py       # OSCAL catalog → Starlight MDX
+│   ├── generate_docs.py       # OSCAL catalog → MDX, data files, export, changelog
+│   └── xlsx/                  # checks for the Excel files (run by hand)
 ├── src/
-│   ├── components/            # ControlMeta, PdcaCycle, Befund*, filters, header/hero overrides
-│   ├── data/                  # landing.json, status.json (figures for the homepage and timeline)
+│   ├── components/            # ControlMeta, PdcaCycle, ExportTabelle, Aenderungsprotokoll, Befund*, filters, header/hero overrides
+│   ├── data/                  # generated — landing, status, bausteine, changelog (JSON)
+│   ├── lib/xlsx/              # the Excel writer used by the export page
 │   ├── content/docs/
 │   │   ├── grundschutzpp/     # generated — the catalog, one page per practice
 │   │   ├── rollen/            # generated — entry pages per role
@@ -134,6 +235,10 @@ every push and pull request.
 │   │   ├── befunde/           # the findings register (see adr/0009)
 │   │   ├── en/                # hand-written English pages (not a catalog translation)
 │   │   ├── index.mdx          # homepage
+│   │   ├── methodik.mdx       # summary of BSI Standard 300-1
+│   │   ├── export.mdx         # the export page
+│   │   ├── aenderungen.mdx    # the changelog page
+│   │   ├── rag.mdx            # the catalog as data for language models
 │   │   ├── ueber.mdx          # about
 │   │   ├── impressum.mdx      # legal notice template (see adr/0003)
 │   │   └── datenschutz.mdx    # privacy policy template
@@ -170,10 +275,16 @@ one of these up (see `CONTRIBUTING.md`):
   pages, filters on the catalog pages) would mostly expose that gap
 - An OSCAL explainer page — what it is, and why a German agency adopted a
   NIST-originated format instead of building its own
+- A sheet in the Excel export that maps the old Kompendium requirements to
+  the new ones, once the BSI's mapping file is no longer marked as a draft
+- A feed for the changelog, so a new version can be subscribed to
+- The Excel checks (`scripts/xlsx/`) in CI. They need the ECMA schema and
+  `exceljs`, which is why they are not there yet
 - The English side is hand-written pages for foreign companies operating
   in Germany (home, about, legal pages, "operating in Germany"). The
-  catalog itself, the comparison and the findings register are still
-  German-only; a real English translation of the catalog is not started
+  catalog itself, the comparison, the export, the changelog and the findings
+  register are German-only; a real English translation of the catalog is
+  not started
 
 ## License
 
@@ -182,6 +293,18 @@ one of these up (see `CONTRIBUTING.md`):
   `src/content/docs/grundschutzpp/`): CC BY-SA 4.0, © BSI-Bund, per the
   upstream catalog's own license. This site's generated pages inherit that
   license from their source.
+- **Files and pages derived from the catalog** (the export under
+  `public/downloads/`, the Excel file the export page builds, and the
+  changelog): they contain catalog text, so they are CC BY-SA 4.0 too. The
+  attribution, the license and the note that they are modified are in the
+  files themselves (`LIZENZ.txt`, the info sheet of the Excel file, the
+  source column) and not only on the web page.
+- **The page on the BSI Standard 300-1** (`/methodik/`): an own summary. The
+  source is © BSI and is not under CC BY-SA; the BSI's
+  [terms of use](https://www.bsi.bund.de/DE/Service/Nutzungsbedingungen/Nutzungsbedingungen_node.html)
+  apply to it. The old IT-Grundschutz-Kompendium is not reproduced: the
+  comparison pages and the export only name its requirement IDs and link to
+  the BSI's PDFs.
 - **Original text** (the findings register under `src/content/docs/befunde/`,
   and the ADRs under `adr/`): CC BY 4.0 — a content license fits prose
   better than a software license does, see [`adr/0010`](adr/0010-lizenz-fuer-eigene-texte.md).
