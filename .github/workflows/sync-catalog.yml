@@ -33,6 +33,14 @@ jobs:
             control_layer/Grundschutz++
             control_layer/Mappings
             documentation/namespaces
+          # The changelog (src/data/changelog.json) compares the published versions of the
+          # catalog, so the generator needs the git history, not just the newest commit.
+          # With sparse-checkout and no explicit filter the action fetches with
+          # blob:none (checked in its source, git-source-provider.ts): commits and
+          # trees only, file contents on demand. The generator then loads just the two
+          # newest versions of the catalog (about 5 MB each) when a new one appeared.
+          # Without history it leaves changelog.json untouched and says so.
+          fetch-depth: 0
           path: upstream
 
       - uses: actions/setup-python@v7

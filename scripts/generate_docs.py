@@ -17,9 +17,11 @@ changes"):
     cd ../Grundschutz-Docs && pnpm run build   # oder: pnpm run dev
 """
 import csv
+import difflib
 import json
 import os
 import re
+import subprocess
 import sys
 import urllib.parse
 from collections import Counter
@@ -2773,6 +2775,408 @@ def write_mdx(path, frontmatter, body, section=None):
     path.write_text(frontmatter + prefix + marker + body)
 
 
+# --- Aenderungsprotokoll ------------------------------------------------------
+# Vergleicht die veroeffentlichten Staende des BSI-Katalogs aus der Git-Historie des
+# BSI-Repos und schreibt src/data/changelog.json. Die Seite /aenderungen/ liest nur
+# diese Datei. Der Vergleich nennt Fakten ("hier stand vorher X, jetzt Y") und
+# bewertet nichts.
+#
+# Inkrementell: je BSI-Commit, der den Katalog aendert, entsteht genau ein Eintrag,
+# Schluessel ist der Commit. Ein Lauf berechnet nur Commits, die noch nicht in der
+# Datei stehen, und laedt dafuer je zwei Staende des Katalogs (je ~5 MB). Fehlt die
+# Historie (flacher Klon wie im Sync-Workflow bisher), bleibt die Datei unveraendert
+# und der Lauf sagt es.
+CHANGELOG_FILE = DATA_OUT_DIR / "changelog.json"
+CHANGELOG_COMMIT_URL = "https://github.com/BSI-Bund/Stand-der-Technik-Bibliothek/commit"
+
+# (Schluessel, Bezeichnung auf der Seite). Reihenfolge = Reihenfolge auf der Seite.
+CHANGELOG_FIELDS = [
+    ("titel", "Titel"),
+    ("anforderung", "Anforderung"),
+    ("erlaeuterung", "Erläuterung"),
+    ("pflichtgrad", "Pflichtgrad"),
+    ("stufe", "Sicherheitsstufe"),
+    ("aufwand", "Aufwand"),
+    ("ergebnis", "Ergebnis"),
+    ("ergebnis_zusatz", "Ergebnis, Zusatz"),
+    ("dokument", "Dokumentiert in"),
+    ("zielobjekte", "Zielobjektkategorien"),
+    ("gefaehrdungen", "Gefährdungen"),
+    ("tags", "Tags"),
+]
+CHANGELOG_TEXT_FIELDS = {"titel", "anforderung", "erlaeuterung", "ergebnis", "ergebnis_zusatz"}
+
+
+def _git(repo, *args):
+    r = subprocess.run(["git", "-C", str(repo), *args], capture_output=True, text=True)
+    if r.returncode != 0:
+        raise RuntimeError(f"git {' '.join(args)}: {r.stderr.strip()[:200]}")
+    return r.stdout
+
+
+def changelog_history(catalog_file):
+    """[(commit, ISO-Datum)] aller Commits, die den Katalog aendern, aelteste zuerst.
+    Leere Liste, wenn die Datei in keinem Git-Repo liegt."""
+    path = Path(catalog_file).resolve()
+    try:
+        top = Path(_git(path.parent, "rev-parse", "--show-toplevel").strip())
+    except RuntimeError:
+        return None, None, []
+    rel = path.relative_to(top.resolve()).as_posix()
+    lines = _git(top, "log", "--format=%H%x09%cI", "--", rel).splitlines()
+    return top, rel, [tuple(l.split("\t")) for l in reversed(lines) if l]
+
+
+def changelog_load(top, rel, commit):
+    return json.loads(_git(top, "show", f"{commit}:{rel}"))["catalog"]
+
+
+def strip_internal(node):
+    # Die internen UUIDs ("alt-identifier") aendern sich bei jedem Stand: kein Inhalt.
+    if isinstance(node, dict):
+        return {
+            k: strip_internal([p for p in v if p.get("name") != "alt-identifier"] if k == "props" else v)
+            for k, v in node.items()
+        }
+    if isinstance(node, list):
+        return [strip_internal(x) for x in node]
+    return node
+
+
+def changelog_nodes(catalog):
+    """id -> Knoten ohne Unteranforderungen."""
+    return {c["id"]: {k: v for k, v in c.items() if k != "controls"} for g in catalog["groups"] for c in collect_controls(g)}
+
+
+def changelog_normalize(catalog):
+    """id -> {Feldschluessel: Wert} fuer die angezeigten Felder, plus Praktik und eine
+    Signatur des ganzen Knotens (ohne die internen UUIDs, die sich bei jedem Stand
+    aendern und kein Inhalt sind)."""
+    params = build_params_index(catalog)
+    out = {}
+
+    def lst(value, sort=True):
+        items = [x.strip() for x in (value or "").split(",") if x.strip()]
+        return ", ".join(sorted(items) if sort else items)
+
+    for group in catalog["groups"]:
+        for c in collect_controls(group):
+            own = {k: v for k, v in c.items() if k != "controls"}
+            out[c["id"]] = {
+                "praktik": group["id"],
+                "felder": {
+                    "titel": c.get("title", ""),
+                    "anforderung": export_plain_text(part_text(c, "statement"), params),
+                    "erlaeuterung": export_plain_text(part_text(c, "guidance"), params),
+                    "pflichtgrad": part_prop_value(c, "statement", "modal_verb") or "",
+                    "stufe": prop_value(c, "sec_level") or "",
+                    "aufwand": prop_value(c, "effort_level") or "",
+                    "ergebnis": part_prop_value(c, "statement", "result") or "",
+                    "ergebnis_zusatz": part_prop_value(c, "statement", "result_specification") or "",
+                    "dokument": part_prop_value(c, "statement", "documentation") or "",
+                    "zielobjekte": lst(part_prop_value(c, "statement", "target_object_categories")),
+                    "gefaehrdungen": lst(prop_value(c, "threats")),
+                    "tags": lst(prop_value(c, "tags")),
+                },
+                "signatur": json.dumps(strip_internal(own), sort_keys=True, ensure_ascii=False),
+            }
+    return out
+
+
+def changelog_word_diff(alt, neu):
+    """Wortweiser Vergleich als Liste von [Zeichen, Text]: "=" gleich, "-" entfernt, "+" neu.
+
+    Ein gleicher Abschnitt, der nur aus Leerraum besteht und zwischen zwei Aenderungen
+    liegt, gehoert zur Aenderung: sonst waere "Ausgabe, Registrierung und Zuordnung"
+    drei einzelne Treffer statt einer zusammenhaengenden Aenderung."""
+    a = re.findall(r"\s+|\S+", alt)
+    b = re.findall(r"\s+|\S+", neu)
+    blocks = []  # [Art "e" gleich / "c" geaendert, Text alt, Text neu]
+    for op, i1, i2, j1, j2 in difflib.SequenceMatcher(None, a, b, autojunk=False).get_opcodes():
+        blocks.append(["e" if op == "equal" else "c", "".join(a[i1:i2]), "".join(b[j1:j2])])
+    for k in range(1, len(blocks) - 1):
+        if blocks[k][0] == "e" and not blocks[k][1].strip() and blocks[k - 1][0] == "c" and blocks[k + 1][0] == "c":
+            blocks[k][0] = "c"
+    merged = []
+    for art, at, bt in blocks:
+        if merged and merged[-1][0] == art == "c":
+            merged[-1][1] += at
+            merged[-1][2] += bt
+        else:
+            merged.append([art, at, bt])
+    segs = []
+    for art, at, bt in merged:
+        if art == "e":
+            segs.append(["=", at])
+        else:
+            if at:
+                segs.append(["-", at])
+            if bt:
+                segs.append(["+", bt])
+    return segs
+
+
+def changelog_paths(a, b, pre=""):
+    """Pfade (JSON-artig, z. B. "class" oder "parts[1]/prose"), an denen zwei Knoten verschieden sind."""
+    if type(a) is not type(b):
+        yield pre
+    elif isinstance(a, dict):
+        for k in sorted(set(a) | set(b)):
+            sub = f"{pre}/{k}" if pre else k
+            if k not in a or k not in b:
+                yield sub
+            else:
+                yield from changelog_paths(a[k], b[k], sub)
+    elif isinstance(a, list):
+        if len(a) != len(b):
+            yield pre
+            return
+        for i, (x, y) in enumerate(zip(a, b)):
+            yield from changelog_paths(x, y, f"{pre}[{i}]")
+    elif a != b:
+        yield pre
+
+
+def changelog_value_at(node, path):
+    for tok in re.findall(r"/?([^/\[\]]+)|\[(\d+)\]", path):
+        node = node[tok[0]] if tok[0] else node[int(tok[1])]
+    return node
+
+
+def changelog_entry(old_cat, new_cat, new_commit, new_date, old_commit, threat_labels):
+    old, new = changelog_normalize(old_cat), changelog_normalize(new_cat)
+    old_nodes, new_nodes = changelog_nodes(old_cat), changelog_nodes(new_cat)
+    changes, technisch = [], {}
+    for cid in sorted(set(old) & set(new)):
+        o, n = old[cid], new[cid]
+        felder = []
+        for key, label in CHANGELOG_FIELDS:
+            if o["felder"][key] != n["felder"][key]:
+                f = {"feld": key, "name": label, "alt": o["felder"][key], "neu": n["felder"][key]}
+                if key in CHANGELOG_TEXT_FIELDS and f["alt"] and f["neu"]:
+                    f["diff"] = changelog_word_diff(f["alt"], f["neu"])
+                if key == "gefaehrdungen":
+                    ids = [x.strip() for x in (f["alt"] + "," + f["neu"]).split(",") if x.strip()]
+                    f["bezeichnungen"] = {x: threat_labels[x] for x in dict.fromkeys(ids) if x in threat_labels}
+                felder.append(f)
+        if felder:
+            changes.append({"id": cid, "titel": n["felder"]["titel"], "praktik": n["praktik"], "felder": felder})
+        elif o["signatur"] != n["signatur"]:
+            # Der Knoten ist anders, aber nichts davon steht auf der Seite (z. B. ein
+            # interner Klassenname). Nach Feldpfad zusammengefasst, mit einem Beispiel.
+            for pfad in changelog_paths(strip_internal(old_nodes[cid]), strip_internal(new_nodes[cid])):
+                allg = re.sub(r"\[\d+\]", "[]", pfad)
+                t = technisch.setdefault(allg, {"pfad": allg, "ids": [], "beispiel": None})
+                t["ids"].append(cid)
+                if t["beispiel"] is None:
+                    t["beispiel"] = {
+                        "id": cid,
+                        "alt": json.dumps(changelog_value_at(strip_internal(old_nodes[cid]), pfad), ensure_ascii=False)[:160],
+                        "neu": json.dumps(changelog_value_at(strip_internal(new_nodes[cid]), pfad), ensure_ascii=False)[:160],
+                    }
+    return {
+        "commit": new_commit,
+        "veroeffentlicht": new_date,
+        "vorgaenger": old_commit,
+        "katalog_version": new_cat["metadata"].get("version"),
+        "neu": sorted(set(new) - set(old)),
+        "entfernt": sorted(set(old) - set(new)),
+        "aenderungen": changes,
+        "technische_aenderungen": [
+            {**t, "anzahl": len(t["ids"])} for t in sorted(technisch.values(), key=lambda t: (-len(t["ids"]), t["pfad"]))
+        ],
+    }
+
+
+def update_changelog(catalog_file, threat_labels=None):
+    """Haengt Eintraege fuer Katalog-Commits an, die noch nicht in changelog.json stehen."""
+    threat_labels = load_basethreats() if threat_labels is None else threat_labels
+    top, rel, history = changelog_history(catalog_file)
+    data = json.loads(CHANGELOG_FILE.read_text()) if CHANGELOG_FILE.exists() else {"eintraege": []}
+    known = {e["commit"] for e in data["eintraege"]} | ({data["basis"]["commit"]} if data.get("basis") else set())
+    if len(history) < 2:
+        print(
+            "HINWEIS: Aenderungsprotokoll nicht aktualisiert: im Git-Verlauf des Katalogs gibt es "
+            f"{len(history)} Commit(s) (flacher Klon?). changelog.json bleibt unveraendert.",
+            file=sys.stderr,
+        )
+        return {"neu": 0, "gesamt": len(data["eintraege"])}
+    if not data.get("basis"):
+        data["basis"] = {"commit": history[0][0], "veroeffentlicht": history[0][1]}
+        known.add(history[0][0])
+    added_commits = []
+    cache = {}
+
+    def load(c):
+        if c not in cache:
+            cache[c] = changelog_load(top, rel, c)
+        return cache[c]
+
+    for (prev_c, _), (c, date_iso) in zip(history, history[1:]):
+        if c in known:
+            continue
+        data["eintraege"].append(changelog_entry(load(prev_c), load(c), c, date_iso, prev_c, threat_labels))
+        known.add(c)
+        added_commits.append(c)
+    data["eintraege"].sort(key=lambda e: e["veroeffentlicht"], reverse=True)
+    data["stand"] = {"commit": history[-1][0], "veroeffentlicht": history[-1][1]}
+    CHANGELOG_FILE.write_text(json.dumps(data, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
+    return {"neu": len(added_commits), "gesamt": len(data["eintraege"]), "commits": added_commits}
+
+
+def check_changelog(catalog, nur=None):
+    """Rechnet changelog.json auf einem anderen Weg nach als update_changelog().
+
+    nur: Menge von Commits, deren Eintraege vollstaendig nachgerechnet werden (dazu immer
+    der neueste); None = alle. Im Normalbetrieb sind das nur die in diesem Lauf neu
+    berechneten: ein aelterer Eintrag aendert sich nie und wurde beim Anlegen geprueft,
+    und jede Nachrechnung laedt zwei Staende des Katalogs (je ~5 MB). Jeden Lauf alle zu
+    pruefen wuerde den Sync-Workflow mit jedem neuen Stand teurer machen. Die Reihenfolge
+    aller Eintraege wird immer geprueft. CHANGELOG_CHECK_ALL=1 in main() erzwingt alles.
+
+    update_changelog() waehlt Felder gezielt aus (changelog_normalize). Hier wird jeder
+    Stand stattdessen als flache Pfad->Wert-Tabelle des GANZEN Baums gelesen, ohne die
+    Feldauswahl. Daran muessen sich ablesen lassen:
+      A. Die Menge aller Anforderungen, die sich zwischen zwei Staenden irgendwie
+         unterscheiden, ist genau "sichtbar geaendert" plus "technisch geaendert".
+      B. Jedes gemeldete alt/neu steht so im jeweiligen Stand (bei Listenfeldern
+         ohne Rolle der Reihenfolge); Texte bei eingesetzten Parametern.
+      C. Die Wortvergleiche setzen sich zu alt und neu wieder zusammen.
+      D. Der neueste Eintrag passt zum aktuell eingelesenen Katalog (wenn es derselbe
+         Stand ist).
+    """
+    problems = []
+    if not CHANGELOG_FILE.exists():
+        raise SystemExit("Aenderungsprotokoll passt nicht zum Katalog:\n  - changelog.json fehlt")
+    data = json.loads(CHANGELOG_FILE.read_text())
+    top, rel, history = changelog_history(CATALOG_FILE)
+
+    def flat(node, pre=""):
+        out = {}
+        if isinstance(node, dict):
+            for k, v in node.items():
+                if k == "controls":
+                    continue
+                out.update(flat(v, f"{pre}/{k}"))
+        elif isinstance(node, list):
+            for i, v in enumerate(node):
+                if isinstance(v, dict) and v.get("name") == "alt-identifier":
+                    continue
+                # Elemente mit "name" (props, parts) heissen nach ihrem Namen, auch wenn sie
+                # zusaetzlich eine id tragen (z. B. "GC.3.1.1_stm" fuer parts[statement]).
+                key = (v.get("name") or v.get("id") or i) if isinstance(v, dict) else i
+                out.update(flat(v, f"{pre}[{key}]"))
+        else:
+            out[pre] = node
+        return out
+
+    def tree(cat):
+        out, labels = {}, {}
+        def walk(n):
+            for p in n.get("params", []):
+                labels[p["id"]] = p.get("label", p["id"])
+            for c in n.get("controls", []):
+                out[c["id"]] = flat(c)
+                walk(c)
+            for g in n.get("groups", []):
+                walk(g)
+        walk(cat)
+        return out, labels
+
+    def subst(text, labels):
+        if not text:
+            return ""
+        def one(m):
+            return "[" + labels.get(m.group(1), m.group(1)) + "]"
+        return " ".join(re.sub(r"\{\{\s*insert:\s*param,\s*([A-Za-z0-9._-]+)\s*\}\}", one, text).split())
+
+    def pick(fl, labels, key):
+        g = lambda path: fl.get(path) or ""
+        s = "/parts[statement]"
+        def lst(v):
+            return ", ".join(sorted(x.strip() for x in v.split(",") if x.strip()))
+        if key == "titel": return g("/title")
+        if key == "anforderung": return subst(g(f"{s}/prose"), labels)
+        if key == "erlaeuterung": return subst(g("/parts[guidance]/prose"), labels)
+        if key == "pflichtgrad": return g(f"{s}/props[modal_verb]/value")
+        if key == "stufe": return g("/props[sec_level]/value")
+        if key == "aufwand": return g("/props[effort_level]/value")
+        if key == "ergebnis": return g(f"{s}/props[result]/value")
+        if key == "ergebnis_zusatz": return g(f"{s}/props[result_specification]/value")
+        if key == "dokument": return g(f"{s}/props[documentation]/value")
+        if key == "zielobjekte": return lst(g(f"{s}/props[target_object_categories]/value"))
+        if key == "gefaehrdungen": return lst(g("/props[threats]/value"))
+        if key == "tags": return lst(g("/props[tags]/value"))
+        raise KeyError(key)
+
+    with BASETHREATS_FILE.open(newline="", encoding="utf-8") as fh:
+        threat_table = {r["ID"]: r["Begriff"] for r in csv.DictReader(fh)}
+    by_commit = {c: d for c, d in history}
+    prev_commit = data["basis"]["commit"] if data.get("basis") else None
+    stand = None
+    for e in sorted(data["eintraege"], key=lambda e: e["veroeffentlicht"]):
+        if e["vorgaenger"] != prev_commit:
+            problems.append(f"{e['commit'][:7]}: Vorgaenger {e['vorgaenger'][:7]} passt nicht zur Reihenfolge ({str(prev_commit)[:7]})")
+        prev_commit = e["commit"]
+        if nur is not None and e["commit"] not in nur and e["commit"] != data["stand"]["commit"]:
+            continue  # alter Eintrag, beim Anlegen geprueft (siehe Docstring)
+        if e["commit"] not in by_commit or e["vorgaenger"] not in by_commit:
+            continue  # Historie nicht (mehr) lokal da; nur Pruefungen, die ohne sie gehen
+        (o_tree, o_lab), (n_tree, n_lab) = tree(changelog_load(top, rel, e["vorgaenger"])), tree(changelog_load(top, rel, e["commit"]))
+        # A: alle Unterschiede, generisch gefunden
+        verschieden = {i for i in set(o_tree) & set(n_tree) if o_tree[i] != n_tree[i]}
+        sichtbar = {a["id"] for a in e["aenderungen"]}
+        technisch = {i for t in e["technische_aenderungen"] for i in t["ids"]}
+        if verschieden != sichtbar | technisch:
+            fehlt = sorted(verschieden - sichtbar - technisch)[:3]
+            zuviel = sorted((sichtbar | technisch) - verschieden)[:3]
+            problems.append(f"{e['commit'][:7]}: Menge der geaenderten Anforderungen weicht ab (fehlt im Protokoll: {fehlt}, zuviel: {zuviel})")
+        if set(n_tree) - set(o_tree) != set(e["neu"]) or set(o_tree) - set(n_tree) != set(e["entfernt"]):
+            problems.append(f"{e['commit'][:7]}: neue/entfernte Anforderungen stimmen nicht")
+        if len(sichtbar) != len(e["aenderungen"]):
+            problems.append(f"{e['commit'][:7]}: eine Anforderung kommt doppelt vor")
+        # B und C: jede gemeldete Aenderung
+        for a in e["aenderungen"]:
+            for f in a["felder"]:
+                alt, neu = pick(o_tree[a["id"]], o_lab, f["feld"]), pick(n_tree[a["id"]], n_lab, f["feld"])
+                if f["alt"] != alt or f["neu"] != neu:
+                    problems.append(f"{e['commit'][:7]} {a['id']} {f['name']}: alt/neu stimmen nicht mit dem Stand ueberein")
+                if alt == neu:
+                    problems.append(f"{e['commit'][:7]} {a['id']} {f['name']}: gemeldet, aber nicht verschieden")
+                if "diff" in f:
+                    if "".join(t for op, t in f["diff"] if op in "=-") != alt or "".join(t for op, t in f["diff"] if op in "=+") != neu:
+                        problems.append(f"{e['commit'][:7]} {a['id']} {f['name']}: Wortvergleich setzt sich nicht zu alt/neu zusammen")
+            if not a["felder"]:
+                problems.append(f"{e['commit'][:7]} {a['id']}: Eintrag ohne Felder")
+        for a in e["aenderungen"]:
+            for f in a["felder"]:
+                if f["feld"] == "gefaehrdungen":
+                    ids = {x.strip() for x in (f["alt"] + "," + f["neu"]).split(",") if x.strip()}
+                    if f.get("bezeichnungen") != {x: threat_table[x] for x in ids if x in threat_table}:
+                        problems.append(f"{e['commit'][:7]} {a['id']}: Bezeichnungen der Gefaehrdungen stimmen nicht mit der BSI-Tabelle")
+        for t in e["technische_aenderungen"]:
+            if t["anzahl"] != len(t["ids"]) or len(set(t["ids"])) != len(t["ids"]):
+                problems.append(f"{e['commit'][:7]} technische Aenderung {t['pfad']}: Anzahl/IDs widerspruechlich")
+        stand = (e, n_tree, n_lab)
+
+    # D: neuester Eintrag gegen den aktuellen Katalog
+    if stand:
+        e, n_tree, n_lab = stand
+        cur_tree, cur_lab = tree(json.loads(CATALOG_FILE.read_text())["catalog"])
+        if e["commit"] == data["stand"]["commit"] and e["commit"] == history[-1][0] and cur_tree == n_tree:
+            for a in e["aenderungen"]:
+                for f in a["felder"]:
+                    if pick(cur_tree[a["id"]], cur_lab, f["feld"]) != f["neu"]:
+                        problems.append(f"{a['id']} {f['name']}: neuer Wert im Protokoll weicht vom aktuellen Katalog ab")
+        for a in (x for en in data["eintraege"] for x in en["aenderungen"]):
+            if a["id"] not in cur_tree:
+                problems.append(f"{a['id']}: steht im Protokoll, aber nicht im aktuellen Katalog")
+    if problems:
+        raise SystemExit("Aenderungsprotokoll passt nicht zum Katalog:\n  - " + "\n  - ".join(problems[:12]))
+    n_ch = sum(len(e["aenderungen"]) for e in data["eintraege"])
+    print(f"Aenderungsprotokoll ok: {len(data['eintraege'])} Staende, {n_ch} Aenderungen an Anforderungen")
+
+
 def main():
     data = json.loads(CATALOG_FILE.read_text())
     catalog = data["catalog"]
@@ -2925,6 +3329,7 @@ def main():
     )
     write_status_data()
     write_bausteine_data(by_baustein, baustein_links)
+    changelog_stats = update_changelog(CATALOG_FILE, basethreats_by_id)
     export_stats = write_export_data(
         catalog, params_by_id, basethreats_by_id, predecessor_index, load_documentation_guidelines()
     )
@@ -2944,12 +3349,17 @@ def main():
         by_baustein,
     )
     check_export(catalog)
+    check_changelog(
+        catalog,
+        None if os.environ.get("CHANGELOG_CHECK_ALL") else set(changelog_stats.get("commits", [])),
+    )
 
     total = len(management) + len(themenfelder)
     print(f"{total} Gruppen-Seiten (.mdx) erzeugt in {OUT_DIR}")
     print(f"3 Rollen-Seiten (.mdx) erzeugt in {ROLLEN_OUT_DIR}")
     print(f"{len(by_baustein)} Baustein-Seiten + Übersicht erzeugt in {VERGLEICH_OUT_DIR}")
     print(f"Startseiten-Daten: {stats}")
+    print(f"Aenderungsprotokoll: {changelog_stats['neu']} neu, {changelog_stats['gesamt']} Staende in changelog.json")
     print(f"Export-Dateien in {EXPORT_OUT_DIR}: {export_stats}")
 
     def sidebar_group(label, entries):
