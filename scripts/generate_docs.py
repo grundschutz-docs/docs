@@ -787,6 +787,7 @@ def render_control_meta(control, basethreats_by_id, tags_by_id, predecessor_inde
     tags = render_tags_prop(control, tags_by_id)
     targets = render_targets_prop(control)
     inherited = inherited_targets(control)
+    dokument = part_prop_value(control, "statement", "documentation")
     predecessors = render_predecessors_prop(control["id"], predecessor_index, baustein_links)
     if not (modal_verb or sec_level or effort or threats or tags or targets or predecessors):
         return None
@@ -812,6 +813,8 @@ def render_control_meta(control, basethreats_by_id, tags_by_id, predecessor_inde
         # Keine Zielobjektkategorie: laut Standard 300-1 (3.4.1) gehoert die
         # Anforderung in jedes Anforderungspaket. 364 von 1000 Anforderungen.
         attrs.append("noTarget")
+    if dokument:
+        attrs.append("document={{ name: " + jsx_string(dokument) + ", slug: " + jsx_string(tag_slug(dokument)) + " }}")
     if predecessors:
         attrs.append(f"predecessors={{{predecessors}}}")
     return f"<ControlMeta {' '.join(attrs)} />\n"
@@ -3629,12 +3632,15 @@ def check_dokumente(catalog):
     Nutzende herunterladen (Spalten "Dokumentiert in" und "Pflichtgrad")."""
     problems = []
     erwartet = {}
+    roh = {}  # id -> (Dokumenttyp, Modalverb, direkte Zielobjektkategorien)
 
     def sammle(knoten):
         for c in knoten.get("controls", []):
             st = next(p for p in c["parts"] if p["name"] == "statement")
             doku = next((x["value"] for x in st["props"] if x["name"] == "documentation"), "")
             verb = next(x["value"] for x in st["props"] if x["name"] == "modal_verb")
+            ziele = next((x["value"] for x in st["props"] if x["name"] == "target_object_categories"), "")
+            roh[c["id"]] = (doku, verb, {z.strip() for z in ziele.split(",") if z.strip()})
             if doku:
                 e = erwartet.setdefault(tag_slug(doku), {"name": doku, "ids": set(), "muss": 0})
                 e["ids"].add(c["id"])
@@ -3690,6 +3696,21 @@ def check_dokumente(catalog):
     m = re.search(r"Bei (\d+) von (\d+) Anforderungen nennt der Katalog einen Dokumenttyp, .*?insgesamt (\d+) verschiedene", text, re.S)
     if not m or (int(m.group(1)), int(m.group(2)), int(m.group(3))) != (gesamt, len(rumpf), len(erwartet)):
         problems.append(f"Einleitung der Dokument-Uebersicht nennt {m.groups() if m else 'nichts'}, erwartet {(gesamt, len(rumpf), len(erwartet))}")
+
+    # --- Zusammenspiel mit den Zielobjekten (ADR-0012) -----------------------------------------
+    # (a) Pillen "Dokumentiert in": eine je Anforderung mit Dokument, auf eine vorhandene Seite.
+    katalogtext = "\n".join(p.read_text() for p in OUT_DIR.glob("*.mdx"))
+    pillen = re.findall(r'document=\{\{ name: "[^"]+", slug: "([^"]+)" \}\}', katalogtext)
+    soll_pillen = sum(1 for d, _, _ in roh.values() if d)
+    if len(pillen) != soll_pillen:
+        problems.append(f"{len(pillen)} Pillen 'Dokumentiert in' auf den Katalogseiten, laut Katalog {soll_pillen}")
+    if not set(pillen) <= set(seiten):
+        problems.append(f"Pillen verlinken auf Dokument-Seiten, die es nicht gibt: {sorted(set(pillen) - set(seiten))[:3]}")
+    je_pille = {}
+    for slug in pillen:
+        je_pille[slug] = je_pille.get(slug, 0) + 1
+    if je_pille != {k: len(e["ids"]) for k, e in erwartet.items()}:
+        problems.append("Pillen je Dokumenttyp weichen vom Rohkatalog ab")
 
     if problems:
         raise SystemExit("Dokument-Seiten passen nicht zum Katalog:\n  - " + "\n  - ".join(problems))
