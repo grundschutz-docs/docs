@@ -2231,7 +2231,9 @@ def render_devs_page(themenfelder, groups_by_id):
         "[Tabelle (CSV oder Excel)](/export/), auch je Praktik.\n\n"
         "Du betreibst ein bestimmtes System, zum Beispiel einen Webserver oder Cloud-Dienste? "
         "Dann sortiere nach [Zielobjektkategorie](/zielobjekte/): je Kategorie die "
-        "Anforderungen, direkt und geerbt.\n\n",
+        "Anforderungen, direkt und geerbt, dazu die [Dokumente](/dokumente/) "
+        "(zum Beispiel Betriebskonzept oder Konfigurationshistorie), in denen der Katalog "
+        "die Ergebnisse festhalten lässt.\n\n",
         render_index_section(
             "Technische Umsetzung",
             "Das betrifft dich direkt — Architektur, Konfiguration, Code, Zugriffe, Betrieb.",
@@ -2940,7 +2942,8 @@ def render_zielobjekt_pages(catalog, control_index):
         f"{b_mit - b_direkt} Anforderungen übersehen.\n",
         f"Anforderungen mit zwei Kategorien ({zwei}) stehen bei beiden. Der Katalog sagt nicht, ob „oder“ oder "
         "„und“ gemeint ist; wir lesen es als „oder“. Das ist unsere Lesart, keine Aussage des BSI.\n",
-        f"Zu jeder Zahl kommen immer die {len(ohne)} Anforderungen ohne Zielobjektkategorie dazu.\n",
+        f"Zu jeder Zahl kommen immer die {len(ohne)} Anforderungen ohne Zielobjektkategorie dazu. "
+        "Welche [Dokumente](/dokumente/) die Anforderungen einer Kategorie nennen, steht auf ihrer Seite.\n",
         '<table class="vergleich-table zahlen-tabelle">\n'
         "<thead><tr><th>Kategorie</th><th>direkt</th><th>mit Vererbung</th></tr></thead>\n<tbody>\n"
         + "".join(zeilen(w, 0) for w in wurzeln)
@@ -3074,6 +3077,8 @@ def render_dokument_pages(catalog, control_index, params_by_id, basethreats_by_i
         "Beschreibung des BSI und die Anforderungen, die ihn nennen.\n",
         "**Was „Dokumentiert in“ bedeutet:** der Dokumenttyp, in dem das Ergebnis festgehalten wird. Es ist kein "
         "Nachweis und keine Prüfvorgabe, und der Katalog sagt nicht, ob jeder Typ ein eigenes Dokument sein muss.\n",
+        "**Für ein bestimmtes System:** Die Seite einer [Zielobjektkategorie](/zielobjekte/) nennt die Dokumente, "
+        "die ihre Anforderungen verlangen, zum Beispiel für den [Webserver](/zielobjekte/webserver/).\n",
     ]
     for gruppe in reihenfolge:
         eintraege = sorted(gruppen[gruppe], key=lambda d: (-d["muss"], -d["anzahl"], d["dokument"].casefold()))
@@ -4069,7 +4074,8 @@ def main():
         "Automatisch generiert aus dem OSCAL-Katalog. "
         "Nicht Teil des offiziellen BSI-Materials — eigene lesbare Aufbereitung.\n\n"
         "Alle Anforderungen als Tabelle: [als Excel-Datei exportieren](/export/). "
-        "Nach System statt nach Praktik: [Anforderungen nach Zielobjektkategorie](/zielobjekte/).\n\n",
+        "Nach System statt nach Praktik: [Anforderungen nach Zielobjektkategorie](/zielobjekte/). "
+        "Nach Dokument: [Dokumente im Katalog](/dokumente/).\n\n",
         render_index_section(
             "Managementsystem",
             "Diese sechs Praktiken bilden den PDCA-Zyklus des ISMS — von der "
