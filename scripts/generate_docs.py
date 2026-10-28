@@ -1216,8 +1216,11 @@ def export_license(stand):
             "kam. Bei allen anderen Dokumenttypen bleibt die Beschreibung leer."
         ),
         "eigene_werte": (
-            "Die Werte der Dropdown-Listen (Umsetzungsstatus, Vorhanden) sind eine Wahl von "
-            "grundschutz-docs.de und stammen nicht aus dem Katalog des BSI."
+            "Umsetzungsstatus: Erfüllt, Nicht erfüllt und Nicht anwendbar sind die Statuswerte des "
+            "BSI-Standards 300-1 (4.1.1). \"In Umsetzung\" ergänzt grundschutz-docs.de, weil der Standard "
+            "Anforderungen kennt, die noch nicht erfüllt, aber schon in der Umsetzungsplanung sind. "
+            "Die Liste \"Vorhanden\" (Ja, Teilweise, Nein) ist eine Wahl von grundschutz-docs.de und "
+            "stammt nicht aus dem Katalog oder dem Standard des BSI."
         ),
         "weitergabe": (
             "Die Bearbeitung steht ebenfalls unter CC BY-SA 4.0. Wer sie weitergibt, nennt das BSI als "

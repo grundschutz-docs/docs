@@ -16,7 +16,9 @@
 
 import { buildXlsx } from './xlsx.js';
 
-export const STATUS_VALUES = ['Offen', 'In Arbeit', 'Umgesetzt', 'Entbehrlich'];
+// Drei Werte sind die des BSI-Standards 300-1 (4.1.1); "In Umsetzung" ergänzen wir,
+// weil der Standard auch Anforderungen kennt, die schon in der Umsetzungsplanung sind.
+export const STATUS_VALUES = ['Erfüllt', 'Nicht erfüllt', 'In Umsetzung', 'Nicht anwendbar'];
 export const PRESENT_VALUES = ['Ja', 'Teilweise', 'Nein'];
 
 // Reihenfolge und Breite der Spalten im Blatt "Anforderungen".
