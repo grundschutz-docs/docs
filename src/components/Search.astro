@@ -106,6 +106,13 @@ const resultTemplate = `
 					</div>
 				) : (
 					<div class="search-container">
+						<p
+							class="gs-loading"
+							role="status"
+							data-error={isEnglish ? 'Search could not be loaded. Please reload the page.' : 'Die Suche konnte nicht geladen werden. Bitte die Seite neu laden.'}
+						>
+							{isEnglish ? 'Loading search …' : 'Suche wird geladen …'}
+						</p>
 						<pagefind-config
 							bundle-path={`${import.meta.env.BASE_URL.replace(/\/$/, '')}/pagefind/`}
 							base-url={import.meta.env.BASE_URL}
@@ -230,6 +237,14 @@ const resultTemplate = `
 
 			const closeModal = () => dialog.close();
 
+			// Pagefind-UI erst bei Absicht laden (siehe das Ladeskript unten): Maus ueber dem Knopf,
+			// Beruehrung, Tastaturfokus. Der Klick selbst laedt ebenfalls, falls keines davon vorher kam.
+			const loadSearch = () => (window as unknown as { gsLoadSearch?: () => Promise<void> }).gsLoadSearch?.();
+			openBtn.addEventListener('pointerenter', loadSearch, { once: true });
+			openBtn.addEventListener('touchstart', loadSearch, { once: true, passive: true });
+			openBtn.addEventListener('focus', loadSearch, { once: true });
+			openBtn.addEventListener('click', loadSearch);
+
 			openBtn.addEventListener('click', openModal);
 			openBtn.disabled = false;
 			closeBtn.addEventListener('click', closeModal);
@@ -241,6 +256,7 @@ const resultTemplate = `
 
 			window.addEventListener('keydown', (e) => {
 				if ((e.metaKey === true || e.ctrlKey === true) && e.key === 'k') {
+					loadSearch();
 					dialog.open ? closeModal() : openModal();
 					e.preventDefault();
 				}
@@ -310,34 +326,73 @@ const resultTemplate = `
 </script>
 
 <script define:vars={{ bundlePath: `${import.meta.env.BASE_URL.replace(/\/$/, '')}/pagefind/`, isDev }}>
-	if (!isDev) {
-		const link = document.createElement('link');
-		link.rel = 'stylesheet';
-		link.href = `${bundlePath}pagefind-component-ui.css`;
-		document.head.appendChild(link);
+	// Das Pagefind-UI (CSS 41 KB, JS 175 KB, nur eine Stunde Cache, kein Hash im Namen) wird nicht mehr
+	// bei jedem Seitenaufruf geladen, sondern erst, wenn jemand die Suche will: Maus ueber dem
+	// Suchknopf, Beruehrung, Fokus oder Cmd/Strg+K (siehe SiteSearch). Bis dahin zeigt der Dialog
+	// "Suche wird geladen". Auf der Startseite waren das fast die Haelfte der 496 KB, und die
+	// Stylesheet-Anfrage konkurrierte mit dem ersten Zeichnen (PageSpeed: render-blockierende
+	// Anfragen, effiziente Cache-Dauer).
+	let gsSearchLoading;
+	window.gsLoadSearch = () => {
+		if (gsSearchLoading) return gsSearchLoading;
+		const wrap = () => document.querySelector('site-search');
+		if (isDev) {
+			wrap()?.setAttribute('data-ready', '');
+			return (gsSearchLoading = Promise.resolve());
+		}
+		gsSearchLoading = new Promise((resolve) => {
+			const link = document.createElement('link');
+			link.rel = 'stylesheet';
+			link.href = `${bundlePath}pagefind-component-ui.css`;
+			document.head.appendChild(link);
 
-		const script = document.createElement('script');
-		script.type = 'module';
-		script.src = `${bundlePath}pagefind-component-ui.js`;
-		script.addEventListener('load', () => {
-			// Beispiel-Chips ausblenden, sobald eine echte Suchanfrage lief --
-			// ueber das dokumentierte Event-System (instance.on('search', ...)),
-			// nicht ueber ein geratenes DOM-Attribut der Summary-Komponente.
-			const manager = window.PagefindComponents?.getInstanceManager?.();
-			const instance = manager?.getInstance?.('default');
-			const wrap = document.getElementById('gs-search');
-			instance?.on?.('search', (term) => {
-				wrap?.classList.toggle('gs-has-searched', Boolean(term));
+			const script = document.createElement('script');
+			script.type = 'module';
+			script.src = `${bundlePath}pagefind-component-ui.js`;
+			script.addEventListener('load', () => {
+				// Beispiel-Chips ausblenden, sobald eine echte Suchanfrage lief --
+				// ueber das dokumentierte Event-System (instance.on('search', ...)),
+				// nicht ueber ein geratenes DOM-Attribut der Summary-Komponente.
+				const manager = window.PagefindComponents?.getInstanceManager?.();
+				const instance = manager?.getInstance?.('default');
+				const search = document.getElementById('gs-search');
+				instance?.on?.('search', (term) => {
+					search?.classList.toggle('gs-has-searched', Boolean(term));
+				});
+				wrap()?.setAttribute('data-ready', '');
+				// War der Dialog schon offen, bevor das Eingabefeld existierte, jetzt fokussieren.
+				document.querySelector('site-search dialog[open] pagefind-input input')?.focus();
+				resolve();
 			});
+			script.addEventListener('error', () => {
+				gsSearchLoading = undefined; // naechster Versuch moeglich
+				const hint = wrap()?.querySelector('.gs-loading');
+				if (hint) hint.textContent = hint.dataset.error ?? '';
+				resolve();
+			});
+			document.head.appendChild(script);
 		});
-		document.head.appendChild(script);
-	}
+		return gsSearchLoading;
+	};
 </script>
 
 <style>
 	@layer starlight.core {
 		site-search {
 			display: contents;
+		}
+		.gs-loading {
+			margin: 0;
+			padding: 1rem 0;
+			font-size: var(--sl-text-sm);
+			color: var(--sl-color-gray-3);
+		}
+		:global(site-search[data-ready]) .gs-loading {
+			display: none;
+		}
+		/* Die Beispiel-Chips fuellen das Suchfeld; solange die Suche nicht da ist, gibt es keins. */
+		:global(site-search:not([data-ready])) .gs-suggestions {
+			display: none;
 		}
 		button[data-open-modal] {
 			display: flex;
