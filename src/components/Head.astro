@@ -30,6 +30,13 @@
  *    koennte.
  */
 import Default from '@astrojs/starlight/components/Head.astro';
+// Vite ersetzt ?url durch den gehashten Pfad unter /_astro/ -- derselbe Name, den die
+// @font-face-Regel aus @fontsource nach dem Build hat. Ohne den Preload entdeckt der Browser
+// die Schrift erst, nachdem er die grosse CSS-Datei geladen und gelesen hat (HTML -> CSS ->
+// Schrift). Nur die beiden Schriften oberhalb der Falte: Fraunces fuer die Ueberschriften,
+// Karla fuer den Fliesstext. JetBrains Mono kommt spaeter und wird nicht vorgeladen.
+import frauncesUrl from '@fontsource-variable/fraunces/files/fraunces-latin-standard-normal.woff2?url';
+import karlaUrl from '@fontsource-variable/karla/files/karla-latin-wght-normal.woff2?url';
 
 const { isFallback } = Astro.locals.starlightRoute;
 
@@ -50,5 +57,7 @@ const WEBSITE_JSONLD = {
 ---
 
 <Default><slot /></Default>
+<link rel="preload" as="font" type="font/woff2" href={frauncesUrl} crossorigin />
+<link rel="preload" as="font" type="font/woff2" href={karlaUrl} crossorigin />
 {isFallback && <meta name="robots" content="noindex, follow" />}
 <script type="application/ld+json" set:html={JSON.stringify(WEBSITE_JSONLD)} />
