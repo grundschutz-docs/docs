@@ -1109,3 +1109,178 @@ site-search dialog::backdrop {
 		content: 'Grundschutz++';
 	}
 }
+
+/* Exportseite: Filter und Download (ExportTabelle.astro). Global wie .gf-filter,
+   weil die Komponente nur Markup und Script mitbringt. */
+.export-form {
+	display: grid;
+	gap: 0.9rem;
+	margin-bottom: 1.25rem;
+}
+
+.export-group {
+	margin: 0;
+	padding: 0.85rem 1.1rem;
+	border: 1px solid var(--sl-color-hairline);
+	border-radius: 1rem;
+	background: var(--sl-color-bg-nav);
+}
+
+.export-group legend {
+	padding: 0 0.4rem;
+	font-weight: 600;
+	font-size: var(--sl-text-sm);
+}
+
+.export-options {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.4rem 1.1rem;
+}
+
+.export-options-wide {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+	gap: 0.4rem 1.1rem;
+	margin-top: 0.6rem;
+}
+
+.export-options label,
+.export-include {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.4em;
+	font-size: var(--sl-text-sm);
+	color: var(--sl-color-gray-2);
+	cursor: pointer;
+}
+
+.export-options input,
+.export-include input {
+	flex-shrink: 0;
+	width: 1rem;
+	height: 1rem;
+	margin: 0;
+	accent-color: var(--sl-color-accent);
+}
+
+/* Starlight gibt Geschwistern im Inhaltsbereich automatisch einen oberen Rand.
+   In einem Flex- oder Grid-Container kommt der zum gap dazu und verschiebt
+   alle Optionen außer der ersten. */
+.export-options > label,
+.export-options > *,
+.export-form > *,
+.export-group > * {
+	margin-top: 0;
+}
+
+.export-group > .export-hint,
+.export-group > .export-include {
+	margin-top: 0.6rem;
+}
+
+.export-count {
+	color: var(--sl-color-gray-3);
+}
+
+.export-hint {
+	margin: 0.5rem 0 0;
+	font-size: var(--sl-text-xs);
+	color: var(--sl-color-gray-3);
+}
+
+.export-group details summary {
+	cursor: pointer;
+	font-size: var(--sl-text-sm);
+	color: var(--sl-color-gray-2);
+}
+
+.export-include {
+	margin-top: 0.7rem;
+}
+
+.export-result {
+	position: sticky;
+	bottom: 0;
+	z-index: 1;
+	margin: 1.25rem 0 2rem;
+	padding: 0.85rem 1.1rem;
+	border: 1px solid var(--sl-color-hairline);
+	border-radius: 1rem;
+	background: var(--sl-color-bg);
+}
+
+.export-result p {
+	margin: 0;
+}
+
+.export-actions {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 0.6rem 1rem;
+	margin-top: 0.6rem !important;
+}
+
+.export-actions > * {
+	margin: 0;
+}
+
+.export-button {
+	padding: 0.55rem 1.1rem;
+	border: 0;
+	border-radius: 999px;
+	background: var(--sl-color-accent);
+	color: var(--sl-color-black);
+	font: inherit;
+	font-weight: 600;
+	cursor: pointer;
+}
+
+
+.export-button.export-button-secondary {
+	padding: 0;
+	border-radius: 0;
+	background: none;
+	color: var(--sl-color-gray-2);
+	font-weight: 400;
+	font-size: var(--sl-text-sm);
+}
+
+.export-button:disabled {
+	opacity: 0.45;
+	cursor: not-allowed;
+}
+
+.export-button-secondary,
+.export-reset {
+	padding: 0;
+	border: 0;
+	background: none;
+	color: var(--sl-color-gray-2);
+	font: inherit;
+	font-size: var(--sl-text-sm);
+	text-decoration: underline;
+	cursor: pointer;
+}
+
+.export-files {
+	columns: 2 18rem;
+}
+
+@media (max-width: 50rem) {
+	/* Die Leiste klebt am unteren Rand und darf auf dem Handy nicht ein Drittel
+	   des Bildschirms belegen. */
+	.export-result {
+		margin-bottom: 1.5rem;
+		padding: 0.55rem 0.9rem;
+	}
+	.export-actions {
+		margin-top: 0.35rem !important;
+		gap: 0.3rem 0.9rem;
+	}
+	.export-button {
+		padding: 0.5rem 1rem;
+		font-size: var(--sl-text-sm);
+	}
+}

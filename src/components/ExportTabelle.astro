@@ -1,0 +1,333 @@
+---
+// Filter und Download für die Exportseite. Die Daten kommen aus
+// public/downloads/grundschutzpp-anforderungen.json (vom Generator geschrieben,
+// täglich mit dem Katalog abgeglichen). Das Markup der Filter entsteht beim Bauen
+// aus genau dieser Datei, der Browser lädt sie danach nur noch zum Filtern nach.
+// Nur Markup + Script hier drin, die CSS-Regeln liegen global in custom.css
+// (gleiches Muster wie GfFilter.astro und VergleichFilter.astro).
+import { readFileSync } from 'node:fs';
+import { join } from 'node:path';
+
+const data = JSON.parse(
+	readFileSync(join(process.cwd(), 'public', 'downloads', 'grundschutzpp-anforderungen.json'), 'utf-8'),
+);
+type Row = { id: string; praktik_id: string; zielobjekte: string[] };
+const rows: Row[] = data.anforderungen;
+
+const NO_TARGET = 'Ohne Zielobjektkategorie';
+
+// Zählen statt von Hand pflegen: Praktiken und Zielobjekte stehen so immer mit
+// der Zahl da, die im Katalog wirklich dahintersteht.
+const countByPraktik = new Map<string, number>();
+const countByTarget = new Map<string, number>();
+for (const r of rows) {
+	countByPraktik.set(r.praktik_id, (countByPraktik.get(r.praktik_id) ?? 0) + 1);
+	for (const t of r.zielobjekte) countByTarget.set(t, (countByTarget.get(t) ?? 0) + 1);
+}
+const praktiken: { id: string; titel: string }[] = data.praktiken;
+const targets = [...countByTarget.keys()].filter((t) => t !== NO_TARGET).sort((a, b) => a.localeCompare(b, 'de'));
+const noTargetCount = countByTarget.get(NO_TARGET) ?? 0;
+
+const EFFORT = ['0', '1', '2', '3', '4', '5'];
+---
+
+<div id="export-tool" data-no-target={NO_TARGET}>
+	<form class="export-form" aria-label="Anforderungen für den Export auswählen">
+		<fieldset class="export-group">
+			<legend>Praktik</legend>
+			<div class="export-options export-options-wide">
+				{
+					praktiken.map((p) => (
+						<label>
+							<input type="checkbox" name="praktik" value={p.id} />
+							{p.id} {p.titel} <span class="export-count">({countByPraktik.get(p.id)})</span>
+						</label>
+					))
+				}
+			</div>
+		</fieldset>
+
+		<fieldset class="export-group">
+			<legend>Pflichtgrad</legend>
+			<div class="export-options">
+				<label><input type="checkbox" name="pflicht" value="MUSS" /> MUSS</label>
+				<label><input type="checkbox" name="pflicht" value="SOLLTE" /> SOLLTE</label>
+				<label><input type="checkbox" name="pflicht" value="KANN" /> KANN</label>
+			</div>
+		</fieldset>
+
+		<fieldset class="export-group">
+			<legend>Sicherheitsstufe</legend>
+			<div class="export-options">
+				<label><input type="checkbox" name="stufe" value="Standard-Sicherheitsstufe" /> Standard-Sicherheitsstufe</label>
+				<label><input type="checkbox" name="stufe" value="Erhöhte Sicherheitsstufe" /> Erhöhte Sicherheitsstufe</label>
+			</div>
+			<p class="export-hint">
+				Bei höherem Schutzbedarf gilt die erhöhte Stufe zusätzlich zur Standard-Stufe. Dann beide anhaken.
+			</p>
+		</fieldset>
+
+		<fieldset class="export-group">
+			<legend>Aufwand</legend>
+			<div class="export-options">
+				{EFFORT.map((e) => <label><input type="checkbox" name="aufwand" value={e} /> {e}</label>)}
+			</div>
+			<p class="export-hint">0 = nicht bewertet, 1 = Quick Win, 5 = aufwändig und komplex (Skala des BSI).</p>
+		</fieldset>
+
+		<fieldset class="export-group">
+			<legend>Zielobjektkategorie</legend>
+			<details>
+				<summary>Kategorien auswählen (<span id="export-target-selected">keine</span>)</summary>
+				<div class="export-options export-options-wide">
+					{
+						targets.map((t) => (
+							<label>
+								<input type="checkbox" name="ziel" value={t} />
+								{t} <span class="export-count">({countByTarget.get(t)})</span>
+							</label>
+						))
+					}
+				</div>
+			</details>
+			<label class="export-include">
+				<input type="checkbox" id="export-include-no-target" checked />
+				Auch Anforderungen ohne Zielobjektkategorie ({noTargetCount})
+			</label>
+			<p class="export-hint">
+				Nach dem BSI-Standard 300-1 (3.4.1) gehören diese Anforderungen in jedes Anforderungspaket,
+				unabhängig davon, welche Assets es gibt. Das Häkchen nur entfernen, wenn du sie bewusst
+				ausblenden willst.
+			</p>
+		</fieldset>
+	</form>
+
+	<div class="export-result" role="status" aria-live="polite">
+		<p class="export-summary"><strong id="export-count">Lade Daten …</strong></p>
+		<p class="export-actions">
+			<button type="button" id="export-xlsx" class="export-button" disabled>
+				Excel-Datei herunterladen (.xlsx)
+			</button>
+			<button type="button" id="export-download" class="export-button export-button-secondary" disabled>
+				CSV herunterladen
+			</button>
+			<button type="button" id="export-reset" class="export-reset">Auswahl zurücksetzen</button>
+		</p>
+		<p id="export-error" class="gf-filter-empty" hidden>
+			Die Filter konnten nicht geladen werden. Die fertigen Dateien weiter unten funktionieren trotzdem.
+		</p>
+	</div>
+</div>
+
+{/* Fertige Dateien als normale Links: funktionieren auch ohne JavaScript und
+    für alle, die einfach "alles" oder eine ganze Praktik wollen. */}
+<h2 id="fertige-dateien">Fertige Dateien</h2>
+<p>
+	Datenstand des Katalogs: {data.stand}. Die Dateien werden täglich mit dem Katalog des BSI abgeglichen.
+</p>
+<ul class="export-files">
+	<li>
+		<a href="/downloads/grundschutzpp-anforderungen.csv" download>
+			<strong>Alle {rows.length} Anforderungen</strong>
+		</a>
+		(CSV)
+	</li>
+	{
+		praktiken.map((p) => (
+			<li>
+				<a href={`/downloads/grundschutzpp-anforderungen-${p.id.toLowerCase()}.csv`} download>
+					{p.id} {p.titel}
+				</a>{' '}
+				({countByPraktik.get(p.id)})
+			</li>
+		))
+	}
+</ul>
+
+<script>
+	type Row = {
+		id: string;
+		titel: string;
+		praktik_id: string;
+		praktik: string;
+		anforderung: string;
+		pflichtgrad: string;
+		stufe: string;
+		aufwand: string;
+		zielobjekte: string[];
+		ergebnis: string;
+		dokument: string;
+		gefaehrdungen: string[];
+		vorgaenger: string[];
+		seite: string;
+	};
+	type Payload = { quelle: string; arbeitsspalten: string[]; spalten: string[]; anforderungen: Row[] };
+	const XLSX_MIME = 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet';
+
+	const root = document.getElementById('export-tool') as HTMLElement;
+	const NO_TARGET = root.dataset.noTarget ?? '';
+	const form = root.querySelector('form') as HTMLFormElement;
+	const countEl = document.getElementById('export-count') as HTMLElement;
+	const downloadBtn = document.getElementById('export-download') as HTMLButtonElement;
+	const xlsxBtn = document.getElementById('export-xlsx') as HTMLButtonElement;
+	const resetBtn = document.getElementById('export-reset') as HTMLButtonElement;
+	const errorEl = document.getElementById('export-error') as HTMLElement;
+	const includeNoTarget = document.getElementById('export-include-no-target') as HTMLInputElement;
+	const targetSelected = document.getElementById('export-target-selected') as HTMLElement;
+
+	type FullPayload = Payload & { praktiken: { id: string; titel: string }[]; dokumente: unknown[]; lizenz: Record<string, string> };
+	let payload: FullPayload | null = null;
+
+	function checked(name: string): Set<string> {
+		const boxes = form.querySelectorAll<HTMLInputElement>(`input[name="${name}"]:checked`);
+		return new Set(Array.from(boxes, (b) => b.value));
+	}
+
+	// Nichts angehakt heißt "keine Einschränkung", nicht "nichts auswählen".
+	function select(rows: Row[]): Row[] {
+		const praktik = checked('praktik');
+		const pflicht = checked('pflicht');
+		const stufe = checked('stufe');
+		const aufwand = checked('aufwand');
+		const ziel = checked('ziel');
+		return rows.filter((r) => {
+			if (praktik.size && !praktik.has(r.praktik_id)) return false;
+			if (pflicht.size && !pflicht.has(r.pflichtgrad)) return false;
+			if (stufe.size && !stufe.has(r.stufe)) return false;
+			if (aufwand.size && !aufwand.has(r.aufwand)) return false;
+			if (ziel.size) {
+				const ohne = r.zielobjekte.length === 1 && r.zielobjekte[0] === NO_TARGET;
+				const trifft = r.zielobjekte.some((t) => ziel.has(t));
+				if (!(trifft || (ohne && includeNoTarget.checked))) return false;
+			}
+			return true;
+		});
+	}
+
+	// Gleiche Regeln wie csv.writer im Generator: Semikolon als Trenner, Zellen mit
+	// Semikolon, Anführungszeichen oder Zeilenumbruch in Anführungszeichen,
+	// Zeilenende CRLF, UTF-8 mit BOM. Deutsches Excel braucht beides.
+	function cell(value: string): string {
+		return /[;"\r\n]/.test(value) ? `"${value.replace(/"/g, '""')}"` : value;
+	}
+
+	function toCsv(rows: Row[], p: Payload): string {
+		const head = [...p.spalten, ...p.arbeitsspalten, 'Quelle'];
+		const lines = [head.map(cell).join(';')];
+		for (const r of rows) {
+			const line = [
+				r.id, r.titel, r.praktik, r.anforderung, r.pflichtgrad, r.stufe, r.aufwand,
+				r.zielobjekte.join('; '), r.ergebnis, r.dokument, r.gefaehrdungen.join('; '),
+				r.vorgaenger.join('; '), r.seite,
+				...p.arbeitsspalten.map(() => ''),
+				p.quelle,
+			];
+			lines.push(line.map(cell).join(';'));
+		}
+		return '﻿' + lines.join('\r\n') + '\r\n';
+	}
+
+	function update() {
+		const ziel = checked('ziel').size;
+		targetSelected.textContent = ziel ? `${ziel} gewählt` : 'keine';
+		if (!payload) return;
+		const n = select(payload.anforderungen).length;
+		const total = payload.anforderungen.length;
+		countEl.textContent = n === total ? `Alle ${total} Anforderungen` : `${n} von ${total} Anforderungen ausgewählt`;
+		downloadBtn.disabled = n === 0;
+		xlsxBtn.disabled = n === 0;
+		if (n === 0) countEl.textContent = 'Keine Anforderung passt zu dieser Auswahl';
+	}
+
+	// Vorauswahl aus dem Link, z. B. /export/?praktik=GC,STM von den Praktik-Seiten.
+	function applyQuery() {
+		const params = new URLSearchParams(location.search);
+		for (const name of ['praktik', 'pflicht', 'stufe', 'aufwand', 'ziel']) {
+			const wanted = (params.get(name) ?? '').split(',').filter(Boolean);
+			form.querySelectorAll<HTMLInputElement>(`input[name="${name}"]`).forEach((b) => {
+				b.checked = wanted.includes(b.value);
+			});
+		}
+	}
+
+	function save(blob: Blob, filename: string) {
+		const url = URL.createObjectURL(blob);
+		const a = document.createElement('a');
+		a.href = url;
+		a.download = filename;
+		document.body.appendChild(a);
+		a.click();
+		a.remove();
+		URL.revokeObjectURL(url);
+	}
+
+	// Die Auswahl in Worten, für das Info-Blatt der Excel-Datei: wer die Datei später
+	// öffnet, sieht, welche Filter zu dieser Auswahl gehörten.
+	function describeSelection(): string {
+		const parts: string[] = [];
+		const add = (label: string, set: Set<string>) => set.size && parts.push(`${label}: ${[...set].join(', ')}`);
+		add('Praktik', checked('praktik'));
+		add('Pflichtgrad', checked('pflicht'));
+		add('Sicherheitsstufe', checked('stufe'));
+		add('Aufwand', checked('aufwand'));
+		const ziel = checked('ziel');
+		if (ziel.size) {
+			parts.push(`Zielobjekt: ${[...ziel].join(', ')}${includeNoTarget.checked ? ' (und ohne Zielobjektkategorie)' : ''}`);
+		}
+		return parts.join('; ');
+	}
+
+	downloadBtn.addEventListener('click', () => {
+		if (!payload) return;
+		const rows = select(payload.anforderungen);
+		save(new Blob([toCsv(rows, payload)], { type: 'text/csv;charset=utf-8' }), 'grundschutzpp-anforderungen-auswahl.csv');
+	});
+
+	// Die Excel-Erzeugung wird erst beim Klick geladen: Wer nur liest, lädt sie nicht.
+	xlsxBtn.addEventListener('click', async () => {
+		if (!payload) return;
+		const label = xlsxBtn.textContent;
+		xlsxBtn.disabled = true;
+		xlsxBtn.textContent = 'Datei wird erzeugt …';
+		errorEl.hidden = true;
+		try {
+			const { buildExportWorkbook } = await import('../lib/xlsx/export-workbook.js');
+			const bytes = buildExportWorkbook(payload, select(payload.anforderungen), {
+				filterText: describeSelection(),
+				now: new Date(),
+			});
+			save(new Blob([bytes], { type: XLSX_MIME }), 'grundschutzpp-anforderungen-auswahl.xlsx');
+		} catch (err) {
+			console.error(err);
+			errorEl.textContent = 'Die Excel-Datei konnte nicht erzeugt werden. Die CSV-Datei funktioniert trotzdem.';
+			errorEl.hidden = false;
+		} finally {
+			xlsxBtn.textContent = label;
+			update();
+		}
+	});
+
+	resetBtn.addEventListener('click', () => {
+		form.reset();
+		includeNoTarget.checked = true;
+		update();
+	});
+
+	form.addEventListener('change', update);
+	applyQuery();
+	update();
+
+	fetch('/downloads/grundschutzpp-anforderungen.json')
+		.then((res) => {
+			if (!res.ok) throw new Error(String(res.status));
+			return res.json() as Promise<Payload>;
+		})
+		.then((json) => {
+			payload = json;
+			update();
+		})
+		.catch(() => {
+			countEl.textContent = 'Filter nicht verfügbar';
+			errorEl.hidden = false;
+		});
+</script>

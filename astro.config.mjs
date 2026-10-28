@@ -231,6 +231,7 @@ export default defineConfig({
 						{ label: 'Status & Zeitplan', slug: 'grundschutzpp/zeitplan' },
 						{ label: 'Methodik (BSI-Standard 300-1)', translations: { en: 'Methodology (BSI Standard 300-1)' }, slug: 'methodik' },
 						{ label: 'Vergleich: Alt ↔ Neu', slug: 'vergleich' },
+						{ label: 'Export für Excel', slug: 'export' },
 						{ label: 'Themen', slug: 'grundschutzpp/themen' },
 						{
 							label: 'Managementsystem',

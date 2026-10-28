@@ -1,0 +1,94 @@
+---
+title: Anforderungen als Excel-Tabelle exportieren
+description: Alle Grundschutz++-Anforderungen als Excel-Datei, filterbar nach Praktik, Pflichtgrad, Stufe, Aufwand und Zielobjekt, mit Spalten für den Soll-Ist-Abgleich und einer Übersicht der geforderten Dokumente.
+---
+
+import ExportTabelle from '../../components/ExportTabelle.astro';
+
+<span data-pagefind-meta="section:Werkzeug"></span>
+
+Wer Grundschutz++ im Alltag anwendet, arbeitet in einer Tabelle: pro Anforderung
+ein Status, ein Verantwortlicher, eine Frist. Hier wählst du die Anforderungen
+aus, die für dich gelten, und lädst sie als Excel-Datei. Auf Wunsch gibt es
+auch eine CSV-Datei für andere Werkzeuge.
+
+Nichts angehakt heißt: keine Einschränkung. Die Datei entsteht in deinem
+Browser, es wird nichts an einen Server gesendet.
+
+<ExportTabelle />
+
+## Was in der Excel-Datei steht
+
+Die Datei hat drei Blätter.
+
+**Anforderungen.** Eine Zeile je Anforderung. Die gelb hinterlegten Spalten
+(Umsetzungsstatus, Verantwortlich, Frist, Bemerkung) sind für deine Eingaben und
+stehen direkt hinter dem Aufwand, damit du nicht nach rechts scrollen musst.
+Der Umsetzungsstatus ist eine Auswahlliste (Offen, In Arbeit, Umgesetzt,
+Entbehrlich). Diese Werte sind unsere Wahl und stammen nicht aus dem Katalog des
+BSI. In der Kopfzeile sitzen Filterpfeile, die Kopfzeile und die ID bleiben beim
+Scrollen stehen.
+
+**Dokumente.** Der Katalog sagt bei fast jeder Anforderung, in welchem Dokument
+das Ergebnis festzuhalten ist. Dieses Blatt dreht das um: Welche Dokumente
+braucht es, und wie viele Anforderungen hängen an jedem? Es richtet sich nach
+deiner Auswahl. Dazu stehen Kategorie, Zielgruppe und Beschreibung aus der
+Dokumentationstabelle des BSI, wo sie dort vorhanden sind, und gelbe Spalten für
+Ablageort, Verantwortliche und Prüftermine.
+
+**Info & Lizenz.** Datenstand, Urheber, Lizenz, Änderungshinweis und die
+Erklärung der Spalten.
+
+| Spalte | Inhalt |
+| --- | --- |
+| ID, Titel, Praktik | die Anforderung und die Praktik, zu der sie gehört |
+| Anforderung | der Text aus dem Katalog; Parameter stehen als `[Platzhalter]` |
+| Pflichtgrad | MUSS, SOLLTE oder KANN |
+| Aufwand | 0 bis 5 nach der Skala des BSI; 0 heißt „wird nicht bewertet“ |
+| Sicherheitsstufe | Standard oder erhöht |
+| Zielobjektkategorien | worauf sich die Anforderung bezieht; „Ohne Zielobjektkategorie“ heißt: gilt unabhängig von den Assets |
+| Ergebnis | was nach der Anforderung entstehen soll |
+| Dokumentiert in | das Dokument, in dem das Ergebnis festzuhalten ist (bei 39 von 1.000 Anforderungen nennt der Katalog keines) |
+| Gefährdungen | die zugeordneten elementaren Gefährdungen |
+| Vorgänger im Kompendium 2023 | die ID der entsprechenden Anforderung im alten Kompendium und die Art der Beziehung (aus der Zuordnung des BSI, die das BSI selbst als Entwurf kennzeichnet) |
+| Seite | Link zur Anforderung auf dieser Website |
+| Quelle | Urheber, Lizenz und Hinweis auf die Bearbeitung (siehe unten) |
+
+In der CSV-Datei stehen dieselben Spalten, die vier Arbeitsspalten dort am
+Ende.
+
+Der Text des alten Kompendiums und des Standards 300-1 gehört nicht dazu.
+Für beide gelten die [Nutzungsbedingungen des BSI](https://www.bsi.bund.de/DE/Service/Nutzungsbedingungen/Nutzungsbedingungen_node.html),
+nicht die Lizenz des Katalogs. In der Spalte „Vorgänger“ stehen deshalb nur IDs.
+
+### Zu den Dokumenten
+
+Die Dokumentationstabelle des BSI ist noch nicht fertig, und die Namen der
+Dokumente im Katalog und in der Tabelle stimmen nicht immer überein. Eine
+Beschreibung gibt es deshalb nur, wenn der Name entweder exakt gleich ist oder
+sich nur in Groß- und Kleinschreibung, Leerzeichen und Bindestrichen
+unterscheidet. Die Spalte „Hinweis zur Beschreibung“ sagt jeweils, wie es dazu
+kam. Bei allen anderen bleibt die Beschreibung leer. Geraten wird nicht.
+
+## Quelle und Lizenz
+
+Die Anforderungen stammen aus dem
+[Anwenderkatalog Grundschutz++ des BSI](https://github.com/BSI-Bund/Stand-der-Technik-Bibliothek),
+veröffentlicht unter
+[CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/deed.de). Die
+Dateien hier sind eine Bearbeitung davon: Auswahl der Felder, Texte ohne
+Formatierung, Zielobjekte, Ergebnis, Dokument, Gefährdungen und Vorgänger-IDs
+ergänzt, Spalten für die eigene Arbeit angehängt. Der Inhalt der Anforderungen
+ist nicht verändert.
+
+Die Bearbeitung steht ebenfalls unter CC BY-SA 4.0. Wer sie weitergibt, nennt das
+BSI als Urheber, verweist auf die Lizenz und gibt eigene Änderungen an. Dieser
+Hinweis steht im Blatt „Info & Lizenz“, in jeder Zeile der Spalte „Quelle“ und
+als [LIZENZ.txt](/downloads/LIZENZ.txt) neben den Dateien. Die Dateien sind kein
+offizielles Angebot des BSI und keine Rechtsberatung.
+
+## Tipp für die CSV-Datei
+
+Öffne die Datei per Doppelklick. Falls alle Spalten in einer stehen oder Umlaute
+falsch erscheinen, nutze in Excel „Daten → Aus Text/CSV“ und wähle als
+Dateiursprung UTF-8 und als Trennzeichen Semikolon.
