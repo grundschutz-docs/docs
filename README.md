@@ -55,6 +55,12 @@ translated.
   BSI hierarchy (39): the requirements that apply directly, and those inherited
   from the categories above (STM.2.1.4.1), with the BSI's synonyms and examples
   to find a category by the word you use for your system
+- **Documents** (`/dokumente/`) — the 62 document types the catalog names in
+  `documentation`, grouped by the BSI category, with the BSI description
+  verbatim (with source) and the requirements that name each type; the
+  requirement pages carry a "Dokumentiert in" pill, and each target-object
+  page lists the documents its requirements name. The pages say that this is
+  not evidence: `result` is the subject of the requirement
 - **Export** (`/export/`) — the requirements as an Excel file or CSV,
   filterable by practice, obligation level, security level, effort and target
   object category (the categories above a chosen one are included, as the
