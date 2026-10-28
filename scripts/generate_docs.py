@@ -18,6 +18,7 @@ changes"):
 """
 import csv
 import difflib
+import functools
 import json
 import os
 import re
@@ -322,6 +323,15 @@ def target_hint(name):
     if info["parent"]:
         parts.append(f"Teil von: {info['parent']}.")
     return " ".join(p for p in parts if p)
+
+
+def inherited_targets(control):
+    """Kategorien unterhalb der direkt zugeordneten (STM.2.1.4.1), ohne diese selbst.
+    Nur fuer die unsichtbaren Suchfilter-Marken: ein Pagefind-Filter hing sonst nur an
+    der direkten Angabe, "Webserver" fand 6 statt 87 Anforderungen."""
+    direkt = set(control_targets(control))
+    descendants = export_target_descendants()
+    return sorted({d for t in direkt for d in descendants.get(t, [])} - direkt)
 
 
 def render_targets_prop(control):
@@ -774,6 +784,7 @@ def render_control_meta(control, basethreats_by_id, tags_by_id, predecessor_inde
     threats = prop_value(control, "threats")
     tags = render_tags_prop(control, tags_by_id)
     targets = render_targets_prop(control)
+    inherited = inherited_targets(control)
     predecessors = render_predecessors_prop(control["id"], predecessor_index, baustein_links)
     if not (modal_verb or sec_level or effort or threats or tags or targets or predecessors):
         return None
@@ -793,6 +804,8 @@ def render_control_meta(control, basethreats_by_id, tags_by_id, predecessor_inde
         attrs.append(f"tags={{{tags}}}")
     if targets:
         attrs.append(f"targets={{{targets}}}")
+        if inherited:
+            attrs.append("inheritedTargets={[" + ", ".join(jsx_string(n) for n in inherited) + "]}")
     else:
         # Keine Zielobjektkategorie: laut Standard 300-1 (3.4.1) gehoert die
         # Anforderung in jedes Anforderungspaket. 364 von 1000 Anforderungen.
@@ -1076,6 +1089,7 @@ def export_plain_text(text, params_by_id):
     return " ".join(PARAM_RE.sub(lambda m: f"[{params_by_id.get(m.group(1), m.group(1))}]", text).split())
 
 
+@functools.cache
 def export_target_descendants():
     """Zielobjektkategorie -> alle Kategorien darunter (Kinder, Enkel, ...), aus der Hierarchie
     der BSI-Tabelle (TARGETS).
@@ -1462,6 +1476,24 @@ def check_export(catalog):
     if ist_unter != erwartet_unter:
         falsch = sorted(i for i in erwartet_unter if ist_unter.get(i) != erwartet_unter[i])[:3]
         problems.append(f"CSV: Spalte 'Gilt auch fuer Unterkategorien' weicht von der Nachrechnung ab (z. B. {falsch})")
+
+    # Dieselbe Nachrechnung gegen die unsichtbaren Suchfilter-Marken (inheritedTargets) auf den
+    # geschriebenen Katalogseiten: Pro Anforderung genau die Unterkategorien, die auch die
+    # CSV-Spalte nennt. Aus dem Text zurueckgelesen, nicht aus dem Generatorcode.
+    gelesen_marken, aktuell = {}, None
+    for seite in OUT_DIR.glob("*.mdx"):
+        for zeile in seite.read_text().splitlines():
+            m = re.search(r"\{#([A-Z]+(?:\.[0-9]+)+)\}\s*$", zeile)
+            if m and zeile.startswith("#"):
+                aktuell = m.group(1)
+            elif zeile.startswith("<ControlMeta ") and aktuell:
+                im = re.search(r"inheritedTargets=\{\[(.*?)\]\}", zeile)
+                gelesen_marken[aktuell] = sorted(re.findall(r'"([^"]+)"', im.group(1))) if im else []
+                aktuell = None
+    erwartet_marken = {i: v for i, v in erwartet_unter.items()}
+    if gelesen_marken != erwartet_marken:
+        falsch = sorted(i for i in erwartet_marken if gelesen_marken.get(i) != erwartet_marken[i])[:3]
+        problems.append(f"Suchfilter: geerbte Zielobjekt-Marken auf den Katalogseiten weichen von der Nachrechnung ab (z. B. {falsch})")
 
     # Jede Datei je Praktik zusammen ergibt wieder die Gesamtdatei.
     summe = 0

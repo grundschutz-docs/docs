@@ -16,10 +16,13 @@ interface Props {
 	// Standard (3.4.1) in jedes Anforderungspaket.
 	targets?: { name: string; hint?: string; synonyms?: string }[];
 	noTarget?: boolean;
+	// Geerbte Kategorien (STM.2.1.4.1): nur als unsichtbare Suchfilter-Marken,
+	// keine Pillen. Die Pille gibt die direkte Angabe des Katalogs wieder.
+	inheritedTargets?: string[];
 	predecessors?: { oldId: string; relationship: string; link?: string; vergleichHref?: string }[];
 }
 
-const { modalVerb, secLevel, effort, threats, threatsHint, tags, targets, noTarget, predecessors } = Astro.props;
+const { modalVerb, secLevel, effort, threats, threatsHint, tags, targets, noTarget, inheritedTargets, predecessors } = Astro.props;
 
 const NO_TARGET_HINT =
 	'Keine Zielobjektkategorie: Nach dem BSI-Standard 300-1 (3.4.1) gehört diese Anforderung in jedes Anforderungspaket, unabhängig davon, welche Assets es gibt.';
@@ -200,6 +203,9 @@ const effortInfo = effort ? EFFORT[effort] : undefined;
 					Gilt für: {t.name}
 					{t.hint && <span class="pill-hint" aria-hidden="true" data-pagefind-ignore>?</span>}
 				</span>
+			))}
+			{inheritedTargets && inheritedTargets.map((name) => (
+				<span hidden data-pagefind-filter={`Zielobjekt:${name}`}></span>
 			))}
 			{noTarget && (
 				<span

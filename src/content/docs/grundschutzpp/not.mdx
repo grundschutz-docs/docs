@@ -158,7 +158,7 @@ Ein Geschäftsfortführungsplan (GFP) legt fest, wie ein Geschäftsprozess in ei
 
 <span class="sr-only" aria-hidden="true" data-pagefind-weight="10">NOT.3.3</span>
 
-<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="4" threats="G 0.25, G 0.27, G 0.40" threatsHint="G 0.25 – Ausfall von Geräten oder Systemen · G 0.27 – Ressourcenmangel · G 0.40 – Verhinderung von Diensten (Denial of Service)" tags={[{ name: "Kompetenzmanagement", slug: "kompetenzmanagement", hint: "Inhalte, bei denen Kompetenzen gefordert werden. Kompetenz ist die Fähigkeit, Wissen und Fertigkeiten effektiv einzusetzen, um bestimmte Aufgaben zu erfüllen, oft mit einer nachweisbaren Befähigung verbunden.", synonyms: "Schulung, Weiterbildung, Qualifikation" }]} targets={[{ name: "Nutzende", hint: "Alle natürlichen Personen, welche regelmäßig die Assets  im Informationsverbund für die Institution benutzen können, unabhängig davon ob sie aus Sicht der Institution intern oder extern sind. Beispiele: externe Berater.", synonyms: "Nutzer, User" }]} />
+<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="4" threats="G 0.25, G 0.27, G 0.40" threatsHint="G 0.25 – Ausfall von Geräten oder Systemen · G 0.27 – Ressourcenmangel · G 0.40 – Verhinderung von Diensten (Denial of Service)" tags={[{ name: "Kompetenzmanagement", slug: "kompetenzmanagement", hint: "Inhalte, bei denen Kompetenzen gefordert werden. Kompetenz ist die Fähigkeit, Wissen und Fertigkeiten effektiv einzusetzen, um bestimmte Aufgaben zu erfüllen, oft mit einer nachweisbaren Befähigung verbunden.", synonyms: "Schulung, Weiterbildung, Qualifikation" }]} targets={[{ name: "Nutzende", hint: "Alle natürlichen Personen, welche regelmäßig die Assets  im Informationsverbund für die Institution benutzen können, unabhängig davon ob sie aus Sicht der Institution intern oder extern sind. Beispiele: externe Berater.", synonyms: "Nutzer, User" }]} inheritedTargets={["Administrierende", "Führungskräfte", "Institutionsleitung", "Mitarbeitende"]} />
 
 > Notfallplanung für Nutzende SOLLTE zur Vorgehensweise in Notfällen und Krisen sensibilisieren.
 
@@ -210,7 +210,7 @@ Datensicherungen dienen der Wiederherstellung von Daten nach Vorfällen. Aufgrun
 
 <span class="sr-only" aria-hidden="true" data-pagefind-weight="10">NOT.4.2</span>
 
-<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="3" threats="G 0.45, G 0.39, G 0.25" threatsHint="G 0.45 – Datenverlust · G 0.39 – Schadprogramme · G 0.25 – Ausfall von Geräten oder Systemen" targets={[{ name: "IT-Systeme", hint: "Informationstechnische Systeme zur elektronischen Datenverarbeitung.", synonyms: "Computer, Computersystem" }]} />
+<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="3" threats="G 0.45, G 0.39, G 0.25" threatsHint="G 0.45 – Datenverlust · G 0.39 – Schadprogramme · G 0.25 – Ausfall von Geräten oder Systemen" targets={[{ name: "IT-Systeme", hint: "Informationstechnische Systeme zur elektronischen Datenverarbeitung.", synonyms: "Computer, Computersystem" }]} inheritedTargets={["Hostsysteme", "Mobile Endgeräte"]} />
 
 > Notfallplanung für IT-Systeme SOLLTE deren Datensicherung *[regelmäßig]* ausführen.
 
@@ -220,7 +220,7 @@ Zu den erforderlichen Daten können z.B. Konfigurationsdateien des Betriebssyste
 
 <span class="sr-only" aria-hidden="true" data-pagefind-weight="10">NOT.4.3</span>
 
-<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="3" threats="G 0.45, G 0.39, G 0.25" threatsHint="G 0.45 – Datenverlust · G 0.39 – Schadprogramme · G 0.25 – Ausfall von Geräten oder Systemen" targets={[{ name: "Anwendungen", hint: "Eine Software, ein Computerprogramm oder ein Softwaredienst, der definierte fachliche oder technische Funktionen zur Verarbeitung, Bereitstellung oder Verwaltung von Informationen zur Verfügung stellt. Beispiele: Textverarbeitungen, Betriebssysteme, mobile Applikationen.", synonyms: "Apps" }]} />
+<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="3" threats="G 0.45, G 0.39, G 0.25" threatsHint="G 0.45 – Datenverlust · G 0.39 – Schadprogramme · G 0.25 – Ausfall von Geräten oder Systemen" targets={[{ name: "Anwendungen", hint: "Eine Software, ein Computerprogramm oder ein Softwaredienst, der definierte fachliche oder technische Funktionen zur Verarbeitung, Bereitstellung oder Verwaltung von Informationen zur Verfügung stellt. Beispiele: Textverarbeitungen, Betriebssysteme, mobile Applikationen.", synonyms: "Apps" }]} inheritedTargets={["DNS-Server", "Dateiserver", "E-Mail", "Faxanwendungen", "Interpersonelle Kommunikation", "Office-Anwendungen", "TK-Anwendungen", "VK-Anwendungen", "Verzeichnisdienste", "Virtualisierungslösungen", "Webanwendungen", "Webbrowser", "Webserver"]} />
 
 > Notfallplanung für Anwendungen SOLLTE deren Datensicherung *[regelmäßig]* ausführen.
 
@@ -340,7 +340,7 @@ Werden Datensicherungen in der Nähe von Originaldaten aufbewahrt, so könnten b
 
 <span class="sr-only" aria-hidden="true" data-pagefind-weight="10">NOT.4.13</span>
 
-<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="3" threats="G 0.45, G 0.39, G 0.25" threatsHint="G 0.45 – Datenverlust · G 0.39 – Schadprogramme · G 0.25 – Ausfall von Geräten oder Systemen" targets={[{ name: "Outsourcing", hint: "Dienstleistungen zur Ausübung und Unterstützung von Geschäftsprozessen. Beispiele: RZ-Housing. Teil von: Dienstleistungen." }]} />
+<ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="3" threats="G 0.45, G 0.39, G 0.25" threatsHint="G 0.45 – Datenverlust · G 0.39 – Schadprogramme · G 0.25 – Ausfall von Geräten oder Systemen" targets={[{ name: "Outsourcing", hint: "Dienstleistungen zur Ausübung und Unterstützung von Geschäftsprozessen. Beispiele: RZ-Housing. Teil von: Dienstleistungen." }]} inheritedTargets={["Cloud-Dienste"]} />
 
 > Notfallplanung für Outsourcing SOLLTE die Datensicherung von Daten, die bei einem Dienstleister verarbeitet werden, nach *[einem anerkannten Standard]* *[regelmäßig]* ausführen.
 
@@ -390,7 +390,7 @@ Unter „Erfolg der Datensicherung“ ist hier die Vollständigkeit („complete
 
 <span class="sr-only" aria-hidden="true" data-pagefind-weight="10">NOT.4.17</span>
 
-<ControlMeta modalVerb="KANN" secLevel="erhöht" effort="5" threats="G 0.45, G 0.39, G 0.25" threatsHint="G 0.45 – Datenverlust · G 0.39 – Schadprogramme · G 0.25 – Ausfall von Geräten oder Systemen" targets={[{ name: "Anwendungen", hint: "Eine Software, ein Computerprogramm oder ein Softwaredienst, der definierte fachliche oder technische Funktionen zur Verarbeitung, Bereitstellung oder Verwaltung von Informationen zur Verfügung stellt. Beispiele: Textverarbeitungen, Betriebssysteme, mobile Applikationen.", synonyms: "Apps" }]} />
+<ControlMeta modalVerb="KANN" secLevel="erhöht" effort="5" threats="G 0.45, G 0.39, G 0.25" threatsHint="G 0.45 – Datenverlust · G 0.39 – Schadprogramme · G 0.25 – Ausfall von Geräten oder Systemen" targets={[{ name: "Anwendungen", hint: "Eine Software, ein Computerprogramm oder ein Softwaredienst, der definierte fachliche oder technische Funktionen zur Verarbeitung, Bereitstellung oder Verwaltung von Informationen zur Verfügung stellt. Beispiele: Textverarbeitungen, Betriebssysteme, mobile Applikationen.", synonyms: "Apps" }]} inheritedTargets={["DNS-Server", "Dateiserver", "E-Mail", "Faxanwendungen", "Interpersonelle Kommunikation", "Office-Anwendungen", "TK-Anwendungen", "VK-Anwendungen", "Verzeichnisdienste", "Virtualisierungslösungen", "Webanwendungen", "Webbrowser", "Webserver"]} />
 
 > Notfallplanung für Anwendungen KANN deren Funktionsfähigkeit nach Wiederherstellung *[regelmäßig]* überprüfen.
 
