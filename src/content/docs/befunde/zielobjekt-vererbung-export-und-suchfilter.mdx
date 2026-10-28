@@ -1,0 +1,153 @@
+---
+title: Die Zielobjekt-Auswahl ignorierte die Vererbung der Kategorien
+description: Der Filter im Export fand nur direkt zugeordnete Zielobjektkategorien, für „Webserver“ 6 statt 87 Anforderungen. Der Katalog verlangt die Vererbung in STM.2.1.4.1. Der Suchfilter verhält sich genauso.
+befund:
+  typ: fakt
+  status: offen
+  gefunden: 2026-10-28
+  betrifft: [STM.2.1.4.1]
+  quelle: https://github.com/BSI-Bund/Stand-der-Technik-Bibliothek/blob/main/control_layer/Grundschutz++/Grundschutz++-resolved_catalog.json
+  meldung:
+    kanal: Eigener Fehler, Korrektur im selben Repository
+    datum: 2026-10-28
+---
+
+import BefundMeta from '../../../components/BefundMeta.astro';
+
+<BefundMeta
+	typ="fakt"
+	status="offen"
+	gefunden={new Date('2026-10-28')}
+	betrifft={['STM.2.1.4.1']}
+	quelle="https://github.com/BSI-Bund/Stand-der-Technik-Bibliothek/blob/main/control_layer/Grundschutz++/Grundschutz++-resolved_catalog.json"
+	meldung={{ kanal: 'Eigener Fehler, Korrektur im selben Repository', datum: new Date('2026-10-28') }}
+/>
+
+Ein eigener Fehler in zwei Auswahlhilfen dieser Seite, dem Filter im
+[Export](/export/) und dem Zielobjekt-Filter der Suche. Beide behandelten die
+Zielobjektkategorien einer Anforderung, als gäbe es keine Hierarchie. Der Export
+ist korrigiert, der Suchfilter noch nicht.
+
+## Befund
+
+Der Katalog verlangt in [STM.2.1.4.1](/grundschutzpp/stm/#STM.2.1.4.1)
+(„Vererbung von Zielobjektkategorien“), dass ein Asset auch die in der Hierarchie
+übergeordneten Zielobjektkategorien erhält. Eine Anforderung für „Anwendungen“
+gilt damit auch für ein Asset der Kategorie „Webserver“, weil „Anwendungen“ in der
+Hierarchie über „Webserver“ steht.
+
+Im Katalog (Version 2026-10-22, 1.000 Anforderungen) ergibt das:
+
+| Kategorie | direkt zugeordnet | mit Vererbung |
+|---|---|---|
+| Webserver | 6 | 87 |
+| Cloud-Dienste | 9 | 108 |
+
+Dazu kommen die 364 Anforderungen ohne Zielobjektkategorie, die nach dem Standard
+300-1 (3.4.1) in jedes Anforderungspaket gehören.
+
+**Export.** Der Filter fand nur Anforderungen, deren direkt eingetragene Kategorie
+der gewählten entsprach. Wer „Webserver“ wählte, bekam 370 statt 451
+Anforderungen: 81 fehlten. Die Datei sah vollständig aus, nichts wies auf die
+Lücke hin. Das Blatt „Dokumente“ der Excel-Datei richtet sich nach der Auswahl und
+war entsprechend unvollständig.
+
+Betroffen waren nur Dateien, die mit dem Filter auf der Seite erzeugt wurden. Die
+fertigen Dateien (alle Anforderungen, je Praktik) waren vollständig, und die Spalte
+„Zielobjektkategorien“ nannte schon immer die direkt zugeordnete Kategorie, das
+war richtig. Die Exportseite war ab dem Nachmittag des 28. Oktober 2026
+erreichbar, frühestens nach 16:07 UTC. Ob jemand den Filter benutzt hat, wissen wir
+nicht: Die Excel-Datei entsteht im Browser, ihr Download wird nicht gezählt.
+
+**Suchfilter.** Der Filter „Zielobjekt“ in der Suche, seit dem 27. Oktober 2026
+auf der Seite, ordnet jeder Anforderung ebenfalls nur die direkt eingetragenen
+Kategorien zu. Der Suchindex führt für „Webserver“ 6 und für „Cloud-Dienste“ 9
+Anforderungen. Die Pille „Gilt für: Webserver“ an der Anforderung selbst ist
+richtig, sie gibt die direkte Angabe des Katalogs wieder. Der Filter heißt aber
+„Zielobjekt“ und nicht „direkt zugeordnet“.
+
+## Nachprüfen
+
+Mit einem Klon der Stand-der-Technik-Bibliothek, Commit `160c177` vom
+23. Oktober 2026, im Hauptverzeichnis des Klons. Es braucht nur Python 3.
+
+```python
+import csv, json
+
+katalog = json.load(open("control_layer/Grundschutz++/Grundschutz++-resolved_catalog.json"))["catalog"]
+tabelle = list(csv.DictReader(open("documentation/namespaces/target_object_categories.csv")))
+
+name = {z["UUID"]: z["Zielobjekt"] for z in tabelle}
+eltern = {z["Zielobjekt"]: name.get(z["ChildOfUUID"]) for z in tabelle}
+
+def kette(kategorie):                      # die Kategorie und alle darüber
+    gefunden = {kategorie}
+    while eltern.get(kategorie):
+        kategorie = eltern[kategorie]
+        gefunden.add(kategorie)
+    return gefunden
+
+def anforderungen(knoten):
+    for k in knoten.get("controls", []):
+        yield k
+        yield from anforderungen(k)
+    for g in knoten.get("groups", []):
+        yield from anforderungen(g)
+
+direkt = geerbt = ohne = 0
+for a in anforderungen(katalog):
+    aussage = next(p for p in a["parts"] if p["name"] == "statement")
+    wert = next((x["value"] for x in aussage["props"] if x["name"] == "target_object_categories"), "")
+    kategorien = {x.strip() for x in wert.split(",") if x.strip()}
+    if not kategorien:
+        ohne += 1
+    else:
+        direkt += "Webserver" in kategorien
+        geerbt += bool(kategorien & kette("Webserver"))
+
+print(f"Webserver: direkt {direkt}, mit Vererbung {geerbt}, ohne Kategorie {ohne}")
+```
+
+Ausgabe: `Webserver: direkt 6, mit Vererbung 87, ohne Kategorie 364`. Die Rechnung
+läuft von der Kategorie nach oben zu ihren Eltern. Der Generator des Exports
+rechnet in der Gegenrichtung (von jeder Kategorie nach unten zu ihren
+Unterkategorien) und kommt auf dasselbe.
+
+## Wie es durchging
+
+Die Prüfungen im Generator zählen, ob jede Datei zum Katalog passt: Zeilen, IDs,
+Pflichtgrade, die direkten Zuordnungen. Sie prüfen nicht, ob die **Auswahl** der
+Regel des Katalogs folgt. Die Regel steht auf unserer eigenen
+[Methodik-Seite](/methodik/) (Schritt 2: ein Asset bekommt auch die Kategorien
+über seiner eigenen). Beim Bauen der Filter wurde sie nicht herangezogen.
+Aufgefallen ist der Fehler am 28. Oktober 2026, als für eine geplante Funktion die
+Zahlen je Kategorie berechnet wurden.
+
+## Warum wichtig
+
+Wer ein Anforderungspaket für ein Asset zusammenstellt, geht von Vollständigkeit
+aus und sieht der Liste die fehlenden Anforderungen nicht an. Das macht den Fehler
+leise. Der Katalog selbst stuft die Vererbung als MUSS ein.
+
+## Was daraus folgte
+
+**Export.** Der Filter berücksichtigt die Vererbung jetzt immer. Ein Häkchen dafür
+gibt es bewusst nicht, weil es eine MUSS-Anforderung des Katalogs ist und keine
+Wahl. Die Zahl hinter einer Kategorie ist das, was man bei ihrer Auswahl
+bekommt. Neu ist die Spalte „Gilt auch für Unterkategorien“ in CSV, JSON und
+Excel, damit auch in Excel selbst gefilterte Ergebnisse stimmen. Die Seite und das
+Info-Blatt der Excel-Datei erklären die Regel. Bei Anforderungen mit zwei
+Kategorien sagt der Katalog nicht, ob „oder“ oder „und“ gemeint ist; der Filter
+nimmt sie auf, wenn eine zutrifft, und die Seite sagt das.
+
+Der Generator rechnet die neue Spalte auf einem zweiten Weg nach (die Hierarchie
+der BSI-Tabelle, frisch gelesen, und die Zuordnungen aus dem Rohtext des Katalogs)
+und bricht ab, wenn sie abweicht. Ein Test im Browser verglich die Auswahl
+„Webserver“ in der Anzeige, in der heruntergeladenen CSV und in der
+heruntergeladenen Excel-Datei mit einer eigenen Nachrechnung: 451 Zeilen, dieselben
+IDs.
+
+**Suchfilter.** Die Korrektur steht aus. Vorgesehen ist, dass der Filter auch die
+geerbten Kategorien findet; die Pillen an den Anforderungen bleiben unverändert,
+weil sie die direkte Angabe des Katalogs wiedergeben. Der Status dieses Eintrags
+wechselt auf „behoben“, wenn Export und Suchfilter korrigiert sind.
