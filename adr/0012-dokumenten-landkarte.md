@@ -2,7 +2,7 @@
 
 ## Status
 
-Vorgeschlagen
+Angenommen (Details dürfen sich mit begründetem Changelog-Eintrag ändern)
 
 ## Datum
 
@@ -124,18 +124,22 @@ Zwei Schritte, die auf dieser ADR aufbauen und eigene ADRs verdienen:
   verlassen den Rechner nicht. Das wäre der Schritt von einem Nachschlagewerk zu einem
   Werkzeug für die tägliche Arbeit.
 
-## Offene Entscheidungen
+## Festlegungen im Detail
 
-1. **Adresse:** `/dokumente/` (Vorschlag) oder unter `/grundschutzpp/`.
-2. **Reihenfolge auf der Übersicht:** nach BSI-Kategorie (Vorschlag), innerhalb nach Zahl der
-   MUSS-Anforderungen, dann alphabetisch; oder rein nach Zahl.
-3. **Gruppe der Typen ohne BSI-Beschreibung:** eigene Gruppe am Ende (Vorschlag) oder
-   zwischen den anderen mit Hinweis.
-4. **Spalte „Zielobjekt" auf den Dokument-Seiten:** hilft bei der Frage, ob ein Dokument zum
-   eigenen System gehört; macht die Tabelle breiter (siehe Handy-Erfahrung aus ADR-0011).
+1. **Adresse:** `/dokumente/` und `/dokumente/<typ>/`, kurz und weitergebbar wie
+   `/zielobjekte/`.
+2. **Reihenfolge auf der Übersicht:** nach der BSI-Kategorie, darin nach Zahl der
+   MUSS-Anforderungen (das Verbindliche zuerst), dann alphabetisch.
+3. **Typen ohne BSI-Beschreibung:** eigene Gruppe am Ende, mit dem offenen Satz „Zu diesem
+   Dokumenttyp liefert das BSI keine Beschreibung." Sie unter die anderen zu mischen würde
+   die Lücke verstecken.
+4. **Zielobjekt auf den Dokument-Seiten:** als kleine Zeile unter dem Titel der Anforderung,
+   nicht als eigene Spalte. Breite Spalten haben bei ADR-0011 auf dem Handy über den Rand
+   geragt; Tabellen werden vor dem Deploy auch bei 320 px Zelle für Zelle geprüft.
 
 ## Changelog
 
 | Datum      | Änderung | Von          |
 |------------|----------|--------------|
 | 2026-10-28 | Erstellt | giordano137  |
+| 2026-10-28 | Status Angenommen; die vier offenen Punkte sind festgelegt (Adresse, Reihenfolge, Typen ohne Beschreibung, Zielobjekt als Zeile) | giordano137  |
