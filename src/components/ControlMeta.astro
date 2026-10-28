@@ -476,6 +476,33 @@ const effortInfo = effort ? EFFORT[effort] : undefined;
 		}
 	}
 
+	/* Bis ca. 24rem (360 px) reichte auch das nicht mehr (gemessen 2026-10-28, 130 Tabellen bei
+	   320 px, 74 bei 360 px): ID, Pille und Link sind zusammen breiter als der Platz, und
+	   Zellen koennen nicht unter die breiteste Pille schrumpfen. Dort steht jede Zeile als
+	   umbrechende Reihe: ID und Pille nebeneinander, der Link rutscht bei Bedarf darunter. */
+	@media (max-width: 24rem) {
+		.predecessors-table,
+		.predecessors-table tbody {
+			display: block;
+		}
+		.predecessors-table tr {
+			display: flex;
+			flex-wrap: wrap;
+			align-items: center;
+			gap: 0.25rem 0.75rem;
+			padding: 0.4rem 0;
+			border-bottom: 1px solid var(--sl-color-hairline);
+		}
+		.predecessors-table tr:last-child {
+			border-bottom: none;
+		}
+		.predecessors-table td,
+		.predecessors-table tr:last-child td {
+			padding: 0;
+			border-bottom: none;
+		}
+	}
+
 	.pill:focus-visible {
 		outline: 2px solid var(--sl-color-accent);
 		outline-offset: 2px;
