@@ -2102,7 +2102,8 @@ def render_devs_page(themenfelder, groups_by_id):
         "Text, als Badges mit Hover-Erklärung — keine ISMS-Prozess-"
         "Erklärung davor, kein Umweg über das Managementsystem.\n\n"
         "Für eigene Werkzeuge gibt es den Katalog auch als "
-        "[Daten für Sprachmodelle (RAG)](/rag/).\n\n",
+        "[Daten für Sprachmodelle (RAG)](/rag/) und als "
+        "[Tabelle (CSV oder Excel)](/export/), auch je Praktik.\n\n",
         render_index_section(
             "Technische Umsetzung",
             "Das betrifft dich direkt — Architektur, Konfiguration, Code, Zugriffe, Betrieb.",
@@ -2861,7 +2862,8 @@ def main():
         f"description: {yaml_quote(index_summary)}\n"
         "---\n\n",
         "Automatisch generiert aus dem OSCAL-Katalog. "
-        "Nicht Teil des offiziellen BSI-Materials — eigene lesbare Aufbereitung.\n\n",
+        "Nicht Teil des offiziellen BSI-Materials — eigene lesbare Aufbereitung.\n\n"
+        "Alle Anforderungen als Tabelle: [als Excel-Datei exportieren](/export/).\n\n",
         render_index_section(
             "Managementsystem",
             "Diese sechs Praktiken bilden den PDCA-Zyklus des ISMS — von der "
