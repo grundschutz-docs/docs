@@ -13,24 +13,25 @@ const legalPrefix = isEnglish ? '/en' : '';
 		<LastUpdated />
 	</div>
 	<Pagination />
-	{/* Vier Spalten mit Überschrift statt einer Linkzeile: Grundschutz++, Projekt,
-	    Entwickler, Rechtliches. Die Kopfleiste ist mobil knapp (das GitHub-Symbol sitzt dort
-	    in einer Gruppe, die erst ab mittlerer Breite erscheint), der Footer ist
-	    auf jeder Seite und jedem Gerät da. */}
+	{/* Vier Spalten, nach der Frage geordnet, mit der man kommt: Nachschlagen (nach Praktik, nach
+	    System, nach Dokument, vom alten Kompendium aus), Verstehen (Methodik, Zeitplan, was sich
+	    ändert, Befunde), Daten & Werkzeuge, Projekt (mit Impressum und Datenschutz). Die Kopfleiste ist mobil knapp
+	    (das GitHub-Symbol sitzt dort in einer Gruppe, die erst ab mittlerer Breite erscheint),
+	    der Footer ist auf jeder Seite und jedem Gerät da. Impressum und Datenschutz tragen ihren
+	    Namen als Linktext und stehen auf jeder Seite. */}
 	<div class="footer-columns">
-		<nav aria-labelledby="footer-gspp">
-			<p class="col-title" id="footer-gspp">Grundschutz++</p>
-			<a href="/grundschutzpp/">{isEnglish ? 'Catalog (German)' : 'Katalog'}</a>
+		<nav aria-labelledby="footer-lookup">
+			<p class="col-title" id="footer-lookup">{isEnglish ? 'Look things up' : 'Nachschlagen'}</p>
+			<a href="/grundschutzpp/">{isEnglish ? 'Catalog by practice (German)' : 'Katalog nach Praktik'}</a>
+			<a href="/zielobjekte/">{isEnglish ? 'By target object (German)' : 'Nach Zielobjekt'}</a>
+			<a href="/dokumente/">{isEnglish ? 'By document (German)' : 'Nach Dokument'}</a>
+			<a href="/vergleich/">{isEnglish ? 'From the old Kompendium (German)' : 'Vom alten Kompendium'}</a>
+		</nav>
+		<nav aria-labelledby="footer-understand">
+			<p class="col-title" id="footer-understand">{isEnglish ? 'Understand' : 'Verstehen'}</p>
 			<a href={`${legalPrefix}/methodik/`}>{isEnglish ? 'Methodology' : 'Methodik'}</a>
 			<a href="/grundschutzpp/zeitplan/">{isEnglish ? 'Status & timeline (German)' : 'Status & Zeitplan'}</a>
 			<a href="/aenderungen/">{isEnglish ? 'Catalog changes (German)' : 'Änderungen am Katalog'}</a>
-			<a href="/vergleich/">{isEnglish ? 'Old ↔ new (German)' : 'Alt ↔ Neu'}</a>
-			<a href="/zielobjekte/">{isEnglish ? 'Target object categories (German)' : 'Zielobjekte'}</a>
-			<a href="/dokumente/">{isEnglish ? 'Documents (German)' : 'Dokumente'}</a>
-		</nav>
-		<nav aria-labelledby="footer-project">
-			<p class="col-title" id="footer-project">{isEnglish ? 'Project' : 'Projekt'}</p>
-			<a href={`${legalPrefix}/ueber/`}>{isEnglish ? 'About this site' : 'Über diese Seite'}</a>
 			<a href={`${legalPrefix}/befunde/`}>{isEnglish ? 'Findings' : 'Befunde'}</a>
 		</nav>
 		<nav aria-labelledby="footer-tools">
@@ -40,8 +41,9 @@ const legalPrefix = isEnglish ? '/en' : '';
 			<a href="https://github.com/grundschutz-docs/docs">{isEnglish ? 'Source code on GitHub' : 'Quellcode auf GitHub'}</a>
 			<a href="https://github.com/BSI-Bund/Stand-der-Technik-Bibliothek">{isEnglish ? 'BSI original catalog' : 'BSI-Originalkatalog'}</a>
 		</nav>
-		<nav aria-labelledby="footer-legal">
-			<p class="col-title" id="footer-legal">{isEnglish ? 'Legal' : 'Rechtliches'}</p>
+		<nav aria-labelledby="footer-project">
+			<p class="col-title" id="footer-project">{isEnglish ? 'Project' : 'Projekt'}</p>
+			<a href={`${legalPrefix}/ueber/`}>{isEnglish ? 'About this site' : 'Über diese Seite'}</a>
 			<a href={`${legalPrefix}/impressum/`}>{isEnglish ? 'Legal Notice' : 'Impressum'}</a>
 			<a href={`${legalPrefix}/datenschutz/`}>{isEnglish ? 'Privacy Policy' : 'Datenschutz'}</a>
 		</nav>
@@ -94,9 +96,24 @@ const legalPrefix = isEnglish ? '/en' : '';
 		.footer-columns a:hover {
 			color: var(--sl-color-accent);
 		}
+		/* Auf Seiten mit Seitenleiste ist der Footer nur etwa 650 px breit: vier Spalten waeren
+		   140 px schmal ("Daten & Werkzeuge" und die Links brechen um, die Spalten laufen
+		   auseinander). Dort zwei Spalten; die Startseite hat volle Breite und behaelt vier. */
+		@media (max-width: 100rem) {
+			:global([data-has-sidebar]) .footer-columns {
+				grid-template-columns: repeat(2, minmax(0, 1fr));
+			}
+		}
 		@media (max-width: 40rem) {
 			.footer-columns {
 				grid-template-columns: repeat(2, minmax(0, 1fr));
+			}
+		}
+		/* Bei 320 px passt "DATEN & WERKZEUGE" sonst nicht in eine Zeile. */
+		@media (max-width: 22rem) {
+			.col-title {
+				font-size: 0.65rem;
+				letter-spacing: 0.02em;
 			}
 		}
 	}
