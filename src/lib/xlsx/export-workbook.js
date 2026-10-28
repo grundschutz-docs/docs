@@ -37,6 +37,7 @@ const REQUIREMENT_COLUMNS = [
 	{ name: 'Bemerkung', width: 36, style: 'input' },
 	{ name: 'Sicherheitsstufe', width: 20, style: 'body' },
 	{ name: 'Zielobjektkategorien', width: 28, style: 'body' },
+	{ name: 'Gilt auch für Unterkategorien', width: 34, style: 'body' },
 	{ name: 'Ergebnis', width: 40, style: 'body' },
 	{ name: 'Dokumentiert in', width: 26, style: 'body' },
 	{ name: 'Gefährdungen', width: 40, style: 'body' },
@@ -56,6 +57,7 @@ function requirementCell(name, row, payload) {
 		case 'Aufwand': return row.aufwand === '' ? null : Number(row.aufwand);
 		case 'Sicherheitsstufe': return row.stufe;
 		case 'Zielobjektkategorien': return row.zielobjekte.join('; ');
+		case 'Gilt auch für Unterkategorien': return row.unterkategorien.join('; ');
 		case 'Ergebnis': return row.ergebnis;
 		case 'Dokumentiert in': return row.dokument;
 		case 'Gefährdungen': return row.gefaehrdungen.join('; ');
@@ -193,7 +195,7 @@ function infoSheet(payload, rows, opts) {
 		info('Blatt „Dokumente“', l.dokumente),
 		info('Eigene Werte', l.eigene_werte),
 		info('Aufwand', '0 = wird nicht bewertet, 1 = Quick Win (meist am selben Tag), 5 = aufwändig und komplex. Skala des BSI.'),
-		info('Zielobjektkategorien', '„Ohne Zielobjektkategorie“ heißt: Die Anforderung gehört nach dem BSI-Standard 300-1 (3.4.1) in jedes Anforderungspaket, unabhängig davon, welche Assets es gibt.'),
+		info('Zielobjektkategorien', '„Ohne Zielobjektkategorie“ heißt: Die Anforderung gehört nach dem BSI-Standard 300-1 (3.4.1) in jedes Anforderungspaket, unabhängig davon, welche Assets es gibt. Die Spalte „Zielobjektkategorien“ nennt die direkt zugeordnete Kategorie. Der Katalog verlangt in STM.2.1.4.1, dass ein Asset auch die übergeordneten Kategorien erbt; die Spalte „Gilt auch für Unterkategorien“ nennt deshalb die Kategorien darunter, für die die Anforderung ebenfalls gilt. Wer in Excel selbst nach einer Kategorie filtert, braucht beide Spalten. Einfacher ist die Auswahl auf der Exportseite, sie berücksichtigt die Vererbung.'),
 	];
 	return {
 		name: 'Info & Lizenz',

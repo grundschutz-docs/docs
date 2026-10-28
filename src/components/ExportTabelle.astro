@@ -11,7 +11,7 @@ import { join } from 'node:path';
 const data = JSON.parse(
 	readFileSync(join(process.cwd(), 'public', 'downloads', 'grundschutzpp-anforderungen.json'), 'utf-8'),
 );
-type Row = { id: string; praktik_id: string; zielobjekte: string[] };
+type Row = { id: string; praktik_id: string; zielobjekte: string[]; unterkategorien: string[] };
 const rows: Row[] = data.anforderungen;
 
 const NO_TARGET = 'Ohne Zielobjektkategorie';
@@ -22,7 +22,9 @@ const countByPraktik = new Map<string, number>();
 const countByTarget = new Map<string, number>();
 for (const r of rows) {
 	countByPraktik.set(r.praktik_id, (countByPraktik.get(r.praktik_id) ?? 0) + 1);
-	for (const t of r.zielobjekte) countByTarget.set(t, (countByTarget.get(t) ?? 0) + 1);
+	// Eine Anforderung gilt für ihre direkte Kategorie und für alle darunter (STM.2.1.4.1):
+	// die Zahl hinter einer Kategorie ist, was man bei Auswahl dieser Kategorie bekommt.
+	for (const t of new Set([...r.zielobjekte, ...r.unterkategorien])) countByTarget.set(t, (countByTarget.get(t) ?? 0) + 1);
 }
 const praktiken: { id: string; titel: string }[] = data.praktiken;
 const targets = [...countByTarget.keys()].filter((t) => t !== NO_TARGET).sort((a, b) => a.localeCompare(b, 'de'));
@@ -90,6 +92,11 @@ const EFFORT = ['0', '1', '2', '3', '4', '5'];
 					}
 				</div>
 			</details>
+			<p class="export-hint">
+				Wählst du eine Kategorie, bekommst du auch die Anforderungen ihrer Oberkategorien: Der Katalog verlangt, dass
+				ein Asset die übergeordneten Kategorien erbt (STM.2.1.4.1). Für „Webserver“ gelten also auch die
+				Anforderungen für „Anwendungen“. Die Zahl hinter einer Kategorie enthält diese geerbten Anforderungen.
+			</p>
 			<label class="export-include">
 				<input type="checkbox" id="export-include-no-target" checked />
 				Auch Anforderungen ohne Zielobjektkategorie ({noTargetCount})
@@ -155,6 +162,7 @@ const EFFORT = ['0', '1', '2', '3', '4', '5'];
 		stufe: string;
 		aufwand: string;
 		zielobjekte: string[];
+		unterkategorien: string[];
 		ergebnis: string;
 		dokument: string;
 		gefaehrdungen: string[];
@@ -197,7 +205,8 @@ const EFFORT = ['0', '1', '2', '3', '4', '5'];
 			if (aufwand.size && !aufwand.has(r.aufwand)) return false;
 			if (ziel.size) {
 				const ohne = r.zielobjekte.length === 1 && r.zielobjekte[0] === NO_TARGET;
-				const trifft = r.zielobjekte.some((t) => ziel.has(t));
+				const gilt = [...r.zielobjekte, ...r.unterkategorien];
+				const trifft = gilt.some((t) => ziel.has(t));
 				if (!(trifft || (ohne && includeNoTarget.checked))) return false;
 			}
 			return true;
@@ -211,17 +220,36 @@ const EFFORT = ['0', '1', '2', '3', '4', '5'];
 		return /[;"\r\n]/.test(value) ? `"${value.replace(/"/g, '""')}"` : value;
 	}
 
+	// Jede Spalte findet ihren Wert über ihren Namen aus payload.spalten. Früher standen die
+	// Werte an festen Positionen: kam im Generator eine Spalte dazu, verschob sich still alles.
+	// Eine Spalte ohne Eintrag hier ist jetzt ein Fehler statt einer falschen Datei.
+	const VALUE: Record<string, (r: Row) => string> = {
+		'ID': (r) => r.id,
+		'Titel': (r) => r.titel,
+		'Praktik': (r) => r.praktik,
+		'Anforderung': (r) => r.anforderung,
+		'Pflichtgrad': (r) => r.pflichtgrad,
+		'Sicherheitsstufe': (r) => r.stufe,
+		'Aufwand': (r) => r.aufwand,
+		'Zielobjektkategorien': (r) => r.zielobjekte.join('; '),
+		'Gilt auch für Unterkategorien': (r) => r.unterkategorien.join('; '),
+		'Ergebnis': (r) => r.ergebnis,
+		'Dokumentiert in': (r) => r.dokument,
+		'Gefährdungen': (r) => r.gefaehrdungen.join('; '),
+		'Vorgänger im Kompendium 2023': (r) => r.vorgaenger.join('; '),
+		'Seite': (r) => r.seite,
+	};
+
 	function toCsv(rows: Row[], p: Payload): string {
 		const head = [...p.spalten, ...p.arbeitsspalten, 'Quelle'];
+		const getters = p.spalten.map((name) => {
+			const get = VALUE[name];
+			if (!get) throw new Error(`Spalte "${name}" ist im Browser-Export nicht bekannt`);
+			return get;
+		});
 		const lines = [head.map(cell).join(';')];
 		for (const r of rows) {
-			const line = [
-				r.id, r.titel, r.praktik, r.anforderung, r.pflichtgrad, r.stufe, r.aufwand,
-				r.zielobjekte.join('; '), r.ergebnis, r.dokument, r.gefaehrdungen.join('; '),
-				r.vorgaenger.join('; '), r.seite,
-				...p.arbeitsspalten.map(() => ''),
-				p.quelle,
-			];
+			const line = [...getters.map((get) => get(r)), ...p.arbeitsspalten.map(() => ''), p.quelle];
 			lines.push(line.map(cell).join(';'));
 		}
 		return '﻿' + lines.join('\r\n') + '\r\n';
@@ -272,7 +300,7 @@ const EFFORT = ['0', '1', '2', '3', '4', '5'];
 		add('Aufwand', checked('aufwand'));
 		const ziel = checked('ziel');
 		if (ziel.size) {
-			parts.push(`Zielobjekt: ${[...ziel].join(', ')}${includeNoTarget.checked ? ' (und ohne Zielobjektkategorie)' : ''}`);
+			parts.push(`Zielobjekt: ${[...ziel].join(', ')} (mit Oberkategorien${includeNoTarget.checked ? ', und ohne Zielobjektkategorie' : ''})`);
 		}
 		return parts.join('; ');
 	}

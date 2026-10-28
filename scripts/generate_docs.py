@@ -1029,7 +1029,7 @@ DOCUMENTATION_FILE = (
 # Soll-Ist-Abgleich gedacht und gehoeren nicht zum Katalog.
 EXPORT_COLUMNS = [
     "ID", "Titel", "Praktik", "Anforderung", "Pflichtgrad", "Sicherheitsstufe", "Aufwand",
-    "Zielobjektkategorien", "Ergebnis", "Dokumentiert in", "Gefährdungen",
+    "Zielobjektkategorien", "Gilt auch für Unterkategorien", "Ergebnis", "Dokumentiert in", "Gefährdungen",
     "Vorgänger im Kompendium 2023", "Seite",
 ]
 EXPORT_WORKSHEET_COLUMNS = ["Umsetzungsstatus", "Verantwortlich", "Frist", "Bemerkung"]
@@ -1076,7 +1076,27 @@ def export_plain_text(text, params_by_id):
     return " ".join(PARAM_RE.sub(lambda m: f"[{params_by_id.get(m.group(1), m.group(1))}]", text).split())
 
 
+def export_target_descendants():
+    """Zielobjektkategorie -> alle Kategorien darunter (Kinder, Enkel, ...), aus der Hierarchie
+    der BSI-Tabelle (TARGETS).
+
+    Warum: Der Katalog verlangt in STM.2.1.4.1 ("Vererbung von Zielobjektkategorien"),
+    dass ein Asset auch die in der Hierarchie uebergeordneten Kategorien erhaelt. Eine
+    Anforderung fuer "Anwendungen" gilt damit auch fuer ein Asset der Kategorie
+    "Webserver". Wer nur die direkt zugeordnete Kategorie auswertet, uebersieht sie."""
+    def ancestors(name):
+        out, seen, parent = [], set(), TARGETS[name]["parent"]
+        while parent and parent not in seen:
+            out.append(parent)
+            seen.add(parent)
+            parent = TARGETS[parent]["parent"]
+        return out
+
+    return {name: sorted(other for other in TARGETS if name in ancestors(other)) for name in TARGETS}
+
+
 def export_rows(catalog, params_by_id, basethreats_by_id, predecessor_index):
+    descendants = export_target_descendants()
     rows = []
     for group in catalog["groups"]:
         slug = group["id"].lower()
@@ -1084,6 +1104,7 @@ def export_rows(catalog, params_by_id, basethreats_by_id, predecessor_index):
             cid = control["id"]
             threat_ids = [t.strip() for t in (prop_value(control, "threats") or "").split(",") if t.strip()]
             sec = prop_value(control, "sec_level")
+            direct_targets = control_targets(control)
             rows.append(
                 {
                     "id": cid,
@@ -1094,7 +1115,11 @@ def export_rows(catalog, params_by_id, basethreats_by_id, predecessor_index):
                     "pflichtgrad": part_prop_value(control, "statement", "modal_verb") or "",
                     "stufe": SEC_LEVEL_LABELS.get(sec, sec or ""),
                     "aufwand": prop_value(control, "effort_level") or "",
-                    "zielobjekte": control_targets(control) or [EXPORT_NO_TARGET],
+                    "zielobjekte": direct_targets or [EXPORT_NO_TARGET],
+                    # Kategorien darunter, fuer die die Anforderung wegen der Vererbung ebenfalls gilt
+                    "unterkategorien": sorted(
+                        {d for c in direct_targets for d in descendants.get(c, [])} - set(direct_targets)
+                    ),
                     "ergebnis": part_prop_value(control, "statement", "result") or "",
                     "dokument": part_prop_value(control, "statement", "documentation") or "",
                     "gefaehrdungen": [f"{t} – {basethreats_by_id[t]}" for t in threat_ids if t in basethreats_by_id],
@@ -1172,7 +1197,8 @@ def export_documents(rows, guidelines, praktik_order):
 def export_csv_line(row, source_note):
     return [
         row["id"], row["titel"], row["praktik"], row["anforderung"], row["pflichtgrad"], row["stufe"],
-        row["aufwand"], "; ".join(row["zielobjekte"]), row["ergebnis"], row["dokument"],
+        row["aufwand"], "; ".join(row["zielobjekte"]), "; ".join(row["unterkategorien"]),
+        row["ergebnis"], row["dokument"],
         "; ".join(row["gefaehrdungen"]), "; ".join(row["vorgaenger"]), row["seite"],
         "", "", "", "",
         source_note,
@@ -1387,6 +1413,56 @@ def check_export(catalog):
     if any(cell[:1] in "=+-@" for r in body for cell in r[: len(EXPORT_COLUMNS)] if cell):
         problems.append("CSV: Zelle beginnt mit = + - oder @ (Excel liest das als Formel)")
 
+    # Vererbung der Zielobjektkategorien (STM.2.1.4.1): die Spalte "Gilt auch fuer
+    # Unterkategorien" wird auf einem anderen Weg nachgerechnet als der Export sie
+    # erzeugt: Hierarchie ueber UUID/ChildOfUUID aus der frisch gelesenen CSV (der Export
+    # arbeitet mit Namen), direkte Zuordnungen aus dem Rohbaum des Katalogs.
+    with TARGETS_FILE.open(newline="", encoding="utf-8") as fh:
+        ziel_rows = list(csv.DictReader(fh))
+    kinder_von, name_von, uuid_von = {}, {}, {}
+    for zr in ziel_rows:
+        kinder_von.setdefault(zr["ChildOfUUID"], []).append(zr["UUID"])
+        name_von[zr["UUID"]] = zr["Zielobjekt"]
+        uuid_von[zr["Zielobjekt"]] = zr["UUID"]
+
+    def unterhalb(uuid):
+        gefunden, offen = set(), list(kinder_von.get(uuid, []))
+        while offen:
+            k = offen.pop()
+            if k not in gefunden:
+                gefunden.add(k)
+                offen.extend(kinder_von.get(k, []))
+        return {name_von[k] for k in gefunden}
+
+    erwartet_unter = {}
+
+    def sammle(knoten):
+        for c in knoten.get("controls", []):
+            st = next(p for p in c["parts"] if p["name"] == "statement")
+            v = next((x["value"] for x in st["props"] if x["name"] == "target_object_categories"), "")
+            direkt = [x.strip() for x in v.split(",") if x.strip()]
+            erwartet_unter[c["id"]] = sorted({n for d in direkt for n in unterhalb(uuid_von[d])} - set(direkt))
+            sammle(c)
+        for g in knoten.get("groups", []):
+            sammle(g)
+
+    sammle(json.loads(raw)["catalog"])
+    # Beispiel in Text der Exportseite, der Komponente und des Info-Blatts ("Webserver" unter
+    # "Anwendungen"): aendert das BSI die Hierarchie, muss der Text geaendert werden.
+    if TARGETS.get("Webserver", {}).get("parent") != "Anwendungen":
+        problems.append(
+            "Das Beispiel 'Webserver' unter 'Anwendungen' (export.mdx, ExportTabelle.astro, "
+            "export-workbook.js) stimmt nicht mehr zur Hierarchie des BSI: Texte anpassen"
+        )
+    if not any(erwartet_unter.values()):
+        problems.append("Vererbung: keine einzige Unterkategorie gefunden, Hierarchie leer gelesen?")
+    ist_unter = {
+        r[col["ID"]]: sorted(x for x in r[col["Gilt auch für Unterkategorien"]].split("; ") if x) for r in body
+    }
+    if ist_unter != erwartet_unter:
+        falsch = sorted(i for i in erwartet_unter if ist_unter.get(i) != erwartet_unter[i])[:3]
+        problems.append(f"CSV: Spalte 'Gilt auch fuer Unterkategorien' weicht von der Nachrechnung ab (z. B. {falsch})")
+
     # Jede Datei je Praktik zusammen ergibt wieder die Gesamtdatei.
     summe = 0
     for datei in EXPORT_OUT_DIR.glob("grundschutzpp-anforderungen-*.csv"):
@@ -1406,6 +1482,8 @@ def check_export(catalog):
     daten = json.loads((EXPORT_OUT_DIR / "grundschutzpp-anforderungen.json").read_text())
     if [a["id"] for a in daten["anforderungen"]] != ids:
         problems.append("JSON und CSV nennen verschiedene Anforderungen oder eine andere Reihenfolge")
+    if {a["id"]: a["unterkategorien"] for a in daten["anforderungen"]} != erwartet_unter:
+        problems.append("JSON: 'unterkategorien' weicht von der Nachrechnung ab")
     if not (EXPORT_OUT_DIR / "LIZENZ.txt").exists():
         problems.append("LIZENZ.txt fehlt")
     else:

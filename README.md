@@ -53,7 +53,8 @@ translated.
 - **Status & timeline** (`/grundschutzpp/zeitplan/`) — the BSI's milestones
 - **Export** (`/export/`) — the requirements as an Excel file or CSV,
   filterable by practice, obligation level, security level, effort and target
-  object category, with columns for tracking the implementation status and an
+  object category (the categories above a chosen one are included, as the
+  catalog requires in STM.2.1.4.1), with columns for tracking the implementation status and an
   overview of the documents the catalog names. The Excel file is built in the
   browser; nothing is sent to a server
 - **Changelog** (`/aenderungen/`) — what changed in the catalog between two

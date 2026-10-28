@@ -72,9 +72,10 @@ Erklärung der Spalten.
 | Pflichtgrad | MUSS, SOLLTE oder KANN |
 | Aufwand | 0 bis 5 nach der Skala des BSI; 0 heißt „wird nicht bewertet“ |
 | Sicherheitsstufe | Standard oder erhöht |
-| Zielobjektkategorien | worauf sich die Anforderung bezieht; „Ohne Zielobjektkategorie“ heißt: gilt unabhängig von den Assets |
+| Zielobjektkategorien | worauf sich die Anforderung direkt bezieht; „Ohne Zielobjektkategorie“ heißt: gilt unabhängig von den Assets |
+| Gilt auch für Unterkategorien | die Kategorien unterhalb der direkten, für die die Anforderung wegen der Vererbung ebenfalls gilt (siehe unten) |
 | Ergebnis | was nach der Anforderung entstehen soll |
-| Dokumentiert in | das Dokument, in dem das Ergebnis festzuhalten ist (bei 39 von 1.000 Anforderungen nennt der Katalog keines) |
+| Dokumentiert in | das Dokument, in dem das Ergebnis festzuhalten ist (bei einigen Anforderungen nennt der Katalog keines) |
 | Gefährdungen | die zugeordneten elementaren Gefährdungen |
 | Vorgänger im Kompendium 2023 | die ID der entsprechenden Anforderung im alten Kompendium und die Art der Beziehung (aus der Zuordnung des BSI, die das BSI selbst als Entwurf kennzeichnet) |
 | Seite | Link zur Anforderung auf dieser Website |
@@ -86,6 +87,12 @@ Ende.
 Der Text des alten Kompendiums und des Standards 300-1 gehört nicht dazu.
 Für beide gelten die [Nutzungsbedingungen des BSI](https://www.bsi.bund.de/DE/Service/Nutzungsbedingungen/Nutzungsbedingungen_node.html),
 nicht die Lizenz des Katalogs. In der Spalte „Vorgänger“ stehen deshalb nur IDs.
+
+### Zu den Zielobjektkategorien
+
+Der Katalog verlangt in STM.2.1.4.1, dass ein Asset auch die in der Hierarchie übergeordneten Zielobjektkategorien erbt. Eine Anforderung für „Anwendungen“ gilt damit auch für ein Asset der Kategorie „Webserver“. Der Filter auf dieser Seite berücksichtigt das immer. In der Datei steht in „Zielobjektkategorien“ die direkt zugeordnete Kategorie und in „Gilt auch für Unterkategorien“ die Kategorien darunter. Wer in Excel selbst nach einer Kategorie filtert, braucht beide Spalten, der Filter auf der Seite ist der einfachere Weg.
+
+Bei einigen Anforderungen sind zwei Kategorien eingetragen. Ob die Anforderung gilt, wenn eine zutrifft oder nur, wenn beide zutreffen, geht aus dem Katalog nicht hervor. Der Filter nimmt sie auf, wenn eine der beiden zutrifft.
 
 ### Zu den Dokumenten
 
