@@ -3298,7 +3298,10 @@ def main():
         "Übergangszeit“ anwendbar. Ein Enddatum dafür und ein Datum für die "
         "vollständige Ablösung des Kompendiums nennt das BSI nicht. Fest steht "
         "nur das Ende der Zertifizierbarkeit nach bisherigem IT-Grundschutz am "
-        "30.11.2031.\n",
+        "30.11.2031.\n\n"
+        "Zwischen den Meilensteinen ändert sich der Katalog laufend. Die "
+        "Unterschiede zwischen den veröffentlichten Ständen stehen im "
+        "[Änderungsprotokoll](/aenderungen/).\n",
         render_timeline(),
     ]
     (OUT_DIR / "zeitplan.mdx").write_text("\n".join(zeitplan_lines))
