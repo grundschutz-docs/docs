@@ -2864,6 +2864,30 @@ def render_zielobjekt_pages(catalog, control_index):
                 f"[{parent}](/zielobjekte/{tag_slug(parent)}/) steht.\n"
             )
             lines.append(render_zielobjekt_table(f"geerbt:{parent}", ids, controls, control_index, direkt_von, parent))
+        # Dokumente, die die Anforderungen dieser Kategorie (direkt und geerbt) nennen (ADR-0012).
+        alle_ids = list(m["direkt"]) + [cid for _, ids in m["geerbt"] for cid in ids]
+        dokus = {}
+        for cid in alle_ids:
+            d = part_prop_value(controls[cid], "statement", "documentation")
+            if d:
+                z = dokus.setdefault(d, [0, 0])
+                z[0] += 1
+                z[1] += part_prop_value(controls[cid], "statement", "modal_verb") == "MUSS"
+        if dokus:
+            lines.append(f"## Dokumente zu diesen Anforderungen ({len(dokus)}) {heading_anchor('dokumente')}\n")
+            lines.append(
+                f"Diese Anforderungen nennen {len(dokus)} Dokumenttypen, in denen das Ergebnis festzuhalten ist. "
+                "Die Anforderungen ohne Zielobjektkategorie und die der Methodik-Praktiken nennen weitere, "
+                "alle stehen unter [Dokumente im Katalog](/dokumente/).\n"
+            )
+            lines.append('<div data-pagefind-ignore>\n<table class="vergleich-table zahlen-tabelle" data-dokumente="zielobjekt">\n')
+            lines.append("<thead><tr><th>Dokument</th><th>Anforderungen</th><th>davon MUSS</th></tr></thead>\n<tbody>\n")
+            for dname, (anz, mus) in sorted(dokus.items(), key=lambda kv: (-kv[1][1], -kv[1][0], kv[0].casefold())):
+                lines.append(
+                    f'<tr data-slug="{tag_slug(dname)}"><td><a href="/dokumente/{tag_slug(dname)}/">{mdx_safe(dname)}</a></td>'
+                    f"<td>{anz}</td><td>{mus}</td></tr>\n"
+                )
+            lines.append("</tbody>\n</table>\n</div>\n")
         lines.append(f"## Ohne Zielobjektkategorie ({len(ohne)}) {heading_anchor('ohne-kategorie')}\n")
         lines.append(
             f"{len(ohne)} Anforderungen nennen keine Kategorie. Nach dem BSI-Standard 300-1 (3.4.1) "
@@ -3711,6 +3735,56 @@ def check_dokumente(catalog):
         je_pille[slug] = je_pille.get(slug, 0) + 1
     if je_pille != {k: len(e["ids"]) for k, e in erwartet.items()}:
         problems.append("Pillen je Dokumenttyp weichen vom Rohkatalog ab")
+
+    # (c) Tabelle "Dokumente zu diesen Anforderungen" auf den Kategorieseiten: Weg 1 aus dem Rohkatalog
+    # und der BSI-Hierarchie (UUID), Weg 2 aus der Export-CSV (Spalten "Zielobjektkategorien",
+    # "Gilt auch fuer Unterkategorien", "Dokumentiert in").
+    with TARGETS_FILE.open(newline="", encoding="utf-8") as fh:
+        zeilen = list(csv.DictReader(fh))
+    name_von = {z["UUID"]: z["Zielobjekt"] for z in zeilen}
+    eltern_von = {z["Zielobjekt"]: name_von.get(z["ChildOfUUID"]) for z in zeilen}
+
+    def mit_eltern(name):
+        out, k = {name}, eltern_von.get(name)
+        while k and k not in out:
+            out.add(k)
+            k = eltern_von.get(k)
+        return out
+
+    def parse_tabelle(text):
+        m = re.search(r'<table[^>]*data-dokumente="zielobjekt">(.*?)</table>', text, re.S)
+        if not m:
+            return {}
+        return {
+            g.group(1): [int(g.group(2)), int(g.group(3))]
+            for g in re.finditer(r'<tr data-slug="([a-z0-9-]+)">.*?</td><td>(\d+)</td><td>(\d+)</td></tr>', m.group(1))
+        }
+
+    for name in eltern_von:
+        kette = mit_eltern(name)
+        soll = {}
+        for cid, (doku, verb, ks) in roh.items():
+            if doku and ks & kette:
+                z = soll.setdefault(tag_slug(doku), [0, 0])
+                z[0] += 1
+                z[1] += verb == "MUSS"
+        csv_soll = {}
+        for r in rumpf:
+            eigen = {x for x in r[col["Zielobjektkategorien"]].split("; ") if x}
+            unter = {x for x in r[col["Gilt auch für Unterkategorien"]].split("; ") if x}
+            if r[col["Dokumentiert in"]] and (name in eigen or name in unter):
+                z = csv_soll.setdefault(tag_slug(r[col["Dokumentiert in"]]), [0, 0])
+                z[0] += 1
+                z[1] += r[col["Pflichtgrad"]] == "MUSS"
+        text = (ZIELOBJEKTE_OUT_DIR / f"{tag_slug(name)}.mdx").read_text()
+        ist = parse_tabelle(text)
+        if ist != soll:
+            problems.append(f"{name}: Dokument-Tabelle weicht vom Rohkatalog ab (Seite {len(ist)} Typen, Nachrechnung {len(soll)})")
+        if ist != csv_soll:
+            problems.append(f"{name}: Dokument-Tabelle weicht von der Export-CSV ab")
+        kopf = re.search(r"## Dokumente zu diesen Anforderungen \((\d+)\)", text)
+        if (int(kopf.group(1)) if kopf else 0) != len(soll):
+            problems.append(f"{name}: Ueberschrift der Dokument-Tabelle nennt nicht {len(soll)}")
 
     if problems:
         raise SystemExit("Dokument-Seiten passen nicht zum Katalog:\n  - " + "\n  - ".join(problems))
