@@ -127,7 +127,23 @@ const EFFORT = ['0', '1', '2', '3', '4', '5'];
 			<button type="button" id="export-copy-link" class="export-button export-button-secondary">
 				Link zu dieser Auswahl kopieren
 			</button>
-			<span id="export-share-status" class="export-share-status" role="status" aria-live="polite"></span>
+			<button type="button" id="export-copy-md" class="export-button export-button-secondary" disabled>
+				Checkliste als Markdown kopieren
+			</button>
+			<button type="button" id="export-copy-rich" class="export-button export-button-secondary" disabled>
+				Checkliste formatiert kopieren
+			</button>
+			<button type="button" id="export-save-md" class="export-button export-button-secondary" disabled>
+				Checkliste als .md speichern
+			</button>
+		</p>
+		<p id="export-share-status" class="export-share-status" role="status" aria-live="polite"></p>
+		<p class="export-hint">
+			Die Checkliste enthält je Anforderung die ID (als Link auf die Seite mit dem Text), den Titel und den Pflichtgrad,
+			dazu die Dokumente, die sie nennen, und die Quelle. Den Volltext lässt sie weg, damit sie in einem Ticket
+			lesbar bleibt. „Markdown“ ist reiner Text, zum Beispiel für GitHub-Issues. „Formatiert“ legt zusätzlich eine
+			formatierte Liste mit Links ab, für Editoren, die formatierten Text einfügen können (zum Beispiel Jira,
+			Confluence, Word oder E-Mail). Was dein Editor daraus macht, hängt von ihm ab.
 		</p>
 		<p id="export-error" class="gf-filter-empty" hidden>
 			Die Filter konnten nicht geladen werden. Die fertigen Dateien weiter unten funktionieren trotzdem.
@@ -163,6 +179,7 @@ const EFFORT = ['0', '1', '2', '3', '4', '5'];
 <script>
 	import { GROUPS, buildQuery, parseQuery, unknownMessage, type Group, type QueryState } from '../lib/export-query';
 	import { copyToClipboard } from '../lib/export-clipboard';
+	import { toHtml, toMarkdown, type ChecklistContext } from '../lib/export-checkliste';
 
 	type Row = {
 		id: string;
@@ -197,8 +214,11 @@ const EFFORT = ['0', '1', '2', '3', '4', '5'];
 	const warningEl = document.getElementById('export-query-warning') as HTMLElement;
 	const copyLinkBtn = document.getElementById('export-copy-link') as HTMLButtonElement;
 	const shareStatus = document.getElementById('export-share-status') as HTMLElement;
+	const copyMdBtn = document.getElementById('export-copy-md') as HTMLButtonElement;
+	const copyRichBtn = document.getElementById('export-copy-rich') as HTMLButtonElement;
+	const saveMdBtn = document.getElementById('export-save-md') as HTMLButtonElement;
 
-	type FullPayload = Payload & { praktiken: { id: string; titel: string }[]; dokumente: unknown[]; lizenz: Record<string, string> };
+	type FullPayload = Payload & { stand: string; praktiken: { id: string; titel: string }[]; dokumente: unknown[]; lizenz: Record<string, string> };
 	let payload: FullPayload | null = null;
 
 	function checked(name: string): Set<string> {
@@ -279,6 +299,7 @@ const EFFORT = ['0', '1', '2', '3', '4', '5'];
 		countEl.textContent = n === total ? `Alle ${total} Anforderungen` : `${n} von ${total} Anforderungen ausgewählt`;
 		downloadBtn.disabled = n === 0;
 		xlsxBtn.disabled = n === 0;
+		for (const b of [copyMdBtn, copyRichBtn, saveMdBtn]) b.disabled = n === 0;
 		if (n === 0) countEl.textContent = 'Keine Anforderung passt zu dieser Auswahl';
 	}
 
@@ -400,6 +421,56 @@ const EFFORT = ['0', '1', '2', '3', '4', '5'];
 		writeQuery();
 		const result = await copyToClipboard(location.href);
 		say(result === 'failed' ? 'Kopieren nicht möglich. Die Adresse in der Adressleiste ist der Link.' : 'Link kopiert.');
+	});
+
+	// Die Checkliste (ADR-0013). Der Link darin zeigt auf die oeffentliche Adresse der Seite, nicht auf die
+	// Adresse, unter der man gerade sitzt: Wer die Liste weitergibt, will, dass der Empfaenger sie oeffnen kann.
+	function checklist(): { rows: Row[]; ctx: ChecklistContext } | null {
+		if (!payload) return null;
+		const rows = select(payload.anforderungen);
+		if (!rows.length) return null;
+		const siteUrl = new URL(rows[0].seite).origin;
+		return {
+			rows,
+			ctx: {
+				auswahl: describeSelection(),
+				link: `${siteUrl}/export/${buildQuery(currentState())}`,
+				stand: payload.stand,
+				quelle: payload.quelle,
+				praktiken: payload.praktiken,
+				siteUrl,
+			},
+		};
+	}
+
+	copyMdBtn.addEventListener('click', async () => {
+		const c = checklist();
+		if (!c) return;
+		const result = await copyToClipboard(toMarkdown(c.rows, c.ctx));
+		say(
+			result === 'failed'
+				? 'Kopieren nicht möglich. Nutze „Checkliste als .md speichern“.'
+				: `Markdown kopiert (${c.rows.length} Anforderungen).`,
+		);
+	});
+
+	copyRichBtn.addEventListener('click', async () => {
+		const c = checklist();
+		if (!c) return;
+		const result = await copyToClipboard(toMarkdown(c.rows, c.ctx), toHtml(c.rows, c.ctx));
+		say(
+			result === 'rich'
+				? `Formatiert kopiert (${c.rows.length} Anforderungen), mit dem Markdown-Text als Zweitformat. Dein Editor wählt beim Einfügen.`
+				: result === 'failed'
+					? 'Kopieren nicht möglich. Nutze „Checkliste als .md speichern“.'
+					: `Nur als Text kopiert (${c.rows.length} Anforderungen): Dein Browser kann kein formatiertes Kopieren.`,
+		);
+	});
+
+	saveMdBtn.addEventListener('click', () => {
+		const c = checklist();
+		if (!c) return;
+		save(new Blob([toMarkdown(c.rows, c.ctx)], { type: 'text/markdown;charset=utf-8' }), 'grundschutzpp-anforderungspaket.md');
 	});
 	applyQuery();
 	update();
