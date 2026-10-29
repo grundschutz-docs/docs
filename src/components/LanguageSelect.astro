@@ -63,7 +63,8 @@ const groupLabel = Astro.locals.t('languageSelect.accessibleLabel');
 			font-family: 'JetBrains Mono Variable', ui-monospace, monospace;
 			font-size: var(--sl-text-2xs);
 			letter-spacing: 0.03em;
-			color: var(--sl-color-gray-3);
+			/* gray-2 statt gray-3: auf dem hellen Glas der Kopfleiste erreichte gray-3 im Dunkelmodus 4,3:1. */
+			color: var(--sl-color-gray-2);
 			text-decoration: none;
 			transition:
 				background-color 0.15s ease,
@@ -77,6 +78,10 @@ const groupLabel = Astro.locals.t('languageSelect.accessibleLabel');
 		.lang-option[aria-current='true'] {
 			background-color: var(--sl-color-accent);
 			color: var(--sl-color-white);
+		}
+		/* Im Dunkelmodus ist --sl-color-white fast weiss: auf Gold nur 2,2:1. Dort dunkler Text. */
+		:global(:root:not([data-theme='light'])) .lang-option[aria-current='true'] {
+			color: var(--sl-color-black);
 		}
 	}
 </style>
