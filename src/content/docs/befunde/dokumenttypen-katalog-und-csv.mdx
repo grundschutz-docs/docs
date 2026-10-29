@@ -1,0 +1,111 @@
+---
+title: Neun Dokumenttypen im Katalog stehen nicht in der Dokumentationstabelle des BSI
+description: Der Anwenderkatalog nennt bei 961 Anforderungen ein Dokument, in dem das Ergebnis festzuhalten ist. Bei 168 davon steht ein Name, den die Tabelle documentation_guidelines.csv nicht kennt.
+befund:
+  typ: fakt
+  status: gemeldet
+  gefunden: 2026-10-28
+  betrifft: []
+  quelle: https://github.com/BSI-Bund/Stand-der-Technik-Bibliothek/blob/main/documentation/namespaces/documentation_guidelines.csv
+  meldung:
+    kanal: E-Mail an das Team Stand der Technik (BSI), Kopie an das Service Center
+    datum: 2026-10-29
+---
+
+import BefundMeta from '../../../components/BefundMeta.astro';
+
+<BefundMeta
+	typ="fakt"
+	status="gemeldet"
+	gefunden={new Date('2026-10-28')}
+	quelle="https://github.com/BSI-Bund/Stand-der-Technik-Bibliothek/blob/main/documentation/namespaces/documentation_guidelines.csv"
+	meldung={{ kanal: 'E-Mail an das Team Stand der Technik (BSI), Kopie an das Service Center', datum: new Date('2026-10-29') }}
+/>
+
+Jede Anforderung im Anwenderkatalog nennt den Gegenstand, um den es geht
+(`result`, im Satz „die Datensicherung getrennt von den Originaldaten“), und bei 961 von 1.000 auch, in welchem Dokument es festzuhalten
+ist (`documentation`). Für die Dokumenttypen gibt es eine Tabelle des BSI,
+`documentation_guidelines.csv`, auf die der Katalog selbst verweist. Dieser
+Befund beschreibt, wo Katalog und Tabelle nicht zusammenpassen. Er bewertet das
+BSI nicht.
+
+## Befund
+
+Der Katalog (Version 2026-10-22) verwendet 62 verschiedene Dokumentnamen. Neun
+davon, zusammen bei 168 der 961 Anforderungen mit Dokument, kommen in der
+Spalte „Begriff“ der Tabelle nicht vor:
+
+| Name im Katalog | Anforderungen |
+|---|---|
+| Beschaffungskriterien | 70 |
+| Detektions-Konzept | 61 |
+| Übungs- und Prüfplan | 24 |
+| Anwendungsdokumentation | 3 |
+| Schwachstellenregister | 3 |
+| Outsourcing Strategie | 2 |
+| Risikobetrachtung | 2 |
+| Systemdokumentation | 2 |
+| Prozess Behandlung von Sicherheitsvorfällen | 1 |
+
+Umgekehrt führt die Tabelle 14 Begriffe, die im Katalog an keiner Anforderung
+vorkommen, darunter `Detektionskonzept`, `Outsourcing-Strategie`,
+`Leistungsbeschreibung`, `Verzeichnis der Schwachstellen` und `Risikobewertung`.
+Bei zwei Paaren sieht das nach unterschiedlicher Schreibweise aus
+(„Detektions-Konzept“ und „Detektionskonzept“, „Outsourcing Strategie“ und
+„Outsourcing-Strategie“). Bei den übrigen geht aus den Daten nicht hervor, ob
+derselbe Dokumenttyp gemeint ist.
+
+Die Tabelle selbst ist an zwei Stellen erkennbar nicht fertig: Die Zeile
+„???“ kennzeichnet laut ihrer Definition „einen offenen Bedarf an vorgeschlagenen
+Dokumenten“, und der Eintrag „Verfahrensbeschreibung“ trägt „???“ in
+Definition, Kategorie und Zielgruppe.
+
+## Nachprüfen
+
+Mit einem Klon der Stand-der-Technik-Bibliothek, Commit `160c177` vom
+23. Oktober 2026, sowie `jq` und `python3`. In `bash` ausführen.
+
+```sh
+F='control_layer/Grundschutz++/Grundschutz++-resolved_catalog.json'
+C='documentation/namespaces/documentation_guidelines.csv'
+
+# Dokumentnamen im Katalog (eine Zeile je Anforderung)
+jq -r '.. | objects | select(has("id") and has("parts"))
+       | .parts[] | select(.name=="statement")
+       | .props[] | select(.name=="documentation") | .value' $F | sort > katalog.txt
+
+# Begriffe der Tabelle (erste Spalte)
+python3 -c 'import csv; [print(r["Begriff"].strip()) for r in csv.DictReader(open("'$C'", encoding="utf-8"))]' | sort -u > csv.txt
+
+wc -l < katalog.txt                      # 961 Anforderungen mit Dokument
+sort -u katalog.txt | wc -l              # 62 verschiedene Namen
+
+# im Katalog verwendet, in der Tabelle nicht vorhanden (die neun Namen)
+comm -23 <(sort -u katalog.txt) csv.txt
+
+# Anforderungen, die daran hängen
+comm -23 <(sort -u katalog.txt) csv.txt \
+  | while IFS= read -r n; do grep -cxF -- "$n" katalog.txt; done | paste -sd+ - | bc
+# 168
+
+# in der Tabelle vorhanden, im Katalog nie verwendet (14 Begriffe)
+comm -13 <(sort -u katalog.txt) csv.txt
+```
+
+Dass der Katalog auf diese Tabelle verweist, steht an jedem
+`documentation`-Eintrag im Feld `ns`:
+`…/documentation/namespaces/documentation_guidelines.csv`.
+
+## Warum wichtig
+
+Wer aus dem Katalog eine Dokumentenübersicht ableitet, also „welche Dokumente
+braucht ein ISMS und wie viele Anforderungen hängen daran“, möchte jedem
+Dokumenttyp die Beschreibung, Kategorie und Zielgruppe der Tabelle zuordnen.
+Das geht für 168 von 961 Anforderungen nicht über den Namen. Bei zwei Namen, die
+sich nur in Schreibweise unterscheiden („Detektions-Konzept“, „Outsourcing
+Strategie“, zusammen 63 Anforderungen), ordnet die [Dokumentenübersicht](/dokumente/)
+die Beschreibung trotzdem zu und weist die Zuordnung aus. Bei den übrigen sieben Namen (105 Anforderungen) geht aus den Daten nicht
+hervor, welche Zuordnung gemeint ist. Dort raten wir nicht und zeigen keine
+Beschreibung (siehe [„Ohne Beschreibung des BSI“](/dokumente/#ohne-beschreibung-des-bsi)).
+
+Betroffen ist jede Auswertung, die den Dokumentnamen als Schlüssel benutzt.
