@@ -33,7 +33,10 @@ h6,
 	--sl-color-gray-6: oklch(24% 0.016 70);
 	--sl-color-gray-5: oklch(30% 0.017 70);
 	--sl-color-gray-4: oklch(46% 0.02 70);
-	--sl-color-gray-3: oklch(62% 0.02 70);
+	/* 64 % statt 62 %: bei 62 % lag gedaempfter Text auf den Karten bei 4,498:1 (knapp unter AA), auf
+	   Glas-Panels bei 4,34:1 und im Katalog-Vorschaukasten bei 4,34:1. Gemessen 2026-10-29; 64 % ergibt
+	   4,9:1 auf Karten und 4,7:1 auf Glas. */
+	--sl-color-gray-3: oklch(64% 0.02 70);
 	--sl-color-gray-2: oklch(84% 0.015 70);
 	--sl-color-gray-1: oklch(92% 0.012 70);
 	--sl-color-white: oklch(98% 0.006 70);
@@ -55,7 +58,7 @@ h6,
 	/* Roh-JSON in der Katalog-Vorschau: bewusst zurückgenommen, aber im
 	   Light Mode nicht so weit, dass 9,6px Monospace unter die
 	   WCAG-AA-Schwelle fällt (siehe dortige Überschreibung). */
-	--preview-code-text: oklch(62% 0.02 70);
+	--preview-code-text: oklch(64% 0.02 70);
 	--button-glow: oklch(74% 0.14 75 / 0.55);
 	/* Eigener Ton für die Status-Leiste statt --sl-color-accent-low: das Token
 	   ist für kleine Chip-Füllungen kalibriert, nicht für eine vollflächige
@@ -594,6 +597,13 @@ site-search dialog::backdrop {
 
 .source-note p {
 	margin: 0;
+}
+
+/* Inline-Code erbt das gedaempfte Grau, steht aber auf dem helleren Code-Hintergrund: dort
+   nur 3,75:1 im Dunkelmodus. Eine Stufe heller (gray-2) erreicht AA. */
+.source-note code,
+.cl-meta code {
+	color: var(--sl-color-gray-2);
 }
 
 .source-note details {
@@ -1525,13 +1535,13 @@ site-search dialog::backdrop {
 }
 
 .cl-del del {
-	background: color-mix(in oklab, var(--pill-danger-high) 32%, transparent);
+	background: color-mix(in oklab, var(--pill-danger-high) 22%, transparent);
 	text-decoration: line-through;
 	text-decoration-thickness: 1px;
 }
 
 .cl-ins ins {
-	background: color-mix(in oklab, var(--pill-calm-high) 32%, transparent);
+	background: color-mix(in oklab, var(--pill-calm-high) 22%, transparent);
 	text-decoration: none;
 }
 
