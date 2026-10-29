@@ -3883,6 +3883,38 @@ def check_sync_paths():
     print(f"Sync-Pfade ok: {len(ordner) + 1} Ausgabeordner stehen im add-paths des Sync-PRs")
 
 
+def update_upstream_stand():
+    """Schreibt src/data/upstream.json: der BSI-Commit, aus dem diese Seiten erzeugt wurden.
+
+    Der CI-Job "Erzeugte Dateien == Generator" (.github/workflows/generated.yml) holt genau diesen Commit,
+    laesst den Generator laufen und vergleicht mit dem, was im Repo steht. Dafuer muss der Stand
+    festgehalten sein; ohne ihn waere "gleich" eine Frage des Tages.
+
+    Es ist der juengste Commit, der eine der sechs Eingabedateien aendert, nicht der HEAD des BSI-Repos.
+    Sonst wuerde jede Aenderung an einer anderen Datei dort (README, andere Kataloge) einen Sync-PR
+    ausloesen, in dem sich nur dieser Hash aendert. Liegen die Eingaben nicht in einem Git-Repo (lokal mit
+    Standardpfaden ohne Klon) oder hat die Arbeitskopie ungespeicherte Aenderungen an ihnen, wird nichts
+    geschrieben und das laut gesagt: ein Stand, den niemand wiederherstellen kann, waere schlimmer als keiner."""
+    dateien = [CATALOG_FILE, BASETHREATS_FILE, MAPPING_FILE, TAGS_FILE, TARGETS_FILE, DOCUMENTATION_FILE]
+    try:
+        top = Path(_git(CATALOG_FILE.resolve().parent, "rev-parse", "--show-toplevel").strip()).resolve()
+        rels = [f.resolve().relative_to(top).as_posix() for f in dateien]
+        unsauber = _git(top, "status", "--porcelain", "--", *rels).strip()
+        sha = _git(top, "log", "-1", "--format=%H", "--", *rels).strip()
+    except (RuntimeError, ValueError) as e:
+        print(f"Upstream-Stand: nicht festgehalten ({e}); upstream.json bleibt unveraendert", file=sys.stderr)
+        return None
+    if unsauber or not sha:
+        print("Upstream-Stand: Eingabedateien haben ungespeicherte Aenderungen oder keinen Commit; "
+              "upstream.json bleibt unveraendert", file=sys.stderr)
+        return None
+    DATA_OUT_DIR.mkdir(parents=True, exist_ok=True)
+    (DATA_OUT_DIR / "upstream.json").write_text(
+        json.dumps({"repository": EXPORT_SOURCE_URL, "commit": sha, "dateien": rels}, indent="\t", ensure_ascii=False) + "\n"
+    )
+    return sha
+
+
 def check_changelog(catalog, nur=None):
     """Rechnet changelog.json auf einem anderen Weg nach als update_changelog().
 
@@ -4198,6 +4230,7 @@ def main():
     write_status_data()
     write_bausteine_data(by_baustein, baustein_links)
     changelog_stats = update_changelog(CATALOG_FILE, basethreats_by_id)
+    upstream_commit = update_upstream_stand()
     export_stats = write_export_data(
         catalog, params_by_id, basethreats_by_id, predecessor_index, load_documentation_guidelines()
     )
@@ -4232,6 +4265,7 @@ def main():
     print(f"{zielobjekt_count} Zielobjekt-Seiten + Übersicht erzeugt in {ZIELOBJEKTE_OUT_DIR}")
     print(f"{dokument_count} Dokument-Seiten + Übersicht erzeugt in {DOKUMENTE_OUT_DIR}")
     print(f"Startseiten-Daten: {stats}")
+    print(f"Upstream-Stand: {upstream_commit[:7] if upstream_commit else 'nicht festgehalten'} (src/data/upstream.json)")
     print(f"Aenderungsprotokoll: {changelog_stats['neu']} neu, {changelog_stats['gesamt']} Staende in changelog.json")
     print(f"Export-Dateien in {EXPORT_OUT_DIR}: {export_stats}")
 

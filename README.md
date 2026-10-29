@@ -208,6 +208,14 @@ Instead of the sibling checkout, the generator can read its inputs from files yo
 `GRUNDSCHUTZPP_MAPPING`, `GRUNDSCHUTZPP_TAGS`, `GRUNDSCHUTZPP_TARGETS` and
 `GRUNDSCHUTZPP_DOCUMENTATION`. The variables are listed in `.github/workflows/sync-catalog.yml`.
 
+Each run also writes `src/data/upstream.json`: the newest BSI commit that changed one of those six
+input files (not the head of the BSI repository, which moves for unrelated reasons). The workflow
+`.github/workflows/generated.yml` checks out exactly that commit on every push and pull request, runs
+the generator and fails if anything differs from what is committed, including files that are missing
+from the commit. That catches a hand edit of a generated page, a generator change nobody re-ran and an
+overwritten `upstream.json` before the next daily sync would silently undo them. If it fails, run the
+generator against the commit it names and commit the result.
+
 In CI, `.github/workflows/sync-catalog.yml` runs on a daily schedule,
 checks the upstream catalog out directly (with its full history, without file
 contents, they are loaded on demand), regenerates everything above, and opens a
