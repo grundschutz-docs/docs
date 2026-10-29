@@ -2852,6 +2852,10 @@ def render_zielobjekt_pages(catalog, control_index):
             "Nach [STM.2.1.4.1](/grundschutzpp/stm/#STM.2.1.4.1) erhält ein Asset auch die "
             "Kategorien über seiner eigenen, [so rechnet die Übersicht](/zielobjekte/).\n"
         )
+        lines.append(
+            f"**Dieses Paket weitergeben:** [Im Export öffnen](/export/?ziel={urllib.parse.quote(name, safe='')}) "
+            "als Excel, CSV oder Checkliste für Tickets und Wikis. Dort lassen sich weitere Kategorien dazunehmen.\n"
+        )
         if m["kinder"]:
             kinder = ", ".join(f"[{k}](/zielobjekte/{tag_slug(k)}/)" for k in m["kinder"])
             lines.append(
@@ -3644,6 +3648,13 @@ def check_zielobjekte(catalog):
             problems.append(f"{name}: Seitentext nennt nicht {gilt} Anforderungen")
         if f"**zusammen {gilt + csv_ohne}**" not in seitentext:
             problems.append(f"{name}: Seitentext nennt nicht zusammen {gilt + csv_ohne}")
+
+    # Der Export-Link auf jeder Kategorieseite: genau einer, und entschluesselt der Name der Kategorie.
+    for name in eltern_von:
+        text = (ZIELOBJEKTE_OUT_DIR / f"{tag_slug(name)}.mdx").read_text()
+        ziele = re.findall(r"\]\(/export/\?ziel=([^)&]+)\)", text)
+        if [urllib.parse.unquote(z) for z in ziele] != [name]:
+            problems.append(f"{name}: Export-Link auf der Kategorieseite fehlt oder zeigt auf eine andere Kategorie ({ziele})")
 
     # Die Zahl der Anforderungen mit zwei Kategorien im Text der Uebersicht.
     m = re.search(r"Anforderungen mit zwei Kategorien \((\d+)\)", (ZIELOBJEKTE_OUT_DIR / "index.mdx").read_text())
