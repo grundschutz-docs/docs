@@ -61,7 +61,10 @@ translated.
   requirement pages carry a "Dokumentiert in" pill, and each target-object
   page lists the documents its requirements name. The pages say that this is
   not evidence: `result` is the subject of the requirement
-- **Export** (`/export/`) — the requirements as an Excel file or CSV,
+- **Export** (`/export/`) — the requirements as an Excel file or CSV, as a checklist
+  (Markdown or formatted, for tickets and wikis), and every selection has an address
+  (`?ziel=Webserver,Cloud-Dienste`), where a value that no longer exists is reported
+  instead of silently widening the selection,
   filterable by practice, obligation level, security level, effort and target
   object category (the categories above a chosen one are included, as the
   catalog requires in STM.2.1.4.1), with columns for tracking the implementation status and an
