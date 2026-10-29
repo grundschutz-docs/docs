@@ -25,6 +25,13 @@ something that turns out not to fit or is already half-solved elsewhere.
 - **Check light and dark mode** for anything touching colors or
   `custom.css`. The OKLCH palette is defined separately for both; a fix
   for one can silently break the other.
+- **Check contrast.** Text needs 4.5:1 against its background in both themes
+  (WCAG AA). In the light theme the gold accent (`--sl-color-accent`) only reaches
+  3.6:1 on the page, so small text uses `--sl-color-text-accent` instead. In the
+  dark theme muted text sits on cards, glass panels and code chips, which have
+  different backgrounds. A tweak that looks fine in one mode and one place can
+  fail somewhere else, so measure it (the ratio is a one-line formula) instead of
+  judging by eye.
 - **Check mobile and desktop** for layout changes. Sidebar, header, and
   table of contents behave differently above/below `50rem` and `72rem` —
   testing on desktop alone isn't enough.
@@ -38,7 +45,8 @@ something that turns out not to fit or is already half-solved elsewhere.
 Any figure the site states about the catalog — "1000 requirements", "149 of
 them are MUSS", the per-practice counts, the stats on the homepage — must be
 **generated from the catalog and checked by `check_invariants()`,
-`check_export()` or `check_changelog()`** in `scripts/generate_docs.py`. Never hand-write one, and never add a new figure
+`check_export()`, `check_zielobjekte()`, `check_dokumente()` or `check_changelog()`**
+in `scripts/generate_docs.py`. Never hand-write one, and never add a new figure
 without a check alongside it. A wrong number is worse than a missing one:
 nothing about it looks broken.
 
