@@ -104,6 +104,42 @@ sich nur in Groß- und Kleinschreibung, Leerzeichen und Bindestrichen
 unterscheidet. Die Spalte „Hinweis zur Beschreibung“ sagt jeweils, wie es dazu
 kam. Bei allen anderen bleibt die Beschreibung leer. Geraten wird nicht.
 
+## Auswahl weitergeben
+
+**Jede Auswahl hat eine Adresse.** Sie ändert sich mit jedem Häkchen, „Link zu dieser Auswahl kopieren“ legt sie in
+die Zwischenablage. Ein Beispiel mit zwei Kategorien:
+[Webserver und Cloud-Dienste](/export/?ziel=Cloud-Dienste,Webserver). Die Adresse kennt `praktik`, `pflicht`, `stufe`,
+`aufwand` und `ziel` (mehrere Werte mit Komma) und `ohne=nein`, wenn die Anforderungen ohne Zielobjektkategorie
+nicht dabei sein sollen. Nennt ein Link einen Wert, den es nicht mehr gibt, zum Beispiel weil das BSI eine Kategorie
+umbenannt hat, sagt die Seite es und zeigt nicht still alle Anforderungen.
+
+**Als Checkliste für Tickets und Wikis.** „Checkliste als Markdown kopieren“ legt reinen Text ab, zum Beispiel für
+GitHub-Issues: je Anforderung eine Zeile mit `- [ ]`, der ID als Link auf die Seite mit dem Text, dem Titel und dem
+Pflichtgrad, nach Praktik gruppiert, dazu die Dokumente, die sie nennen, und die Quelle. „Formatiert kopieren“ legt
+zusätzlich eine formatierte Liste mit Links ab, für Editoren, die formatierten Text einfügen können. „Als .md
+speichern“ lädt die Datei herunter. Den Volltext der Anforderungen enthält die Liste nicht, damit sie in einem
+Ticket lesbar bleibt, der Link führt zum Text.
+
+Was dein Editor beim Einfügen daraus macht, hängt von ihm ab. In
+[Jira](https://support.atlassian.com/jira-software-cloud/docs/markdown-and-keyboard-shortcuts/) und
+[Confluence](https://support.atlassian.com/confluence-cloud/docs/available-markdown-commands/) wandelt der Editor
+`[]` und ein Leerzeichen beim Tippen in eine Aufgabe um; was beim Einfügen einer fertigen Markdown-Liste passiert,
+steht in deren Dokumentation nicht. Schlimmstenfalls wird aus `- [ ]` eine Aufzählung mit „[ ]“. GitHub unterstützt
+[Aufgabenlisten](https://docs.github.com/en/get-started/writing-on-github/working-with-advanced-formatting/about-tasklists).
+
+**Für Werkzeuge.** Die [JSON-Datei](/downloads/grundschutzpp-anforderungen.json) enthält je Anforderung in
+`zielobjekte` ihre direkt zugeordneten Kategorien und in `unterkategorien` die Kategorien darunter, für die sie wegen
+der Vererbung (STM.2.1.4.1) ebenfalls gilt. Wer die Anforderungen einer Kategorie sucht, prüft beide, dann ist die
+Vererbung schon richtig:
+
+```js
+const gilt = (anforderung, kategorie) =>
+  anforderung.zielobjekte.includes(kategorie) || anforderung.unterkategorien.includes(kategorie);
+```
+
+Anforderungen ohne Kategorie haben `["Ohne Zielobjektkategorie"]` in `zielobjekte`. Nach dem BSI-Standard 300-1 (3.4.1)
+gehören sie in jedes Anforderungspaket.
+
 ## Quelle und Lizenz
 
 Die Anforderungen stammen aus dem
