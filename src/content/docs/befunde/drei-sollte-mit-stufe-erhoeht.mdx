@@ -1,0 +1,80 @@
+---
+title: Drei SOLLTE-Anforderungen tragen die Stufe „erhöht“, der Standard 300-1 sagt KANN
+description: Im Anwenderkatalog sind BES.1.4, DET.4.12.1 und REA.2.5 SOLLTE-Anforderungen der Stufe „erhöht“. Alle 224 anderen Anforderungen dieser Stufe sind KANN, und der Standard 300-1 sagt, „erhöht“ beinhalte KANN.
+befund:
+  typ: fakt
+  status: gemeldet
+  gefunden: 2026-10-27
+  betrifft: [BES.1.4, DET.4.12.1, REA.2.5]
+  quelle: https://github.com/BSI-Bund/Stand-der-Technik-Bibliothek/blob/main/control_layer/Grundschutz++/Grundschutz++-resolved_catalog.json
+  meldung:
+    kanal: E-Mail an das Team Stand der Technik (BSI), Kopie an Referat S 13 und das Service Center
+    datum: 2026-10-29
+---
+
+import BefundMeta from '../../../components/BefundMeta.astro';
+
+<BefundMeta
+	typ="fakt"
+	status="gemeldet"
+	gefunden={new Date('2026-10-27')}
+	betrifft={['BES.1.4', 'DET.4.12.1', 'REA.2.5']}
+	quelle="https://github.com/BSI-Bund/Stand-der-Technik-Bibliothek/blob/main/control_layer/Grundschutz++/Grundschutz++-resolved_catalog.json"
+	meldung={{ kanal: 'E-Mail an das Team Stand der Technik (BSI), Kopie an Referat S 13 und das Service Center', datum: new Date('2026-10-29') }}
+/>
+
+Jede Anforderung im Anwenderkatalog trägt ein Modalverb (MUSS, SOLLTE, KANN)
+und ein Sicherheitsniveau („normal-SdT“ oder „erhöht“). Der Standard 300-1
+beschreibt in 3.4.2, wie beides zusammenhängt. Dieser Befund beschreibt, wo der
+Katalog davon abweicht. Er bewertet das BSI nicht.
+
+## Befund
+
+Der Standard sagt in 3.4.2: „Anforderungen mit dem Sicherheitsniveau ‚erhöht‘
+beinhalten das Modalverb ‚KANN‘ und sind optional zu erfüllen.“
+
+Im Katalog (Version 2026-10-22, 1.000 Anforderungen) verteilen sich Modalverb
+und Niveau so:
+
+| Modalverb | Niveau | Anzahl |
+|---|---|---|
+| MUSS | normal-SdT | 149 |
+| SOLLTE | normal-SdT | 624 |
+| KANN | erhöht | 224 |
+| **SOLLTE** | **erhöht** | **3** |
+
+Die drei Ausnahmen sind:
+
+- **BES.1.4**, Outsourcing-Strategie
+- **DET.4.12.1**, Auslastung des Netzes
+- **REA.2.5**, IT-Forensik
+
+## Nachprüfen
+
+Mit einem Klon der Stand-der-Technik-Bibliothek, Commit `160c177` vom
+23. Oktober 2026, und `jq`.
+
+```sh
+F=control_layer/Grundschutz++/Grundschutz++-resolved_catalog.json
+
+# Anforderungen der Stufe "erhöht", deren Modalverb nicht KANN ist
+jq -r '.. | objects | select(has("id") and has("parts"))
+       | select(any(.props[]?; .name=="sec_level" and .value=="erhöht"))
+       | select(any(.parts[]?; .name=="statement"
+                 and any(.props[]?; .name=="modal_verb" and .value!="KANN")))
+       | .id' $F
+# BES.1.4
+# DET.4.12.1
+# REA.2.5
+```
+
+Der Satz des Standards steht in Kapitel 3.4.2, Seite 17 des PDFs.
+
+## Warum wichtig
+
+Wer nach dem Niveau filtert, behandelt „erhöht“ als optional. Für diese drei
+Anforderungen sagt das Modalverb SOLLTE dagegen, dass sie normalerweise zu
+erfüllen sind. Welche der beiden Angaben gemeint ist, geht aus den Daten nicht
+hervor, deshalb nennen wir keine als die richtige. Betroffen ist jede Auswahl
+oder Suche, die das Niveau als Filter benutzt, auch der
+[RAG-Datensatz](/rag/) dieses Projekts.
