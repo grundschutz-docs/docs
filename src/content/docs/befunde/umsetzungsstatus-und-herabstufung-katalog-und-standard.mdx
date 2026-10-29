@@ -1,0 +1,65 @@
+---
+title: Katalog und Standard 300-1 nennen den Umsetzungsstatus und den Anlass für eine Risikobetrachtung verschieden
+description: UMS.1.1 kennt zwei Statuswerte, der Standard drei („nicht anwendbar“). STM.4.1 nennt die Herabstufung des Sicherheitsniveaus als Anlass für eine Risikobetrachtung, die Aufzählung im Standard nicht.
+befund:
+  typ: beobachtung
+  status: gemeldet
+  gefunden: 2026-10-27
+  betrifft: [UMS.1.1, STM.4.1]
+  quelle: https://github.com/BSI-Bund/Stand-der-Technik-Bibliothek/blob/main/control_layer/Grundschutz++/Grundschutz++-resolved_catalog.json
+  meldung:
+    kanal: E-Mail an Referat S 13 (BSI), Kopie an das Postfach IT-Grundschutz
+    datum: 2026-10-29
+---
+
+import BefundMeta from '../../../components/BefundMeta.astro';
+
+<BefundMeta
+	typ="beobachtung"
+	status="gemeldet"
+	gefunden={new Date('2026-10-27')}
+	betrifft={['UMS.1.1', 'STM.4.1']}
+	quelle="https://github.com/BSI-Bund/Stand-der-Technik-Bibliothek/blob/main/control_layer/Grundschutz++/Grundschutz++-resolved_catalog.json"
+	meldung={{ kanal: 'E-Mail an Referat S 13 (BSI), Kopie an das Postfach IT-Grundschutz', datum: new Date('2026-10-29') }}
+/>
+
+Katalog und Standard sollen sich ergänzen: Der Katalog nennt, was zu erfüllen
+ist, der Standard, wie man vorgeht. An zwei Stellen sagen sie Verschiedenes.
+Wir halten das als Beobachtung fest, nicht als Fehler, weil in beiden Fällen
+unklar bleibt, ob der Unterschied gewollt ist. Dieser Befund bewertet das BSI
+nicht.
+
+## Befund
+
+**1. Wie viele Werte hat der Umsetzungsstatus?**
+
+- Katalog, UMS.1.1: „Der Umsetzungsstatus einer Anforderung kann grundsätzlich nur ‚umgesetzt‘ (‚ja‘) oder ‚nicht umgesetzt‘ (‚nein‘) sein.“
+- Standard, 4.1.1: Der Status kann „erfüllt“, „nicht erfüllt“ oder „nicht anwendbar“ sein. Für „nicht anwendbar“ ist eine Begründung zu dokumentieren.
+
+**2. Wann ist eine Risikobetrachtung nötig?**
+
+- Katalog, STM.4.1: „Eine Risikobetrachtung ist insbesondere notwendig bei Geschäftsprozessen oder Assets mit hohem Schutzbedarf, bei Herabstufung des Sicherheitsniveaus (von erhöht auf normal- SdT) oder bei Nicht-Umsetzung von Anforderungen.“
+- Standard, 2.11: Eine explizite Risikobetrachtung ist nötig, wenn ein Geschäftsprozess hohen Schutzbedarf hat, wenn ein relevantes Asset durch die Zielobjektkategorien nicht hinreichend abgedeckt wird und wenn eine anwendbare SOLLTE-Anforderung dauerhaft nicht erfüllt wird. Eine Herabstufung des Sicherheitsniveaus steht dort nicht.
+
+## Nachprüfen
+
+```sh
+F=control_layer/Grundschutz++/Grundschutz++-resolved_catalog.json
+
+# Text von UMS.1.1 und STM.4.1
+jq -r '.. | objects | select(.id=="UMS.1.1" or .id=="STM.4.1")
+       | .id, (.parts[] | select(.name=="guidance") | .prose)' $F
+```
+
+Standard 300-1: Kapitel 4.1.1 auf Seite 18 und Kapitel 2.11 auf den Seiten 10
+und 11 des PDFs.
+
+## Warum wichtig
+
+Wer den Status nach dem Katalog führt, hat für eine Komponente, die es im
+Informationsverbund gar nicht gibt, nur „nein“ zur Auswahl, obwohl der Standard
+„nicht anwendbar“ mit Begründung vorsieht. Und wer die Anlässe für eine
+Risikobetrachtung aus dem Standard übernimmt, kennt die Herabstufung des
+Sicherheitsniveaus nicht, die der Katalog nennt. Beide Fälle betreffen den
+Aufbau eines zertifizierbaren ISMS. Die
+[Methodik-Seite](/methodik/) dieses Projekts weist auf beide Unterschiede hin.
