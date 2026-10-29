@@ -175,8 +175,8 @@ cd ../Grundschutz-Docs && pnpm run build
 
 What a run writes:
 
-- the pages under `src/content/docs/` `grundschutzpp/`, `rollen/` and
-  `vergleich/`. Edit those in `scripts/generate_docs.py`, never in the
+- the pages under `src/content/docs/` `grundschutzpp/`, `rollen/`,
+  `vergleich/`, `zielobjekte/` and `dokumente/`. Edit those in `scripts/generate_docs.py`, never in the
   `.mdx` — the next run overwrites them. `DESCRIPTION_OVERRIDES` there keeps
   a few shortened meta descriptions for search results
 - `src/data/*.json` — the figures for the homepage and timeline, the
@@ -192,11 +192,18 @@ before that the catalog lived at a different path in the BSI repository.
 
 **The generator refuses to write something wrong.** After a run it checks the
 numbers on the pages (`check_invariants()`), the export files
-(`check_export()`) and the changelog (`check_changelog()`) against the source,
+(`check_export()`), the target object pages (`check_zielobjekte()`), the document
+pages (`check_dokumente()`) and the changelog (`check_changelog()`) against the source,
 each recomputed by a second path that does not reuse the code that produced the
 value (for the changelog it reads the same git history, but flattens the whole
 tree instead of picking fields). The rule and the incident behind it are in `CONTRIBUTING.md`
-("Numbers on the site").
+("Numbers on the site"). One more check is not about numbers: `check_sync_paths()` fails the
+run if the generator writes into a folder that the daily sync PR would not pick up.
+
+Instead of the sibling checkout, the generator can read its inputs from files you name
+(the sync workflow does this): `GRUNDSCHUTZPP_CATALOG`, `GRUNDSCHUTZPP_BASETHREATS`,
+`GRUNDSCHUTZPP_MAPPING`, `GRUNDSCHUTZPP_TAGS`, `GRUNDSCHUTZPP_TARGETS` and
+`GRUNDSCHUTZPP_DOCUMENTATION`. The variables are listed in `.github/workflows/sync-catalog.yml`.
 
 In CI, `.github/workflows/sync-catalog.yml` runs on a daily schedule,
 checks the upstream catalog out directly (with its full history, without file
@@ -243,6 +250,8 @@ hand, not in CI.
 │   │   ├── grundschutzpp/     # generated — the catalog, one page per practice
 │   │   ├── rollen/            # generated — entry pages per role
 │   │   ├── vergleich/         # generated — one page per old↔new mapping
+│   │   ├── zielobjekte/       # generated — one page per target object category (see adr/0011)
+│   │   ├── dokumente/         # generated — one page per document type (see adr/0012)
 │   │   ├── befunde/           # the findings register (see adr/0009)
 │   │   ├── en/                # hand-written English pages (not a catalog translation)
 │   │   ├── index.mdx          # homepage
@@ -284,6 +293,10 @@ one of these up (see `CONTRIBUTING.md`):
   search as a "Thema" filter, and collected on `/grundschutzpp/themen/`.
   They cover only 470 of the 1,000 controls, so a richer view (per-theme
   pages, filters on the catalog pages) would mostly expose that gap
+- The requirement package for a target object category as a file (CSV, JSON,
+  Markdown) under a stable address, and as a shareable link with the selection
+  (the export page already reads `?ziel=` and `?praktik=`), so tickets, wikis and
+  other tools can fetch "the package for web servers" directly
 - An OSCAL explainer page — what it is, and why a German agency adopted a
   NIST-originated format instead of building its own
 - A sheet in the Excel export that maps the old Kompendium requirements to
