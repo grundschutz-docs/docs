@@ -40,3 +40,7 @@ scripts/deploy.sh
 # auf dem Server. Besser ausserhalb des Repos ablegen.
 Plausible export*/
 grundschutz-docs.de-Performance-on-Search-*/
+
+# Lighthouse CI (lokal nur, falls jemand es von Hand laufen lässt)
+.lighthouseci/
+lhci-report/
