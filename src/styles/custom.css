@@ -1323,6 +1323,22 @@ site-search dialog::backdrop {
 	margin: 0;
 }
 
+/* Meldung bei einem Link mit unbekannten Werten (ADR-0013) und die Zeile "Weitergeben". */
+.export-warning {
+	margin: 0 0 1rem !important;
+	padding: 0.6rem 0.9rem;
+	border-inline-start: 3px solid var(--sl-color-accent);
+	border-radius: 0.4rem;
+	background: var(--sl-color-accent-low);
+	color: var(--sl-color-white);
+	font-size: var(--sl-text-sm);
+}
+
+.export-share-status {
+	font-size: var(--sl-text-sm);
+	color: var(--sl-color-gray-2);
+}
+
 .export-button {
 	padding: 0.55rem 1.1rem;
 	border: 0;

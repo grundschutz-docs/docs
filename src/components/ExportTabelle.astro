@@ -34,6 +34,9 @@ const EFFORT = ['0', '1', '2', '3', '4', '5'];
 ---
 
 <div id="export-tool" data-no-target={NO_TARGET}>
+	{/* Meldung, wenn der Link etwas nennt, das es nicht (mehr) gibt (z. B. eine umbenannte Kategorie):
+	    Sonst zeigt die Seite still alle Anforderungen (ADR-0013). Steht oben, weil man per Link hierher kommt. */}
+	<p id="export-query-warning" class="export-warning" role="status" hidden></p>
 	<form class="export-form" aria-label="Anforderungen für den Export auswählen">
 		<fieldset class="export-group">
 			<legend>Praktik</legend>
@@ -120,6 +123,12 @@ const EFFORT = ['0', '1', '2', '3', '4', '5'];
 			</button>
 			<button type="button" id="export-reset" class="export-reset">Auswahl zurücksetzen</button>
 		</p>
+		<p class="export-actions export-share">
+			<button type="button" id="export-copy-link" class="export-button export-button-secondary">
+				Link zu dieser Auswahl kopieren
+			</button>
+			<span id="export-share-status" class="export-share-status" role="status" aria-live="polite"></span>
+		</p>
 		<p id="export-error" class="gf-filter-empty" hidden>
 			Die Filter konnten nicht geladen werden. Die fertigen Dateien weiter unten funktionieren trotzdem.
 		</p>
@@ -152,6 +161,9 @@ const EFFORT = ['0', '1', '2', '3', '4', '5'];
 </ul>
 
 <script>
+	import { GROUPS, buildQuery, parseQuery, unknownMessage, type Group, type QueryState } from '../lib/export-query';
+	import { copyToClipboard } from '../lib/export-clipboard';
+
 	type Row = {
 		id: string;
 		titel: string;
@@ -182,6 +194,9 @@ const EFFORT = ['0', '1', '2', '3', '4', '5'];
 	const errorEl = document.getElementById('export-error') as HTMLElement;
 	const includeNoTarget = document.getElementById('export-include-no-target') as HTMLInputElement;
 	const targetSelected = document.getElementById('export-target-selected') as HTMLElement;
+	const warningEl = document.getElementById('export-query-warning') as HTMLElement;
+	const copyLinkBtn = document.getElementById('export-copy-link') as HTMLButtonElement;
+	const shareStatus = document.getElementById('export-share-status') as HTMLElement;
 
 	type FullPayload = Payload & { praktiken: { id: string; titel: string }[]; dokumente: unknown[]; lizenz: Record<string, string> };
 	let payload: FullPayload | null = null;
@@ -267,15 +282,39 @@ const EFFORT = ['0', '1', '2', '3', '4', '5'];
 		if (n === 0) countEl.textContent = 'Keine Anforderung passt zu dieser Auswahl';
 	}
 
-	// Vorauswahl aus dem Link, z. B. /export/?praktik=GC,STM von den Praktik-Seiten.
+	// Die Auswahl als Adresse (ADR-0013). Gelesen wird z. B. /export/?praktik=GC,STM (so verlinken die
+	// Praktik-Seiten) oder /export/?ziel=Webserver,Cloud-Dienste&ohne=nein. Geschrieben wird bei jeder Aenderung,
+	// damit "Link kopieren" und die Adressleiste dieselbe Auswahl zeigen.
+	function validValues(): Record<Group, Set<string>> {
+		const valid = {} as Record<Group, Set<string>>;
+		for (const g of GROUPS) {
+			valid[g] = new Set(Array.from(form.querySelectorAll<HTMLInputElement>(`input[name="${g}"]`), (b) => b.value));
+		}
+		return valid;
+	}
+
+	function currentState(): QueryState {
+		const selected = {} as Record<Group, string[]>;
+		for (const g of GROUPS) selected[g] = [...checked(g)];
+		return { selected, ohne: includeNoTarget.checked };
+	}
+
 	function applyQuery() {
-		const params = new URLSearchParams(location.search);
-		for (const name of ['praktik', 'pflicht', 'stufe', 'aufwand', 'ziel']) {
-			const wanted = (params.get(name) ?? '').split(',').filter(Boolean);
-			form.querySelectorAll<HTMLInputElement>(`input[name="${name}"]`).forEach((b) => {
-				b.checked = wanted.includes(b.value);
+		const { state, unknown } = parseQuery(location.search, validValues());
+		for (const g of GROUPS) {
+			form.querySelectorAll<HTMLInputElement>(`input[name="${g}"]`).forEach((b) => {
+				b.checked = state.selected[g].includes(b.value);
 			});
 		}
+		includeNoTarget.checked = state.ohne;
+		// Ein Wert, den es nicht gibt, darf nicht still wie "keine Einschraenkung" wirken: sichtbar melden.
+		const message = unknownMessage(unknown, state);
+		warningEl.textContent = message;
+		warningEl.hidden = !message;
+	}
+
+	function writeQuery() {
+		history.replaceState(null, '', location.pathname + buildQuery(currentState()) + location.hash);
 	}
 
 	function save(blob: Blob, filename: string) {
@@ -338,10 +377,30 @@ const EFFORT = ['0', '1', '2', '3', '4', '5'];
 	resetBtn.addEventListener('click', () => {
 		form.reset();
 		includeNoTarget.checked = true;
+		warningEl.hidden = true;
 		update();
+		writeQuery();
 	});
 
-	form.addEventListener('change', update);
+	form.addEventListener('change', () => {
+		// Wer die Auswahl aendert, hat den Link hinter sich gelassen: die Meldung galt dem alten Link.
+		warningEl.hidden = true;
+		update();
+		writeQuery();
+	});
+
+	let statusTimer: number | undefined;
+	function say(message: string) {
+		shareStatus.textContent = message;
+		window.clearTimeout(statusTimer);
+		statusTimer = window.setTimeout(() => (shareStatus.textContent = ''), 6000);
+	}
+
+	copyLinkBtn.addEventListener('click', async () => {
+		writeQuery();
+		const result = await copyToClipboard(location.href);
+		say(result === 'failed' ? 'Kopieren nicht möglich. Die Adresse in der Adressleiste ist der Link.' : 'Link kopiert.');
+	});
 	applyQuery();
 	update();
 
