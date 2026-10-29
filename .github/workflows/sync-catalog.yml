@@ -77,10 +77,17 @@ jobs:
           # The generator also writes rollen/, vergleich/, and src/data/
           # (landing.json, status.json) — not just grundschutzpp/. Those
           # were silently excluded from every sync PR until now. The same
-          # goes for public/downloads/ (the CSV/JSON export files).
+          # goes for public/downloads/ (the CSV/JSON export files). zielobjekte/ and
+          # dokumente/ were missing from this list for a day after they appeared
+          # (found 2026-10-29): a sync PR would have carried the regenerated catalog pages
+          # whose pills link into those folders, but not the folders themselves.
+          # check_sync_paths() in generate_docs.py now fails the run if an output folder
+          # of the generator is not listed here.
           add-paths: |
             src/content/docs/grundschutzpp/**
             src/content/docs/rollen/**
             src/content/docs/vergleich/**
+            src/content/docs/zielobjekte/**
+            src/content/docs/dokumente/**
             src/data/*.json
             public/downloads/**

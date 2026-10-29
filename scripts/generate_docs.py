@@ -3831,6 +3831,47 @@ def check_dokumente(catalog):
     print(f"Dokument-Seiten ok: {len(seiten)} Seiten, je Typ gegen den Rohkatalog und die Export-CSV nachgerechnet")
 
 
+def check_sync_paths():
+    """Jeder Ausgabeordner des Generators muss im add-paths des Sync-PRs stehen.
+
+    Sonst nimmt der taegliche Sync-PR die neu erzeugten Seiten nicht mit: Der Generator laeuft im
+    Workflow durch (er schreibt ja), aber der PR enthaelt nur einen Teil davon. Das ist schon einmal
+    passiert (rollen/, vergleich/, src/data, public/downloads) und am 2026-10-29 wieder
+    (zielobjekte/, dokumente/). Hier statt im Workflow, damit es lokal beim ersten Lauf auffaellt."""
+    # Wurzel dieses Repos, nicht REPO_ROOT (das ist das Verzeichnis darueber, mit dem BSI-Klon).
+    docs_root = Path(__file__).resolve().parent.parent
+    workflow = docs_root / ".github" / "workflows" / "sync-catalog.yml"
+    if not workflow.exists():  # z. B. in einem Export ohne .github; dann laut, nicht still
+        print("Sync-Pfade: .github/workflows/sync-catalog.yml nicht gefunden, nicht geprueft", file=sys.stderr)
+        return
+    zeilen = workflow.read_text().splitlines()
+    try:
+        start = next(i for i, z in enumerate(zeilen) if z.strip().startswith("add-paths:"))
+    except StopIteration:
+        raise SystemExit("sync-catalog.yml hat kein add-paths: der Sync-PR wuerde alles mitnehmen oder nichts")
+    eingetragen = []
+    for z in zeilen[start + 1:]:
+        if not z.startswith(" " * 12) and z.strip():
+            break
+        if z.strip():
+            eingetragen.append(z.strip())
+    ordner = [OUT_DIR, ROLLEN_OUT_DIR, VERGLEICH_OUT_DIR, ZIELOBJEKTE_OUT_DIR, DOKUMENTE_OUT_DIR, EXPORT_OUT_DIR]
+    fehlen = []
+    for d in ordner:
+        rel = d.relative_to(docs_root).as_posix()
+        if f"{rel}/**" not in eingetragen:
+            fehlen.append(rel)
+    if "src/data/*.json" not in eingetragen:
+        fehlen.append("src/data")
+    if fehlen:
+        raise SystemExit(
+            "Der Generator schreibt in Ordner, die im add-paths von .github/workflows/sync-catalog.yml fehlen: "
+            + ", ".join(fehlen)
+            + "\n  (der Sync-PR wuerde sie nicht mitnehmen; dort eintragen)"
+        )
+    print(f"Sync-Pfade ok: {len(ordner) + 1} Ausgabeordner stehen im add-paths des Sync-PRs")
+
+
 def check_changelog(catalog, nur=None):
     """Rechnet changelog.json auf einem anderen Weg nach als update_changelog().
 
@@ -4167,6 +4208,7 @@ def main():
     check_export(catalog)
     check_zielobjekte(catalog)
     check_dokumente(catalog)
+    check_sync_paths()
     check_changelog(
         catalog,
         None if os.environ.get("CHANGELOG_CHECK_ALL") else set(changelog_stats.get("commits", [])),
