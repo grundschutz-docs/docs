@@ -1,0 +1,53 @@
+name: Lighthouse
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+# Read-only, like CI: it builds and measures, it never writes back.
+permissions:
+  contents: read
+
+concurrency:
+  group: lighthouse-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  lighthouse:
+    runs-on: ubuntu-latest
+    # Not blocking yet: the thresholds in .github/lighthouse/*.json are
+    # estimates until we have seen how much the runners fluctuate. The job
+    # still shows red steps and uploads the reports; switch this off once the
+    # numbers are tuned.
+    continue-on-error: true
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: pnpm/action-setup@v6
+
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 22
+          cache: pnpm
+
+      - run: pnpm install --frozen-lockfile
+
+      - run: pnpm run build
+
+      # Pinned exact version, run through npx so it stays out of package.json
+      # and the lockfile. Reports stay on the runner (upload.target filesystem),
+      # nothing is sent to a third-party store.
+      - name: Lighthouse, mobile
+        run: npx --yes @lhci/cli@0.15.1 autorun --config=.github/lighthouse/mobile.json
+
+      - name: Lighthouse, desktop
+        if: ${{ !cancelled() }}
+        run: npx --yes @lhci/cli@0.15.1 autorun --config=.github/lighthouse/desktop.json
+
+      - uses: actions/upload-artifact@v7
+        if: ${{ !cancelled() }}
+        with:
+          name: lighthouse-reports
+          path: lhci-report
+          if-no-files-found: warn
