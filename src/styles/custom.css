@@ -1335,6 +1335,12 @@ site-search dialog::backdrop {
 }
 
 
+/* Hell: Creme-Text auf Gold waere nur 3,6:1. Dunkelbraun mit Creme-Text wie der Hero-Button (ca. 9,9:1). */
+:root[data-theme='light'] .export-button:not(.export-button-secondary) {
+	background: var(--sl-color-accent-high);
+	color: var(--sl-color-black);
+}
+
 .export-button.export-button-secondary {
 	padding: 0;
 	border-radius: 0;
