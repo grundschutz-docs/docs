@@ -119,7 +119,7 @@ BSI_MEILENSTEINE_URL = (
     "Standards-und-Zertifizierung/Grundschutz-in-der-Informationssicherheit/"
     "Grundschutz-Plus-Plus/grundschutz-plus-plus_node.html"
 )
-BSI_MEILENSTEINE_STAND = "18.10.2026"
+BSI_MEILENSTEINE_STAND = "30.10.2026"
 TIMELINE = [
     (
         date(2026, 4, 1), date(2026, 8, 31),
@@ -130,17 +130,29 @@ TIMELINE = [
     (
         date(2026, 9, 1), date(2026, 10, 26),
         "Weiterentwicklung nach der Pilotierung",
-        "Die Methodik soll am 27.10.2026 auf der it-sa veröffentlicht werden. Die Erkenntnisse aus der Erprobung fließen in sie ein.",
+        "Die Methodik war zur Veröffentlichung auf der it-sa am 27.10.2026 vorgesehen. Die Erkenntnisse aus der Erprobung flossen in sie ein.",
         "post-pilot refinement phase",
-        "The methodology is due to be published at it-sa on 27 October 2026. Findings from the pilot feed into it.",
+        "The methodology was due to be published at it-sa on 27 October 2026. Findings from the pilot fed into it.",
         None, True,
     ),
     (
         date(2026, 10, 27), date(2026, 10, 29),
         "Veröffentlichungswoche der Methodik auf der it-sa",
-        "Das BSI hat die Methodik am 26.10.2026 als BSI-Standard 300-1 veröffentlicht und stellt sie auf der it-sa 2026 in Nürnberg vor.",
+        "Das BSI hat die Methodik am 26.10.2026 als BSI-Standard 300-1 veröffentlicht und sie auf der it-sa 2026 in Nürnberg vorgestellt.",
         "launch week at it-sa",
-        "The BSI published the methodology as BSI Standard 300-1 on 26 October 2026 and presents it at it-sa 2026 in Nuremberg.",
+        "The BSI published the methodology as BSI Standard 300-1 on 26 October 2026 and presented it at it-sa 2026 in Nuremberg.",
+        None, True,
+    ),
+    (
+        # Schliesst die Luecke zwischen dem Ende der it-sa-Phase (29.10.) und dem Beginn der
+        # Early-Adopter-Phase (01.01.2027), in der der Banner sonst auf den Auffang-Eintrag
+        # "Uebergangszeit" sprang. Der Beginn am 30.10. ist kein BSI-Datum, sondern der Tag
+        # nach der it-sa; die Bezeichnung beschreibt, sie ist kein Begriff des BSI.
+        date(2026, 10, 30), date(2026, 12, 31),
+        "Phase nach der Veröffentlichung von BSI-Standard 300-1",
+        "Das BSI hat die Methodik am 26.10.2026 als BSI-Standard 300-1 veröffentlicht. Schulungskonzepte und ein Anwendungsbeispiel sollen bis Dezember 2026 folgen.",
+        "phase after the publication of BSI Standard 300-1",
+        "The BSI published the methodology as BSI Standard 300-1 on 26 October 2026. Training concepts and a worked example are planned for 30 November and December 2026.",
         None, True,
     ),
     (
@@ -961,6 +973,22 @@ def render_timeline():
     return "\n".join(lines)
 
 
+def banner_phase(day):
+    """Der TIMELINE-Eintrag, der an diesem Tag im Banner steht, oder None.
+
+    Kuerzeste laufende Phase gewinnt; bei Gleichstand der spaetere Eintrag (siehe
+    Kommentar an TIMELINE). Eigene Funktion, damit sich fuer jeden Tag pruefen laesst,
+    was der Banner zeigen wuerde (scripts/tests/test_timeline.py)."""
+    laufend = [
+        entry
+        for entry in TIMELINE
+        if entry[7] and entry[0] <= day and (entry[1] is None or day <= entry[1])
+    ]
+    if not laufend:
+        return None
+    return min(reversed(laufend), key=lambda p: (p[1] - p[0]).days if p[1] else 10**6)
+
+
 def write_status_data():
     """Aktuelle Phase fuer die sitewide Status-Leiste (Banner.astro).
 
@@ -977,22 +1005,14 @@ def write_status_data():
     die vorher von Hand getroffen war.
     """
     today = date.today()
-    laufend = [
-        entry
-        for entry in TIMELINE
-        if entry[7] and entry[0] <= today and (entry[1] is None or today <= entry[1])
-    ]
-    if not laufend:
+    phase = banner_phase(today)
+    if phase is None:
         raise SystemExit(
             f"Keine Phase in TIMELINE umfasst heute ({today.isoformat()}). "
             "Die Status-Leiste haette nichts anzuzeigen -- TIMELINE in "
             "scripts/generate_docs.py fortschreiben."
         )
-    # Kuerzeste Phase gewinnt; bei Gleichstand der spaetere Eintrag (siehe
-    # Kommentar an TIMELINE).
-    start, end, label, detail, label_en, detail_en, _range_text, _banner = min(
-        reversed(laufend), key=lambda p: (p[1] - p[0]).days if p[1] else 10**6
-    )
+    start, end, label, detail, label_en, detail_en, _range_text, _banner = phase
 
     data = {
         "phase": label,

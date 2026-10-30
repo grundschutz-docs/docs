@@ -1,7 +1,7 @@
 {
-	"phase": "Veröffentlichungswoche der Methodik auf der it-sa",
-	"bis": "10/2026",
-	"detail": "Das BSI hat die Methodik am 26.10.2026 als BSI-Standard 300-1 veröffentlicht und stellt sie auf der it-sa 2026 in Nürnberg vor.",
-	"phase_en": "launch week at it-sa",
-	"detail_en": "The BSI published the methodology as BSI Standard 300-1 on 26 October 2026 and presents it at it-sa 2026 in Nuremberg."
+	"phase": "Phase nach der Veröffentlichung von BSI-Standard 300-1",
+	"bis": "12/2026",
+	"detail": "Das BSI hat die Methodik am 26.10.2026 als BSI-Standard 300-1 veröffentlicht.",
+	"phase_en": "phase after the publication of BSI Standard 300-1",
+	"detail_en": "The BSI published the methodology as BSI Standard 300-1 on 26 October 2026."
 }
