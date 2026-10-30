@@ -41,6 +41,13 @@ jobs:
           python3 -B scripts/tests/test_methodik_struktur.py
           python3 -B scripts/tests/test_isb_reihenfolge.py
 
+      # exceljs is the foreign reader that compare.py checks the workbook with
+      # (see scripts/xlsx/verify.py). Pinned, outside package.json and the lockfile.
+      - name: Excel export filters (build-sample and compare)
+        run: |
+          npm install --no-save --prefix "$RUNNER_TEMP/oracle" exceljs@4.4.0
+          XLSX_ORACLE_DIR="$RUNNER_TEMP/oracle" python3 -B scripts/tests/test_xlsx_filter.py
+
       - name: nginx config test
         run: |
           sudo apt-get update

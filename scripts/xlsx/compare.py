@@ -7,7 +7,7 @@ Die Mappe entsteht in JavaScript (src/lib/xlsx/export-workbook.js), die CSV in P
 beiden Sprachen gleich gemacht worden sein. Gelesen wird die Mappe mit exceljs, einem
 fremden Leser (XLSX_ORACLE_DIR).
 
-  XLSX_ORACLE_DIR=/pfad python3 compare.py mappe.xlsx [praktik=GC,STM] [pflicht=MUSS]
+  XLSX_ORACLE_DIR=/pfad python3 compare.py mappe.xlsx [praktik=GC,STM] [pflicht=MUSS] [stufe=...] [aufwand=1,2] [ziel=Webserver] [ohne=nein]
 
 Die Filter müssen dieselben sein wie bei build-sample.mjs.
 """
@@ -41,11 +41,28 @@ def main(xlsx, filters):
         table = list(csv.reader(fh, delimiter=";"))
     chead, cbody = table[0], table[1:]
     col = {n: i for i, n in enumerate(chead)}
-    cbody = [
-        r for r in cbody
-        if (not f.get("praktik") or r[col["Praktik"]].split(" ")[0] in f["praktik"])
-        and (not f.get("pflicht") or r[col["Pflichtgrad"]] in f["pflicht"])
-    ]
+    # Auswahl wie auf der Exportseite (ExportTabelle.astro) und in build-sample.mjs.
+    ohne_kategorie = "Ohne Zielobjektkategorie"
+
+    def passt(r):
+        if f.get("praktik") and r[col["Praktik"]].split(" ")[0] not in f["praktik"]:
+            return False
+        if f.get("pflicht") and r[col["Pflichtgrad"]] not in f["pflicht"]:
+            return False
+        if f.get("stufe") and r[col["Sicherheitsstufe"]] not in f["stufe"]:
+            return False
+        if f.get("aufwand") and r[col["Aufwand"]] not in f["aufwand"]:
+            return False
+        if f.get("ziel"):
+            direkt = [x for x in r[col["Zielobjektkategorien"]].split("; ") if x]
+            darunter = [x for x in r[col["Gilt auch für Unterkategorien"]].split("; ") if x]
+            ohne = direkt == [ohne_kategorie]
+            mit_ohne = f.get("ohne", [""])[0] != "nein"
+            if not (any(t in f["ziel"] for t in direkt + darunter) or (ohne and mit_ohne)):
+                return False
+        return True
+
+    cbody = [r for r in cbody if passt(r)]
     payload = json.loads((DL / "grundschutzpp-anforderungen.json").read_text(encoding="utf-8"))
 
     # --- Blatt Anforderungen gegen die CSV ------------------------------------------
