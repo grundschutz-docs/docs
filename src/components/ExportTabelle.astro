@@ -109,8 +109,10 @@ const EFFORT = ['0', '1', '2', '3', '4', '5'];
 		</fieldset>
 	</form>
 
-	<div class="export-result" role="status" aria-live="polite">
-		<p class="export-summary"><strong id="export-count">Lade Daten …</strong></p>
+	<div class="export-result">
+		{/* Nur der Zähler ist live. Als ganze Region würde Hilfstechnik bei jeder Änderung
+		    den Bereich samt allen Knöpfen vorlesen. */}
+		<p class="export-summary" role="status" aria-live="polite"><strong id="export-count">Lade Daten …</strong></p>
 		<p class="export-actions">
 			<button type="button" id="export-xlsx" class="export-button" disabled>
 				Excel-Datei herunterladen (.xlsx)

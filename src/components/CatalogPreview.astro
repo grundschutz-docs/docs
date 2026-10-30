@@ -52,10 +52,10 @@ const {
 	    der rohe JSON-Schnipsel als eigenes, kaputt wirkendes Fragment in den
 	    Ergebnissen. Die echte Anforderung ist ohnehin schon unter
 	    /grundschutzpp/ indexiert. */}
-	<div class="pane pane-raw">
+	<figure class="pane pane-raw">
 		<figcaption>Im Katalog</figcaption>
 		<pre><code>{rawExcerpt}</code></pre>
-	</div>
+	</figure>
 
 	<div class="arrow" aria-hidden="true">
 		<span class="arrow-label">{arrowLabel}</span>
@@ -64,7 +64,7 @@ const {
 		</svg>
 	</div>
 
-	<div class="pane pane-read">
+	<figure class="pane pane-read">
 		<figcaption>Auf dieser Seite</figcaption>
 		<p class="ctrl-id">{id}</p>
 		<p class="ctrl-title">{title}</p>
@@ -74,7 +74,7 @@ const {
 			<span class="ctrl-pill">{effortLevel}</span>
 		</p>
 		<blockquote>{statement}</blockquote>
-	</div>
+	</figure>
 </figure>
 
 <style>
@@ -97,6 +97,7 @@ const {
 	}
 
 	.pane {
+		margin: 0; /* ein <figure>, kein <div>: ohne das gilt der Browser-Abstand */
 		border: 1px solid var(--glass-border);
 		border-radius: 0.9rem;
 		background: var(--glass-tint);

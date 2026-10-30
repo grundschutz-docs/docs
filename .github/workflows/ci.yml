@@ -35,6 +35,7 @@ jobs:
         run: |
           python3 -B scripts/tests/test_pagefind_en.py
           python3 -B scripts/tests/test_en_links.py
+          python3 -B scripts/tests/test_markup.py
 
       - name: nginx config test
         run: |
