@@ -3918,6 +3918,201 @@ def update_upstream_stand():
     return sha
 
 
+# --- Katalogzahlen in handgeschriebenen Seiten --------------------------------
+# check_invariants() & Co. pruefen, was der Generator selbst schreibt. Diese
+# Seiten schreibt niemand mit dem Generator, sie nennen aber Zahlen aus dem Katalog
+# ("265", "149 MUSS", "11 Anforderungen"). Der taegliche Sync aendert den Katalog
+# ohne sie anzufassen: dann steht die Zahl still falsch da, genau wie bei der
+# Geschaeftsfuehrungs-Seite ("123 von 874"). Jede Aussage wird deshalb im Text
+# gesucht und gegen eine eigene Rechnung aus dem Rohkatalog gehalten. Findet sich
+# die Aussage nicht mehr (Satz umformuliert), ist das ebenfalls ein Fehler: dann
+# muss das Muster hier nachgezogen werden, statt dass die Pruefung still ausfaellt.
+# Nicht erfasst: Zahlen anderer BSI-Kataloge (WLAN, Lieferkette; kein Eingang des
+# Generators) und Zahlen, die einen alten Stand beschreiben (befunde/muss-zahlen-gf-seite).
+HANDWRITTEN_DOCS_DIR = Path(__file__).resolve().parent.parent / "src" / "content" / "docs"
+
+_ZAHLWORT = {
+    "de": {1: "ein", 2: "zwei", 3: "drei", 4: "vier", 5: "fünf", 6: "sechs", 7: "sieben", 8: "acht",
+           9: "neun", 10: "zehn", 11: "elf", 12: "zwölf"},
+    "en": {1: "one", 2: "two", 3: "three", 4: "four", 5: "five", 6: "six", 7: "seven", 8: "eight",
+           9: "nine", 10: "ten", 11: "eleven", 12: "twelve"},
+}
+_MONATE_EN = ["January", "February", "March", "April", "May", "June", "July", "August", "September",
+              "October", "November", "December"]
+
+
+def _tausender(n, sep):
+    return f"{n:,}".replace(",", sep)
+
+
+def handwritten_catalog_facts(catalog, mapping_data, stats):
+    """Die Zahlen, die handgeschriebene Seiten nennen, frisch aus dem Rohkatalog gerechnet."""
+    controls = list(collect_controls(catalog))
+    ids = {c["id"] for c in controls}
+    praktik = lambda c: c["id"].split(".")[0]
+    kategorie = lambda c: part_prop_value(c, "statement", "target_object_categories")
+    verb = lambda c: part_prop_value(c, "statement", "modal_verb")
+
+    zaehler = Counter((verb(c), prop_value(c, "sec_level")) for c in controls)
+    muss_gesamt = sum(n for (v, _), n in zaehler.items() if v == "MUSS")
+    kann_gesamt = sum(n for (v, _), n in zaehler.items() if v == "KANN")
+
+    gefaehrdungen = [prop_value(c, "threats") for c in controls if prop_value(c, "threats")]
+    genutzt = {k.strip() for c in controls if kategorie(c) for k in kategorie(c).split(",")}
+
+    def prosa(teil):
+        return [teil.get("prose", "")] + [s for sub in teil.get("parts", []) for s in prosa(sub)]
+
+    def eintrag(c):
+        # Titel plus der ganze Fliesstext der Anforderung (Aussage und Erlaeuterung).
+        return " ".join([c["title"]] + [s for teil in c.get("parts", []) for s in prosa(teil)]).casefold()
+
+    pentest = [c for c in controls if "penetrationstest" in eintrag(c)]
+
+    # Anforderungen, auf die das Mapping des BSI zeigt UND die es im Katalog gibt.
+    mit_vorgaenger = set()
+    for gruppe in mapping_data["mapping-collection"]["mappings"]:
+        for m in gruppe.get("maps", []):
+            quelle, ziel = m.get("sources") or [{}], m.get("targets") or [{}]
+            if m.get("relationship") and quelle[0].get("id-ref") and ziel[0].get("id-ref") in ids:
+                mit_vorgaenger.add(ziel[0]["id-ref"])
+
+    def tiefe(name):
+        n = 1
+        while TARGETS[name]["parent"]:
+            name, n = TARGETS[name]["parent"], n + 1
+        return n
+
+    stand = catalog["metadata"]["last-modified"][:10]  # 2026-10-22
+    jahr, monat, tag = (int(x) for x in stand.split("-"))
+    ohne_kategorie = [c for c in controls if not kategorie(c)]
+    return {
+        "gesamt": len(controls),
+        "praktiken": len({praktik(c) for c in controls}),
+        "methodik": sum(1 for c in controls if praktik(c) in MANAGEMENT_CYCLE_IDS),
+        "ohne_kategorie_praktiken": sum(1 for c in ohne_kategorie if praktik(c) not in MANAGEMENT_CYCLE_IDS),
+        "mit_kategorie": len(controls) - len(ohne_kategorie),
+        "muss_normal": zaehler[("MUSS", "normal-SdT")],
+        "sollte_normal": zaehler[("SOLLTE", "normal-SdT")],
+        "sollte_erhoeht": zaehler[("SOLLTE", "erhöht")],
+        "kann_erhoeht": zaehler[("KANN", "erhöht")],
+        "sollte_gesamt": zaehler[("SOLLTE", "normal-SdT")] + zaehler[("SOLLTE", "erhöht")],
+        # "Alle N MUSS gehoeren zu normal-SdT": die Aussage gilt nur, solange das stimmt.
+        "muss_alle_normal": str(muss_gesamt) if muss_gesamt == zaehler[("MUSS", "normal-SdT")] else "nicht alle normal-SdT",
+        "kann_alle_erhoeht": str(kann_gesamt) if kann_gesamt == zaehler[("KANN", "erhöht")] else "nicht alle erhöht",
+        "mit_gefaehrdungen": len(gefaehrdungen),
+        "gefaehrdungen_verschieden": len({t.strip() for g in gefaehrdungen for t in g.split(",")}),
+        "kategorien": len(TARGETS),
+        "kategorien_alle_genutzt": str(len(TARGETS)) if genutzt == set(TARGETS) else f"nur {len(genutzt)} von {len(TARGETS)}",
+        "wurzelknoten": sum(1 for info in TARGETS.values() if not info["parent"]),
+        "ebenen": max(tiefe(n) for n in TARGETS),
+        "pentest_anforderungen": len(pentest),
+        "pentest_praktiken": len({praktik(c) for c in pentest}),
+        "mit_vorgaenger": len(mit_vorgaenger),
+        "bausteine_ohne_zuordnung": stats["bausteine_gesamt"] - stats["bausteine"],
+        "stand_iso": stand,
+        "stand_de": f"{tag:02d}.{monat:02d}.{jahr}",
+        "stand_en": f"{tag} {_MONATE_EN[monat - 1]} {jahr}",
+    }
+
+
+def handwritten_claims(f):
+    """(Datei, Muster, erwartete Gruppen): was die Seiten ueber den Katalog behaupten."""
+    de = lambda n: _tausender(n, ".")
+    en = lambda n: _tausender(n, ",")
+    wd = lambda n: _ZAHLWORT["de"][n]
+    we = lambda n: _ZAHLWORT["en"][n]
+    s = str
+    return [
+        # methodik.mdx
+        ("methodik.mdx", r"Anhang 1 des Standards definiert (\d+) davon", [s(f["kategorien"])]),
+        ("methodik.mdx", r"Hierarchie aus (\w+) Wurzelknoten und (\w+) Ebenen", [wd(f["wurzelknoten"]), wd(f["ebenen"])]),
+        ("methodik.mdx", r"Im Katalog sind das \*\*(\d+)\*\* Anforderungen", [s(f["methodik"])]),
+        ("methodik.mdx", r"Im Katalog sind das \*\*(\d+)\*\*\.", [s(f["ohne_kategorie_praktiken"])]),
+        ("methodik.mdx", r"tragen \*\*(\d+)\*\* Anforderungen die Kategorie", [s(f["mit_kategorie"])]),
+        ("methodik.mdx", r"ergibt das die ([\d.]+) Anforderungen", [de(f["gesamt"])]),
+        ("methodik.mdx", r"\(Stand (\d\d\.\d\d\.\d{4}), ([\d.]+) Anforderungen\)", [f["stand_de"], de(f["gesamt"])]),
+        ("methodik.mdx", r"\| MUSS \| (\d+) \| normal-SdT \|", [s(f["muss_normal"])]),
+        ("methodik.mdx", r"\| SOLLTE \| (\d+) \| normal-SdT \|", [s(f["sollte_normal"])]),
+        ("methodik.mdx", r"\| SOLLTE \| (\d+) \| erhöht \|", [s(f["sollte_erhoeht"])]),
+        ("methodik.mdx", r"\| KANN \| (\d+) \| erhöht \|", [s(f["kann_erhoeht"])]),
+        ("methodik.mdx", r"tragen (\d+) von ([\d.]+) Anforderungen solche Angaben, insgesamt (\d+) verschiedene",
+         [s(f["mit_gefaehrdungen"]), de(f["gesamt"]), s(f["gefaehrdungen_verschieden"])]),
+        ("methodik.mdx", r"alle (\d+) Kategorien kommen vor", [f["kategorien_alle_genutzt"]]),
+        # en/methodik.mdx
+        ("en/methodik.mdx", r"Annex 1 of the standard defines (\d+) of them", [s(f["kategorien"])]),
+        ("en/methodik.mdx", r"hierarchy of (\w+) root nodes and (\w+) levels", [we(f["wurzelknoten"]), we(f["ebenen"])]),
+        ("en/methodik.mdx", r"In the catalog that is \*\*(\d+)\*\* requirements", [s(f["methodik"])]),
+        ("en/methodik.mdx", r"In the catalog that is \*\*(\d+)\*\*\.", [s(f["ohne_kategorie_praktiken"])]),
+        ("en/methodik.mdx", r"In the catalog, \*\*(\d+)\*\* requirements carry", [s(f["mit_kategorie"])]),
+        ("en/methodik.mdx", r"that makes the ([\d,]+) requirements", [en(f["gesamt"])]),
+        ("en/methodik.mdx", r"\(version (\d+ \w+ \d{4}), ([\d,]+) requirements\)", [f["stand_en"], en(f["gesamt"])]),
+        ("en/methodik.mdx", r"\| MUSS \(must\) \| (\d+) \| normal-SdT \|", [s(f["muss_normal"])]),
+        ("en/methodik.mdx", r"\| SOLLTE \(should\) \| (\d+) \| normal-SdT \|", [s(f["sollte_normal"])]),
+        ("en/methodik.mdx", r"\| SOLLTE \(should\) \| (\d+) \| erhöht", [s(f["sollte_erhoeht"])]),
+        ("en/methodik.mdx", r"\| KANN \(may\) \| (\d+) \| erhöht", [s(f["kann_erhoeht"])]),
+        ("en/methodik.mdx", r"In the catalog, (\d+) of ([\d,]+) requirements carry such data, covering (\d+) distinct",
+         [s(f["mit_gefaehrdungen"]), en(f["gesamt"]), s(f["gefaehrdungen_verschieden"])]),
+        ("en/methodik.mdx", r"all (\d+) categories occur", [f["kategorien_alle_genutzt"]]),
+        # rag.mdx
+        ("rag.mdx", r"mit allen (\d+) Anforderungen", [s(f["gesamt"])]),
+        ("rag.mdx", r"Bei (\d+) Anforderungen in (\d+) Praktiken", [s(f["gesamt"]), s(f["praktiken"])]),
+        ("rag.mdx", r"kommt in (\w+) Anforderungen vor, verteilt auf (\w+) Praktiken",
+         [wd(f["pentest_anforderungen"]), wd(f["pentest_praktiken"])]),
+        ("rag.mdx", r"Bei (\d+) Anforderungen steht die ID der alten", [s(f["mit_vorgaenger"])]),
+        ("rag.mdx", r"In der Datei stehen (\d+) MUSS-, (\d+) SOLLTE- und (\d+) KANN-Anforderungen",
+         [s(f["muss_normal"]), s(f["sollte_gesamt"]), s(f["kann_erhoeht"])]),
+        ("rag.mdx", r"Alle (\d+) MUSS-Anforderungen gehören zur Stufe \*normal-SdT\*, alle (\d+) KANN",
+         [f["muss_alle_normal"], f["kann_alle_erhoeht"]]),
+        ("rag.mdx", r"und (\d+) Bausteine haben noch keine", [s(f["bausteine_ohne_zuordnung"])]),
+        # en/rag.mdx
+        ("en/rag.mdx", r"with all (\d+) requirements", [s(f["gesamt"])]),
+        ("en/rag.mdx", r"With (\d+) requirements in (\d+) practices", [s(f["gesamt"]), s(f["praktiken"])]),
+        ("en/rag.mdx", r"appears in (\w+) requirements, spread over (\w+) practices",
+         [we(f["pentest_anforderungen"]), we(f["pentest_praktiken"])]),
+        ("en/rag.mdx", r"For (\d+) requirements, the ID of the old", [s(f["mit_vorgaenger"])]),
+        ("en/rag.mdx", r"The file contains (\d+) MUSS, (\d+) SOLLTE and (\d+) KANN requirements",
+         [s(f["muss_normal"]), s(f["sollte_gesamt"]), s(f["kann_erhoeht"])]),
+        ("en/rag.mdx", r"All (\d+) MUSS requirements are at level \*normal-SdT\*, and all (\d+) KANN",
+         [f["muss_alle_normal"], f["kann_alle_erhoeht"]]),
+        ("en/rag.mdx", r"and (\d+) Bausteine have no mapping", [s(f["bausteine_ohne_zuordnung"])]),
+        # befunde/drei-sollte-mit-stufe-erhoeht.mdx
+        ("befunde/drei-sollte-mit-stufe-erhoeht.mdx", r"\(Version (\d{4}-\d\d-\d\d), ([\d.]+) Anforderungen\)",
+         [f["stand_iso"], de(f["gesamt"])]),
+        ("befunde/drei-sollte-mit-stufe-erhoeht.mdx", r"\| MUSS \| normal-SdT \| (\d+) \|", [s(f["muss_normal"])]),
+        ("befunde/drei-sollte-mit-stufe-erhoeht.mdx", r"\| SOLLTE \| normal-SdT \| (\d+) \|", [s(f["sollte_normal"])]),
+        ("befunde/drei-sollte-mit-stufe-erhoeht.mdx", r"\| KANN \| erhöht \| (\d+) \|", [s(f["kann_erhoeht"])]),
+        ("befunde/drei-sollte-mit-stufe-erhoeht.mdx", r"Alle (\d+) anderen Anforderungen dieser Stufe sind KANN", [s(f["kann_erhoeht"])]),
+    ]
+
+
+def handwritten_number_problems(catalog, mapping_data, stats, docs_dir=None):
+    """Liste der Abweichungen zwischen Seitentext und Katalog (leer = alles stimmt)."""
+    docs_dir = Path(docs_dir) if docs_dir else HANDWRITTEN_DOCS_DIR
+    facts = handwritten_catalog_facts(catalog, mapping_data, stats)
+    problems = []
+    texts = {}
+    for datei, muster, erwartet in handwritten_claims(facts):
+        if datei not in texts:
+            texts[datei] = (docs_dir / datei).read_text(encoding="utf-8")
+        treffer = re.search(muster, texts[datei])
+        if not treffer:
+            problems.append(f"{datei}: Aussage nicht mehr gefunden ({muster}); Muster in handwritten_claims() nachziehen")
+        elif list(treffer.groups()) != erwartet:
+            problems.append(f"{datei}: steht {list(treffer.groups())}, der Katalog ergibt {erwartet} ({muster})")
+    return problems
+
+
+def check_handwritten_numbers(catalog, mapping_data, stats):
+    problems = handwritten_number_problems(catalog, mapping_data, stats)
+    if problems:
+        raise SystemExit(
+            "Zahlen in handgeschriebenen Seiten passen nicht zum Katalog:\n  - "
+            + "\n  - ".join(problems)
+            + "\nSeite anpassen (oder, wenn nur der Satz umformuliert wurde, das Muster in handwritten_claims())."
+        )
+
+
 def check_changelog(catalog, nur=None):
     """Rechnet changelog.json auf einem anderen Weg nach als update_changelog().
 
@@ -4256,6 +4451,7 @@ def main():
     check_zielobjekte(catalog)
     check_dokumente(catalog)
     check_sync_paths()
+    check_handwritten_numbers(catalog, mapping_data, stats)
     check_changelog(
         catalog,
         None if os.environ.get("CHANGELOG_CHECK_ALL") else set(changelog_stats.get("commits", [])),
