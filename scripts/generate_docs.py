@@ -1945,7 +1945,7 @@ def render_aufwand_section(aufwand):
         f"bewertet\".** Was ohnehin zwingend ist, wird nicht nach Aufwand "
         f"gewichtet. Eine Kostenschätzung für den Pflichtteil lässt sich aus "
         f"dem Katalog also nicht ableiten.\n\n"
-        '<div class="table-scroll">\n<table class="bsig-table">\n'
+        '<div class="table-scroll" tabindex="0">\n<table class="bsig-table">\n'
         "<thead><tr><th>Pflichtgrad</th><th>Anforderungen</th>"
         "<th>Aufwand</th></tr></thead>\n<tbody>\n"
         + zeile("MUSS") + "\n" + zeile("SOLLTE") + "\n" + zeile("KANN") + "\n"
@@ -2018,7 +2018,7 @@ def render_geschaeftsfuehrung_page(management, themenfelder, groups_by_id):
         # Rechenhilfe mit Eingabefeld: die Seite stuft nicht ein (ADR-0007,
         # siehe rollen/geschaeftsfuehrung), sie legt die Kriterien nur so hin, dass man
         # sie selbst anwenden kann.
-        '<div class="table-scroll">\n'
+        '<div class="table-scroll" tabindex="0">\n'
         '<table class="bsig-table">\n'
         "<thead><tr><th>Kategorie</th><th>Beschäftigte</th>"
         "<th>oder Jahresumsatz</th><th>und Jahresbilanzsumme</th>"
@@ -2542,7 +2542,7 @@ def render_baustein_page(baustein_id, entries, baustein_links, control_index, gr
         render_baustein_summary(entries, group_titles),
         "\n",
         '<div class="vergleich-section not-content">\n',
-        '<div class="table-scroll">\n',
+        '<div class="table-scroll" tabindex="0">\n',
         '<table class="vergleich-table">\n',
         "<thead><tr><th>Alte Anforderung</th><th>Beziehung</th><th>Neue Anforderung</th></tr></thead>\n",
         "<tbody>\n",
@@ -3166,7 +3166,7 @@ def render_vergleich_index(by_baustein, baustein_links):
             '<div class="vergleich-section not-content">\n',
             f"## {layer_id} {layer_name}\n",
             "\n",
-            '<div class="table-scroll">\n',
+            '<div class="table-scroll" tabindex="0">\n',
             '<table class="vergleich-table">\n',
             "<thead><tr><th>Baustein</th><th>Zuordnungen</th><th>Original</th></tr></thead>\n",
             "<tbody>\n",
@@ -3198,7 +3198,7 @@ def render_vergleich_index(by_baustein, baustein_links):
             "und wo die Inhalte aufgehen, haben wir nicht Anforderung für "
             "Anforderung geprüft.</p>\n",
             "\n",
-            '<div class="table-scroll">\n',
+            '<div class="table-scroll" tabindex="0">\n',
             '<table class="vergleich-table">\n',
             "<thead><tr><th>Baustein</th><th>Original</th></tr></thead>\n",
             "<tbody>\n",

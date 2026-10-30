@@ -48,7 +48,7 @@ const nodeH = 72;
 ---
 
 <div class="pdca-cycle-wrap">
-	<svg class="pdca-cycle" viewBox="0 0 440 440" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="PDCA-Zyklus: Governance und Compliance, Strukturmodellierung, Umsetzung, Monitoring-Evaluation, Verbesserung im Kreis, Risikomanagement als durchgehender Begleiter in der Mitte">
+	<svg class="pdca-cycle" viewBox="0 0 440 440" xmlns="http://www.w3.org/2000/svg" role="group" aria-label="PDCA-Zyklus: Governance und Compliance, Strukturmodellierung, Umsetzung, Monitoring-Evaluation, Verbesserung im Kreis, Risikomanagement als durchgehender Begleiter in der Mitte">
 		<defs>
 			<marker id="pdca-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
 				<path d="M 0 0 L 10 5 L 0 10 z" class="pdca-arrowhead" />
@@ -155,10 +155,16 @@ const nodeH = 72;
 			background-color 0.15s ease;
 	}
 
-	.pdca-node:hover {
+	.pdca-node:hover,
+	.pdca-node:focus-visible {
 		border-color: var(--sl-color-accent);
 		background: var(--sl-color-accent-low);
 		text-decoration: none;
+	}
+
+	.pdca-node:focus-visible {
+		outline: 2px solid var(--sl-color-accent);
+		outline-offset: 2px;
 	}
 
 	.pdca-hub {
