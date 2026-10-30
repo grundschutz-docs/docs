@@ -744,7 +744,13 @@ def control_link(control_id, control_index):
     """Link auf das Control selbst (Gruppenseite + Anker), mit Titel als Text."""
     entry = control_index.get(control_id)
     if not entry:
-        return f'<span class="new-id">{control_id}</span>'
+        # Das Mapping des BSI (Entwurf) nennt Ziel-IDs, die der Katalog nicht hat. Ohne diese Zeile
+        # stand die ID als reiner Text ohne Link da, obwohl die Uebersicht "mit Link" verspricht.
+        return (
+            f'<span class="new-id">{control_id}</span>'
+            ' <span class="zeile-zusatz">nicht im aktuellen Katalog · '
+            '<a href="/befunde/mapping-datei-ist-entwurf/">Befund</a></span>'
+        )
     href = f"/grundschutzpp/{entry['slug']}/#{control_id}"
     title = entry["title"]
     suffix = f" <span class=\"new-title\">{title}</span>" if title else ""

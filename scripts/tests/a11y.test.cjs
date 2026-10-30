@@ -20,7 +20,7 @@ const PAGES = [
 	'/rollen/geschaeftsfuehrung/', '/rollen/isb/', '/rollen/devs/',
 	'/grundschutzpp/zeitplan/', '/grundschutzpp/stm/', '/grundschutzpp/themen/',
 	'/zielobjekte/', '/zielobjekte/webserver/', '/dokumente/', '/dokumente/detektions-konzept/',
-	'/vergleich/', '/vergleich/sys-1-1/', '/befunde/', '/befunde/mapping-datei-ist-entwurf/',
+	'/vergleich/', '/vergleich/sys-1-1/', '/vergleich/isms-1/', '/befunde/', '/befunde/mapping-datei-ist-entwurf/',
 	'/en/operating-in-germany/', '/impressum/', '/404.html',
 ];
 const VARIANTS = [
