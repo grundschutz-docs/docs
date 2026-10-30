@@ -260,6 +260,7 @@ const effortInfo = effort ? EFFORT[effort] : undefined;
 						class="pill"
 						data-family="calm"
 						data-role="meta"
+						data-topic
 						data-tooltip={t.hint}
 						data-pagefind-filter={`Thema:${t.name}`}
 						data-synonyms={t.synonyms}
@@ -335,7 +336,9 @@ const effortInfo = effort ? EFFORT[effort] : undefined;
 	// Zustand statt document.activeElement: Safari auf iOS fokussiert Links
 	// beim Antippen nicht, die Pruefung waere dort immer "nicht fokussiert".
 	if (window.matchMedia('(hover: none)').matches) {
-		const links = document.querySelectorAll<HTMLAnchorElement>('a.pill[data-tooltip][href]');
+		// Nur Themen-Pillen führen auf "alle Anforderungen zu diesem Thema"; bei
+		// Zielobjekt- und Dokument-Pillen wäre der Zusatz falsch.
+		const links = document.querySelectorAll<HTMLAnchorElement>('a.pill[data-topic][data-tooltip][href]');
 		links.forEach((a) => {
 			a.dataset.tooltip = `${a.dataset.tooltip} Nochmal tippen: alle Anforderungen zu diesem Thema.`;
 		});
