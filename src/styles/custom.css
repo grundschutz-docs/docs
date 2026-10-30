@@ -491,7 +491,14 @@ site-search dialog::backdrop {
 	.right-sidebar,
 	.sl-banner,
 	.print-trigger,
-	footer {
+	footer,
+	/* Bedienelemente ohne Sinn auf Papier. Der Ergebnisbalken der Exportseite ist
+	   position: sticky und lag beim Druck über der Tabelle. "main" davor, weil die
+	   display-Regeln dieser Elemente weiter unten stehen und bei gleicher
+	   Spezifität gegen diesen Block gewännen. */
+	main .export-form,
+	main .export-result,
+	main .vergleich-search {
 		display: none;
 	}
 
