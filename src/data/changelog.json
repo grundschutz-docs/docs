@@ -1,6 +1,258 @@
 {
  "eintraege": [
   {
+   "commit": "10f3c22898a4b15eb95fa228d78654cff32208e4",
+   "veroeffentlicht": "2026-10-30T09:59:42Z",
+   "vorgaenger": "9fb19de7a80f243cc06fec73aa1c6159fcc6ebc5",
+   "katalog_version": "2026-10-29T08:03:12.736989+00:00",
+   "neu": [],
+   "entfernt": [],
+   "aenderungen": [
+    {
+     "id": "BES.7.4.12",
+     "titel": "Software Bill of Materials (SBOM) - Cloud",
+     "praktik": "BES",
+     "felder": [
+      {
+       "feld": "erlaeuterung",
+       "name": "Erläuterung",
+       "alt": "Ein anerkannter Standard für SBOM ist die BSI TR-03183-2.",
+       "neu": "Im Kontext von Software-as-a-Service (SaaS), also Software, die durch einen externen Anbieter betrieben und über ein Netzwerk als Dienst bereitgestellt wird, beschreibt die SBOM die vom Anbieter eingesetzten Softwarekomponenten, beispielsweise proprietäre Softwaremodule, quelloffene Bibliotheken (Open-Source Components) und eingebundene Drittkomponenten (Third-Party Components). Dabei können sowohl direkte Abhängigkeiten (Direct Dependencies) als auch mittelbare beziehungsweise transitive Abhängigkeiten (Transitive Dependencies) berücksichtigt werden. Da die technische Infrastruktur und die Softwarezusammensetzung bei SaaS üblicherweise durch den Anbieter kontrolliert werden, kann sich die SBOM auf die für den bereitgestellten Dienst relevanten und vom Anbieter offengelegten Bestandteile beziehen. Ein anerkannter Standard für SBOM ist die BSI TR-03183-2. Eine Zuordnung der SBOM zum jeweiligen SaaS-Dienst sowie zu einem eindeutig identifizierbaren Softwarestand oder Bereitstellungszeitpunkt ermöglicht die Nachvollziehbarkeit der dokumentierten Komponenten bei softwarebezogenen Lieferkettenrisiken (Software Supply Chain Risks).",
+       "diff": [
+        [
+         "+",
+         "Im Kontext von Software-as-a-Service (SaaS), also Software, die durch einen externen Anbieter betrieben und über ein Netzwerk als Dienst bereitgestellt wird, beschreibt die SBOM die vom Anbieter eingesetzten Softwarekomponenten, beispielsweise proprietäre Softwaremodule, quelloffene Bibliotheken (Open-Source Components) und eingebundene Drittkomponenten (Third-Party Components). Dabei können sowohl direkte Abhängigkeiten (Direct Dependencies) als auch mittelbare beziehungsweise transitive Abhängigkeiten (Transitive Dependencies) berücksichtigt werden. Da die technische Infrastruktur und die Softwarezusammensetzung bei SaaS üblicherweise durch den Anbieter kontrolliert werden, kann sich die SBOM auf die für den bereitgestellten Dienst relevanten und vom Anbieter offengelegten Bestandteile beziehen. "
+        ],
+        [
+         "=",
+         "Ein anerkannter Standard für SBOM ist die BSI TR-03183-2."
+        ],
+        [
+         "+",
+         " Eine Zuordnung der SBOM zum jeweiligen SaaS-Dienst sowie zu einem eindeutig identifizierbaren Softwarestand oder Bereitstellungszeitpunkt ermöglicht die Nachvollziehbarkeit der dokumentierten Komponenten bei softwarebezogenen Lieferkettenrisiken (Software Supply Chain Risks)."
+        ]
+       ]
+      }
+     ]
+    },
+    {
+     "id": "BES.7.4.7",
+     "titel": "Organisatorische Schnittstellen",
+     "praktik": "BES",
+     "felder": [
+      {
+       "feld": "erlaeuterung",
+       "name": "Erläuterung",
+       "alt": "Beispielsweise Meldewege für Notfälle, Sicherheitsvorfälle, Eskalationsstufen.",
+       "neu": "Unter organisatorischen Schnittstellen des Dienstleisters sind die festgelegten Berührungspunkte zwischen dem Dienstleister und der Institution zu verstehen, über die eine Zusammenarbeit, Abstimmung, Informationsweitergabe oder Entscheidungsfindung erfolgt. Hierzu zählen insbesondere (1) Ansprechpartner und zuständige Rollen auf beiden Seiten, (2) Verantwortlichkeiten und Zuständigkeitsabgrenzungen für die Erbringung und Steuerung der Dienstleistung sowie (3) Kommunikations-, Abstimmungs- und Eskalationswege für operative, administrative und sicherheitsrelevante Angelegenheiten, einschließlich für Notfälle oder Sicherheitsvorfälle. Organisatorische Schnittstellen können sowohl regelmäßige Abstimmungen im laufenden Dienstleistungsverhältnis als auch anlassbezogene Kontakte, etwa bei Sicherheitsvorfällen, Leistungsstörungen oder Änderungen der Dienstleistung, umfassen.",
+       "diff": [
+        [
+         "-",
+         "Beispielsweise Meldewege"
+        ],
+        [
+         "+",
+         "Unter organisatorischen Schnittstellen des Dienstleisters sind die festgelegten Berührungspunkte zwischen dem Dienstleister und der Institution zu verstehen, über die eine Zusammenarbeit, Abstimmung, Informationsweitergabe oder Entscheidungsfindung erfolgt. Hierzu zählen insbesondere (1) Ansprechpartner und zuständige Rollen auf beiden Seiten, (2) Verantwortlichkeiten und Zuständigkeitsabgrenzungen"
+        ],
+        [
+         "=",
+         " für "
+        ],
+        [
+         "-",
+         "Notfälle, Sicherheitsvorfälle, Eskalationsstufen."
+        ],
+        [
+         "+",
+         "die Erbringung und Steuerung der Dienstleistung sowie (3) Kommunikations-, Abstimmungs- und Eskalationswege für operative, administrative und sicherheitsrelevante Angelegenheiten, einschließlich für Notfälle oder Sicherheitsvorfälle. Organisatorische Schnittstellen können sowohl regelmäßige Abstimmungen im laufenden Dienstleistungsverhältnis als auch anlassbezogene Kontakte, etwa bei Sicherheitsvorfällen, Leistungsstörungen oder Änderungen der Dienstleistung, umfassen."
+        ]
+       ]
+      }
+     ]
+    },
+    {
+     "id": "KONF.10.3",
+     "titel": "Default-Zugangsdaten in Anwendungen",
+     "praktik": "KONF",
+     "felder": [
+      {
+       "feld": "titel",
+       "name": "Titel",
+       "alt": "Änderung von Default-Zugangsdaten",
+       "neu": "Default-Zugangsdaten in Anwendungen",
+       "diff": [
+        [
+         "-",
+         "Änderung von Default-Zugangsdaten"
+        ],
+        [
+         "+",
+         "Default-Zugangsdaten in Anwendungen"
+        ]
+       ]
+      }
+     ]
+    },
+    {
+     "id": "KONF.15.2",
+     "titel": "Begrenzung der Rechenleistung",
+     "praktik": "KONF",
+     "felder": [
+      {
+       "feld": "anforderung",
+       "name": "Anforderung",
+       "alt": "Konfiguration für Anwendungen von Hostsystemen KANN die Rechenleistung einschränken.",
+       "neu": "Konfiguration für Anwendungen von Hostsystemen KANN die Rechenleistung pro [Zugangskonto oder Mandant] einschränken.",
+       "diff": [
+        [
+         "=",
+         "Konfiguration für Anwendungen von Hostsystemen KANN die Rechenleistung "
+        ],
+        [
+         "+",
+         "pro [Zugangskonto oder Mandant] "
+        ],
+        [
+         "=",
+         "einschränken."
+        ]
+       ]
+      },
+      {
+       "feld": "ergebnis_zusatz",
+       "name": "Ergebnis, Zusatz",
+       "alt": "",
+       "neu": "pro {{Zugangskonto oder Mandant}}"
+      }
+     ]
+    },
+    {
+     "id": "KONF.15.3",
+     "titel": "Schutz gegen Denial of Service",
+     "praktik": "KONF",
+     "felder": [
+      {
+       "feld": "titel",
+       "name": "Titel",
+       "alt": "Denial of Service",
+       "neu": "Schutz gegen Denial of Service",
+       "diff": [
+        [
+         "+",
+         "Schutz gegen "
+        ],
+        [
+         "=",
+         "Denial of Service"
+        ]
+       ]
+      }
+     ]
+    },
+    {
+     "id": "KONF.2.3",
+     "titel": "Default-Zugangsdaten in IT-Systemen",
+     "praktik": "KONF",
+     "felder": [
+      {
+       "feld": "titel",
+       "name": "Titel",
+       "alt": "Änderung von Default-Zugangsdaten",
+       "neu": "Default-Zugangsdaten in IT-Systemen",
+       "diff": [
+        [
+         "-",
+         "Änderung von Default-Zugangsdaten"
+        ],
+        [
+         "+",
+         "Default-Zugangsdaten in IT-Systemen"
+        ]
+       ]
+      }
+     ]
+    },
+    {
+     "id": "KONF.2.5",
+     "titel": "Überprüfung der Systemkonfiguration",
+     "praktik": "KONF",
+     "felder": [
+      {
+       "feld": "titel",
+       "name": "Titel",
+       "alt": "Überprüfung der Konfiguration",
+       "neu": "Überprüfung der Systemkonfiguration",
+       "diff": [
+        [
+         "=",
+         "Überprüfung der "
+        ],
+        [
+         "-",
+         "Konfiguration"
+        ],
+        [
+         "+",
+         "Systemkonfiguration"
+        ]
+       ]
+      }
+     ]
+    },
+    {
+     "id": "KONF.2.6",
+     "titel": "Mobile Device Management",
+     "praktik": "KONF",
+     "felder": [
+      {
+       "feld": "titel",
+       "name": "Titel",
+       "alt": "Automatische Konfigurationsverwaltung",
+       "neu": "Mobile Device Management",
+       "diff": [
+        [
+         "-",
+         "Automatische Konfigurationsverwaltung"
+        ],
+        [
+         "+",
+         "Mobile Device Management"
+        ]
+       ]
+      }
+     ]
+    },
+    {
+     "id": "KONF.9.2",
+     "titel": "Begrenzung der Hostleistung",
+     "praktik": "KONF",
+     "felder": [
+      {
+       "feld": "titel",
+       "name": "Titel",
+       "alt": "Begrenzung der Rechenleistung",
+       "neu": "Begrenzung der Hostleistung",
+       "diff": [
+        [
+         "=",
+         "Begrenzung der "
+        ],
+        [
+         "-",
+         "Rechenleistung"
+        ],
+        [
+         "+",
+         "Hostleistung"
+        ]
+       ]
+      }
+     ]
+    }
+   ],
+   "technische_aenderungen": []
+  },
+  {
    "commit": "9fb19de7a80f243cc06fec73aa1c6159fcc6ebc5",
    "veroeffentlicht": "2026-10-23T05:40:00Z",
    "vorgaenger": "c96d9f575e369df7e392220003b032d731f0e26d",
@@ -3536,7 +3788,7 @@
   "veroeffentlicht": "2026-07-27T17:04:57+02:00"
  },
  "stand": {
-  "commit": "9fb19de7a80f243cc06fec73aa1c6159fcc6ebc5",
-  "veroeffentlicht": "2026-10-23T05:40:00Z"
+  "commit": "10f3c22898a4b15eb95fa228d78654cff32208e4",
+  "veroeffentlicht": "2026-10-30T09:59:42Z"
  }
 }

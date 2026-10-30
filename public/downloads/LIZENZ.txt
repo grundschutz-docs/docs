@@ -1,7 +1,7 @@
 Grundschutz++ – Anforderungen als Tabelle (CSV und Excel)
 ===========================================================
 
-Datenstand des Katalogs: 22.10.2026
+Datenstand des Katalogs: 29.10.2026
 
 Urheber:   Bundesamt für Sicherheit in der Informationstechnik (BSI-Bund)
 Werk:      Grundschutz++ (Anwenderkatalog), OSCAL-Katalog

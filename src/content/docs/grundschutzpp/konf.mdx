@@ -8,11 +8,11 @@ import ControlMeta from '../../../components/ControlMeta.astro';
 <span data-pagefind-meta="section:Anforderung"></span>
 
 <div class="source-note">
-<p>Katalogstand: 22. Oktober 2026 — Quelle: <a href="https://github.com/BSI-Bund/Stand-der-Technik-Bibliothek" target="_blank" rel="noopener noreferrer">BSI Stand-der-Technik-Bibliothek</a>.</p>
+<p>Katalogstand: 29. Oktober 2026 — Quelle: <a href="https://github.com/BSI-Bund/Stand-der-Technik-Bibliothek" target="_blank" rel="noopener noreferrer">BSI Stand-der-Technik-Bibliothek</a>.</p>
 <p>Diese Praktik als Tabelle: <a href="/export/?praktik=KONF">Excel exportieren</a> · <a href="/downloads/grundschutzpp-anforderungen-konf.csv" download>CSV</a></p>
 <details>
 <summary>Eine Anforderung von dieser Seite zitieren</summary>
-<p>Maßgeblich ist immer das Original, nicht diese Aufbereitung. Zitierfähig ist: BSI, <em>Anwenderkatalog Grundschutz++</em>, Version 2026-10-22, Dokument-ID ebe77c16-3ddc-42ce-8d53-eff5b6e23334 (RFC 9562), Anforderung <em>&lt;ID&gt;</em> — wobei die ID die Kennung neben der jeweiligen Überschrift ist, etwa <code>GC.5.1.1</code>. Sie bleibt stabil, auch wenn das BSI eine Formulierung ändert.</p>
+<p>Maßgeblich ist immer das Original, nicht diese Aufbereitung. Zitierfähig ist: BSI, <em>Anwenderkatalog Grundschutz++</em>, Version 2026-10-29, Dokument-ID ebe77c16-3ddc-42ce-8d53-eff5b6e23334 (RFC 9562), Anforderung <em>&lt;ID&gt;</em> — wobei die ID die Kennung neben der jeweiligen Überschrift ist, etwa <code>GC.5.1.1</code>. Sie bleibt stabil, auch wenn das BSI eine Formulierung ändert.</p>
 </details>
 </div>
 
@@ -132,7 +132,7 @@ Die Versionierung bezeichnet hier die strukturierte Nachvollziehbarkeit von Änd
 
 Kryptographie wird für die Authentifizierung, Verschlüsselung und Integritätprüfung in Systemen verwendet, z.B. bei der Verschlüsselung von Speichermedien, bei der Anmeldung am System, Transportverschlüsselung von Systemupdates oder Integritätsprüfung von Systemfunktionen. Die Formulierung "im Einklang mit den zugehörigen Anforderungen zum Identitäts- und Berechtigungsmanagement" bedeutet, dass die Funktionen so zu konfigurieren sind, wie in der Praktik Berechtigung (BER) festgelegt. Hierzu gehört insbesondere die Verwendung aktueller kryptographischer Verfahren, wie sie im Thema Kryptographie zu finden ist.
 
-### KONF.2.3 – Änderung von Default-Zugangsdaten {#KONF.2.3}
+### KONF.2.3 – Default-Zugangsdaten in IT-Systemen {#KONF.2.3}
 
 <span class="sr-only" aria-hidden="true" data-pagefind-weight="10">KONF.2.3</span>
 
@@ -172,7 +172,7 @@ Hierbei ist insbesondere an die vom Betriebssystem als vertrauenswürdig eingest
 
 Eine Cloud-Anbindung ist eine technische Schnittstelle, über die ein IT-System Daten oder Dienste mit einer externen Cloud-Plattform austauscht. Dazu können sowohl direkte API-Integrationen wie die Anmeldung an Cloud-Verzeichnisdienste, aber auch automatische Synchronisationsmechanismen, Hintergrund-Updates über Cloud-Server oder agentenbasierte Remote-Management-Funktionen zählen. Nicht benötigte Anbindungen können dadurch identifiziert werden, dass sie weder für den produktiven Betrieb noch für Wartung, Support oder Sicherheitsfunktionen erforderlich sind. Der Sinn und Zweck dieser Regelung liegt darin, die Angriffsfläche zu reduzieren und unkontrollierte Datenflüsse zu vermeiden. Ein nicht genutzter, aber weiterhin aktiver Cloud-Connector könnte etwa unbemerkt sensible Metadaten an Drittdienste übertragen oder als Einfallstor für Schadsoftware missbraucht werden; die gezielte Deaktivierung kann dagegen unnötige Risiken eliminieren und die Übersichtlichkeit der Systemarchitektur erhöhen.
 
-### KONF.2.5 – Überprüfung der Konfiguration {#KONF.2.5}
+### KONF.2.5 – Überprüfung der Systemkonfiguration {#KONF.2.5}
 
 <span class="sr-only" aria-hidden="true" data-pagefind-weight="10">KONF.2.5</span>
 
@@ -192,7 +192,7 @@ Referenzzustand („baseline configuration“) bezeichnet hier die dokumentierte
 
 Eine automatische Konfigurationsverwaltung ermöglicht eine einheitliche Konfiguration, z.B. für Passwortvorgaben, Verschlüsselung oder automatische Updates. Insbesondere bei der Verwaltung zahlreicher Endgeräte oder einer Bring Your Own Device Strategie (BYOD) bietet eine solche Verwaltung den einzig praktikablen Ansatz die Sicherheitsparameter der Geräte zu kontrollieren. Dies kann über selbst betriebenes zentrales Managementsystem (UEM oder MDM), Cloud-Dienste wie Intune oder Konfigurationsmanagement-Werkzeuge wie Ansible umgesetzt werden. Bei Abweichungen kann entweder ein automatisierter Mechanismus die erforderliche Konfiguration vornehmen, oder eine manuelle Entscheidung über die passende Behandlung erfolgen.
 
-### KONF.2.6 – Automatische Konfigurationsverwaltung {#KONF.2.6}
+### KONF.2.6 – Mobile Device Management {#KONF.2.6}
 
 <span class="sr-only" aria-hidden="true" data-pagefind-weight="10">KONF.2.6</span>
 
@@ -866,7 +866,7 @@ Dies kann durch direkten Download vom Hersteller oder einen eigenen Verteilerser
 
 Nutzerumgebung meint hier alle Anwendungen und Dienste, die auf dem System betrieben werden, aber keine Systemdienste sind. Alternativ empfiehlt es sich Mechanismen des verwendeten Datei- oder Betriebssystems zu nutzen, die Benutzende bei einem bestimmten Füllstand der Festplatte warnen oder nur noch Administrierenden Schreibrechte einräumen.
 
-### KONF.9.2 – Begrenzung der Rechenleistung {#KONF.9.2}
+### KONF.9.2 – Begrenzung der Hostleistung {#KONF.9.2}
 
 <span class="sr-only" aria-hidden="true" data-pagefind-weight="10">KONF.9.2</span>
 
@@ -918,7 +918,7 @@ Die Versionierung bezeichnet hier die strukturierte Nachvollziehbarkeit von Änd
 
 Kryptographie wird für die Authentifizierung, Verschlüsselung und Integritätprüfung in Anwendungen verwendet, z.B. bei der Anmeldung an der Anwendung oder digitalen Signierung von Nachrichten. Die Formulierung "im Einklang mit den zugehörigen Anforderungen zum Identitäts- und Berechtigungsmanagement" bedeutet, dass die Authentifizierung so erfolgt, wie in der Praktik Berechtigung (BER) festgelegt. Hierzu gehört insbesondere die Verwendung aktueller kryptographischer Verfahren, wie sie im Thema Schlüsselmanagement zu finden ist. Anerkannte kryptographische Verfahren sind in der BSI TR-02102 zu finden.
 
-### KONF.10.3 – Änderung von Default-Zugangsdaten {#KONF.10.3}
+### KONF.10.3 – Default-Zugangsdaten in Anwendungen {#KONF.10.3}
 
 <span class="sr-only" aria-hidden="true" data-pagefind-weight="10">KONF.10.3</span>
 
@@ -1594,11 +1594,11 @@ Dies ist besonders in Multi-Tenant-Architekturen relevant, wie sie häufig bei C
 
 <ControlMeta modalVerb="KANN" secLevel="erhöht" effort="5" threats="G 0.27, G 0.40" threatsHint="G 0.27 – Ressourcenmangel · G 0.40 – Verhinderung von Diensten (Denial of Service)" tags={[{ name: "Produktbeschreibung", slug: "produktbeschreibung", hint: "Anforderungen mit diesem Tag sind sinnvolle Bestandteile einer dokumentierten Beschreibung eines IT-Produktes. Die vom Produkt implementierten Anforderungen können (durch Herstellers, Dienstleister oder Lieferanten) als OSCAL component-definition bereitgestellt werden um einen schnellen Abgleich zwischen Grundschutz++ und der Implementierung zu ermöglichen." }, { name: "Phishing", slug: "phishing", hint: "Betrugsversuch, bei dem Angreifer durch täuschend echte Nachrichten oder Webseiten vertrauliche Informationen wie Passwörter oder Zahlungsdaten erlangen wollen." }, { name: "Denial of Service", slug: "denial-of-service", hint: "Angriff, der darauf abzielt, ein System, einen Dienst oder eine Ressource für legitime Benutzer unzugänglich zu machen, indem Ressourcen erschöpft oder Kommunikationswege blockiert werden." }]} targets={[{ name: "Anwendungen", slug: "anwendungen", hint: "Eine Software, ein Computerprogramm oder ein Softwaredienst, der definierte fachliche oder technische Funktionen zur Verarbeitung, Bereitstellung oder Verwaltung von Informationen zur Verfügung stellt. Beispiele: Textverarbeitungen, Betriebssysteme, mobile Applikationen.", synonyms: "Apps" }, { name: "Hostsysteme", slug: "hostsysteme", hint: "IT-Systeme die anderen IT-Systemen Dienste bereitstellen. Beispiele: Server, Router, Core-Switch, Firewall. Teil von: IT-Systeme.", synonyms: "Server" }]} inheritedTargets={["DNS-Server", "Dateiserver", "E-Mail", "Faxanwendungen", "Interpersonelle Kommunikation", "Office-Anwendungen", "TK-Anwendungen", "VK-Anwendungen", "Verzeichnisdienste", "Virtualisierungslösungen", "Webanwendungen", "Webbrowser", "Webserver"]} document={{ name: "Konfigurationshistorie", slug: "konfigurationshistorie" }} />
 
-> Konfiguration für Anwendungen von Hostsystemen KANN die Rechenleistung einschränken.
+> Konfiguration für Anwendungen von Hostsystemen KANN die Rechenleistung pro *[Zugangskonto oder Mandant]* einschränken.
 
 Kann durch eine Beschränkung der Anzahl verwendeter Rechenkerne, der Rechenleistung pro Rechenkern oder durch eine indirekte Beschränkung (z.B. eine begrenzte Menge an Anfragen oder Eingabetoken) umgesetzt werden. Beispielsweise kann in einem Verzeichnisdienst ein maximaler Schwellwert für die Zeit eingestellt werden, die eine Suchanfrage in Anspruch nehmen darf, um die Auslastung des Verzeichnisdienstes durch einzelne Anfragen nicht zu gefährden.
 
-### KONF.15.3 – Denial of Service {#KONF.15.3}
+### KONF.15.3 – Schutz gegen Denial of Service {#KONF.15.3}
 
 <span class="sr-only" aria-hidden="true" data-pagefind-weight="10">KONF.15.3</span>
 
