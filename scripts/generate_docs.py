@@ -4003,6 +4003,8 @@ def handwritten_catalog_facts(catalog, mapping_data, stats):
     return {
         "gesamt": len(controls),
         "praktiken": len({praktik(c) for c in controls}),
+        "managementpraktiken": len({praktik(c) for c in controls} & MANAGEMENT_CYCLE_IDS),
+        "themenfelder": len({praktik(c) for c in controls} - MANAGEMENT_CYCLE_IDS),
         "methodik": sum(1 for c in controls if praktik(c) in MANAGEMENT_CYCLE_IDS),
         "ohne_kategorie_praktiken": sum(1 for c in ohne_kategorie if praktik(c) not in MANAGEMENT_CYCLE_IDS),
         "mit_kategorie": len(controls) - len(ohne_kategorie),
@@ -4090,6 +4092,10 @@ def handwritten_claims(f):
         ("en/rag.mdx", r"All (\d+) MUSS requirements are at level \*normal-SdT\*, and all (\d+) KANN",
          [f["muss_alle_normal"], f["kann_alle_erhoeht"]]),
         ("en/rag.mdx", r"and (\d+) Bausteine have no mapping", [s(f["bausteine_ohne_zuordnung"])]),
+        # rollen/isb.mdx und rollen/devs.mdx: erzeugt, aber diese Zahlen stehen fest im Generatortext
+        ("rollen/isb.mdx", r"\(BSI, (\d+) Stück\)", [s(f["gefaehrdungen_verschieden"])]),
+        ("rollen/isb.mdx", r"Die (\w+) Praktiken im Detail", [wd(f["managementpraktiken"])]),
+        ("rollen/devs.mdx", r"kennt nur die (\d+) Themenfelder", [s(f["themenfelder"])]),
         # befunde/drei-sollte-mit-stufe-erhoeht.mdx
         ("befunde/drei-sollte-mit-stufe-erhoeht.mdx", r"\(Version (\d{4}-\d\d-\d\d), ([\d.]+) Anforderungen\)",
          [f["stand_iso"], de(f["gesamt"])]),

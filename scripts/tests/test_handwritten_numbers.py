@@ -64,6 +64,26 @@ class HandgeschriebeneZahlen(unittest.TestCase):
         self.assertIn("266", meldungen[0])
         self.assertIn("265", meldungen[0])
 
+    def test_feste_zahlen_im_generatortext_der_rollenseiten(self):
+        # rollen/isb.mdx und rollen/devs.mdx sind erzeugt, nennen aber einzelne Zahlen als festen
+        # Text im Generator ("47 Stück", "14 Themenfelder", "sechs Praktiken"). Stimmen sie nicht
+        # mehr mit dem Katalog, muss die Pruefung das melden.
+        for rel, alt, neu in [
+            ("rollen/isb.mdx", "(BSI, 47 Stück)", "(BSI, 48 Stück)"),
+            ("rollen/devs.mdx", "nur die 14 Themenfelder", "nur die 15 Themenfelder"),
+            ("rollen/isb.mdx", "Die sechs Praktiken im Detail", "Die sieben Praktiken im Detail"),
+        ]:
+            with self.subTest(rel=rel, alt=alt):
+                self.assertEqual(self.problems(), [])
+                path = self.docs / rel
+                original = path.read_text(encoding="utf-8")
+                self.assertIn(alt, original, f"{rel}: Testannahme stimmt nicht mehr")
+                path.write_text(original.replace(alt, neu, 1), encoding="utf-8")
+                meldungen = self.problems()
+                path.write_text(original, encoding="utf-8")
+                self.assertEqual(len(meldungen), 1, meldungen)
+                self.assertIn(rel, meldungen[0])
+
     def test_umformulierte_aussage_faellt_auf(self):
         # Ohne das wuerde ein umgeschriebener Satz still aus der Pruefung fallen.
         self.edit("en/rag.mdx", "appears in eleven requirements", "shows up in eleven requirements")
