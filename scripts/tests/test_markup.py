@@ -7,6 +7,8 @@ Gepruft wird gegen einen fertigen Build (dist/, oder Pfad in DIST), ueber alle S
    Aenderung den Bereich samt allen Knoepfen vor. Live ist nur der Zaehler.
 3. Jedes fokussierbare Element mit data-tooltip (Pille ohne Link) bietet den Tooltip-Text
    auch als aria-label an: der Tooltip ist reines CSS (::after) und fuer Hilfstechnik unsichtbar.
+4. Die englische Seite zu NIS2 (/en/operating-in-germany/) ist von jeder englischen Seite aus ueber
+   den Footer erreichbar, von deutschen Seiten aus nicht (dort gibt es sie nicht).
 """
 import os
 import unittest
@@ -83,6 +85,26 @@ class GebautesHtml(unittest.TestCase):
     def test_tooltips_stehen_auch_im_aria_label(self):
         falsch = {s: p.tooltips_ohne_label[:2] for s, p in self.seiten.items() if p.tooltips_ohne_label}
         self.assertEqual(falsch, {})
+
+
+class EnglischeNavigation(unittest.TestCase):
+    ZIEL = 'href="/en/operating-in-germany/"'
+
+    @classmethod
+    def setUpClass(cls):
+        if not DIST.is_dir():
+            raise RuntimeError(f"{DIST} fehlt: erst bauen (pnpm build)")
+        cls.html = {str(p.relative_to(DIST)): p.read_text(encoding="utf-8") for p in sorted(DIST.rglob("*.html"))}
+
+    def test_jede_englische_seite_verlinkt_im_footer_auf_nis2(self):
+        en = {s: h for s, h in self.html.items() if s.startswith("en/")}
+        self.assertGreater(len(en), 100)
+        ohne = [s for s, h in en.items() if self.ZIEL not in h.split("<footer", 1)[-1]]
+        self.assertEqual(ohne[:5], [])
+
+    def test_deutsche_seiten_verlinken_nicht_darauf(self):
+        mit = [s for s, h in self.html.items() if not s.startswith("en/") and self.ZIEL in h]
+        self.assertEqual(mit[:5], [])
 
 
 if __name__ == "__main__":

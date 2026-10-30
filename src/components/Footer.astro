@@ -33,6 +33,7 @@ const legalPrefix = isEnglish ? '/en' : '';
 			<a href="/grundschutzpp/zeitplan/">{isEnglish ? 'Status & timeline (German)' : 'Status & Zeitplan'}</a>
 			<a href="/aenderungen/">{isEnglish ? 'Catalog changes (German)' : 'Änderungen am Katalog'}</a>
 			<a href={`${legalPrefix}/befunde/`}>{isEnglish ? 'Findings' : 'Befunde'}</a>
+			{isEnglish && <a href="/en/operating-in-germany/">If your company operates in Germany</a>}
 		</nav>
 		<nav aria-labelledby="footer-tools">
 			<p class="col-title" id="footer-tools">{isEnglish ? 'Data & tools' : 'Daten & Werkzeuge'}</p>
