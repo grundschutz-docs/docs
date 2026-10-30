@@ -7,6 +7,8 @@ Gepruft wird gegen einen fertigen Build (dist/, oder Pfad in DIST), ueber alle S
    Aenderung den Bereich samt allen Knoepfen vor. Live ist nur der Zaehler.
 3. Jedes fokussierbare Element mit data-tooltip (Pille ohne Link) bietet den Tooltip-Text
    auch als aria-label an: der Tooltip ist reines CSS (::after) und fuer Hilfstechnik unsichtbar.
+5. Jede ID unter "Betrifft" auf einer Befund-Seite ist ein Link (Anforderung, Vergleichsseite oder
+   "Bausteine ohne Zuordnung"), nicht nur Code.
 4. Die englische Seite zu NIS2 (/en/operating-in-germany/) ist von jeder englischen Seite aus ueber
    den Footer erreichbar, von deutschen Seiten aus nicht (dort gibt es sie nicht).
 """
@@ -105,6 +107,32 @@ class EnglischeNavigation(unittest.TestCase):
     def test_deutsche_seiten_verlinken_nicht_darauf(self):
         mit = [s for s, h in self.html.items() if not s.startswith("en/") and self.ZIEL in h]
         self.assertEqual(mit[:5], [])
+
+
+class BefundBetrifft(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):
+        if not DIST.is_dir():
+            raise RuntimeError(f"{DIST} fehlt: erst bauen (pnpm build)")
+        cls.seiten = {
+            str(p.relative_to(DIST)): p.read_text(encoding="utf-8")
+            for p in sorted((DIST / "befunde").glob("*/index.html"))
+        }
+
+    def test_betrifft_ids_sind_links(self):
+        import re
+
+        gesehen, ohne_link = 0, []
+        for seite, html in self.seiten.items():
+            m = re.search(r"<dt[^>]*>Betrifft</dt>\s*<dd[^>]*>(.*?)</dd>", html, re.S)
+            if not m:
+                continue
+            for code in re.findall(r"<code[^>]*>(.*?)</code>", m.group(1)):
+                gesehen += 1
+                if not re.search(rf"<a [^>]*href=\"[^\"]+\"[^>]*>\s*<code[^>]*>{re.escape(code)}</code>", m.group(1)):
+                    ohne_link.append(f"{seite}: {code}")
+        self.assertGreater(gesehen, 25, "zu wenige Betrifft-IDs gefunden")
+        self.assertEqual(ohne_link[:5], [])
 
 
 if __name__ == "__main__":

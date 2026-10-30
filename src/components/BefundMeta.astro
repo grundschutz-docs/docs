@@ -12,6 +12,9 @@
  * Daten nachprüfbar, "auslegung" folgt aus mehreren Regelwerken und bleibt
  * eine Einschätzung, "beobachtung" ist ein Widerspruch ohne Fehlerbehauptung.
  */
+import { getCollection } from 'astro:content';
+import bausteine from '../data/bausteine.json';
+
 interface Props {
 	typ: 'fakt' | 'auslegung' | 'beobachtung';
 	status: 'offen' | 'gemeldet' | 'beantwortet' | 'behoben' | 'hinfaellig';
@@ -22,6 +25,22 @@ interface Props {
 }
 
 const { typ, status, gefunden, betrifft = [], quelle, meldung } = Astro.props;
+
+// "Betrifft" nennt Anforderungen (GC.5.1.1) und alte Bausteine (ORP.2). Jede ID wird zu einem
+// Link, sofern es die Zielseite gibt: die Praktik-Seite mit Anker, die Vergleichsseite des
+// Bausteins, oder (Bausteine, die das Mapping des BSI auslässt) der Abschnitt "Bausteine ohne
+// Zuordnung". Ob eine Seite existiert, steht in der Inhaltssammlung, nichts ist von Hand
+// eingetragen: Ein Befund zu einer ID ohne Seite zeigt sie weiter als reinen Code.
+const seiten = new Set((await getCollection('docs')).map((e) => e.id));
+const KEINE_PRAKTIK = new Set(['index', 'themen', 'zeitplan']);
+function zielVon(id: string): string | undefined {
+	const praktik = id.split('.')[0].toLowerCase();
+	if (!KEINE_PRAKTIK.has(praktik) && seiten.has(`grundschutzpp/${praktik}`)) return `/grundschutzpp/${praktik}/#${id}`;
+	const slug = id.toLowerCase().replaceAll('.', '-');
+	if (seiten.has(`vergleich/${slug}`)) return `/vergleich/${slug}/`;
+	if (bausteine.some((b) => b.id === id)) return '/vergleich/#ohne-zuordnung';
+	return undefined;
+}
 
 const TYP = {
 	fakt: {
@@ -77,7 +96,13 @@ const datum = new Intl.DateTimeFormat('de-DE', { dateStyle: 'long' });
 						{betrifft.map((id, i) => (
 							<>
 								{i > 0 && ', '}
-								<code>{id}</code>
+								{zielVon(id) ? (
+									<a href={zielVon(id)}>
+										<code>{id}</code>
+									</a>
+								) : (
+									<code>{id}</code>
+								)}
 							</>
 						))}
 					</dd>
