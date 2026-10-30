@@ -27,3 +27,25 @@ jobs:
       - run: pnpm install --frozen-lockfile
 
       - run: pnpm run build
+
+      # Tests in scripts/tests/ that need the built site or a tool the build
+      # does not use. Each one fails loudly when its prerequisite is missing
+      # instead of skipping, so a runner change cannot turn them into no-ops.
+      - name: Tests on the built site
+        run: |
+          python3 -B scripts/tests/test_pagefind_en.py
+          python3 -B scripts/tests/test_en_links.py
+
+      - name: nginx config test
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y nginx-light
+          python3 -B scripts/tests/test_nginx.py
+
+      # Playwright is pinned and kept out of package.json and the lockfile, the
+      # same way the Lighthouse workflow handles its tool.
+      - name: Browser test (touch tooltip)
+        run: |
+          npm install --no-save --prefix "$RUNNER_TEMP/pw" playwright@1.63.0
+          "$RUNNER_TEMP/pw/node_modules/.bin/playwright" install --with-deps chromium
+          NODE_PATH="$RUNNER_TEMP/pw/node_modules" node scripts/tests/touch-tooltip.test.cjs dist
