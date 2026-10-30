@@ -1058,6 +1058,7 @@ site-search dialog::backdrop {
 
 /* Der Link steht mit seinem Zusatz ("auch: Nameserver") in einer Zelle und unterscheidet sich vom
    Text nur in der Farbe. WCAG 1.4.1: ein Link im Textblock braucht mehr als die Farbe. */
+.zeile-zusatz a,
 .zahlen-tabelle td:first-child > a {
 	text-decoration: underline;
 	text-decoration-thickness: 1px;

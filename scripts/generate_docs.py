@@ -2805,7 +2805,11 @@ def render_zielobjekt_table(teil, ids, controls, control_index, direkt_von, bezu
     # die zweite Kategorie, damit das sichtbar bleibt.
     def zusatz(cid):
         auch = [k for k in direkt_von[cid] if k != bezug]
-        return f"(auch für {mdx_safe(', '.join(auch))})" if len(direkt_von[cid]) > 1 else ""
+        if len(direkt_von[cid]) <= 1:
+            return ""
+        # Als HTML-Link: die Zeile steht in einer HTML-Tabelle, dort wird Markdown nicht gelesen.
+        links = ", ".join(f'<a href="/zielobjekte/{tag_slug(k)}/">{mdx_safe(k)}</a>' for k in auch)
+        return f"(auch für {links})"
 
     return render_anforderungs_tabelle(teil, ids, controls, control_index, zusatz)
 
@@ -2864,6 +2868,13 @@ def render_zielobjekt_pages(catalog, control_index):
             lines.append(
                 f"Unterkategorien: {kinder}. Deren eigene Anforderungen stehen nicht hier, "
                 "sie gelten nur für die jeweilige Unterkategorie.\n"
+            )
+        # ADR-0011: der Katalog laesst offen, ob bei zwei Kategorien "oder" oder "und" gemeint
+        # ist; jede Seite mit solchen Zeilen sagt, dass das unsere Lesart ist.
+        if any(len(direkt_von[cid]) > 1 for cid in list(m["direkt"]) + [c for _, ids in m["geerbt"] for c in ids]):
+            lines.append(
+                "Anforderungen mit zwei Kategorien stehen bei beiden. Der Katalog sagt nicht, ob „oder“ oder "
+                "„und“ gemeint ist; wir lesen es als „oder“. Das ist unsere Lesart, keine Aussage des BSI.\n"
             )
         lines.append(f"## Direkt zugeordnet ({direkt}) {heading_anchor('direkt')}\n")
         if m["direkt"]:
