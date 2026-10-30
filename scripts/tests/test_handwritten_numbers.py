@@ -84,6 +84,22 @@ class HandgeschriebeneZahlen(unittest.TestCase):
                 self.assertEqual(len(meldungen), 1, meldungen)
                 self.assertIn(rel, meldungen[0])
 
+    def test_aelteres_datum_im_text_ist_kein_fehler(self):
+        # Veroeffentlicht das BSI den Katalog neu, ohne dass sich die Zahlen aendern, nennen die
+        # Seiten weiter das Datum, fuer das sie gezaehlt wurden. Das ist kein Fehler: sonst bricht
+        # der Sync bei jeder Veroeffentlichung ab. Entscheidend sind die Zahlen.
+        neuer = copy.deepcopy(self.catalog)
+        neuer["metadata"]["last-modified"] = "2027-03-01T08:00:00Z"
+        self.assertEqual(self.problems(neuer), [])
+
+    def test_datum_nach_dem_katalog_wird_gemeldet(self):
+        # Ein Datum, das nach dem Katalogstand liegt, kann nicht stimmen (Tippfehler, falscher Stand).
+        self.edit("methodik.mdx", "(Stand 22.10.2026,", "(Stand 31.12.2026,")
+        self.edit("en/methodik.mdx", "(version 22 October 2026,", "(version 31 December 2026,")
+        self.edit("befunde/drei-sollte-mit-stufe-erhoeht.mdx", "(Version 2026-10-22,", "(Version 2026-12-31,")
+        dateien = sorted(m.split(":")[0] for m in self.problems())
+        self.assertEqual(dateien, ["befunde/drei-sollte-mit-stufe-erhoeht.mdx", "en/methodik.mdx", "methodik.mdx"])
+
     def test_umformulierte_aussage_faellt_auf(self):
         # Ohne das wuerde ein umgeschriebener Satz still aus der Pruefung fallen.
         self.edit("en/rag.mdx", "appears in eleven requirements", "shows up in eleven requirements")

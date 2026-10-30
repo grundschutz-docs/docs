@@ -3979,6 +3979,42 @@ def _tausender(n, sep):
     return f"{n:,}".replace(",", sep)
 
 
+class _DatumBis:
+    """Vergleicht gleich mit einem gefundenen Datumstext, wenn der nicht nach dem Stichtag liegt.
+
+    Die Seiten nennen das Datum, fuer das sie gezaehlt haben ("Stand 22.10.2026"). Ein aelteres als
+    der Katalog ist in Ordnung, solange die Zahlen noch stimmen: veroeffentlicht das BSI den Katalog
+    neu, ohne dass sich eine Zahl aendert, soll der Sync nicht abbrechen. Ein neueres Datum kann
+    nicht stimmen. __eq__, weil die Pruefung die gefundenen Gruppen mit == vergleicht."""
+
+    def __init__(self, stichtag_iso, lesen):
+        self.stichtag, self.lesen = stichtag_iso, lesen
+
+    def __eq__(self, gefunden):
+        try:
+            return self.lesen(gefunden) <= self.stichtag
+        except (ValueError, KeyError):
+            return False
+
+    def __ne__(self, gefunden):
+        return not self == gefunden
+
+    __hash__ = None
+
+    def __repr__(self):
+        return f"ein Datum bis {self.stichtag}"
+
+
+def _iso_aus_de(text):  # 22.10.2026
+    tag, monat, jahr = text.split(".")
+    return f"{int(jahr):04d}-{int(monat):02d}-{int(tag):02d}"
+
+
+def _iso_aus_en(text):  # 22 October 2026
+    tag, monat, jahr = text.split()
+    return f"{int(jahr):04d}-{_MONATE_EN.index(monat) + 1:02d}-{int(tag):02d}"
+
+
 def handwritten_catalog_facts(catalog, mapping_data, stats):
     """Die Zahlen, die handgeschriebene Seiten nennen, frisch aus dem Rohkatalog gerechnet."""
     controls = list(collect_controls(catalog))
@@ -4067,7 +4103,7 @@ def handwritten_claims(f):
         ("methodik.mdx", r"Im Katalog sind das \*\*(\d+)\*\*\.", [s(f["ohne_kategorie_praktiken"])]),
         ("methodik.mdx", r"tragen \*\*(\d+)\*\* Anforderungen die Kategorie", [s(f["mit_kategorie"])]),
         ("methodik.mdx", r"ergibt das die ([\d.]+) Anforderungen", [de(f["gesamt"])]),
-        ("methodik.mdx", r"\(Stand (\d\d\.\d\d\.\d{4}), ([\d.]+) Anforderungen\)", [f["stand_de"], de(f["gesamt"])]),
+        ("methodik.mdx", r"\(Stand (\d\d\.\d\d\.\d{4}), ([\d.]+) Anforderungen\)", [_DatumBis(f["stand_iso"], _iso_aus_de), de(f["gesamt"])]),
         ("methodik.mdx", r"\| MUSS \| (\d+) \| normal-SdT \|", [s(f["muss_normal"])]),
         ("methodik.mdx", r"\| SOLLTE \| (\d+) \| normal-SdT \|", [s(f["sollte_normal"])]),
         ("methodik.mdx", r"\| SOLLTE \| (\d+) \| erhöht \|", [s(f["sollte_erhoeht"])]),
@@ -4082,7 +4118,7 @@ def handwritten_claims(f):
         ("en/methodik.mdx", r"In the catalog that is \*\*(\d+)\*\*\.", [s(f["ohne_kategorie_praktiken"])]),
         ("en/methodik.mdx", r"In the catalog, \*\*(\d+)\*\* requirements carry", [s(f["mit_kategorie"])]),
         ("en/methodik.mdx", r"that makes the ([\d,]+) requirements", [en(f["gesamt"])]),
-        ("en/methodik.mdx", r"\(version (\d+ \w+ \d{4}), ([\d,]+) requirements\)", [f["stand_en"], en(f["gesamt"])]),
+        ("en/methodik.mdx", r"\(version (\d+ \w+ \d{4}), ([\d,]+) requirements\)", [_DatumBis(f["stand_iso"], _iso_aus_en), en(f["gesamt"])]),
         ("en/methodik.mdx", r"\| MUSS \(must\) \| (\d+) \| normal-SdT \|", [s(f["muss_normal"])]),
         ("en/methodik.mdx", r"\| SOLLTE \(should\) \| (\d+) \| normal-SdT \|", [s(f["sollte_normal"])]),
         ("en/methodik.mdx", r"\| SOLLTE \(should\) \| (\d+) \| erhöht", [s(f["sollte_erhoeht"])]),
@@ -4118,7 +4154,7 @@ def handwritten_claims(f):
         ("rollen/devs.mdx", r"kennt nur die (\d+) Themenfelder", [s(f["themenfelder"])]),
         # befunde/drei-sollte-mit-stufe-erhoeht.mdx
         ("befunde/drei-sollte-mit-stufe-erhoeht.mdx", r"\(Version (\d{4}-\d\d-\d\d), ([\d.]+) Anforderungen\)",
-         [f["stand_iso"], de(f["gesamt"])]),
+         [_DatumBis(f["stand_iso"], str), de(f["gesamt"])]),
         ("befunde/drei-sollte-mit-stufe-erhoeht.mdx", r"\| MUSS \| normal-SdT \| (\d+) \|", [s(f["muss_normal"])]),
         ("befunde/drei-sollte-mit-stufe-erhoeht.mdx", r"\| SOLLTE \| normal-SdT \| (\d+) \|", [s(f["sollte_normal"])]),
         ("befunde/drei-sollte-mit-stufe-erhoeht.mdx", r"\| KANN \| erhöht \| (\d+) \|", [s(f["kann_erhoeht"])]),
