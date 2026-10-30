@@ -2435,11 +2435,35 @@ def baustein_search_title(full_name):
     return f"{full_name}: Nachfolge in Grundschutz++"
 
 
-def baustein_description(full_name, count):
+def baustein_wo(entries, group_titles, links):
+    """Wohin ein Baustein im neuen Katalog gegangen ist, als Satzteil. Gleiche Worte im ersten
+    Absatz der Seite (mit Links) und in der Beschreibung fuer die Suche (ohne)."""
+    new_ids = {new for _, _, new in entries}
+    per_field = {}
+    for new_id in new_ids:
+        field = new_id.split(".")[0]
+        per_field[field] = per_field.get(field, 0) + 1
+    ranked = sorted(per_field.items(), key=lambda kv: (-kv[1], kv[0]))
+
+    def field_name(fid):
+        if fid in group_titles:
+            return f"[{fid} {group_titles[fid]}](/grundschutzpp/{fid.lower()}/)" if links else f"{fid} {group_titles[fid]}"
+        return fid
+
+    top_id, top_n = ranked[0]
+    if len(ranked) == 1:
+        return f"im Themenfeld {field_name(top_id)}"
+    if top_n * 2 > len(new_ids):
+        return f"die meisten davon in {field_name(top_id)} ({top_n})"
+    return f"verteilt auf {len(ranked)} Themenfelder, am häufigsten {field_name(top_id)} ({top_n})"
+
+
+def baustein_description(full_name, count, entries, group_titles):
     noun = "Zuordnung" if count == 1 else "Zuordnungen"
+    wo = baustein_wo(entries, group_titles, links=False)
     return (
-        f"{full_name}: {count} {noun} zur Nachfolge in Grundschutz++ "
-        "nach dem BSI-Mapping, je mit Beziehungstyp."
+        f"{full_name}: {count} {noun} zur Nachfolge in Grundschutz++, {wo}. "
+        "Nach dem BSI-Mapping, je mit Beziehungstyp."
     )
 
 
@@ -2455,24 +2479,7 @@ def baustein_lead(full_name, layer, entries, group_titles):
 
     old_ids = {old for old, _, _ in entries}
     new_ids = {new for _, _, new in entries}
-    per_field = {}
-    for new_id in new_ids:
-        field = new_id.split(".")[0]
-        per_field[field] = per_field.get(field, 0) + 1
-    ranked = sorted(per_field.items(), key=lambda kv: (-kv[1], kv[0]))
-
-    def field_link(fid):
-        if fid in group_titles:
-            return f"[{fid} {group_titles[fid]}](/grundschutzpp/{fid.lower()}/)"
-        return fid
-
-    top_id, top_n = ranked[0]
-    if len(ranked) == 1:
-        where = f"im Themenfeld {field_link(top_id)}"
-    elif top_n * 2 > len(new_ids):
-        where = f"die meisten davon in {field_link(top_id)} ({top_n})"
-    else:
-        where = f"verteilt auf {len(ranked)} Themenfelder, am häufigsten {field_link(top_id)} ({top_n})"
+    where = baustein_wo(entries, group_titles, links=True)
     return (
         f"**{full_name}**"
         + (f" (Schicht {layer}, Edition 2023)" if layer else " (Edition 2023)")
@@ -2560,7 +2567,7 @@ def render_baustein_page(baustein_id, entries, baustein_links, control_index, gr
     lines = [
         "---\n",
         f"title: {yaml_quote(full_name)}\n",
-        f"description: {yaml_quote(baustein_description(full_name, len(entries)))}\n",
+        f"description: {yaml_quote(baustein_description(full_name, len(entries), entries, group_titles))}\n",
         # <title> für die Suchergebnisse; Überschrift und Seitenleiste behalten
         # den kurzen Titel. Suchende tippen die alte Baustein-ID.
         "head:\n",
@@ -3048,6 +3055,20 @@ def dokument_gruppe(d):
     return d["kategorie"]
 
 
+def dokument_beschreibung(d, name, anzahl, beschr):
+    """Beschreibung der Dokumentseite fuer die Suche. Mit Beschreibung des BSI deren erster Satz (nicht
+    bei Texten mit Hinweis in BSI_CSV_HINWEISE: den Text des BSI dort nicht als Snippet zeigen). Ohne:
+    die Zahlen und der Hinweis, dass das BSI keine liefert (wie auf der Seite)."""
+    zahlen = f"Der Dokumenttyp {name} im Grundschutz++-Katalog: {anzahl}, davon {d['muss']} MUSS."
+    if not d["beschreibung"]:
+        return zahlen + " Das BSI liefert dazu keine Beschreibung."
+    if d.get("bsi_name") in BSI_CSV_HINWEISE:
+        return zahlen
+    # Der erste Satz des BSI nennt oft nicht, um welches Dokument es geht ("Die Integration von externen
+    # Dienstleistungen ... birgt spezifische Risiken"): der Name steht davor.
+    return f"{name}: {beschr}"
+
+
 def render_dokument_pages(catalog, control_index, params_by_id, basethreats_by_id, predecessor_index, guidelines):
     rows = export_rows(catalog, params_by_id, basethreats_by_id, predecessor_index)
     dokumente = export_documents(rows, guidelines, [g["id"] for g in catalog["groups"]])
@@ -3083,12 +3104,7 @@ def render_dokument_pages(catalog, control_index, params_by_id, basethreats_by_i
         lines = [
             "---\n",
             f"title: {yaml_quote(name)}\n",
-            "description: "
-            + yaml_quote(
-                f"Der Dokumenttyp {name} im Grundschutz++-Katalog: {plural(d['anzahl'])}, davon {d['muss']} MUSS, "
-                "mit der Beschreibung des BSI, soweit vorhanden."
-            )
-            + "\n",
+            "description: " + yaml_quote(dokument_beschreibung(d, name, plural(d["anzahl"]), beschr)) + "\n",
             "---\n\n",
             pagefind_section("Dokument"),
         ]
