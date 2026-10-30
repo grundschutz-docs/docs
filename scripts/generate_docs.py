@@ -2114,6 +2114,12 @@ def render_geschaeftsfuehrung_page(management, themenfelder, groups_by_id):
     (ROLLEN_OUT_DIR / "geschaeftsfuehrung.mdx").write_text("".join(lines))
 
 
+# Reihenfolge des tatsächlichen PDCA-Ablaufs -- weicht von der Katalog-Reihenfolge ab (dort
+# steht VRB vor PERF), siehe PdcaCycle.astro. Grafik und Liste auf rollen/isb.mdx nehmen
+# dieselbe, damit "dieselben sechs Praktiken als Liste" auch dieselbe Reihenfolge heißt.
+PDCA_SEQUENCE = ["GC", "STM", "UMS", "PERF", "VRB"]
+
+
 def render_pdca_cycle_prop(management, groups_by_id):
     by_id = {gid: (title, slug) for gid, title, slug, _ in management}
 
@@ -2122,17 +2128,14 @@ def render_pdca_cycle_prop(management, groups_by_id):
         count = len(list(collect_controls(groups_by_id[gid])))
         return f"{{ id: {jsx_string(gid)}, title: {jsx_string(title)}, slug: {jsx_string(slug)}, count: {count} }}"
 
-    # Reihenfolge des tatsächlichen PDCA-Ablaufs -- weicht von der
-    # Katalog-Reihenfolge ab (dort steht VRB vor PERF), siehe PdcaCycle.astro.
-    sequence = ["GC", "STM", "UMS", "PERF", "VRB"]
-    nodes = "[" + ", ".join(node(gid) for gid in sequence) + "]"
+    nodes = "[" + ", ".join(node(gid) for gid in PDCA_SEQUENCE) + "]"
     risk = node("RISK")
     return nodes, risk
 
 
 def render_isb_page(management, groups_by_id):
     entries = []
-    for gid, title, slug, summary in management:
+    for gid, title, slug, summary in sorted(management, key=lambda m: (PDCA_SEQUENCE + ["RISK"]).index(m[0])):
         count = len(list(collect_controls(groups_by_id[gid])))
         entries.append((gid, title, slug, f"{summary} ({count} Anforderungen)"))
 
