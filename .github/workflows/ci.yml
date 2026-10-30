@@ -40,6 +40,7 @@ jobs:
           python3 -B scripts/tests/test_befunde.py
           python3 -B scripts/tests/test_methodik_struktur.py
           python3 -B scripts/tests/test_isb_reihenfolge.py
+          python3 -B scripts/tests/test_timeline.py
 
       # exceljs is the foreign reader that compare.py checks the workbook with
       # (see scripts/xlsx/verify.py). Pinned, outside package.json and the lockfile.
