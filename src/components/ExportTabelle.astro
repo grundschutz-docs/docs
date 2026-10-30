@@ -4,7 +4,7 @@
 // täglich mit dem Katalog abgeglichen). Das Markup der Filter entsteht beim Bauen
 // aus genau dieser Datei, der Browser lädt sie danach nur noch zum Filtern nach.
 // Nur Markup + Script hier drin, die CSS-Regeln liegen global in custom.css
-// (gleiches Muster wie GfFilter.astro und VergleichFilter.astro).
+// (gleiches Muster wie VergleichFilter.astro).
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 
@@ -67,9 +67,6 @@ const EFFORT = ['0', '1', '2', '3', '4', '5'];
 				<label><input type="checkbox" name="stufe" value="Standard-Sicherheitsstufe" /> Standard-Sicherheitsstufe</label>
 				<label><input type="checkbox" name="stufe" value="Erhöhte Sicherheitsstufe" /> Erhöhte Sicherheitsstufe</label>
 			</div>
-			<p class="export-hint">
-				Bei höherem Schutzbedarf gilt die erhöhte Stufe zusätzlich zur Standard-Stufe. Dann beide anhaken.
-			</p>
 		</fieldset>
 
 		<fieldset class="export-group">

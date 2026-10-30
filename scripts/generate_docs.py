@@ -83,7 +83,6 @@ CONTROL_META_IMPORT = "import ControlMeta from '../../../components/ControlMeta.
 VERGLEICH_FILTER_IMPORT = "import VergleichFilter from '../../../components/VergleichFilter.astro';\n"
 # rollen/*.mdx liegt auf derselben Tiefe wie grundschutzpp/*.mdx (nicht wie
 # vergleich.mdx), daher derselbe "../../../"-Pfad wie CONTROL_META_IMPORT.
-GF_FILTER_IMPORT = "import GfFilter from '../../../components/GfFilter.astro';\n"
 PDCA_CYCLE_IMPORT = "import PdcaCycle from '../../../components/PdcaCycle.astro';\n"
 
 PARAM_RE = re.compile(r"\{\{\s*insert:\s*param,\s*([a-zA-Z0-9._-]+)\s*\}\}")
@@ -1987,7 +1986,6 @@ def render_geschaeftsfuehrung_page(management, themenfelder, groups_by_id):
         f"title: {yaml_quote('Für Geschäftsführung')}\n",
         f"description: {yaml_quote('Pflicht-Anforderungen, Einstufungskriterien und Haftungsrahmen auf einen Blick.')}\n",
         "---\n\n",
-        GF_FILTER_IMPORT,
         "\n",
         pagefind_section("Rolle"),
         "> Diese Seite ersetzt keine Rechts- oder Haftungsberatung. Sie ordnet "
@@ -2018,7 +2016,7 @@ def render_geschaeftsfuehrung_page(management, themenfelder, groups_by_id):
         # ich drin" -- dafuer muss man die Logik im Kopf rueckwaerts aufloesen.
         # In der Tabelle liest man nur die eigene Zeile ab. Bewusst keine
         # Rechenhilfe mit Eingabefeld: die Seite stuft nicht ein (ADR-0007,
-        # siehe GfFilter.astro), sie legt die Kriterien nur so hin, dass man
+        # siehe rollen/geschaeftsfuehrung), sie legt die Kriterien nur so hin, dass man
         # sie selbst anwenden kann.
         '<div class="table-scroll">\n'
         '<table class="bsig-table">\n'
@@ -2103,7 +2101,12 @@ def render_geschaeftsfuehrung_page(management, themenfelder, groups_by_id):
         "- Alter der letzten Schutzbedarfsfeststellung bzw. Risikobewertung\n"
         "- Datum der letzten Schulungsteilnahme der Geschäftsleitung (§ 38 "
         "Abs. 3 BSIG)\n\n",
-        f'<GfFilter mussTotal={{{total_muss}}} mussNormalSdt={{{muss_normal_sdt}}} />\n\n',
+        # Ein Filter nach Sicherheitsstufe stand hier, solange es MUSS in beiden
+        # Stufen geben konnte. Im Katalog ist jede MUSS-Anforderung normal-SdT:
+        # "Standard" filterte nichts, "erhoeht" blendete die ganze Seite aus.
+        f"**Standard-Sicherheitsstufe** (Stand der Technik) — der Basisschutz, der "
+        f"unabhängig vom individuellen Schutzbedarf für praktisch jede Einrichtung gilt. "
+        f"{muss_normal_sdt} von {total_muss} MUSS-Anforderungen im Katalog haben diese Stufe.\n\n",
         "## Die MUSS-Anforderungen nach Bereich\n\n",
         *sections,
     ]
