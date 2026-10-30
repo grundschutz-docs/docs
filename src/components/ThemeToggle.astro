@@ -86,9 +86,12 @@ import { Icon } from '@astrojs/starlight/components';
 		#apply(theme: Theme) {
 			this.#theme = theme;
 			document.documentElement.dataset.theme = theme === 'auto' ? getSystemTheme() : theme;
-			this.dataset.active = theme;
-			const button = this.querySelector('button');
-			if (button) button.setAttribute('aria-label', labels[theme]);
+			// Starlight bindet den Schalter zweimal ein (Kopfzeile und Menü für schmale
+			// Bildschirme). Alle Instanzen nachziehen, sonst zeigt die andere ein altes Symbol.
+			for (const toggle of document.querySelectorAll<HTMLElement>('theme-toggle')) {
+				toggle.dataset.active = theme;
+				toggle.querySelector('button')?.setAttribute('aria-label', labels[theme]);
+			}
 		}
 	}
 

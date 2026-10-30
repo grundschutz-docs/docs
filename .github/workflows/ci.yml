@@ -49,7 +49,7 @@ jobs:
 
       # Playwright and axe-core are pinned and kept out of package.json and the
       # lockfile, the same way the Lighthouse workflow handles its tool.
-      - name: Browser tests (touch tooltip, accessibility, print)
+      - name: Browser tests (touch tooltip, accessibility, print, theme toggle)
         run: |
           npm install --no-save --prefix "$RUNNER_TEMP/pw" playwright@1.63.0 axe-core@4.10.3
           "$RUNNER_TEMP/pw/node_modules/.bin/playwright" install --with-deps chromium
@@ -57,3 +57,4 @@ jobs:
           node scripts/tests/touch-tooltip.test.cjs dist
           node scripts/tests/a11y.test.cjs dist
           node scripts/tests/print.test.cjs dist
+          node scripts/tests/theme-toggle.test.cjs dist
