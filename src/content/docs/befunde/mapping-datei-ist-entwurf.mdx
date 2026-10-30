@@ -64,6 +64,10 @@ jq '[.["mapping-collection"].mappings[].maps[]
      | select(any(.props[]; .name=="relationship_defaulted" and .value=="true"))]
     | length' $F                                                # 156
 jq '[.["mapping-collection"].mappings[].maps[]] | length' $F    # 1185
+
+# Stand der Datei und letzte Änderung im Repository
+jq -r '.["mapping-collection"].metadata["last-modified"]' $F    # 2026-07-21T07:57:12Z
+git log -1 --format='%h %ad' --date=short -- $F                 # 8f0bcd1 2026-07-27
 ```
 
 Für Punkt 2 genügt es, die Bausteine der Datei zu zählen (94) und mit den 111
@@ -97,5 +101,8 @@ korrekt und kein Fehler. Der Fehler lag bei uns: Die Seite nannte die Datei
 - Ob die Inhalte der 17 Bausteine im Grundschutz++-Katalog an anderer Stelle
   aufgehen, haben wir nicht Anforderung für Anforderung geprüft. Das wäre eine
   eigene Beobachtung und gehört nicht in diesen Befund.
-- Die Datei kann sich zur Vorstellung der Methodik auf der it-sa
-  (27.–29. Oktober 2026) ändern. Dann wird dieser Befund aktualisiert.
+- Die Datei hat sich seit der Vorstellung der Methodik auf der it-sa
+  (27.–29. Oktober 2026) nicht geändert. Am 30. Oktober 2026 (Commit `c3f3785`) war
+  sie byte-gleich mit dem Stand vom 23. Oktober, die letzte Änderung im
+  BSI-Repository war am 27. Juli 2026 (Umstrukturierung des Repositorys), ihr
+  eigener Stand der 21. Juli 2026. Ändert sie sich, wird dieser Befund aktualisiert.
