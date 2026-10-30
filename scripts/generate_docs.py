@@ -179,7 +179,7 @@ TIMELINE = [
     (
         date(2027, 2, 26), date(2027, 3, 31),
         "Leistungsmessung",
-        "Ab 26.02.2027 ist das Konzept zur Leistungsmessung des ISMS in der Methodik, bis 31.03.2027 sollen alle Anforderungen der ISMS-Praktiken Leistungskennzahlen haben.",
+        "Ab 26.02.2027 ist das Konzept zur Leistungsmessung des ISMS in der Methodik, bis 31.03.2027 sollen alle Anforderungen der Methodik-Praktiken Leistungskennzahlen haben.",
         "performance measurement", "Performance measurement concept and indicators are due.",
         "26.02. – 31.03.2027", False,
     ),
