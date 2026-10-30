@@ -70,6 +70,7 @@ jobs:
           python3 -B scripts/tests/test_p0_fachlich.py
           python3 -B scripts/tests/test_handwritten_numbers.py
           python3 -B scripts/tests/test_tote_mapping_ids.py
+          python3 -B scripts/tests/test_outsourcing_hinweis.py
 
       # git status, not only git diff: a file the generator creates but nobody
       # committed is an untracked file, which diff does not see. The upstream

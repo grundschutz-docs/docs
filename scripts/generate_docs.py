@@ -3022,6 +3022,20 @@ DOKUMENT_QUELLE_URL = (
     "https://github.com/BSI-Bund/Stand-der-Technik-Bibliothek/blob/main/"
     "documentation/namespaces/documentation_guidelines.csv"
 )
+# Auffaelligkeiten in documentation_guidelines.csv, die wir nicht aendern koennen. Jeder Eintrag
+# gilt nur, solange die Tabelle noch genau diesen Text hat (Verfallsdatum): aendert das BSI ihn
+# oder die Zeile faellt weg, bricht der Generator ab, statt einen Hinweis zu zeigen, der nicht mehr
+# stimmt. Den Eintrag dann entfernen und den Befund anpassen.
+BSI_CSV_HINWEISE = {
+    "Outsourcing-Strategie": {
+        "beginnt_mit": "Informationssicherheitsstrategie: Ein übergeordnetes Dokument",
+        "hinweis": (
+            "Dieser Text steht so in der Tabelle des BSI. Er beginnt mit „Informationssicherheitsstrategie:“ "
+            "und beschreibt nach unserer Lesart dieses Dokument, nicht die Outsourcing-Strategie. Ob das ein Versehen "
+            "ist, wissen wir nicht. Mehr dazu im [Befund](/befunde/dokumenttypen-katalog-und-csv/#outsourcing-strategie)."
+        ),
+    },
+}
 DOKUMENT_OHNE_KATEGORIE = "Ohne Kategorie im BSI"
 DOKUMENT_OHNE_BESCHREIBUNG = "Ohne Beschreibung des BSI"
 
@@ -3043,6 +3057,15 @@ def render_dokument_pages(catalog, control_index, params_by_id, basethreats_by_i
     kollision = {k: v for k, v in slugs.items() if len(v) > 1}
     if kollision:
         raise SystemExit(f"Dokumenttypen mit gleicher Adresse: {kollision}")
+
+    for bsi_name, eintrag in BSI_CSV_HINWEISE.items():
+        betroffen = [d for d in dokumente if d.get("bsi_name") == bsi_name]
+        if not betroffen or not betroffen[0]["beschreibung"].startswith(eintrag["beginnt_mit"]):
+            raise SystemExit(
+                f"Hinweis zu {bsi_name!r} in BSI_CSV_HINWEISE ist veraltet: die Tabelle des BSI hat diesen Text "
+                "nicht mehr (oder die Zeile). Eintrag entfernen und den Befund "
+                "befunde/dokumenttypen-katalog-und-csv.mdx anpassen."
+            )
 
     _, _, controls = zielobjekt_model(catalog)
     direkt_von = {cid: control_targets(c) for cid, c in controls.items()}
@@ -3083,6 +3106,8 @@ def render_dokument_pages(catalog, control_index, params_by_id, basethreats_by_i
             if d["zuordnung"] == "schreibweise":
                 hinweis += f" Der Katalog nennt das Dokument „{name}“, die Tabelle „{d['bsi_name']}“; sie unterscheiden sich nur in der Schreibweise."
             lines.append(hinweis + "\n")
+            if d.get("bsi_name") in BSI_CSV_HINWEISE:
+                lines.append(f"**Hinweis:** {BSI_CSV_HINWEISE[d['bsi_name']]['hinweis']}\n")
         else:
             lines.append(
                 "Zu diesem Dokumenttyp liefert das BSI keine Beschreibung: Der Katalog nennt ihn, "

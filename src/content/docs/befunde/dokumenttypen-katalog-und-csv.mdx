@@ -60,6 +60,25 @@ Die Tabelle selbst ist an zwei Stellen erkennbar nicht fertig: Die Zeile
 Dokumenten“, und der Eintrag „Verfahrensbeschreibung“ trägt „???“ in
 Definition, Kategorie und Zielgruppe.
 
+### Die Zeile „Outsourcing-Strategie“ {#outsourcing-strategie}
+
+Die Definition der Zeile „Outsourcing-Strategie“ beginnt mit
+„Informationssicherheitsstrategie: Ein übergeordnetes Dokument …“. Nach unserer
+Lesart beschreibt sie damit die Informationssicherheitsstrategie und nicht eine
+Outsourcing-Strategie. Die Zeile „Informationssicherheitsstrategie“ selbst trägt
+einen anderen Text. Ob das ein Versehen ist, wissen wir nicht. Von
+den 67 Zeilen der Tabelle ist das die einzige, deren Definition mit dem Namen einer
+anderen Zeile und einem Doppelpunkt beginnt.
+
+Die Seite [Outsourcing Strategie](/dokumente/outsourcing-strategie/) zeigt den Text
+des BSI unverändert und nennt diesen Hinweis dazu; der Export enthält ihn ebenfalls
+unverändert. Der Hinweis steht im Generator und gilt nur, solange die Tabelle so
+beginnt. Ändert das BSI den Text, bricht der Generator ab, statt einen Hinweis zu
+zeigen, der nicht mehr stimmt. Die Meldung vom
+29. Oktober 2026 nannte „Outsourcing-Strategie“ nur als Paar zu „Outsourcing
+Strategie“ (Schreibweise); die Definition der Zeile war nicht Teil der Meldung. Am
+30. Oktober 2026 (Commit `c3f3785`) stand sie unverändert in der Tabelle.
+
 ## Nachprüfen
 
 Mit einem Klon der Stand-der-Technik-Bibliothek, Commit `160c177` vom
@@ -90,6 +109,17 @@ comm -23 <(sort -u katalog.txt) csv.txt \
 
 # in der Tabelle vorhanden, im Katalog nie verwendet (14 Begriffe)
 comm -13 <(sort -u katalog.txt) csv.txt
+
+# Zeilen, deren Definition mit dem Namen einer anderen Zeile und einem Doppelpunkt beginnt
+python3 -c '
+import csv
+rows = list(csv.DictReader(open("'$C'", encoding="utf-8")))
+namen = {r["Begriff"].strip() for r in rows}
+for r in rows:
+    erster = r["Definition"].split(":")[0].strip()
+    if ":" in r["Definition"][:60] and erster in namen and erster != r["Begriff"].strip():
+        print(r["Begriff"], "->", erster)'
+# Outsourcing-Strategie -> Informationssicherheitsstrategie
 ```
 
 Dass der Katalog auf diese Tabelle verweist, steht an jedem
