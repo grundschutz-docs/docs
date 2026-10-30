@@ -52,6 +52,20 @@ class BannerPhase(unittest.TestCase):
         self.assertIsNotNone(phase)
         self.assertEqual(phase[2], AUFFANG)
 
+    def test_meilenstein_ohne_datum_steht_in_der_zeitleiste_aber_nie_im_banner(self):
+        # Der BSI-Meilensteinplan nennt "2027 ff.: Internationalisierung des GS++, Integration anderer
+        # Managementsysteme" ohne Datum. Er steht mit der Angabe des BSI in der Zeitleiste und ist nie eine
+        # Banner-Phase: das BSI nennt weder Beginn noch Ende.
+        eintraege = [e for e in self.g.TIMELINE if "Internationalisierung" in e[2]]
+        self.assertEqual(len(eintraege), 1)
+        eintrag = eintraege[0]
+        self.assertEqual(eintrag[6], "2027 ff.")
+        self.assertFalse(eintrag[7], "kein Banner-Eintrag")
+        tag = ERSTER_TAG
+        while tag <= date(2031, 12, 31):
+            self.assertIsNot(self.g.banner_phase(tag), eintrag)
+            tag += timedelta(days=30)
+
 
 if __name__ == "__main__":
     unittest.main()

@@ -184,6 +184,17 @@ TIMELINE = [
         "26.02. – 31.03.2027", False,
     ),
     (
+        # Der Meilensteinplan des BSI nennt "2027 ff." ohne Datum. Als Einzeltag eingetragen, wie das Ende
+        # der Zertifizierbarkeit unten: nie ein Banner, und "laeuft" nur an diesem einen Tag, nicht dauerhaft,
+        # denn das BSI nennt weder Beginn noch Ende. Angezeigt wird range_text.
+        date(2027, 1, 1), date(2027, 1, 1),
+        "Internationalisierung des GS++ und Integration anderer Managementsysteme",
+        "Das BSI nennt dafür kein Datum, nur „2027 ff.“.",
+        "internationalisation of GS++ and integration of other management systems",
+        "The BSI gives no date, only “2027 and following”.",
+        "2027 ff.", False,
+    ),
+    (
         date(2031, 11, 30), date(2031, 11, 30),
         "Ende der Zertifizierbarkeit nach bisherigem IT-Grundschutz",
         "Fünf Jahre nach Veröffentlichung von Grundschutz++. Ein Enddatum für die Übergangszeit selbst nennt das BSI nicht.",
