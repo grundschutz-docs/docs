@@ -217,6 +217,7 @@ export default defineConfig({
 				en: { label: 'English', lang: 'en' },
 			},
 			plugins: [starlightLinksValidator()],
+			routeMiddleware: './src/starlightRouteData.ts',
 			customCss: ['./src/styles/custom.css'],
 			components: {
 				ThemeSelect: './src/components/ThemeToggle.astro',
