@@ -74,10 +74,11 @@ translated.
   published versions, as a diff (old and new wording, changed words
   highlighted). Built from the git history of the BSI repository; it
   describes, it doesn't rate. Subscribe via RSS: `/aenderungen/feed.xml`
-  (one item per published version that changed something; IDs and counts
-  only, no BSI wording)
+  (one item per published version that changed something; IDs, titles and
+  counts, never the changed wording)
 - **Findings** (`/befunde/`) — a public register of inconsistencies found in
-  the catalog, and of this site's own mistakes
+  the catalog, and of this site's own mistakes. RSS: `/befunde/feed.xml` (new
+  findings, and when one was reported or fixed; the fix date is a required field)
 - **Data for language models** (`/rag/`) — the catalog as JSONL, see
   [Related](#related)
 
