@@ -6,6 +6,7 @@ sonst NGINX_MIME_TYPES). Fehlt nginx, schlaegt der Test fehl, statt still zu bes
 Nur die Zeilen `listen` und `root` der Konfiguration werden fuer den Test ersetzt.
 """
 import gzip
+import zlib
 import http.client
 import os
 import re
@@ -128,6 +129,21 @@ class NginxAuslieferung(unittest.TestCase):
         status, headers, _ = self.get("/sitemap-0.xml")
         self.assertEqual(status, 200)
         self.assertTrue(headers["content-type"].startswith("text/xml"), headers["content-type"])
+
+    def test_kompression_ist_stufe_6_nicht_die_schwaechste(self):
+        # nginx komprimiert standardmaessig mit Stufe 1 (KONF: 141 KB statt 101 KB). Geprueft an einem
+        # Text, der sich stark wiederholt, wie die Katalogseiten: Stufe 6 muss merklich kleiner sein.
+        zeilen = "".join(f"<p class=\"pill\" data-n=\"{i % 120}\">Hinweis Nummer {i % 120}: " + "abc " * 20 + f"</p>\n" for i in range(6000))
+        (self.tmp / "html" / "gross.csv").write_text(zeilen)
+        status, headers, body = self.get("/gross.csv")
+        self.assertEqual(status, 200)
+        stufe1 = zlib.compressobj(1, zlib.DEFLATED, 31)
+        eins = len(stufe1.compress(zeilen.encode()) + stufe1.flush())
+        self.assertLess(len(body), eins * 0.95, f"{len(body)} Byte, Stufe 1 waere {eins}")
+
+    def test_vary_accept_encoding(self):
+        _, headers, _ = self.get("/")
+        self.assertIn("accept-encoding", headers.get("vary", "").lower())
 
     def test_json_behaelt_seinen_typ(self):
         # Absicherung gegen eine zu breite CSV-Regel: andere Downloads bleiben, was sie sind.
