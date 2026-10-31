@@ -145,6 +145,16 @@ class NginxAuslieferung(unittest.TestCase):
         _, headers, _ = self.get("/")
         self.assertIn("accept-encoding", headers.get("vary", "").lower())
 
+    def test_adresse_ohne_schraegstrich_wird_relativ_umgeleitet(self):
+        # Hinter dem Proxy (Traefik: https, Port 443) darf nginx keine absolute Adresse bauen. Mit dem
+        # Standard stand dort "http://host:8080/befunde/": von außen nicht erreichbar, tot für Besucher
+        # und Suchmaschinen (Logo-Link /en der englischen Seiten).
+        for pfad in ("/befunde", "/aenderungen"):
+            with self.subTest(pfad=pfad):
+                status, headers, _ = self.get(pfad)
+                self.assertEqual(status, 301, pfad)
+                self.assertEqual(headers.get("location"), pfad + "/", pfad)
+
     def test_json_behaelt_seinen_typ(self):
         # Absicherung gegen eine zu breite CSV-Regel: andere Downloads bleiben, was sie sind.
         status, headers, _ = self.get("/downloads/anforderungen.json")
