@@ -7,7 +7,7 @@
 // berechnet, nicht von Hand formuliert: eine Änderung kann mehrere Felder betreffen.
 
 type Feld = { name: string };
-type Aenderung = { id: string; felder: Feld[] };
+type Aenderung = { id: string; titel?: string; praktik?: string; felder: Feld[] };
 export type Eintrag = {
 	commit: string;
 	veroeffentlicht: string;
@@ -62,6 +62,28 @@ export function itemText(e: Eintrag) {
 	return lines.join(' ');
 }
 
+// Ein Link je geänderter ID auf die Anforderung (Praktik-Seite mit Anker), mit Titel und den Namen der
+// geänderten Felder. Kein alter oder neuer Wortlaut. Der Text hier ist HTML; der Aufrufer maskiert ihn
+// noch einmal fürs XML (content:encoded trägt HTML als Text).
+export function itemHtml(e: Eintrag, base: string) {
+	const rows = e.aenderungen.map((a) => {
+		const felder = [...new Set(a.felder.map((f) => f.name))].join(', ');
+		const id = a.praktik
+			? `<a href="${xmlEscape(base)}/grundschutzpp/${xmlEscape(a.praktik.toLowerCase())}/#${xmlEscape(a.id)}">${xmlEscape(a.id)}</a>`
+			: xmlEscape(a.id);
+		return `<li>${id}${a.titel ? ` ${xmlEscape(a.titel)}` : ''}: ${xmlEscape(felder)}</li>`;
+	});
+	const counts: string[] = [];
+	if (e.neu.length) counts.push(`${e.neu.length} neu im Katalog`);
+	if (e.entfernt.length) counts.push(`${e.entfernt.length} aus dem Katalog entfernt`);
+	return [
+		`<p>${xmlEscape(itemTitle(e))}.${counts.length ? ` ${xmlEscape(counts.join(', '))}.` : ''}</p>`,
+		rows.length ? `<ul>${rows.join('')}</ul>` : '',
+		`<p>Alle Änderungen im Wortlaut: <a href="${xmlEscape(base)}/aenderungen/#stand-${e.commit.slice(0, 7)}">Änderungsprotokoll</a>. `,
+		`Quelle: BSI Stand-der-Technik-Bibliothek (CC BY-SA 4.0), Commit ${e.commit.slice(0, 7)}.</p>`,
+	].join('');
+}
+
 export function changelogFeed(entries: Eintrag[], site: string) {
 	const base = site.replace(/\/$/, '');
 	const shown = entries.filter(hasChanges).sort((a, b) => Date.parse(b.veroeffentlicht) - Date.parse(a.veroeffentlicht));
@@ -75,18 +97,21 @@ export function changelogFeed(entries: Eintrag[], site: string) {
 			<link>${base}/aenderungen/#stand-${e.commit.slice(0, 7)}</link>
 			<guid isPermaLink="false">bsi-commit-${e.commit}</guid>
 			<pubDate>${new Date(e.veroeffentlicht).toUTCString()}</pubDate>
-			<description>${xmlEscape(itemText(e))}</description>
+${[...new Set(e.aenderungen.map((a) => a.praktik).filter(Boolean))].map((k) => `			<category>${xmlEscape(k as string)}</category>\n`).join('')}			<description>${xmlEscape(itemText(e))}</description>
+			<content:encoded>${xmlEscape(itemHtml(e, base))}</content:encoded>
 		</item>`,
 		)
 		.join('\n');
 	return `<?xml version="1.0" encoding="UTF-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
 	<channel>
 		<title>Grundschutz++ Docs: Änderungen am Katalog</title>
 		<link>${base}/aenderungen/</link>
 		<atom:link href="${base}/aenderungen/feed.xml" rel="self" type="application/rss+xml" />
 		<description>Neue Stände des Grundschutz++-Katalogs und was sich darin geändert hat. Unabhängige, inoffizielle Aufbereitung; maßgeblich ist das BSI-Original. Quelle: BSI Stand-der-Technik-Bibliothek (CC BY-SA 4.0).</description>
 		<language>de</language>
+		<copyright>Katalogdaten: © BSI-Bund, CC BY-SA 4.0. Unabhängige Aufbereitung, kein Angebot des BSI.</copyright>
+		<ttl>1440</ttl>
 		<lastBuildDate>${last}</lastBuildDate>
 ${items}
 	</channel>

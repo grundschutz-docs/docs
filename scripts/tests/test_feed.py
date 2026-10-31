@@ -9,6 +9,7 @@ Der erste Teil liest den fertigen dist/-Ordner und vergleicht ihn mit src/data/c
 Vor dem Lauf: pnpm run build.
 """
 import json
+import re
 import subprocess
 import unittest
 import xml.etree.ElementTree as ET
@@ -19,6 +20,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent.parent
 DIST = ROOT / "dist"
 ATOM = "{http://www.w3.org/2005/Atom}"
+CONTENT = "{http://purl.org/rss/1.0/modules/content/}encoded"
 QUELLE = "Quelle: BSI Stand-der-Technik-Bibliothek (CC BY-SA 4.0)"
 
 
@@ -87,18 +89,53 @@ class FeedImBuild(unittest.TestCase):
             self.assertIn(f"{len(e['aenderungen'])} geänderte Anforderung", i.findtext("title"))
 
     def test_kein_wortlaut_des_bsi_im_feed(self):
-        # Nur IDs, Feldnamen und Zählungen: der alte und neue Text der Änderungen steht nicht drin.
+        # Im Feed stehen ID, aktueller Titel der Anforderung und die Namen der geänderten Felder. Der alte
+        # und neue Text der Änderungen (Anforderung, Erläuterung, Ergebnis ...) und der alte Titel nicht.
+        # Titel, die der Feed absichtlich nennt (je Stand der damals gültige), sind die Ausnahme: ein alter
+        # Titel kann in einem früheren Stand genau so stehen.
+        erlaubt = {a["titel"] for e in self.eintraege for a in e["aenderungen"] if a.get("titel")}
+        geprueft = 0
         for e in self.eintraege:
             for a in e["aenderungen"]:
                 for f in a["felder"]:
                     for text in (f.get("alt", ""), f.get("neu", "")):
-                        if len(text) >= 30:
-                            self.assertNotIn(text[:30], self.text)
+                        if len(text) >= 30 and text not in erlaubt:
+                            geprueft += 1
+                            self.assertFalse(text[:30] in self.text, f"{a['id']} / {f['name']}: {text[:30]!r} steht im Feed")
+        self.assertGreater(geprueft, 20, "zu wenige Texte geprueft: der Test prueft nichts")
 
     def test_quelle_steht_in_jedem_eintrag_und_im_kanal(self):
         self.assertIn(QUELLE, self.channel.findtext("description"))
         for i in self.items:
             self.assertIn(QUELLE, i.findtext("description"))
+
+    def test_jeder_link_im_inhalt_zeigt_auf_einen_vorhandenen_anker(self):
+        # Ein toter Anker faellt Abonnenten auf: die ID gibt es im Katalog nicht (mehr) oder die Praktik
+        # ist falsch geschrieben. Geprueft gegen das gebaute dist/, nicht gegen die Daten.
+        gesehen = 0
+        for i in self.items:
+            html = i.find(CONTENT).text
+            for pfad, anker in re.findall(r'href="https://[^/"]+(/[^"#]*)#([^"]+)"', html):
+                seite = (DIST / pfad.strip("/") / "index.html").read_text()
+                self.assertIn(f'id="{anker}"', seite, f"{pfad}#{anker}")
+                gesehen += 1
+        self.assertGreater(gesehen, 20, "zu wenige Links geprueft: der Test prueft nichts")
+
+    def test_je_geaenderter_id_ein_link_mit_den_feldnamen(self):
+        for i, e in zip(self.items, self.eintraege):
+            html = i.find(CONTENT).text
+            self.assertEqual(html.count("<li>"), len(e["aenderungen"]))
+            for a in e["aenderungen"]:
+                self.assertIn(f">{a['id']}</a>", html)
+
+    def test_kategorien_sind_die_betroffenen_praktiken(self):
+        for i, e in zip(self.items, self.eintraege):
+            soll = {a["praktik"] for a in e["aenderungen"]}
+            self.assertEqual({c.text for c in i.findall("category")}, soll)
+
+    def test_kanal_hat_ttl_und_urheberhinweis(self):
+        self.assertEqual(self.channel.findtext("ttl"), "1440")
+        self.assertIn("CC BY-SA 4.0", self.channel.findtext("copyright"))
 
     def test_selbstverweis_und_sprache(self):
         self.assertEqual(self.channel.find(ATOM + "link").get("rel"), "self")
