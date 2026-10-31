@@ -41,6 +41,10 @@ class NginxAuslieferung(unittest.TestCase):
         shutil.copy(csv_quelle, site / "downloads" / "anforderungen.csv")
         json_quelle = next((ROOT / "public" / "downloads").glob("*.json"))
         shutil.copy(json_quelle, site / "downloads" / "anforderungen.json")
+        (site / "_astro").mkdir()
+        (site / "_astro" / "a.js").write_text("x" * 2000)
+        (site / "pagefind").mkdir()
+        (site / "pagefind" / "p.json").write_text("{}")
         (site / "bild.svg").write_text('<svg xmlns="http://www.w3.org/2000/svg">' + "<g/>" * 500 + "</svg>")
 
         cls.port = free_port()
@@ -48,6 +52,10 @@ class NginxAuslieferung(unittest.TestCase):
         conf = re.sub(r"listen\s+80;", f"listen 127.0.0.1:{cls.port};", conf)
         conf = re.sub(r"root\s+/usr/share/nginx/html;", f"root {site};", conf)
         (cls.tmp / "site.conf").write_text(conf)
+        # nginx loest das relative include der Konfiguration gegen den Ordner der Hauptdatei auf,
+        # im Image ist das /etc/nginx.
+        (cls.tmp / "snippets").mkdir()
+        shutil.copy(ROOT / "docker" / "security-headers.conf", cls.tmp / "snippets" / "security-headers.conf")
         (cls.tmp / "nginx.conf").write_text(
             f"pid {cls.tmp}/nginx.pid;\nerror_log {cls.tmp}/error.log warn;\nevents {{}}\n"
             f"http {{\n include {MIME_TYPES};\n default_type application/octet-stream;\n access_log off;\n"
@@ -113,6 +121,46 @@ class NginxAuslieferung(unittest.TestCase):
         status, headers, _ = self.get("/")
         self.assertEqual(status, 200)
         self.assertEqual(headers.get("content-encoding"), "gzip")
+
+    # Sicherheits-Header: auf jeder Antwort, auch dort, wo ein location-Block eigene
+    # add_header-Zeilen hat (dann vererbt nginx die vom server-Block nicht).
+    HEADER = {
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "strict-origin-when-cross-origin",
+        "cross-origin-opener-policy": "same-origin",
+        "x-frame-options": "DENY",
+    }
+
+    def pruefe_header(self, pfad, status):
+        got, headers, _ = self.get(pfad)
+        self.assertEqual(got, status, pfad)
+        for name, wert in self.HEADER.items():
+            self.assertEqual(headers.get(name), wert, f"{pfad}: {name}")
+        self.assertIn("frame-ancestors 'none'", headers.get("content-security-policy", ""), pfad)
+        self.assertIn("camera=()", headers.get("permissions-policy", ""), pfad)
+
+    def test_sicherheitsheader_ueberall(self):
+        for pfad, status in [
+            ("/", 200),
+            ("/downloads/anforderungen.csv", 200),
+            ("/_astro/a.js", 200),
+            ("/pagefind/p.json", 200),
+            ("/gibt-es-nicht/", 404),
+        ]:
+            with self.subTest(pfad=pfad):
+                self.pruefe_header(pfad, status)
+
+    def test_cache_header_bleiben(self):
+        _, headers, _ = self.get("/_astro/a.js")
+        self.assertIn("immutable", headers.get("cache-control", ""))
+        _, headers, _ = self.get("/pagefind/p.json")
+        self.assertIn("max-age=3600", headers.get("cache-control", ""))
+
+    def test_keine_nginx_version(self):
+        _, headers, _ = self.get("/")
+        self.assertEqual(headers.get("server"), "nginx")  # ohne Versionsnummer
+        _, _, body = self.get("/gibt-es-nicht/")
+        self.assertNotRegex(body.decode("utf-8", "replace"), r"nginx/\d")
 
 
 if __name__ == "__main__":
