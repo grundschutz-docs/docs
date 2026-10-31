@@ -48,6 +48,10 @@ class NginxAuslieferung(unittest.TestCase):
         (site / "404.html").write_text("<!doctype html><title>404</title>Seite nicht gefunden")
         (site / "en" / "404").mkdir(parents=True)
         (site / "en" / "404" / "index.html").write_text("<!doctype html><title>404</title>Page not found")
+        for ordner in ("aenderungen", "befunde"):
+            (site / ordner).mkdir()
+            (site / ordner / "feed.xml").write_text('<?xml version="1.0"?><rss version="2.0"><channel>' + "<item/>" * 300 + "</channel></rss>")
+        (site / "sitemap-0.xml").write_text('<?xml version="1.0"?><urlset>' + "<url/>" * 300 + "</urlset>")
         (site / "bild.svg").write_text('<svg xmlns="http://www.w3.org/2000/svg">' + "<g/>" * 500 + "</svg>")
 
         cls.port = free_port()
@@ -107,6 +111,23 @@ class NginxAuslieferung(unittest.TestCase):
         self.assertTrue(headers["content-type"].startswith("text/csv"), headers["content-type"])
         self.assertEqual(headers.get("content-encoding"), "gzip")
         gzip.decompress(body)  # ist wirklich gzip
+
+    def test_feeds_werden_als_rss_ausgeliefert_und_komprimiert(self):
+        for pfad in ("/aenderungen/feed.xml", "/befunde/feed.xml"):
+            with self.subTest(pfad=pfad):
+                status, headers, body = self.get(pfad)
+                self.assertEqual(status, 200)
+                self.assertTrue(headers["content-type"].startswith("application/rss+xml"), headers["content-type"])
+                self.assertEqual(headers.get("content-encoding"), "gzip")
+                self.assertIn(b"<rss", gzip.decompress(body))
+                # Die Location hat kein eigenes add_header: die Header des server-Blocks gelten weiter.
+                self.assertEqual(headers.get("x-content-type-options"), "nosniff")
+
+    def test_andere_xml_dateien_bleiben_xml(self):
+        # Absicherung gegen eine zu breite Feed-Regel: die Sitemap behaelt ihren Typ.
+        status, headers, _ = self.get("/sitemap-0.xml")
+        self.assertEqual(status, 200)
+        self.assertTrue(headers["content-type"].startswith("text/xml"), headers["content-type"])
 
     def test_json_behaelt_seinen_typ(self):
         # Absicherung gegen eine zu breite CSV-Regel: andere Downloads bleiben, was sie sind.
