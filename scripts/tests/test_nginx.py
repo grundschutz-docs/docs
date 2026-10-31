@@ -49,7 +49,7 @@ class NginxAuslieferung(unittest.TestCase):
 
         cls.port = free_port()
         conf = (ROOT / "docker" / "nginx.conf").read_text()
-        conf = re.sub(r"listen\s+80;", f"listen 127.0.0.1:{cls.port};", conf)
+        conf = re.sub(r"listen\s+8080;", f"listen 127.0.0.1:{cls.port};", conf)
         conf = re.sub(r"root\s+/usr/share/nginx/html;", f"root {site};", conf)
         (cls.tmp / "site.conf").write_text(conf)
         # nginx loest das relative include der Konfiguration gegen den Ordner der Hauptdatei auf,

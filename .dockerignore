@@ -3,4 +3,6 @@ dist
 .astro
 .git
 .env.production
+.github
+upstream
 *.bundle
