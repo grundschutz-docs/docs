@@ -243,7 +243,7 @@ export default defineConfig({
 					translations: { en: 'Roles' },
 					items: [
 						{ label: 'Für Geschäftsführung', translations: { en: 'For management' }, slug: 'rollen/geschaeftsfuehrung' },
-						{ label: 'Für ISB', translations: { en: 'For the ISB (security officer)' }, slug: 'rollen/isb' },
+						{ label: 'Für ISB', translations: { en: 'For the information security officer (ISB)' }, slug: 'rollen/isb' },
 						{ label: 'Für Devs', translations: { en: 'For developers' }, slug: 'rollen/devs' },
 					],
 				},
