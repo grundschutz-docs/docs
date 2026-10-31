@@ -123,6 +123,43 @@ class EnglischeNavigation(unittest.TestCase):
         ohne = [s for s, h in en.items() if self.ZIEL not in h.split("<footer", 1)[-1]]
         self.assertEqual(ohne[:5], [])
 
+    def test_kopfleiste_und_schalter_sind_in_der_sprache_der_seite(self):
+        # Kopfleiste, Farbschema-Schalter und Sprachumschalter duerfen auf /en/ nicht deutsch sein
+        # und auf deutschen Seiten nicht englisch.
+        en = {s: h for s, h in self.html.items() if s.startswith("en/")}
+        de = {s: h for s, h in self.html.items() if not s.startswith("en/")}
+        self.assertEqual([s for s, h in en.items() if 'aria-label="Quick links"' not in h][:5], [])
+        self.assertEqual([s for s, h in en.items() if "Schnellzugriff" in h][:5], [])
+        self.assertEqual([s for s, h in de.items() if 'aria-label="Schnellzugriff"' not in h][:5], [])
+        for s, h in self.html.items():
+            self.assertIn('lang="de" hreflang="de" aria-label="Deutsch (DE)"', h, s)
+            self.assertIn('lang="en" hreflang="en" aria-label="English (EN)"', h, s)
+
+    def test_seitenleiste_ist_auf_englischen_seiten_uebersetzt(self):
+        # Die Beschriftungen der Seitenleiste (nicht die Titel der Befunde-Seiten darunter, das sind
+        # Inhalte) stehen in astro.config.mjs unter translations.
+        import re
+
+        deutsch = ["Für Geschäftsführung", "Für Devs", "Status &amp; Zeitplan", "Änderungen am Katalog"]
+        falsch = []
+        for s, h in self.html.items():
+            if not s.startswith("en/"):
+                continue
+            # Seitenleisten-Eintraege sind <a ...><span ...>Beschriftung</span></a> bzw. <span class="large ...">.
+            falsch += [
+                f"{s}: {d}"
+                for d in deutsch
+                if re.search(rf'<a [^>]*><span[^>]*>{re.escape(d)}</span></a>|<span class="large[^"]*">{re.escape(d)}</span>', h)
+            ]
+        self.assertEqual(falsch[:5], [])
+        self.assertIn(">Roles<", self.html["en/methodik/index.html"])
+
+    def test_nur_ein_h1_je_seite(self):
+        import re
+
+        falsch = [s for s, h in self.html.items() if len(re.findall(r"<h1[\s>]", h)) != 1]
+        self.assertEqual(falsch[:5], [])
+
     def test_deutsche_seiten_verlinken_nicht_darauf(self):
         mit = [s for s, h in self.html.items() if not s.startswith("en/") and self.ZIEL in h]
         self.assertEqual(mit[:5], [])

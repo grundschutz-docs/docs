@@ -21,7 +21,7 @@ const PAGES = [
 	'/grundschutzpp/zeitplan/', '/grundschutzpp/stm/', '/grundschutzpp/gc/', '/grundschutzpp/konf/', '/grundschutzpp/themen/',
 	'/zielobjekte/', '/zielobjekte/webserver/', '/dokumente/', '/dokumente/detektions-konzept/',
 	'/vergleich/', '/vergleich/sys-1-1/', '/vergleich/isms-1/', '/befunde/', '/befunde/mapping-datei-ist-entwurf/',
-	'/en/operating-in-germany/', '/impressum/', '/404.html',
+	'/en/operating-in-germany/', '/impressum/', '/404.html', '/en/404/', '/en/befunde/',
 ];
 const VARIANTS = [
 	['light', { width: 1280, height: 900 }],

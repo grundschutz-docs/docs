@@ -28,10 +28,13 @@ const groupLabel = Astro.locals.t('languageSelect.accessibleLabel');
 {
 	config.isMultilingual && (
 		<div class="lang-switch" role="group" aria-label={groupLabel}>
-			<a href={dePath} aria-current={!isEnglish} class="lang-option">
+			{/* Sichtbar bleibt das Kuerzel. Der Name steht im aria-label (enthaelt das Kuerzel, WCAG 2.5.3),
+			    lang sorgt dafuer, dass "Deutsch" und "English" in der jeweiligen Sprache gelesen werden,
+			    nicht als Buchstabenfolge "D E". */}
+			<a href={dePath} aria-current={!isEnglish} class="lang-option" lang="de" hreflang="de" aria-label="Deutsch (DE)">
 				DE
 			</a>
-			<a href={enPath} aria-current={isEnglish} class="lang-option">
+			<a href={enPath} aria-current={isEnglish} class="lang-option" lang="en" hreflang="en" aria-label="English (EN)">
 				EN
 			</a>
 		</div>

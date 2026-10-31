@@ -46,21 +46,37 @@ import { Icon } from '@astrojs/starlight/components';
 
 	const storageKey = 'starlight-theme';
 	const order: Theme[] = ['auto', 'light', 'dark'];
-	const labels: Record<Theme, string> = {
+	const labelsDe: Record<Theme, string> = {
 		auto: 'Farbschema: System. Klicken für Hell.',
 		light: 'Farbschema: Hell. Klicken für Dunkel.',
 		dark: 'Farbschema: Dunkel. Klicken für System.',
 	};
+	const labelsEn: Record<Theme, string> = {
+		auto: 'Color scheme: system. Click for light.',
+		light: 'Color scheme: light. Click for dark.',
+		dark: 'Color scheme: dark. Click for system.',
+	};
+	const labels = document.documentElement.lang.startsWith('en') ? labelsEn : labelsDe;
 
 	const parseTheme = (value: unknown): Theme =>
 		value === 'light' || value === 'dark' ? value : 'auto';
 
-	const loadTheme = (): Theme =>
-		parseTheme(typeof localStorage !== 'undefined' ? localStorage.getItem(storageKey) : null);
+	// Der Zugriff auf localStorage selbst kann werfen (blockierter Speicher, manche privaten Fenster).
+	// Dann gilt "System" bzw. der Wechsel nur fuer diese Seite, der Schalter bleibt aber bedienbar.
+	const loadTheme = (): Theme => {
+		try {
+			return parseTheme(localStorage.getItem(storageKey));
+		} catch {
+			return 'auto';
+		}
+	};
 
 	const storeTheme = (theme: Theme): void => {
-		if (typeof localStorage === 'undefined') return;
-		localStorage.setItem(storageKey, theme === 'auto' ? '' : theme);
+		try {
+			localStorage.setItem(storageKey, theme === 'auto' ? '' : theme);
+		} catch {
+			// nichts zu tun
+		}
 	};
 
 	const getSystemTheme = (): 'light' | 'dark' =>

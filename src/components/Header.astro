@@ -19,6 +19,12 @@ import SiteTitle from 'virtual:starlight/components/SiteTitle';
 import SocialIcons from 'virtual:starlight/components/SocialIcons';
 import ThemeSelect from 'virtual:starlight/components/ThemeSelect';
 
+// Auf /en/ uebersetzt, damit die Kopfleiste nicht mitten auf einer englischen Seite deutsch wird.
+// Ziele wie im Footer: Methodik-, Befunde- und Ueber-Seite haben unter /en/ eine eigene Adresse, der
+// Katalog und der Vergleich gibt es nur auf Deutsch (hreflang sagt das der Hilfstechnik).
+const isEnglish = Astro.currentLocale === 'en';
+const prefix = isEnglish ? '/en' : '';
+
 const shouldRenderSearch =
 	config.pagefind || config.components.Search !== '@astrojs/starlight/components/Search.astro';
 ---
@@ -37,15 +43,15 @@ const shouldRenderSearch =
 		  Header, sondern ein überlaufender. Wer hier etwas ergänzt, nimmt an
 		  anderer Stelle Platz weg.
 		*/}
-		<nav class="quicknav sl-hidden md:sl-flex" aria-label="Schnellzugriff">
-			<a href="/grundschutzpp/">Übersicht</a>
-			<a href="/vergleich/">Vergleich</a>
+		<nav class="quicknav sl-hidden md:sl-flex" aria-label={isEnglish ? 'Quick links' : 'Schnellzugriff'}>
+			<a href="/grundschutzpp/" hreflang="de">{isEnglish ? 'Catalog' : 'Übersicht'}</a>
+			<a href="/vergleich/" hreflang="de">{isEnglish ? 'Comparison' : 'Vergleich'}</a>
 			{/* Steht bei Übersicht und Vergleich, nicht bei den Rollen: alle drei
 			    sind Sichten auf den Katalog, die Rollen dahinter sind Einstiege
 			    für Personen. Und Befunde ist das, was diese Seite von einer
 			    reinen Aufbereitung unterscheidet — das gehört nicht hinter eine
 			    Sidebar-Gruppe versteckt. */}
-			<a href="/befunde/">Befunde</a>
+			<a href={`${prefix}/befunde/`}>{isEnglish ? 'Findings' : 'Befunde'}</a>
 			{/* Die Rollen standen hier und sind bewusst raus: sie sind dreifach
 			    vorhanden -- als drei große Karten auf der Startseite ("Wer bist
 			    du?"), als eigene Sidebar-Gruppe, und hier. Die Karten holen
@@ -57,7 +63,7 @@ const shouldRenderSearch =
 			    Schlussabsatz der Startseite und im Footer -- also nicht dort, wo
 			    jemand sie sucht. Bewusst am Ende der Gruppe: wichtig genug für
 			    die Kopfleiste, aber kein Einstieg wie die Rollen. */}
-			<a href="/ueber/">Über</a>
+			<a href={`${prefix}/ueber/`}>{isEnglish ? 'About' : 'Über'}</a>
 		</nav>
 	</div>
 	<div class="sl-hidden md:sl-flex print:hidden right-group">

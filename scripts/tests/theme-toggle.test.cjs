@@ -53,6 +53,24 @@ function serve() {
 		const seitenTheme = await page.evaluate(() => document.documentElement.dataset.theme);
 		check(seitenTheme === nachher[0].active, `die Seite selbst hat das Theme gewechselt (data-theme=${seitenTheme})`);
 		check(nachher[0].active !== vorher[0].active, 'der Klick hat die Stufe wirklich gewechselt (sonst beweist der Test nichts)');
+
+		// Englische Seite: Beschriftung auf Englisch.
+		await page.goto(`http://localhost:${server.address().port}/en/methodik/`);
+		await page.waitForLoadState('networkidle');
+		const enLabels = await page.evaluate(() => [...document.querySelectorAll('theme-toggle button')].map((b) => b.getAttribute('aria-label')));
+		check(enLabels.length > 0 && enLabels.every((l) => l?.startsWith('Color scheme:')), `englische Seite: Beschriftung englisch ${JSON.stringify(enLabels)}`);
+
+		// Blockierter Speicher (localStorage wirft): der Schalter muss trotzdem laufen.
+		const blocked = await browser.newContext({ viewport: { width: 1280, height: 800 }, colorScheme: 'light' });
+		await blocked.addInitScript(() => {
+			Object.defineProperty(window, 'localStorage', { get() { throw new DOMException('blocked', 'SecurityError'); } });
+		});
+		const p2 = await blocked.newPage();
+		await p2.goto(`http://localhost:${server.address().port}/methodik/`);
+		await p2.waitForLoadState('networkidle');
+		await p2.locator('theme-toggle button:visible').first().click();
+		const t2 = await p2.evaluate(() => document.querySelector('theme-toggle').dataset.active);
+		check(t2 === 'light', `Schalter funktioniert bei blockiertem localStorage (Stufe ${t2})`);
 	} finally {
 		await browser.close();
 		server.close();

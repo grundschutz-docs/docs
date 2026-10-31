@@ -1,0 +1,137 @@
+---
+// Inhalt der 404-Seite, deutsch und englisch. src/pages/404.astro und src/pages/en/404.astro
+// binden ihn nur ein: die Seiten selbst muessen in src/pages/ liegen (nur dort erkennt Astro eine
+// 404), der Text soll aber an einer Stelle stehen.
+//
+// Eigene 404 statt Starlights generischer Standardseite. Nutzt <StarlightPage>.
+//
+// Zeigt dasselbe "wird zu"-Bauteil wie die Startseite (CatalogPreview,
+// hier mit standalone -- keine Hero-Spalte, die auf schmalen Screens
+// kollidieren koennte), nur mit erfundenem Inhalt: die aufgerufene Seite
+// wird selbst zu einer (nicht erfuellten) Anforderung.
+//
+// Die Scherz-Ueberschrift ist ein <p>, kein zweites <h1>: Starlight setzt den Seitentitel schon
+// als <h1>, zwei davon verwirren die Ueberschriftennavigation.
+import StarlightPage from '@astrojs/starlight/components/StarlightPage.astro';
+import { LinkButton } from '@astrojs/starlight/components';
+import CatalogPreview from './CatalogPreview.astro';
+
+interface Props {
+	lang?: 'de' | 'en';
+}
+const en = Astro.props.lang === 'en';
+const home = en ? '/en/' : '/';
+
+const rawExcerpt = `{
+  "id": "ERR.1.1",
+  "class": "BSI-Methodik-Grundschutz-plus-plus",
+  "title": "${en ? 'Page not found' : 'Seite nicht gefunden'}",
+  "props": [
+    {
+      "name": "http-status",
+      "value": "404"
+    },
+    {
+      "name": "${en ? 'responsibility' : 'zustaendigkeit'}",
+      "value": "${en ? 'unassigned' : 'ungeklärt'}"
+    },
+    {
+      "name": "${en ? 'last-review' : 'letzte-pruefung'}",
+      "value": "${en ? 'never' : 'nie'}"
+    },
+  ], // ${en ? 'missing closing bracket' : 'fehlende schließende Klammer'}
+  "links": [
+    {
+      "href": "#",
+      "rel": "${en ? 'previous-version' : 'vorgaenger-version'}"`;
+---
+
+<StarlightPage
+	frontmatter={{
+		title: en ? 'Page not found' : 'Seite nicht gefunden',
+		description: en ? 'This page does not exist.' : 'Diese Seite existiert nicht.',
+		template: 'splash',
+		pagefind: false,
+		// Eine 404 gehoert in keinen Suchindex.
+		head: [{ tag: 'meta', attrs: { name: 'robots', content: 'noindex' } }],
+	}}
+>
+	<p class="eyebrow">HTTP 404 · BSI-Methodik-Grundschutz-plus-plus</p>
+	<p class="error-headline">{en ? 'This requirement was not met.' : 'Diese Anforderung wurde nicht erfüllt.'}</p>
+	<p class="tagline">
+		{
+			en
+				? 'This error is made for machines (routing, DNS, broken links). The translation for humans: you took a wrong turn.'
+				: 'Dieser Fehler ist für Maschinen gemacht (Routing, DNS, kaputte Links) — die Übersetzung für Menschen: Sie haben sich verlaufen.'
+		}
+	</p>
+
+	<div class="actions">
+		<LinkButton href={home} icon="right-arrow">{en ? 'Back to the home page' : 'Zur Startseite'}</LinkButton>
+		<LinkButton href="/grundschutzpp/" variant="secondary" hreflang="de">{en ? 'To the catalog (German)' : 'Zum Katalog'}</LinkButton>
+	</div>
+
+	<CatalogPreview
+		standalone
+		rawExcerpt={rawExcerpt}
+		id="ERR.1.1"
+		title={en ? '404 — Page not found' : '404 — Seite nicht gefunden'}
+		modalVerb={en ? 'MUST' : 'MUSS'}
+		secLevel={en ? 'Level: desperate' : 'Stufe verzweifelt'}
+		effortLevel={en ? 'Effort ∞' : 'Aufwand ∞'}
+		statement={
+			en
+				? 'Implementation MUST take place. Status: not started. Responsibility: unassigned. Deadline: already passed. Residual risk: borne by the reader.'
+				: 'Umsetzung MUSS erfolgen. Umsetzungsstand: nicht begonnen. Zuständigkeit: ungeklärt. Frist: bereits verstrichen. Restrisiko: wird vom Leser getragen.'
+		}
+		arrowLabel={en ? 'becomes' : 'wird zu'}
+		rawCaption={en ? 'In the catalog' : 'Im Katalog'}
+		readCaption={en ? 'On this page' : 'Auf dieser Seite'}
+	/>
+
+	<p class="footnote">
+		{en ? 'This error was not recorded in the change log.' : 'Dieser Fehler wurde nicht im Änderungsprotokoll erfasst.'}
+	</p>
+</StarlightPage>
+
+<style>
+	.eyebrow {
+		font-family: var(--sl-font-mono);
+		font-size: var(--sl-text-xs);
+		letter-spacing: 0.1em;
+		text-transform: uppercase;
+		color: var(--pill-warn-high);
+		margin: 0 0 1rem;
+	}
+
+	.error-headline {
+		font-family: var(--sl-font-heading, inherit);
+		font-size: var(--sl-text-h1);
+		line-height: var(--sl-line-height-headings);
+		font-weight: 600;
+		color: var(--sl-color-white);
+		max-width: 18ch;
+		margin: 0;
+	}
+
+	.tagline {
+		font-size: var(--sl-text-lg);
+		color: var(--sl-color-gray-2);
+		max-width: 46ch;
+		margin: 0.75rem 0 2rem;
+	}
+
+	.actions {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.9rem;
+		margin-bottom: 2.5rem;
+	}
+
+	.footnote {
+		font-family: var(--sl-font-mono);
+		font-size: var(--sl-text-xs);
+		color: var(--sl-color-gray-3);
+		margin-top: 1rem;
+	}
+</style>

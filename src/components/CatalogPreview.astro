@@ -14,6 +14,9 @@ import landing from '../data/landing.json';
 interface Props {
 	rawExcerpt?: string;
 	arrowLabel?: string;
+	// Beschriftung der beiden Karten; Standard deutsch, die englische 404-Seite setzt eigene.
+	rawCaption?: string;
+	readCaption?: string;
 	id?: string;
 	title?: string;
 	modalVerb?: string;
@@ -36,6 +39,8 @@ const defaultRawExcerpt = sample.raw.split('\n').slice(0, 20).join('\n');
 const {
 	rawExcerpt = defaultRawExcerpt,
 	arrowLabel = 'wird zu',
+	rawCaption = 'Im Katalog',
+	readCaption = 'Auf dieser Seite',
 	id = sample.id,
 	title = sample.title,
 	modalVerb = sample.modal_verb,
@@ -53,7 +58,7 @@ const {
 	    Ergebnissen. Die echte Anforderung ist ohnehin schon unter
 	    /grundschutzpp/ indexiert. */}
 	<figure class="pane pane-raw">
-		<figcaption>Im Katalog</figcaption>
+		<figcaption>{rawCaption}</figcaption>
 		<pre><code>{rawExcerpt}</code></pre>
 	</figure>
 
@@ -65,7 +70,7 @@ const {
 	</div>
 
 	<figure class="pane pane-read">
-		<figcaption>Auf dieser Seite</figcaption>
+		<figcaption>{readCaption}</figcaption>
 		<p class="ctrl-id">{id}</p>
 		<p class="ctrl-title">{title}</p>
 		<p class="ctrl-pills">

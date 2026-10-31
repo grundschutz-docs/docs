@@ -45,6 +45,9 @@ class NginxAuslieferung(unittest.TestCase):
         (site / "_astro" / "a.js").write_text("x" * 2000)
         (site / "pagefind").mkdir()
         (site / "pagefind" / "p.json").write_text("{}")
+        (site / "404.html").write_text("<!doctype html><title>404</title>Seite nicht gefunden")
+        (site / "en" / "404").mkdir(parents=True)
+        (site / "en" / "404" / "index.html").write_text("<!doctype html><title>404</title>Page not found")
         (site / "bild.svg").write_text('<svg xmlns="http://www.w3.org/2000/svg">' + "<g/>" * 500 + "</svg>")
 
         cls.port = free_port()
@@ -146,6 +149,7 @@ class NginxAuslieferung(unittest.TestCase):
             ("/_astro/a.js", 200),
             ("/pagefind/p.json", 200),
             ("/gibt-es-nicht/", 404),
+            ("/en/gibt-es-nicht/", 404),
         ]:
             with self.subTest(pfad=pfad):
                 self.pruefe_header(pfad, status)
@@ -161,6 +165,19 @@ class NginxAuslieferung(unittest.TestCase):
         self.assertEqual(headers.get("server"), "nginx")  # ohne Versionsnummer
         _, _, body = self.get("/gibt-es-nicht/")
         self.assertNotRegex(body.decode("utf-8", "replace"), r"nginx/\d")
+    def test_fehlerseite_deutsch_und_englisch(self):
+        status, _, body = self.get("/gibt-es-nicht/")
+        self.assertEqual(status, 404)
+        self.assertIn("Seite nicht gefunden", gzip.decompress(body).decode() if body[:2] == b"\x1f\x8b" else body.decode())
+        status, _, body = self.get("/en/gibt-es-nicht/")
+        self.assertEqual(status, 404)
+        text = gzip.decompress(body).decode() if body[:2] == b"\x1f\x8b" else body.decode()
+        self.assertIn("Page not found", text)
+        self.assertNotIn("Seite nicht gefunden", text)
+
+    def test_englische_seiten_werden_ausgeliefert(self):
+        status, _, _ = self.get("/en/404/")
+        self.assertEqual(status, 200)
 
 
 if __name__ == "__main__":
