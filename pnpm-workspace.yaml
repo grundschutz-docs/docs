@@ -1,2 +1,10 @@
 allowBuilds:
   esbuild: true
+
+# Sicherheitskorrekturen fuer tief liegende Abhaengigkeiten (pnpm audit, 2026-10-31), die
+# astro/starlight noch nicht selbst anheben. Nur Build-Werkzeug, nicht im ausgelieferten
+# Code. Entfernen, sobald die Eltern-Pakete die Versionen selbst verlangen.
+overrides:
+  undici: ">=8.12.2"
+  zod: ">=4.6.6"
+  "postcss-selector-parser@6": "^6.1.5"
