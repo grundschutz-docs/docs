@@ -18,7 +18,7 @@ const axeSource = fs.readFileSync(require.resolve('axe-core/axe.min.js'), 'utf8'
 const PAGES = [
 	'/', '/en/', '/export/', '/methodik/', '/en/methodik/', '/rag/', '/ueber/', '/aenderungen/',
 	'/rollen/geschaeftsfuehrung/', '/rollen/isb/', '/rollen/devs/',
-	'/grundschutzpp/zeitplan/', '/grundschutzpp/stm/', '/grundschutzpp/themen/',
+	'/grundschutzpp/zeitplan/', '/grundschutzpp/stm/', '/grundschutzpp/gc/', '/grundschutzpp/konf/', '/grundschutzpp/themen/',
 	'/zielobjekte/', '/zielobjekte/webserver/', '/dokumente/', '/dokumente/detektions-konzept/',
 	'/vergleich/', '/vergleich/sys-1-1/', '/vergleich/isms-1/', '/befunde/', '/befunde/mapping-datei-ist-entwurf/',
 	'/en/operating-in-germany/', '/impressum/', '/404.html',

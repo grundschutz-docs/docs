@@ -43,11 +43,12 @@ function serve() {
 		check(touch, 'Touch-Emulation aktiv ((hover: none) trifft zu), sonst beweist der Test nichts');
 
 		const tooltips = await page.evaluate(() => {
-			const pick = (sel) => [...document.querySelectorAll(sel)].map((a) => a.dataset.tooltip);
+			// Der Hinweis steht als Kind-Element .pill-tip in der Pille (nicht mehr im Attribut data-tooltip).
+			const pick = (sel) => [...document.querySelectorAll(sel)].map((a) => a.textContent);
 			return {
-				themen: pick('a.pill[data-tooltip][href^="/grundschutzpp/themen/"]'),
-				zielobjekte: pick('a.pill[data-tooltip][href^="/zielobjekte/"]'),
-				dokumente: pick('a.pill[data-tooltip][href^="/dokumente/"]'),
+				themen: pick('a.pill[href^="/grundschutzpp/themen/"] > .pill-tip'),
+				zielobjekte: pick('a.pill[href^="/zielobjekte/"] > .pill-tip'),
+				dokumente: pick('a.pill[href^="/dokumente/"] > .pill-tip'),
 			};
 		});
 		const SUFFIX = 'Nochmal tippen';
@@ -63,6 +64,19 @@ function serve() {
 			'Zielobjekt-Pillen tragen den Themen-Zusatz nicht',
 		);
 		check(!tooltips.dokumente.some((t) => t.includes(SUFFIX)), 'Dokument-Pillen tragen den Themen-Zusatz nicht');
+
+		// Pillen ohne Link sind nicht fokussierbar; ein Tipp schaltet den Hinweis um.
+		const pill = page.locator('span.pill:has(> .pill-tip)').first();
+		const sichtbar = () => pill.locator('> .pill-tip').evaluate((el) => Number(getComputedStyle(el).opacity) > 0.5);
+		check(!(await sichtbar()), 'Hinweis ist vor dem Tippen unsichtbar');
+		await pill.tap();
+		await page.waitForTimeout(300);
+		check(await sichtbar(), 'Tippen auf eine Pille ohne Link zeigt den Hinweis');
+		await page.mouse.click(5, 300);
+		await page.waitForTimeout(300);
+		check(!(await sichtbar()), 'Tippen daneben schliesst den Hinweis');
+		const tabstops = await page.evaluate(() => document.querySelectorAll('span.pill[tabindex]').length);
+		check(tabstops === 0, `Pillen ohne Link sind keine Tab-Stops (${tabstops})`);
 	} finally {
 		await browser.close();
 		server.close();

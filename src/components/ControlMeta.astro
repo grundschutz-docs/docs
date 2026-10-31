@@ -24,6 +24,8 @@ interface Props {
 	predecessors?: { oldId: string; relationship: string; link?: string; vergleichHref?: string }[];
 }
 
+import { MODAL_VERBS, SEC_LEVELS, EFFORT } from '../lib/kennzeichen';
+
 const { modalVerb, secLevel, effort, threats, threatsHint, tags, targets, noTarget, inheritedTargets, document, predecessors } = Astro.props;
 
 const DOCUMENT_HINT =
@@ -71,61 +73,6 @@ const RELATIONSHIPS: Record<string, { label: string; hint: string; family: strin
 	},
 };
 
-// Quelle: Grundschutz-PlusPlus/documentation/namespaces/modal_verbs.csv
-const MODAL_VERBS: Record<string, { hint: string; family: string }> = {
-	MUSS: {
-		hint: 'Uneingeschränkte Anforderung – muss unbedingt erfüllt werden (nach RFC2119 / DIN 820-2:2022, Anhang H).',
-		family: 'danger',
-	},
-	SOLLTE: {
-		hint: 'Normalerweise zu erfüllen, Abweichung nur mit sorgfältig abgewogener, stichhaltiger Begründung (nach RFC2119 / DIN 820-2:2022, Anhang H).',
-		family: 'warn',
-	},
-	KANN: {
-		hint: 'Keine generelle Verpflichtung – je nach Situation (Risikoanalyse) sinnvoll (vgl. DIN 820-2:2022-12).',
-		family: 'calm',
-	},
-};
-
-// Quelle: Grundschutz-PlusPlus/documentation/namespaces/security_level.csv
-const SEC_LEVELS: Record<string, { label: string; hint: string; family: string }> = {
-	'normal-SdT': { label: 'Standard-Sicherheitsstufe', hint: 'Standard-Sicherheitsstufe (Stand der Technik).', family: 'info' },
-	erhöht: { label: 'Erhöhte Sicherheitsstufe', hint: 'Erhöhte Sicherheitsstufe – höherer Schutzbedarf.', family: 'info-strong' },
-};
-
-// Quelle: Grundschutz-PlusPlus/documentation/namespaces/effort_level.csv
-const EFFORT: Record<string, { hint: string; family: string }> = {
-	// Steht neben der 1-5-Skala, nicht darüber. Früher als volle schwarze
-	// Fläche gesetzt -- das machte die unwichtigste Angabe der Zeile zur
-	// auffälligsten, direkt neben einem blass getönten MUSS. Dass die
-	// Umsetzung zwingend ist, sagt ohnehin der Pflichtgrad; hier bleibt nur
-	// "nicht bewertet" übrig, und das ist eine leise Angabe.
-	'0': {
-		hint: 'Wird nicht bewertet – die Umsetzung ist in jedem Fall zwingend erforderlich.',
-		family: 'neutral',
-	},
-	'1': {
-		hint: 'Quick Win: meist noch am selben Tag umsetzbar, kein laufender Pflegeaufwand.',
-		family: 'calm',
-	},
-	'2': {
-		hint: 'Meist innerhalb einer Woche mit eigenen Mitteln umsetzbar, nur geringer laufender Aufwand.',
-		family: 'calm',
-	},
-	'3': {
-		hint: 'Wochen bis Monate, ggf. externe Dienstleister nötig; laufender Betrieb durch kleines Team möglich.',
-		family: 'accent',
-	},
-	'4': {
-		hint: 'Langfristige Umsetzung/Beibehaltung; Expertenwissen und oft Drittunterstützung nötig.',
-		family: 'warn',
-	},
-	'5': {
-		hint: 'Aufwändige, komplexe Maßnahmen; tiefes Expertenwissen und sorgfältige Planung nötig.',
-		family: 'danger',
-	},
-};
-
 const modalInfo = modalVerb ? MODAL_VERBS[modalVerb] : undefined;
 const secInfo = secLevel ? SEC_LEVELS[secLevel] : undefined;
 const effortInfo = effort ? EFFORT[effort] : undefined;
@@ -139,14 +86,11 @@ const effortInfo = effort ? EFFORT[effort] : undefined;
 					class="pill"
 					data-family={modalInfo.family}
 					data-role="pflicht"
-					data-tooltip={modalInfo.hint}
 					data-pagefind-filter={`Pflicht:${modalVerb}`}
 					data-pagefind-meta={`pflicht:${modalVerb}`}
-					aria-label={`Pflichtgrad: ${modalVerb}. ${modalInfo.hint}`}
-					tabindex="0"
 				>
-					{modalVerb}
-					<span class="pill-hint" aria-hidden="true" data-pagefind-ignore>?</span>
+					<span class="sr-only" data-pagefind-ignore>Pflichtgrad: </span>{modalVerb}
+					<span class="pill-tip" data-pagefind-ignore>{modalInfo.hint}</span>
 				</span>
 			)}
 			{secInfo && (
@@ -154,9 +98,6 @@ const effortInfo = effort ? EFFORT[effort] : undefined;
 					class="pill"
 					data-family={secInfo.family}
 					data-role="meta"
-					data-tooltip={secInfo.hint}
-					aria-label={`Stufe: ${secInfo.label}. ${secInfo.hint}`}
-					tabindex="0"
 				>
 					{/* Ohne "Stufe: "-Präfix -- die Labels heißen bereits
 					    "Standard-Sicherheitsstufe" bzw. "Erhöhte Sicherheitsstufe",
@@ -164,7 +105,7 @@ const effortInfo = effort ? EFFORT[effort] : undefined;
 					    Pille zur breitesten der Zeile. Bei Aufwand bleibt das
 					    Präfix, dort trägt eine nackte Zahl keine Bedeutung. */}
 					{secInfo.label}
-					<span class="pill-hint" aria-hidden="true" data-pagefind-ignore>?</span>
+					<span class="pill-tip" data-pagefind-ignore>{secInfo.hint}</span>
 				</span>
 			)}
 			{effortInfo && (
@@ -172,12 +113,9 @@ const effortInfo = effort ? EFFORT[effort] : undefined;
 					class="pill"
 					data-family={effortInfo.family}
 					data-role="meta"
-					data-tooltip={effortInfo.hint}
-					aria-label={`Aufwand: ${effort}. ${effortInfo.hint}`}
-					tabindex="0"
 				>
 					Aufwand: {effort}
-					<span class="pill-hint" aria-hidden="true" data-pagefind-ignore>?</span>
+					<span class="pill-tip" data-pagefind-ignore>{effortInfo.hint}</span>
 				</span>
 			)}
 			{threats && (
@@ -185,12 +123,9 @@ const effortInfo = effort ? EFFORT[effort] : undefined;
 					class="pill"
 					data-family="neutral"
 					data-role="meta"
-					data-tooltip={threatsHint}
-					aria-label={`Basisgefährdungen: ${threats}.${threatsHint ? ` ${threatsHint}` : ''}`}
-					tabindex="0"
 				>
 					Gefährdungen: {threats}
-					{threatsHint && <span class="pill-hint" aria-hidden="true" data-pagefind-ignore>?</span>}
+					{threatsHint && <span class="pill-tip" data-pagefind-ignore>{threatsHint}</span>}
 				</span>
 			)}
 			{targets && targets.map((t) => {
@@ -202,16 +137,13 @@ const effortInfo = effort ? EFFORT[effort] : undefined;
 						class="pill"
 						data-family="neutral"
 						data-role="meta"
-						data-tooltip={t.hint}
 						data-pagefind-filter={`Zielobjekt:${t.name}`}
 						data-synonyms={t.synonyms}
 						data-pagefind-index-attrs={t.synonyms ? 'data-synonyms' : undefined}
 						href={t.slug ? `/zielobjekte/${t.slug}/` : undefined}
-						aria-label={`Zielobjektkategorie: ${t.name}.${t.hint ? ` ${t.hint}` : ''}${t.slug ? ' Zur Seite der Kategorie.' : ''}`}
-						tabindex={t.slug ? undefined : 0}
 					>
 						Gilt für: {t.name}
-						{t.hint && <span class="pill-hint" aria-hidden="true" data-pagefind-ignore>?</span>}
+						{t.hint && <span class="pill-tip" data-pagefind-ignore>{t.hint}</span>}
 					</Tag>
 				);
 			})}
@@ -223,16 +155,13 @@ const effortInfo = effort ? EFFORT[effort] : undefined;
 					class="pill"
 					data-family="neutral"
 					data-role="meta"
-					data-tooltip={NO_TARGET_HINT}
 					data-pagefind-filter="Zielobjekt:Ohne Zielobjektkategorie"
-					aria-label={`Immer im Anforderungspaket. ${NO_TARGET_HINT}`}
-					tabindex="0"
 				>
 					{/* Vom Suchindex ausgenommen: sonst traefe "Paket" 364 Anforderungen,
 					    obwohl keine davon vom Anforderungspaket handeln muss. Der
 					    Filterwert am Elternelement bleibt. */}
 					<span data-pagefind-ignore>Immer im Paket</span>
-					<span class="pill-hint" aria-hidden="true" data-pagefind-ignore>?</span>
+					<span class="pill-tip" data-pagefind-ignore>{NO_TARGET_HINT}</span>
 				</span>
 			)}
 			{document && (
@@ -242,13 +171,11 @@ const effortInfo = effort ? EFFORT[effort] : undefined;
 					class="pill"
 					data-family="neutral"
 					data-role="meta"
-					data-tooltip={DOCUMENT_HINT}
 					data-pagefind-ignore
 					href={`/dokumente/${document.slug}/`}
-					aria-label={`Dokumentiert in: ${document.name}. ${DOCUMENT_HINT} Zur Seite des Dokuments.`}
 				>
 					Dokumentiert in: {document.name}
-					<span class="pill-hint" aria-hidden="true">?</span>
+					<span class="pill-tip">{DOCUMENT_HINT}</span>
 				</a>
 			)}
 			{tags && tags.map((t) => {
@@ -261,16 +188,13 @@ const effortInfo = effort ? EFFORT[effort] : undefined;
 						data-family="calm"
 						data-role="meta"
 						data-topic
-						data-tooltip={t.hint}
 						data-pagefind-filter={`Thema:${t.name}`}
 						data-synonyms={t.synonyms}
 						data-pagefind-index-attrs={t.synonyms ? 'data-synonyms' : undefined}
 						href={t.slug ? `/grundschutzpp/themen/#${t.slug}` : undefined}
-						aria-label={`Thema: ${t.name}.${t.hint ? ` ${t.hint}` : ''}${t.slug ? ' Zur Themen-Übersicht.' : ''}`}
-						tabindex={t.slug ? undefined : 0}
 					>
 						{t.name}
-						{t.hint && <span class="pill-hint" aria-hidden="true" data-pagefind-ignore>?</span>}
+						{t.hint && <span class="pill-tip" data-pagefind-ignore>{t.hint}</span>}
 					</Tag>
 				);
 			})}
@@ -304,12 +228,9 @@ const effortInfo = effort ? EFFORT[effort] : undefined;
 									class="pill"
 									data-family={family}
 									data-role="meta"
-									data-tooltip={hint}
-									aria-label={`Beziehung: ${label}. ${hint}`}
-									tabindex="0"
 								>
 									{label}
-									<span class="pill-hint" aria-hidden="true" data-pagefind-ignore>?</span>
+									<span class="pill-tip" data-pagefind-ignore>{hint}</span>
 								</span>
 							</td>
 							<td>
@@ -338,15 +259,15 @@ const effortInfo = effort ? EFFORT[effort] : undefined;
 	if (window.matchMedia('(hover: none)').matches) {
 		// Nur Themen-Pillen führen auf "alle Anforderungen zu diesem Thema"; bei
 		// Zielobjekt- und Dokument-Pillen wäre der Zusatz falsch.
-		const links = document.querySelectorAll<HTMLAnchorElement>('a.pill[data-topic][data-tooltip][href]');
+		const links = document.querySelectorAll<HTMLAnchorElement>('a.pill[data-topic][href]');
 		links.forEach((a) => {
-			a.dataset.tooltip = `${a.dataset.tooltip} Nochmal tippen: alle Anforderungen zu diesem Thema.`;
+			a.querySelector(':scope > .pill-tip')?.append(' Nochmal tippen: alle Anforderungen zu diesem Thema.');
 		});
 		let armed: HTMLAnchorElement | null = null;
 		document.addEventListener(
 			'click',
 			(event) => {
-				const link = (event.target as Element | null)?.closest?.('a.pill[data-tooltip][href]');
+				const link = (event.target as Element | null)?.closest?.('a.pill[href]:has(> .pill-tip)');
 				if (!(link instanceof HTMLAnchorElement)) {
 					armed = null;
 					return;
@@ -359,6 +280,25 @@ const effortInfo = effort ? EFFORT[effort] : undefined;
 			true,
 		);
 	}
+</script>
+
+<script>
+	// Pillen ohne Link sind nicht fokussierbar (sonst waeren es hunderte Tab-Stops je Seite).
+	// Damit der Hinweis auf Touch-Geraeten trotzdem erreichbar ist, schaltet ein Tipp ihn um;
+	// ein Tipp daneben oder Esc schliesst ihn. Mit der Maus zeigt ihn weiter :hover.
+	const closeAll = (except?: Element | null) => {
+		document.querySelectorAll('.pill.is-open').forEach((p) => {
+			if (p !== except) p.classList.remove('is-open');
+		});
+	};
+	document.addEventListener('click', (event) => {
+		const pill = (event.target as Element | null)?.closest?.('.pill');
+		closeAll(pill);
+		if (pill && !pill.matches('a') && pill.querySelector(':scope > .pill-tip')) pill.classList.toggle('is-open');
+	});
+	document.addEventListener('keydown', (event) => {
+		if (event.key === 'Escape') closeAll();
+	});
 </script>
 
 <style>
@@ -390,7 +330,7 @@ const effortInfo = effort ? EFFORT[effort] : undefined;
 	   und lässt die Pille tot wirken. help ist der dafür vorgesehene Wert.
 	   Bewusst nur auf Pillen mit Tooltip: die Gefährdungs-Pille hat ohne
 	   threatsHint keinen, und darf dann auch nichts versprechen. */
-	.pill[data-tooltip] {
+	.pill:has(> .pill-tip) {
 		cursor: help;
 	}
 
@@ -519,7 +459,10 @@ const effortInfo = effort ? EFFORT[effort] : undefined;
 	   versteckt nur vor Screenreadern, Pagefind indexiert sichtbaren Text
 	   unabhaengig von ARIA. Ohne das stand ein nacktes "?" in jedem
 	   Such-Ausschnitt, der eine Pille mit Hint traf. */
-	.pill-hint {
+	.pill:has(> .pill-tip)::after {
+		content: '?';
+		/* Alternativtext leer: sonst lesen manche Screenreader das "?" hinter jeder Pille vor. */
+		content: '?' / '';
 		display: inline-flex;
 		align-items: center;
 		justify-content: center;
@@ -599,8 +542,7 @@ const effortInfo = effort ? EFFORT[effort] : undefined;
 	   Pille in der Zeile nach links über den Content-Rand hinaus und landet
 	   unter/hinter der schwebenden Sidebar. z-index deutlich über Starlights
 	   höchstem eigenen Wert (--sl-z-index-skiplink: 20). */
-	.pill[data-tooltip]::after {
-		content: attr(data-tooltip);
+	.pill-tip {
 		position: absolute;
 		/* Nach unten, nicht nach oben: über einer Pill-Zeile steht per
 		   Konstruktion immer die Überschrift der Anforderung, die der Tooltip
@@ -616,8 +558,6 @@ const effortInfo = effort ? EFFORT[effort] : undefined;
 		border-radius: 0.75rem;
 		border: 1px solid var(--glass-border);
 		background-color: var(--tooltip-bg);
-		backdrop-filter: blur(20px) saturate(160%);
-		-webkit-backdrop-filter: blur(20px) saturate(160%);
 		box-shadow: var(--glass-shadow-lift);
 		color: var(--sl-color-white);
 		font-family: 'Karla Variable', system-ui, sans-serif;
@@ -628,15 +568,16 @@ const effortInfo = effort ? EFFORT[effort] : undefined;
 		text-align: start;
 		white-space: normal;
 		opacity: 0;
-		visibility: hidden;
+		/* Kein visibility: hidden -- der Text soll fuer Screenreader lesbar bleiben. */
 		pointer-events: none;
+		user-select: none;
 		transition:
 			opacity 0.15s ease,
 			transform 0.15s ease;
 		z-index: 50;
 	}
 
-	.pill[data-tooltip]::before {
+	.pill:has(> .pill-tip)::before {
 		content: '';
 		position: absolute;
 		inset-block-start: calc(100% + 0.1rem);
@@ -659,18 +600,30 @@ const effortInfo = effort ? EFFORT[effort] : undefined;
 	   :focus-visible ist in den Browsern absichtlich so umgesetzt, dass es bei
 	   Touch- und Maus-Fokus nicht greift -- es ist für Tastaturbedienung
 	   gedacht. Ohne :focus tippt jemand am Telefon auf das "?" und bekommt
-	   nichts. Screenreader waren über aria-label versorgt, sehende
-	   Touch-Nutzer nicht. Nebeneffekt: der Tooltip erscheint jetzt auch beim
+	   nichts. Screenreader lesen den Hinweistext direkt; fuer Touch
+	   gibt es .is-open (Skript oben). Nebeneffekt: der Tooltip erscheint jetzt auch beim
 	   Mausklick -- hier erwünscht, die Pille hat keine andere Aktion. */
-	.pill[data-tooltip]:hover::after,
-	.pill[data-tooltip]:hover::before,
-	.pill[data-tooltip]:focus::after,
-	.pill[data-tooltip]:focus::before,
-	.pill[data-tooltip]:focus-visible::after,
-	.pill[data-tooltip]:focus-visible::before {
+	.pill:hover > .pill-tip,
+	.pill:focus > .pill-tip,
+	.pill:focus-visible > .pill-tip,
+	.pill.is-open > .pill-tip,
+	.pill:hover::before,
+	.pill:focus::before,
+	.pill:focus-visible::before,
+	.pill.is-open::before {
 		opacity: 1;
 		visibility: visible;
 		transform: translateY(0);
+	}
+
+	/* Weichzeichner nur am sichtbaren Hinweis: die Kisten sind immer im DOM (Screenreader), und
+	   ein backdrop-filter an ein paar tausend unsichtbaren Elementen kostet Zeichenzeit. */
+	.pill:hover > .pill-tip,
+	.pill:focus > .pill-tip,
+	.pill:focus-visible > .pill-tip,
+	.pill.is-open > .pill-tip {
+		backdrop-filter: blur(20px) saturate(160%);
+		-webkit-backdrop-filter: blur(20px) saturate(160%);
 	}
 
 	/* Schmale Bildschirme: Tooltip als Kasten am unteren Bildschirmrand statt
@@ -684,7 +637,7 @@ const effortInfo = effort ? EFFORT[effort] : undefined;
 	   würde auf eine Box zeigen, die nicht mehr an der Pille hängt.
 	   50rem ist Starlights Grenze zwischen mobilem und Desktop-Layout. */
 	@media (max-width: 50rem) {
-		.pill[data-tooltip]::after {
+		.pill-tip {
 			position: fixed;
 			inset-block-start: auto;
 			inset-block-end: 1rem;
@@ -695,14 +648,14 @@ const effortInfo = effort ? EFFORT[effort] : undefined;
 			font-size: var(--sl-text-sm);
 		}
 
-		.pill[data-tooltip]::before {
+		.pill:has(> .pill-tip)::before {
 			display: none;
 		}
 	}
 
 	@media (prefers-reduced-motion: reduce) {
-		.pill[data-tooltip]::after,
-		.pill[data-tooltip]::before {
+		.pill-tip,
+		.pill:has(> .pill-tip)::before {
 			transition: none;
 		}
 	}
@@ -714,9 +667,9 @@ const effortInfo = effort ? EFFORT[effort] : undefined;
 	   — druckt zuverlässig auch ohne "Hintergrundgrafiken drucken" im
 	   Druckdialog, und spart Tinte bei vielen Controls pro Seite. */
 	@media print {
-		.pill-hint,
-		.pill[data-tooltip]::after,
-		.pill[data-tooltip]::before {
+		.pill-tip,
+		.pill:has(> .pill-tip)::after,
+		.pill:has(> .pill-tip)::before {
 			display: none;
 		}
 

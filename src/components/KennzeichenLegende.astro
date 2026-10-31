@@ -1,0 +1,61 @@
+---
+// Legende der Kennzeichen (Pflichtgrad, Sicherheitsstufe, Aufwand) am Kopf jeder Praktik-Seite.
+//
+// Die Hinweise an den Pillen erscheinen bei Hover, Fokus oder Tipp. Pillen ohne Link sind nicht
+// fokussierbar (ein Tab-Stop je Pille waeren auf KONF ueber 700), also kommt eine Person, die nur
+// die Tastatur benutzt und sieht, nicht an die Erklaerung. Die Legende ist der Weg dorthin, ein
+// einziges aufklappbares Element je Seite. Screenreader lesen die Hinweise ohnehin an der Pille.
+//
+// Aus dem Suchindex genommen: sonst traefe jede Suche nach "Quick Win" oder "Stand der Technik"
+// die Legende statt einer Anforderung.
+import { MODAL_VERBS, SEC_LEVELS, EFFORT } from '../lib/kennzeichen';
+---
+
+<details class="kennzeichen-legende" data-pagefind-ignore>
+	<summary>Was bedeuten die Kennzeichen?</summary>
+	<dl>
+		<dt>Pflichtgrad</dt>
+		<dd>
+			<dl>
+				{Object.entries(MODAL_VERBS).map(([name, v]) => (<><dt>{name}</dt><dd>{v.hint}</dd></>))}
+			</dl>
+		</dd>
+		<dt>Sicherheitsstufe</dt>
+		<dd>
+			<dl>
+				{Object.values(SEC_LEVELS).map((v) => (<><dt>{v.label}</dt><dd>{v.hint}</dd></>))}
+			</dl>
+		</dd>
+		<dt>Aufwand</dt>
+		<dd>
+			<dl>
+				{Object.entries(EFFORT).map(([name, v]) => (<><dt>{name}</dt><dd>{v.hint}</dd></>))}
+			</dl>
+		</dd>
+	</dl>
+</details>
+
+<style>
+	.kennzeichen-legende dl {
+		font-size: var(--sl-text-xs);
+	}
+	.kennzeichen-legende dl {
+		margin: 0.5rem 0 0;
+	}
+	.kennzeichen-legende dt {
+		font-weight: 600;
+		margin-top: 0.4rem;
+	}
+	.kennzeichen-legende dd {
+		margin: 0 0 0 1rem;
+		color: var(--sl-color-gray-2);
+	}
+	.kennzeichen-legende dd dl {
+		margin: 0;
+	}
+	.kennzeichen-legende dd dt {
+		font-family: 'JetBrains Mono Variable', ui-monospace, monospace;
+		font-size: var(--sl-text-xs);
+		margin-top: 0.3rem;
+	}
+</style>

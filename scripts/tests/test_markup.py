@@ -7,6 +7,10 @@ Gepruft wird gegen einen fertigen Build (dist/, oder Pfad in DIST), ueber alle S
    Aenderung den Bereich samt allen Knoepfen vor. Live ist nur der Zaehler.
 3. Jedes fokussierbare Element mit data-tooltip (Pille ohne Link) bietet den Tooltip-Text
    auch als aria-label an: der Tooltip ist reines CSS (::after) und fuer Hilfstechnik unsichtbar.
+   (Gilt noch fuer die Pillen der Befund-Seiten.) Die Pillen des Katalogs sind anders gebaut:
+   der Hinweis steht als <span class="pill-tip"> im Text, die Pille ist nicht fokussierbar.
+6. Katalog-Pillen: kein tabindex an Pillen ohne Link (sonst hunderte Tab-Stops je Seite), und jeder
+   .pill-tip ist vom Suchindex ausgenommen.
 5. Jede ID unter "Betrifft" auf einer Befund-Seite ist ein Link (Anforderung, Vergleichsseite oder
    "Bausteine ohne Zuordnung"), nicht nur Code.
 4. Die englische Seite zu NIS2 (/en/operating-in-germany/) ist von jeder englischen Seite aus ueber
@@ -29,6 +33,8 @@ class Pruefer(HTMLParser):
         self.figure_tiefe = []  # Index in self.stack der offenen Figures
         self.mehrere_figcaptions = 0
         self.tooltips_ohne_label = []
+        self.pillen_mit_tabindex = 0
+        self.tips_im_index = 0
         self.export_result_live = False
         self.count_in_live = None
 
@@ -44,6 +50,12 @@ class Pruefer(HTMLParser):
             if a["data-tooltip"] and a["data-tooltip"] not in (a.get("aria-label") or ""):
                 self.tooltips_ohne_label.append(f"<{tag} {a.get('data-tooltip')[:40]!r}>")
         classes = (a.get("class") or "").split()
+        if "pill" in classes and tag != "a" and "tabindex" in a and "data-tooltip" not in a:
+            self.pillen_mit_tabindex += 1
+        if "pill-tip" in classes and "data-pagefind-ignore" not in a and not any(
+            "data-pagefind-ignore" in attrs_ for _, attrs_ in self.stack
+        ):
+            self.tips_im_index += 1
         if "export-result" in classes and ("aria-live" in a or a.get("role") == "status"):
             self.export_result_live = True
         if a.get("id") == "export-count":
@@ -87,6 +99,13 @@ class GebautesHtml(unittest.TestCase):
     def test_tooltips_stehen_auch_im_aria_label(self):
         falsch = {s: p.tooltips_ohne_label[:2] for s, p in self.seiten.items() if p.tooltips_ohne_label}
         self.assertEqual(falsch, {})
+
+    def test_katalog_pillen_ohne_tab_stop_und_nicht_im_index(self):
+        mit_tab = {s: p.pillen_mit_tabindex for s, p in self.seiten.items() if p.pillen_mit_tabindex}
+        self.assertEqual(mit_tab, {})
+        im_index = {s: p.tips_im_index for s, p in self.seiten.items() if p.tips_im_index}
+        self.assertEqual(im_index, {})
+        self.assertGreater(sum(1 for s in self.seiten if s.startswith("grundschutzpp/")), 15)
 
 
 class EnglischeNavigation(unittest.TestCase):

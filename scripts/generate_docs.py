@@ -77,6 +77,7 @@ ZIELOBJEKTE_OUT_DIR = Path(__file__).resolve().parent.parent / "src" / "content"
 DOKUMENTE_OUT_DIR = Path(__file__).resolve().parent.parent / "src" / "content" / "docs" / "dokumente"
 DATA_OUT_DIR = Path(__file__).resolve().parent.parent / "src" / "data"
 CONTROL_META_IMPORT = "import ControlMeta from '../../../components/ControlMeta.astro';\n"
+KENNZEICHEN_LEGENDE_IMPORT = "import KennzeichenLegende from '../../../components/KennzeichenLegende.astro';\n"
 # vergleich.mdx liegt eine Ebene flacher (direkt in src/content/docs/), daher
 # ein "../" weniger als CONTROL_META_IMPORT.
 # Drei Ebenen hoch: src/content/docs/vergleich/index.mdx -> src/components/
@@ -3367,7 +3368,9 @@ def render_source_block(src, praktik_id=None):
         "Anforderung <em>&lt;ID&gt;</em> — wobei die ID die Kennung neben "
         "der jeweiligen Überschrift ist, etwa <code>GC.5.1.1</code>. "
         "Sie bleibt stabil, auch wenn das BSI eine Formulierung ändert.</p>\n"
-        "</details>\n</div>\n\n"
+        "</details>\n"
+        + ("<KennzeichenLegende />\n" if praktik_id else "")
+        + "</div>\n\n"
     )
 
 
@@ -3386,7 +3389,11 @@ def format_iso_date(iso):
 
 def write_mdx(path, frontmatter, body, section=None):
     needs_control_meta = "<ControlMeta" in body
-    prefix = CONTROL_META_IMPORT + "\n" if needs_control_meta else ""
+    prefix = CONTROL_META_IMPORT if needs_control_meta else ""
+    if "<KennzeichenLegende" in body:
+        prefix += KENNZEICHEN_LEGENDE_IMPORT
+    if prefix:
+        prefix += "\n"
     marker = pagefind_section(section) if section else ""
     path.write_text(frontmatter + prefix + marker + body)
 
