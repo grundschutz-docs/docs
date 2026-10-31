@@ -154,6 +154,14 @@ The `Dockerfile` builds the site with Node and serves the result with nginx
 rebuilding the image. The generated pages are committed, so the build needs
 neither Python nor access to the BSI catalog.
 
+The image is based on `nginx-unprivileged`: nginx runs as user 101 instead of
+root and listens on **port 8080** (an unprivileged user may not bind ports
+below 1024). If you put a reverse proxy in front, point it at port 8080; with
+the old image this was port 80, so a port mapping like `"8080:80"` or a Traefik
+label `loadbalancer.server.port=80` has to become `8080`. nginx adds security
+headers to every response (`docker/security-headers.conf`) but does not set
+HSTS, since the proxy that terminates TLS should do that.
+
 ## How the docs are generated
 
 The pages under `src/content/docs/grundschutzpp/` are generated, not
