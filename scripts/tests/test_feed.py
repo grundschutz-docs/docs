@@ -256,6 +256,32 @@ class BefundeFeed(unittest.TestCase):
             self.assertIn("/befunde/feed.xml", html, seite)
 
 
+class SichtbarerHinweis(unittest.TestCase):
+    """Der Kasten "Abonnieren" auf den beiden Seiten und die Links dorthin im Footer."""
+
+    def test_kasten_hat_anker_und_feed_adresse(self):
+        for seite, feed in (("aenderungen", "/aenderungen/feed.xml"), ("befunde", "/befunde/feed.xml")):
+            html = (DIST / seite / "index.html").read_text()
+            self.assertIn('id="abonnieren"', html, seite)
+            self.assertIn(f'data-feed-url="https://grundschutz-docs.de{feed}"', html, seite)
+            self.assertIn(f'href="{feed}"', html, seite)
+            # Bedienung, kein Inhalt: der Kasten steht nicht im Suchindex.
+            self.assertRegex(html, r'<aside[^>]*id="abonnieren"[^>]*data-pagefind-ignore', seite)
+
+    def test_footer_verweist_auf_die_kaesten_auf_jeder_seite(self):
+        for seite in ("index.html", "en/index.html", "grundschutzpp/konf/index.html"):
+            html = (DIST / seite).read_text()
+            self.assertIn('href="/aenderungen/#abonnieren"', html, seite)
+            self.assertRegex(html, r'href="(/en)?/befunde/#abonnieren"', seite)
+
+    def test_englischer_footer_nennt_die_feeds_als_deutsch(self):
+        html = (DIST / "en" / "index.html").read_text()
+        self.assertIn("Subscribe: catalog changes (German, RSS)", html)
+        self.assertIn("/en/befunde/#abonnieren", html)
+        self.assertTrue((DIST / "en" / "befunde" / "index.html").exists())
+        self.assertIn('id="abonnieren"', (DIST / "en" / "befunde" / "index.html").read_text())
+
+
 class GeneratorMitSchwierigenDaten(unittest.TestCase):
     """Ein Feed, der bei Sonderzeichen ungültig wird, wird von Readern komplett abgelehnt."""
 

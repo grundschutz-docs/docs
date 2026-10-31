@@ -4,8 +4,15 @@ description: "Änderungsprotokoll des Grundschutz++-Katalogs: Was das BSI zwisch
 ---
 
 import Aenderungsprotokoll from '../../components/Aenderungsprotokoll.astro';
+import FeedHinweis from '../../components/FeedHinweis.astro';
 
 <span data-pagefind-meta="section:Katalog"></span>
+
+<FeedHinweis
+	href="/aenderungen/feed.xml"
+	title="Änderungen am Katalog abonnieren"
+	text="Jeder neue Stand mit geänderten Anforderungen kommt als Meldung in deinen Feed-Reader, mit Links auf die betroffenen Anforderungen. Ohne Anmeldung."
+/>
 
 Das BSI veröffentlicht den Katalog in Ständen. Die Commit-Meldungen dazu lauten
 fast durchgehend „chore: publish rolling artifacts“ und nennen keine Inhalte.
@@ -19,10 +26,6 @@ Die Seite entsteht automatisch aus der Git-Historie des
 nennt, was vorher da stand und was jetzt dasteht, und bewertet nichts. Wie
 bedeutsam eine Änderung ist, muss man selbst beurteilen. Maßgeblich ist immer das
 Original des BSI.
-
-**Abonnieren:** [RSS-Feed](/aenderungen/feed.xml). Jeder neue Stand mit geänderten
-Anforderungen kommt als Meldung in deinen Feed-Reader, mit Links auf die betroffenen
-Anforderungen. Ohne Anmeldung.
 
 **So liest du die Einträge:** Die Darstellung entspricht einem Diff. `−` ist der
 Wortlaut des vorherigen Stands, `+` der des neuen. Wörter, die sich geändert haben, sind hervorgehoben. Bei Listen

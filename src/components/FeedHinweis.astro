@@ -1,0 +1,131 @@
+---
+// Kasten "Abonnieren" direkt unter der Überschrift von /aenderungen/ und /befunde/.
+//
+// Warum ein Kasten und ein Kopier-Knopf statt eines Satzes mit Link: Ein Klick auf eine .xml-Datei
+// zeigt im Browser rohen Code (ein XSLT-Stylesheet, das ihn hübsch macht, scheidet aus, Chrome
+// entfernt die Unterstützung). Wer nicht weiß, was ein Feed ist, hält das für einen Fehler. Die
+// Adresse gehört in einen Feed-Reader; der Knopf kopiert sie, der Link daneben öffnet sie für
+// Reader, die den Link selbst abfangen.
+//
+// Nicht im Suchindex (data-pagefind-ignore) und nicht im Druck: es ist Bedienung, kein Inhalt.
+interface Props {
+	href: string;
+	title: string;
+	text: string;
+}
+
+const { href, title, text } = Astro.props;
+const url = new URL(href, Astro.site ?? 'https://grundschutz-docs.de').href;
+---
+
+<aside class="feed-hinweis not-content" id="abonnieren" aria-labelledby="abonnieren-titel" data-pagefind-ignore>
+	<svg class="feed-icon" aria-hidden="true" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+		<path d="M4 11a9 9 0 0 1 9 9"></path>
+		<path d="M4 4a16 16 0 0 1 16 16"></path>
+		<circle cx="5" cy="19" r="1"></circle>
+	</svg>
+	<div class="feed-text">
+		<p class="feed-titel" id="abonnieren-titel">{title}</p>
+		<p>{text}</p>
+		<p class="feed-klein">Du brauchst dafür einen Feed-Reader. Viele Mail-Programme und Browser-Erweiterungen haben einen.</p>
+		<p class="feed-status" role="status" aria-live="polite"></p>
+	</div>
+	<div class="feed-aktionen">
+		<button type="button" class="feed-knopf" data-feed-url={url}>Adresse kopieren</button>
+		<a class="feed-link" href={href}>Feed öffnen</a>
+	</div>
+</aside>
+
+<script>
+	document.querySelectorAll<HTMLButtonElement>('.feed-knopf').forEach((knopf) => {
+		const status = knopf.closest('.feed-hinweis')?.querySelector('.feed-status');
+		knopf.addEventListener('click', async () => {
+			const url = knopf.dataset.feedUrl ?? '';
+			try {
+				await navigator.clipboard.writeText(url);
+				if (status) status.textContent = 'Adresse kopiert. Füge sie in deinen Feed-Reader ein.';
+			} catch {
+				// Zwischenablage gesperrt (ältere Browser, eingebettete Seiten): die Adresse zeigen, zum Markieren.
+				if (status) status.textContent = `Adresse: ${url}`;
+			}
+		});
+	});
+</script>
+
+<style>
+	.feed-hinweis {
+		display: grid;
+		grid-template-columns: auto minmax(0, 1fr);
+		align-items: start;
+		gap: 0.35rem 1.1rem;
+		margin: 0 0 2rem;
+		padding: 1rem 1.25rem 1.1rem;
+		border: 1px solid var(--sl-color-hairline);
+		border-radius: 1rem;
+		background-color: var(--sl-color-bg-nav);
+	}
+	.feed-icon {
+		margin-top: 0.15rem;
+		color: var(--sl-color-text-accent);
+	}
+	.feed-text p {
+		margin: 0;
+		font-size: var(--sl-text-sm);
+		line-height: 1.55;
+	}
+	.feed-text p + p {
+		margin-top: 0.2rem;
+	}
+	.feed-text .feed-titel {
+		font-family: 'Fraunces Variable', Georgia, serif;
+		font-size: var(--sl-text-lg);
+		line-height: 1.3;
+		color: var(--sl-color-white);
+	}
+	.feed-text .feed-klein {
+		font-size: var(--sl-text-xs);
+		color: var(--sl-color-gray-2);
+	}
+	.feed-text .feed-status {
+		color: var(--sl-color-text-accent);
+		overflow-wrap: anywhere;
+	}
+	.feed-status:empty {
+		display: none;
+	}
+	.feed-aktionen {
+		grid-column: 2;
+		display: flex;
+		align-items: center;
+		flex-wrap: wrap;
+		gap: 0.5rem 1.25rem;
+		margin-top: 0.4rem;
+	}
+	.feed-knopf {
+		font: inherit;
+		font-size: var(--sl-text-sm);
+		cursor: pointer;
+		padding: 0.45rem 1rem;
+		border: 1px solid var(--sl-color-text-accent);
+		border-radius: 999px;
+		background: transparent;
+		color: var(--sl-color-text-accent);
+		white-space: nowrap;
+	}
+	.feed-knopf:hover {
+		background-color: var(--sl-color-text-accent);
+		color: var(--sl-color-bg);
+	}
+	.feed-link {
+		font-size: var(--sl-text-sm);
+		color: var(--sl-color-text-accent);
+		text-decoration: underline;
+		text-underline-offset: 0.2em;
+		white-space: nowrap;
+	}
+	@media print {
+		.feed-hinweis {
+			display: none;
+		}
+	}
+</style>

@@ -5,9 +5,16 @@ description: Ein öffentliches Register über Ungereimtheiten im Grundschutz++-K
 
 import { getCollection } from 'astro:content';
 import BefundListe from '../../../components/BefundListe.astro';
+import FeedHinweis from '../../../components/FeedHinweis.astro';
 
 {/* getCollection im Modulbereich, nicht im JSX-Attribut: await in einem
     Prop-Ausdruck liefert in MDX still eine leere Liste statt eines Fehlers. */}
+
+<FeedHinweis
+	href="/befunde/feed.xml"
+	title="Befunde abonnieren"
+	text="Neue Befunde, und wann einer gemeldet oder behoben wurde, kommen als Meldung in deinen Feed-Reader. Ohne Anmeldung."
+/>
 
 Beim genauen Lesen eines Katalogs fällt auf, wo etwas nicht zusammenpasst:
 überlappende Anforderungen, fehlende Querverweise, Zuordnungen, die inhaltlich
@@ -19,9 +26,6 @@ Instrument und kein Register. Was auf dieser Seite schiefging, steht deshalb
 in derselben Liste und im selben Format wie alles andere.
 
 Was das BSI am Katalog laufend ändert, steht im [Änderungsprotokoll](/aenderungen/).
-
-**Abonnieren:** [RSS-Feed](/befunde/feed.xml). Neue Befunde, und wann einer gemeldet oder
-behoben wurde. Ohne Anmeldung.
 
 ## Wie ein Befund einzuordnen ist
 
