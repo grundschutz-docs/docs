@@ -27,6 +27,12 @@ const befund = z
 		 */
 		status: z.enum(['offen', 'gemeldet', 'beantwortet', 'behoben', 'hinfaellig']),
 		gefunden: z.date(),
+		/**
+		 * Wann der Befund behoben wurde. Pflicht bei status "behoben" (siehe refine unten): der Feed
+		 * (/befunde/feed.xml) meldet daraus "Befund behoben", und ein Datum, das jemand später
+		 * rät, wäre schlechter als keines.
+		 */
+		behoben: z.date().optional(),
 		/** Betroffene Anforderungs- oder Baustein-IDs, für die spätere Verknüpfung. */
 		betrifft: z.array(z.string()).default([]),
 		/** Wo der Befund nachprüfbar ist: Datei, Dokument oder URL. */
@@ -42,6 +48,12 @@ const befund = z
 	.refine((b) => b.status === 'offen' || b.status === 'hinfaellig' || b.meldung, {
 		message:
 			'Ab status "gemeldet" braucht der Befund eine meldung (kanal + datum) — sonst behauptet er etwas, das niemand nachvollziehen kann.',
+	})
+	.refine((b) => (b.status === 'behoben') === (b.behoben !== undefined), {
+		message: 'status "behoben" und das Feld behoben (Datum) gehören zusammen: das eine ohne das andere ist ein Widerspruch.',
+	})
+	.refine((b) => !b.behoben || b.behoben >= b.gefunden, {
+		message: 'behoben liegt vor gefunden: ein Befund kann nicht behoben sein, bevor er gefunden wurde.',
 	});
 
 export const collections = {

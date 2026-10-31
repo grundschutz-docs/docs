@@ -1,6 +1,6 @@
 """Befunde: Frontmatter und <BefundMeta> sagen dasselbe, und "Betrifft" fuehrt zu den Seiten.
 
-Jede Befund-Seite nennt typ, status, gefunden, betrifft und quelle zweimal: im Frontmatter (fuer
+Jede Befund-Seite nennt typ, status, gefunden, behoben, betrifft und quelle zweimal: im Frontmatter (fuer
 die Liste unter /befunde/) und als Props von <BefundMeta> (fuer die Anzeige auf der Seite). Beides
 wird von Hand gepflegt und lief auseinander: editon-tippfehler-vergleichsseiten.mdx nannte
 betrifft nur im Frontmatter, die Seite zeigte kein "Betrifft".
@@ -15,7 +15,7 @@ BEFUNDE = Path(__file__).resolve().parent.parent.parent / "src" / "content" / "d
 def frontmatter_befund(text):
     fm = text.split("---")[1]
     felder = {}
-    for schluessel in ("typ", "status", "gefunden", "quelle"):
+    for schluessel in ("typ", "status", "gefunden", "behoben", "quelle"):
         m = re.search(rf"^  {schluessel}: (.+)$", fm, re.M)
         felder[schluessel] = m.group(1).strip().strip("\"'") if m else None
     m = re.search(r"^  betrifft: \[(.*?)\]", fm, re.M | re.S)
@@ -32,6 +32,8 @@ def komponenten_props(text):
         felder[schluessel] = v.group(1) if v else None
     v = re.search(r"gefunden=\{new Date\('([^']*)'\)\}", props)
     felder["gefunden"] = v.group(1) if v else None
+    v = re.search(r"behoben=\{new Date\('([^']*)'\)\}", props)
+    felder["behoben"] = v.group(1) if v else None
     v = re.search(r'quelle="([^"]*)"', props)
     felder["quelle"] = v.group(1) if v else None
     v = re.search(r"betrifft=\{\[(.*?)\]\}", props, re.S)

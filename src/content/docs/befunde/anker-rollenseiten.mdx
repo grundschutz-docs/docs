@@ -5,6 +5,7 @@ befund:
   typ: fakt
   status: behoben
   gefunden: 2026-10-01
+  behoben: 2026-10-01
   betrifft: []
   quelle: scripts/generate_docs.py
   meldung:
@@ -18,6 +19,7 @@ import BefundMeta from '../../../components/BefundMeta.astro';
 	typ="fakt"
 	status="behoben"
 	gefunden={new Date('2026-10-01')}
+	behoben={new Date('2026-10-01')}
 	quelle="scripts/generate_docs.py"
 	meldung={{ kanal: 'Eigener Fehler, behoben im selben Repository', datum: new Date('2026-10-01') }}
 />

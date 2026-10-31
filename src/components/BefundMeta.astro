@@ -19,12 +19,13 @@ interface Props {
 	typ: 'fakt' | 'auslegung' | 'beobachtung';
 	status: 'offen' | 'gemeldet' | 'beantwortet' | 'behoben' | 'hinfaellig';
 	gefunden: Date;
+	behoben?: Date;
 	betrifft?: string[];
 	quelle?: string;
 	meldung?: { kanal: string; datum: Date; link?: string };
 }
 
-const { typ, status, gefunden, betrifft = [], quelle, meldung } = Astro.props;
+const { typ, status, gefunden, behoben, betrifft = [], quelle, meldung } = Astro.props;
 
 // "Betrifft" nennt Anforderungen (GC.5.1.1) und alte Bausteine (ORP.2). Jede ID wird zu einem
 // Link, sofern es die Zielseite gibt: die Praktik-Seite mit Anker, die Vergleichsseite des
@@ -87,7 +88,7 @@ const datum = new Intl.DateTimeFormat('de-DE', { dateStyle: 'long' });
 </p>
 
 {
-	(betrifft.length > 0 || quelle || meldung) && (
+	(betrifft.length > 0 || quelle || meldung || behoben) && (
 		<dl class="befund-details not-content">
 			{betrifft.length > 0 && (
 				<>
@@ -130,6 +131,12 @@ const datum = new Intl.DateTimeFormat('de-DE', { dateStyle: 'long' });
 							</>
 						)}
 					</dd>
+				</>
+			)}
+			{behoben && (
+				<>
+					<dt>Behoben</dt>
+					<dd>{datum.format(behoben)}</dd>
 				</>
 			)}
 		</dl>
