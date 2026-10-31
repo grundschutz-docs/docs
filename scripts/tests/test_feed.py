@@ -14,7 +14,7 @@ import subprocess
 import unittest
 import xml.etree.ElementTree as ET
 from email.utils import parsedate_to_datetime
-from datetime import datetime
+from datetime import datetime, timezone
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent.parent
@@ -147,6 +147,113 @@ class FeedImBuild(unittest.TestCase):
             html = (DIST / seite).read_text()
             self.assertIn('rel="alternate" type="application/rss+xml"', html, seite)
             self.assertIn("/aenderungen/feed.xml", html, seite)
+
+
+BEFUNDE = ROOT / "src" / "content" / "docs" / "befunde"
+
+
+def lade_befunde():
+    """Frontmatter jedes Befunds (die Felder, die der Feed braucht)."""
+    out = []
+    for datei in sorted(BEFUNDE.glob("*.mdx")):
+        if datei.name == "index.mdx":
+            continue
+        fm = datei.read_text(encoding="utf-8").split("---")[1]
+
+        def feld(name, tief=2):
+            m = re.search("^" + " " * tief + name + r": (.+)$", fm, re.M)
+            return m.group(1).strip().strip("\"'") if m else None
+
+        out.append(
+            {
+                "slug": datei.stem,
+                "titel": re.search(r"^title: (.+)$", fm, re.M).group(1).strip(),
+                "status": feld("status"),
+                "gefunden": feld("gefunden"),
+                "behoben": feld("behoben"),
+                "meldung": re.search(r"^    datum: (.+)$", fm, re.M).group(1).strip() if re.search(r"^  meldung:", fm, re.M) else None,
+            }
+        )
+    return out
+
+
+class BefundeFeed(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):
+        datei = DIST / "befunde" / "feed.xml"
+        if not datei.exists():
+            raise RuntimeError("dist/befunde/feed.xml fehlt: erst pnpm run build")
+        cls.text = datei.read_text()
+        cls.channel = ET.fromstring(cls.text).find("channel")
+        cls.items = cls.channel.findall("item")
+        cls.befunde = lade_befunde()
+        cls.guids = [i.findtext("guid") for i in cls.items]
+
+    def test_jeder_befund_hat_genau_eine_neu_meldung(self):
+        self.assertGreater(len(self.befunde), 8)
+        for b in self.befunde:
+            self.assertEqual(self.guids.count(f"befund-{b['slug']}-neu"), 1, b["slug"])
+
+    def test_ids_sind_eindeutig(self):
+        self.assertEqual(len(self.guids), len(set(self.guids)))
+
+    def test_ereignisse_entsprechen_den_daten(self):
+        # gemeldet/behoben gibt es nur, wenn das Datum nach dem Fund liegt; sonst steht der Stand im Titel
+        # der Neu-Meldung ("bereits behoben"). Nichts wird erfunden: ohne Datum im Frontmatter keine Meldung.
+        erwartet = set()
+        for b in self.befunde:
+            erwartet.add(f"befund-{b['slug']}-neu")
+            if b["meldung"] and b["meldung"] > b["gefunden"]:
+                erwartet.add(f"befund-{b['slug']}-gemeldet")
+            if b["behoben"] and b["behoben"] > b["gefunden"]:
+                erwartet.add(f"befund-{b['slug']}-behoben")
+        self.assertEqual(set(self.guids), erwartet)
+
+    def test_behoben_im_titel_wenn_am_selben_tag(self):
+        gesehen = 0
+        for b in self.befunde:
+            if b["behoben"] and b["behoben"] == b["gefunden"]:
+                item = self.items[self.guids.index(f"befund-{b['slug']}-neu")]
+                self.assertIn("(bereits behoben)", item.findtext("title"), b["slug"])
+                gesehen += 1
+        self.assertGreater(gesehen, 0, "kein Befund am selben Tag behoben: Test prueft nichts")
+
+    def test_status_behoben_und_datum_gehoeren_zusammen(self):
+        for b in self.befunde:
+            self.assertEqual(b["status"] == "behoben", b["behoben"] is not None, b["slug"])
+
+    def test_daten_sind_die_aus_dem_frontmatter(self):
+        by_guid = {i.findtext("guid"): i for i in self.items}
+        for b in self.befunde:
+            soll = datetime.fromisoformat(b["gefunden"]).replace(tzinfo=timezone.utc)
+            self.assertEqual(parsedate_to_datetime(by_guid[f"befund-{b['slug']}-neu"].findtext("pubDate")), soll)
+        self.assertEqual(self.channel.findtext("lastBuildDate"), self.items[0].findtext("pubDate"))
+
+    def test_neueste_zuerst(self):
+        daten = [parsedate_to_datetime(i.findtext("pubDate")) for i in self.items]
+        self.assertEqual(daten, sorted(daten, reverse=True))
+
+    def test_links_zeigen_auf_vorhandene_befund_seiten(self):
+        for i in self.items:
+            link = i.findtext("link")
+            self.assertTrue(link.startswith("https://") and "/befunde/" in link, link)
+            pfad = link.split("/befunde/")[1].strip("/")
+            self.assertTrue((DIST / "befunde" / pfad / "index.html").exists(), link)
+
+    def test_kein_eigener_fehler_als_gemeldet_bezeichnet(self):
+        # muss-zahlen-gf-seite: meldung steht nur wegen des Schemas, gemeldet wurde nichts.
+        titel = self.items[self.guids.index("befund-muss-zahlen-gf-seite-neu")].findtext("title")
+        self.assertNotIn("gemeldet", titel)
+
+    def test_kanal(self):
+        self.assertEqual(self.channel.findtext("language"), "de")
+        self.assertEqual(self.channel.findtext("ttl"), "1440")
+        self.assertTrue(self.channel.find(ATOM + "link").get("href").endswith("/befunde/feed.xml"))
+
+    def test_startseite_verweist_auf_beide_feeds(self):
+        for seite in ("index.html", "en/index.html"):
+            html = (DIST / seite).read_text()
+            self.assertIn("/befunde/feed.xml", html, seite)
 
 
 class GeneratorMitSchwierigenDaten(unittest.TestCase):
