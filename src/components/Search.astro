@@ -255,7 +255,7 @@ const resultTemplate = `
 			});
 
 			window.addEventListener('keydown', (e) => {
-				if ((e.metaKey === true || e.ctrlKey === true) && e.key === 'k') {
+				if ((e.metaKey === true || e.ctrlKey === true) && e.key.toLowerCase() === 'k') {
 					loadSearch();
 					dialog.open ? closeModal() : openModal();
 					e.preventDefault();

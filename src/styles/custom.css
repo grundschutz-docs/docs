@@ -1564,3 +1564,16 @@ site-search dialog::backdrop {
 	font-size: var(--sl-text-sm);
 	color: var(--sl-color-gray-2);
 }
+
+/* Wer im System "Bewegung reduzieren" eingestellt hat, bekommt keine Uebergaenge, Animationen
+   und kein weiches Scrollen. Gilt fuer die ganze Seite, auch fuer Starlights eigene Teile. */
+@media (prefers-reduced-motion: reduce) {
+	*,
+	*::before,
+	*::after {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		transition-duration: 0.01ms !important;
+		scroll-behavior: auto !important;
+	}
+}
