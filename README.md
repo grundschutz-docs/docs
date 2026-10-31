@@ -73,7 +73,9 @@ translated.
 - **Changelog** (`/aenderungen/`) — what changed in the catalog between two
   published versions, as a diff (old and new wording, changed words
   highlighted). Built from the git history of the BSI repository; it
-  describes, it doesn't rate
+  describes, it doesn't rate. Subscribe via RSS: `/aenderungen/feed.xml`
+  (one item per published version that changed something; IDs and counts
+  only, no BSI wording)
 - **Findings** (`/befunde/`) — a public register of inconsistencies found in
   the catalog, and of this site's own mistakes
 - **Data for language models** (`/rag/`) — the catalog as JSONL, see
@@ -320,7 +322,6 @@ one of these up (see `CONTRIBUTING.md`):
   NIST-originated format instead of building its own
 - A sheet in the Excel export that maps the old Kompendium requirements to
   the new ones, once the BSI's mapping file is no longer marked as a draft
-- A feed for the changelog, so a new version can be subscribed to
 - The Excel checks (`scripts/xlsx/`) in CI. They need the ECMA schema and
   `exceljs`, which is why they are not there yet
 - The English side is hand-written pages for foreign companies operating
