@@ -36,6 +36,7 @@ const REQUIREMENT_COLUMNS = [
 	{ name: 'Verantwortlich', width: 18, style: 'input' },
 	{ name: 'Frist', width: 12, style: 'input' },
 	{ name: 'Bemerkung', width: 36, style: 'input' },
+	{ name: 'Voraussetzungen', width: 24, style: 'body' },
 	{ name: 'Sicherheitsstufe', width: 20, style: 'body' },
 	{ name: 'Zielobjektkategorien', width: 28, style: 'body' },
 	{ name: 'Gilt auch für Unterkategorien', width: 34, style: 'body' },
@@ -62,6 +63,7 @@ function requirementCell(name, row, payload) {
 		case 'Ergebnis': return row.ergebnis;
 		case 'Dokumentiert in': return row.dokument;
 		case 'Gefährdungen': return row.gefaehrdungen.join('; ');
+		case 'Voraussetzungen': return row.voraussetzungen.join('; ');
 		case 'Vorgänger im Kompendium 2023': return row.vorgaenger.join('; ');
 		case 'Seite': return { v: 'Zur Seite', link: row.seite };
 		case 'Quelle': return payload.quelle;

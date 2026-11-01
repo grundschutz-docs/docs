@@ -1168,7 +1168,7 @@ DOCUMENTATION_FILE = (
 EXPORT_COLUMNS = [
     "ID", "Titel", "Praktik", "Anforderung", "Pflichtgrad", "Sicherheitsstufe", "Aufwand",
     "Zielobjektkategorien", "Gilt auch für Unterkategorien", "Ergebnis", "Dokumentiert in", "Gefährdungen",
-    "Vorgänger im Kompendium 2023", "Seite",
+    "Voraussetzungen", "Vorgänger im Kompendium 2023", "Seite",
 ]
 EXPORT_WORKSHEET_COLUMNS = ["Umsetzungsstatus", "Bewertet am", "Verantwortlich", "Frist", "Bemerkung"]
 EXPORT_SOURCE_COLUMN = "Quelle"
@@ -1262,6 +1262,8 @@ def export_rows(catalog, params_by_id, basethreats_by_id, predecessor_index):
                     "ergebnis": part_prop_value(control, "statement", "result") or "",
                     "dokument": part_prop_value(control, "statement", "documentation") or "",
                     "gefaehrdungen": [f"{t} – {basethreats_by_id[t]}" for t in threat_ids if t in basethreats_by_id],
+                    # IDs der Anforderungen, die der Katalog als Voraussetzung nennt (OSCAL-Verweis "required", ADR-0015)
+                    "voraussetzungen": list(ZUSAMMENHANG.get(cid, {}).get("voraussetzung", [])),
                     "vorgaenger": [
                         f"{old} ({relationship_label(rel)})" for old, rel in predecessor_index.get(cid, [])
                     ],
@@ -1352,7 +1354,7 @@ def export_csv_line(row, source_note):
         row["id"], row["titel"], row["praktik"], row["anforderung"], row["pflichtgrad"], row["stufe"],
         row["aufwand"], "; ".join(row["zielobjekte"]), "; ".join(row["unterkategorien"]),
         row["ergebnis"], row["dokument"],
-        "; ".join(row["gefaehrdungen"]), "; ".join(row["vorgaenger"]), row["seite"],
+        "; ".join(row["gefaehrdungen"]), "; ".join(row["voraussetzungen"]), "; ".join(row["vorgaenger"]), row["seite"],
         *[""] * len(EXPORT_WORKSHEET_COLUMNS),
         source_note,
     ]
@@ -4063,6 +4065,17 @@ def check_zusammenhang(catalog):
             block = text[m.end():ende]
             for art, inhalt in re.findall(r'<p class="zusammenhang[^"]*" data-art="([a-z_]+)"[^>]*>(.*?)</p>', block):
                 gefunden[art][m.group(1)] = set(re.findall(r'href="/grundschutzpp/[a-z]+/#([A-Z0-9.]+)"', inhalt))
+    # Export: Spalte "Voraussetzungen" der CSV gegen die Voraussetzungen im Rohkatalog
+    with (EXPORT_OUT_DIR / "grundschutzpp-anforderungen.csv").open(newline="", encoding="utf-8-sig") as f:
+        tabelle = list(csv.reader(f, delimiter=";"))
+    kopf = tabelle[0]
+    if "Voraussetzungen" not in kopf:
+        problems.append("CSV: Spalte 'Voraussetzungen' fehlt")
+    else:
+        spalte, id_spalte = kopf.index("Voraussetzungen"), kopf.index("ID")
+        csv_vor = {r[id_spalte]: {x for x in r[spalte].split("; ") if x} for r in tabelle[1:]}
+        if csv_vor != {i: vor.get(i, set()) for i in csv_vor}:
+            problems.append("CSV: Spalte 'Voraussetzungen' weicht vom Katalogtext ab")
     for art, erwartet in (("voraussetzung", vor), ("voraussetzung_von", vor_von), ("verwandt", verw)):
         if gefunden[art] != {k: v for k, v in erwartet.items() if v}:
             problems.append(f"{art}: die Seiten weichen vom Katalogtext ab ({len(gefunden[art])} Anforderungen statt {len(erwartet)})")

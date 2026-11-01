@@ -194,6 +194,7 @@ const EFFORT = ['0', '1', '2', '3', '4', '5'];
 		ergebnis: string;
 		dokument: string;
 		gefaehrdungen: string[];
+		voraussetzungen: string[];
 		vorgaenger: string[];
 		seite: string;
 	};
@@ -270,6 +271,7 @@ const EFFORT = ['0', '1', '2', '3', '4', '5'];
 		'Ergebnis': (r) => r.ergebnis,
 		'Dokumentiert in': (r) => r.dokument,
 		'Gefährdungen': (r) => r.gefaehrdungen.join('; '),
+		'Voraussetzungen': (r) => r.voraussetzungen.join('; '),
 		'Vorgänger im Kompendium 2023': (r) => r.vorgaenger.join('; '),
 		'Seite': (r) => r.seite,
 	};
