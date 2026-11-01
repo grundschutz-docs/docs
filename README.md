@@ -74,9 +74,25 @@ translated.
   instead of silently widening the selection,
   filterable by practice, obligation level, security level, effort and target
   object category (the categories above a chosen one are included, as the
-  catalog requires in STM.2.1.4.1), with columns for tracking the implementation status and an
-  overview of the documents the catalog names. The Excel file is built in the
-  browser; nothing is sent to a server
+  catalog requires in STM.2.1.4.1), with columns for tracking the implementation status
+  (status, "Bewertet am" = the date of your own assessment, owner, deadline, note), the
+  prerequisites the catalog names ("Voraussetzungen", IDs only), a sheet **"Festlegungen"**
+  (one row per parameter the catalog leaves to the organisation, e.g. "regelmäßig": 224
+  parameters in 211 requirements, with empty columns for your value, approval and date; the
+  sheet proposes no values) and an overview of the documents the catalog names. The Excel
+  file is built in the browser; nothing is sent to a server
+- **ID check** (`/id-check/`) — paste or load a list of requirement IDs (or the export CSV with
+  its "Bewertet am" column) and see which of them the BSI changed since a date, or since your own
+  assessment date per row. It runs in the browser: the only request fetches the change data
+  (`/aenderungen/ids.json`), nothing you enter is sent. It reports what changed, not whether it
+  matters to you
+- **Last changed** — a line under the labels of each requirement the BSI changed since the
+  changelog starts ("Zuletzt geändert: date (fields)"), added in the browser from the same data
+- **Short links** — `/GC.5.1.1` redirects to the requirement (nginx, `docker/nginx.conf`; they
+  don't work in `astro dev`/`astro preview`), and a "Kurzlink" button next to each requirement's
+  labels copies ID, title, catalog version and the link
+- **What this site is — and is not** (`/grenzen/`) — scope and limits in one page, with the links
+  for ideas, needs and errors (issue templates `idea_need`, `catalog_finding`, `site_bug`)
 - **Changelog** (`/aenderungen/`) — what changed in the catalog between two
   published versions, as a diff (old and new wording, changed words
   highlighted). Built from the git history of the BSI repository; it
@@ -172,6 +188,10 @@ label `loadbalancer.server.port=80` has to become `8080`. nginx adds security
 headers to every response (`docker/security-headers.conf`) but does not set
 HSTS, since the proxy that terminates TLS should do that.
 
+The short links (`/GC.5.1.1`) are a `map` plus one `location` in `docker/nginx.conf`, one rule per
+practice. `scripts/tests/test_nginx.py` starts a real nginx and checks every practice of the catalog,
+so a practice the BSI adds turns the test red until the map has it.
+
 ## How the docs are generated
 
 The pages under `src/content/docs/grundschutzpp/` are generated, not
@@ -259,6 +279,18 @@ wrote. Both need things that are not in this repository (the schema,
 `exceljs`); the header of `verify.py` says where to get them. They run by
 hand, not in CI.
 
+## Tests
+
+```bash
+pnpm build                                                          # some tests read the built site (dist/)
+python3 -m unittest discover -s scripts/tests -p "test_*.py"
+node --experimental-strip-types --test scripts/tests/id-check.test.mjs   # the ID check's rules
+```
+
+Tests that read `dist/` skip when it is missing. Others need the BSI catalog and its documentation files
+(`GRUNDSCHUTZPP_CATALOG` and the other variables of the generator), `nginx` in the `PATH`, or `exceljs`
+(`XLSX_ORACLE_DIR`); without them they fail with a message saying what is missing, so they never pass silently.
+
 ## Project structure
 
 ```
@@ -272,8 +304,9 @@ hand, not in CI.
 │   ├── generate_docs.py       # OSCAL catalog → MDX, data files, export, changelog
 │   └── xlsx/                  # checks for the Excel files (run by hand)
 ├── src/
-│   ├── components/            # ControlMeta, PdcaCycle, ExportTabelle, Aenderungsprotokoll, Befund*, filters, header/hero overrides
+│   ├── components/            # ControlMeta, PdcaCycle, ExportTabelle, IdCheck, Kurzlink, ZuletztGeaendert, Aenderungsprotokoll, Befund*, filters, header/hero overrides
 │   ├── data/                  # generated — landing, status, bausteine, changelog (JSON)
+│   ├── lib/                   # id-check.ts (the ID check's rules), anforderung-dom.ts, feed.ts, export helpers
 │   ├── lib/xlsx/              # the Excel writer used by the export page
 │   ├── content/docs/
 │   │   ├── grundschutzpp/     # generated — the catalog, one page per practice
@@ -352,6 +385,9 @@ one of these up (see `CONTRIBUTING.md`):
   attribution, the license and the note that they are modified are in the
   files themselves (`LIZENZ.txt`, the info sheet of the Excel file, the
   source column) and not only on the web page.
+- **Every page** carries one line in the footer with the catalog's author, license, source and the
+  note that it is modified (on `/methodik/` the line names the BSI's terms of use instead).
+  `scripts/tests/test_lizenzzeile.py` checks the built site.
 - **The page on the BSI Standard 300-1** (`/methodik/`): an own summary. The
   source is © BSI and is not under CC BY-SA; the BSI's
   [terms of use](https://www.bsi.bund.de/DE/Service/Nutzungsbedingungen/Nutzungsbedingungen_node.html)

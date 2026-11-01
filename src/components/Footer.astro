@@ -49,8 +49,9 @@ const BSI_CATALOG = 'https://github.com/BSI-Bund/Stand-der-Technik-Bibliothek';
 		</nav>
 		<nav aria-labelledby="footer-tools">
 			<p class="col-title" id="footer-tools">{isEnglish ? 'Data & tools' : 'Daten & Werkzeuge'}</p>
-			<a href="/export/">{isEnglish ? 'Export for Excel (German)' : 'Export für Excel'}</a>
+			<a href="/export/">{isEnglish ? 'Export for Excel, with a sheet for your own values (German)' : 'Export für Excel, mit Festlegungsblatt'}</a>
 			<a href="/id-check/">{isEnglish ? 'ID check: have my requirements changed? (German)' : 'ID-Check: Haben sich meine IDs geändert?'}</a>
+			<a href={isEnglish ? '/en/ueber/#linking-to-and-citing-requirements' : '/ueber/#anforderungen-verlinken-und-zitieren'}>{isEnglish ? 'Short links and citing' : 'Kurzlinks und Zitieren'}</a>
 			<a href={`${legalPrefix}/rag/`}>{isEnglish ? 'Catalog as data (RAG)' : 'Katalog als Daten (RAG)'}</a>
 			<a href="/aenderungen/#abonnieren">{isEnglish ? 'Subscribe: catalog changes (German, RSS)' : 'Abonnieren: Katalogänderungen (RSS)'}</a>
 			<a href={`${legalPrefix}/befunde/#abonnieren`}>{isEnglish ? 'Subscribe: findings (German, RSS)' : 'Abonnieren: Befunde (RSS)'}</a>
