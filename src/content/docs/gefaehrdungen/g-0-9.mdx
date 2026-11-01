@@ -1,0 +1,52 @@
+---
+
+title: "G 0.9 – Ausfall oder Störung von Kommunikationsnetzen"
+
+description: "Die 8 Anforderungen, die der Grundschutz++-Katalog der elementaren Gefährdung G 0.9 (Ausfall oder Störung von Kommunikationsnetzen) zuordnet, davon 0 MUSS. Zuordnung laut Katalog, keine Risikobewertung."
+
+---
+
+
+<span data-pagefind-meta="section:Gefährdung"></span>
+
+
+**8 Anforderungen** ordnet der Katalog der elementaren Gefährdung G 0.9 zu: 0 MUSS, 4 SOLLTE, 4 KANN.
+
+**Was die Zuordnung ist:** die Angabe des BSI im Katalog, welche Gefährdungen eine Anforderung abdeckt. Sie ist keine Risikobewertung und sagt nicht, ob die Gefährdung für eine Institution gilt oder wie hoch das Risiko ist. Das entscheidet die Risikoanalyse der Institution.
+
+**Definition des BSI**
+
+> Für viele Geschäftsprozesse werden heutzutage zumindest zeitweise intakte Kommunikationsverbindungen benötigt, sei es über Telefon, Fax, E-Mail oder andere Dienste über Nah- oder Weitverkehrsnetze. Fallen einige oder mehrere dieser Kommunikationsverbindungen über einen längeren Zeitraum aus, kann dies beispielsweise dazu führen, dass
+> - Geschäftsprozesse nicht mehr weiterbearbeitet werden können, weil benötigte Informationen nicht abgerufen werden können,
+> - Kunden die Institution nicht mehr für Rückfragen erreichen können,
+> - Aufträge nicht abgegeben oder beendet werden können.
+>
+> Werden auf IT-Systemen, die über Weitverkehrsnetze verbunden sind, zeitkritische Anwendungen betrieben, sind die durch einen Netzausfall möglichen Schäden und Folgeschäden entsprechend hoch, wenn keine Ausweichmöglichkeiten (z. B. Anbindung an ein zweites Kommunikationsnetz) vorhanden sind. Zu ähnlichen Problemen kann es kommen, wenn die benötigten Kommunikationsnetze gestört sind, ohne jedoch vollständig auszufallen. Kommunikationsverbindungen können beispielsweise eine erhöhte Fehlerrate oder andere Qualitätsmängel aufweisen. Falsche Betriebsparameter können ebenfalls zu Beeinträchtigungen führen.
+>
+> Beispiele:
+> - Das Internet ist heute für viele Institutionen zu einem unverzichtbaren Kommunikationsmedium geworden, unter anderem zum Abruf wichtiger Informationen, zur Außendarstellung sowie zur Kommunikation mit Kunden und Partnern. Unternehmen, die sich auf Internet-basierte Dienstleistungen spezialisiert haben, sind natürlich in besonderem Maße von einer funktionierenden Internet-Anbindung abhängig.
+> - Im Zuge der Konvergenz der Netze werden Sprach- und Datendienste häufig über die gleichen technischen Komponenten transportiert (z. B. VoIP). Dadurch steigt jedoch die Gefahr, dass bei einer Störung der Kommunikationstechnik die Sprachdienste und die Datendienste gleichzeitig ausfallen.
+
+Quelle: [BSI, basethreats.csv](https://github.com/BSI-Bund/Stand-der-Technik-Bibliothek/blob/main/documentation/namespaces/basethreats.csv), CC BY-SA 4.0.
+
+Nach Praktik: [ARCH Architektur](/grundschutzpp/arch/) (8).
+
+## Anforderungen (8) {#anforderungen}
+
+<div class="zielobjekt-teil" data-teil="anforderungen" data-pagefind-ignore>
+<table class="vergleich-table themen-table anforderungs-tabelle">
+<thead><tr><th>Anforderung</th><th>Pflicht</th><th>Stufe</th></tr></thead>
+<tbody>
+<tr data-sec="normal-SdT" data-id="ARCH.2.2.1"><td><a class="new-id" href="/grundschutzpp/arch/#ARCH.2.2.1">ARCH.2.2.1</a> <span class="new-title">Externe Netzanschlüsse</span> <span class="zeile-zusatz">Praktik ARCH</span></td><td>SOLLTE</td><td><span class="stufe-lang">Standard-Sicherheitsstufe</span><span class="stufe-kurz">Standard</span></td></tr>
+<tr data-sec="normal-SdT" data-id="ARCH.2.2.3"><td><a class="new-id" href="/grundschutzpp/arch/#ARCH.2.2.3">ARCH.2.2.3</a> <span class="new-title">Segmentierung von Servern und Clients</span> <span class="zeile-zusatz">Praktik ARCH</span></td><td>SOLLTE</td><td><span class="stufe-lang">Standard-Sicherheitsstufe</span><span class="stufe-kurz">Standard</span></td></tr>
+<tr data-sec="normal-SdT" data-id="ARCH.2.2.5"><td><a class="new-id" href="/grundschutzpp/arch/#ARCH.2.2.5">ARCH.2.2.5</a> <span class="new-title">OT-Systeme</span> <span class="zeile-zusatz">Praktik ARCH</span></td><td>SOLLTE</td><td><span class="stufe-lang">Standard-Sicherheitsstufe</span><span class="stufe-kurz">Standard</span></td></tr>
+<tr data-sec="normal-SdT" data-id="ARCH.8.1"><td><a class="new-id" href="/grundschutzpp/arch/#ARCH.8.1">ARCH.8.1</a> <span class="new-title">Redundanz im Kernnetz</span> <span class="zeile-zusatz">Praktik ARCH</span></td><td>SOLLTE</td><td><span class="stufe-lang">Standard-Sicherheitsstufe</span><span class="stufe-kurz">Standard</span></td></tr>
+<tr data-sec="erhöht" data-id="ARCH.2.2.4"><td><a class="new-id" href="/grundschutzpp/arch/#ARCH.2.2.4">ARCH.2.2.4</a> <span class="new-title">VoIP-Netz</span> <span class="zeile-zusatz">Praktik ARCH</span></td><td>KANN</td><td><span class="stufe-lang">Erhöhte Sicherheitsstufe</span><span class="stufe-kurz">Erhöht</span></td></tr>
+<tr data-sec="erhöht" data-id="ARCH.2.2.11"><td><a class="new-id" href="/grundschutzpp/arch/#ARCH.2.2.11">ARCH.2.2.11</a> <span class="new-title">Physische Segmentierung</span> <span class="zeile-zusatz">Praktik ARCH</span></td><td>KANN</td><td><span class="stufe-lang">Erhöhte Sicherheitsstufe</span><span class="stufe-kurz">Erhöht</span></td></tr>
+<tr data-sec="erhöht" data-id="ARCH.8.2"><td><a class="new-id" href="/grundschutzpp/arch/#ARCH.8.2">ARCH.8.2</a> <span class="new-title">Redundante TK-Anbindung</span> <span class="zeile-zusatz">Praktik ARCH</span></td><td>KANN</td><td><span class="stufe-lang">Erhöhte Sicherheitsstufe</span><span class="stufe-kurz">Erhöht</span></td></tr>
+<tr data-sec="erhöht" data-id="ARCH.8.3"><td><a class="new-id" href="/grundschutzpp/arch/#ARCH.8.3">ARCH.8.3</a> <span class="new-title">Redundante Server</span> <span class="zeile-zusatz">Praktik ARCH</span></td><td>KANN</td><td><span class="stufe-lang">Erhöhte Sicherheitsstufe</span><span class="stufe-kurz">Erhöht</span></td></tr>
+</tbody>
+</table>
+</div>
+
+Alle Gefährdungen: [Gefährdungen im Katalog](/gefaehrdungen/).

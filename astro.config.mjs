@@ -277,6 +277,7 @@ export default defineConfig({
 						{ label: 'Themen', translations: { en: 'Topics' }, slug: 'grundschutzpp/themen' },
 						{ label: 'Zielobjekte', translations: { en: 'Target objects' }, slug: 'zielobjekte' },
 						{ label: 'Dokumente', translations: { en: 'Documents' }, slug: 'dokumente' },
+						{ label: 'Gefährdungen', translations: { en: 'Threats' }, slug: 'gefaehrdungen' },
 						{
 							label: 'Managementsystem',
 							translations: { en: 'Management system' },

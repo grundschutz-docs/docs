@@ -1,0 +1,67 @@
+---
+
+title: "G 0.14 – Ausspähen von Informationen (Spionage)"
+
+description: "Die 26 Anforderungen, die der Grundschutz++-Katalog der elementaren Gefährdung G 0.14 (Ausspähen von Informationen (Spionage)) zuordnet, davon 0 MUSS. Zuordnung laut Katalog, keine Risikobewertung."
+
+---
+
+
+<span data-pagefind-meta="section:Gefährdung"></span>
+
+
+**26 Anforderungen** ordnet der Katalog der elementaren Gefährdung G 0.14 zu: 0 MUSS, 18 SOLLTE, 8 KANN.
+
+**Was die Zuordnung ist:** die Angabe des BSI im Katalog, welche Gefährdungen eine Anforderung abdeckt. Sie ist keine Risikobewertung und sagt nicht, ob die Gefährdung für eine Institution gilt oder wie hoch das Risiko ist. Das entscheidet die Risikoanalyse der Institution.
+
+**Definition des BSI**
+
+> Mit Spionage werden Angriffe bezeichnet, die das Ziel haben, Informationen über Unternehmen, Personen, Produkte oder andere Zielobjekte zu sammeln, auszuwerten und aufzubereiten. Die aufbereiteten Informationen können dann beispielsweise eingesetzt werden, um einem anderem Unternehmen bestimmte Wettbewerbsvorteile zu verschaffen, Personen zu erpressen oder ein Produkt nachbauen zu können. Neben einer Vielzahl technisch komplexer Angriffe gibt es oft auch viel einfachere Methoden, um an wertvolle Informationen zu kommen, beispielsweise indem Informationen aus mehreren öffentlich zugänglichen Quellen zusammengeführt werden, die einzeln unverfänglich aussehen, aber in anderen Zusammenhängen kompromittierend sein können. Da vertrauliche Daten häufig nicht ausreichend geschützt werden, können diese oft auf optischem, akustischem oder elektronischem Weg ausgespäht werden.
+>
+> Beispiele:
+> - Viele IT-Systeme sind durch Identifikations- und Authentisierungsmechanismen gegen eine unberechtigte Nutzung geschützt, z. B. in Form von Benutzerkennung- und Passwort-Prüfung. Wenn das Passwort allerdings unverschlüsselt über die Leitung geschickt wird, ist es einem Angreifer unter Umständen möglich, dieses auszulesen.
+> - Um Geld an einem Geldausgabeautomaten abheben zu können, muss die korrekte PIN für die verwendete ec- oder Kreditkarte eingegeben werden. Leider ist der Sichtschutz an diesen Geräten häufig unzureichend, so dass ein Angreifer einem Kunden bei der Eingabe der PIN ohne Mühe über die Schulter schauen kann. Wenn der Angreifer hinterher die Karte stiehlt, kann er damit das Konto plündern.
+> - Um Zugriffsrechte auf einem PC zu erhalten oder diesen anderweitig zu manipulieren, kann ein Angreifer dem Benutzer ein Trojanisches Pferd schicken, das er als vorgeblich nützliches Programm einer E-Mail beigefügt hat. Neben unmittelbaren Schäden können über Trojanische Pferde vielfältige Informationen nicht nur über den einzelnen Rechner, sondern auch über das lokale Netz ausgespäht werden. Insbesondere verfolgen viele Trojanische Pferde das Ziel, Passwörter oder andere Zugangsdaten auszuspähen.
+> - In vielen Büros sind die Arbeitsplätze akustisch nicht gut gegeneinander abgeschirmt. Dadurch können Kollegen, aber auch Besucher eventuell Gespräche mithören und dabei Kenntnis von Informationen erlangen, die nicht für sie bestimmt oder sogar vertraulich sind.
+
+Quelle: [BSI, basethreats.csv](https://github.com/BSI-Bund/Stand-der-Technik-Bibliothek/blob/main/documentation/namespaces/basethreats.csv), CC BY-SA 4.0.
+
+Nach Praktik: [ARCH Architektur](/grundschutzpp/arch/) (11), [BES Beschaffungsmanagement](/grundschutzpp/bes/) (1), [DET Detektion](/grundschutzpp/det/) (2), [DLS Dienstleistersteuerung](/grundschutzpp/dls/) (3), [KONF Konfiguration](/grundschutzpp/konf/) (8), [TEST Änderungen und Tests](/grundschutzpp/test/) (1).
+
+## Anforderungen (26) {#anforderungen}
+
+<div class="zielobjekt-teil" data-teil="anforderungen" data-pagefind-ignore>
+<table class="vergleich-table themen-table anforderungs-tabelle">
+<thead><tr><th>Anforderung</th><th>Pflicht</th><th>Stufe</th></tr></thead>
+<tbody>
+<tr data-sec="normal-SdT" data-id="ARCH.2.2.1"><td><a class="new-id" href="/grundschutzpp/arch/#ARCH.2.2.1">ARCH.2.2.1</a> <span class="new-title">Externe Netzanschlüsse</span> <span class="zeile-zusatz">Praktik ARCH</span></td><td>SOLLTE</td><td><span class="stufe-lang">Standard-Sicherheitsstufe</span><span class="stufe-kurz">Standard</span></td></tr>
+<tr data-sec="normal-SdT" data-id="ARCH.5.1"><td><a class="new-id" href="/grundschutzpp/arch/#ARCH.5.1">ARCH.5.1</a> <span class="new-title">Einschränkung und Inspektion von Verbindungen</span> <span class="zeile-zusatz">Praktik ARCH</span></td><td>SOLLTE</td><td><span class="stufe-lang">Standard-Sicherheitsstufe</span><span class="stufe-kurz">Standard</span></td></tr>
+<tr data-sec="normal-SdT" data-id="ARCH.5.1.5"><td><a class="new-id" href="/grundschutzpp/arch/#ARCH.5.1.5">ARCH.5.1.5</a> <span class="new-title">Deaktivierung von Split Tunneling</span> <span class="zeile-zusatz">Praktik ARCH</span></td><td>SOLLTE</td><td><span class="stufe-lang">Standard-Sicherheitsstufe</span><span class="stufe-kurz">Standard</span></td></tr>
+<tr data-sec="normal-SdT" data-id="ARCH.5.1.9"><td><a class="new-id" href="/grundschutzpp/arch/#ARCH.5.1.9">ARCH.5.1.9</a> <span class="new-title">Filterung von DNS</span> <span class="zeile-zusatz">Praktik ARCH</span></td><td>SOLLTE</td><td><span class="stufe-lang">Standard-Sicherheitsstufe</span><span class="stufe-kurz">Standard</span></td></tr>
+<tr data-sec="normal-SdT" data-id="ARCH.5.1.10"><td><a class="new-id" href="/grundschutzpp/arch/#ARCH.5.1.10">ARCH.5.1.10</a> <span class="new-title">Webfilterung</span> <span class="zeile-zusatz">Praktik ARCH</span></td><td>SOLLTE</td><td><span class="stufe-lang">Standard-Sicherheitsstufe</span><span class="stufe-kurz">Standard</span></td></tr>
+<tr data-sec="normal-SdT" data-id="ARCH.5.1.10.1"><td><a class="new-id" href="/grundschutzpp/arch/#ARCH.5.1.10.1">ARCH.5.1.10.1</a> <span class="new-title">Bekannte schädliche Inhalte</span> <span class="zeile-zusatz">Praktik ARCH</span></td><td>SOLLTE</td><td><span class="stufe-lang">Standard-Sicherheitsstufe</span><span class="stufe-kurz">Standard</span></td></tr>
+<tr data-sec="normal-SdT" data-id="ARCH.5.1.10.2"><td><a class="new-id" href="/grundschutzpp/arch/#ARCH.5.1.10.2">ARCH.5.1.10.2</a> <span class="new-title">Bekannte illegale Inhalte</span> <span class="zeile-zusatz">Praktik ARCH</span></td><td>SOLLTE</td><td><span class="stufe-lang">Standard-Sicherheitsstufe</span><span class="stufe-kurz">Standard</span></td></tr>
+<tr data-sec="normal-SdT" data-id="ARCH.5.1.10.3"><td><a class="new-id" href="/grundschutzpp/arch/#ARCH.5.1.10.3">ARCH.5.1.10.3</a> <span class="new-title">Speicherdienste</span> <span class="zeile-zusatz">Praktik ARCH</span></td><td>SOLLTE</td><td><span class="stufe-lang">Standard-Sicherheitsstufe</span><span class="stufe-kurz">Standard</span></td></tr>
+<tr data-sec="normal-SdT" data-id="ARCH.5.2"><td><a class="new-id" href="/grundschutzpp/arch/#ARCH.5.2">ARCH.5.2</a> <span class="new-title">Blockieren direkter öffentlicher Verbindungen</span> <span class="zeile-zusatz">Praktik ARCH</span></td><td>SOLLTE</td><td><span class="stufe-lang">Standard-Sicherheitsstufe</span><span class="stufe-kurz">Standard</span></td></tr>
+<tr data-sec="normal-SdT" data-id="ARCH.6.2"><td><a class="new-id" href="/grundschutzpp/arch/#ARCH.6.2">ARCH.6.2</a> <span class="new-title">Verschlüsselung von Weiterverkehrsverbindungen</span> <span class="zeile-zusatz">Praktik ARCH</span></td><td>SOLLTE</td><td><span class="stufe-lang">Standard-Sicherheitsstufe</span><span class="stufe-kurz">Standard</span></td></tr>
+<tr data-sec="normal-SdT" data-id="DLS.2.1"><td><a class="new-id" href="/grundschutzpp/dls/#DLS.2.1">DLS.2.1</a> <span class="new-title">Mehr-Faktor-Authentifizierung</span> <span class="zeile-zusatz">Praktik DLS</span></td><td>SOLLTE</td><td><span class="stufe-lang">Standard-Sicherheitsstufe</span><span class="stufe-kurz">Standard</span></td></tr>
+<tr data-sec="normal-SdT" data-id="DLS.2.2"><td><a class="new-id" href="/grundschutzpp/dls/#DLS.2.2">DLS.2.2</a> <span class="new-title">Transportverschlüsselung</span> <span class="zeile-zusatz">Praktik DLS</span></td><td>SOLLTE</td><td><span class="stufe-lang">Standard-Sicherheitsstufe</span><span class="stufe-kurz">Standard</span></td></tr>
+<tr data-sec="normal-SdT" data-id="KONF.2.4.1"><td><a class="new-id" href="/grundschutzpp/konf/#KONF.2.4.1">KONF.2.4.1</a> <span class="new-title">Nicht benötigte Zertifikate</span> <span class="zeile-zusatz">Praktik KONF</span></td><td>SOLLTE</td><td><span class="stufe-lang">Standard-Sicherheitsstufe</span><span class="stufe-kurz">Standard</span></td></tr>
+<tr data-sec="normal-SdT" data-id="KONF.3.2"><td><a class="new-id" href="/grundschutzpp/konf/#KONF.3.2">KONF.3.2</a> <span class="new-title">Speicherverschlüsselung</span> <span class="zeile-zusatz">Praktik KONF</span></td><td>SOLLTE</td><td><span class="stufe-lang">Standard-Sicherheitsstufe</span><span class="stufe-kurz">Standard</span></td></tr>
+<tr data-sec="normal-SdT" data-id="KONF.11.3"><td><a class="new-id" href="/grundschutzpp/konf/#KONF.11.3">KONF.11.3</a> <span class="new-title">Veröffentlichung von Domain-Infomationen</span> <span class="zeile-zusatz">Praktik KONF</span></td><td>SOLLTE</td><td><span class="stufe-lang">Standard-Sicherheitsstufe</span><span class="stufe-kurz">Standard</span></td></tr>
+<tr data-sec="normal-SdT" data-id="KONF.12.3"><td><a class="new-id" href="/grundschutzpp/konf/#KONF.12.3">KONF.12.3</a> <span class="new-title">Cookies</span> <span class="zeile-zusatz">Praktik KONF</span></td><td>SOLLTE</td><td><span class="stufe-lang">Standard-Sicherheitsstufe</span><span class="stufe-kurz">Standard</span></td></tr>
+<tr data-sec="normal-SdT" data-id="KONF.12.8"><td><a class="new-id" href="/grundschutzpp/konf/#KONF.12.8">KONF.12.8</a> <span class="new-title">Teilnahme per Default ohne Bild und Ton</span> <span class="zeile-zusatz">Praktik KONF</span></td><td>SOLLTE</td><td><span class="stufe-lang">Standard-Sicherheitsstufe</span><span class="stufe-kurz">Standard</span></td></tr>
+<tr data-sec="normal-SdT" data-id="TEST.5.2"><td><a class="new-id" href="/grundschutzpp/test/#TEST.5.2">TEST.5.2</a> <span class="new-title">Verschlüsselte Bereitstellung</span> <span class="zeile-zusatz">Praktik TEST</span></td><td>SOLLTE</td><td><span class="stufe-lang">Standard-Sicherheitsstufe</span><span class="stufe-kurz">Standard</span></td></tr>
+<tr data-sec="erhöht" data-id="ARCH.6.1"><td><a class="new-id" href="/grundschutzpp/arch/#ARCH.6.1">ARCH.6.1</a> <span class="new-title">Kontrollierte Verbindungsführung</span> <span class="zeile-zusatz">Praktik ARCH</span></td><td>KANN</td><td><span class="stufe-lang">Erhöhte Sicherheitsstufe</span><span class="stufe-kurz">Erhöht</span></td></tr>
+<tr data-sec="erhöht" data-id="BES.4.5.2"><td><a class="new-id" href="/grundschutzpp/bes/#BES.4.5.2">BES.4.5.2</a> <span class="new-title">Mandantentrennung</span> <span class="zeile-zusatz">Praktik BES</span></td><td>KANN</td><td><span class="stufe-lang">Erhöhte Sicherheitsstufe</span><span class="stufe-kurz">Erhöht</span></td></tr>
+<tr data-sec="erhöht" data-id="DET.3.2"><td><a class="new-id" href="/grundschutzpp/det/#DET.3.2">DET.3.2</a> <span class="new-title">Integration von Cloud-Diensten</span> <span class="zeile-zusatz">Praktik DET</span></td><td>KANN</td><td><span class="stufe-lang">Erhöhte Sicherheitsstufe</span><span class="stufe-kurz">Erhöht</span></td></tr>
+<tr data-sec="erhöht" data-id="DET.6.2.2"><td><a class="new-id" href="/grundschutzpp/det/#DET.6.2.2">DET.6.2.2</a> <span class="new-title">Datenträgerschleuse</span> <span class="zeile-zusatz">Praktik DET</span></td><td>KANN</td><td><span class="stufe-lang">Erhöhte Sicherheitsstufe</span><span class="stufe-kurz">Erhöht</span></td></tr>
+<tr data-sec="erhöht" data-id="DLS.2.3"><td><a class="new-id" href="/grundschutzpp/dls/#DLS.2.3">DLS.2.3</a> <span class="new-title">Vollverschlüsselung</span> <span class="zeile-zusatz">Praktik DLS</span></td><td>KANN</td><td><span class="stufe-lang">Erhöhte Sicherheitsstufe</span><span class="stufe-kurz">Erhöht</span></td></tr>
+<tr data-sec="erhöht" data-id="KONF.11.8"><td><a class="new-id" href="/grundschutzpp/konf/#KONF.11.8">KONF.11.8</a> <span class="new-title">Verschlüsselung schützenswerter Daten (at-rest)</span> <span class="zeile-zusatz">Praktik KONF</span></td><td>KANN</td><td><span class="stufe-lang">Erhöhte Sicherheitsstufe</span><span class="stufe-kurz">Erhöht</span></td></tr>
+<tr data-sec="erhöht" data-id="KONF.12.6"><td><a class="new-id" href="/grundschutzpp/konf/#KONF.12.6">KONF.12.6</a> <span class="new-title">Browser-Historie</span> <span class="zeile-zusatz">Praktik KONF</span></td><td>KANN</td><td><span class="stufe-lang">Erhöhte Sicherheitsstufe</span><span class="stufe-kurz">Erhöht</span></td></tr>
+<tr data-sec="erhöht" data-id="KONF.12.11"><td><a class="new-id" href="/grundschutzpp/konf/#KONF.12.11">KONF.12.11</a> <span class="new-title">Anonyme oder Pseudonyme Kommunikation</span> <span class="zeile-zusatz">Praktik KONF</span></td><td>KANN</td><td><span class="stufe-lang">Erhöhte Sicherheitsstufe</span><span class="stufe-kurz">Erhöht</span></td></tr>
+</tbody>
+</table>
+</div>
+
+Alle Gefährdungen: [Gefährdungen im Katalog](/gefaehrdungen/).

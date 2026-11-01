@@ -1,0 +1,72 @@
+---
+
+title: "G 0.47 – Schädliche Seiteneffekte IT-gestützter Angriffe"
+
+description: "Die 25 Anforderungen, die der Grundschutz++-Katalog der elementaren Gefährdung G 0.47 (Schädliche Seiteneffekte IT-gestützter Angriffe) zuordnet, davon 0 MUSS. Zuordnung laut Katalog, keine Risikobewertung."
+
+---
+
+
+<span data-pagefind-meta="section:Gefährdung"></span>
+
+
+**25 Anforderungen** ordnet der Katalog der elementaren Gefährdung G 0.47 zu: 0 MUSS, 20 SOLLTE, 5 KANN.
+
+**Was die Zuordnung ist:** die Angabe des BSI im Katalog, welche Gefährdungen eine Anforderung abdeckt. Sie ist keine Risikobewertung und sagt nicht, ob die Gefährdung für eine Institution gilt oder wie hoch das Risiko ist. Das entscheidet die Risikoanalyse der Institution.
+
+**Definition des BSI**
+
+> IT-gestützte Angriffe können Auswirkungen haben, die
+> - von den Tätern nicht beabsichtigt sind oder
+> - nicht die unmittelbar angegriffenen Zielobjekte betreffen oder
+> - unbeteiligte Dritte schädigen.
+>
+> Ursächlich hierfür sind die hohe Komplexität und Vernetzung moderner Informationstechnik sowie die Tatsache, dass die Abhängigkeiten der angegriffenen Zielobjekte und der zugehörigen Prozesse in der Regel nicht offenkundig sind.
+>
+> Dadurch kann es unter anderem dazu kommen, dass der tatsächliche Schutzbedarf von Zielobjekten falsch eingeschätzt wird oder dass die Verantwortlichen für die Zielobjekte kein Eigeninteresse an der Behebung von Mängeln dieser Zielobjekte haben.
+>
+> Beispiele:
+> - Auf IT-Systemen installierte Bots, mit denen die Täter verteilte Denial-of-Service-Angriffe (DDoS-Angriffe) durchführen können, stellen für die infizierten IT-Systeme selbst oft keine direkte Gefahr dar, weil sich die DDoS-Angriffe in der Regel gegen IT-Systeme Dritter richten.
+> - Schwachstellen von IoT-Geräten in WLANs können von Tätern als Einfallstor genutzt werden, um andere wichtigere Geräte im gleichen WLAN anzugreifen. Deshalb müssen solche IoT-Geräte auch dann geschützt werden, wenn sie selbst nur einen geringen Schutzbedarf haben.
+> - Ransomware-Angriffe auf IT-Systeme können unter Umständen Kettenreaktionen auslösen und damit auch Kritische Infrastrukturen treffen. Dies wiederum könnte zu Versorgungsengpässen der Bevölkerung führen, auch wenn die Täter dies möglicherweise gar nicht beabsichtigt haben.
+
+Quelle: [BSI, basethreats.csv](https://github.com/BSI-Bund/Stand-der-Technik-Bibliothek/blob/main/documentation/namespaces/basethreats.csv), CC BY-SA 4.0.
+
+Nach Praktik: [ARCH Architektur](/grundschutzpp/arch/) (4), [BER Berechtigung](/grundschutzpp/ber/) (1), [DET Detektion](/grundschutzpp/det/) (5), [REA Sicherheitsvorfallsbehandlung](/grundschutzpp/rea/) (15).
+
+## Anforderungen (25) {#anforderungen}
+
+<div class="zielobjekt-teil" data-teil="anforderungen" data-pagefind-ignore>
+<table class="vergleich-table themen-table anforderungs-tabelle">
+<thead><tr><th>Anforderung</th><th>Pflicht</th><th>Stufe</th></tr></thead>
+<tbody>
+<tr data-sec="normal-SdT" data-id="ARCH.2.1"><td><a class="new-id" href="/grundschutzpp/arch/#ARCH.2.1">ARCH.2.1</a> <span class="new-title">Netzsegmente</span> <span class="zeile-zusatz">Praktik ARCH</span></td><td>SOLLTE</td><td><span class="stufe-lang">Standard-Sicherheitsstufe</span><span class="stufe-kurz">Standard</span></td></tr>
+<tr data-sec="normal-SdT" data-id="ARCH.2.2"><td><a class="new-id" href="/grundschutzpp/arch/#ARCH.2.2">ARCH.2.2</a> <span class="new-title">Einschränkung von Verbindungen zwischen Segmenten</span> <span class="zeile-zusatz">Praktik ARCH</span></td><td>SOLLTE</td><td><span class="stufe-lang">Standard-Sicherheitsstufe</span><span class="stufe-kurz">Standard</span></td></tr>
+<tr data-sec="normal-SdT" data-id="ARCH.2.2.1"><td><a class="new-id" href="/grundschutzpp/arch/#ARCH.2.2.1">ARCH.2.2.1</a> <span class="new-title">Externe Netzanschlüsse</span> <span class="zeile-zusatz">Praktik ARCH</span></td><td>SOLLTE</td><td><span class="stufe-lang">Standard-Sicherheitsstufe</span><span class="stufe-kurz">Standard</span></td></tr>
+<tr data-sec="normal-SdT" data-id="ARCH.2.2.6"><td><a class="new-id" href="/grundschutzpp/arch/#ARCH.2.2.6">ARCH.2.2.6</a> <span class="new-title">Demilitarisierte Zone</span> <span class="zeile-zusatz">Praktik ARCH</span></td><td>SOLLTE</td><td><span class="stufe-lang">Standard-Sicherheitsstufe</span><span class="stufe-kurz">Standard</span></td></tr>
+<tr data-sec="normal-SdT" data-id="BER.6.6"><td><a class="new-id" href="/grundschutzpp/ber/#BER.6.6">BER.6.6</a> <span class="new-title">Monitoring von Zugangsdaten</span> <span class="zeile-zusatz">Praktik BER</span></td><td>SOLLTE</td><td><span class="stufe-lang">Standard-Sicherheitsstufe</span><span class="stufe-kurz">Standard</span></td></tr>
+<tr data-sec="normal-SdT" data-id="DET.2.1"><td><a class="new-id" href="/grundschutzpp/det/#DET.2.1">DET.2.1</a> <span class="new-title">Meldeverfahren</span> <span class="zeile-zusatz">Praktik DET</span></td><td>SOLLTE</td><td><span class="stufe-lang">Standard-Sicherheitsstufe</span><span class="stufe-kurz">Standard</span></td></tr>
+<tr data-sec="normal-SdT" data-id="DET.2.1.1"><td><a class="new-id" href="/grundschutzpp/det/#DET.2.1.1">DET.2.1.1</a> <span class="new-title">Sofortmaßnahmen Nutzender</span> <span class="zeile-zusatz">Praktik DET</span></td><td>SOLLTE</td><td><span class="stufe-lang">Standard-Sicherheitsstufe</span><span class="stufe-kurz">Standard</span></td></tr>
+<tr data-sec="normal-SdT" data-id="DET.2.1.2"><td><a class="new-id" href="/grundschutzpp/det/#DET.2.1.2">DET.2.1.2</a> <span class="new-title">Meldeformulare</span> <span class="zeile-zusatz">Praktik DET</span></td><td>SOLLTE</td><td><span class="stufe-lang">Standard-Sicherheitsstufe</span><span class="stufe-kurz">Standard</span></td></tr>
+<tr data-sec="normal-SdT" data-id="DET.2.1.3"><td><a class="new-id" href="/grundschutzpp/det/#DET.2.1.3">DET.2.1.3</a> <span class="new-title">Rückmeldungen</span> <span class="zeile-zusatz">Praktik DET</span></td><td>SOLLTE</td><td><span class="stufe-lang">Standard-Sicherheitsstufe</span><span class="stufe-kurz">Standard</span></td></tr>
+<tr data-sec="normal-SdT" data-id="REA.2.1"><td><a class="new-id" href="/grundschutzpp/rea/#REA.2.1">REA.2.1</a> <span class="new-title">Triage und Erstreaktion</span> <span class="zeile-zusatz">Praktik REA</span></td><td>SOLLTE</td><td><span class="stufe-lang">Standard-Sicherheitsstufe</span><span class="stufe-kurz">Standard</span></td></tr>
+<tr data-sec="normal-SdT" data-id="REA.2.3"><td><a class="new-id" href="/grundschutzpp/rea/#REA.2.3">REA.2.3</a> <span class="new-title">Dokumentation von Vorfällen</span> <span class="zeile-zusatz">Praktik REA</span></td><td>SOLLTE</td><td><span class="stufe-lang">Standard-Sicherheitsstufe</span><span class="stufe-kurz">Standard</span></td></tr>
+<tr data-sec="normal-SdT" data-id="REA.2.4"><td><a class="new-id" href="/grundschutzpp/rea/#REA.2.4">REA.2.4</a> <span class="new-title">Diagnosedaten</span> <span class="zeile-zusatz">Praktik REA</span></td><td>SOLLTE</td><td><span class="stufe-lang">Standard-Sicherheitsstufe</span><span class="stufe-kurz">Standard</span></td></tr>
+<tr data-sec="erhöht" data-id="REA.2.5"><td><a class="new-id" href="/grundschutzpp/rea/#REA.2.5">REA.2.5</a> <span class="new-title">IT-Forensik</span> <span class="zeile-zusatz">Praktik REA</span></td><td>SOLLTE</td><td><span class="stufe-lang">Erhöhte Sicherheitsstufe</span><span class="stufe-kurz">Erhöht</span></td></tr>
+<tr data-sec="normal-SdT" data-id="REA.2.5.1"><td><a class="new-id" href="/grundschutzpp/rea/#REA.2.5.1">REA.2.5.1</a> <span class="new-title">Rechtssichere Beweissicherung</span> <span class="zeile-zusatz">Praktik REA</span></td><td>SOLLTE</td><td><span class="stufe-lang">Standard-Sicherheitsstufe</span><span class="stufe-kurz">Standard</span></td></tr>
+<tr data-sec="normal-SdT" data-id="REA.2.6"><td><a class="new-id" href="/grundschutzpp/rea/#REA.2.6">REA.2.6</a> <span class="new-title">Ursachenanalyse und Behandlung</span> <span class="zeile-zusatz">Praktik REA</span></td><td>SOLLTE</td><td><span class="stufe-lang">Standard-Sicherheitsstufe</span><span class="stufe-kurz">Standard</span></td></tr>
+<tr data-sec="normal-SdT" data-id="REA.2.6.1"><td><a class="new-id" href="/grundschutzpp/rea/#REA.2.6.1">REA.2.6.1</a> <span class="new-title">Dokumentation des Vorgehens</span> <span class="zeile-zusatz">Praktik REA</span></td><td>SOLLTE</td><td><span class="stufe-lang">Standard-Sicherheitsstufe</span><span class="stufe-kurz">Standard</span></td></tr>
+<tr data-sec="normal-SdT" data-id="REA.2.6.2"><td><a class="new-id" href="/grundschutzpp/rea/#REA.2.6.2">REA.2.6.2</a> <span class="new-title">Kommunikation bei Vorfällen</span> <span class="zeile-zusatz">Praktik REA</span></td><td>SOLLTE</td><td><span class="stufe-lang">Standard-Sicherheitsstufe</span><span class="stufe-kurz">Standard</span></td></tr>
+<tr data-sec="normal-SdT" data-id="REA.2.6.2.1"><td><a class="new-id" href="/grundschutzpp/rea/#REA.2.6.2.1">REA.2.6.2.1</a> <span class="new-title">Information zuständiger Behörden</span> <span class="zeile-zusatz">Praktik REA</span></td><td>SOLLTE</td><td><span class="stufe-lang">Standard-Sicherheitsstufe</span><span class="stufe-kurz">Standard</span></td></tr>
+<tr data-sec="normal-SdT" data-id="REA.2.6.3"><td><a class="new-id" href="/grundschutzpp/rea/#REA.2.6.3">REA.2.6.3</a> <span class="new-title">Koordinierung</span> <span class="zeile-zusatz">Praktik REA</span></td><td>SOLLTE</td><td><span class="stufe-lang">Standard-Sicherheitsstufe</span><span class="stufe-kurz">Standard</span></td></tr>
+<tr data-sec="normal-SdT" data-id="REA.2.6.5"><td><a class="new-id" href="/grundschutzpp/rea/#REA.2.6.5">REA.2.6.5</a> <span class="new-title">Eskalation</span> <span class="zeile-zusatz">Praktik REA</span></td><td>SOLLTE</td><td><span class="stufe-lang">Standard-Sicherheitsstufe</span><span class="stufe-kurz">Standard</span></td></tr>
+<tr data-sec="erhöht" data-id="DET.2.3"><td><a class="new-id" href="/grundschutzpp/det/#DET.2.3">DET.2.3</a> <span class="new-title">Ständiger Bereitschaftsdienst</span> <span class="zeile-zusatz">Praktik DET</span></td><td>KANN</td><td><span class="stufe-lang">Erhöhte Sicherheitsstufe</span><span class="stufe-kurz">Erhöht</span></td></tr>
+<tr data-sec="erhöht" data-id="REA.2.2"><td><a class="new-id" href="/grundschutzpp/rea/#REA.2.2">REA.2.2</a> <span class="new-title">Automatische Erstreaktion</span> <span class="zeile-zusatz">Praktik REA</span></td><td>KANN</td><td><span class="stufe-lang">Erhöhte Sicherheitsstufe</span><span class="stufe-kurz">Erhöht</span></td></tr>
+<tr data-sec="erhöht" data-id="REA.2.5.2"><td><a class="new-id" href="/grundschutzpp/rea/#REA.2.5.2">REA.2.5.2</a> <span class="new-title">Vier-Augen-Prinzip</span> <span class="zeile-zusatz">Praktik REA</span></td><td>KANN</td><td><span class="stufe-lang">Erhöhte Sicherheitsstufe</span><span class="stufe-kurz">Erhöht</span></td></tr>
+<tr data-sec="erhöht" data-id="REA.2.5.3"><td><a class="new-id" href="/grundschutzpp/rea/#REA.2.5.3">REA.2.5.3</a> <span class="new-title">Forensik-Dienstleister</span> <span class="zeile-zusatz">Praktik REA</span></td><td>KANN</td><td><span class="stufe-lang">Erhöhte Sicherheitsstufe</span><span class="stufe-kurz">Erhöht</span></td></tr>
+<tr data-sec="erhöht" data-id="REA.2.6.4"><td><a class="new-id" href="/grundschutzpp/rea/#REA.2.6.4">REA.2.6.4</a> <span class="new-title">Service Level</span> <span class="zeile-zusatz">Praktik REA</span></td><td>KANN</td><td><span class="stufe-lang">Erhöhte Sicherheitsstufe</span><span class="stufe-kurz">Erhöht</span></td></tr>
+</tbody>
+</table>
+</div>
+
+Alle Gefährdungen: [Gefährdungen im Katalog](/gefaehrdungen/).

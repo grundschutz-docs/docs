@@ -1,0 +1,77 @@
+---
+
+title: "G 0.40 – Verhinderung von Diensten (Denial of Service)"
+
+description: "Die 30 Anforderungen, die der Grundschutz++-Katalog der elementaren Gefährdung G 0.40 (Verhinderung von Diensten (Denial of Service)) zuordnet, davon 0 MUSS. Zuordnung laut Katalog, keine Risikobewertung."
+
+---
+
+
+<span data-pagefind-meta="section:Gefährdung"></span>
+
+
+**30 Anforderungen** ordnet der Katalog der elementaren Gefährdung G 0.40 zu: 0 MUSS, 19 SOLLTE, 11 KANN.
+
+**Was die Zuordnung ist:** die Angabe des BSI im Katalog, welche Gefährdungen eine Anforderung abdeckt. Sie ist keine Risikobewertung und sagt nicht, ob die Gefährdung für eine Institution gilt oder wie hoch das Risiko ist. Das entscheidet die Risikoanalyse der Institution.
+
+**Definition des BSI**
+
+> Es gibt eine Vielzahl verschiedener Angriffsformen, die darauf abzielen, die vorgesehene Nutzung bestimmter Dienstleistungen, Funktionen oder Geräte zu verhindern. Der Oberbegriff für solche Angriffe ist "Verhinderung von Diensten" (englisch: "Denial of Service"). Häufig wird auch die Bezeichnung "DoS-Angriff" verwendet.
+>
+> Solche Angriffe können unter anderem von verärgerten Mitarbeitern oder Kunden, aber auch von Mitbewerbern, Erpressern oder politisch motivierten Tätern ausgehen. Das Ziel der Angriffe können geschäftsrelevante Werte aller Art sein. Typische Ausprägungen von DoS-Angriffen sind
+> - Störungen von Geschäftsprozessen, z. B. durch Überflutung der Auftragsannahme mit fehlerhaften Bestellungen,
+> - Beeinträchtigungen der Infrastruktur, z. B. durch Blockieren der Türen der Institution,
+> - Herbeiführen von IT-Ausfällen, indem z. B. Dienste eines Servers im Netz gezielt überlastet werden.
+>
+> Diese Art von Angriffen steht häufig im Zusammenhang mit verteilten Ressourcen, indem ein Angreifer diese Ressourcen so stark in Anspruch nimmt, dass sie den eigentlichen Nutzern nicht mehr zur Verfügung stehen. Bei IT-basierten Angriffen können z. B. die folgenden Ressourcen künstlich verknappt werden:
+>
+> Prozesse, CPU-Zeit, Arbeitsspeicher, Plattenplatz, Übertragungskapazität.
+>
+> Beispiel:
+> - Im Frühjahr 2007 fanden über einen längeren Zeitraum starke DoS-Angriffe auf zahlreiche Internet-Angebote in Estland statt. Dadurch kam es in Estland zu erheblichen Beeinträchtigungen bei der Nutzung von Informationsangeboten und Dienstleistungen im Internet.
+
+Quelle: [BSI, basethreats.csv](https://github.com/BSI-Bund/Stand-der-Technik-Bibliothek/blob/main/documentation/namespaces/basethreats.csv), CC BY-SA 4.0.
+
+Nach Praktik: [ARCH Architektur](/grundschutzpp/arch/) (12), [DET Detektion](/grundschutzpp/det/) (1), [KONF Konfiguration](/grundschutzpp/konf/) (10), [NOT Notfallplanung](/grundschutzpp/not/) (1), [REA Sicherheitsvorfallsbehandlung](/grundschutzpp/rea/) (6).
+
+## Anforderungen (30) {#anforderungen}
+
+<div class="zielobjekt-teil" data-teil="anforderungen" data-pagefind-ignore>
+<table class="vergleich-table themen-table anforderungs-tabelle">
+<thead><tr><th>Anforderung</th><th>Pflicht</th><th>Stufe</th></tr></thead>
+<tbody>
+<tr data-sec="normal-SdT" data-id="ARCH.2.2"><td><a class="new-id" href="/grundschutzpp/arch/#ARCH.2.2">ARCH.2.2</a> <span class="new-title">Einschränkung von Verbindungen zwischen Segmenten</span> <span class="zeile-zusatz">Praktik ARCH</span></td><td>SOLLTE</td><td><span class="stufe-lang">Standard-Sicherheitsstufe</span><span class="stufe-kurz">Standard</span></td></tr>
+<tr data-sec="normal-SdT" data-id="ARCH.2.2.1"><td><a class="new-id" href="/grundschutzpp/arch/#ARCH.2.2.1">ARCH.2.2.1</a> <span class="new-title">Externe Netzanschlüsse</span> <span class="zeile-zusatz">Praktik ARCH</span></td><td>SOLLTE</td><td><span class="stufe-lang">Standard-Sicherheitsstufe</span><span class="stufe-kurz">Standard</span></td></tr>
+<tr data-sec="normal-SdT" data-id="ARCH.2.2.3"><td><a class="new-id" href="/grundschutzpp/arch/#ARCH.2.2.3">ARCH.2.2.3</a> <span class="new-title">Segmentierung von Servern und Clients</span> <span class="zeile-zusatz">Praktik ARCH</span></td><td>SOLLTE</td><td><span class="stufe-lang">Standard-Sicherheitsstufe</span><span class="stufe-kurz">Standard</span></td></tr>
+<tr data-sec="normal-SdT" data-id="ARCH.2.2.5"><td><a class="new-id" href="/grundschutzpp/arch/#ARCH.2.2.5">ARCH.2.2.5</a> <span class="new-title">OT-Systeme</span> <span class="zeile-zusatz">Praktik ARCH</span></td><td>SOLLTE</td><td><span class="stufe-lang">Standard-Sicherheitsstufe</span><span class="stufe-kurz">Standard</span></td></tr>
+<tr data-sec="normal-SdT" data-id="ARCH.5.1.2"><td><a class="new-id" href="/grundschutzpp/arch/#ARCH.5.1.2">ARCH.5.1.2</a> <span class="new-title">Netzbasierte Angriffe</span> <span class="zeile-zusatz">Praktik ARCH</span></td><td>SOLLTE</td><td><span class="stufe-lang">Standard-Sicherheitsstufe</span><span class="stufe-kurz">Standard</span></td></tr>
+<tr data-sec="normal-SdT" data-id="ARCH.5.1.3"><td><a class="new-id" href="/grundschutzpp/arch/#ARCH.5.1.3">ARCH.5.1.3</a> <span class="new-title">TCP-basierte Angriffe</span> <span class="zeile-zusatz">Praktik ARCH</span></td><td>SOLLTE</td><td><span class="stufe-lang">Standard-Sicherheitsstufe</span><span class="stufe-kurz">Standard</span></td></tr>
+<tr data-sec="normal-SdT" data-id="ARCH.5.1.4"><td><a class="new-id" href="/grundschutzpp/arch/#ARCH.5.1.4">ARCH.5.1.4</a> <span class="new-title">UDP-basierte Angriffe</span> <span class="zeile-zusatz">Praktik ARCH</span></td><td>SOLLTE</td><td><span class="stufe-lang">Standard-Sicherheitsstufe</span><span class="stufe-kurz">Standard</span></td></tr>
+<tr data-sec="normal-SdT" data-id="ARCH.5.1.6"><td><a class="new-id" href="/grundschutzpp/arch/#ARCH.5.1.6">ARCH.5.1.6</a> <span class="new-title">Blockieren direkter Management-Verbindungen</span> <span class="zeile-zusatz">Praktik ARCH</span></td><td>SOLLTE</td><td><span class="stufe-lang">Standard-Sicherheitsstufe</span><span class="stufe-kurz">Standard</span></td></tr>
+<tr data-sec="normal-SdT" data-id="ARCH.5.1.11"><td><a class="new-id" href="/grundschutzpp/arch/#ARCH.5.1.11">ARCH.5.1.11</a> <span class="new-title">P-A-P-Struktur</span> <span class="zeile-zusatz">Praktik ARCH</span></td><td>SOLLTE</td><td><span class="stufe-lang">Standard-Sicherheitsstufe</span><span class="stufe-kurz">Standard</span></td></tr>
+<tr data-sec="normal-SdT" data-id="KONF.6.11"><td><a class="new-id" href="/grundschutzpp/konf/#KONF.6.11">KONF.6.11</a> <span class="new-title">Einschränkung von Uploads</span> <span class="zeile-zusatz">Praktik KONF</span></td><td>SOLLTE</td><td><span class="stufe-lang">Standard-Sicherheitsstufe</span><span class="stufe-kurz">Standard</span></td></tr>
+<tr data-sec="normal-SdT" data-id="KONF.9.1"><td><a class="new-id" href="/grundschutzpp/konf/#KONF.9.1">KONF.9.1</a> <span class="new-title">Speicherplatzbegrenzung</span> <span class="zeile-zusatz">Praktik KONF</span></td><td>SOLLTE</td><td><span class="stufe-lang">Standard-Sicherheitsstufe</span><span class="stufe-kurz">Standard</span></td></tr>
+<tr data-sec="normal-SdT" data-id="KONF.14.3"><td><a class="new-id" href="/grundschutzpp/konf/#KONF.14.3">KONF.14.3</a> <span class="new-title">Iterative Beantwortung</span> <span class="zeile-zusatz">Praktik KONF</span></td><td>SOLLTE</td><td><span class="stufe-lang">Standard-Sicherheitsstufe</span><span class="stufe-kurz">Standard</span></td></tr>
+<tr data-sec="normal-SdT" data-id="KONF.14.5"><td><a class="new-id" href="/grundschutzpp/konf/#KONF.14.5">KONF.14.5</a> <span class="new-title">Zeitüberschreitung von Netzverbindungen</span> <span class="zeile-zusatz">Praktik KONF</span></td><td>SOLLTE</td><td><span class="stufe-lang">Standard-Sicherheitsstufe</span><span class="stufe-kurz">Standard</span></td></tr>
+<tr data-sec="normal-SdT" data-id="NOT.3.3"><td><a class="new-id" href="/grundschutzpp/not/#NOT.3.3">NOT.3.3</a> <span class="new-title">Sensibilisierung zum Vorgehen im Notfall</span> <span class="zeile-zusatz">Praktik NOT</span></td><td>SOLLTE</td><td><span class="stufe-lang">Standard-Sicherheitsstufe</span><span class="stufe-kurz">Standard</span></td></tr>
+<tr data-sec="normal-SdT" data-id="REA.2.1"><td><a class="new-id" href="/grundschutzpp/rea/#REA.2.1">REA.2.1</a> <span class="new-title">Triage und Erstreaktion</span> <span class="zeile-zusatz">Praktik REA</span></td><td>SOLLTE</td><td><span class="stufe-lang">Standard-Sicherheitsstufe</span><span class="stufe-kurz">Standard</span></td></tr>
+<tr data-sec="normal-SdT" data-id="REA.2.4"><td><a class="new-id" href="/grundschutzpp/rea/#REA.2.4">REA.2.4</a> <span class="new-title">Diagnosedaten</span> <span class="zeile-zusatz">Praktik REA</span></td><td>SOLLTE</td><td><span class="stufe-lang">Standard-Sicherheitsstufe</span><span class="stufe-kurz">Standard</span></td></tr>
+<tr data-sec="normal-SdT" data-id="REA.2.6"><td><a class="new-id" href="/grundschutzpp/rea/#REA.2.6">REA.2.6</a> <span class="new-title">Ursachenanalyse und Behandlung</span> <span class="zeile-zusatz">Praktik REA</span></td><td>SOLLTE</td><td><span class="stufe-lang">Standard-Sicherheitsstufe</span><span class="stufe-kurz">Standard</span></td></tr>
+<tr data-sec="normal-SdT" data-id="REA.2.6.3"><td><a class="new-id" href="/grundschutzpp/rea/#REA.2.6.3">REA.2.6.3</a> <span class="new-title">Koordinierung</span> <span class="zeile-zusatz">Praktik REA</span></td><td>SOLLTE</td><td><span class="stufe-lang">Standard-Sicherheitsstufe</span><span class="stufe-kurz">Standard</span></td></tr>
+<tr data-sec="normal-SdT" data-id="REA.2.6.5"><td><a class="new-id" href="/grundschutzpp/rea/#REA.2.6.5">REA.2.6.5</a> <span class="new-title">Eskalation</span> <span class="zeile-zusatz">Praktik REA</span></td><td>SOLLTE</td><td><span class="stufe-lang">Standard-Sicherheitsstufe</span><span class="stufe-kurz">Standard</span></td></tr>
+<tr data-sec="erhöht" data-id="ARCH.2.2.4"><td><a class="new-id" href="/grundschutzpp/arch/#ARCH.2.2.4">ARCH.2.2.4</a> <span class="new-title">VoIP-Netz</span> <span class="zeile-zusatz">Praktik ARCH</span></td><td>KANN</td><td><span class="stufe-lang">Erhöhte Sicherheitsstufe</span><span class="stufe-kurz">Erhöht</span></td></tr>
+<tr data-sec="erhöht" data-id="ARCH.8.3"><td><a class="new-id" href="/grundschutzpp/arch/#ARCH.8.3">ARCH.8.3</a> <span class="new-title">Redundante Server</span> <span class="zeile-zusatz">Praktik ARCH</span></td><td>KANN</td><td><span class="stufe-lang">Erhöhte Sicherheitsstufe</span><span class="stufe-kurz">Erhöht</span></td></tr>
+<tr data-sec="erhöht" data-id="ARCH.9.5"><td><a class="new-id" href="/grundschutzpp/arch/#ARCH.9.5">ARCH.9.5</a> <span class="new-title">Schutz gegen volumetrische DoS-Angriffe</span> <span class="zeile-zusatz">Praktik ARCH</span></td><td>KANN</td><td><span class="stufe-lang">Erhöhte Sicherheitsstufe</span><span class="stufe-kurz">Erhöht</span></td></tr>
+<tr data-sec="erhöht" data-id="DET.4.10"><td><a class="new-id" href="/grundschutzpp/det/#DET.4.10">DET.4.10</a> <span class="new-title">Host-basierte Köder</span> <span class="zeile-zusatz">Praktik DET</span></td><td>KANN</td><td><span class="stufe-lang">Erhöhte Sicherheitsstufe</span><span class="stufe-kurz">Erhöht</span></td></tr>
+<tr data-sec="erhöht" data-id="KONF.9.2"><td><a class="new-id" href="/grundschutzpp/konf/#KONF.9.2">KONF.9.2</a> <span class="new-title">Begrenzung der Hostleistung</span> <span class="zeile-zusatz">Praktik KONF</span></td><td>KANN</td><td><span class="stufe-lang">Erhöhte Sicherheitsstufe</span><span class="stufe-kurz">Erhöht</span></td></tr>
+<tr data-sec="erhöht" data-id="KONF.14.4"><td><a class="new-id" href="/grundschutzpp/konf/#KONF.14.4">KONF.14.4</a> <span class="new-title">Caching</span> <span class="zeile-zusatz">Praktik KONF</span></td><td>KANN</td><td><span class="stufe-lang">Erhöhte Sicherheitsstufe</span><span class="stufe-kurz">Erhöht</span></td></tr>
+<tr data-sec="erhöht" data-id="KONF.15.1"><td><a class="new-id" href="/grundschutzpp/konf/#KONF.15.1">KONF.15.1</a> <span class="new-title">Begrenzung des Speicherplatzes</span> <span class="zeile-zusatz">Praktik KONF</span></td><td>KANN</td><td><span class="stufe-lang">Erhöhte Sicherheitsstufe</span><span class="stufe-kurz">Erhöht</span></td></tr>
+<tr data-sec="erhöht" data-id="KONF.15.2"><td><a class="new-id" href="/grundschutzpp/konf/#KONF.15.2">KONF.15.2</a> <span class="new-title">Begrenzung der Rechenleistung</span> <span class="zeile-zusatz">Praktik KONF</span></td><td>KANN</td><td><span class="stufe-lang">Erhöhte Sicherheitsstufe</span><span class="stufe-kurz">Erhöht</span></td></tr>
+<tr data-sec="erhöht" data-id="KONF.15.3"><td><a class="new-id" href="/grundschutzpp/konf/#KONF.15.3">KONF.15.3</a> <span class="new-title">Schutz gegen Denial of Service</span> <span class="zeile-zusatz">Praktik KONF</span></td><td>KANN</td><td><span class="stufe-lang">Erhöhte Sicherheitsstufe</span><span class="stufe-kurz">Erhöht</span></td></tr>
+<tr data-sec="erhöht" data-id="KONF.15.4"><td><a class="new-id" href="/grundschutzpp/konf/#KONF.15.4">KONF.15.4</a> <span class="new-title">Überbuchung von virtualisierten Ressourcen</span> <span class="zeile-zusatz">Praktik KONF</span></td><td>KANN</td><td><span class="stufe-lang">Erhöhte Sicherheitsstufe</span><span class="stufe-kurz">Erhöht</span></td></tr>
+<tr data-sec="erhöht" data-id="REA.2.2"><td><a class="new-id" href="/grundschutzpp/rea/#REA.2.2">REA.2.2</a> <span class="new-title">Automatische Erstreaktion</span> <span class="zeile-zusatz">Praktik REA</span></td><td>KANN</td><td><span class="stufe-lang">Erhöhte Sicherheitsstufe</span><span class="stufe-kurz">Erhöht</span></td></tr>
+</tbody>
+</table>
+</div>
+
+Alle Gefährdungen: [Gefährdungen im Katalog](/gefaehrdungen/).

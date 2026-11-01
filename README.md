@@ -55,6 +55,10 @@ translated.
   BSI hierarchy (39): the requirements that apply directly, and those inherited
   from the categories above (STM.2.1.4.1), with the BSI's synonyms and examples
   to find a category by the word you use for your system
+- **Threats** (`/gefaehrdungen/`) — one page per elementary threat (G 0.x) with the BSI definition verbatim
+  (with source), the requirements the catalog assigns to it, and a split by practice and modal verb; the
+  "Gefährdungen" pill on each requirement links there. The pages say that the assignment is not a risk assessment
+  (see adr/0014).
 - **Documents** (`/dokumente/`) — the 62 document types the catalog names in
   `documentation`, grouped by the BSI category, with the BSI description
   verbatim (with source) and the requirements that name each type; the
@@ -190,7 +194,7 @@ cd ../Grundschutz-Docs && pnpm run build
 What a run writes:
 
 - the pages under `src/content/docs/` `grundschutzpp/`, `rollen/`,
-  `vergleich/`, `zielobjekte/` and `dokumente/`. Edit those in `scripts/generate_docs.py`, never in the
+  `vergleich/`, `zielobjekte/`, `dokumente/` and `gefaehrdungen/`. Edit those in `scripts/generate_docs.py`, never in the
   `.mdx` — the next run overwrites them. `DESCRIPTION_OVERRIDES` there keeps
   a few shortened meta descriptions for search results
 - `src/data/*.json` — the figures for the homepage and timeline, the
@@ -207,7 +211,7 @@ before that the catalog lived at a different path in the BSI repository.
 **The generator refuses to write something wrong.** After a run it checks the
 numbers on the pages (`check_invariants()`), the export files
 (`check_export()`), the target object pages (`check_zielobjekte()`), the document
-pages (`check_dokumente()`) and the changelog (`check_changelog()`) against the source,
+pages (`check_dokumente()`), the threat pages (`check_gefaehrdungen()`) and the changelog (`check_changelog()`) against the source,
 each recomputed by a second path that does not reuse the code that produced the
 value (for the changelog it reads the same git history, but flattens the whole
 tree instead of picking fields). The rule and the incident behind it are in `CONTRIBUTING.md`
@@ -274,6 +278,7 @@ hand, not in CI.
 │   │   ├── vergleich/         # generated — one page per old↔new mapping
 │   │   ├── zielobjekte/       # generated — one page per target object category (see adr/0011)
 │   │   ├── dokumente/         # generated — one page per document type (see adr/0012)
+│   │   ├── gefaehrdungen/     # generated — one page per elementary threat (see adr/0014)
 │   │   ├── befunde/           # the findings register (see adr/0009)
 │   │   ├── en/                # hand-written English pages (not a catalog translation)
 │   │   ├── index.mdx          # homepage

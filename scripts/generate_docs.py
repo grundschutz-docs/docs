@@ -75,6 +75,7 @@ ROLLEN_OUT_DIR = Path(__file__).resolve().parent.parent / "src" / "content" / "d
 VERGLEICH_OUT_DIR = Path(__file__).resolve().parent.parent / "src" / "content" / "docs" / "vergleich"
 ZIELOBJEKTE_OUT_DIR = Path(__file__).resolve().parent.parent / "src" / "content" / "docs" / "zielobjekte"
 DOKUMENTE_OUT_DIR = Path(__file__).resolve().parent.parent / "src" / "content" / "docs" / "dokumente"
+GEFAEHRDUNGEN_OUT_DIR = Path(__file__).resolve().parent.parent / "src" / "content" / "docs" / "gefaehrdungen"
 DATA_OUT_DIR = Path(__file__).resolve().parent.parent / "src" / "data"
 CONTROL_META_IMPORT = "import ControlMeta from '../../../components/ControlMeta.astro';\n"
 KENNZEICHEN_LEGENDE_IMPORT = "import KennzeichenLegende from '../../../components/KennzeichenLegende.astro';\n"
@@ -293,6 +294,12 @@ def pagefind_section(label):
 def load_basethreats():
     with BASETHREATS_FILE.open(newline="", encoding="utf-8") as f:
         return {row["ID"]: row["Begriff"] for row in csv.DictReader(f)}
+
+
+def load_basethreat_definitions():
+    """ID -> (Begriff, Definition) der elementaren Gefaehrdungen aus basethreats.csv des BSI."""
+    with BASETHREATS_FILE.open(newline="", encoding="utf-8") as f:
+        return {row["ID"]: (row["Begriff"], row["Definition"].strip()) for row in csv.DictReader(f)}
 
 
 def threats_hint(threats, basethreats_by_id):
@@ -3253,6 +3260,133 @@ def render_dokument_pages(catalog, control_index, params_by_id, basethreats_by_i
     return len(dokumente)
 
 
+# Quelle der Gefaehrdungen: Begriff und Definition stammen aus basethreats.csv des BSI (CC BY-SA 4.0).
+GEFAEHRDUNG_QUELLE_URL = (
+    "https://github.com/BSI-Bund/Stand-der-Technik-Bibliothek/blob/main/"
+    "documentation/namespaces/basethreats.csv"
+)
+
+
+def gefaehrdung_slug(tid):
+    """"G 0.18" -> "g-0-18" (Adresse der Seite unter /gefaehrdungen/). Dieselbe Regel steht in ControlMeta.astro."""
+    return tag_slug(tid)
+
+
+def controls_je_gefaehrdung(controls):
+    """Gefaehrdungs-ID -> IDs der Anforderungen, denen der Katalog sie zuordnet (Eigenschaft "threats")."""
+    je = {}
+    for cid, c in controls.items():
+        for t in (prop_value(c, "threats") or "").split(","):
+            if t.strip():
+                je.setdefault(t.strip(), []).append(cid)
+    return je
+
+
+def render_gefaehrdung_pages(catalog, control_index):
+    """Eine Seite je elementarer Gefaehrdung (G 0.x) mit den Anforderungen, die der Katalog ihr zuordnet,
+    plus eine Uebersicht (ADR-0014). Zeigt nur die Zuordnung des Katalogs: keine Bewertung und keine
+    Aussage, ob eine Gefaehrdung fuer jemanden gilt."""
+    definitionen = load_basethreat_definitions()
+    _, _, controls = zielobjekt_model(catalog)
+    je = controls_je_gefaehrdung(controls)
+    unbekannt = sorted(set(je) - set(definitionen))
+    if unbekannt:
+        raise SystemExit(f"Der Katalog nennt Gefaehrdungen, die basethreats.csv nicht kennt: {unbekannt}")
+    slugs = {}
+    for tid in definitionen:
+        slugs.setdefault(gefaehrdung_slug(tid), []).append(tid)
+    kollision = {k: v for k, v in slugs.items() if len(v) > 1}
+    if kollision:
+        raise SystemExit(f"Gefaehrdungen mit gleicher Adresse: {kollision}")
+    praktik_titel = {g["id"]: g["title"] for g in catalog["groups"]}
+
+    GEFAEHRDUNGEN_OUT_DIR.mkdir(parents=True, exist_ok=True)
+    for alt in GEFAEHRDUNGEN_OUT_DIR.glob("*.mdx"):
+        alt.unlink()
+
+    def plural(n):
+        return "1 Anforderung" if n == 1 else f"{n} Anforderungen"
+
+    def zaehlen(ids):
+        z = {"MUSS": 0, "SOLLTE": 0, "KANN": 0}
+        for cid in ids:
+            z[part_prop_value(controls[cid], "statement", "modal_verb")] += 1
+        return z
+
+    eintraege = []
+    for tid in sorted(definitionen, key=natural_id_key):
+        begriff, definition = definitionen[tid]
+        ids = sorted(je.get(tid, []), key=natural_id_key)
+        if not ids:
+            continue  # eine Gefaehrdung ohne Anforderung bekommt keine Seite (aktuell trifft das keine)
+        z = zaehlen(ids)
+        eintraege.append((tid, begriff, ids, z))
+        je_praktik = {}
+        for cid in ids:
+            je_praktik[cid.split(".")[0]] = je_praktik.get(cid.split(".")[0], 0) + 1
+        beschr = (
+            f"Die {plural(len(ids))}, die der Grundschutz++-Katalog der elementaren Gefährdung {tid} ({begriff}) "
+            f"zuordnet, davon {z['MUSS']} MUSS. Zuordnung laut Katalog, keine Risikobewertung."
+        )
+        lines = [
+            "---\n",
+            f"title: {yaml_quote(f'{tid} – {begriff}')}\n",
+            "description: " + yaml_quote(beschr) + "\n",
+            "---\n\n",
+            pagefind_section("Gefährdung"),
+            f"**{plural(len(ids))}** ordnet der Katalog der elementaren Gefährdung {tid} zu: "
+            f"{z['MUSS']} MUSS, {z['SOLLTE']} SOLLTE, {z['KANN']} KANN.\n",
+            "**Was die Zuordnung ist:** die Angabe des BSI im Katalog, welche Gefährdungen eine Anforderung abdeckt. "
+            "Sie ist keine Risikobewertung und sagt nicht, ob die Gefährdung für eine Institution gilt oder wie hoch "
+            "das Risiko ist. Das entscheidet die Risikoanalyse der Institution.\n",
+            "**Definition des BSI**\n",
+            # Zeile fuer Zeile als Zitat, Leerzeilen bleiben Absatzgrenzen (">" allein), sonst verschmelzen
+            # Absaetze und Listen der Definition zu einem Block.
+            "\n".join(f"> {mdx_safe(zeile)}" if zeile.strip() else ">" for zeile in definition.split("\n")) + "\n",
+            f"Quelle: [BSI, basethreats.csv]({GEFAEHRDUNG_QUELLE_URL}), CC BY-SA 4.0.\n",
+            "Nach Praktik: "
+            + ", ".join(
+                f"[{pid} {mdx_safe(praktik_titel.get(pid, ''))}](/grundschutzpp/{pid.lower()}/) ({n})"
+                for pid, n in sorted(je_praktik.items(), key=lambda kv: natural_id_key(kv[0]))
+            ).replace("  ", " ")
+            + ".\n",
+            f"## Anforderungen ({len(ids)}) {heading_anchor('anforderungen')}\n",
+            render_anforderungs_tabelle("anforderungen", ids, controls, control_index, lambda cid: f"Praktik {cid.split('.')[0]}"),
+            "Alle Gefährdungen: [Gefährdungen im Katalog](/gefaehrdungen/).\n",
+        ]
+        (GEFAEHRDUNGEN_OUT_DIR / f"{gefaehrdung_slug(tid)}.mdx").write_text("\n".join(lines))
+
+    insgesamt = sum(len(ids) for _, _, ids, _ in eintraege)
+    index = [
+        "---\n",
+        f"title: {yaml_quote('Gefährdungen im Katalog')}\n",
+        "description: "
+        + yaml_quote(
+            f"Die {len(eintraege)} elementaren Gefährdungen des BSI und die Anforderungen, die der Grundschutz++-Katalog "
+            "jeder zuordnet. Zuordnung laut Katalog, keine Risikobewertung."
+        )
+        + "\n",
+        "---\n\n",
+        pagefind_section("Gefährdung"),
+        f"Der Katalog ordnet jeder Anforderung null bis mehrere der {len(eintraege)} elementaren Gefährdungen (G 0.1 bis "
+        f"G 0.{len(definitionen)}) zu, insgesamt {insgesamt} Zuordnungen bei {len(controls)} Anforderungen. Diese Seiten "
+        "drehen das um: je Gefährdung die Definition des BSI und die Anforderungen, die der Katalog ihr zuordnet.\n",
+        "**Was die Zuordnung ist:** die Angabe des BSI im Katalog. Sie ist keine Risikobewertung. Ob eine Gefährdung "
+        "für eine Institution gilt und wie hoch das Risiko ist, entscheidet die Risikoanalyse der Institution. Eine "
+        "Gefährdung mit vielen Anforderungen ist deshalb nicht automatisch die wichtigere.\n",
+        '<table class="vergleich-table zahlen-tabelle">\n',
+        "<thead><tr><th>Gefährdung</th><th>Anforderungen</th><th>davon MUSS</th></tr></thead>\n<tbody>\n",
+    ]
+    for tid, begriff, ids, z in eintraege:
+        index.append(
+            f'<tr data-slug="{gefaehrdung_slug(tid)}"><td><a href="/gefaehrdungen/{gefaehrdung_slug(tid)}/">{tid} – {mdx_safe(begriff)}</a></td>'
+            f"<td>{len(ids)}</td><td>{z['MUSS']}</td></tr>\n"
+        )
+    index.append("</tbody>\n</table>\n")
+    (GEFAEHRDUNGEN_OUT_DIR / "index.mdx").write_text("\n".join(index))
+    return len(eintraege)
+
+
 def render_vergleich_index(by_baustein, baustein_links):
     by_layer = {}
     for baustein_id, entries in by_baustein.items():
@@ -3839,6 +3973,59 @@ def check_zielobjekte(catalog):
     print(f"Zielobjekt-Seiten ok: {len(seiten)} Seiten, je Teil gegen den Rohkatalog und die Export-CSV nachgerechnet")
 
 
+def check_gefaehrdungen(catalog):
+    """Liest die erzeugten Gefaehrdungs-Seiten zurueck und rechnet gegen den Rohtext des Katalogs
+    (nicht gegen collect_controls(), das die Seiten selbst nutzen): Welche Anforderungen nennt der Katalog
+    je Gefaehrdung, wie viele davon MUSS. Gleiche Regel wie bei check_dokumente()."""
+    problems = []
+    roh = json.loads(CATALOG_FILE.read_text())["catalog"]
+    erwartet, muss = {}, {}
+
+    def walk(node):
+        for c in node.get("controls", []) or []:
+            if "class" in c:
+                werte = [p["value"] for p in c.get("props", []) if p.get("name") == "threats"]
+                verb = None
+                for part in c.get("parts", []):
+                    if part.get("name") == "statement":
+                        verb = next((p["value"] for p in part.get("props", []) if p.get("name") == "modal_verb"), None)
+                for t in (x.strip() for w in werte for x in w.split(",")):
+                    if t:
+                        erwartet.setdefault(t, set()).add(c["id"])
+                        muss[t] = muss.get(t, 0) + (verb == "MUSS")
+            walk(c)
+        for g in node.get("groups", []) or []:
+            walk(g)
+
+    walk(roh)
+    dateien = {d.stem: d for d in GEFAEHRDUNGEN_OUT_DIR.glob("*.mdx") if d.stem != "index"}
+    if set(dateien) != {gefaehrdung_slug(t) for t in erwartet}:
+        problems.append(f"Gefaehrdungs-Seiten: {len(dateien)} Dateien, der Katalogtext nennt {len(erwartet)} Gefaehrdungen")
+    gesamt = 0
+    for tid, ids in erwartet.items():
+        datei = dateien.get(gefaehrdung_slug(tid))
+        if not datei:
+            continue
+        text = datei.read_text()
+        seite = re.findall(r'data-id="([^"]+)"', text)
+        if len(seite) != len(set(seite)) or set(seite) != ids:
+            problems.append(f"{tid}: die Tabelle nennt andere Anforderungen als der Katalogtext ({len(seite)} statt {len(ids)})")
+        if f"## Anforderungen ({len(ids)})" not in text:
+            problems.append(f"{tid}: Ueberschrift nennt nicht {len(ids)} Anforderungen")
+        if f"{muss[tid]} MUSS" not in text:
+            problems.append(f"{tid}: MUSS-Zahl weicht ab (Katalogtext: {muss[tid]})")
+        gesamt += len(ids)
+    index = (GEFAEHRDUNGEN_OUT_DIR / "index.mdx").read_text()
+    zeilen = re.findall(r'<tr data-slug="([^"]+)">.*?<td>(\d+)</td><td>(\d+)</td></tr>', index)
+    if {(sl, int(n), int(m)) for sl, n, m in zeilen} != {(gefaehrdung_slug(t), len(i), muss[t]) for t, i in erwartet.items()}:
+        problems.append("Uebersicht: Zeilen, Anzahl oder MUSS weichen vom Katalogtext ab")
+    if f"insgesamt {gesamt} Zuordnungen" not in index:
+        problems.append(f"Uebersicht nennt nicht {gesamt} Zuordnungen")
+    if problems:
+        raise SystemExit("Gefaehrdungs-Seiten weichen vom Katalog ab:\n  " + "\n  ".join(problems))
+    print(f"Gefaehrdungs-Seiten ok: {len(dateien)} Seiten, {gesamt} Zuordnungen, je Seite gegen den Rohkatalog nachgerechnet")
+
+
 def check_dokumente(catalog):
     """Liest die Dokument-Seiten zurueck und rechnet auf zwei anderen Wegen nach als
     render_dokument_pages() (ADR-0012), nach derselben Regel wie check_zielobjekte().
@@ -4026,7 +4213,7 @@ def check_sync_paths():
             break
         if z.strip():
             eingetragen.append(z.strip())
-    ordner = [OUT_DIR, ROLLEN_OUT_DIR, VERGLEICH_OUT_DIR, ZIELOBJEKTE_OUT_DIR, DOKUMENTE_OUT_DIR, EXPORT_OUT_DIR]
+    ordner = [OUT_DIR, ROLLEN_OUT_DIR, VERGLEICH_OUT_DIR, ZIELOBJEKTE_OUT_DIR, DOKUMENTE_OUT_DIR, GEFAEHRDUNGEN_OUT_DIR, EXPORT_OUT_DIR]
     fehlen = []
     for d in ordner:
         rel = d.relative_to(docs_root).as_posix()
@@ -4599,6 +4786,8 @@ def main():
         catalog, control_index, params_by_id, basethreats_by_id, predecessor_index, load_documentation_guidelines()
     )
 
+    gefaehrdung_count = render_gefaehrdung_pages(catalog, control_index)
+
     # Vergleichsseiten: eine Uebersicht plus eine Seite je altem Baustein.
     # Frueher war das eine einzige Seite mit ~1200 Zeilen -- unbrauchbar
     # sowohl zum Lesen als auch zum Gefundenwerden, weil jede Suche nach
@@ -4649,6 +4838,7 @@ def main():
     check_export(catalog)
     check_zielobjekte(catalog)
     check_dokumente(catalog)
+    check_gefaehrdungen(catalog)
     check_sync_paths()
     check_handwritten_numbers(catalog, mapping_data, stats)
     check_changelog(
@@ -4662,6 +4852,7 @@ def main():
     print(f"{len(by_baustein)} Baustein-Seiten + Übersicht erzeugt in {VERGLEICH_OUT_DIR}")
     print(f"{zielobjekt_count} Zielobjekt-Seiten + Übersicht erzeugt in {ZIELOBJEKTE_OUT_DIR}")
     print(f"{dokument_count} Dokument-Seiten + Übersicht erzeugt in {DOKUMENTE_OUT_DIR}")
+    print(f"{gefaehrdung_count} Gefährdungs-Seiten + Übersicht erzeugt in {GEFAEHRDUNGEN_OUT_DIR}")
     print(f"Startseiten-Daten: {stats}")
     print(f"Upstream-Stand: {upstream_commit[:7] if upstream_commit else 'nicht festgehalten'} (src/data/upstream.json)")
     print(f"Aenderungsprotokoll: {changelog_stats['neu']} neu, {changelog_stats['gesamt']} Staende in changelog.json")

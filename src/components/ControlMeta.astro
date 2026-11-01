@@ -28,6 +28,12 @@ import { MODAL_VERBS, SEC_LEVELS, EFFORT } from '../lib/kennzeichen';
 
 const { modalVerb, secLevel, effort, threats, threatsHint, tags, targets, noTarget, inheritedTargets, document, predecessors } = Astro.props;
 
+// Gefaehrdungen ("G 0.18") fuehren zur Seite der Gefaehrdung (ADR-0014). Adresse wie tag_slug() im Generator:
+// klein, alles ausser Buchstaben und Ziffern wird "-" ("G 0.18" -> "g-0-18"). check_gefaehrdungen() und der
+// Link-Pruefer des Builds fangen eine Abweichung.
+const threatIds = (threats ?? '').split(',').map((t) => t.trim()).filter(Boolean);
+const threatSlug = (id: string) => id.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+
 const DOCUMENT_HINT =
 	'Der Dokumenttyp, in dem der Katalog das Ergebnis dieser Anforderung festhalten lässt. Kein Nachweis und keine Prüfvorgabe.';
 
@@ -124,7 +130,7 @@ const effortInfo = effort ? EFFORT[effort] : undefined;
 					data-family="neutral"
 					data-role="meta"
 				>
-					Gefährdungen: {threats}
+					Gefährdungen: {threatIds.map((t, i) => (<>{i > 0 && ', '}<a class="threat-link" href={`/gefaehrdungen/${threatSlug(t)}/`}>{t}</a></>))}
 					{threatsHint && <span class="pill-tip" data-pagefind-ignore>{threatsHint}</span>}
 				</span>
 			)}
@@ -330,6 +336,15 @@ const effortInfo = effort ? EFFORT[effort] : undefined;
 	   und lässt die Pille tot wirken. help ist der dafür vorgesehene Wert.
 	   Bewusst nur auf Pillen mit Tooltip: die Gefährdungs-Pille hat ohne
 	   threatsHint keinen, und darf dann auch nichts versprechen. */
+	.threat-link {
+		color: inherit;
+		text-decoration: underline dotted;
+		text-underline-offset: 0.2em;
+	}
+	.threat-link:hover {
+		text-decoration-style: solid;
+	}
+
 	.pill:has(> .pill-tip) {
 		cursor: help;
 	}

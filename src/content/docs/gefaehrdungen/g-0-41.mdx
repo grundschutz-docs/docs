@@ -1,0 +1,54 @@
+---
+
+title: "G 0.41 – Sabotage"
+
+description: "Die 12 Anforderungen, die der Grundschutz++-Katalog der elementaren Gefährdung G 0.41 (Sabotage) zuordnet, davon 0 MUSS. Zuordnung laut Katalog, keine Risikobewertung."
+
+---
+
+
+<span data-pagefind-meta="section:Gefährdung"></span>
+
+
+**12 Anforderungen** ordnet der Katalog der elementaren Gefährdung G 0.41 zu: 0 MUSS, 6 SOLLTE, 6 KANN.
+
+**Was die Zuordnung ist:** die Angabe des BSI im Katalog, welche Gefährdungen eine Anforderung abdeckt. Sie ist keine Risikobewertung und sagt nicht, ob die Gefährdung für eine Institution gilt oder wie hoch das Risiko ist. Das entscheidet die Risikoanalyse der Institution.
+
+**Definition des BSI**
+
+> Sabotage bezeichnet die mutwillige Manipulation oder Beschädigung von Sachen oder Prozessen mit dem Ziel, dem Opfer dadurch Schaden zuzufügen. Besonders attraktive Ziele können Rechenzentren oder Kommunikationsanbindungen von Behörden bzw. Unternehmen sein, da hier mit relativ geringen Mitteln eine große Wirkung erzielt werden kann.
+>
+> Die komplexe Infrastruktur eines Rechenzentrums kann durch gezielte Beeinflussung wichtiger Komponenten, gegebenenfalls durch Täter von außen, vor allem aber durch Innentäter, punktuell manipuliert werden, um Betriebsstörungen hervorzurufen. Besonders bedroht sind hierbei nicht ausreichend geschützte gebäudetechnische oder kommunikationstechnische Infrastruktur sowie zentrale Versorgungspunkte, die organisatorisch oder technisch gegebenenfalls auch nicht überwacht werden und für Externe leicht und unbeobachtet zugänglich sind.
+>
+> Beispiele:
+> - In einem großen Rechenzentrum führte die Manipulation an der USV zu einem vorübergehenden Totalausfall. Der Täter hatte wiederholt die USV von Hand auf Bypass geschaltet und dann die Hauptstromversorgung des Gebäudes manipuliert. Insgesamt fanden in drei Jahren vier Ausfälle statt. Teilweise kam es sogar zu Hardware-Schäden. Die Betriebsunterbrechungen dauerten zwischen 40 und 130 Minuten.
+> - Innerhalb eines Rechenzentrums waren auch sanitäre Einrichtungen untergebracht. Durch Verstopfen der Abflüsse und gleichzeitiges Öffnen der Wasserzufuhr drang Wasser in zentrale Technikkomponenten ein. Die auf diese Weise verursachten Schäden führten zu Betriebsunterbrechungen des Produktivsystems.
+> - Für elektronische Archive stellt Sabotage ein besonderes Risiko dar, da hier meist auf kleinem Raum viele schützenswerte Dokumente verwahrt werden. Dadurch kann unter Umständen durch gezielte, wenig aufwendige Manipulationen ein großer Schaden verursacht werden.
+
+Quelle: [BSI, basethreats.csv](https://github.com/BSI-Bund/Stand-der-Technik-Bibliothek/blob/main/documentation/namespaces/basethreats.csv), CC BY-SA 4.0.
+
+Nach Praktik: [ARCH Architektur](/grundschutzpp/arch/) (1), [DET Detektion](/grundschutzpp/det/) (4), [GEB Gebäudemanagement](/grundschutzpp/geb/) (6), [TEST Änderungen und Tests](/grundschutzpp/test/) (1).
+
+## Anforderungen (12) {#anforderungen}
+
+<div class="zielobjekt-teil" data-teil="anforderungen" data-pagefind-ignore>
+<table class="vergleich-table themen-table anforderungs-tabelle">
+<thead><tr><th>Anforderung</th><th>Pflicht</th><th>Stufe</th></tr></thead>
+<tbody>
+<tr data-sec="normal-SdT" data-id="ARCH.2.6"><td><a class="new-id" href="/grundschutzpp/arch/#ARCH.2.6">ARCH.2.6</a> <span class="new-title">Topologieüberwachung</span> <span class="zeile-zusatz">Praktik ARCH</span></td><td>SOLLTE</td><td><span class="stufe-lang">Standard-Sicherheitsstufe</span><span class="stufe-kurz">Standard</span></td></tr>
+<tr data-sec="normal-SdT" data-id="DET.2.1.1"><td><a class="new-id" href="/grundschutzpp/det/#DET.2.1.1">DET.2.1.1</a> <span class="new-title">Sofortmaßnahmen Nutzender</span> <span class="zeile-zusatz">Praktik DET</span></td><td>SOLLTE</td><td><span class="stufe-lang">Standard-Sicherheitsstufe</span><span class="stufe-kurz">Standard</span></td></tr>
+<tr data-sec="normal-SdT" data-id="DET.2.1.2"><td><a class="new-id" href="/grundschutzpp/det/#DET.2.1.2">DET.2.1.2</a> <span class="new-title">Meldeformulare</span> <span class="zeile-zusatz">Praktik DET</span></td><td>SOLLTE</td><td><span class="stufe-lang">Standard-Sicherheitsstufe</span><span class="stufe-kurz">Standard</span></td></tr>
+<tr data-sec="normal-SdT" data-id="GEB.2.1"><td><a class="new-id" href="/grundschutzpp/geb/#GEB.2.1">GEB.2.1</a> <span class="new-title">Installation von Perimetern</span> <span class="zeile-zusatz">Praktik GEB</span></td><td>SOLLTE</td><td><span class="stufe-lang">Standard-Sicherheitsstufe</span><span class="stufe-kurz">Standard</span></td></tr>
+<tr data-sec="normal-SdT" data-id="GEB.3.3"><td><a class="new-id" href="/grundschutzpp/geb/#GEB.3.3">GEB.3.3</a> <span class="new-title">Authentifizierung vor Zutritt</span> <span class="zeile-zusatz">Praktik GEB</span></td><td>SOLLTE</td><td><span class="stufe-lang">Standard-Sicherheitsstufe</span><span class="stufe-kurz">Standard</span></td></tr>
+<tr data-sec="normal-SdT" data-id="TEST.5.2"><td><a class="new-id" href="/grundschutzpp/test/#TEST.5.2">TEST.5.2</a> <span class="new-title">Verschlüsselte Bereitstellung</span> <span class="zeile-zusatz">Praktik TEST</span></td><td>SOLLTE</td><td><span class="stufe-lang">Standard-Sicherheitsstufe</span><span class="stufe-kurz">Standard</span></td></tr>
+<tr data-sec="erhöht" data-id="DET.2.3"><td><a class="new-id" href="/grundschutzpp/det/#DET.2.3">DET.2.3</a> <span class="new-title">Ständiger Bereitschaftsdienst</span> <span class="zeile-zusatz">Praktik DET</span></td><td>KANN</td><td><span class="stufe-lang">Erhöhte Sicherheitsstufe</span><span class="stufe-kurz">Erhöht</span></td></tr>
+<tr data-sec="erhöht" data-id="DET.4.9"><td><a class="new-id" href="/grundschutzpp/det/#DET.4.9">DET.4.9</a> <span class="new-title">Manipulations-Checkup</span> <span class="zeile-zusatz">Praktik DET</span></td><td>KANN</td><td><span class="stufe-lang">Erhöhte Sicherheitsstufe</span><span class="stufe-kurz">Erhöht</span></td></tr>
+<tr data-sec="erhöht" data-id="GEB.3.1.2"><td><a class="new-id" href="/grundschutzpp/geb/#GEB.3.1.2">GEB.3.1.2</a> <span class="new-title">Überprüfung mitgeführter Gegenstände</span> <span class="zeile-zusatz">Praktik GEB</span></td><td>KANN</td><td><span class="stufe-lang">Erhöhte Sicherheitsstufe</span><span class="stufe-kurz">Erhöht</span></td></tr>
+<tr data-sec="erhöht" data-id="GEB.3.5"><td><a class="new-id" href="/grundschutzpp/geb/#GEB.3.5">GEB.3.5</a> <span class="new-title">Einbruchhemmung</span> <span class="zeile-zusatz">Praktik GEB</span></td><td>KANN</td><td><span class="stufe-lang">Erhöhte Sicherheitsstufe</span><span class="stufe-kurz">Erhöht</span></td></tr>
+<tr data-sec="erhöht" data-id="GEB.3.6"><td><a class="new-id" href="/grundschutzpp/geb/#GEB.3.6">GEB.3.6</a> <span class="new-title">Einbruchmeldeanlagen</span> <span class="zeile-zusatz">Praktik GEB</span></td><td>KANN</td><td><span class="stufe-lang">Erhöhte Sicherheitsstufe</span><span class="stufe-kurz">Erhöht</span></td></tr>
+<tr data-sec="erhöht" data-id="GEB.4.1"><td><a class="new-id" href="/grundschutzpp/geb/#GEB.4.1">GEB.4.1</a> <span class="new-title">Einrichtung</span> <span class="zeile-zusatz">Praktik GEB</span></td><td>KANN</td><td><span class="stufe-lang">Erhöhte Sicherheitsstufe</span><span class="stufe-kurz">Erhöht</span></td></tr>
+</tbody>
+</table>
+</div>
+
+Alle Gefährdungen: [Gefährdungen im Katalog](/gefaehrdungen/).

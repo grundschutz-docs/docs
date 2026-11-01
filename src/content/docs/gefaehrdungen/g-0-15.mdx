@@ -1,0 +1,64 @@
+---
+
+title: "G 0.15 – Abhören"
+
+description: "Die 18 Anforderungen, die der Grundschutz++-Katalog der elementaren Gefährdung G 0.15 (Abhören) zuordnet, davon 0 MUSS. Zuordnung laut Katalog, keine Risikobewertung."
+
+---
+
+
+<span data-pagefind-meta="section:Gefährdung"></span>
+
+
+**18 Anforderungen** ordnet der Katalog der elementaren Gefährdung G 0.15 zu: 0 MUSS, 11 SOLLTE, 7 KANN.
+
+**Was die Zuordnung ist:** die Angabe des BSI im Katalog, welche Gefährdungen eine Anforderung abdeckt. Sie ist keine Risikobewertung und sagt nicht, ob die Gefährdung für eine Institution gilt oder wie hoch das Risiko ist. Das entscheidet die Risikoanalyse der Institution.
+
+**Definition des BSI**
+
+> Mit Abhören werden gezielte Angriffe auf Kommunikationsverbindungen, Gespräche, Geräuschquellen aller Art oder IT-Systeme zur Informationssammlung bezeichnet. Dies beginnt beim unbemerkten, heimlichen Belauschen eines Gesprächs und reicht bis zu hoch technisierten komplexen Angriffen, um über Funk oder Leitungen gesendete Signale abzufangen, z. B. mit Hilfe von Antennen oder Sensoren.
+>
+> Nicht nur wegen des geringen Entdeckungsrisikos ist das Abhören von Leitungen oder Funkverbindungen eine nicht zu vernachlässigende Gefährdung der Informationssicherheit. Grundsätzlich gibt es keine abhörsicheren Kabel. Lediglich der erforderliche Aufwand zum Abhören unterscheidet die Kabel. Ob eine Leitung tatsächlich abgehört wird, ist nur mit hohem messtechnischen Aufwand feststellbar.
+>
+> Besonders kritisch ist die ungeschützte Übertragung von Authentisierungsdaten bei Klartextprotokollen wie HTTP, FTP oder Telnet, da diese durch die klare Strukturierung der Daten leicht automatisch zu analysieren sind.
+>
+> Der Entschluss, irgendwo Informationen abzuhören, wird im Wesentlichen durch die Frage bestimmt, ob die Informationen den technischen bzw. den finanziellen Aufwand und das Risiko der Entdeckung wert sind. Die Beantwortung dieser Frage ist sehr von den individuellen Möglichkeiten und Interessen des Angreifers abhängig.
+>
+> Beispiele:
+> - Bei Telefonaten kann für einen Angreifer nicht nur das Abhören von Gesprächen interessant sein. Auch die Informationen, die bei der Signalisierung übertragen werden, können von einem Angreifer missbraucht werden, z. B. falls durch eine fehlerhafte Einstellung im Endgerät das Passwort bei der Anmeldung im Klartext übertragen wird.
+> - Bei ungeschützter oder unzureichend geschützter Funkübertragung (z. B. wenn ein WLAN nur mit WEP abgesichert wird), kann ein Angreifer leicht die gesamte Kommunikation abhören.
+> - E-Mails können während ihres gesamten Weges durch das Netz gelesen werden, wenn sie nicht verschlüsselt sind. Unverschlüsselte E-Mails sollten daher nicht mit klassischen Briefen, sondern mit Postkarten verglichen werden.
+
+Quelle: [BSI, basethreats.csv](https://github.com/BSI-Bund/Stand-der-Technik-Bibliothek/blob/main/documentation/namespaces/basethreats.csv), CC BY-SA 4.0.
+
+Nach Praktik: [ARCH Architektur](/grundschutzpp/arch/) (4), [ASST Informationen und Assets](/grundschutzpp/asst/) (5), [DET Detektion](/grundschutzpp/det/) (1), [KONF Konfiguration](/grundschutzpp/konf/) (8).
+
+## Anforderungen (18) {#anforderungen}
+
+<div class="zielobjekt-teil" data-teil="anforderungen" data-pagefind-ignore>
+<table class="vergleich-table themen-table anforderungs-tabelle">
+<thead><tr><th>Anforderung</th><th>Pflicht</th><th>Stufe</th></tr></thead>
+<tbody>
+<tr data-sec="normal-SdT" data-id="ARCH.3.4"><td><a class="new-id" href="/grundschutzpp/arch/#ARCH.3.4">ARCH.3.4</a> <span class="new-title">Verschlüsselte Netzanbindung</span> <span class="zeile-zusatz">Praktik ARCH</span></td><td>SOLLTE</td><td><span class="stufe-lang">Standard-Sicherheitsstufe</span><span class="stufe-kurz">Standard</span></td></tr>
+<tr data-sec="normal-SdT" data-id="ARCH.6.2"><td><a class="new-id" href="/grundschutzpp/arch/#ARCH.6.2">ARCH.6.2</a> <span class="new-title">Verschlüsselung von Weiterverkehrsverbindungen</span> <span class="zeile-zusatz">Praktik ARCH</span></td><td>SOLLTE</td><td><span class="stufe-lang">Standard-Sicherheitsstufe</span><span class="stufe-kurz">Standard</span></td></tr>
+<tr data-sec="normal-SdT" data-id="ASST.4.2"><td><a class="new-id" href="/grundschutzpp/asst/#ASST.4.2">ASST.4.2</a> <span class="new-title">Vertraulichkeit und Integrität beim Transport</span> <span class="zeile-zusatz">Praktik ASST</span></td><td>SOLLTE</td><td><span class="stufe-lang">Standard-Sicherheitsstufe</span><span class="stufe-kurz">Standard</span></td></tr>
+<tr data-sec="normal-SdT" data-id="ASST.4.3"><td><a class="new-id" href="/grundschutzpp/asst/#ASST.4.3">ASST.4.3</a> <span class="new-title">Autorisierung von Veröffentlichungen</span> <span class="zeile-zusatz">Praktik ASST</span></td><td>SOLLTE</td><td><span class="stufe-lang">Standard-Sicherheitsstufe</span><span class="stufe-kurz">Standard</span></td></tr>
+<tr data-sec="normal-SdT" data-id="ASST.4.5"><td><a class="new-id" href="/grundschutzpp/asst/#ASST.4.5">ASST.4.5</a> <span class="new-title">Vereinbarungen zum Austausch</span> <span class="zeile-zusatz">Praktik ASST</span></td><td>SOLLTE</td><td><span class="stufe-lang">Standard-Sicherheitsstufe</span><span class="stufe-kurz">Standard</span></td></tr>
+<tr data-sec="normal-SdT" data-id="KONF.4.2.1"><td><a class="new-id" href="/grundschutzpp/konf/#KONF.4.2.1">KONF.4.2.1</a> <span class="new-title">DNS-Verschlüsselung</span> <span class="zeile-zusatz">Praktik KONF</span></td><td>SOLLTE</td><td><span class="stufe-lang">Standard-Sicherheitsstufe</span><span class="stufe-kurz">Standard</span></td></tr>
+<tr data-sec="normal-SdT" data-id="KONF.12.1.5"><td><a class="new-id" href="/grundschutzpp/konf/#KONF.12.1.5">KONF.12.1.5</a> <span class="new-title">HTTP Strict Transport Security (HSTS)</span> <span class="zeile-zusatz">Praktik KONF</span></td><td>SOLLTE</td><td><span class="stufe-lang">Standard-Sicherheitsstufe</span><span class="stufe-kurz">Standard</span></td></tr>
+<tr data-sec="normal-SdT" data-id="KONF.12.2"><td><a class="new-id" href="/grundschutzpp/konf/#KONF.12.2">KONF.12.2</a> <span class="new-title">Verschlüsselungsstatus der aktuellen Verbindung</span> <span class="zeile-zusatz">Praktik KONF</span></td><td>SOLLTE</td><td><span class="stufe-lang">Standard-Sicherheitsstufe</span><span class="stufe-kurz">Standard</span></td></tr>
+<tr data-sec="normal-SdT" data-id="KONF.13.11"><td><a class="new-id" href="/grundschutzpp/konf/#KONF.13.11">KONF.13.11</a> <span class="new-title">MTA-STS</span> <span class="zeile-zusatz">Praktik KONF</span></td><td>SOLLTE</td><td><span class="stufe-lang">Standard-Sicherheitsstufe</span><span class="stufe-kurz">Standard</span></td></tr>
+<tr data-sec="normal-SdT" data-id="KONF.14.1"><td><a class="new-id" href="/grundschutzpp/konf/#KONF.14.1">KONF.14.1</a> <span class="new-title">Verschlüsselung beim Transport</span> <span class="zeile-zusatz">Praktik KONF</span></td><td>SOLLTE</td><td><span class="stufe-lang">Standard-Sicherheitsstufe</span><span class="stufe-kurz">Standard</span></td></tr>
+<tr data-sec="normal-SdT" data-id="KONF.14.1.1"><td><a class="new-id" href="/grundschutzpp/konf/#KONF.14.1.1">KONF.14.1.1</a> <span class="new-title">Obligatorische Verschlüsselung</span> <span class="zeile-zusatz">Praktik KONF</span></td><td>SOLLTE</td><td><span class="stufe-lang">Standard-Sicherheitsstufe</span><span class="stufe-kurz">Standard</span></td></tr>
+<tr data-sec="erhöht" data-id="ARCH.2.2.12"><td><a class="new-id" href="/grundschutzpp/arch/#ARCH.2.2.12">ARCH.2.2.12</a> <span class="new-title">Sprungserver</span> <span class="zeile-zusatz">Praktik ARCH</span></td><td>KANN</td><td><span class="stufe-lang">Erhöhte Sicherheitsstufe</span><span class="stufe-kurz">Erhöht</span></td></tr>
+<tr data-sec="erhöht" data-id="ARCH.2.3"><td><a class="new-id" href="/grundschutzpp/arch/#ARCH.2.3">ARCH.2.3</a> <span class="new-title">Mikrosegmentierung</span> <span class="zeile-zusatz">Praktik ARCH</span></td><td>KANN</td><td><span class="stufe-lang">Erhöhte Sicherheitsstufe</span><span class="stufe-kurz">Erhöht</span></td></tr>
+<tr data-sec="erhöht" data-id="ASST.4.1"><td><a class="new-id" href="/grundschutzpp/asst/#ASST.4.1">ASST.4.1</a> <span class="new-title">Autorisierung von Schnittstellen</span> <span class="zeile-zusatz">Praktik ASST</span></td><td>KANN</td><td><span class="stufe-lang">Erhöhte Sicherheitsstufe</span><span class="stufe-kurz">Erhöht</span></td></tr>
+<tr data-sec="erhöht" data-id="ASST.4.4"><td><a class="new-id" href="/grundschutzpp/asst/#ASST.4.4">ASST.4.4</a> <span class="new-title">Nachweis des Zugangs</span> <span class="zeile-zusatz">Praktik ASST</span></td><td>KANN</td><td><span class="stufe-lang">Erhöhte Sicherheitsstufe</span><span class="stufe-kurz">Erhöht</span></td></tr>
+<tr data-sec="erhöht" data-id="DET.4.8"><td><a class="new-id" href="/grundschutzpp/det/#DET.4.8">DET.4.8</a> <span class="new-title">Ausstellung neuer HTTPS-Zertifikate</span> <span class="zeile-zusatz">Praktik DET</span></td><td>KANN</td><td><span class="stufe-lang">Erhöhte Sicherheitsstufe</span><span class="stufe-kurz">Erhöht</span></td></tr>
+<tr data-sec="erhöht" data-id="KONF.13.7"><td><a class="new-id" href="/grundschutzpp/konf/#KONF.13.7">KONF.13.7</a> <span class="new-title">TLS-Reports</span> <span class="zeile-zusatz">Praktik KONF</span></td><td>KANN</td><td><span class="stufe-lang">Erhöhte Sicherheitsstufe</span><span class="stufe-kurz">Erhöht</span></td></tr>
+<tr data-sec="erhöht" data-id="KONF.14.1.2"><td><a class="new-id" href="/grundschutzpp/konf/#KONF.14.1.2">KONF.14.1.2</a> <span class="new-title">Ende-zu-Ende-Verschlüsselung</span> <span class="zeile-zusatz">Praktik KONF</span></td><td>KANN</td><td><span class="stufe-lang">Erhöhte Sicherheitsstufe</span><span class="stufe-kurz">Erhöht</span></td></tr>
+</tbody>
+</table>
+</div>
+
+Alle Gefährdungen: [Gefährdungen im Katalog](/gefaehrdungen/).

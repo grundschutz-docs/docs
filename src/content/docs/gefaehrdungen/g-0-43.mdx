@@ -1,0 +1,72 @@
+---
+
+title: "G 0.43 – Einspielen von Nachrichten"
+
+description: "Die 29 Anforderungen, die der Grundschutz++-Katalog der elementaren Gefährdung G 0.43 (Einspielen von Nachrichten) zuordnet, davon 0 MUSS. Zuordnung laut Katalog, keine Risikobewertung."
+
+---
+
+
+<span data-pagefind-meta="section:Gefährdung"></span>
+
+
+**29 Anforderungen** ordnet der Katalog der elementaren Gefährdung G 0.43 zu: 0 MUSS, 25 SOLLTE, 4 KANN.
+
+**Was die Zuordnung ist:** die Angabe des BSI im Katalog, welche Gefährdungen eine Anforderung abdeckt. Sie ist keine Risikobewertung und sagt nicht, ob die Gefährdung für eine Institution gilt oder wie hoch das Risiko ist. Das entscheidet die Risikoanalyse der Institution.
+
+**Definition des BSI**
+
+> Angreifer senden bei dieser Angriffsform speziell vorbereitete Nachrichten an Systeme oder Personen mit dem Ziel, für sich selbst einen Vorteil oder einen Schaden für das Opfer zu erreichen. Um die Nachrichten geeignet zu konstruieren, nutzen die Angreifer beispielsweise Schnittstellenbeschreibungen, Protokollspezifikationen oder Aufzeichnungen über das Kommunikationsverhalten in der Vergangenheit. Es gibt zwei in der Praxis wichtige Spezialfälle des Einspielens von Nachrichten:
+> - Bei einer "Replay-Attacke" (Wiedereinspielen von Nachrichten) zeichnen Angreifer gültige Nachrichten auf und spielen diese Information zu einem späteren Zeitpunkt (nahezu) unverändert wieder ein. Es kann auch ausreichen, nur Teile einer Nachricht, wie beispielsweise ein Passwort, zu benutzen, um unbefugt in ein IT-System einzudringen.
+> - Bei einer "Man-in-the-Middle-Attacke" nimmt der Angreifer unbemerkt eine Vermittlungsposition in der Kommunikation zwischen verschiedenen Teilnehmern ein. In der Regel täuscht er hierzu dem Absender einer Nachricht vor, der eigentliche Empfänger zu sein, und er täuscht dem Empfänger vor, der eigentliche Absender zu sein. Wenn dies gelingt, kann der Angreifer dadurch Nachrichten, die nicht für ihn bestimmt sind, entgegennehmen und vor der Weiterleitung an den eigentlichen Empfänger auswerten und gezielt manipulieren.
+>
+> Eine Verschlüsselung der Kommunikation bietet keinen Schutz vor Man-in-the-Middle-Attacken, wenn keine sichere Authentisierung der Kommunikationspartner stattfindet.
+>
+> Beispiele:
+> - Ein Angreifer zeichnet die Authentisierungsdaten (z. B. Benutzerkennung und Passwort) während des Anmeldevorgangs eines Benutzers auf und verwendet diese Informationen, um sich Zugang zu einem System zu verschaffen. Bei rein statischen Authentisierungsprotokollen kann damit auch ein verschlüsselt übertragenes Passwort benutzt werden, um unbefugt auf ein fremdes System zuzugreifen.
+> - Um finanziellen Schaden beim Arbeitgeber (Unternehmen oder Behörde) zu verursachen, gibt ein Mitarbeiter eine genehmigte Bestellung mehrmals auf.
+
+Quelle: [BSI, basethreats.csv](https://github.com/BSI-Bund/Stand-der-Technik-Bibliothek/blob/main/documentation/namespaces/basethreats.csv), CC BY-SA 4.0.
+
+Nach Praktik: [ARCH Architektur](/grundschutzpp/arch/) (3), [ASST Informationen und Assets](/grundschutzpp/asst/) (5), [DET Detektion](/grundschutzpp/det/) (1), [DEV Entwicklung](/grundschutzpp/dev/) (2), [KONF Konfiguration](/grundschutzpp/konf/) (17), [TEST Änderungen und Tests](/grundschutzpp/test/) (1).
+
+## Anforderungen (29) {#anforderungen}
+
+<div class="zielobjekt-teil" data-teil="anforderungen" data-pagefind-ignore>
+<table class="vergleich-table themen-table anforderungs-tabelle">
+<thead><tr><th>Anforderung</th><th>Pflicht</th><th>Stufe</th></tr></thead>
+<tbody>
+<tr data-sec="normal-SdT" data-id="ARCH.3.1"><td><a class="new-id" href="/grundschutzpp/arch/#ARCH.3.1">ARCH.3.1</a> <span class="new-title">Netzabdeckung</span> <span class="zeile-zusatz">Praktik ARCH</span></td><td>SOLLTE</td><td><span class="stufe-lang">Standard-Sicherheitsstufe</span><span class="stufe-kurz">Standard</span></td></tr>
+<tr data-sec="normal-SdT" data-id="ARCH.3.4"><td><a class="new-id" href="/grundschutzpp/arch/#ARCH.3.4">ARCH.3.4</a> <span class="new-title">Verschlüsselte Netzanbindung</span> <span class="zeile-zusatz">Praktik ARCH</span></td><td>SOLLTE</td><td><span class="stufe-lang">Standard-Sicherheitsstufe</span><span class="stufe-kurz">Standard</span></td></tr>
+<tr data-sec="normal-SdT" data-id="ARCH.5.1.7"><td><a class="new-id" href="/grundschutzpp/arch/#ARCH.5.1.7">ARCH.5.1.7</a> <span class="new-title">Edge-Routing</span> <span class="zeile-zusatz">Praktik ARCH</span></td><td>SOLLTE</td><td><span class="stufe-lang">Standard-Sicherheitsstufe</span><span class="stufe-kurz">Standard</span></td></tr>
+<tr data-sec="normal-SdT" data-id="ASST.4.2"><td><a class="new-id" href="/grundschutzpp/asst/#ASST.4.2">ASST.4.2</a> <span class="new-title">Vertraulichkeit und Integrität beim Transport</span> <span class="zeile-zusatz">Praktik ASST</span></td><td>SOLLTE</td><td><span class="stufe-lang">Standard-Sicherheitsstufe</span><span class="stufe-kurz">Standard</span></td></tr>
+<tr data-sec="normal-SdT" data-id="ASST.4.3"><td><a class="new-id" href="/grundschutzpp/asst/#ASST.4.3">ASST.4.3</a> <span class="new-title">Autorisierung von Veröffentlichungen</span> <span class="zeile-zusatz">Praktik ASST</span></td><td>SOLLTE</td><td><span class="stufe-lang">Standard-Sicherheitsstufe</span><span class="stufe-kurz">Standard</span></td></tr>
+<tr data-sec="normal-SdT" data-id="ASST.4.5"><td><a class="new-id" href="/grundschutzpp/asst/#ASST.4.5">ASST.4.5</a> <span class="new-title">Vereinbarungen zum Austausch</span> <span class="zeile-zusatz">Praktik ASST</span></td><td>SOLLTE</td><td><span class="stufe-lang">Standard-Sicherheitsstufe</span><span class="stufe-kurz">Standard</span></td></tr>
+<tr data-sec="normal-SdT" data-id="DEV.3.1"><td><a class="new-id" href="/grundschutzpp/dev/#DEV.3.1">DEV.3.1</a> <span class="new-title">Replay-Angriffe</span> <span class="zeile-zusatz">Praktik DEV</span></td><td>SOLLTE</td><td><span class="stufe-lang">Standard-Sicherheitsstufe</span><span class="stufe-kurz">Standard</span></td></tr>
+<tr data-sec="normal-SdT" data-id="DEV.7.2"><td><a class="new-id" href="/grundschutzpp/dev/#DEV.7.2">DEV.7.2</a> <span class="new-title">Zertifikatsmonitoring</span> <span class="zeile-zusatz">Praktik DEV</span></td><td>SOLLTE</td><td><span class="stufe-lang">Standard-Sicherheitsstufe</span><span class="stufe-kurz">Standard</span></td></tr>
+<tr data-sec="normal-SdT" data-id="KONF.4.1.1"><td><a class="new-id" href="/grundschutzpp/konf/#KONF.4.1.1">KONF.4.1.1</a> <span class="new-title">Weiterleitung von Anmeldeinformationen</span> <span class="zeile-zusatz">Praktik KONF</span></td><td>SOLLTE</td><td><span class="stufe-lang">Standard-Sicherheitsstufe</span><span class="stufe-kurz">Standard</span></td></tr>
+<tr data-sec="normal-SdT" data-id="KONF.4.2"><td><a class="new-id" href="/grundschutzpp/konf/#KONF.4.2">KONF.4.2</a> <span class="new-title">DNS-Anbindung</span> <span class="zeile-zusatz">Praktik KONF</span></td><td>SOLLTE</td><td><span class="stufe-lang">Standard-Sicherheitsstufe</span><span class="stufe-kurz">Standard</span></td></tr>
+<tr data-sec="normal-SdT" data-id="KONF.4.5"><td><a class="new-id" href="/grundschutzpp/konf/#KONF.4.5">KONF.4.5</a> <span class="new-title">Zeitquellen</span> <span class="zeile-zusatz">Praktik KONF</span></td><td>SOLLTE</td><td><span class="stufe-lang">Standard-Sicherheitsstufe</span><span class="stufe-kurz">Standard</span></td></tr>
+<tr data-sec="normal-SdT" data-id="KONF.11.1.2"><td><a class="new-id" href="/grundschutzpp/konf/#KONF.11.1.2">KONF.11.1.2</a> <span class="new-title">Authentifizierung von Netzverbindungen - clientseitig</span> <span class="zeile-zusatz">Praktik KONF</span></td><td>SOLLTE</td><td><span class="stufe-lang">Standard-Sicherheitsstufe</span><span class="stufe-kurz">Standard</span></td></tr>
+<tr data-sec="normal-SdT" data-id="KONF.12.1.1"><td><a class="new-id" href="/grundschutzpp/konf/#KONF.12.1.1">KONF.12.1.1</a> <span class="new-title">Zertifikatsprüfung</span> <span class="zeile-zusatz">Praktik KONF</span></td><td>SOLLTE</td><td><span class="stufe-lang">Standard-Sicherheitsstufe</span><span class="stufe-kurz">Standard</span></td></tr>
+<tr data-sec="normal-SdT" data-id="KONF.12.1.5"><td><a class="new-id" href="/grundschutzpp/konf/#KONF.12.1.5">KONF.12.1.5</a> <span class="new-title">HTTP Strict Transport Security (HSTS)</span> <span class="zeile-zusatz">Praktik KONF</span></td><td>SOLLTE</td><td><span class="stufe-lang">Standard-Sicherheitsstufe</span><span class="stufe-kurz">Standard</span></td></tr>
+<tr data-sec="normal-SdT" data-id="KONF.12.2"><td><a class="new-id" href="/grundschutzpp/konf/#KONF.12.2">KONF.12.2</a> <span class="new-title">Verschlüsselungsstatus der aktuellen Verbindung</span> <span class="zeile-zusatz">Praktik KONF</span></td><td>SOLLTE</td><td><span class="stufe-lang">Standard-Sicherheitsstufe</span><span class="stufe-kurz">Standard</span></td></tr>
+<tr data-sec="normal-SdT" data-id="KONF.12.10"><td><a class="new-id" href="/grundschutzpp/konf/#KONF.12.10">KONF.12.10</a> <span class="new-title">Cookie-Attribute</span> <span class="zeile-zusatz">Praktik KONF</span></td><td>SOLLTE</td><td><span class="stufe-lang">Standard-Sicherheitsstufe</span><span class="stufe-kurz">Standard</span></td></tr>
+<tr data-sec="normal-SdT" data-id="KONF.12.14"><td><a class="new-id" href="/grundschutzpp/konf/#KONF.12.14">KONF.12.14</a> <span class="new-title">DNS-Falschinformationen</span> <span class="zeile-zusatz">Praktik KONF</span></td><td>SOLLTE</td><td><span class="stufe-lang">Standard-Sicherheitsstufe</span><span class="stufe-kurz">Standard</span></td></tr>
+<tr data-sec="normal-SdT" data-id="KONF.13.2.1"><td><a class="new-id" href="/grundschutzpp/konf/#KONF.13.2.1">KONF.13.2.1</a> <span class="new-title">Verifikation der Sendeberechtigung</span> <span class="zeile-zusatz">Praktik KONF</span></td><td>SOLLTE</td><td><span class="stufe-lang">Standard-Sicherheitsstufe</span><span class="stufe-kurz">Standard</span></td></tr>
+<tr data-sec="normal-SdT" data-id="KONF.13.5"><td><a class="new-id" href="/grundschutzpp/konf/#KONF.13.5">KONF.13.5</a> <span class="new-title">Publikation der Sendeberechtigung</span> <span class="zeile-zusatz">Praktik KONF</span></td><td>SOLLTE</td><td><span class="stufe-lang">Standard-Sicherheitsstufe</span><span class="stufe-kurz">Standard</span></td></tr>
+<tr data-sec="normal-SdT" data-id="KONF.13.10"><td><a class="new-id" href="/grundschutzpp/konf/#KONF.13.10">KONF.13.10</a> <span class="new-title">Authentifizierung der Server-Zertifikate über DNS</span> <span class="zeile-zusatz">Praktik KONF</span></td><td>SOLLTE</td><td><span class="stufe-lang">Standard-Sicherheitsstufe</span><span class="stufe-kurz">Standard</span></td></tr>
+<tr data-sec="normal-SdT" data-id="KONF.13.11"><td><a class="new-id" href="/grundschutzpp/konf/#KONF.13.11">KONF.13.11</a> <span class="new-title">MTA-STS</span> <span class="zeile-zusatz">Praktik KONF</span></td><td>SOLLTE</td><td><span class="stufe-lang">Standard-Sicherheitsstufe</span><span class="stufe-kurz">Standard</span></td></tr>
+<tr data-sec="normal-SdT" data-id="KONF.14.1"><td><a class="new-id" href="/grundschutzpp/konf/#KONF.14.1">KONF.14.1</a> <span class="new-title">Verschlüsselung beim Transport</span> <span class="zeile-zusatz">Praktik KONF</span></td><td>SOLLTE</td><td><span class="stufe-lang">Standard-Sicherheitsstufe</span><span class="stufe-kurz">Standard</span></td></tr>
+<tr data-sec="normal-SdT" data-id="KONF.14.1.1"><td><a class="new-id" href="/grundschutzpp/konf/#KONF.14.1.1">KONF.14.1.1</a> <span class="new-title">Obligatorische Verschlüsselung</span> <span class="zeile-zusatz">Praktik KONF</span></td><td>SOLLTE</td><td><span class="stufe-lang">Standard-Sicherheitsstufe</span><span class="stufe-kurz">Standard</span></td></tr>
+<tr data-sec="normal-SdT" data-id="KONF.14.2"><td><a class="new-id" href="/grundschutzpp/konf/#KONF.14.2">KONF.14.2</a> <span class="new-title">Source Port Randomisierung</span> <span class="zeile-zusatz">Praktik KONF</span></td><td>SOLLTE</td><td><span class="stufe-lang">Standard-Sicherheitsstufe</span><span class="stufe-kurz">Standard</span></td></tr>
+<tr data-sec="normal-SdT" data-id="TEST.5.4"><td><a class="new-id" href="/grundschutzpp/test/#TEST.5.4">TEST.5.4</a> <span class="new-title">Persistenz</span> <span class="zeile-zusatz">Praktik TEST</span></td><td>SOLLTE</td><td><span class="stufe-lang">Standard-Sicherheitsstufe</span><span class="stufe-kurz">Standard</span></td></tr>
+<tr data-sec="erhöht" data-id="ASST.4.1"><td><a class="new-id" href="/grundschutzpp/asst/#ASST.4.1">ASST.4.1</a> <span class="new-title">Autorisierung von Schnittstellen</span> <span class="zeile-zusatz">Praktik ASST</span></td><td>KANN</td><td><span class="stufe-lang">Erhöhte Sicherheitsstufe</span><span class="stufe-kurz">Erhöht</span></td></tr>
+<tr data-sec="erhöht" data-id="ASST.4.4"><td><a class="new-id" href="/grundschutzpp/asst/#ASST.4.4">ASST.4.4</a> <span class="new-title">Nachweis des Zugangs</span> <span class="zeile-zusatz">Praktik ASST</span></td><td>KANN</td><td><span class="stufe-lang">Erhöhte Sicherheitsstufe</span><span class="stufe-kurz">Erhöht</span></td></tr>
+<tr data-sec="erhöht" data-id="DET.4.19"><td><a class="new-id" href="/grundschutzpp/det/#DET.4.19">DET.4.19</a> <span class="new-title">Unautorisierte Sendeanlagen</span> <span class="zeile-zusatz">Praktik DET</span></td><td>KANN</td><td><span class="stufe-lang">Erhöhte Sicherheitsstufe</span><span class="stufe-kurz">Erhöht</span></td></tr>
+<tr data-sec="erhöht" data-id="KONF.13.7"><td><a class="new-id" href="/grundschutzpp/konf/#KONF.13.7">KONF.13.7</a> <span class="new-title">TLS-Reports</span> <span class="zeile-zusatz">Praktik KONF</span></td><td>KANN</td><td><span class="stufe-lang">Erhöhte Sicherheitsstufe</span><span class="stufe-kurz">Erhöht</span></td></tr>
+</tbody>
+</table>
+</div>
+
+Alle Gefährdungen: [Gefährdungen im Katalog](/gefaehrdungen/).

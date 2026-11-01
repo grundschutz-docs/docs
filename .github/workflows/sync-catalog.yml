@@ -78,7 +78,7 @@ jobs:
           # (landing.json, status.json) — not just grundschutzpp/. Those
           # were silently excluded from every sync PR until now. The same
           # goes for public/downloads/ (the CSV/JSON export files). zielobjekte/ and
-          # dokumente/ were missing from this list for a day after they appeared
+          # dokumente/ (and later gefaehrdungen/) were missing from this list for a day after they appeared
           # (found 2026-10-29): a sync PR would have carried the regenerated catalog pages
           # whose pills link into those folders, but not the folders themselves.
           # check_sync_paths() in generate_docs.py now fails the run if an output folder
@@ -89,5 +89,6 @@ jobs:
             src/content/docs/vergleich/**
             src/content/docs/zielobjekte/**
             src/content/docs/dokumente/**
+            src/content/docs/gefaehrdungen/**
             src/data/*.json
             public/downloads/**

@@ -1,0 +1,77 @@
+---
+
+title: "G 0.42 – Social Engineering"
+
+description: "Die 26 Anforderungen, die der Grundschutz++-Katalog der elementaren Gefährdung G 0.42 (Social Engineering) zuordnet, davon 0 MUSS. Zuordnung laut Katalog, keine Risikobewertung."
+
+---
+
+
+<span data-pagefind-meta="section:Gefährdung"></span>
+
+
+**26 Anforderungen** ordnet der Katalog der elementaren Gefährdung G 0.42 zu: 0 MUSS, 23 SOLLTE, 3 KANN.
+
+**Was die Zuordnung ist:** die Angabe des BSI im Katalog, welche Gefährdungen eine Anforderung abdeckt. Sie ist keine Risikobewertung und sagt nicht, ob die Gefährdung für eine Institution gilt oder wie hoch das Risiko ist. Das entscheidet die Risikoanalyse der Institution.
+
+**Definition des BSI**
+
+> Social Engineering ist eine Methode, um unberechtigten Zugang zu Informationen oder IT-Systemen durch soziale Handlungen zu erlangen. Beim Social Engineering werden menschliche Eigenschaften wie z. B. Hilfsbereitschaft, Vertrauen, Angst oder Respekt vor Autorität ausgenutzt. Dadurch können Mitarbeiter so manipuliert werden, dass sie unzulässig handeln. Ein typischer Fall von Angriffen mit Hilfe von Social Engineering ist das Manipulieren von Mitarbeitern per Telefonanruf, bei dem sich der Angreifer z. B. ausgibt als:
+> - Vorzimmerkraft, deren Vorgesetzter schnell noch etwas erledigen will, aber sein Passwort vergessen hat und es jetzt dringend braucht,
+> - Administrator, der wegen eines Systemfehlers anruft, da er zur Fehlerbehebung noch das Passwort des Benutzers benötigt.
+>
+> Wenn kritische Rückfragen kommen, ist der Neugierige angeblich "nur eine Aushilfe" oder eine "wichtige" Persönlichkeit.
+>
+> Eine weitere Strategie beim systematischen Social Engineering ist der Aufbau einer längeren Beziehung zum Opfer. Durch viele unwichtige Telefonate im Vorfeld kann der Angreifer Wissen sammeln und Vertrauen aufbauen, das er später ausnutzen kann.
+>
+> Solche Angriffe können auch mehrstufig sein, indem in weiteren Schritten auf Wissen und Techniken aufgebaut wird, die in vorhergehenden Stufen erworben wurden.
+>
+> Viele Anwender wissen, dass sie Passwörter an niemanden weitergeben dürfen. Social Engineers wissen dies und müssen daher über andere Wege an das gewünschte Ziel gelangen. Beispiele hierfür sind:
+> - Ein Angreifer kann das Opfer bitten, ihm unbekannte Befehle oder Applikationen auszuführen, z. B. weil dies bei einem IT-Problem helfen soll. Dies kann eine versteckte Anweisung für eine Änderung von Zugriffsrechten sein. So kann der Angreifer an sensible Informationen gelangen.
+> - Viele Benutzer verwenden zwar starke Passwörter, aber dafür werden diese für mehrere Konten genutzt. Wenn ein Angreifer einen nützlichen Netzdienst (wie ein E-Mail-Adressensystem) betreibt, an dem die Anwender sich authentisieren müssen, kann er an die gewünschten Passwörter und Logins gelangen. Viele Benutzer werden die Anmeldedaten, die sie für diesen Dienst benutzen, auch bei anderen Diensten verwenden.
+>
+> Wenn sich Angreifer unerlaubt Passwörter oder andere Authentisierungsmerkmale verschaffen, beispielsweise mit Hilfe von Social Engineering, wird dies häufig auch als "Phishing" (Kunstwort aus "Password" und "Fishing") bezeichnet.
+>
+> Beim Social Engineering tritt der Angreifer nicht immer sichtbar auf. Oft erfährt das Opfer niemals, dass es ausgenutzt wurde. Ist dies erfolgreich, muss der Angreifer nicht mit einer Strafverfolgung rechnen und besitzt außerdem eine Quelle, um später an weitere Informationen zu gelangen.
+
+Quelle: [BSI, basethreats.csv](https://github.com/BSI-Bund/Stand-der-Technik-Bibliothek/blob/main/documentation/namespaces/basethreats.csv), CC BY-SA 4.0.
+
+Nach Praktik: [BER Berechtigung](/grundschutzpp/ber/) (5), [KONF Konfiguration](/grundschutzpp/konf/) (4), [PERS Personal](/grundschutzpp/pers/) (1), [SENS Sensibilisierung](/grundschutzpp/sens/) (16).
+
+## Anforderungen (26) {#anforderungen}
+
+<div class="zielobjekt-teil" data-teil="anforderungen" data-pagefind-ignore>
+<table class="vergleich-table themen-table anforderungs-tabelle">
+<thead><tr><th>Anforderung</th><th>Pflicht</th><th>Stufe</th></tr></thead>
+<tbody>
+<tr data-sec="normal-SdT" data-id="BER.5.8"><td><a class="new-id" href="/grundschutzpp/ber/#BER.5.8">BER.5.8</a> <span class="new-title">Mehr-Faktor-Authentisierung am Perimeter</span> <span class="zeile-zusatz">Praktik BER</span></td><td>SOLLTE</td><td><span class="stufe-lang">Standard-Sicherheitsstufe</span><span class="stufe-kurz">Standard</span></td></tr>
+<tr data-sec="normal-SdT" data-id="BER.6.1"><td><a class="new-id" href="/grundschutzpp/ber/#BER.6.1">BER.6.1</a> <span class="new-title">Passwortmanager</span> <span class="zeile-zusatz">Praktik BER</span></td><td>SOLLTE</td><td><span class="stufe-lang">Standard-Sicherheitsstufe</span><span class="stufe-kurz">Standard</span></td></tr>
+<tr data-sec="normal-SdT" data-id="BER.6.2"><td><a class="new-id" href="/grundschutzpp/ber/#BER.6.2">BER.6.2</a> <span class="new-title">Blockieren von Passwort Recycling</span> <span class="zeile-zusatz">Praktik BER</span></td><td>SOLLTE</td><td><span class="stufe-lang">Standard-Sicherheitsstufe</span><span class="stufe-kurz">Standard</span></td></tr>
+<tr data-sec="normal-SdT" data-id="BER.6.3"><td><a class="new-id" href="/grundschutzpp/ber/#BER.6.3">BER.6.3</a> <span class="new-title">Trivialpasswörter</span> <span class="zeile-zusatz">Praktik BER</span></td><td>SOLLTE</td><td><span class="stufe-lang">Standard-Sicherheitsstufe</span><span class="stufe-kurz">Standard</span></td></tr>
+<tr data-sec="normal-SdT" data-id="BER.6.5"><td><a class="new-id" href="/grundschutzpp/ber/#BER.6.5">BER.6.5</a> <span class="new-title">Anlassbezogene Passwortwechsel</span> <span class="zeile-zusatz">Praktik BER</span></td><td>SOLLTE</td><td><span class="stufe-lang">Standard-Sicherheitsstufe</span><span class="stufe-kurz">Standard</span></td></tr>
+<tr data-sec="normal-SdT" data-id="KONF.13.1.1"><td><a class="new-id" href="/grundschutzpp/konf/#KONF.13.1.1">KONF.13.1.1</a> <span class="new-title">SPAM-Filter</span> <span class="zeile-zusatz">Praktik KONF</span></td><td>SOLLTE</td><td><span class="stufe-lang">Standard-Sicherheitsstufe</span><span class="stufe-kurz">Standard</span></td></tr>
+<tr data-sec="normal-SdT" data-id="KONF.13.5.1"><td><a class="new-id" href="/grundschutzpp/konf/#KONF.13.5.1">KONF.13.5.1</a> <span class="new-title">Strenge Senderpolicy</span> <span class="zeile-zusatz">Praktik KONF</span></td><td>SOLLTE</td><td><span class="stufe-lang">Standard-Sicherheitsstufe</span><span class="stufe-kurz">Standard</span></td></tr>
+<tr data-sec="normal-SdT" data-id="KONF.13.9"><td><a class="new-id" href="/grundschutzpp/konf/#KONF.13.9">KONF.13.9</a> <span class="new-title">Publikation der DMARC-Richtlinie</span> <span class="zeile-zusatz">Praktik KONF</span></td><td>SOLLTE</td><td><span class="stufe-lang">Standard-Sicherheitsstufe</span><span class="stufe-kurz">Standard</span></td></tr>
+<tr data-sec="normal-SdT" data-id="PERS.4.2"><td><a class="new-id" href="/grundschutzpp/pers/#PERS.4.2">PERS.4.2</a> <span class="new-title">Rollenspezifische Schulungen und Sensibilisierungen</span> <span class="zeile-zusatz">Praktik PERS</span></td><td>SOLLTE</td><td><span class="stufe-lang">Standard-Sicherheitsstufe</span><span class="stufe-kurz">Standard</span></td></tr>
+<tr data-sec="normal-SdT" data-id="SENS.2.1"><td><a class="new-id" href="/grundschutzpp/sens/#SENS.2.1">SENS.2.1</a> <span class="new-title">Schutzziele</span> <span class="zeile-zusatz">Praktik SENS</span></td><td>SOLLTE</td><td><span class="stufe-lang">Standard-Sicherheitsstufe</span><span class="stufe-kurz">Standard</span></td></tr>
+<tr data-sec="normal-SdT" data-id="SENS.2.2"><td><a class="new-id" href="/grundschutzpp/sens/#SENS.2.2">SENS.2.2</a> <span class="new-title">Meldewege</span> <span class="zeile-zusatz">Praktik SENS</span></td><td>SOLLTE</td><td><span class="stufe-lang">Standard-Sicherheitsstufe</span><span class="stufe-kurz">Standard</span></td></tr>
+<tr data-sec="normal-SdT" data-id="SENS.2.3"><td><a class="new-id" href="/grundschutzpp/sens/#SENS.2.3">SENS.2.3</a> <span class="new-title">Verschlüsselung und Signatur</span> <span class="zeile-zusatz">Praktik SENS</span></td><td>SOLLTE</td><td><span class="stufe-lang">Standard-Sicherheitsstufe</span><span class="stufe-kurz">Standard</span></td></tr>
+<tr data-sec="normal-SdT" data-id="SENS.2.4"><td><a class="new-id" href="/grundschutzpp/sens/#SENS.2.4">SENS.2.4</a> <span class="new-title">Nutzung unautorisierter Assets</span> <span class="zeile-zusatz">Praktik SENS</span></td><td>SOLLTE</td><td><span class="stufe-lang">Standard-Sicherheitsstufe</span><span class="stufe-kurz">Standard</span></td></tr>
+<tr data-sec="normal-SdT" data-id="SENS.2.4.1"><td><a class="new-id" href="/grundschutzpp/sens/#SENS.2.4.1">SENS.2.4.1</a> <span class="new-title">Verbindung unautorisierter IT-Systeme</span> <span class="zeile-zusatz">Praktik SENS</span></td><td>SOLLTE</td><td><span class="stufe-lang">Standard-Sicherheitsstufe</span><span class="stufe-kurz">Standard</span></td></tr>
+<tr data-sec="normal-SdT" data-id="SENS.2.5"><td><a class="new-id" href="/grundschutzpp/sens/#SENS.2.5">SENS.2.5</a> <span class="new-title">Zuständigkeitsbereiche</span> <span class="zeile-zusatz">Praktik SENS</span></td><td>SOLLTE</td><td><span class="stufe-lang">Standard-Sicherheitsstufe</span><span class="stufe-kurz">Standard</span></td></tr>
+<tr data-sec="normal-SdT" data-id="SENS.2.6"><td><a class="new-id" href="/grundschutzpp/sens/#SENS.2.6">SENS.2.6</a> <span class="new-title">Umgehung von Sicherheitsfunktionen</span> <span class="zeile-zusatz">Praktik SENS</span></td><td>SOLLTE</td><td><span class="stufe-lang">Standard-Sicherheitsstufe</span><span class="stufe-kurz">Standard</span></td></tr>
+<tr data-sec="normal-SdT" data-id="SENS.2.7"><td><a class="new-id" href="/grundschutzpp/sens/#SENS.2.7">SENS.2.7</a> <span class="new-title">Änderung von Konfigurationen</span> <span class="zeile-zusatz">Praktik SENS</span></td><td>SOLLTE</td><td><span class="stufe-lang">Standard-Sicherheitsstufe</span><span class="stufe-kurz">Standard</span></td></tr>
+<tr data-sec="normal-SdT" data-id="SENS.2.8"><td><a class="new-id" href="/grundschutzpp/sens/#SENS.2.8">SENS.2.8</a> <span class="new-title">Melden von Ereignissen</span> <span class="zeile-zusatz">Praktik SENS</span></td><td>SOLLTE</td><td><span class="stufe-lang">Standard-Sicherheitsstufe</span><span class="stufe-kurz">Standard</span></td></tr>
+<tr data-sec="normal-SdT" data-id="SENS.2.8.1"><td><a class="new-id" href="/grundschutzpp/sens/#SENS.2.8.1">SENS.2.8.1</a> <span class="new-title">Melden von Fehler- und Warnmeldungen</span> <span class="zeile-zusatz">Praktik SENS</span></td><td>SOLLTE</td><td><span class="stufe-lang">Standard-Sicherheitsstufe</span><span class="stufe-kurz">Standard</span></td></tr>
+<tr data-sec="normal-SdT" data-id="SENS.7.15"><td><a class="new-id" href="/grundschutzpp/sens/#SENS.7.15">SENS.7.15</a> <span class="new-title">Social Engineering Anrufe</span> <span class="zeile-zusatz">Praktik SENS</span></td><td>SOLLTE</td><td><span class="stufe-lang">Standard-Sicherheitsstufe</span><span class="stufe-kurz">Standard</span></td></tr>
+<tr data-sec="normal-SdT" data-id="SENS.7.20"><td><a class="new-id" href="/grundschutzpp/sens/#SENS.7.20">SENS.7.20</a> <span class="new-title">Authentifzierung von Gesprächspartnern</span> <span class="zeile-zusatz">Praktik SENS</span></td><td>SOLLTE</td><td><span class="stufe-lang">Standard-Sicherheitsstufe</span><span class="stufe-kurz">Standard</span></td></tr>
+<tr data-sec="normal-SdT" data-id="SENS.10.2"><td><a class="new-id" href="/grundschutzpp/sens/#SENS.10.2">SENS.10.2</a> <span class="new-title">Umgang mit privilegierten Berechtigungen</span> <span class="zeile-zusatz">Praktik SENS</span></td><td>SOLLTE</td><td><span class="stufe-lang">Standard-Sicherheitsstufe</span><span class="stufe-kurz">Standard</span></td></tr>
+<tr data-sec="normal-SdT" data-id="SENS.11.3"><td><a class="new-id" href="/grundschutzpp/sens/#SENS.11.3">SENS.11.3</a> <span class="new-title">Whaling</span> <span class="zeile-zusatz">Praktik SENS</span></td><td>SOLLTE</td><td><span class="stufe-lang">Standard-Sicherheitsstufe</span><span class="stufe-kurz">Standard</span></td></tr>
+<tr data-sec="erhöht" data-id="KONF.13.8"><td><a class="new-id" href="/grundschutzpp/konf/#KONF.13.8">KONF.13.8</a> <span class="new-title">DMARC-Reports</span> <span class="zeile-zusatz">Praktik KONF</span></td><td>KANN</td><td><span class="stufe-lang">Erhöhte Sicherheitsstufe</span><span class="stufe-kurz">Erhöht</span></td></tr>
+<tr data-sec="erhöht" data-id="SENS.5.3"><td><a class="new-id" href="/grundschutzpp/sens/#SENS.5.3">SENS.5.3</a> <span class="new-title">Weitergabe von Erreichbarkeiten</span> <span class="zeile-zusatz">Praktik SENS</span></td><td>KANN</td><td><span class="stufe-lang">Erhöhte Sicherheitsstufe</span><span class="stufe-kurz">Erhöht</span></td></tr>
+<tr data-sec="erhöht" data-id="SENS.12.1"><td><a class="new-id" href="/grundschutzpp/sens/#SENS.12.1">SENS.12.1</a> <span class="new-title">Hohe Risiken</span> <span class="zeile-zusatz">Praktik SENS</span></td><td>KANN</td><td><span class="stufe-lang">Erhöhte Sicherheitsstufe</span><span class="stufe-kurz">Erhöht</span></td></tr>
+</tbody>
+</table>
+</div>
+
+Alle Gefährdungen: [Gefährdungen im Katalog](/gefaehrdungen/).

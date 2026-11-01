@@ -1,0 +1,71 @@
+---
+
+title: "G 0.46 – Integritätsverlust schützenswerter Informationen"
+
+description: "Die 23 Anforderungen, die der Grundschutz++-Katalog der elementaren Gefährdung G 0.46 (Integritätsverlust schützenswerter Informationen) zuordnet, davon 0 MUSS. Zuordnung laut Katalog, keine Risikobewertung."
+
+---
+
+
+<span data-pagefind-meta="section:Gefährdung"></span>
+
+
+**23 Anforderungen** ordnet der Katalog der elementaren Gefährdung G 0.46 zu: 0 MUSS, 17 SOLLTE, 6 KANN.
+
+**Was die Zuordnung ist:** die Angabe des BSI im Katalog, welche Gefährdungen eine Anforderung abdeckt. Sie ist keine Risikobewertung und sagt nicht, ob die Gefährdung für eine Institution gilt oder wie hoch das Risiko ist. Das entscheidet die Risikoanalyse der Institution.
+
+**Definition des BSI**
+
+> Die Integrität von Informationen kann durch verschiedene Ursachen beeinträchtigt werden, z. B. durch Manipulationen, Fehlverhalten von Personen, Fehlbedienung von Anwendungen, Fehlfunktionen von Software oder Übermittlungsfehler.
+> - Durch die Alterung von Datenträgern kann es zu Informationsverlusten kommen.
+> - Übertragungsfehler: Bei der Datenübertragung kann es zu Übertragungsfehlern kommen.
+> - Schadprogramme: Durch Schadprogramme können ganze Datenbestände verändert oder zerstört werden.
+> - Fehleingaben: Durch Fehleingaben kann es zu so nicht gewünschten Transaktionen kommen, die häufig lange Zeit nicht bemerkt werden.
+> - Angreifer können versuchen, Daten für ihre Zwecke zu manipulieren, z. B. um Zugriff auf weitere IT-Systeme oder Datenbestände zu erlangen.
+> - Durch Manipulation der Index-Datenbank können elektronische Archive veranlasst werden, gefälschte Dokumente zu archivieren oder wiederzugeben.
+>
+> Wenn Informationen nicht mehr integer sind, kann es zu einer Vielzahl von Problemen kommen:
+> - Informationen können im einfachsten Fall nicht mehr gelesen, also weiterverarbeitet werden.
+> - Daten können versehentlich oder vorsätzlich so verfälscht werden, dass dadurch falsche Informationen weitergegeben werden. Hierdurch können beispielsweise Überweisungen in falscher Höhe oder an den falschen Empfänger ausgelöst werden, die Absenderangaben von E-Mails könnten manipuliert werden oder vieles mehr.
+> - Wenn verschlüsselte oder komprimierte Datensätze ihre Integrität verlieren (hier reicht die Änderung eines Bits), können sie unter Umständen nicht mehr entschlüsselt bzw. entpackt werden.
+> - Dasselbe gilt auch für kryptographische Schlüssel, auch hier reicht die Änderung eines Bits, damit die Schlüssel unbrauchbar werden. Dies führt dann ebenfalls dazu, dass Daten nicht mehr entschlüsselt oder auf ihre Authentizität überprüft werden können.
+> - Dokumente, die in elektronischen Archiven gespeichert sind, verlieren an Beweiskraft, wenn ihre Integrität nicht nachgewiesen werden kann.
+
+Quelle: [BSI, basethreats.csv](https://github.com/BSI-Bund/Stand-der-Technik-Bibliothek/blob/main/documentation/namespaces/basethreats.csv), CC BY-SA 4.0.
+
+Nach Praktik: [ARCH Architektur](/grundschutzpp/arch/) (1), [DET Detektion](/grundschutzpp/det/) (4), [DEV Entwicklung](/grundschutzpp/dev/) (7), [KONF Konfiguration](/grundschutzpp/konf/) (9), [TEST Änderungen und Tests](/grundschutzpp/test/) (2).
+
+## Anforderungen (23) {#anforderungen}
+
+<div class="zielobjekt-teil" data-teil="anforderungen" data-pagefind-ignore>
+<table class="vergleich-table themen-table anforderungs-tabelle">
+<thead><tr><th>Anforderung</th><th>Pflicht</th><th>Stufe</th></tr></thead>
+<tbody>
+<tr data-sec="normal-SdT" data-id="ARCH.7.3"><td><a class="new-id" href="/grundschutzpp/arch/#ARCH.7.3">ARCH.7.3</a> <span class="new-title">Entwicklungs- und Testumgebungen</span> <span class="zeile-zusatz">Praktik ARCH</span></td><td>SOLLTE</td><td><span class="stufe-lang">Standard-Sicherheitsstufe</span><span class="stufe-kurz">Standard</span></td></tr>
+<tr data-sec="normal-SdT" data-id="DET.3.4"><td><a class="new-id" href="/grundschutzpp/det/#DET.3.4">DET.3.4</a> <span class="new-title">Speicherkapazität</span> <span class="zeile-zusatz">Praktik DET</span></td><td>SOLLTE</td><td><span class="stufe-lang">Standard-Sicherheitsstufe</span><span class="stufe-kurz">Standard</span></td></tr>
+<tr data-sec="normal-SdT" data-id="DEV.2.1"><td><a class="new-id" href="/grundschutzpp/dev/#DEV.2.1">DEV.2.1</a> <span class="new-title">Security by Design Architektur</span> <span class="zeile-zusatz">Praktik DEV</span></td><td>SOLLTE</td><td><span class="stufe-lang">Standard-Sicherheitsstufe</span><span class="stufe-kurz">Standard</span></td></tr>
+<tr data-sec="normal-SdT" data-id="DEV.2.4"><td><a class="new-id" href="/grundschutzpp/dev/#DEV.2.4">DEV.2.4</a> <span class="new-title">Einschränkung Zugriffs auf Quellcode</span> <span class="zeile-zusatz">Praktik DEV</span></td><td>SOLLTE</td><td><span class="stufe-lang">Standard-Sicherheitsstufe</span><span class="stufe-kurz">Standard</span></td></tr>
+<tr data-sec="normal-SdT" data-id="DEV.2.6"><td><a class="new-id" href="/grundschutzpp/dev/#DEV.2.6">DEV.2.6</a> <span class="new-title">Widerstandsfähigkeit gegen gängige Angriffsmuster</span> <span class="zeile-zusatz">Praktik DEV</span></td><td>SOLLTE</td><td><span class="stufe-lang">Standard-Sicherheitsstufe</span><span class="stufe-kurz">Standard</span></td></tr>
+<tr data-sec="normal-SdT" data-id="DEV.4.2"><td><a class="new-id" href="/grundschutzpp/dev/#DEV.4.2">DEV.4.2</a> <span class="new-title">Einbindung externer Software</span> <span class="zeile-zusatz">Praktik DEV</span></td><td>SOLLTE</td><td><span class="stufe-lang">Standard-Sicherheitsstufe</span><span class="stufe-kurz">Standard</span></td></tr>
+<tr data-sec="normal-SdT" data-id="DEV.4.4"><td><a class="new-id" href="/grundschutzpp/dev/#DEV.4.4">DEV.4.4</a> <span class="new-title">Integrität externer Software</span> <span class="zeile-zusatz">Praktik DEV</span></td><td>SOLLTE</td><td><span class="stufe-lang">Standard-Sicherheitsstufe</span><span class="stufe-kurz">Standard</span></td></tr>
+<tr data-sec="normal-SdT" data-id="DEV.5.3"><td><a class="new-id" href="/grundschutzpp/dev/#DEV.5.3">DEV.5.3</a> <span class="new-title">Integritätsprüfung</span> <span class="zeile-zusatz">Praktik DEV</span></td><td>SOLLTE</td><td><span class="stufe-lang">Standard-Sicherheitsstufe</span><span class="stufe-kurz">Standard</span></td></tr>
+<tr data-sec="normal-SdT" data-id="KONF.1.4"><td><a class="new-id" href="/grundschutzpp/konf/#KONF.1.4">KONF.1.4</a> <span class="new-title">Einschränkung des Zugriffs auf Dokumentation</span> <span class="zeile-zusatz">Praktik KONF</span></td><td>SOLLTE</td><td><span class="stufe-lang">Standard-Sicherheitsstufe</span><span class="stufe-kurz">Standard</span></td></tr>
+<tr data-sec="normal-SdT" data-id="KONF.2.5"><td><a class="new-id" href="/grundschutzpp/konf/#KONF.2.5">KONF.2.5</a> <span class="new-title">Überprüfung der Systemkonfiguration</span> <span class="zeile-zusatz">Praktik KONF</span></td><td>SOLLTE</td><td><span class="stufe-lang">Standard-Sicherheitsstufe</span><span class="stufe-kurz">Standard</span></td></tr>
+<tr data-sec="normal-SdT" data-id="KONF.12.1.4"><td><a class="new-id" href="/grundschutzpp/konf/#KONF.12.1.4">KONF.12.1.4</a> <span class="new-title">Subresource Integrity-Prüfung</span> <span class="zeile-zusatz">Praktik KONF</span></td><td>SOLLTE</td><td><span class="stufe-lang">Standard-Sicherheitsstufe</span><span class="stufe-kurz">Standard</span></td></tr>
+<tr data-sec="normal-SdT" data-id="KONF.12.1.8"><td><a class="new-id" href="/grundschutzpp/konf/#KONF.12.1.8">KONF.12.1.8</a> <span class="new-title">Duplikate im Verzeichnisbaum</span> <span class="zeile-zusatz">Praktik KONF</span></td><td>SOLLTE</td><td><span class="stufe-lang">Standard-Sicherheitsstufe</span><span class="stufe-kurz">Standard</span></td></tr>
+<tr data-sec="normal-SdT" data-id="KONF.12.1.9"><td><a class="new-id" href="/grundschutzpp/konf/#KONF.12.1.9">KONF.12.1.9</a> <span class="new-title">Journaling</span> <span class="zeile-zusatz">Praktik KONF</span></td><td>SOLLTE</td><td><span class="stufe-lang">Standard-Sicherheitsstufe</span><span class="stufe-kurz">Standard</span></td></tr>
+<tr data-sec="normal-SdT" data-id="KONF.13.2.2"><td><a class="new-id" href="/grundschutzpp/konf/#KONF.13.2.2">KONF.13.2.2</a> <span class="new-title">Verifikation der Serversignatur</span> <span class="zeile-zusatz">Praktik KONF</span></td><td>SOLLTE</td><td><span class="stufe-lang">Standard-Sicherheitsstufe</span><span class="stufe-kurz">Standard</span></td></tr>
+<tr data-sec="normal-SdT" data-id="KONF.13.3"><td><a class="new-id" href="/grundschutzpp/konf/#KONF.13.3">KONF.13.3</a> <span class="new-title">Kryptographische Signatur des Mailservers</span> <span class="zeile-zusatz">Praktik KONF</span></td><td>SOLLTE</td><td><span class="stufe-lang">Standard-Sicherheitsstufe</span><span class="stufe-kurz">Standard</span></td></tr>
+<tr data-sec="normal-SdT" data-id="KONF.13.6"><td><a class="new-id" href="/grundschutzpp/konf/#KONF.13.6">KONF.13.6</a> <span class="new-title">Publikation der Serversignatur</span> <span class="zeile-zusatz">Praktik KONF</span></td><td>SOLLTE</td><td><span class="stufe-lang">Standard-Sicherheitsstufe</span><span class="stufe-kurz">Standard</span></td></tr>
+<tr data-sec="normal-SdT" data-id="TEST.3.1.2"><td><a class="new-id" href="/grundschutzpp/test/#TEST.3.1.2">TEST.3.1.2</a> <span class="new-title">Verwendung externer Software</span> <span class="zeile-zusatz">Praktik TEST</span></td><td>SOLLTE</td><td><span class="stufe-lang">Standard-Sicherheitsstufe</span><span class="stufe-kurz">Standard</span></td></tr>
+<tr data-sec="erhöht" data-id="DET.3.1.11"><td><a class="new-id" href="/grundschutzpp/det/#DET.3.1.11">DET.3.1.11</a> <span class="new-title">Anwendungsspezifische Ereignisse</span> <span class="zeile-zusatz">Praktik DET</span></td><td>KANN</td><td><span class="stufe-lang">Erhöhte Sicherheitsstufe</span><span class="stufe-kurz">Erhöht</span></td></tr>
+<tr data-sec="erhöht" data-id="DET.3.3"><td><a class="new-id" href="/grundschutzpp/det/#DET.3.3">DET.3.3</a> <span class="new-title">Filterung nicht benötigter Inhalte</span> <span class="zeile-zusatz">Praktik DET</span></td><td>KANN</td><td><span class="stufe-lang">Erhöhte Sicherheitsstufe</span><span class="stufe-kurz">Erhöht</span></td></tr>
+<tr data-sec="erhöht" data-id="DET.3.6"><td><a class="new-id" href="/grundschutzpp/det/#DET.3.6">DET.3.6</a> <span class="new-title">Unbestreitbarkeit</span> <span class="zeile-zusatz">Praktik DET</span></td><td>KANN</td><td><span class="stufe-lang">Erhöhte Sicherheitsstufe</span><span class="stufe-kurz">Erhöht</span></td></tr>
+<tr data-sec="erhöht" data-id="DEV.4.7"><td><a class="new-id" href="/grundschutzpp/dev/#DEV.4.7">DEV.4.7</a> <span class="new-title">Deterministischer Binärcode</span> <span class="zeile-zusatz">Praktik DEV</span></td><td>KANN</td><td><span class="stufe-lang">Erhöhte Sicherheitsstufe</span><span class="stufe-kurz">Erhöht</span></td></tr>
+<tr data-sec="erhöht" data-id="KONF.6.3"><td><a class="new-id" href="/grundschutzpp/konf/#KONF.6.3">KONF.6.3</a> <span class="new-title">Kiosk-Modus</span> <span class="zeile-zusatz">Praktik KONF</span></td><td>KANN</td><td><span class="stufe-lang">Erhöhte Sicherheitsstufe</span><span class="stufe-kurz">Erhöht</span></td></tr>
+<tr data-sec="erhöht" data-id="TEST.3.1.8"><td><a class="new-id" href="/grundschutzpp/test/#TEST.3.1.8">TEST.3.1.8</a> <span class="new-title">Analyse der Zusammensetzung</span> <span class="zeile-zusatz">Praktik TEST</span></td><td>KANN</td><td><span class="stufe-lang">Erhöhte Sicherheitsstufe</span><span class="stufe-kurz">Erhöht</span></td></tr>
+</tbody>
+</table>
+</div>
+
+Alle Gefährdungen: [Gefährdungen im Katalog](/gefaehrdungen/).
