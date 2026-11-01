@@ -36,7 +36,7 @@ body:
     id: pilot
     attributes:
       label: Pilot partner
-      description: Would you be willing to try an early version and give feedback?
+      description: Would you be willing to try an early version of this website's tools and give feedback? (Pilot partner for this site, not for the BSI.)
       options:
         - "No"
         - "Yes, please get in touch here in the issue"
