@@ -210,6 +210,7 @@ function stylesXml() {
  * @property {Cell[][]} rows
  * @property {boolean} [headerRow=true]   erste Zeile aus den Spaltenüberschriften
  * @property {boolean} [autoFilter=false] Filterpfeile in der Kopfzeile
+ * @property {boolean} [repeatHeader=false] Kopfzeile auf jeder gedruckten Seite wiederholen
  * @property {{rows?: number, cols?: number}} [freeze]  fixierte Zeilen/Spalten
  * @property {Validation[]} [validations]
  * @property {string} [tabColor]  ARGB, z. B. "FF4472C4"
@@ -431,13 +432,18 @@ export function buildXlsx(book) {
 
 	// definedNames: Excel legt für jeden Autofilter einen versteckten Namen an.
 	// Ohne ihn öffnet die Datei auch, mit ihm entspricht sie dem, was Excel selbst schreibt.
+	// Print_Titles wiederholt die Kopfzeile beim Drucken auf jeder Seite (nur wo das Blatt es verlangt).
 	const definedNames = parts
-		.map((p, i) =>
-			p.filterRef
-				? `<definedName name="_xlnm._FilterDatabase" localSheetId="${i}" hidden="1">${xmlText(
-						`${quoteSheet(book.sheets[i].name)}!${p.filterRef.replace(/([A-Z]+)(\d+)/g, '$$$1$$$2')}`,
-					)}</definedName>`
-				: '',
+		.map(
+			(p, i) =>
+				(p.filterRef
+					? `<definedName name="_xlnm._FilterDatabase" localSheetId="${i}" hidden="1">${xmlText(
+							`${quoteSheet(book.sheets[i].name)}!${p.filterRef.replace(/([A-Z]+)(\d+)/g, '$$$1$$$2')}`,
+						)}</definedName>`
+					: '') +
+				(book.sheets[i].repeatHeader && book.sheets[i].headerRow !== false
+					? `<definedName name="_xlnm.Print_Titles" localSheetId="${i}">${xmlText(`${quoteSheet(book.sheets[i].name)}!$1:$1`)}</definedName>`
+					: ''),
 		)
 		.join('');
 

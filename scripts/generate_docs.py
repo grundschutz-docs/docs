@@ -933,6 +933,24 @@ def build_params_index(catalog):
     return index
 
 
+def build_param_details(catalog):
+    """Parameter-ID -> {"label", "vorgabe"}. "vorgabe" ist der Wert, den der Katalog selbst festlegt
+    (OSCAL "values"), sonst leer. Das trifft im Katalog nur auf zwei Parameter zu."""
+    index = {}
+
+    def walk(node):
+        for p in node.get("params", []):
+            index[p["id"]] = {"label": p.get("label", p["id"]), "vorgabe": ", ".join(p.get("values") or [])}
+        for c in node.get("controls", []):
+            walk(c)
+        for g in node.get("groups", []):
+            walk(g)
+
+    for g in catalog["groups"]:
+        walk(g)
+    return index
+
+
 def yaml_quote(text):
     return '"' + text.replace("\\", "\\\\").replace('"', '\\"') + '"'
 
@@ -1188,6 +1206,20 @@ def export_rows(catalog, params_by_id, basethreats_by_id, predecessor_index):
     return rows
 
 
+def export_festlegungen(catalog, param_details):
+    """Alle Parameter, die eine Organisation selbst festlegen muss: eine Zeile je Platzhalter, in der
+    Reihenfolge der Anforderung und des Textes. Quelle ist der Katalog (OSCAL "params"), nicht der
+    Text der Anforderung. Hat der Katalog den Wert schon festgelegt, steht er unter "vorgabe"."""
+    out = []
+    for group in catalog["groups"]:
+        for control in collect_controls(group):
+            text = part_text(control, "statement") or ""
+            for nr, m in enumerate(PARAM_RE.finditer(text), start=1):
+                detail = param_details[m.group(1)]
+                out.append({"id": control["id"], "nr": nr, "platzhalter": detail["label"], "vorgabe": detail["vorgabe"]})
+    return out
+
+
 def export_name_key(name):
     # Die einzige erlaubte Abweichung zwischen zwei Dokumentnamen: Gross-/Kleinschreibung,
     # Leerzeichen und Bindestriche. Alles andere gilt als anderer Name.
@@ -1346,12 +1378,14 @@ def export_license_text(stand, lizenz):
 
 
 def write_export_data(catalog, params_by_id, basethreats_by_id, predecessor_index, guidelines):
+    param_details = build_param_details(catalog)
     stand = export_stand(catalog)
     note = export_source_note(stand)
     lizenz = export_license(stand)
     rows = export_rows(catalog, params_by_id, basethreats_by_id, predecessor_index)
     praktik_order = [g["id"] for g in catalog["groups"]]
     dokumente = export_documents(rows, guidelines, praktik_order)
+    festlegungen = export_festlegungen(catalog, param_details)
 
     EXPORT_OUT_DIR.mkdir(parents=True, exist_ok=True)
     for old in EXPORT_OUT_DIR.glob("*"):
@@ -1374,6 +1408,7 @@ def write_export_data(catalog, params_by_id, basethreats_by_id, predecessor_inde
                 "arbeitsspalten": EXPORT_WORKSHEET_COLUMNS,
                 "praktiken": [{"id": g["id"], "titel": g["title"]} for g in catalog["groups"]],
                 "anforderungen": rows,
+                "festlegungen": festlegungen,
                 "dokumente": dokumente,
             },
             ensure_ascii=False,
@@ -1559,6 +1594,24 @@ def check_export(catalog):
         problems.append("JSON und CSV nennen verschiedene Anforderungen oder eine andere Reihenfolge")
     if {a["id"]: a["unterkategorien"] for a in daten["anforderungen"]} != erwartet_unter:
         problems.append("JSON: 'unterkategorien' weicht von der Nachrechnung ab")
+
+    # Festlegungen gegen den Rohtext des Katalogs: jede Parameter-Definition ("<id>-prmN") ergibt genau
+    # eine Zeile; die Zeilen verteilen sich auf die Anforderungen, deren Text die Parameter einsetzt, und
+    # der Platzhalter-Text stimmt, in dieser Reihenfolge, mit den eckigen Klammern im Anforderungstext der
+    # JSON-Datei ueberein (so steht er auch in der Excel-Datei).
+    festlegungen = daten.get("festlegungen")
+    raw_params = len(re.findall(r'"id": "[a-z0-9._]+-prm[0-9]+"', raw))
+    if festlegungen is None or len(festlegungen) != raw_params:
+        problems.append(f"JSON: {len(festlegungen or [])} Festlegungen, der Katalogtext hat {raw_params} Parameter")
+    else:
+        klammern = {a["id"]: re.findall(r"\[([^\]]+)\]", a["anforderung"]) for a in daten["anforderungen"]}
+        je_id = {}
+        for f in festlegungen:
+            je_id.setdefault(f["id"], []).append(f)
+        if {i: [f["platzhalter"] for f in fs] for i, fs in je_id.items()} != {i: k for i, k in klammern.items() if k}:
+            problems.append("JSON: Festlegungen weichen von den Platzhaltern im Anforderungstext ab")
+        if any([f["nr"] for f in fs] != list(range(1, len(fs) + 1)) for fs in je_id.values()):
+            problems.append("JSON: Festlegungen sind nicht von 1 an durchnummeriert")
     if not (EXPORT_OUT_DIR / "LIZENZ.txt").exists():
         problems.append("LIZENZ.txt fehlt")
     else:

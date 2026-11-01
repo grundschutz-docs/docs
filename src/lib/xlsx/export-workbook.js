@@ -166,8 +166,52 @@ function documentsSheet(payload, rows) {
 	};
 }
 
+/**
+ * Festlegungen: alle Parameter, die eine Organisation selbst festlegen muss ("regelmäßig", "zuständige Person
+ * oder Rolle", ...), eine Zeile je Platzhalter, für die gewählten Anforderungen. Die Platzhalter stammen aus
+ * den Parametern des BSI-Katalogs (payload.festlegungen). Das Blatt schlägt keine Werte vor: "Unser Wert" ist
+ * leer, auch bei "regelmäßig". Nur wo der Katalog selbst einen Wert festlegt, steht er in "Vom BSI vorgegeben".
+ */
+export function festlegungenForSelection(payload, rows) {
+	const byId = new Map();
+	for (const f of payload.festlegungen ?? []) {
+		if (!byId.has(f.id)) byId.set(f.id, []);
+		byId.get(f.id).push(f);
+	}
+	return rows.flatMap((row) => (byId.get(row.id) ?? []).map((f) => ({ ...f, row })));
+}
+
+function festlegungenSheet(payload, rows) {
+	const items = festlegungenForSelection(payload, rows);
+	if (items.length === 0) return null;
+	return {
+		name: 'Festlegungen',
+		tabColor: 'FFED7D31',
+		autoFilter: true,
+		repeatHeader: true,
+		freeze: { rows: 1, cols: 2 },
+		columns: [
+			{ header: 'ID', width: 11, style: 'link' },
+			{ header: 'Pflichtgrad', width: 11, style: 'center' },
+			{ header: 'Platzhalter', width: 28, style: 'body' },
+			{ header: 'Vom BSI vorgegeben', width: 16, style: 'body' },
+			{ header: 'Unser Wert', width: 30, style: 'input' },
+			{ header: 'Freigegeben durch', width: 22, style: 'input' },
+			{ header: 'Freigabedatum', width: 13, style: 'input' },
+			{ header: 'Begründung', width: 28, style: 'input' },
+			{ header: 'Anforderung (der Platzhalter steht in eckigen Klammern)', width: 60, style: 'body' },
+		],
+		// Die ID ist der Link auf die Seite der Anforderung: so braucht das Blatt keine eigene Link-Spalte,
+		// und beim Drucken bleibt Platz für die Spalten, die ausgefüllt werden.
+		rows: items.map(({ id, platzhalter, vorgabe, row }) => [
+			{ v: id, link: row.seite }, row.pflichtgrad, platzhalter, vorgabe || null, null, null, null, null, row.anforderung,
+		]),
+	};
+}
+
 function infoSheet(payload, rows, opts) {
 	const l = payload.lizenz;
+	const festlegungen = festlegungenForSelection(payload, rows).length;
 	const total = payload.anforderungen.length;
 	const now = opts.now ?? new Date();
 	const date = `${String(now.getDate()).padStart(2, '0')}.${String(now.getMonth() + 1).padStart(2, '0')}.${now.getFullYear()}`;
@@ -193,6 +237,9 @@ function infoSheet(payload, rows, opts) {
 		info('Hinweis', l.hinweis),
 		[null, null],
 		info('Blatt „Anforderungen“', 'Eine Zeile je Anforderung. Die gelb hinterlegten Spalten (Umsetzungsstatus, Bewertet am, Verantwortlich, Frist, Bemerkung) sind für deine Eingaben. „Bewertet am“ ist das Datum deiner Bewertung (TT.MM.JJJJ); der ID-Check auf der Website zeigt damit, was sich seitdem geändert hat. Filterpfeile in der Kopfzeile, ID und Kopfzeile bleiben beim Scrollen sichtbar.'),
+		...(festlegungen > 0
+			? [info('Blatt „Festlegungen“', `Eine Zeile je Platzhalter in den gewählten Anforderungen (${festlegungen}). Das sind die Angaben, die der Katalog jeder Organisation selbst überlässt, zum Beispiel „regelmäßig“ oder „zuständige Person oder Rolle“. Die gelben Spalten sind für deine Festlegung, ihre Begründung und die Freigabe. Das Blatt schlägt keine Werte vor und ist ein Formular für deine eigenen Entscheidungen, kein Nachweis.`)]
+			: []),
 		info('Blatt „Dokumente“', l.dokumente),
 		info('Eigene Werte', l.eigene_werte),
 		info('Aufwand', '0 = wird nicht bewertet, 1 = Quick Win (meist am selben Tag), 5 = aufwändig und komplex. Skala des BSI.'),
@@ -220,6 +267,11 @@ export function buildExportWorkbook(payload, rows, opts = {}) {
 			creator: 'grundschutz-docs.de',
 			created: opts.now,
 		},
-		sheets: [requirementsSheet(payload, rows), documentsSheet(payload, rows), infoSheet(payload, rows, opts)],
+		sheets: [
+			requirementsSheet(payload, rows),
+			festlegungenSheet(payload, rows),
+			documentsSheet(payload, rows),
+			infoSheet(payload, rows, opts),
+		].filter(Boolean),
 	});
 }

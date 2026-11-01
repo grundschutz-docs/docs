@@ -14,6 +14,7 @@ Die Filter müssen dieselben sein wie bei build-sample.mjs.
 import csv
 import json
 import os
+import re
 import subprocess
 import sys
 from collections import Counter
@@ -127,6 +128,39 @@ def main(xlsx, filters):
     # Jeder Dokumenttyp ohne Beschreibung muss das im Hinweis sagen.
     stumm = [r[di["Dokument"]] for r in dbody if not r[di["Beschreibung laut BSI-Tabelle"]] and not r[di["Hinweis zur Beschreibung"]]]
     check(not stumm, "jeder Dokumenttyp ohne Beschreibung erklärt im Hinweis, warum" + (f" (stumm: {stumm[:3]})" if stumm else ""))
+
+    # --- Blatt Festlegungen: aus den Klammern im Anforderungstext der CSV nachgezählt ---------
+    print("\nBlatt \"Festlegungen\" gegen die Platzhalter im Anforderungstext der CSV")
+    klammer = re.compile(r"\[([^\]]+)\]")
+    erwartet_f = [(r[col["ID"]], nr, label, r) for r in cbody for nr, label in enumerate(klammer.findall(r[col["Anforderung"]]), start=1)]
+    if not erwartet_f:
+        check("Festlegungen" not in sheets, "keine Platzhalter in der Auswahl: kein Blatt Festlegungen")
+    else:
+        check("Festlegungen" in sheets, "Blatt Festlegungen vorhanden")
+        frows = sheets["Festlegungen"]
+        fhead, fbody = frows[0], frows[1:]
+        fi = {n: i for i, n in enumerate(fhead)}
+        check(len(fbody) == len(erwartet_f), f"{len(fbody)} Zeilen in der Mappe, {len(erwartet_f)} Platzhalter in der CSV")
+        ident = lambda c: c["text"] if isinstance(c, dict) else c
+        check([(ident(r[fi["ID"]]), r[fi["Platzhalter"]]) for r in fbody] == [(i, l) for i, _, l, _ in erwartet_f],
+              "dieselben IDs und Platzhalter in derselben Reihenfolge")
+        vorgabe = {(f["id"], f["nr"]): f["vorgabe"] for f in payload["festlegungen"]}
+        bad = []
+        for xr, (cid, nr, label, cr) in zip(fbody, erwartet_f):
+            ok = (
+                xr[fi["Pflichtgrad"]] == cr[col["Pflichtgrad"]]
+                and xr[fi["Anforderung (der Platzhalter steht in eckigen Klammern)"]] == cr[col["Anforderung"]]
+                and (xr[fi["Vom BSI vorgegeben"]] or "") == vorgabe[(cid, nr)]
+                and isinstance(xr[fi["ID"]], dict) and xr[fi["ID"]]["hyperlink"] == cr[col["Seite"]]
+            )
+            if not ok:
+                bad.append((cid, nr))
+        check(not bad, "Pflichtgrad, Anforderungstext, BSI-Vorgabe und der Link auf der ID stimmen mit der CSV überein" + (f" (falsch: {bad[:3]})" if bad else ""))
+        eingabe = ("Unser Wert", "Freigegeben durch", "Freigabedatum", "Begründung")
+        check(all(xr[fi[n]] is None for xr in fbody for n in eingabe if fi[n] < len(xr)),
+              f"Eingabespalten {list(eingabe)} sind leer: das Blatt schlägt keine Werte vor")
+        check(sum(1 for xr in fbody if xr[fi["Vom BSI vorgegeben"]]) == sum(1 for v in vorgabe.values() if v) - sum(1 for k, v in vorgabe.items() if v and k[0] not in {c[0] for c in cbody}),
+              "nur Platzhalter mit einem Wert aus dem Katalog tragen eine BSI-Vorgabe")
 
     # --- Blatt Info: Lizenzfelder ---------------------------------------------------------
     print("\nBlatt \"Info & Lizenz\"")
