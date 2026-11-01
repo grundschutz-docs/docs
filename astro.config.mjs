@@ -262,6 +262,7 @@ export default defineConfig({
 					translations: { en: 'Data & tools' },
 					items: [
 						{ label: 'Export für Excel', translations: { en: 'Excel export (German)' }, slug: 'export' },
+						{ label: 'ID-Check', translations: { en: 'ID check (German)' }, slug: 'id-check' },
 						{ label: 'Katalog für Sprachmodelle (RAG)', translations: { en: 'Catalog for language models (RAG)' }, slug: 'rag' },
 					],
 				},

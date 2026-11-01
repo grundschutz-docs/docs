@@ -1,0 +1,28 @@
+---
+title: ID-Check – haben sich meine Anforderungen geändert?
+description: Füge deine Grundschutz++-Anforderungs-IDs ein und sieh, welche das BSI seit einem Datum geändert hat. Die Eingabe bleibt in deinem Browser.
+---
+
+import IdCheck from '../../components/IdCheck.astro';
+
+<span data-pagefind-meta="section:Werkzeuge"></span>
+
+Wer Anforderungen bewertet hat, will wissen, ob sich an ihnen später etwas geändert hat. Füge hier deine
+Anforderungs-IDs ein, zum Beispiel aus deiner Tabelle oder deinem Tracker, und wähle das Datum deiner letzten
+Bewertung. Du siehst, welche dieser Anforderungen das BSI seitdem geändert hat, mit Link auf den Wortlaut im
+[Änderungsprotokoll](/aenderungen/).
+
+**Deine Eingabe bleibt in deinem Browser.** Die Seite lädt nur die Änderungsdaten des Katalogs, nichts von dem,
+was du einfügst, wird gesendet oder gespeichert.
+
+<IdCheck />
+
+## Was der Check zeigt und was nicht
+
+- Er zeigt, **dass** eine Anforderung geändert wurde und **welche Felder** (zum Beispiel Titel, Erläuterung,
+  Pflichtgrad). Den Wortlaut vorher und nachher findest du über das Datum im Änderungsprotokoll.
+- Er **bewertet nicht**, ob eine Änderung für dich wichtig ist oder ob deine Bewertung noch gilt. Das entscheidest du.
+- Er kennt nur Änderungen **seit dem 27. Juli 2026**, als das BSI das Repository umgestellt hat.
+- IDs, die er nicht im aktuellen Katalog findet, meldet er als „nicht im Katalog“. Das kann ein Tippfehler sein oder
+  eine ID aus dem alten Kompendium. Für die alten Bausteine gibt es die [Vergleichsseiten](/vergleich/).
+- Maßgeblich ist immer das [Original des BSI](https://github.com/BSI-Bund/Stand-der-Technik-Bibliothek).
