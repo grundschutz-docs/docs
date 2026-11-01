@@ -240,6 +240,7 @@ export default defineConfig({
 			sidebar: [
 				{
 					label: 'Rollen',
+					collapsed: true,
 					translations: { en: 'Roles' },
 					items: [
 						{ label: 'Für Geschäftsführung', translations: { en: 'For management' }, slug: 'rollen/geschaeftsfuehrung' },
@@ -251,6 +252,7 @@ export default defineConfig({
 					// Eigene Gruppe, nicht unter Grundschutz++: Befunde sind
 					// Kommentar zum Katalog, nicht Teil davon (ADR-0009).
 					label: 'Befunde',
+					collapsed: true,
 					translations: { en: 'Findings' },
 					items: [{ autogenerate: { directory: 'befunde' } }],
 				},
@@ -259,6 +261,7 @@ export default defineConfig({
 					// des Katalogs. Die Übersetzung steht hier, weil die Gruppe sonst
 					// unter /en/ mit deutschem Namen erscheint.
 					label: 'Daten & Werkzeuge',
+					collapsed: true,
 					translations: { en: 'Data & tools' },
 					items: [
 						{ label: 'Export für Excel', translations: { en: 'Excel export (German)' }, slug: 'export' },
@@ -280,6 +283,7 @@ export default defineConfig({
 						{ label: 'Gefährdungen', translations: { en: 'Threats' }, slug: 'gefaehrdungen' },
 						{
 							label: 'Managementsystem',
+							collapsed: true,
 							translations: { en: 'Management system' },
 							items: [
 								{ label: 'GC Governance und Compliance', translations: { en: 'GC Governance and Compliance' }, slug: 'grundschutzpp/gc' },
@@ -292,6 +296,7 @@ export default defineConfig({
 						},
 						{
 							label: 'Themenfelder',
+							collapsed: true,
 							translations: { en: 'Topic areas' },
 							items: [
 								{ label: 'ASST Informationen und Assets', translations: { en: 'ASST Information and assets' }, slug: 'grundschutzpp/asst' },
