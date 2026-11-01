@@ -1,0 +1,42 @@
+name: Idea or need
+description: Something you would need for your work with Grundschutz++ that this site does not offer yet. Also: pilot partners welcome.
+labels: [bedarf]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        This is for what you **need**, not for a bug. For errors in the catalog itself use
+        "Catalog finding", for problems on this site use "Site or generator bug".
+        See `/grenzen/` for what this site does and does not do. Please don't put personal
+        or confidential details about your organization in a public issue.
+  - type: textarea
+    id: need
+    attributes:
+      label: What do you need
+      description: The task you are trying to get done, and where it gets stuck today.
+    validations:
+      required: true
+  - type: dropdown
+    id: role
+    attributes:
+      label: Your role
+      options:
+        - Information security officer (ISB) or CISO
+        - Consultant
+        - Auditor
+        - Developer or tool builder
+        - Public sector or municipality
+        - Something else
+  - type: textarea
+    id: today
+    attributes:
+      label: How do you do it today
+      description: A spreadsheet, a tool, by hand? What would be better?
+  - type: dropdown
+    id: pilot
+    attributes:
+      label: Pilot partner
+      description: Would you be willing to try an early version and give feedback?
+      options:
+        - "No"
+        - "Yes, please get in touch here in the issue"

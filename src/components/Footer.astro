@@ -5,6 +5,13 @@ import Pagination from '@astrojs/starlight/components/Pagination.astro';
 
 const isEnglish = Astro.currentLocale === 'en';
 const legalPrefix = isEnglish ? '/en' : '';
+// Auf der Methodik-Seite steht eine Zusammenfassung des Standards 300-1, der nicht unter
+// CC BY-SA steht, sondern unter den Nutzungsbedingungen des BSI. Dort gilt die zweite Zeile.
+const path = Astro.url.pathname.replace(/^\/en(?=\/)/, '');
+const isMethodik = path === '/methodik' || path === '/methodik/';
+const BSI_TERMS = 'https://www.bsi.bund.de/DE/Service/Nutzungsbedingungen/Nutzungsbedingungen_node.html';
+const CC_BY_SA = 'https://creativecommons.org/licenses/by-sa/4.0/';
+const BSI_CATALOG = 'https://github.com/BSI-Bund/Stand-der-Technik-Bibliothek';
 ---
 
 <footer class="sl-flex">
@@ -47,10 +54,26 @@ const legalPrefix = isEnglish ? '/en' : '';
 		<nav aria-labelledby="footer-project">
 			<p class="col-title" id="footer-project">{isEnglish ? 'Project' : 'Projekt'}</p>
 			<a href={`${legalPrefix}/ueber/`}>{isEnglish ? 'About this site' : 'Über diese Seite'}</a>
+			<a href={`${legalPrefix}/grenzen/`}>{isEnglish ? 'What this site is, and is not' : 'Was diese Seite ist – und was nicht'}</a>
 			<a href={`${legalPrefix}/impressum/`}>{isEnglish ? 'Legal Notice' : 'Impressum'}</a>
 			<a href={`${legalPrefix}/datenschutz/`}>{isEnglish ? 'Privacy Policy' : 'Datenschutz'}</a>
 		</nav>
 	</div>
+	{/* Lizenzzeile auf jeder Seite (CC BY-SA 4.0 verlangt Urheber, Lizenz, Quelle und den Hinweis
+	    auf Bearbeitung). Ein Test (test_lizenzzeile.py) prüft, dass sie im Build überall steht. */}
+	<p class="license-line" data-license-line>
+		{isMethodik ? (
+			isEnglish ? (
+				<>Summary of BSI Standard 300-1, © BSI, <a href={BSI_TERMS}>BSI terms of use</a> apply · <a href="/en/ueber/#licenses">Licenses</a></>
+			) : (
+				<>Zusammenfassung des BSI-Standards 300-1, © BSI, es gelten die <a href={BSI_TERMS}>Nutzungsbedingungen des BSI</a> · <a href="/ueber/#lizenzen">Lizenzen</a></>
+			)
+		) : isEnglish ? (
+			<>Catalog text © BSI-Bund, <a href={CC_BY_SA}>CC BY-SA 4.0</a> · <a href={BSI_CATALOG}>Source</a> · adapted by grundschutz-docs.de · <a href="/en/ueber/#licenses">Licenses and changes</a></>
+		) : (
+			<>Katalogtext © BSI-Bund, <a href={CC_BY_SA}>CC BY-SA 4.0</a> · <a href={BSI_CATALOG}>Quelle</a> · bearbeitet von grundschutz-docs.de · <a href="/ueber/#lizenzen">Lizenzen und Änderungen</a></>
+		)}
+	</p>
 </footer>
 
 <style>
@@ -83,6 +106,19 @@ const legalPrefix = isEnglish ? '/en' : '';
 			align-items: flex-start;
 			gap: 0.6rem;
 			font-size: var(--sl-text-sm);
+		}
+		.license-line {
+			margin: 0;
+			font-size: var(--sl-text-xs);
+			color: var(--sl-color-gray-3);
+			line-height: 1.5;
+		}
+		.license-line a {
+			color: inherit;
+			text-underline-offset: 0.15em;
+		}
+		.license-line a:hover {
+			color: var(--sl-color-accent);
 		}
 		.col-title {
 			margin: 0 0 0.2rem;
