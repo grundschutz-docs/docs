@@ -1087,7 +1087,7 @@ EXPORT_COLUMNS = [
     "Zielobjektkategorien", "Gilt auch für Unterkategorien", "Ergebnis", "Dokumentiert in", "Gefährdungen",
     "Vorgänger im Kompendium 2023", "Seite",
 ]
-EXPORT_WORKSHEET_COLUMNS = ["Umsetzungsstatus", "Verantwortlich", "Frist", "Bemerkung"]
+EXPORT_WORKSHEET_COLUMNS = ["Umsetzungsstatus", "Bewertet am", "Verantwortlich", "Frist", "Bemerkung"]
 EXPORT_SOURCE_COLUMN = "Quelle"
 
 
@@ -1256,7 +1256,7 @@ def export_csv_line(row, source_note):
         row["aufwand"], "; ".join(row["zielobjekte"]), "; ".join(row["unterkategorien"]),
         row["ergebnis"], row["dokument"],
         "; ".join(row["gefaehrdungen"]), "; ".join(row["vorgaenger"]), row["seite"],
-        "", "", "", "",
+        *[""] * len(EXPORT_WORKSHEET_COLUMNS),
         source_note,
     ]
 
@@ -1304,7 +1304,8 @@ def export_license(stand):
             "BSI-Standards 300-1 (4.1.1). \"In Umsetzung\" ergänzt grundschutz-docs.de, weil der Standard "
             "Anforderungen kennt, die noch nicht erfüllt, aber schon in der Umsetzungsplanung sind. "
             "Die Liste \"Vorhanden\" (Ja, Teilweise, Nein) ist eine Wahl von grundschutz-docs.de und "
-            "stammt nicht aus dem Katalog oder dem Standard des BSI."
+            "stammt nicht aus dem Katalog oder dem Standard des BSI. Die Spalte \"Bewertet am\" ist ein Feld "
+            "für dein eigenes Datum (TT.MM.JJJJ oder JJJJ-MM-TT) und stammt ebenfalls nicht vom BSI."
         ),
         "weitergabe": (
             "Die Bearbeitung steht ebenfalls unter CC BY-SA 4.0. Wer sie weitergibt, nennt das BSI als "

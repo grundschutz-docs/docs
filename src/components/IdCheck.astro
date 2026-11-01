@@ -12,14 +12,14 @@
 			<label for="idc-ids" id="idc-titel">Deine Anforderungs-IDs</label>
 			<textarea id="idc-ids" name="ids" rows="7" spellcheck="false" autocomplete="off" placeholder={'GC.1.1\nBES.7.4.12\nDET.2.3'}></textarea>
 			<p class="idc-hilfe" id="idc-hilfe-ids">
-				Eine ID pro Zeile, oder einfach einen Text oder eine Tabelle einfügen: Die IDs werden darin gefunden.
+				Eine ID pro Zeile, oder einen Text oder eine Tabelle einfügen: Die IDs werden darin gefunden. Mit den Spalten „ID“ und „Bewertet am“ (wie im Excel-Export dieser Seite) wird jede Zeile ab ihrem eigenen Datum geprüft.
 			</p>
 		</div>
 		<div class="idc-zeile">
 			<div class="idc-feld idc-datum">
 				<label for="idc-seit">Änderungen seit</label>
 				<input type="date" id="idc-seit" name="seit" aria-describedby="idc-hilfe-seit" />
-				<p class="idc-hilfe" id="idc-hilfe-seit">Ab diesem Tag einschließlich, zum Beispiel das Datum deiner letzten Bewertung.</p>
+				<p class="idc-hilfe" id="idc-hilfe-seit">Ab diesem Tag einschließlich, zum Beispiel das Datum deiner letzten Bewertung. Hat deine Tabelle eine Spalte „Bewertet am“, gilt dort das Datum der jeweiligen Zeile.</p>
 			</div>
 			<div class="idc-feld">
 				<label for="idc-datei">Oder eine Datei laden</label>
@@ -38,7 +38,7 @@
 </section>
 
 <script>
-	import { parseIds, pruefe, datumDe, type IdDaten, type Ergebnis } from '../lib/id-check';
+	import { parseEingabe, pruefe, datumDe, type IdDaten, type Ergebnis } from '../lib/id-check';
 
 	const form = document.querySelector<HTMLFormElement>('.idc-form')!;
 	const ids = document.querySelector<HTMLTextAreaElement>('#idc-ids')!;
@@ -68,17 +68,28 @@
 		return a;
 	};
 
-	function zeige(ergebnisse: Ergebnis[], d: IdDaten, ab: string) {
+	function zeige(ergebnisse: Ergebnis[], d: IdDaten, ab: string, ungueltig: number) {
 		ausgabe.replaceChildren();
 		const zahl = (art: Ergebnis['art']) => ergebnisse.filter((x) => x.art === art).length;
 		const geaendert = zahl('geaendert') + zahl('neu') + zahl('entfernt');
 		const kopf = el('p', 'idc-summe');
 		kopf.append(
-			`${ergebnisse.length} ${ergebnisse.length === 1 ? 'ID' : 'IDs'} geprüft, Änderungen seit ${datumDe(ab)}: `,
+			`${ergebnisse.length} ${ergebnisse.length === 1 ? 'ID' : 'IDs'} geprüft, Änderungen ${
+				ergebnisse.some((x) => x.eigenesDatum) ? 'seit dem jeweiligen Bewertungsdatum' : `seit ${datumDe(ab)}`
+			}: `,
 			Object.assign(el('strong'), { textContent: `${geaendert} geändert, ${zahl('unveraendert')} nicht geändert` }),
 			zahl('unbekannt') ? `, ${zahl('unbekannt')} nicht im Katalog.` : '.',
 		);
 		ausgabe.append(kopf);
+		if (ungueltig) {
+			ausgabe.append(
+				el(
+					'p',
+					'idc-hinweis',
+					`${ungueltig} ${ungueltig === 1 ? 'Datum konnte' : 'Daten konnten'} nicht gelesen werden und ${ungueltig === 1 ? 'wurde' : 'wurden'} durch das allgemeine Datum ersetzt. Erlaubt sind TT.MM.JJJJ und JJJJ-MM-TT.`,
+				),
+			);
+		}
 
 		const praktikVon = (id: string) => d.aenderungen[id]?.[0]?.praktik ?? id.split('.')[0];
 		const liste = el('ul', 'idc-liste');
@@ -88,7 +99,9 @@
 			const id = x.art === 'unbekannt' ? el('span', 'idc-id', x.id) : katalogLink(x.id, praktikVon(x.id));
 			const status = el('span', 'idc-status');
 			if (x.art === 'geaendert') {
-				status.textContent = x.aenderungen.length === 1 ? 'Geändert' : `${x.aenderungen.length}-mal geändert`;
+				status.textContent =
+					(x.aenderungen.length === 1 ? 'Geändert' : `${x.aenderungen.length}-mal geändert`) +
+					(x.eigenesDatum ? ` seit deiner Bewertung am ${datumDe(x.ab)}` : '');
 				li.append(id, status);
 				const titel = el('span', 'idc-titel', x.aenderungen[0].titel);
 				li.append(titel);
@@ -109,7 +122,9 @@
 							? `Entfernt am ${datumDe(x.seit.datum)}`
 							: x.art === 'unbekannt'
 								? 'Nicht im Katalog'
-								: 'Nicht geändert';
+								: x.eigenesDatum
+									? `Nicht geändert seit deiner Bewertung am ${datumDe(x.ab)}`
+									: 'Nicht geändert';
 				li.append(id, status);
 			}
 			liste.append(li);
@@ -131,7 +146,8 @@
 
 	form.addEventListener('submit', async (e) => {
 		e.preventDefault();
-		const eingegeben = parseIds(ids.value);
+		const eingabe = parseEingabe(ids.value);
+		const eingegeben = eingabe.eintraege;
 		if (!eingegeben.length) return melde('Keine Anforderungs-IDs gefunden. Eine ID sieht zum Beispiel so aus: GC.5.1.1.');
 		let d: IdDaten;
 		try {
@@ -141,7 +157,7 @@
 			return melde('Die Änderungsdaten konnten nicht geladen werden. Bitte später noch einmal versuchen.');
 		}
 		const ab = seit.value || d.beginn;
-		zeige(pruefe(d, eingegeben, ab), d, ab);
+		zeige(pruefe(d, eingegeben, ab), d, ab, eingabe.ungueltigeDaten);
 		ausgabe.focus();
 	});
 

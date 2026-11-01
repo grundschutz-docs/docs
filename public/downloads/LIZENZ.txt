@@ -29,7 +29,9 @@ Eigene Werte: Umsetzungsstatus: Erfüllt, Nicht erfüllt und Nicht anwendbar sin
               grundschutz-docs.de, weil der Standard Anforderungen kennt, die noch nicht
               erfüllt, aber schon in der Umsetzungsplanung sind. Die Liste "Vorhanden" (Ja,
               Teilweise, Nein) ist eine Wahl von grundschutz-docs.de und stammt nicht aus
-              dem Katalog oder dem Standard des BSI.
+              dem Katalog oder dem Standard des BSI. Die Spalte "Bewertet am" ist ein Feld
+              für dein eigenes Datum (TT.MM.JJJJ oder JJJJ-MM-TT) und stammt ebenfalls nicht
+              vom BSI.
 
 Weitergabe: Die Bearbeitung steht ebenfalls unter CC BY-SA 4.0. Wer sie weitergibt, nennt
             das BSI als Urheber, verweist auf die Lizenz und gibt eigene Änderungen an.
