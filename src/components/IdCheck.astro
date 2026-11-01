@@ -10,7 +10,8 @@
 	<form class="idc-form" novalidate>
 		<div class="idc-feld">
 			<label for="idc-ids" id="idc-titel">Deine Anforderungs-IDs</label>
-			<textarea id="idc-ids" name="ids" rows="7" spellcheck="false" autocomplete="off" placeholder={'GC.1.1\nBES.7.4.12\nDET.2.3'}></textarea>
+			<textarea id="idc-ids" name="ids" rows="7" wrap="off" spellcheck="false" autocomplete="off" aria-describedby="idc-hilfe-ids idc-erkannt" placeholder={'GC.1.1\nBES.7.4.12\nDET.2.3'}></textarea>
+			<p class="idc-erkannt" id="idc-erkannt" role="status" aria-live="polite"></p>
 			<p class="idc-hilfe" id="idc-hilfe-ids">
 				Eine ID pro Zeile, oder einen Text oder eine Tabelle einfügen: Die IDs werden darin gefunden. Mit den Spalten „ID“ und „Bewertet am“ (wie im Excel-Export dieser Seite) wird jede Zeile ab ihrem eigenen Datum geprüft.
 			</p>
@@ -24,7 +25,8 @@
 			<div class="idc-feld">
 				<label for="idc-datei">Oder eine Datei laden</label>
 				<input type="file" id="idc-datei" accept=".csv,.txt,.tsv,.md,text/plain,text/csv" aria-describedby="idc-hilfe-datei" />
-				<p class="idc-hilfe" id="idc-hilfe-datei">Die Datei wird nur in deinem Browser gelesen.</p>
+				<p class="idc-hilfe" id="idc-hilfe-datei">CSV oder Text, wird nur in deinem Browser gelesen. Excel-Dateien (.xlsx) kann der Check nicht lesen: speichere sie als CSV oder kopiere die Spalten „ID“ und „Bewertet am“ hierher.</p>
+				<p class="idc-datei-meldung" id="idc-datei-meldung" role="status" aria-live="polite"></p>
 			</div>
 		</div>
 		<div class="idc-aktionen">
@@ -38,7 +40,7 @@
 </section>
 
 <script>
-	import { parseEingabe, pruefe, datumDe, type IdDaten, type Ergebnis } from '../lib/id-check';
+	import { parseEingabe, pruefe, datumDe, beschreibeEingabe, type IdDaten, type Ergebnis } from '../lib/id-check';
 
 	const form = document.querySelector<HTMLFormElement>('.idc-form')!;
 	const ids = document.querySelector<HTMLTextAreaElement>('#idc-ids')!;
@@ -46,6 +48,15 @@
 	const datei = document.querySelector<HTMLInputElement>('#idc-datei')!;
 	const leeren = document.querySelector<HTMLButtonElement>('#idc-leeren')!;
 	const ausgabe = document.querySelector<HTMLElement>('#idc-ergebnis')!;
+	const erkannt = document.querySelector<HTMLElement>('#idc-erkannt')!;
+	const dateiMeldung = document.querySelector<HTMLElement>('#idc-datei-meldung')!;
+
+	// Zeigt, was aus der Eingabe gelesen wird, bevor man prüft (bei Tippen, Einfügen und Laden einer Datei).
+	const zeigeErkanntes = () => {
+		erkannt.textContent = ids.value.trim() ? beschreibeEingabe(parseEingabe(ids.value)) : '';
+	};
+	ids.addEventListener('input', zeigeErkanntes);
+	const MAX_BYTES = 2 * 1024 * 1024;
 
 	const el = <K extends keyof HTMLElementTagNameMap>(tag: K, klasse?: string, text?: string) => {
 		const e = document.createElement(tag);
@@ -93,6 +104,8 @@
 
 		const praktikVon = (id: string) => d.aenderungen[id]?.[0]?.praktik ?? id.split('.')[0];
 		const liste = el('ul', 'idc-liste');
+		// Unveränderte stehen getrennt: sind es viele, klappen sie ein, damit die Treffer oben nicht untergehen.
+		const ruhig = el('ul', 'idc-liste');
 		const reihenfolge = { geaendert: 0, neu: 1, entfernt: 2, unbekannt: 3, unveraendert: 4 } as const;
 		[...ergebnisse].sort((a, b) => reihenfolge[a.art] - reihenfolge[b.art]).forEach((x) => {
 			const li = el('li', `idc-eintrag idc-${x.art}`);
@@ -127,9 +140,19 @@
 									: 'Nicht geändert';
 				li.append(id, status);
 			}
-			liste.append(li);
+			(x.art === 'unveraendert' ? ruhig : liste).append(li);
 		});
-		ausgabe.append(liste);
+		if (liste.childElementCount) ausgabe.append(liste);
+		if (ruhig.childElementCount) {
+			if (ruhig.childElementCount > 8) {
+				const details = el('details', 'idc-ruhig');
+				const n = ruhig.childElementCount;
+				details.append(el('summary', undefined, `${n} Anforderungen ohne Änderung anzeigen`), ruhig);
+				ausgabe.append(details);
+			} else {
+				ausgabe.append(ruhig);
+			}
+		}
 
 		const fuss = el('p', 'idc-fuss');
 		fuss.append(
@@ -164,12 +187,25 @@
 	datei.addEventListener('change', async () => {
 		const f = datei.files?.[0];
 		if (!f) return;
-		ids.value = await f.text();
 		datei.value = '';
+		if (/\.(xlsx|xlsm|xls|ods)$/i.test(f.name)) {
+			dateiMeldung.textContent = `${f.name}: Excel-Dateien kann der Check nicht lesen. Speichere sie als CSV (Trennzeichen Semikolon) oder kopiere die Spalten „ID“ und „Bewertet am“ hierher.`;
+			return;
+		}
+		if (f.size > MAX_BYTES) {
+			dateiMeldung.textContent = `${f.name}: Die Datei ist größer als 2 MB. Eine Liste mit Anforderungs-IDs ist viel kleiner, vielleicht ist es die falsche Datei.`;
+			return;
+		}
+		ids.value = await f.text();
+		const zeilen = ids.value.split(/\r?\n/).filter((z) => z.trim()).length;
+		dateiMeldung.textContent = `Geladen: ${f.name} (${zeilen} ${zeilen === 1 ? 'Zeile' : 'Zeilen'}).`;
+		zeigeErkanntes();
 	});
 
 	leeren.addEventListener('click', () => {
 		ids.value = '';
+		erkannt.textContent = '';
+		dateiMeldung.textContent = '';
 		seit.value = '';
 		ausgabe.replaceChildren();
 		ids.focus();
@@ -215,6 +251,8 @@
 		font: inherit;
 	}
 	.idc textarea {
+		/* wrap="off": eine eingefügte Tabellenzeile bleibt eine Zeile (seitlich scrollbar), statt zu einem Block umzubrechen */
+		overflow-x: auto;
 		font-family: var(--sl-font-mono);
 		/* 16 px: iOS zoomt beim Antippen von Feldern mit kleinerer Schrift ins Bild */
 		font-size: 1rem;
@@ -240,6 +278,16 @@
 		font: inherit;
 		font-weight: 600;
 		cursor: pointer;
+	}
+	.idc-erkannt,
+	.idc-datei-meldung {
+		margin: 0;
+		font-size: var(--sl-text-sm);
+		color: var(--sl-color-text-accent);
+	}
+	.idc-erkannt:empty,
+	.idc-datei-meldung:empty {
+		display: none;
 	}
 	.idc-hilfe {
 		margin: 0;
@@ -268,6 +316,8 @@
 	}
 	.idc-ergebnis {
 		margin-top: 1.5rem;
+		/* Kopfleiste und Banner liegen fest am oberen Rand (zusammen bis 132 px): ein angesprungenes Ergebnis darf nicht darunter landen. */
+		scroll-margin-top: 9rem;
 	}
 	.idc-ergebnis:focus {
 		outline: none;
@@ -320,6 +370,16 @@
 		padding-bottom: 0.6rem;
 		font-size: var(--sl-text-sm);
 		color: var(--sl-color-gray-2);
+	}
+	.idc-ruhig {
+		margin-top: 0.4rem;
+		border-top: 1px solid var(--sl-color-hairline);
+	}
+	.idc-ruhig > summary {
+		cursor: pointer;
+		padding: 0.7rem 0;
+		font-size: var(--sl-text-sm);
+		color: var(--sl-color-text-accent);
 	}
 	.idc-fuss,
 	.idc-hinweis {

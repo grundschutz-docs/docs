@@ -2,7 +2,7 @@
 // Aufruf: node --experimental-strip-types --test scripts/tests/id-check.test.mjs
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { parseIds, parseDatum, parseEingabe, pruefe, letzteAenderung } from '../../src/lib/id-check.ts';
+import { parseIds, parseDatum, parseEingabe, pruefe, letzteAenderung, beschreibeEingabe } from '../../src/lib/id-check.ts';
 
 const daten = {
 	stand: { commit: 'x', veroeffentlicht: '2026-10-30T09:59:42Z' },
@@ -60,4 +60,37 @@ test('Prüfung: eigenes Datum je Zeile, sonst das allgemeine; Datum zählt einsc
 test('Jüngste Änderung einer Anforderung', () => {
 	assert.equal(letzteAenderung(daten, 'BES.7.4.12').datum, '2026-10-30');
 	assert.equal(letzteAenderung(daten, 'GC.1.1'), undefined);
+});
+
+test('Beschreibung der erkannten Eingabe', () => {
+	assert.equal(beschreibeEingabe(parseEingabe('')), 'Noch keine Anforderungs-IDs erkannt.');
+	assert.equal(beschreibeEingabe(parseEingabe('GC.1.1')), '1 ID erkannt, alle werden ab dem Datum oben geprüft.');
+	const csv = 'ID;Bewertet am\nGC.1.1;01.08.2026\nBES.7.4.12;\nDLS.1.1.1;kaputt';
+	assert.equal(
+		beschreibeEingabe(parseEingabe(csv)),
+		'3 IDs erkannt, 1 mit eigenem Datum aus „Bewertet am“, 2 ohne (sie werden ab dem Datum oben geprüft). 1 Datum ist nicht lesbar.',
+	);
+});
+
+test('CSV wie Excel sie schreibt: Felder mit Trennzeichen in Anführungszeichen verschieben keine Spalten', () => {
+	const csv = '\uFEFFID;Titel;Zielobjekte;Bewertet am;Bemerkung\r\n' +
+		'GC.1.1;"Ein Titel; mit Semikolon";"A; B; C";01.08.2026;ok\r\n' +
+		'BES.7.4.12;"Mit ""Anführungszeichen"" und\nZeilenumbruch";"X; Y";2026-09-15;\r\n';
+	const e = parseEingabe(csv);
+	assert.deepEqual(e.eintraege, [{ id: 'GC.1.1', seit: '2026-08-01' }, { id: 'BES.7.4.12', seit: '2026-09-15' }]);
+	assert.equal(e.ungueltigeDaten, 0);
+});
+
+test('Trennzeichen Komma und Tabulator werden aus der Kopfzeile erkannt', () => {
+	assert.deepEqual(parseEingabe('ID,Bewertet am,Notiz\nGC.1.1,01.08.2026,"a, b"').eintraege, [{ id: 'GC.1.1', seit: '2026-08-01' }]);
+	assert.deepEqual(parseEingabe('ID\tBewertet am\nGC.1.1\t01.08.2026').eintraege, [{ id: 'GC.1.1', seit: '2026-08-01' }]);
+});
+
+test('Der echte Export dieser Seite wird Zeile für Zeile richtig gelesen', async () => {
+	const { readFileSync } = await import('node:fs');
+	const csv = readFileSync(new URL('../../public/downloads/grundschutzpp-anforderungen-bes.csv', import.meta.url), 'utf8');
+	const e = parseEingabe(csv);
+	assert.equal(e.eintraege.length, csv.split('\r\n').filter(Boolean).length - 1);
+	assert.equal(e.ungueltigeDaten, 0);
+	assert.equal(e.mitDatum, false); // die Spalte "Bewertet am" ist im Export leer
 });

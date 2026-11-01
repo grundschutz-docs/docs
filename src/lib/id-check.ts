@@ -52,7 +52,52 @@ export function parseDatum(zelle: string): string | undefined {
 }
 
 const ZELLE_ID = /^[A-Za-z]{2,6}(?:\.\d+){2,}$/;
-const TRENNER = /[;\t,]/;
+
+// CSV lesen wie Excel sie schreibt: Trennzeichen aus der Kopfzeile, Felder in Anführungszeichen dürfen das Trennzeichen,
+// Zeilenumbrüche und doppelte Anführungszeichen ("") enthalten. Ohne das verschöben Felder wie "A; B" (Zielobjekte,
+// Gefährdungen im Export dieser Seite) alle folgenden Spalten.
+function trennzeichen(text: string): string {
+	const kopf = text.split(/\r?\n/).find((z) => /(^|[;\t,"])\s*"?(anforderungs-)?id"?\s*($|[;\t,])/i.test(z)) ?? '';
+	let innen = false;
+	const zahl: Record<string, number> = { ';': 0, '\t': 0, ',': 0 };
+	for (const c of kopf) {
+		if (c === '"') innen = !innen;
+		else if (!innen && c in zahl) zahl[c] += 1;
+	}
+	return Object.entries(zahl).sort((x, y) => y[1] - x[1])[0][1] > 0 ? Object.entries(zahl).sort((x, y) => y[1] - x[1])[0][0] : ';';
+}
+
+function lieseCsv(text: string, sep: string): string[][] {
+	const zeilen: string[][] = [];
+	let zeile: string[] = [];
+	let feld = '';
+	let innen = false;
+	for (let i = 0; i < text.length; i++) {
+		const c = text[i];
+		if (innen) {
+			if (c === '"' && text[i + 1] === '"') {
+				feld += '"';
+				i += 1;
+			} else if (c === '"') innen = false;
+			else feld += c;
+		} else if (c === '"') innen = true;
+		else if (c === sep) {
+			zeile.push(feld.trim());
+			feld = '';
+		} else if (c === '\n' || c === '\r') {
+			if (c === '\r' && text[i + 1] === '\n') i += 1;
+			zeile.push(feld.trim());
+			zeilen.push(zeile);
+			zeile = [];
+			feld = '';
+		} else feld += c;
+	}
+	if (feld !== '' || zeile.length) {
+		zeile.push(feld.trim());
+		zeilen.push(zeile);
+	}
+	return zeilen;
+}
 
 export type Eingaben = { eintraege: Eingabe[]; mitDatum: boolean; ungueltigeDaten: number };
 
@@ -60,18 +105,17 @@ export type Eingaben = { eintraege: Eingabe[]; mitDatum: boolean; ungueltigeDate
 // Seite), gilt je Zeile das eigene Datum; sonst werden die IDs im Text gesucht und alle mit demselben Datum geprüft.
 // Kommt eine ID mehrfach vor, zählt das früheste Datum: lieber eine Änderung zu viel anzeigen als eine zu wenig.
 export function parseEingabe(text: string): Eingaben {
-	const zeilen = text.replace(/^\uFEFF/, '').split(/\r?\n/);
-	const zellen = (z: string) => z.split(TRENNER).map((c) => c.trim().replace(/^"|"$/g, '').trim());
-	const kopf = zeilen.findIndex((z) => zellen(z).some((c) => /^(anforderungs-)?id$/i.test(c)));
+	const sauber = text.replace(/^\uFEFF/, '');
+	const tabelle = lieseCsv(sauber, trennzeichen(sauber));
+	const kopf = tabelle.findIndex((z) => z.some((c) => /^(anforderungs-)?id$/i.test(c)));
 	if (kopf >= 0) {
-		const spalten = zellen(zeilen[kopf]);
+		const spalten = tabelle[kopf];
 		const idSpalte = spalten.findIndex((c) => /^(anforderungs-)?id$/i.test(c));
 		const datumSpalte = spalten.findIndex((c) => /^bewertet am$/i.test(c));
 		if (datumSpalte >= 0) {
 			const nachId = new Map<string, Eingabe>();
 			let ungueltig = 0;
-			for (const z of zeilen.slice(kopf + 1)) {
-				const c = zellen(z);
+			for (const c of tabelle.slice(kopf + 1)) {
 				if (!ZELLE_ID.test(c[idSpalte] ?? '')) continue;
 				const id = c[idSpalte].toUpperCase();
 				const roh = c[datumSpalte] ?? '';
@@ -118,4 +162,20 @@ export function datumDe(iso: string): string {
 export function letzteAenderung(daten: IdDaten, id: string): Aenderung | undefined {
 	const liste = daten.aenderungen[id];
 	return liste?.reduce((a, b) => (b.datum >= a.datum ? b : a));
+}
+
+// Ein Satz dazu, was aus der Eingabe erkannt wurde, damit man vor dem Prüfen sieht, ob sie richtig gelesen wird.
+export function beschreibeEingabe(e: Eingaben): string {
+	const n = e.eintraege.length;
+	if (n === 0) return 'Noch keine Anforderungs-IDs erkannt.';
+	const ids = `${n} ${n === 1 ? 'ID' : 'IDs'} erkannt`;
+	if (!e.mitDatum) return `${ids}, alle werden ab dem Datum oben geprüft.`;
+	const eigene = e.eintraege.filter((x) => x.seit).length;
+	const rest = n - eigene;
+	return (
+		`${ids}, ${eigene} mit eigenem Datum aus „Bewertet am“` +
+		(rest ? `, ${rest} ohne (sie werden ab dem Datum oben geprüft)` : '') +
+		(e.ungueltigeDaten ? `. ${e.ungueltigeDaten} ${e.ungueltigeDaten === 1 ? 'Datum ist' : 'Daten sind'} nicht lesbar` : '') +
+		'.'
+	);
 }
