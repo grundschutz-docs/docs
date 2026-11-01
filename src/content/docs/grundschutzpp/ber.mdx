@@ -29,6 +29,9 @@ Die Praktik Berechtigung stellt sicher, dass ausschließlich autorisierte Person
 
 <ControlMeta modalVerb="MUSS" secLevel="normal-SdT" effort="0" threats="G 0.18" threatsHint="G 0.18 – Fehlplanung oder fehlende Anpassung" noTarget document={{ name: "Inventar Berechtigungen", slug: "inventar-berechtigungen" }} predecessors={[{ oldId: "APP.2.2.A1-UA.2", relationship: "intersects-with", link: "https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/06_APP_Anwendungen/APP_2_2_Active_Directory_Domain_Services_Edition_2023.pdf?__blob=publicationFile&v=4#download=1", vergleichHref: "/vergleich/app-2-2/" }]} />
 
+<p class="zusammenhang not-content" data-art="voraussetzung_von" data-pagefind-ignore><span>Ist Voraussetzung für:</span> <a href="/grundschutzpp/pers/#PERS.6.1.1" title="Entzug von Berechtigungen gemäß BER">PERS.6.1.1</a></p>
+<p class="zusammenhang not-content" data-art="verwandt" data-pagefind-ignore><span>Verwandt laut Katalog:</span> <a href="/grundschutzpp/asst/#ASST.3.12" title="Autorisierung von Personen oder Institutionen">ASST.3.12</a>, <a href="/grundschutzpp/dls/#DLS.4.1.2" title="Berechtigungen deaktivieren">DLS.4.1.2</a>, <a href="/grundschutzpp/konf/#KONF.2.2" title="Kryptographische Verfahren in IT-Systemen">KONF.2.2</a>, <a href="/grundschutzpp/konf/#KONF.4.3" title="Authentifizierung von Fernwartungsfunktionen">KONF.4.3</a>, <a href="/grundschutzpp/konf/#KONF.4.4" title="Einschränkung von Fernwartungsfunktionen">KONF.4.4</a>, <a href="/grundschutzpp/konf/#KONF.5.1" title="Authentifizierung am System">KONF.5.1</a>, <a href="/grundschutzpp/konf/#KONF.5.1.1" title="Authentifizierung an der Firmware">KONF.5.1.1</a>, <a href="/grundschutzpp/konf/#KONF.10.2" title="Kryptographische Verfahren in Anwendungen">KONF.10.2</a>, <a href="/grundschutzpp/konf/#KONF.11.1" title="Authentifizierung vor dem Zugriff">KONF.11.1</a>, <a href="/grundschutzpp/konf/#KONF.11.1.1" title="Authentifizierung von geplanten Konversationen">KONF.11.1.1</a>, <a href="/grundschutzpp/konf/#KONF.11.1.2" title="Authentifizierung von Netzverbindungen - clientseitig">KONF.11.1.2</a></p>
+
 > Berechtigung MUSS Verfahren und Regelungen zum Identitäts- und Berechtigungsmanagement verankern.
 
 Ziel ist einen dokumentierten Prozess einzurichten, der die Vergabe, Verwaltung und Entfernung von Zugangs- und Zugriffsberechtigungen, sowie der damit verbundenen Identitäten regelt. Zu berücksichtigen sind insbesondere Neueinstellungen, Versetzungen und Entlassungen. Empfehlenswert ist es, die Vergabe und den Entzug von Berechtigungen so weit wie möglich zu automatisieren. Die bei der Festlegung des Verfahrens im Einzelnen zu berücksichtigenden Inhalte ergeben sich aus den Anforderungen dieser Praktik.
@@ -78,6 +81,8 @@ Eine geplante Überprüfung der etablierten Verfahren und Regelungen dient dazu 
 <span class="sr-only" aria-hidden="true" data-pagefind-weight="10">BER.1.3</span>
 
 <ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="3" threats="G 0.18" threatsHint="G 0.18 – Fehlplanung oder fehlende Anpassung" noTarget document={{ name: "Inventar Berechtigungssysteme", slug: "inventar-berechtigungssysteme" }} />
+
+<p class="zusammenhang not-content" data-art="verwandt" data-pagefind-ignore><span>Verwandt laut Katalog:</span> <a href="/grundschutzpp/asst/#ASST.2.2" title="Inventar der Systeme">ASST.2.2</a></p>
 
 > Berechtigung SOLLTE ein Inventar der Systeme zur Authentifizierung und Autorisierung dokumentieren.
 
@@ -140,6 +145,8 @@ Zu einem Ereignisprotokoll gehört der Zeitpunkt, das Zugangskonto, sowie welche
 <span class="sr-only" aria-hidden="true" data-pagefind-weight="10">BER.2.5</span>
 
 <ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="3" threats="G 0.36, G 0.30, G 0.32" threatsHint="G 0.36 – Identitätsdiebstahl · G 0.30 – Unberechtigte Nutzung oder Administration von Geräten und Systemen · G 0.32 – Missbrauch von Berechtigungen" noTarget document={{ name: "Inventar Berechtigungen", slug: "inventar-berechtigungen" }} predecessors={[{ oldId: "ORP.2.A2-UA.4", relationship: "intersects-with", link: "https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/02_ORP_Organisation_und_Personal/ORP_2_Personal_Editon_2023.pdf?__blob=publicationFile&v=4#download=1", vergleichHref: "/vergleich/orp-2/" }]} />
+
+<p class="zusammenhang not-content" data-art="verwandt" data-pagefind-ignore><span>Verwandt laut Katalog:</span> <a href="/grundschutzpp/pers/#PERS.6.1" title="Vorgehensweise für den Weggang">PERS.6.1</a></p>
 
 > Berechtigung SOLLTE die zugeordnete Identität bei Weggang von Nutzenden deaktivieren.
 
@@ -212,6 +219,9 @@ Wenn ein Zugangskonto genau einer Identität zugewiesen ist erleichtert dies die
 <span class="sr-only" aria-hidden="true" data-pagefind-weight="10">BER.3.6</span>
 
 <ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="2" threats="G 0.36, G 0.30, G 0.32" threatsHint="G 0.36 – Identitätsdiebstahl · G 0.30 – Unberechtigte Nutzung oder Administration von Geräten und Systemen · G 0.32 – Missbrauch von Berechtigungen" tags={[{ name: "Privilege Escalation", slug: "privilege-escalation", hint: "Ausweitung von Berechtigungen durch einen Angreifer oder Benutzer, um höhere Rechte zu erlangen als ursprünglich vorgesehen." }, { name: "Insider Threat", slug: "insider-threat", hint: "Sicherheitsrisiko, das von Personen innerhalb einer Organisation ausgeht, die aufgrund ihres legitimen Zugriffs sensible Informationen missbrauchen oder Systeme schädigen können.", synonyms: "interne Bedrohung, Innentäter" }, { name: "Privilegierte Rechte", slug: "privilegierte-rechte", hint: "Erweiterte Zugriffs- und Administrationsrechte, mit denen besonders weitreichende Änderungen an Systemen, Diensten oder Daten vorgenommen werden können." }]} targets={[{ name: "Administrierende", slug: "administrierende", hint: "Mitarbeitende, die mit der Administration von IT-Systemen, Netzen oder Anwendungen im Informationsverbund von der Institution unmittelbar oder mittelbar beauftragt sind. Teil von: Mitarbeitende.", synonyms: "Admin" }]} document={{ name: "Inventar Berechtigungen", slug: "inventar-berechtigungen" }} />
+
+<p class="zusammenhang not-content" data-art="voraussetzung_von" data-pagefind-ignore><span>Ist Voraussetzung für:</span> <a href="/grundschutzpp/ber/#BER.5.9" title="Mehr-Faktor-Authentisierung für weitreichende Berechtigungen">BER.5.9</a>, <a href="/grundschutzpp/sens/#SENS.10.5" title="Systemadministration - Internetnutzung">SENS.10.5</a></p>
+<p class="zusammenhang not-content" data-art="verwandt" data-pagefind-ignore><span>Verwandt laut Katalog:</span> <a href="/grundschutzpp/sens/#SENS.10.5" title="Systemadministration - Internetnutzung">SENS.10.5</a></p>
 
 > Berechtigung für Administrierende SOLLTE separate Zugangskonten für administrative Tätigkeiten (Administrationskonten) verankern.
 
@@ -293,6 +303,8 @@ Kann je nach Anmeldeweg durch eine Abmeldung (Automatic Session Locking) direkt 
 
 <ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="3" threats="G 0.30, G 0.32, G 0.36" threatsHint="G 0.30 – Unberechtigte Nutzung oder Administration von Geräten und Systemen · G 0.32 – Missbrauch von Berechtigungen · G 0.36 – Identitätsdiebstahl" noTarget document={{ name: "IT-Betriebskonzept", slug: "it-betriebskonzept" }} />
 
+<p class="zusammenhang not-content" data-art="verwandt" data-pagefind-ignore><span>Verwandt laut Katalog:</span> <a href="/grundschutzpp/ber/#BER.3.15" title="Zugang löschen nach Fristablauf">BER.3.15</a></p>
+
 > Berechtigung SOLLTE die Wiederverwendung von Zugangskonten für *[einen bestimmten Zeitraum]* blockieren.
 
 Wiederverwendung von Zugangskonten meint hier die erneute Vergabe oder Reaktivierung zuvor bereits verwendeter Zugangskonten für Einzelpersonen, Gruppen, Rollen, Dienste oder Geräte zu anderen Einzelpersonen, Gruppen, Rollen, Diensten oder Geräten (engl. account reuse, account recycling). Der Parameter „einen bestimmten Zeitraum“ beschreibt eine durch die Institution festgelegte Sperr- oder Karenzfrist, innerhalb derer ein deaktiviertes, entzogenes oder nicht mehr zugeordnetes Konto nicht erneut verwendet werden kann; sinnvolle Werte können je nach Schutzbedarf etwa 90 Tage, 180 Tage, ein Jahr oder bei besonders kritischen bzw. privilegierten Konten eine dauerhafte Nichtwiederverwendung sein. Ohne eine solche Sperrfrist könnte eine neue nutzende Person fälschlich Zugriff auf alte Berechtigungen, Protokollzuordnungen, Postfächer, Schlüssel, Tokens oder Anwendungskontexte erhalten, und ein Sicherheitsvorfall könnte später nicht mehr eindeutig einer handelnden Person oder einem technischen Vorgang zugeordnet werden.
@@ -303,6 +315,8 @@ Wiederverwendung von Zugangskonten meint hier die erneute Vergabe oder Reaktivie
 
 <ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="1" threats="G 0.36, G 0.30, G 0.32" threatsHint="G 0.36 – Identitätsdiebstahl · G 0.30 – Unberechtigte Nutzung oder Administration von Geräten und Systemen · G 0.32 – Missbrauch von Berechtigungen" tags={[{ name: "Credential Stuffing", slug: "credential-stuffing", hint: "Cyberangriff, bei dem automatisiert gestohlene Benutzernamen und Passwörter auf verschiedenen Websites ausprobiert werden, um von Passwortwiederverwendung zu profitieren." }, { name: "Brute-Force-Attacke", slug: "brute-force-attacke", hint: "Angriff, bei dem Zugangsdaten oder kryptografische Schlüssel automatisiert durch massenhaftes Ausprobieren möglicher Werte ermittelt werden sollen." }]} noTarget document={{ name: "IT-Betriebskonzept", slug: "it-betriebskonzept" }} />
 
+<p class="zusammenhang not-content" data-art="verwandt" data-pagefind-ignore><span>Verwandt laut Katalog:</span> <a href="/grundschutzpp/asst/#ASST.7.2" title="Aufbewahrungs- und Löschfristen">ASST.7.2</a>, <a href="/grundschutzpp/ber/#BER.3.14" title="Kein Recycling von Zugängen">BER.3.14</a></p>
+
 > Berechtigung SOLLTE nicht mehr benötigte Zugangskonten nach Ablauf der Löschfristen löschen.
 
 Die Löschfristen ergeben sich aus gesetzlichen Aufbewahrungs- und Löschfristen, die dem Compliance-Management entnommen werden können. Sicheres Löschen bedeutet, Daten so zu entfernen, dass sie mit vertretbarem Aufwand (auch forensisch) nicht mehr rekonstruierbar sind. Je nach Medium geschieht das z. B. durch verifizierbares Überschreiben, kryptografisches Löschen (Schlüsselvernichtung) oder physische Zerstörung (inklusive zugehöriger Metadaten, Caches und Datensicherungen).
@@ -312,6 +326,8 @@ Die Löschfristen ergeben sich aus gesetzlichen Aufbewahrungs- und Löschfristen
 <span class="sr-only" aria-hidden="true" data-pagefind-weight="10">BER.3.16</span>
 
 <ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="2" threats="G 0.36, G 0.30, G 0.32" threatsHint="G 0.36 – Identitätsdiebstahl · G 0.30 – Unberechtigte Nutzung oder Administration von Geräten und Systemen · G 0.32 – Missbrauch von Berechtigungen" tags={[{ name: "Insider Threat", slug: "insider-threat", hint: "Sicherheitsrisiko, das von Personen innerhalb einer Organisation ausgeht, die aufgrund ihres legitimen Zugriffs sensible Informationen missbrauchen oder Systeme schädigen können.", synonyms: "interne Bedrohung, Innentäter" }]} noTarget document={{ name: "IT-Betriebskonzept", slug: "it-betriebskonzept" }} />
+
+<p class="zusammenhang not-content" data-art="verwandt" data-pagefind-ignore><span>Verwandt laut Katalog:</span> <a href="/grundschutzpp/sens/#SENS.4.2" title="Mehrfachnutzung von Zugängen">SENS.4.2</a></p>
 
 > Berechtigung SOLLTE Gruppenkonten im Regelbetrieb untersagen.
 
@@ -425,6 +441,8 @@ Das Prinzip der geringsten Berechtigungen, im Englischen als Principle of Least 
 
 <ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="3" threats="G 0.36, G 0.30, G 0.32" threatsHint="G 0.36 – Identitätsdiebstahl · G 0.30 – Unberechtigte Nutzung oder Administration von Geräten und Systemen · G 0.32 – Missbrauch von Berechtigungen" noTarget document={{ name: "Inventar Berechtigungen", slug: "inventar-berechtigungen" }} />
 
+<p class="zusammenhang not-content" data-art="voraussetzung" data-pagefind-ignore><span>Voraussetzung laut Katalog:</span> <a href="/grundschutzpp/pers/#PERS.2.2" title="Rollen">PERS.2.2</a></p>
+
 > Berechtigung SOLLTE Berechtigungen rollenbasiert zuweisen.
 
 Aus Gründen der Nachvollziehbarkeit und des administrativen Aufwands wird die direkte Vergabe von Berechtigungen an Einzelkonten vermieden. Berechtigungen werden gemäß dem Least-Privilege-Prinzip in Rollen gebündelt, wobei die Zuweisung und der Entzug ausschließlich über diese Rollen erfolgt. Etwaige Ausnahmen, beispielsweise für temporäre Spezialrechte, werden restriktiv gehandhabt, nachvollziehbar dokumentiert und zeitlich befristet.
@@ -455,6 +473,8 @@ Mit „bestimmte Personen oder Rollen“ sind hier vorab festgelegte, nachvollzi
 
 <ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="3" threats="G 0.36, G 0.30, G 0.32" threatsHint="G 0.36 – Identitätsdiebstahl · G 0.30 – Unberechtigte Nutzung oder Administration von Geräten und Systemen · G 0.32 – Missbrauch von Berechtigungen" noTarget document={{ name: "Inventar Berechtigungen", slug: "inventar-berechtigungen" }} />
 
+<p class="zusammenhang not-content" data-art="voraussetzung_von" data-pagefind-ignore><span>Ist Voraussetzung für:</span> <a href="/grundschutzpp/ber/#BER.4.4.1" title="Überprüfung tatsächlicher Berechtigungen">BER.4.4.1</a></p>
+
 > Berechtigung SOLLTE die Vergabe von Berechtigungen und Änderungen an Berechtigungen mit einer Begründung dokumentieren.
 
 Zweck ist die Nachvollziehbarkeit der Vergabe von Berechtigungen. Die Dokumentation kann z.B. mit einem Identity-Access-Management oder Personalmanagementsystem automatisiert werden.
@@ -474,6 +494,8 @@ Erforderlichkeit bedeutet in diesem Kontext, dass eine vergebene Berechtigung nu
 <span class="sr-only" aria-hidden="true" data-pagefind-weight="10">BER.4.4.1</span>
 
 <ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="4" threats="G 0.36, G 0.30, G 0.32" threatsHint="G 0.36 – Identitätsdiebstahl · G 0.30 – Unberechtigte Nutzung oder Administration von Geräten und Systemen · G 0.32 – Missbrauch von Berechtigungen" noTarget document={{ name: "Inventar Berechtigungen", slug: "inventar-berechtigungen" }} />
+
+<p class="zusammenhang not-content" data-art="voraussetzung" data-pagefind-ignore><span>Voraussetzung laut Katalog:</span> <a href="/grundschutzpp/ber/#BER.4.3" title="Begründung von Berechtigungen">BER.4.3</a></p>
 
 > Berechtigung SOLLTE dokumentierte und tatsächlich vergebene Berechtigungen *[regelmäßig]* auf Übereinstimmung überprüfen.
 
@@ -515,6 +537,9 @@ Wenn ein besonders schützenswertes IT-System nur von einer Person oder Identit�
 
 <ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="3" threats="G 0.36, G 0.30, G 0.32" threatsHint="G 0.36 – Identitätsdiebstahl · G 0.30 – Unberechtigte Nutzung oder Administration von Geräten und Systemen · G 0.32 – Missbrauch von Berechtigungen" noTarget document={{ name: "IT-Betriebskonzept", slug: "it-betriebskonzept" }} />
 
+<p class="zusammenhang not-content" data-art="voraussetzung" data-pagefind-ignore><span>Voraussetzung laut Katalog:</span> <a href="/grundschutzpp/pers/#PERS.6.1" title="Vorgehensweise für den Weggang">PERS.6.1</a></p>
+<p class="zusammenhang not-content" data-art="verwandt" data-pagefind-ignore><span>Verwandt laut Katalog:</span> <a href="/grundschutzpp/pers/#PERS.6.1.1" title="Entzug von Berechtigungen gemäß BER">PERS.6.1.1</a></p>
+
 > Berechtigung SOLLTE eine Vorgehensweise zum Entzug von Berechtigungen verankern.
 
 Innerhalb der Institution ist ein Prozess etabliert, mit dem Berechtigungen system- und anwendungsübergreifend entzogen sowie Zugänge deaktiviert oder gelöscht werden, sobald diese nicht mehr benötigt werden. Dadurch wird sichergestellt, dass bei Personalwechseln oder Aufgabenänderungen keine Berechtigungen für einzelne Systeme oder Anwendungen bestehen bleiben. Der Entzug von Berechtigungen bei Kündigungen, Versetzungen oder Änderungen von Zuständigkeiten ist, soweit möglich, als automatisierter Ablauf umgesetzt.
@@ -526,6 +551,8 @@ Innerhalb der Institution ist ein Prozess etabliert, mit dem Berechtigungen syst
 <span class="sr-only" aria-hidden="true" data-pagefind-weight="10">BER.5.1</span>
 
 <ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="2" threats="G 0.36" threatsHint="G 0.36 – Identitätsdiebstahl" noTarget document={{ name: "IT-Betriebskonzept", slug: "it-betriebskonzept" }} predecessors={[{ oldId: "APP.4.2.A14-UA.2", relationship: "subset-of", link: "https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/06_APP_Anwendungen/APP_4_2_SAP_ERP_System_Edition_2023.pdf?__blob=publicationFile&v=4#download=1", vergleichHref: "/vergleich/app-4-2/" }]} />
+
+<p class="zusammenhang not-content" data-art="verwandt" data-pagefind-ignore><span>Verwandt laut Katalog:</span> <a href="/grundschutzpp/sens/#SENS.4.1.6" title="Keine Weitergabe personengebundener Authentisierungsmittel">SENS.4.1.6</a></p>
 
 > Berechtigung SOLLTE eine Vorgehensweise zur initialen Ausgabe oder Registrierung von Authentifizierungsmitteln und ihrer Zuordnung zu den vorgesehenen Zugangskonten oder Berechtigungsumfängen verankern.
 
@@ -567,6 +594,8 @@ Der Widerruf meint hier die gezielte Ungültigsetzung, Sperrung, Deaktivierung o
 
 <ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="3" threats="G 0.36" threatsHint="G 0.36 – Identitätsdiebstahl" tags={[{ name: "Cryptography", slug: "cryptography", hint: "Wissenschaft der Verschlüsselung von Informationen, um sie vor unbefugtem Zugriff zu schützen und sichere Kommunikation zu ermöglichen." }]} noTarget document={{ name: "IT-Betriebskonzept", slug: "it-betriebskonzept" }} />
 
+<p class="zusammenhang not-content" data-art="verwandt" data-pagefind-ignore><span>Verwandt laut Katalog:</span> <a href="/grundschutzpp/ber/#BER.7.1" title="Etablierte Algorithmen bei der Schlüsselerzeugung">BER.7.1</a>, <a href="/grundschutzpp/ber/#BER.7.6" title="Etablierte Algorithmen beim Transport">BER.7.6</a></p>
+
 > Berechtigung SOLLTE bei kryptografischen Authentifizierungsmitteln die ausschließliche Verwendung etablierter kryptografischer Algorithmen nach *[einem oder mehreren anerkannten Standards]* verankern.
 
 Kryptografische Authentifizierungsmittel sind Authentisierungsnachweise, deren Sicherheit wesentlich auf kryptografischen Verfahren beruht, etwa Passwort-Hashing, Zertifikate, Schlüsselpaare, Smartcards, Hardware-Token, Passkeys/FIDO2-Authentifikatoren, signaturbasierte API-Zugänge oder SSH-Schlüssel (engl. cryptographic authenticators). Etablierte kryptografische Algorithmen sind mathematisch fundierte Verschlüsselungsverfahren und Protokolle, die in der aktuellen Praxis nicht mit vertretbarem Aufwand gebrochen werden können, beispielsweise für Signaturen, Message Authentication Codes, Hashfunktionen, Schlüsselableitung oder authentisierte Verschlüsselung. Sie basieren auf mathematisch schwer lösbaren Problemen, bieten Resistenz gegen bekannte kryptanalytische Angriffe, unterstützen ausreichend große Schlüssellängen und wurden von Experten gründlich geprüft und analysiert. Aktuelle etablierte Algorithmen sind in BSI TR-02102 zu finden. Für weitere Details zur Implementierung siehe Detailspezifikation kryptografischer Abläufe und Mechanismen des BSI.
@@ -576,6 +605,8 @@ Kryptografische Authentifizierungsmittel sind Authentisierungsnachweise, deren S
 <span class="sr-only" aria-hidden="true" data-pagefind-weight="10">BER.5.5</span>
 
 <ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="3" threats="G 0.36, G 0.30" threatsHint="G 0.36 – Identitätsdiebstahl · G 0.30 – Unberechtigte Nutzung oder Administration von Geräten und Systemen" targets={[{ name: "IT-Systeme", slug: "it-systeme", hint: "Informationstechnische Systeme zur elektronischen Datenverarbeitung.", synonyms: "Computer, Computersystem" }]} inheritedTargets={["Hostsysteme", "Mobile Endgeräte"]} document={{ name: "IT-Betriebskonzept", slug: "it-betriebskonzept" }} />
+
+<p class="zusammenhang not-content" data-art="verwandt" data-pagefind-ignore><span>Verwandt laut Katalog:</span> <a href="/grundschutzpp/sens/#SENS.4.1.5" title="Biometrische Authentifikation">SENS.4.1.5</a></p>
 
 > Berechtigung für IT-Systeme SOLLTE die Authentifizierung nur anhand von Biometrie deaktivieren.
 
@@ -587,6 +618,8 @@ Wenn die Authentifizierung nur biometrisch vorgenommen wird (z.B. anhand von Fin
 
 <ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="1" threats="G 0.36, G 0.30" threatsHint="G 0.36 – Identitätsdiebstahl · G 0.30 – Unberechtigte Nutzung oder Administration von Geräten und Systemen" tags={[{ name: "Advanced Persistent Threats (APT)", slug: "advanced-persistent-threats-apt", hint: "Komplexe, gezielte und langfristige Cyberangriffe, bei denen Angreifer unbemerkt in einer Umgebung verbleiben, um Informationen auszuspähen oder Systeme zu manipulieren.", synonyms: "gezielter Angriff, staatlich gesteuerter Angreifer" }]} targets={[{ name: "IT-Systeme", slug: "it-systeme", hint: "Informationstechnische Systeme zur elektronischen Datenverarbeitung.", synonyms: "Computer, Computersystem" }]} inheritedTargets={["Hostsysteme", "Mobile Endgeräte"]} document={{ name: "IT-Betriebskonzept", slug: "it-betriebskonzept" }} />
 
+<p class="zusammenhang not-content" data-art="verwandt" data-pagefind-ignore><span>Verwandt laut Katalog:</span> <a href="/grundschutzpp/ber/#BER.5.7" title="Vorkonfigurierte Authentisierungsmittel von Anwendungen">BER.5.7</a></p>
+
 > Berechtigung für IT-Systeme SOLLTE vorkonfigurierte Authentisierungsmittel deaktivieren.
 
 Herstellerseitige Standardkonten und Default-Passwörter stellen ein beliebtes Eingangstor für Angreifer dar. Achten Sie hierbei nicht nur auf Passwörter, sondern auch auf andere Zugangsmittel wie Hardware-Zugangstoken, Zertifikate oder physische Zugangskontrollsysteme.
@@ -596,6 +629,8 @@ Herstellerseitige Standardkonten und Default-Passwörter stellen ein beliebtes E
 <span class="sr-only" aria-hidden="true" data-pagefind-weight="10">BER.5.7</span>
 
 <ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="1" threats="G 0.36, G 0.30" threatsHint="G 0.36 – Identitätsdiebstahl · G 0.30 – Unberechtigte Nutzung oder Administration von Geräten und Systemen" tags={[{ name: "Advanced Persistent Threats (APT)", slug: "advanced-persistent-threats-apt", hint: "Komplexe, gezielte und langfristige Cyberangriffe, bei denen Angreifer unbemerkt in einer Umgebung verbleiben, um Informationen auszuspähen oder Systeme zu manipulieren.", synonyms: "gezielter Angriff, staatlich gesteuerter Angreifer" }]} targets={[{ name: "Anwendungen", slug: "anwendungen", hint: "Eine Software, ein Computerprogramm oder ein Softwaredienst, der definierte fachliche oder technische Funktionen zur Verarbeitung, Bereitstellung oder Verwaltung von Informationen zur Verfügung stellt. Beispiele: Textverarbeitungen, Betriebssysteme, mobile Applikationen.", synonyms: "Apps" }]} inheritedTargets={["DNS-Server", "Dateiserver", "E-Mail", "Faxanwendungen", "Interpersonelle Kommunikation", "Office-Anwendungen", "TK-Anwendungen", "VK-Anwendungen", "Verzeichnisdienste", "Virtualisierungslösungen", "Webanwendungen", "Webbrowser", "Webserver"]} document={{ name: "IT-Betriebskonzept", slug: "it-betriebskonzept" }} />
+
+<p class="zusammenhang not-content" data-art="verwandt" data-pagefind-ignore><span>Verwandt laut Katalog:</span> <a href="/grundschutzpp/ber/#BER.5.6" title="Vorkonfigurierte Authentisierungsmittel von IT-Systemen">BER.5.6</a></p>
 
 > Berechtigung für Anwendungen SOLLTE vorkonfigurierte Authentisierungsmittel deaktivieren.
 
@@ -607,6 +642,8 @@ Herstellerseitige Standardkonten und Default-Passwörter stellen ein beliebtes E
 
 <ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="3" threats="G 0.36, G 0.30, G 0.42" threatsHint="G 0.36 – Identitätsdiebstahl · G 0.30 – Unberechtigte Nutzung oder Administration von Geräten und Systemen · G 0.42 – Social Engineering" tags={[{ name: "MFA", slug: "mfa", hint: "Multi-Faktor-Authentifizierung, ein Sicherheitsverfahren, das mindestens zwei unterschiedliche Authentifizierungsfaktoren (Wissen, Besitz, Inhärenz) erfordert, um Identitäten zuverlässiger zu verifizieren." }, { name: "Credential Stuffing", slug: "credential-stuffing", hint: "Cyberangriff, bei dem automatisiert gestohlene Benutzernamen und Passwörter auf verschiedenen Websites ausprobiert werden, um von Passwortwiederverwendung zu profitieren." }, { name: "Brute-Force-Attacke", slug: "brute-force-attacke", hint: "Angriff, bei dem Zugangsdaten oder kryptografische Schlüssel automatisiert durch massenhaftes Ausprobieren möglicher Werte ermittelt werden sollen." }]} targets={[{ name: "Anwendungen", slug: "anwendungen", hint: "Eine Software, ein Computerprogramm oder ein Softwaredienst, der definierte fachliche oder technische Funktionen zur Verarbeitung, Bereitstellung oder Verwaltung von Informationen zur Verfügung stellt. Beispiele: Textverarbeitungen, Betriebssysteme, mobile Applikationen.", synonyms: "Apps" }, { name: "Externe Netzanschlüsse", slug: "externe-netzanschluesse", hint: "Externe Netzanschlüsse sind die Übergänge in Netze außerhalb des Informationsverbundes. Beispiele: Internet-Uplinks, Leitungen zu Partnern/Dienstleistern, Cloud-Peering, VoIP-Anbindung, öffentliche Mobilfunk-/5G-Router. Teil von: Netze.", synonyms: "Internetanschluss" }]} inheritedTargets={["DNS-Server", "Dateiserver", "E-Mail", "Faxanwendungen", "Interpersonelle Kommunikation", "Office-Anwendungen", "TK-Anwendungen", "VK-Anwendungen", "Verzeichnisdienste", "Virtualisierungslösungen", "Webanwendungen", "Webbrowser", "Webserver"]} document={{ name: "IT-Betriebskonzept", slug: "it-betriebskonzept" }} />
 
+<p class="zusammenhang not-content" data-art="verwandt" data-pagefind-ignore><span>Verwandt laut Katalog:</span> <a href="/grundschutzpp/ber/#BER.5.9" title="Mehr-Faktor-Authentisierung für weitreichende Berechtigungen">BER.5.9</a>, <a href="/grundschutzpp/geb/#GEB.3.3" title="Authentifizierung vor Zutritt">GEB.3.3</a></p>
+
 > Berechtigung für Anwendungen von Externe Netzanschlüssen SOLLTE Phishing-resistente Mehr-Faktor-Authentisierung für alle Schnittstellen, auf die von Extern zugegriffen werden könnte, aktivieren.
 
 Phishing-resistente Mehr-Faktor-Authentisierung bezeichnet Verfahren zur Anmeldung, bei denen mindestens zwei unterschiedliche Faktoren genutzt werden und bei denen die Authentisierung zusätzlich gegen typische Angriffe wie Credential Phishing, Adversary-in-the-Middle-Angriffe oder die Wiederverwendung abgefangener Sitzungsdaten abgesichert ist. Phishing-resistente Verfahren basieren typischerweise auf kryptographischen Nachweisen zwischen Endgerät und Zielsystem und verhindern dadurch, dass einmal abgefragte Zugangsdaten oder Einmalcodes durch täuschend echte Anmeldeseiten weiterverwendet werden können, beispielsweise FIDO2 Passkeys. Hintergrund ist, dass aus externen Netzen wie dem Internet erreichbare Anwendungen (insbesondere die VPN-Einwahl oder Cloud-Anwendungen) ein beliebtes Ziel für Angreifer sind. Klassische Passwörter oder einfache Einmalcodes könnten durch Social Engineering, gefälschte Login-Portale oder Man-in-the-Browser-Angriffe ausgespäht werden.
@@ -616,6 +653,9 @@ Phishing-resistente Mehr-Faktor-Authentisierung bezeichnet Verfahren zur Anmeldu
 <span class="sr-only" aria-hidden="true" data-pagefind-weight="10">BER.5.9</span>
 
 <ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="2" threats="G 0.36, G 0.30" threatsHint="G 0.36 – Identitätsdiebstahl · G 0.30 – Unberechtigte Nutzung oder Administration von Geräten und Systemen" tags={[{ name: "MFA", slug: "mfa", hint: "Multi-Faktor-Authentifizierung, ein Sicherheitsverfahren, das mindestens zwei unterschiedliche Authentifizierungsfaktoren (Wissen, Besitz, Inhärenz) erfordert, um Identitäten zuverlässiger zu verifizieren." }, { name: "Living off the land", slug: "living-off-the-land", hint: "Angriffstechnik, bei der legitime, bereits im System vorhandene Tools und Prozesse für böswillige Zwecke genutzt werden, um Erkennung zu erschweren." }, { name: "Privilege Escalation", slug: "privilege-escalation", hint: "Ausweitung von Berechtigungen durch einen Angreifer oder Benutzer, um höhere Rechte zu erlangen als ursprünglich vorgesehen." }, { name: "Credential Stuffing", slug: "credential-stuffing", hint: "Cyberangriff, bei dem automatisiert gestohlene Benutzernamen und Passwörter auf verschiedenen Websites ausprobiert werden, um von Passwortwiederverwendung zu profitieren." }, { name: "Brute-Force-Attacke", slug: "brute-force-attacke", hint: "Angriff, bei dem Zugangsdaten oder kryptografische Schlüssel automatisiert durch massenhaftes Ausprobieren möglicher Werte ermittelt werden sollen." }]} noTarget document={{ name: "IT-Betriebskonzept", slug: "it-betriebskonzept" }} />
+
+<p class="zusammenhang not-content" data-art="voraussetzung" data-pagefind-ignore><span>Voraussetzung laut Katalog:</span> <a href="/grundschutzpp/ber/#BER.3.6" title="Privilegierte Zugangskonten">BER.3.6</a></p>
+<p class="zusammenhang not-content" data-art="verwandt" data-pagefind-ignore><span>Verwandt laut Katalog:</span> <a href="/grundschutzpp/ber/#BER.5.8" title="Mehr-Faktor-Authentisierung am Perimeter">BER.5.8</a></p>
 
 > Berechtigung SOLLTE Mehr-Faktor-Authentisierung für weitreichende Berechtigungen aktivieren.
 
@@ -679,6 +719,9 @@ Ein Authentifizierungsmittel gilt als kompromittiert, wenn Anzeichen bestehen, d
 
 <ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="2" threats="G 0.36, G 0.30, G 0.42" threatsHint="G 0.36 – Identitätsdiebstahl · G 0.30 – Unberechtigte Nutzung oder Administration von Geräten und Systemen · G 0.42 – Social Engineering" tags={[{ name: "Password Policy", slug: "password-policy", hint: "Vorgaben für Erstellung, Nutzung, Änderung und Schutz von Passwörtern, um die Sicherheit von Benutzerkonten zu erhöhen.", synonyms: "Passwortrichtlinie, Passwortregeln" }]} targets={[{ name: "Nutzende", slug: "nutzende", hint: "Alle natürlichen Personen, welche regelmäßig die Assets  im Informationsverbund für die Institution benutzen können, unabhängig davon ob sie aus Sicht der Institution intern oder extern sind. Beispiele: externe Berater.", synonyms: "Nutzer, User" }]} inheritedTargets={["Administrierende", "Führungskräfte", "Institutionsleitung", "Mitarbeitende"]} document={{ name: "IT-Betriebskonzept", slug: "it-betriebskonzept" }} />
 
+<p class="zusammenhang not-content" data-art="voraussetzung_von" data-pagefind-ignore><span>Ist Voraussetzung für:</span> <a href="/grundschutzpp/sens/#SENS.4.1.4" title="Passwörter nur im Passwortmanager">SENS.4.1.4</a></p>
+<p class="zusammenhang not-content" data-art="verwandt" data-pagefind-ignore><span>Verwandt laut Katalog:</span> <a href="/grundschutzpp/sens/#SENS.4.1.4" title="Passwörter nur im Passwortmanager">SENS.4.1.4</a></p>
+
 > Berechtigung für Nutzende SOLLTE einen Passwortmanager installieren.
 
 Der Einsatz eines Passwortmanagers, der von der Institution den Nutzenden zur Verfügung gestellt wird, erleichtert die Generierung von sicheren Passwörtern und deren sicherer Verwahrung, indem eine verschlüsselte Datenbank genutzt wird und der Zugang zu dem Passwortmanager mit einem Masterpasswort oder Multi-Faktor Authentisierung geschützt ist.
@@ -708,6 +751,9 @@ Trivialpasswörter sind leicht zu erratende oder zu diesem Zugangskonto bereits 
 <span class="sr-only" aria-hidden="true" data-pagefind-weight="10">BER.6.4</span>
 
 <ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="3" threats="G 0.36, G 0.30" threatsHint="G 0.36 – Identitätsdiebstahl · G 0.30 – Unberechtigte Nutzung oder Administration von Geräten und Systemen" tags={[{ name: "Privilege Escalation", slug: "privilege-escalation", hint: "Ausweitung von Berechtigungen durch einen Angreifer oder Benutzer, um höhere Rechte zu erlangen als ursprünglich vorgesehen." }, { name: "Credential Stuffing", slug: "credential-stuffing", hint: "Cyberangriff, bei dem automatisiert gestohlene Benutzernamen und Passwörter auf verschiedenen Websites ausprobiert werden, um von Passwortwiederverwendung zu profitieren." }, { name: "Brute-Force-Attacke", slug: "brute-force-attacke", hint: "Angriff, bei dem Zugangsdaten oder kryptografische Schlüssel automatisiert durch massenhaftes Ausprobieren möglicher Werte ermittelt werden sollen." }, { name: "Password Policy", slug: "password-policy", hint: "Vorgaben für Erstellung, Nutzung, Änderung und Schutz von Passwörtern, um die Sicherheit von Benutzerkonten zu erhöhen.", synonyms: "Passwortrichtlinie, Passwortregeln" }, { name: "Cryptography", slug: "cryptography", hint: "Wissenschaft der Verschlüsselung von Informationen, um sie vor unbefugtem Zugriff zu schützen und sichere Kommunikation zu ermöglichen." }]} noTarget document={{ name: "IT-Betriebskonzept", slug: "it-betriebskonzept" }} />
+
+<p class="zusammenhang not-content" data-art="voraussetzung_von" data-pagefind-ignore><span>Ist Voraussetzung für:</span> <a href="/grundschutzpp/sens/#SENS.4.1.3" title="Wahl von Passwörtern">SENS.4.1.3</a></p>
+<p class="zusammenhang not-content" data-art="verwandt" data-pagefind-ignore><span>Verwandt laut Katalog:</span> <a href="/grundschutzpp/sens/#SENS.4.1.3" title="Wahl von Passwörtern">SENS.4.1.3</a></p>
 
 > Berechtigung SOLLTE Kriterien für die Qualität von Passwörtern anhand von Lebensdauer und Angriffsmöglichkeiten verankern.
 
@@ -741,6 +787,8 @@ Eine Kompromittierung meint hier, dass Zugangsdaten wie Benutzername und Passwor
 
 <ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="2" threats="G 0.36" threatsHint="G 0.36 – Identitätsdiebstahl" tags={[{ name: "Cryptography", slug: "cryptography", hint: "Wissenschaft der Verschlüsselung von Informationen, um sie vor unbefugtem Zugriff zu schützen und sichere Kommunikation zu ermöglichen." }]} noTarget document={{ name: "IT-Betriebskonzept", slug: "it-betriebskonzept" }} predecessors={[{ oldId: "CON.1.A1-UA.1", relationship: "intersects-with", link: "https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/03_CON_Konzepte_und_Vorgehensweisen/CON_1_Kryptokonzept_Edition_2023.pdf?__blob=publicationFile&v=3#download=1", vergleichHref: "/vergleich/con-1/" }]} />
 
+<p class="zusammenhang not-content" data-art="verwandt" data-pagefind-ignore><span>Verwandt laut Katalog:</span> <a href="/grundschutzpp/ber/#BER.5.4" title="Nur etablierte Kryptographie">BER.5.4</a></p>
+
 > Berechtigung SOLLTE die ausschließliche Verwendung etablierter kryptografischer Algorithmen bei der Schlüsselerzeugung nach *[einem anerkannten Standard]* verankern.
 
 Etablierte kryptografische Algorithmen sind mathematisch fundierte Verschlüsselungsverfahren und Protokolle, die in der aktuellen Praxis nicht mit vertretbarem Aufwand gebrochen werden können. Sie basieren auf mathematisch schwer lösbaren Problemen, bieten Resistenz gegen bekannte kryptanalytische Angriffe, unterstützen ausreichend große Schlüssellängen und wurden von Experten gründlich geprüft und analysiert. Aktuelle etablierte Algorithmen sind in BSI TR-02102 zu finden. Für weitere Details zur Implementierung siehe Detailspezifikation kryptografischer Abläufe und Mechanismen des BSI.
@@ -760,6 +808,8 @@ Für die Sicherheit von Schlüsseln wie Passwörter oder PINs ist die Länge von
 <span class="sr-only" aria-hidden="true" data-pagefind-weight="10">BER.7.3</span>
 
 <ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="3" threats="G 0.36" threatsHint="G 0.36 – Identitätsdiebstahl" tags={[{ name: "Cryptography", slug: "cryptography", hint: "Wissenschaft der Verschlüsselung von Informationen, um sie vor unbefugtem Zugriff zu schützen und sichere Kommunikation zu ermöglichen." }]} noTarget document={{ name: "Verzeichnis öffentlicher Schlüssel", slug: "verzeichnis-oeffentlicher-schluessel" }} />
+
+<p class="zusammenhang not-content" data-art="voraussetzung_von" data-pagefind-ignore><span>Ist Voraussetzung für:</span> <a href="/grundschutzpp/ber/#BER.7.16.5" title="Beglaubigungsstatus">BER.7.16.5</a>, <a href="/grundschutzpp/ber/#BER.7.16.6" title="Revocationstatus">BER.7.16.6</a></p>
 
 > Berechtigung SOLLTE zu jedem öffentlichen Schlüssel die dazugehörige Identität, das Ablaufdatum, den Nutzungszweck, die Schlüsselart und den Algorithmus bei der Schlüsselbeglaubigung dokumentieren.
 
@@ -781,6 +831,8 @@ Wird ein Schlüssel auf einem System erzeugt, dass einen geringeren Schutz biete
 
 <ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="3" threats="G 0.36" threatsHint="G 0.36 – Identitätsdiebstahl" tags={[{ name: "Cryptography", slug: "cryptography", hint: "Wissenschaft der Verschlüsselung von Informationen, um sie vor unbefugtem Zugriff zu schützen und sichere Kommunikation zu ermöglichen." }]} noTarget document={{ name: "IT-Betriebskonzept", slug: "it-betriebskonzept" }} />
 
+<p class="zusammenhang not-content" data-art="voraussetzung_von" data-pagefind-ignore><span>Ist Voraussetzung für:</span> <a href="/grundschutzpp/sens/#SENS.4.1" title="Personengebundene Authentisierungsmittel">SENS.4.1</a></p>
+
 > Berechtigung SOLLTE *[Kriterien]* für die Qualität von Zufallszahlen bei der Schlüsselerzeugung verankern.
 
 Wenn bei der Schlüsselerzeugung ein ungeeigneter Zufallszahlengenerator verwendet wird, könnte ein Angreifer Schlüssel errechnen. Daher sind Kriterien für Zufallszahlengeneratoren zu wählen, z.B. Verwendung etablierter, durch unabängige Dritte geprüfter Zufallszahlengeneratoren. Für Details siehe BSI TR-02102-1. Wichtig ist dabei auch, dass die verwendete Zufallsquelle tatsächlich eine nicht vorhersagbare Zahlenerzeugung erreicht. Inbesondere virtualisierte Systeme könnten ungeeignet sein zur Schlüsselerzeugung, da ihre Zufallszahlenquellen nicht direkt auf Hardwarefunktionen zurückgreifen.
@@ -790,6 +842,8 @@ Wenn bei der Schlüsselerzeugung ein ungeeigneter Zufallszahlengenerator verwend
 <span class="sr-only" aria-hidden="true" data-pagefind-weight="10">BER.7.6</span>
 
 <ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="2" threats="G 0.36" threatsHint="G 0.36 – Identitätsdiebstahl" tags={[{ name: "Cryptography", slug: "cryptography", hint: "Wissenschaft der Verschlüsselung von Informationen, um sie vor unbefugtem Zugriff zu schützen und sichere Kommunikation zu ermöglichen." }]} noTarget document={{ name: "IT-Betriebskonzept", slug: "it-betriebskonzept" }} />
+
+<p class="zusammenhang not-content" data-art="verwandt" data-pagefind-ignore><span>Verwandt laut Katalog:</span> <a href="/grundschutzpp/ber/#BER.5.4" title="Nur etablierte Kryptographie">BER.5.4</a></p>
 
 > Berechtigung SOLLTE die ausschließliche Verwendung etablierter kryptografischer Algorithmen beim Transport geheimer Schlüssel verankern.
 
@@ -881,6 +935,8 @@ Wird die Gültigkeit von Schlüsseln vor dem Auslaufen nicht überwacht, so kön
 
 <ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="3" threats="G 0.19, G 0.22, G 0.36" threatsHint="G 0.19 – Offenlegung schützenswerter Informationen · G 0.22 – Manipulation von Informationen · G 0.36 – Identitätsdiebstahl" tags={[{ name: "Cryptography", slug: "cryptography", hint: "Wissenschaft der Verschlüsselung von Informationen, um sie vor unbefugtem Zugriff zu schützen und sichere Kommunikation zu ermöglichen." }]} noTarget document={{ name: "Verzeichnis öffentlicher Schlüssel", slug: "verzeichnis-oeffentlicher-schluessel" }} />
 
+<p class="zusammenhang not-content" data-art="verwandt" data-pagefind-ignore><span>Verwandt laut Katalog:</span> <a href="/grundschutzpp/asst/#ASST.7.3.2" title="Löschverfahren">ASST.7.3.2</a></p>
+
 > Berechtigung SOLLTE eine Vorgehensweise zur Außerbetriebnahme geheimer Schlüssel , sobald sie nicht mehr benötigt werden, verankern.
 
 Werden Schlüssen nicht mehr benötigt, so ist es sinnvoll diese im Einklang mit den Anforderungen zur Löschung von Informationen außer Betrieb zu nehmen. Hierbei ist zu beachten, dass bei einem Schlüsselwechsel verschlüsselte Daten entschlüsselt und erneut verschlüsselt werden. Flüchtige Schlüssel sind nach der Sitzung umgehend zu löschen.
@@ -890,6 +946,8 @@ Werden Schlüssen nicht mehr benötigt, so ist es sinnvoll diese im Einklang mit
 <span class="sr-only" aria-hidden="true" data-pagefind-weight="10">BER.7.16</span>
 
 <ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="3" threats="G 0.36" threatsHint="G 0.36 – Identitätsdiebstahl" tags={[{ name: "Cryptography", slug: "cryptography", hint: "Wissenschaft der Verschlüsselung von Informationen, um sie vor unbefugtem Zugriff zu schützen und sichere Kommunikation zu ermöglichen." }]} noTarget document={{ name: "IT-Betriebskonzept", slug: "it-betriebskonzept" }} />
+
+<p class="zusammenhang not-content" data-art="voraussetzung_von" data-pagefind-ignore><span>Ist Voraussetzung für:</span> <a href="/grundschutzpp/ber/#BER.7.16.2" title="Beglaubigung">BER.7.16.2</a>, <a href="/grundschutzpp/ber/#BER.7.16.3" title="Erneuerung">BER.7.16.3</a>, <a href="/grundschutzpp/ber/#BER.7.16.4" title="Revocation">BER.7.16.4</a></p>
 
 > Berechtigung SOLLTE Vorgaben für die Schlüsselbeglaubigung verankern.
 
@@ -911,6 +969,8 @@ Die Beglaubigung von Schlüsseln ist technisch komplex. Gleichzeitig hängt von 
 
 <ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="4" threats="G 0.36, G 0.19, G 0.22" threatsHint="G 0.36 – Identitätsdiebstahl · G 0.19 – Offenlegung schützenswerter Informationen · G 0.22 – Manipulation von Informationen" tags={[{ name: "Cryptography", slug: "cryptography", hint: "Wissenschaft der Verschlüsselung von Informationen, um sie vor unbefugtem Zugriff zu schützen und sichere Kommunikation zu ermöglichen." }]} noTarget document={{ name: "IT-Betriebskonzept", slug: "it-betriebskonzept" }} />
 
+<p class="zusammenhang not-content" data-art="voraussetzung" data-pagefind-ignore><span>Voraussetzung laut Katalog:</span> <a href="/grundschutzpp/ber/#BER.7.16" title="Vorgaben für die Schlüsselbeglaubigung">BER.7.16</a></p>
+
 > Berechtigung SOLLTE den Schlüssel anhand der Vorgaben für die Schlüsselbeglaubigung bei Beantragung einer Beglaubigung testen.
 
 Schlüsselbeglaubigung (engl. key certification) ist der kryptographische Nachweis, dass ein kryptographischer Schlüssel echt, unverändert und einer berechtigten Identität eindeutig zugeordnet ist. Der Schlüsseltest vor der Beglaubigung dient dazu, sicherzustellen, dass der einzureichende Schlüssel die festgelegten technischen und organisatorischen Vorgaben für die Genehmigung der Beglaubigung erfüllt – etwa hinsichtlich Schlüssellänge, Algorithmuskompatibilität oder Integrität der Schlüsseldaten. Solche Prüfungen können die korrekte Formatierung, die Funktionsfähigkeit innerhalb der vorgesehenen Kryptosysteme sowie den Abgleich mit vertrauenswürdigen Referenzen umfassen. Ziel ist die Gewährleistung, dass keine fehlerhaften, kompromittierten oder absichtlich manipulierten Schlüssel in eine Vertrauenskette eingebracht werden. Diese Vorgabe kann das Risiko reduzieren, dass fehlerhafte oder bösartig erzeugte Schlüssel zu einer Täuschung über die Identität oder zu unbemerkten Datenmanipulationen führen könnte. Ebenso kann sie verhindern, dass ein unzureichend geprüfter Schlüssel später als gültig angesehen wird, obwohl er kompromittiert ist. Eine konsequente Umsetzung kann die Integrität kryptographischer Infrastrukturen stärken und die Vertrauenswürdigkeit digitaler Signaturen, Authentifizierungen und Verschlüsselungsprozesse sichern. In der Praxis kann dies etwa durch automatisierte Validierungsroutinen in einer Public-Key-Infrastruktur (PKI), durch den Einsatz spezialisierter HSM-Testwerkzeuge oder durch manuelle Prüfung anhand festgelegter Zertifizierungsrichtlinien erfolgen.
@@ -920,6 +980,8 @@ Schlüsselbeglaubigung (engl. key certification) ist der kryptographische Nachwe
 <span class="sr-only" aria-hidden="true" data-pagefind-weight="10">BER.7.16.3</span>
 
 <ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="4" threats="G 0.36" threatsHint="G 0.36 – Identitätsdiebstahl" tags={[{ name: "Cryptography", slug: "cryptography", hint: "Wissenschaft der Verschlüsselung von Informationen, um sie vor unbefugtem Zugriff zu schützen und sichere Kommunikation zu ermöglichen." }]} noTarget document={{ name: "IT-Betriebskonzept", slug: "it-betriebskonzept" }} />
+
+<p class="zusammenhang not-content" data-art="voraussetzung" data-pagefind-ignore><span>Voraussetzung laut Katalog:</span> <a href="/grundschutzpp/ber/#BER.7.16" title="Vorgaben für die Schlüsselbeglaubigung">BER.7.16</a></p>
 
 > Berechtigung SOLLTE den Schlüssel anhand der Vorgaben für die Schlüsselbeglaubigung bei Erneuerung einer Beglaubigung testen.
 
@@ -931,6 +993,8 @@ Die Erneuerung einer Beglaubigung beschreibt den Vorgang, bei dem ein ablaufende
 
 <ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="4" threats="G 0.19, G 0.22, G 0.36" threatsHint="G 0.19 – Offenlegung schützenswerter Informationen · G 0.22 – Manipulation von Informationen · G 0.36 – Identitätsdiebstahl" tags={[{ name: "Cryptography", slug: "cryptography", hint: "Wissenschaft der Verschlüsselung von Informationen, um sie vor unbefugtem Zugriff zu schützen und sichere Kommunikation zu ermöglichen." }]} noTarget document={{ name: "IT-Betriebskonzept", slug: "it-betriebskonzept" }} />
 
+<p class="zusammenhang not-content" data-art="voraussetzung" data-pagefind-ignore><span>Voraussetzung laut Katalog:</span> <a href="/grundschutzpp/ber/#BER.7.16" title="Vorgaben für die Schlüsselbeglaubigung">BER.7.16</a></p>
+
 > Berechtigung SOLLTE den Schlüssel anhand der Vorgaben für die Schlüsselbeglaubigung bei Revocation einer Beglaubigung testen.
 
 Die Revocation einer Beglaubigung (engl. revocation of attestation) ist die nachträgliche Ungültigerklärung einer solchen Bestätigung, beispielsweise durch Sperrung eines Zertifikats mittels Certificate Revocation List (CRL) oder Online Certificate Status Protocol (OCSP). Das Testen des Schlüssels anhand der Vorgaben für die Schlüsselbeglaubigung bedeutet hier, dass geprüft wird, ob die festgelegten Vorgaben für die Revocation erfüllt sind. Damit wird sichergestellt, dass der Widerruf einer Beglaubigung nur bei Vorliegen der Voraussetzungen angestoßen wird und dann technisch und organisatorisch korrekt umgesetzt und im Systemverhalten nachvollziehbar berücksichtigt wird, etwa durch sofortige Ungültigkeitserklärung oder Sperrung des betreffenden Schlüssels. Der Zweck dieser Vorgabe liegt darin, unzulässige oder verfrühte Revocations ebenso zu vermeiden wie verspätete oder unvollständige Umsetzungen, die zu Sicherheitslücken führen könnten. Wird die Prüfung der Revocation-Vorgaben fehlerhaft oder unvollständig durchgeführt, könnte ein gültiger Schlüssel fälschlich gesperrt werden oder ein tatsächlich kompromittierter Schlüssel weiter im Einsatz bleiben. Eine konsequente Umsetzung kann dagegen gewährleisten, dass der Widerruf von Beglaubigungen nur im vorgesehenen Rahmen erfolgt, die Integrität des Vertrauensmodells erhalten bleibt und alle abhängigen Systeme den neuen Status korrekt übernehmen. Praktisch kann dies durch automatisierte Regelprüfungen in Zertifikatsverwaltungsdiensten, durch Ereignisprotokollierung in Key Management Services (KMS) oder durch Hardware-Sicherheitsmodule (HSM) umgesetzt werden, die Revocation-Bedingungen strikt validieren, bevor Änderungen am Schlüsselstatus ausgeführt werden.
@@ -941,6 +1005,8 @@ Die Revocation einer Beglaubigung (engl. revocation of attestation) ist die nach
 
 <ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="3" threats="G 0.36" threatsHint="G 0.36 – Identitätsdiebstahl" tags={[{ name: "Cryptography", slug: "cryptography", hint: "Wissenschaft der Verschlüsselung von Informationen, um sie vor unbefugtem Zugriff zu schützen und sichere Kommunikation zu ermöglichen." }]} noTarget document={{ name: "Verzeichnis öffentlicher Schlüssel", slug: "verzeichnis-oeffentlicher-schluessel" }} />
 
+<p class="zusammenhang not-content" data-art="voraussetzung" data-pagefind-ignore><span>Voraussetzung laut Katalog:</span> <a href="/grundschutzpp/ber/#BER.7.3" title="Verzeichnis öffentlicher Schlüssel">BER.7.3</a></p>
+
 > Berechtigung SOLLTE den Beglaubigungsstatus des Schlüssels im Verzeichnis öffentlicher Schlüssel dokumentieren.
 
 Der Beglaubigungsstatus erfasst, ob der Schlüssel von der Beglaubigungs- oder Zertifizierungsstelle der Institution beglaubigt wurde.
@@ -950,6 +1016,8 @@ Der Beglaubigungsstatus erfasst, ob der Schlüssel von der Beglaubigungs- oder Z
 <span class="sr-only" aria-hidden="true" data-pagefind-weight="10">BER.7.16.6</span>
 
 <ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="3" threats="G 0.36" threatsHint="G 0.36 – Identitätsdiebstahl" tags={[{ name: "Cryptography", slug: "cryptography", hint: "Wissenschaft der Verschlüsselung von Informationen, um sie vor unbefugtem Zugriff zu schützen und sichere Kommunikation zu ermöglichen." }]} noTarget document={{ name: "Verzeichnis öffentlicher Schlüssel", slug: "verzeichnis-oeffentlicher-schluessel" }} />
+
+<p class="zusammenhang not-content" data-art="voraussetzung" data-pagefind-ignore><span>Voraussetzung laut Katalog:</span> <a href="/grundschutzpp/ber/#BER.7.3" title="Verzeichnis öffentlicher Schlüssel">BER.7.3</a></p>
 
 > Berechtigung SOLLTE den Revocationstatus des Schlüssels im Verzeichnis öffentlicher Schlüssel dokumentieren.
 

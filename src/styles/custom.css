@@ -1577,3 +1577,21 @@ site-search dialog::backdrop {
 		scroll-behavior: auto !important;
 	}
 }
+
+
+/* Verweise zwischen Anforderungen (Voraussetzung, verwandt) unter den Kennzeichen, vom Generator geschrieben. */
+.zusammenhang {
+	margin: 0.15rem 0 0.35rem;
+	font-size: var(--sl-text-xs);
+	line-height: 1.6;
+	color: var(--sl-color-gray-2);
+}
+.zusammenhang > span {
+	font-weight: 600;
+	margin-inline-end: 0.25em;
+}
+.zusammenhang a {
+	font-family: 'JetBrains Mono Variable', ui-monospace, monospace;
+	color: var(--sl-color-text-accent);
+	white-space: nowrap;
+}

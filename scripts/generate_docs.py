@@ -864,6 +864,61 @@ def heading_anchor(id_):
     return f"{{#{id_}}}"
 
 
+# Verweise zwischen Anforderungen laut Katalog (OSCAL "links"): rel "required" = Voraussetzung, rel "related" =
+# verwandt. Gefuellt in main(), gelesen in render_control() (ADR-0015).
+ZUSAMMENHANG = {}
+CONTROL_INDEX = {}  # control-id -> {slug, title}, gesetzt in main() (render_control hat ihn nicht als Parameter)
+
+
+def build_zusammenhang(catalog):
+    """control-id -> {"voraussetzung": [ids], "voraussetzung_von": [ids], "verwandt": [ids]}.
+
+    "voraussetzung" und "verwandt" stehen so im Katalog (Verweis von dieser Anforderung aus). "voraussetzung_von"
+    ist die Gegenrichtung von "required". "verwandt" zeigt beide Richtungen von "related": der Katalog nennt
+    nur 96 von 210 Verweisen auch in der Gegenrichtung, "verwandt" ist aber seiner Natur nach gegenseitig."""
+    out = {}
+
+    def eintrag(cid):
+        return out.setdefault(cid, {"voraussetzung": set(), "voraussetzung_von": set(), "verwandt": set()})
+
+    for control in collect_controls(catalog):
+        cid = control["id"]
+        for link in control.get("links", []) or []:
+            ziel = link.get("href", "").lstrip("#")
+            if link.get("rel") == "required":
+                eintrag(cid)["voraussetzung"].add(ziel)
+                eintrag(ziel)["voraussetzung_von"].add(cid)
+            elif link.get("rel") == "related":
+                eintrag(cid)["verwandt"].add(ziel)
+                eintrag(ziel)["verwandt"].add(cid)
+    return {cid: {k: sorted(v, key=natural_id_key) for k, v in e.items()} for cid, e in out.items()}
+
+
+ZUSAMMENHANG_ARTEN = (
+    ("voraussetzung", "Voraussetzung laut Katalog"),
+    ("voraussetzung_von", "Ist Voraussetzung für"),
+    ("verwandt", "Verwandt laut Katalog"),
+)
+
+
+def render_zusammenhang(control_id, control_index):
+    """Zeilen unter den Kennzeichen einer Anforderung: Voraussetzungen, wofuer sie Voraussetzung ist, Verwandte."""
+    eintrag = ZUSAMMENHANG.get(control_id)
+    if not eintrag:
+        return None
+    zeilen = []
+    for art, titel in ZUSAMMENHANG_ARTEN:
+        ids = eintrag[art]
+        if not ids:
+            continue
+        links = ", ".join(
+            f'<a href="/grundschutzpp/{control_index[i]["slug"]}/#{i}" title="{attr_escape(control_index[i]["title"])}">{i}</a>'
+            for i in ids
+        )
+        zeilen.append(f'<p class="zusammenhang not-content" data-art="{art}" data-pagefind-ignore><span>{titel}:</span> {links}</p>\n')
+    return "".join(zeilen) or None
+
+
 def render_control(control, level, params_by_id, basethreats_by_id, tags_by_id, predecessor_index, baustein_links):
     heading = "#" * min(level, 6)
     # {#...} setzt die Anker-ID explizit statt sie Starlights Auto-Slug zu
@@ -890,6 +945,9 @@ def render_control(control, level, params_by_id, basethreats_by_id, tags_by_id, 
     meta = render_control_meta(control, basethreats_by_id, tags_by_id, predecessor_index, baustein_links)
     if meta:
         lines.append(meta)
+    zusammenhang = render_zusammenhang(control["id"], CONTROL_INDEX)
+    if zusammenhang:
+        lines.append(zusammenhang)
 
     statement = substitute_params(part_text(control, "statement"), params_by_id)
     if statement:
@@ -3973,6 +4031,50 @@ def check_zielobjekte(catalog):
     print(f"Zielobjekt-Seiten ok: {len(seiten)} Seiten, je Teil gegen den Rohkatalog und die Export-CSV nachgerechnet")
 
 
+def check_zusammenhang(catalog):
+    """Liest die Praktikseiten zurueck und rechnet die Verweise (Voraussetzung, verwandt) gegen den Rohtext des
+    Katalogs nach -- mit eigenem Code, nicht mit build_zusammenhang(), das die Seiten erzeugt hat."""
+    problems = []
+    roh = json.loads(CATALOG_FILE.read_text())["catalog"]
+    vor, vor_von, verw = {}, {}, {}
+
+    def walk(node):
+        for c in node.get("controls", []) or []:
+            for l in c.get("links", []) or []:
+                ziel = l["href"].lstrip("#")
+                if l["rel"] == "required":
+                    vor.setdefault(c["id"], set()).add(ziel)
+                    vor_von.setdefault(ziel, set()).add(c["id"])
+                elif l["rel"] == "related":
+                    verw.setdefault(c["id"], set()).add(ziel)
+                    verw.setdefault(ziel, set()).add(c["id"])
+            walk(c)
+        for g in node.get("groups", []) or []:
+            walk(g)
+
+    walk(roh)
+    gefunden = {"voraussetzung": {}, "voraussetzung_von": {}, "verwandt": {}}
+    ueberschrift = re.compile(r"^#{3,6} ([A-Z]+(?:\.[0-9]+)+) – .*\{#\1\}\s*$", re.M)
+    for datei in sorted(OUT_DIR.glob("*.mdx")):
+        text = datei.read_text()
+        treffer = list(ueberschrift.finditer(text))
+        for i, m in enumerate(treffer):
+            ende = treffer[i + 1].start() if i + 1 < len(treffer) else len(text)
+            block = text[m.end():ende]
+            for art, inhalt in re.findall(r'<p class="zusammenhang[^"]*" data-art="([a-z_]+)"[^>]*>(.*?)</p>', block):
+                gefunden[art][m.group(1)] = set(re.findall(r'href="/grundschutzpp/[a-z]+/#([A-Z0-9.]+)"', inhalt))
+    for art, erwartet in (("voraussetzung", vor), ("voraussetzung_von", vor_von), ("verwandt", verw)):
+        if gefunden[art] != {k: v for k, v in erwartet.items() if v}:
+            problems.append(f"{art}: die Seiten weichen vom Katalogtext ab ({len(gefunden[art])} Anforderungen statt {len(erwartet)})")
+    if problems:
+        raise SystemExit("Verweise zwischen Anforderungen weichen vom Katalog ab:\n  " + "\n  ".join(problems))
+    paare = len({tuple(sorted((a, b))) for a, v in verw.items() for b in v})
+    print(
+        f"Verweise ok: {sum(len(v) for v in vor.values())} Voraussetzungen, {paare} verwandte Paare, "
+        "je Anforderung gegen den Rohkatalog nachgerechnet"
+    )
+
+
 def check_gefaehrdungen(catalog):
     """Liest die erzeugten Gefaehrdungs-Seiten zurueck und rechnet gegen den Rohtext des Katalogs
     (nicht gegen collect_controls(), das die Seiten selbst nutzen): Welche Anforderungen nennt der Katalog
@@ -4658,6 +4760,8 @@ def main():
     src = catalog_source(catalog)
     params_by_id = build_params_index(catalog)
     control_index = build_control_index(catalog)
+    CONTROL_INDEX.update(control_index)
+    ZUSAMMENHANG.update(build_zusammenhang(catalog))
     basethreats_by_id = load_basethreats()
     tags_by_id = load_tags()
     TARGETS.update(load_targets())
@@ -4839,6 +4943,7 @@ def main():
     check_zielobjekte(catalog)
     check_dokumente(catalog)
     check_gefaehrdungen(catalog)
+    check_zusammenhang(catalog)
     check_sync_paths()
     check_handwritten_numbers(catalog, mapping_data, stats)
     check_changelog(

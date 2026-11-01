@@ -55,6 +55,9 @@ translated.
   BSI hierarchy (39): the requirements that apply directly, and those inherited
   from the categories above (STM.2.1.4.1), with the BSI's synonyms and examples
   to find a category by the word you use for your system
+- **Links between requirements** — under the labels of each requirement: the prerequisite(s) the catalog names
+  (`required`), what it is a prerequisite for, and related requirements (`related`, both directions), each with a link
+  (see adr/0015). The catalog gives no order of implementation; the pages don't suggest one.
 - **Threats** (`/gefaehrdungen/`) — one page per elementary threat (G 0.x) with the BSI definition verbatim
   (with source), the requirements the catalog assigns to it, and a split by practice and modal verb; the
   "Gefährdungen" pill on each requirement links there. The pages say that the assignment is not a risk assessment
@@ -211,7 +214,7 @@ before that the catalog lived at a different path in the BSI repository.
 **The generator refuses to write something wrong.** After a run it checks the
 numbers on the pages (`check_invariants()`), the export files
 (`check_export()`), the target object pages (`check_zielobjekte()`), the document
-pages (`check_dokumente()`), the threat pages (`check_gefaehrdungen()`) and the changelog (`check_changelog()`) against the source,
+pages (`check_dokumente()`), the threat pages (`check_gefaehrdungen()`), the links between requirements (`check_zusammenhang()`) and the changelog (`check_changelog()`) against the source,
 each recomputed by a second path that does not reuse the code that produced the
 value (for the changelog it reads the same git history, but flattens the whole
 tree instead of picking fields). The rule and the incident behind it are in `CONTRIBUTING.md`
