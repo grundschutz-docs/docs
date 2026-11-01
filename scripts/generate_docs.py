@@ -3422,6 +3422,10 @@ def render_source_block(src, praktik_id=None):
         "Anforderung <em>&lt;ID&gt;</em> — wobei die ID die Kennung neben "
         "der jeweiligen Überschrift ist, etwa <code>GC.5.1.1</code>. "
         "Sie bleibt stabil, auch wenn das BSI eine Formulierung ändert.</p>\n"
+        "<p><strong>Kurzlink:</strong> "
+        f"<code>{EXPORT_SITE_URL.split('://', 1)[-1]}/GC.5.1.1</code> führt direkt zur Anforderung, "
+        "für Tickets, Wikis und Audit-Dokumente. Der Knopf „Kurzlink“ bei den Kennzeichen jeder Anforderung "
+        "kopiert ihn mit Titel und Katalogstand. Die ID muss groß geschrieben sein.</p>\n"
         "</details>\n"
         + ("<KennzeichenLegende />\n" if praktik_id else "")
         + "</div>\n\n"

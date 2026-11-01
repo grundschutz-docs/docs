@@ -172,6 +172,39 @@ class NginxAuslieferung(unittest.TestCase):
         self.assertEqual(status, 200)
         self.assertEqual(headers.get("content-encoding"), "gzip")
 
+    def test_kurzlink_leitet_auf_die_anforderung_um(self):
+        # grundschutz-docs.de/GC.5.1.1 -> Seite der Praktik, Anker = ID (relativ, wie die anderen Weiterleitungen).
+        faelle = {
+            "/GC.5.1.1": "/grundschutzpp/gc/#GC.5.1.1",
+            "/GC.5.1.1/": "/grundschutzpp/gc/#GC.5.1.1",
+            "/BES.7.4.12": "/grundschutzpp/bes/#BES.7.4.12",
+            "/KONF.1.2.3.4": "/grundschutzpp/konf/#KONF.1.2.3.4",
+            "/GC.5": "/grundschutzpp/gc/#GC.5",  # Gruppen-Ueberschrift hat denselben Anker-Aufbau
+        }
+        for pfad, ziel in faelle.items():
+            with self.subTest(pfad=pfad):
+                status, headers, _ = self.get(pfad)
+                self.assertEqual(status, 302, pfad)
+                self.assertEqual(headers.get("location"), ziel, pfad)
+                self.assertEqual(headers.get("x-content-type-options"), "nosniff")
+
+    def test_kurzlink_fuer_jede_praktik_des_katalogs(self):
+        # Eine Praktik, die beim BSI dazukommt, muss in der map von docker/nginx.conf stehen.
+        import json
+        praktiken = json.loads((ROOT / "public" / "downloads" / "grundschutzpp-anforderungen.json").read_text())["praktiken"]
+        for p in praktiken:
+            with self.subTest(praktik=p["id"]):
+                status, headers, _ = self.get(f"/{p['id']}.1.1")
+                self.assertEqual(status, 302)
+                self.assertEqual(headers.get("location"), f"/grundschutzpp/{p['id'].lower()}/#{p['id']}.1.1")
+
+    def test_kurzlink_unbekannte_praefixe_bleiben_404(self):
+        # Kein Weiterleiten auf eine Seite, die es nicht gibt; Kleinschreibung gilt nicht (IDs sind gross).
+        for pfad in ("/XYZ.1.1", "/gc.5.1.1", "/GC", "/GC.", "/GC.a.b", "/GC.5.1.1.x"):
+            with self.subTest(pfad=pfad):
+                status, _, _ = self.get(pfad)
+                self.assertEqual(status, 404, pfad)
+
     # Sicherheits-Header: auf jeder Antwort, auch dort, wo ein location-Block eigene
     # add_header-Zeilen hat (dann vererbt nginx die vom server-Block nicht).
     HEADER = {

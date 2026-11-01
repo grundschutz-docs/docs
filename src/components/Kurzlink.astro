@@ -1,0 +1,84 @@
+---
+// Kurzlink-Knopf an jeder Anforderung auf den Katalogseiten: "Kurzlink /GC.5.1.1" kopiert
+// "GC.5.1.1 – Titel (Grundschutz++, Katalogstand …) https://<Seite>/GC.5.1.1". Die Adresse /GC.5.1.1
+// leitet nginx auf die Anforderung weiter (docker/nginx.conf), sie ist für Tickets, Wikis und Audit-Dokumente.
+// Ergänzt im Browser, damit die vom Generator erzeugten Seiten unberührt bleiben. Ohne JavaScript fehlt der
+// Knopf; der Text über jeder Katalogseite ("Eine Anforderung von dieser Seite zitieren") nennt den Kurzlink
+// auch so. Der Knopf steht nicht im Suchindex und nicht im Druck.
+---
+
+<script>
+	import { anforderungenImDom, istKatalogseite } from '../lib/anforderung-dom';
+
+	if (istKatalogseite()) {
+		const anforderungen = anforderungenImDom();
+		if (anforderungen.length) {
+			// Katalogstand aus dem Kasten oben auf der Seite ("Katalogstand: 29. Oktober 2026 — Quelle: …").
+			const stand = document.querySelector('.source-note p')?.textContent?.match(/Katalogstand:\s*([^—]+?)\s*—/)?.[1];
+
+			// Eine Meldefläche für Screenreader und für den Fall, dass die Zwischenablage gesperrt ist.
+			const meldung = document.createElement('p');
+			meldung.className = 'kurzlink-meldung sr-only';
+			meldung.setAttribute('role', 'status');
+			meldung.setAttribute('aria-live', 'polite');
+			document.body.append(meldung);
+
+			anforderungen.forEach(({ id, titel, meta }) => {
+				const url = `${location.origin}/${id}`;
+				const text = `${id}${titel ? ` – ${titel}` : ''} (Grundschutz++${stand ? `, Katalogstand ${stand}` : ''}) ${url}`;
+				const knopf = document.createElement('button');
+				knopf.type = 'button';
+				knopf.className = 'kurzlink-knopf not-content';
+				knopf.setAttribute('data-pagefind-ignore', '');
+				knopf.setAttribute('aria-label', `Kurzlink für ${id} kopieren`);
+				knopf.title = `Kopiert: ${text}`;
+				const label = document.createElement('span');
+				label.textContent = `Kurzlink /${id}`;
+				knopf.append(label);
+				knopf.addEventListener('click', async () => {
+					try {
+						await navigator.clipboard.writeText(text);
+						label.textContent = 'Kopiert';
+						meldung.textContent = `Kurzlink für ${id} kopiert.`;
+					} catch {
+						// Zwischenablage gesperrt (eingebettete Seite, ältere Browser): den Text zum Markieren zeigen.
+						label.textContent = 'Nicht kopiert';
+						meldung.textContent = `Kopieren nicht möglich. Kurzlink: ${url}`;
+					}
+					setTimeout(() => (label.textContent = `Kurzlink /${id}`), 2000);
+				});
+				meta.append(knopf);
+			});
+		}
+	}
+</script>
+
+<style is:global>
+	.kurzlink-knopf {
+		display: inline-flex;
+		align-items: center;
+		padding: 0.3em 0.85em;
+		border-radius: 999px;
+		border: 1px dashed var(--sl-color-gray-4);
+		background: transparent;
+		color: var(--sl-color-gray-2);
+		font-family: 'JetBrains Mono Variable', ui-monospace, monospace;
+		font-size: var(--sl-text-xs);
+		font-weight: 600;
+		line-height: 1.3;
+		cursor: pointer;
+	}
+	.kurzlink-knopf:hover {
+		color: var(--sl-color-text-accent);
+		border-color: currentColor;
+	}
+	.kurzlink-knopf:focus-visible {
+		outline: 2px solid var(--sl-color-accent);
+		outline-offset: 2px;
+	}
+	@media print {
+		.kurzlink-knopf {
+			display: none;
+		}
+	}
+</style>

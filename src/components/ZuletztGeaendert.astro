@@ -8,26 +8,23 @@
 
 <script>
 	import { letzteAenderung, datumDe, type IdDaten } from '../lib/id-check';
+	import { anforderungenImDom, istKatalogseite } from '../lib/anforderung-dom';
 
-	if (/^(\/en)?\/grundschutzpp\//.test(location.pathname)) {
-		const metas = document.querySelectorAll<HTMLElement>('p.control-meta');
-		if (metas.length) {
+	if (istKatalogseite()) {
+		const anforderungen = anforderungenImDom();
+		if (anforderungen.length) {
 			fetch('/aenderungen/ids.json')
 				.then((r) => (r.ok ? (r.json() as Promise<IdDaten>) : Promise.reject(r.status)))
 				.then((daten) => {
-					metas.forEach((meta) => {
-						// Die Überschrift mit der ID steht davor, mit einem Zwischenelement (sr-only-Span).
-						let vorher = meta.previousElementSibling;
-						while (vorher && !vorher.querySelector('h3[id], h4[id], h5[id]')) vorher = vorher.previousElementSibling;
-						const id = vorher?.querySelector('h3[id], h4[id], h5[id]')?.id;
-						const a = id ? letzteAenderung(daten, id) : undefined;
+					anforderungen.forEach(({ id, meta }) => {
+						const a = letzteAenderung(daten, id);
 						if (!a) return;
 						const zeile = document.createElement('p');
 						zeile.className = 'zuletzt-geaendert not-content';
 						zeile.setAttribute('data-pagefind-ignore', '');
 						const link = document.createElement('a');
 						link.href = `/aenderungen/#stand-${a.commit}`;
-						link.textContent = `Änderungsprotokoll`;
+						link.textContent = 'Änderungsprotokoll';
 						zeile.append(`Zuletzt geändert: ${datumDe(a.datum)} (${a.felder.join(', ')}) · `, link);
 						meta.after(zeile);
 					});
