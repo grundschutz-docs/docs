@@ -1,0 +1,51 @@
+---
+// "Zuletzt geändert" an jeder Anforderung auf den Katalogseiten (/grundschutzpp/...).
+// Ergänzt im Browser, damit die vom Generator erzeugten Seiten und der tägliche Sync unberührt bleiben.
+// Die Daten sind dieselben wie beim ID-Check (/aenderungen/ids.json, aus dem Änderungsprotokoll). Zu
+// Anforderungen ohne Änderung seit dem 27. Juli 2026 steht nichts. Ohne JavaScript fehlt die Zeile,
+// der Inhalt der Seite bleibt vollständig; die Zeile steht nicht im Suchindex.
+---
+
+<script>
+	import { letzteAenderung, datumDe, type IdDaten } from '../lib/id-check';
+
+	if (/^(\/en)?\/grundschutzpp\//.test(location.pathname)) {
+		const metas = document.querySelectorAll<HTMLElement>('p.control-meta');
+		if (metas.length) {
+			fetch('/aenderungen/ids.json')
+				.then((r) => (r.ok ? (r.json() as Promise<IdDaten>) : Promise.reject(r.status)))
+				.then((daten) => {
+					metas.forEach((meta) => {
+						// Die Überschrift mit der ID steht davor, mit einem Zwischenelement (sr-only-Span).
+						let vorher = meta.previousElementSibling;
+						while (vorher && !vorher.querySelector('h3[id], h4[id], h5[id]')) vorher = vorher.previousElementSibling;
+						const id = vorher?.querySelector('h3[id], h4[id], h5[id]')?.id;
+						const a = id ? letzteAenderung(daten, id) : undefined;
+						if (!a) return;
+						const zeile = document.createElement('p');
+						zeile.className = 'zuletzt-geaendert not-content';
+						zeile.setAttribute('data-pagefind-ignore', '');
+						const link = document.createElement('a');
+						link.href = `/aenderungen/#stand-${a.commit}`;
+						link.textContent = `Änderungsprotokoll`;
+						zeile.append(`Zuletzt geändert: ${datumDe(a.datum)} (${a.felder.join(', ')}) · `, link);
+						meta.after(zeile);
+					});
+				})
+				.catch(() => {
+					/* Die Zeile ist eine Zugabe: ohne Daten bleibt die Seite wie sie ist. */
+				});
+		}
+	}
+</script>
+
+<style is:global>
+	.zuletzt-geaendert {
+		margin: 0.25rem 0 0.75rem;
+		font-size: var(--sl-text-xs);
+		color: var(--sl-color-gray-2);
+	}
+	.zuletzt-geaendert a {
+		color: var(--sl-color-text-accent);
+	}
+</style>

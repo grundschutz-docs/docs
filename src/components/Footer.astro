@@ -2,6 +2,7 @@
 import EditLink from '@astrojs/starlight/components/EditLink.astro';
 import LastUpdated from '@astrojs/starlight/components/LastUpdated.astro';
 import Pagination from '@astrojs/starlight/components/Pagination.astro';
+import ZuletztGeaendert from './ZuletztGeaendert.astro';
 
 const isEnglish = Astro.currentLocale === 'en';
 const legalPrefix = isEnglish ? '/en' : '';
@@ -14,6 +15,7 @@ const CC_BY_SA = 'https://creativecommons.org/licenses/by-sa/4.0/';
 const BSI_CATALOG = 'https://github.com/BSI-Bund/Stand-der-Technik-Bibliothek';
 ---
 
+<ZuletztGeaendert />
 <footer class="sl-flex">
 	<div class="meta sl-flex">
 		<EditLink />

@@ -38,7 +38,7 @@
 </section>
 
 <script>
-	import { parseIds, pruefe, type IdDaten, type Ergebnis } from '../lib/id-check';
+	import { parseIds, pruefe, datumDe, type IdDaten, type Ergebnis } from '../lib/id-check';
 
 	const form = document.querySelector<HTMLFormElement>('.idc-form')!;
 	const ids = document.querySelector<HTMLTextAreaElement>('#idc-ids')!;
@@ -47,11 +47,6 @@
 	const leeren = document.querySelector<HTMLButtonElement>('#idc-leeren')!;
 	const ausgabe = document.querySelector<HTMLElement>('#idc-ergebnis')!;
 
-	const MONATE = ['Januar', 'Februar', 'März', 'April', 'Mai', 'Juni', 'Juli', 'August', 'September', 'Oktober', 'November', 'Dezember'];
-	const datumDe = (iso: string) => {
-		const [j, m, t] = iso.split('-').map(Number);
-		return `${t}. ${MONATE[m - 1]} ${j}`;
-	};
 	const el = <K extends keyof HTMLElementTagNameMap>(tag: K, klasse?: string, text?: string) => {
 		const e = document.createElement(tag);
 		if (klasse) e.className = klasse;
