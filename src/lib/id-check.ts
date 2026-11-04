@@ -151,12 +151,8 @@ export function pruefe(daten: IdDaten, eingaben: (string | Eingabe)[], seit: str
 	});
 }
 
-const MONATE = ['Januar', 'Februar', 'März', 'April', 'Mai', 'Juni', 'Juli', 'August', 'September', 'Oktober', 'November', 'Dezember'];
-// Nur der Datumsteil: der Stand gilt für den Tag der Veröffentlichung, keine Zeitzonenumrechnung.
-export function datumDe(iso: string): string {
-	const [j, m, t] = iso.slice(0, 10).split('-').map(Number);
-	return `${t}. ${MONATE[m - 1]} ${j}`;
-}
+// Wie sie angezeigt werden, steht in datum.ts; hier bleibt der Name für die Aufrufer (Seite und Test).
+export { datumDe } from './datum.ts';
 
 // Die jüngste Änderung einer Anforderung laut Änderungsprotokoll, oder undefined, wenn dort keine steht.
 export function letzteAenderung(daten: IdDaten, id: string): Aenderung | undefined {

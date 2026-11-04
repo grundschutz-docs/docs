@@ -6,6 +6,8 @@
 // BSI-Texte. Das hält die Einträge kurz und lesbar. Die Zusammenfassung wird aus den Daten
 // berechnet, nicht von Hand formuliert: eine Änderung kann mehrere Felder betreffen.
 
+import { datumDe } from './datum.ts';
+
 type Feld = { name: string };
 type Aenderung = { id: string; titel?: string; praktik?: string; felder: Feld[] };
 export type Eintrag = {
@@ -23,14 +25,6 @@ const clean = (s: string) => s.replace(/[\u0000-\u0008\u000B\u000C\u000E-\u001F]
 export const xmlEscape = (s: string) =>
 	clean(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 
-const MONTHS = ['Januar', 'Februar', 'März', 'April', 'Mai', 'Juni', 'Juli', 'August', 'September', 'Oktober', 'November', 'Dezember'];
-// Nur der Datumsteil des ISO-Strings, wie in Aenderungsprotokoll.astro: der Stand gilt für den
-// Tag der Veröffentlichung, eine Umrechnung der Zeitzone könnte ihn verschieben.
-const dateDe = (iso: string) => {
-	const [y, m, d] = iso.slice(0, 10).split('-').map(Number);
-	return `${d}. ${MONTHS[m - 1]} ${y}`;
-};
-
 const plural = (n: number, one: string, many: string) => `${n} ${n === 1 ? one : many}`;
 
 // Einträge ohne Änderung (das BSI hat veröffentlicht, am Katalog hat sich nichts geändert)
@@ -42,7 +36,7 @@ export function itemTitle(e: Eintrag) {
 	if (e.aenderungen.length) parts.push(plural(e.aenderungen.length, 'geänderte Anforderung', 'geänderte Anforderungen'));
 	if (e.neu.length) parts.push(plural(e.neu.length, 'neue Anforderung', 'neue Anforderungen'));
 	if (e.entfernt.length) parts.push(plural(e.entfernt.length, 'entfernte Anforderung', 'entfernte Anforderungen'));
-	return `Katalogstand vom ${dateDe(e.veroeffentlicht)}: ${parts.join(', ')}`;
+	return `Katalogstand vom ${datumDe(e.veroeffentlicht)}: ${parts.join(', ')}`;
 }
 
 export function itemText(e: Eintrag) {

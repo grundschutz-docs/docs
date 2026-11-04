@@ -11,6 +11,7 @@
 // Nur CSS-Klassen hier, die Regeln liegen global in custom.css (wie bei den anderen
 // Komponenten dieser Seite).
 import data from '../data/changelog.json';
+import { datumDe, tag } from '../lib/datum';
 
 type Seg = [string, string];
 type Feld = { feld: string; name: string; alt: string; neu: string; diff?: Seg[]; bezeichnungen?: Record<string, string> };
@@ -27,14 +28,6 @@ type Eintrag = {
 const COMMIT_URL = 'https://github.com/BSI-Bund/Stand-der-Technik-Bibliothek/commit';
 const LIST_FIELDS = new Set(['zielobjekte', 'gefaehrdungen', 'tags']);
 const entries = data.eintraege as unknown as Eintrag[];
-
-const MONTHS = ['Januar', 'Februar', 'März', 'April', 'Mai', 'Juni', 'Juli', 'August', 'September', 'Oktober', 'November', 'Dezember'];
-// Nur der Datumsteil des ISO-Strings: der Stand gilt für den Tag der Veröffentlichung,
-// eine Umrechnung der Zeitzone könnte ihn verschieben.
-const dateDe = (iso: string) => {
-	const [y, m, d] = iso.slice(0, 10).split('-').map(Number);
-	return `${d}. ${MONTHS[m - 1]} ${y}`;
-};
 
 // Bei Gefährdungen steht hinter der ID der Name aus der BSI-Tabelle, wenn bekannt.
 const label = (f: Feld, id: string) => (f.bezeichnungen?.[id] ? `${id} – ${f.bezeichnungen[id]}` : id);
@@ -73,14 +66,14 @@ const plural = (n: number, one: string, many: string) => `${n} ${n === 1 ? one :
 
 <div class="cl">
 	<p class="cl-summary">
-		{oldest ? `Seit dem ${dateDe(oldest)}: ` : ''}<strong>{plural(totalChanges, 'Änderung', 'Änderungen')}</strong>{' an '}<strong>{plural(uniqueIds, 'Anforderung', 'Anforderungen')}</strong>{' in '}{plural(withChanges.length, 'Stand', 'Ständen')}{`, ${plural(entries.length, 'veröffentlichter Stand', 'veröffentlichte Stände')} verglichen.`}
+		{oldest ? `Seit dem ${datumDe(oldest)}: ` : ''}<strong>{plural(totalChanges, 'Änderung', 'Änderungen')}</strong>{' an '}<strong>{plural(uniqueIds, 'Anforderung', 'Anforderungen')}</strong>{' in '}{plural(withChanges.length, 'Stand', 'Ständen')}{`, ${plural(entries.length, 'veröffentlichter Stand', 'veröffentlichte Stände')} verglichen.`}
 	</p>
 
 	{
 		entries.map((e, i) =>
 			e.aenderungen.length === 0 && e.technische_aenderungen.length === 0 ? (
 				<p class="cl-entry cl-entry-empty">
-					<span class="cl-date"><time datetime={e.veroeffentlicht.slice(0, 10)}>{dateDe(e.veroeffentlicht)}</time></span>
+					<span class="cl-date"><time datetime={tag(e.veroeffentlicht)}>{datumDe(e.veroeffentlicht)}</time></span>
 					<span class="cl-count">Keine Änderung an Anforderungen</span>
 					<a class="cl-commit" href={`${COMMIT_URL}/${e.commit}`} target="_blank" rel="noopener noreferrer">
 						BSI-Commit {e.commit.slice(0, 7)}
@@ -89,7 +82,7 @@ const plural = (n: number, one: string, many: string) => `${n} ${n === 1 ? one :
 			) : (
 				<details class="cl-entry" id={`stand-${e.commit.slice(0, 7)}`} open={i === 0}>
 					<summary>
-						<h2 class="cl-date"><time datetime={e.veroeffentlicht.slice(0, 10)}>{dateDe(e.veroeffentlicht)}</time></h2>
+						<h2 class="cl-date"><time datetime={tag(e.veroeffentlicht)}>{datumDe(e.veroeffentlicht)}</time></h2>
 						<span class="cl-count">
 							{e.aenderungen.length > 0
 								? `${plural(e.aenderungen.length, 'Anforderung', 'Anforderungen')} geändert`
@@ -98,7 +91,7 @@ const plural = (n: number, one: string, many: string) => `${n} ${n === 1 ? one :
 						<span class="cl-fields">{fieldCounts(e).map(([n, c]) => `${n} ${c}`).join(' · ')}</span>
 					</summary>
 					<p class="cl-meta">
-						Katalogversion <code>{e.katalog_version?.slice(0, 10)}</code>{' · '}
+						Katalogversion <code>{e.katalog_version ? tag(e.katalog_version) : undefined}</code>{' · '}
 						<a href={`${COMMIT_URL}/${e.commit}`} target="_blank" rel="noopener noreferrer">BSI-Commit {e.commit.slice(0, 7)}</a>
 					</p>
 
