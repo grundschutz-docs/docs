@@ -30,7 +30,8 @@
 				knopf.type = 'button';
 				knopf.className = 'kurzlink-knopf not-content';
 				knopf.setAttribute('data-pagefind-ignore', '');
-				knopf.setAttribute('aria-label', `Kurzlink für ${id} kopieren`);
+				// Der Name beginnt mit dem sichtbaren Text (WCAG 2.5.3), sonst trifft "Klick Kurzlink GC.1.1" per Sprachsteuerung nicht.
+				knopf.setAttribute('aria-label', `Kurzlink /${id} kopieren`);
 				knopf.title = `Kopiert: ${text}`;
 				const label = document.createElement('span');
 				label.textContent = `Kurzlink /${id}`;

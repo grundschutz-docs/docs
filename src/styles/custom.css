@@ -297,7 +297,7 @@ mobile-starlight-toc .dropdown {
 		box-shadow 0.15s ease;
 }
 
-.sl-link-button.primary :global(svg) {
+.sl-link-button.primary svg {
 	transition: transform 0.2s ease;
 }
 
@@ -306,7 +306,7 @@ mobile-starlight-toc .dropdown {
 	border-color: color-mix(in oklch, var(--sl-color-accent) 85%, black);
 }
 
-.sl-link-button.primary:hover :global(svg) {
+.sl-link-button.primary:hover svg {
 	transform: translateX(3px);
 }
 
@@ -655,6 +655,11 @@ site-search dialog::backdrop {
 .table-scroll > table {
 	display: table;
 	overflow: visible;
+}
+
+/* Von ScrollBereiche.astro im Browser um Tabellen gelegt: der Abstand liegt am Kasten (inline), nicht an der Tabelle. */
+.table-scroll.table-scroll-auto > table {
+	margin: 0;
 }
 
 /* tabindex="0" macht den Kasten per Tastatur scrollbar (WCAG 2.1.1). */

@@ -1,0 +1,87 @@
+---
+// Breite Tabellen und Codeblöcke scrollen in ihrem eigenen Kasten (siehe .table-scroll in custom.css).
+// Ein scrollender Kasten muss per Tastatur erreichbar sein (WCAG 2.1.1) und einen Namen tragen,
+// sonst hört ein Screenreader-Nutzer "Tabelle" ohne Zweck (1.3.1, axe: scrollable-region-focusable).
+// Das gilt für fast hundert Tabellen aus dem Generator und aus Hand-Markdown; sie hier an einer
+// Stelle im Browser zu ergänzen ist sicherer, als jede Stelle im Generator einzeln anzufassen.
+// Ohne JavaScript scrollt der Kasten weiter mit der Maus, nur der Tastaturzugang fehlt.
+---
+
+<script>
+	// Fokussierbar und als Region benannt wird ein Kasten nur, solange er wirklich überläuft:
+	// sonst bekäme jede kurze Tabelle einen unnützen Tab-Stopp und einen Landmark-Eintrag.
+	const kaesten: { kasten: HTMLElement; name: string }[] = [];
+
+	// Name: erst die Tabellenüberschrift (caption), sonst die nächste Überschrift davor.
+	function nameFuer(element: HTMLElement): string {
+		const caption = element.querySelector('caption')?.textContent?.trim();
+		if (caption) return caption;
+		let knoten: Element | null = element;
+		while (knoten) {
+			let vorher = knoten.previousElementSibling;
+			while (vorher) {
+				const ueberschrift = /^H[1-6]$/.test(vorher.tagName) ? vorher : vorher.querySelector('h1,h2,h3,h4,h5,h6');
+				if (ueberschrift) {
+					// Starlight hängt einen Anker-Link an die Überschrift; sein Text ist nicht Teil des Namens.
+					const kopie = ueberschrift.cloneNode(true) as Element;
+					kopie.querySelectorAll('.sr-only, a.anchor-link').forEach((e) => e.remove());
+					const text = kopie.textContent?.trim();
+					if (text) return text;
+				}
+				vorher = vorher.previousElementSibling;
+			}
+			knoten = knoten.parentElement;
+			if (knoten?.matches('main, .sl-markdown-content')) break;
+		}
+		return document.title.split('|')[0].trim();
+	}
+
+	function aktualisieren() {
+		for (const { kasten, name } of kaesten) {
+			const scrollt = kasten.scrollWidth > kasten.clientWidth + 1;
+			if (scrollt) {
+				kasten.tabIndex = 0;
+				kasten.setAttribute('role', 'region');
+				kasten.setAttribute('aria-label', name);
+			} else if (!kasten.hasAttribute('data-scroll-fest')) {
+				kasten.removeAttribute('tabindex');
+				kasten.removeAttribute('role');
+				kasten.removeAttribute('aria-label');
+			}
+		}
+	}
+
+	const inhalt = document.querySelector('.sl-markdown-content');
+	if (inhalt) {
+		// Tabellen, die Starlight selbst zum Kasten macht (display: block; overflow: auto), bekommen einen
+		// eigenen Kasten drumherum, damit die Tabelle eine Tabelle bleibt und der Kasten die Rolle trägt.
+		inhalt.querySelectorAll<HTMLElement>('table').forEach((tabelle) => {
+			const name = nameFuer(tabelle);
+			const vorhanden = tabelle.closest<HTMLElement>('.table-scroll');
+			if (!tabelle.querySelector('caption') && !tabelle.hasAttribute('aria-label')) {
+				tabelle.setAttribute('aria-label', name);
+			}
+			if (vorhanden) {
+				// Aus dem Generator: tabindex steht schon da und bleibt, Rolle und Name kommen dazu.
+				vorhanden.setAttribute('data-scroll-fest', '');
+				kaesten.push({ kasten: vorhanden, name });
+				return;
+			}
+			const kasten = document.createElement('div');
+			kasten.className = 'table-scroll table-scroll-auto';
+			// Der Abstand der Tabelle wandert auf den Kasten, damit sich das Layout nicht verschiebt.
+			const abstand = getComputedStyle(tabelle);
+			kasten.style.margin = `${abstand.marginTop} 0 ${abstand.marginBottom}`;
+			tabelle.replaceWith(kasten);
+			kasten.append(tabelle);
+			kaesten.push({ kasten, name });
+		});
+		// Codeblöcke (Expressive Code) haben ihren Kasten schon; sie müssen nur erreichbar sein.
+		inhalt.querySelectorAll<HTMLElement>('pre').forEach((pre) => {
+			kaesten.push({ kasten: pre, name: `Code: ${nameFuer(pre)}` });
+		});
+		aktualisieren();
+		new ResizeObserver(aktualisieren).observe(inhalt);
+		window.addEventListener('load', aktualisieren);
+	}
+</script>

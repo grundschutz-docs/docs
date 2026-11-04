@@ -309,6 +309,12 @@
 		font-weight: 600;
 		cursor: pointer;
 	}
+	/* Hell: --sl-color-accent (62 % L) mit heller Schrift ergibt nur 3,6:1 (WCAG 1.4.3). Der dunklere
+	   Ton --sl-color-accent-high trägt die Schrift mit rund 9:1; es ist dieselbe Farbe, die auch den Text-Akzent stellt. */
+	:root[data-theme='light'] .idc-knopf:not(.idc-knopf-leise) {
+		background-color: var(--sl-color-accent-high);
+		border-color: var(--sl-color-accent-high);
+	}
 	.idc-knopf-leise {
 		background: transparent;
 		color: var(--sl-color-text);
