@@ -552,7 +552,7 @@ LANDING_SAMPLE_ID = "NOT.4.10"
 # Liste statt als verstreute Literale, damit Pruefung 8 sie gegen die
 # geschriebenen Dateien halten kann.
 ROLLEN_ANKER = {
-    "geschaeftsfuehrung.mdx": ("bin-ich-ueberhaupt-betroffen", "was-schreibt-das-gesetz-vor"),
+    "geschaeftsfuehrung.mdx": ("bin-ich-ueberhaupt-betroffen", "was-schreibt-das-gesetz-vor", "haftung"),
     "isb.mdx": ("werkzeuge-fuer-den-alltag",),
 }
 
@@ -2151,11 +2151,35 @@ def render_geschaeftsfuehrung_page(management, themenfelder, groups_by_id):
         "öffentliche Quellen ein (den BSI-Katalog und geltendes Gesetzesrecht) "
         "— eine Bewertung des Einzelfalls kann nur eine Rechtsanwältin, ein "
         "Rechtsanwalt oder eine Wirtschaftsprüfung vornehmen.\n\n",
-        f"## Auf einen Blick\n\n"
-        f"**{total_muss} von {total} Anforderungen im gesamten Katalog sind "
-        f"MUSS** — uneingeschränkt zu erfüllen, unabhängig vom individuellen "
-        f"Risikoappetit (RFC2119 / DIN 820-2:2022, Anhang H). Das ist die "
-        f"Teilmenge, die aus Governance-Sicht zuerst zählt.\n\n",
+        # Die drei Fragen, mit denen eine Geschaeftsleitung kommt (betroffen? Pflicht? Haftung?),
+        # standen nur als Ueberschriften weiter unten; oben stand eine Katalogstatistik. Jetzt
+        # beantworten drei Punkte sie knapp und verlinken auf die Abschnitte. Jeder Punkt gibt nur
+        # wieder, was weiter unten mit Quelle steht: nichts Neues, keine eigene Rechtsauslegung.
+        # "N von M" bleibt woertlich stehen (check_invariants prueft es auf der geschriebenen Seite).
+        "## Auf einen Blick\n\n"
+        "- **Betroffen?** Das hängt von Größe und Sektor ab "
+        "([Tabelle unten](#bin-ich-ueberhaupt-betroffen)). Betreiber kritischer "
+        "Anlagen und einige weitere Einrichtungen gelten unabhängig von der "
+        "Größe als besonders wichtig.\n"
+        "- **Pflicht der Geschäftsleitung:** Die Geschäftsleitung besonders "
+        "wichtiger und wichtiger Einrichtungen muss die "
+        "Risikomanagementmaßnahmen nach § 30 BSIG umsetzen, ihre Umsetzung "
+        "überwachen und regelmäßig an Schulungen teilnehmen "
+        "([§ 38 BSIG](#was-schreibt-das-gesetz-vor)).\n"
+        # § 38 Abs. 2 BSIG haengt an Absatz 1 (umsetzen, ueberwachen), nicht an der
+        # Schulungspflicht (Abs. 3). Die Beweislast steht in § 93 Abs. 2 Satz 2 AktG
+        # (Vorstand der AG), nicht im GmbHG: deshalb kein allgemeiner Satz zur Dokumentation
+        # in der Kurzfassung, nur der Verweis auf den Abschnitt.
+        "- **Haftung:** Verletzt die Geschäftsleitung die Pflicht, die "
+        "Maßnahmen umzusetzen und zu überwachen, haftet sie nach § 38 Abs. 2 "
+        "BSIG ihrer Einrichtung für einen schuldhaft verursachten Schaden, "
+        "und zwar nach den Regeln des Gesellschaftsrechts; nicht automatisch "
+        "gegenüber Dritten (Beweislast und Dokumentation: "
+        "[Details](#haftung)).\n"
+        f"- **Im Katalog:** **{total_muss} von {total} Anforderungen im gesamten "
+        f"Katalog sind MUSS** — uneingeschränkt zu erfüllen, unabhängig von der "
+        f"individuellen Risikobereitschaft (RFC2119 / DIN 820-2:2022, Anhang H). "
+        f"Das ist die Teilmenge, die aus Governance-Sicht zuerst zählt.\n\n",
         # Umlaute im Titel wuerden vom Auto-Slugger prozentcodiert ("%C3%BC"),
         # deshalb explizite, transliterierte ID -- gleicher Grund wie bei
         # heading_anchor() fuer Controls und Gruppen. Muss hier im Generator
@@ -2167,8 +2191,8 @@ def render_geschaeftsfuehrung_page(management, themenfelder, groups_by_id):
         "**Unabhängig von der Größe besonders wichtig** sind Betreiber:innen "
         "kritischer Anlagen (KRITIS), qualifizierte Vertrauensdiensteanbieter, "
         "Top-Level-Domain-Registries und DNS-Diensteanbieter.\n\n"
-        "Für alle anderen entscheiden Größe und Sektor. Die Operatoren stehen "
-        "in den Spaltenköpfen: es zählt die Beschäftigtenzahl **oder** beide "
+        "Für alle anderen entscheiden Größe und Sektor. Wie die Kriterien "
+        "verknüpft sind, steht in den Spaltenköpfen: es zählt die Beschäftigtenzahl **oder** beide "
         "Finanzkennzahlen zusammen.\n\n"
         # Vorher als Fließtext mit verschachtelter Und/Oder-Bedingung. Eine
         # Geschaeftsfuehrung liest das einmal quer und will dann wissen "bin
@@ -2192,7 +2216,7 @@ def render_geschaeftsfuehrung_page(management, themenfelder, groups_by_id):
         "Kleinere Einrichtungen außerhalb kritischer Sektoren fallen in der "
         "Regel nicht darunter. Diese Kriterien ersetzen keine "
         "Schutzbedarfsfeststellung — sie helfen nur bei der ersten "
-        "Einordnung mit euren eigenen Zahlen.\n\n"
+        "Einordnung mit den eigenen Zahlen deiner Einrichtung.\n\n"
         # Ergaenzt 2026-10-14 nach Abgleich mit dem BSIG-Wortlaut und der
         # BSI-FAQ (siehe die englische Seite operating-in-germany.mdx, dort
         # dieselben Fundstellen). Vorher fehlten Konzernzaehlung,
@@ -2206,18 +2230,19 @@ def render_geschaeftsfuehrung_page(management, themenfelder, groups_by_id):
         "**Zählweise im Konzern.** Beschäftigte, Umsatz und Bilanzsumme "
         "richten sich nach der EU-Empfehlung 2003/361/EG; Daten von Partner- "
         "und verbundenen Unternehmen werden hinzugerechnet, nach Auskunft des "
-        "BSI auch von solchen außerhalb Deutschlands und der EU. Ausgenommen "
-        "sind Einrichtungen, die bei Betrieb und Beschaffenheit ihrer "
-        "IT-Systeme, -Komponenten und -Prozesse unabhängig sind (§ 28 Abs. 4 "
-        "BSIG). Erfüllen Mutter und Tochter mit gemeinsamer IT gemeinsam die "
+        "BSI auch von solchen außerhalb Deutschlands und der EU.\n\n"
+        "Ausgenommen sind Einrichtungen, die bei Betrieb und Beschaffenheit "
+        "ihrer IT-Systeme, -Komponenten und -Prozesse unabhängig sind "
+        "(§ 28 Abs. 4 BSIG).\n\n"
+        "Erfüllen Mutter und Tochter mit gemeinsamer IT gemeinsam die "
         "Schwellen, gelten nach der BSI-FAQ beide als betroffen, vorbehaltlich "
         "dieser Ausnahme.\n\n"
         "**Ausnahmen.** Die §§ 30, 31, 32, 35, 36, 38 und 39 BSIG gelten nicht "
         "für Finanzunternehmen im Sinne von Art. 2 Abs. 2 DORA und bestimmte "
-        "weitere Einrichtungen (§ 28 Abs. 5–7 BSIG). Prüft das für eure "
+        "weitere Einrichtungen (§ 28 Abs. 5–7 BSIG). Prüfe das für deine "
         "Branche.\n\n"
-        "Ob ihr betroffen seid, bewertet ihr selbst; das BSI teilt es nicht "
-        "mit (BSI-FAQ).\n\n"
+        "Ob deine Einrichtung betroffen ist, bewertest du selbst; das BSI "
+        "teilt es nicht mit (BSI-FAQ).\n\n"
         "*Primärquellen: [§§ 28, 59 BSIG](https://www.gesetze-im-internet.de/bsig_2025/BJNR12D0B0025.html), "
         "[BSI NIS-2-FAQ](https://www.bsi.bund.de/DE/Themen/Regulierte-Wirtschaft/NIS-2-regulierte-Unternehmen/NIS-2-FAQ/NIS-2-FAQ-allgemein/FAQ-zu-NIS-2.html).*\n\n",
         "## Was schreibt das Gesetz meiner Geschäftsleitung vor? {#was-schreibt-das-gesetz-vor}\n\n"
@@ -2227,34 +2252,37 @@ def render_geschaeftsfuehrung_page(management, themenfelder, groups_by_id):
         "Schulungen** zu IT-Sicherheits-Risikomanagement teilnehmen. Diese "
         "Schulungspflicht ist konkret und wenig bekannt.\n\n"
         "*Primärquelle: [§ 38 BSIG](https://www.gesetze-im-internet.de/bsig_2025/BJNR12D0B0025.html).*\n\n",
-        "## Wie sieht die Haftung konkret aus?\n\n"
+        "## Wie sieht die Haftung konkret aus? {#haftung}\n\n"
         "§ 38 Abs. 2 BSIG verweist auf das jeweils geltende Gesellschaftsrecht: "
         "Haftung bei Pflichtverletzung ist zunächst **Innenhaftung gegenüber "
         "der eigenen Einrichtung**, nicht automatisch gegenüber Dritten. Für "
         "die GmbH gilt § 43 GmbHG (\"Sorgfalt eines ordentlichen "
         "Geschäftsmannes\", gesamtschuldnerische Haftung, Verjährung 5 "
-        "Jahre), für die AG § 93 AktG. Dort liegt keine Pflichtverletzung vor, "
+        "Jahre), für die AG § 93 AktG.\n\n"
+        "Nach § 93 AktG liegt keine Pflichtverletzung vor, "
         "wenn das Vorstandsmitglied \"bei einer unternehmerischen Entscheidung "
         "vernünftigerweise annehmen durfte, auf der Grundlage angemessener "
         "Information zum Wohle der Gesellschaft zu handeln\" (Business "
-        "Judgment Rule, Abs. 1 Satz 2). Bei Streit über die Sorgfalt trifft "
-        "die Vorstandsmitglieder die Beweislast (Abs. 2 Satz 2), eine "
-        "nachvollziehbare Dokumentation ist deshalb praktisch wichtig. Ob die "
-        "Regel auch ein Absehen von einer gesetzlichen Pflicht wie § 38 BSIG "
-        "deckt, sagt der Gesetzestext nicht; das ist eine Auslegungsfrage für "
-        "die Rechtsberatung. Ein anerkannter, öffentlich nachvollziehbarer "
+        "Judgment Rule, Abs. 1 Satz 2).\n\n"
+        "Bei Streit über die Sorgfalt trifft die Vorstandsmitglieder die "
+        "Beweislast (§ 93 Abs. 2 Satz 2 AktG), eine nachvollziehbare "
+        "Dokumentation ist deshalb praktisch wichtig.\n\n"
+        "Ob die Business Judgment Rule auch ein Absehen von einer gesetzlichen "
+        "Pflicht wie § 38 BSIG deckt, sagt der Gesetzestext nicht; das ist eine "
+        "Auslegungsfrage für die Rechtsberatung.\n\n"
+        "Ein anerkannter, öffentlich nachvollziehbarer "
         "Katalog wie Grundschutz++ kann helfen, die Auswahl und Umsetzung von "
         "Maßnahmen zu begründen, ist aber keine Garantie gegen Haftung.\n\n"
         "*Primärquellen: [§ 43 GmbHG](https://www.gesetze-im-internet.de/gmbhg/__43.html), "
         "[§ 93 AktG](https://www.gesetze-im-internet.de/aktg/__93.html).*\n\n",
         render_aufwand_section(aufwand),
         "## Sinnvolle Kennzahlen\n\n"
-        "Diese Seite berechnet keinen Umsetzungsstatus für eure Organisation "
+        "Diese Seite berechnet keinen Umsetzungsstatus für deine Organisation "
         "— dafür bräuchte es eine tatsächliche Bestandsaufnahme, keine "
         "statische Katalogseite. Als Rahmen für die eigene Berichterstattung "
         "eignen sich üblicherweise:\n\n"
         "- Anteil umgesetzter MUSS-Anforderungen (Zähler/Nenner wie oben, "
-        "aber mit eurem tatsächlichen Stand)\n"
+        "aber mit dem tatsächlichen Stand deiner Organisation)\n"
         "- Anzahl offener SOLLTE-Empfehlungen mit dokumentierter Begründung, "
         "falls nicht umgesetzt\n"
         "- Alter der letzten Schutzbedarfsfeststellung bzw. Risikobewertung\n"
