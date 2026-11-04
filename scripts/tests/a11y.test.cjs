@@ -23,7 +23,7 @@ const PAGES = [
 	'/zielobjekte/', '/zielobjekte/webserver/', '/dokumente/', '/dokumente/detektions-konzept/',
 	'/vergleich/', '/vergleich/sys-1-1/', '/vergleich/isms-1/', '/befunde/', '/befunde/mapping-datei-ist-entwurf/',
 	'/en/operating-in-germany/', '/impressum/', '/404.html', '/en/404/', '/en/befunde/',
-	'/id-check/', '/gefaehrdungen/', '/grundschutzpp/', '/grenzen/', '/datenschutz/', '/vergleich/',
+	'/id-check/', '/gefaehrdungen/', '/grundschutzpp/', '/grenzen/', '/datenschutz/', '/vergleich/', '/barrierefreiheit/',
 ];
 const TAGS = ['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa', 'wcag22aa', 'best-practice'];
 const VARIANTS = [

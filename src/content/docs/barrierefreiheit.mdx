@@ -1,0 +1,38 @@
+---
+title: Barrierefreiheit
+description: Was bei grundschutz-docs.de für die Barrierefreiheit geprüft ist, was nicht, welche Einschränkungen es gibt und wie du ein Hindernis melden kannst.
+template: splash
+---
+
+Die Seite soll sich mit Tastatur, Screenreader, Vergrößerung und hohem Kontrast benutzen lassen. Hier steht, was dafür geprüft ist, was noch fehlt und wie du ein Hindernis meldest. Das ist **keine Konformitätserklärung** im rechtlichen Sinn: Ob eine gesetzliche Pflicht besteht (BITV, BFSG), ist nicht geklärt, und wir behaupten keine Konformität.
+
+## Ziel
+
+Die Messlatte ist WCAG 2.2, Stufe AA, an einigen Stellen darüber (erhöhter Kontrast für den Nebentext, deutlicher Fokus-Rahmen). Stand dieser Seite: 4. November 2026.
+
+## Was geprüft ist
+
+- **Automatisch, bei jedem Build.** Ein Test lässt das Prüfwerkzeug axe-core auf einer festen Liste von Seiten laufen, mit je einem Vertreter jedes Seitentyps, im hellen und dunklen Modus, in Desktop- und Handybreite. Dazu zwei Zustände nach Bedienung: das Ergebnis des [ID-Checks](/id-check/) und der geöffnete Suchdialog. Findet der Test einen Verstoß, schlägt die automatische Prüfung (CI) fehl.
+- **Von Hand bei der Entwicklung:** Tastaturdurchlauf mit sichtbarem Fokus, Zoom bis 320 Pixel Breite ohne seitliches Scrollen, erhöhte Textabstände, Windows-Kontrastmodus (nur als Emulation im Browser).
+
+## Was nicht geprüft ist
+
+Automatische Werkzeuge finden nur einen Teil der Probleme. Nicht geprüft sind:
+
+- echte Screenreader (NVDA, JAWS, VoiceOver, TalkBack) und Sprachsteuerung,
+- echte Mobilgeräte und Vergrößerungssoftware,
+- die Excel- und CSV-Dateien aus dem [Export](/export/) auf ihre Zugänglichkeit.
+
+Wer das mit Hilfsmitteln ausprobiert und etwas findet, hilft damit am meisten.
+
+## Bekannte Einschränkungen
+
+- **Erklärungen an den Kennzeichen.** Die Hinweise zu Pflichtgrad, Sicherheitsstufe und Aufwand erscheinen bei Maus oder Tipp. Wer nur die Tastatur benutzt, findet dieselben Texte in der „Legende der Kennzeichen“ am Kopf jeder Praktik-Seite. Screenreader lesen den Hinweis an jeder Kennzeichnung mit, das macht die Seiten mit vielen Anforderungen wortreich.
+- **Schwere Sprache im Katalog.** Die Anforderungstexte stammen vom BSI und sind nicht von uns formuliert. Sie sind für Fachleute geschrieben und schwer zu lesen. Die eigenen Erklärseiten sind einfacher gehalten, aber nicht durchgehend in Leichter Sprache.
+- **Wenig Englisch.** Nur ein kleiner Teil der Seiten ist ins Englische übersetzt. Die übrigen zeigen den deutschen Text unter einer englischen Adresse und sind als solche gekennzeichnet.
+- **JavaScript.** Suche, Export, ID-Check und die Kurzlink-Knöpfe brauchen JavaScript. Der Katalog selbst und die fertigen Download-Dateien nicht.
+- **Lange Seiten.** Einige Praktik-Seiten sind sehr lang. Die Inhaltsübersicht am Rand und die Suche helfen beim Springen.
+
+## Ein Hindernis melden
+
+Schreib uns, was nicht ging, auf welcher Seite und womit du die Seite benutzt (Screenreader, Browser, Betriebssystem). Am einfachsten über die [Vorlage „Accessibility barrier“ auf GitHub](https://github.com/grundschutz-docs/docs/issues/new?template=a11y_bug.yml). Wenn du kein GitHub-Konto hast, erreichst du uns über die Angaben im [Impressum](/impressum/). Bekannte Hindernisse tragen wir hier ein.

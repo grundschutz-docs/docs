@@ -1,0 +1,23 @@
+---
+// Links mit target="_blank" öffnen einen neuen Tab, viele BSI-Links führen direkt auf ein PDF. Ohne Hinweis
+// erfährt eine Person mit Screenreader das erst, wenn es passiert ist (WCAG G201, 3.2.5 AAA). Der Hinweis
+// kommt als unsichtbarer Text hinter den Linktext; das Aussehen der Seite bleibt, wie es ist.
+// Im Browser ergänzt, weil die Links aus dem Generator und aus Hand-Markdown stammen (eine Stelle statt
+// jeder einzelnen). Ohne JavaScript fehlt nur der Hinweis. Aus dem Suchindex genommen.
+---
+
+<script>
+	const englisch = document.documentElement.lang.startsWith('en');
+	const NEUER_TAB = englisch ? '(opens in a new tab)' : '(öffnet in neuem Tab)';
+	const PDF = 'PDF, ';
+
+	document.querySelectorAll<HTMLAnchorElement>('main a[target="_blank"]').forEach((link) => {
+		if (link.querySelector(':scope > .link-hinweis')) return;
+		const istPdf = /\.pdf(\?|#|$)/i.test(link.href) || /publicationFile/.test(link.href);
+		const hinweis = document.createElement('span');
+		hinweis.className = 'sr-only link-hinweis';
+		hinweis.setAttribute('data-pagefind-ignore', '');
+		hinweis.textContent = ` (${istPdf ? PDF : ''}${NEUER_TAB.slice(1)}`;
+		link.append(hinweis);
+	});
+</script>

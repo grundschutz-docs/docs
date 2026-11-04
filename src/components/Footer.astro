@@ -5,6 +5,7 @@ import Pagination from '@astrojs/starlight/components/Pagination.astro';
 import ZuletztGeaendert from './ZuletztGeaendert.astro';
 import Kurzlink from './Kurzlink.astro';
 import ScrollBereiche from './ScrollBereiche.astro';
+import ExterneLinks from './ExterneLinks.astro';
 
 const isEnglish = Astro.currentLocale === 'en';
 const legalPrefix = isEnglish ? '/en' : '';
@@ -20,6 +21,7 @@ const BSI_CATALOG = 'https://github.com/BSI-Bund/Stand-der-Technik-Bibliothek';
 <ZuletztGeaendert />
 <Kurzlink />
 <ScrollBereiche />
+<ExterneLinks />
 <footer class="sl-flex">
 	<div class="meta sl-flex">
 		<EditLink />
@@ -64,6 +66,7 @@ const BSI_CATALOG = 'https://github.com/BSI-Bund/Stand-der-Technik-Bibliothek';
 			<p class="col-title" id="footer-project">{isEnglish ? 'Project' : 'Projekt'}</p>
 			<a href={`${legalPrefix}/ueber/`}>{isEnglish ? 'About this site' : 'Über diese Seite'}</a>
 			<a href={`${legalPrefix}/grenzen/`}>{isEnglish ? 'What this site is, and is not' : 'Was diese Seite ist – und was nicht'}</a>
+			<a href="/barrierefreiheit/">{isEnglish ? 'Accessibility (German)' : 'Barrierefreiheit'}</a>
 			<a href={`${legalPrefix}/impressum/`}>{isEnglish ? 'Legal Notice' : 'Impressum'}</a>
 			<a href={`${legalPrefix}/datenschutz/`}>{isEnglish ? 'Privacy Policy' : 'Datenschutz'}</a>
 		</nav>

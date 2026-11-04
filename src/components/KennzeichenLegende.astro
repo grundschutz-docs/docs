@@ -1,5 +1,5 @@
 ---
-// Legende der Kennzeichen (Pflichtgrad, Sicherheitsstufe, Aufwand) am Kopf jeder Praktik-Seite.
+// Legende der Kennzeichen (Pflichtgrad, Sicherheitsstufe, Aufwand, Zielobjekt, Dokumenttyp, Beziehung zum alten Kompendium) am Kopf jeder Praktik-Seite.
 //
 // Die Hinweise an den Pillen erscheinen bei Hover, Fokus oder Tipp. Pillen ohne Link sind nicht
 // fokussierbar (ein Tab-Stop je Pille waeren auf KONF ueber 700), also kommt eine Person, die nur
@@ -8,7 +8,7 @@
 //
 // Aus dem Suchindex genommen: sonst traefe jede Suche nach "Quick Win" oder "Stand der Technik"
 // die Legende statt einer Anforderung.
-import { MODAL_VERBS, SEC_LEVELS, EFFORT } from '../lib/kennzeichen';
+import { MODAL_VERBS, SEC_LEVELS, EFFORT, DOCUMENT_HINT, NO_TARGET_HINT, RELATIONSHIPS } from '../lib/kennzeichen';
 ---
 
 <details class="kennzeichen-legende" data-pagefind-ignore>
@@ -30,6 +30,16 @@ import { MODAL_VERBS, SEC_LEVELS, EFFORT } from '../lib/kennzeichen';
 		<dd>
 			<dl>
 				{Object.entries(EFFORT).map(([name, v]) => (<><dt>{name}</dt><dd>{v.hint}</dd></>))}
+			</dl>
+		</dd>
+		<dt>Zielobjekt ohne Kategorie</dt>
+		<dd>{NO_TARGET_HINT}</dd>
+		<dt>Dokumenttyp</dt>
+		<dd>{DOCUMENT_HINT}</dd>
+		<dt>Beziehung zum alten Kompendium</dt>
+		<dd>
+			<dl>
+				{Object.values(RELATIONSHIPS).map((v) => (<><dt>{v.label}</dt><dd>{v.hint}</dd></>))}
 			</dl>
 		</dd>
 	</dl>

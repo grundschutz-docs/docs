@@ -1,0 +1,43 @@
+name: Accessibility barrier
+description: Something on the site is hard or impossible to use with a keyboard, screen reader, zoom, high contrast or similar.
+labels: [accessibility]
+body:
+  - type: textarea
+    id: what
+    attributes:
+      label: What got in the way
+      description: What you tried to do, what happened, and what you expected instead.
+    validations:
+      required: true
+  - type: input
+    id: where
+    attributes:
+      label: Page
+      description: The address of the page, and the part of it (for example "the requirement pills" or "the export form").
+    validations:
+      required: true
+  - type: dropdown
+    id: tech
+    attributes:
+      label: How you use the site
+      multiple: true
+      options:
+        - Screen reader
+        - Keyboard only
+        - Screen magnifier or browser zoom
+        - Voice control
+        - High contrast or forced colours
+        - Reduced motion
+        - Switch device or other
+        - Not sure, I just could not use it
+  - type: input
+    id: setup
+    attributes:
+      label: Software
+      description: Screen reader or other tool with version if you know it, plus browser and operating system.
+      placeholder: "NVDA 2025.1 with Firefox on Windows 11"
+  - type: textarea
+    id: workaround
+    attributes:
+      label: Did you find a way around it?
+      description: Optional. It helps to see what you needed instead.
