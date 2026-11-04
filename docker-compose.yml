@@ -9,3 +9,9 @@ services:
     restart: unless-stopped
     ports:
       - "8080:8080"
+    # nginx-unprivileged binds port 8080 as an ordinary user and needs no Linux capability.
+    # Tested in CI (see the docker job in .github/workflows/ci.yml).
+    cap_drop:
+      - ALL
+    security_opt:
+      - no-new-privileges:true

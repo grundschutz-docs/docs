@@ -77,3 +77,28 @@ jobs:
           node scripts/tests/a11y.test.cjs dist
           node scripts/tests/print.test.cjs dist
           node scripts/tests/theme-toggle.test.cjs dist
+
+  # A broken Dockerfile or a missing tool in the image would otherwise show up only at
+  # deployment. Builds the image, starts it with the hardening flags the compose file uses
+  # and runs the HEALTHCHECK command itself, so a missing wget fails here too.
+  docker:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+
+      - name: Build the image
+        run: docker build -t grundschutz-docs:ci .
+
+      - name: Start it and check what the image promises
+        run: |
+          docker run -d --name gd --cap-drop ALL --security-opt no-new-privileges:true -p 8080:8080 grundschutz-docs:ci
+          for i in $(seq 1 30); do
+            docker exec gd wget -q --spider http://127.0.0.1:8080/ && break
+            sleep 1
+          done
+          # Exactly the HEALTHCHECK command from the Dockerfile.
+          docker exec gd wget -q --spider http://127.0.0.1:8080/ || { docker logs gd; exit 1; }
+          # Not root, and the security headers are on the page.
+          test "$(docker exec gd id -u)" = "101"
+          curl -fsSI http://localhost:8080/ | grep -i '^content-security-policy'
+          curl -fsSI http://localhost:8080/ | grep -i '^x-content-type-options'
