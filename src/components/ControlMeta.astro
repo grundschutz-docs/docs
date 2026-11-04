@@ -175,7 +175,7 @@ const effortInfo = effort ? EFFORT[effort] : undefined;
 					const label = relInfo?.label ?? p.relationship;
 					return (
 						<tr>
-							<td>
+							<th scope="row">
 								{p.link ? (
 									<a href={p.link} target="_blank" rel="noopener noreferrer" class="predecessor-id">
 										{p.oldId}
@@ -183,7 +183,7 @@ const effortInfo = effort ? EFFORT[effort] : undefined;
 								) : (
 									<span class="predecessor-id">{p.oldId}</span>
 								)}
-							</td>
+							</th>
 							<td>
 								<span
 									class="pill"
@@ -332,12 +332,17 @@ const effortInfo = effort ? EFFORT[effort] : undefined;
 		margin-bottom: 0.4rem;
 	}
 
+	/* Die alte ID ist der Zeilenkopf (th scope=row), sieht aber aus wie bisher die erste Zelle. */
+	.predecessors-table th,
 	.predecessors-table td {
 		padding: 0.4rem 1rem 0.4rem 0;
+		font-weight: inherit;
+		text-align: start;
 		border-bottom: 1px solid var(--sl-color-hairline);
 		vertical-align: middle;
 	}
 
+	.predecessors-table tr:last-child th,
 	.predecessors-table tr:last-child td {
 		border-bottom: none;
 	}
@@ -384,6 +389,7 @@ const effortInfo = effort ? EFFORT[effort] : undefined;
 	   und der Link kam wieder abgeschnitten an. Weniger Zellenabstand holt
 	   den Rest zurück. */
 	@media (max-width: 22rem) {
+		.predecessors-table th,
 		.predecessors-table td {
 			padding-inline-end: 0.5rem;
 		}
@@ -409,7 +415,9 @@ const effortInfo = effort ? EFFORT[effort] : undefined;
 		.predecessors-table tr:last-child {
 			border-bottom: none;
 		}
+		.predecessors-table th,
 		.predecessors-table td,
+		.predecessors-table tr:last-child th,
 		.predecessors-table tr:last-child td {
 			padding: 0;
 			border-bottom: none;
