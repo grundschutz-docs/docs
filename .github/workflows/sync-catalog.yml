@@ -65,6 +65,11 @@ jobs:
         # tracking pinned Action SHAs — it bumps both together.
         uses: peter-evans/create-pull-request@5f6978faf089d4d20b00c7766989d076bb2fc7f1 # v8.1.1
         with:
+          # A PR opened with the default GITHUB_TOKEN does not start other workflows, so CI and the
+          # accessibility test never ran on sync PRs. SYNC_PR_TOKEN is a fine-grained token
+          # (contents + pull requests, this repository only, expires after 90 days). The fallback
+          # keeps the sync working, without CI on the PR, if the secret is missing or expired.
+          token: ${{ secrets.SYNC_PR_TOKEN || secrets.GITHUB_TOKEN }}
           commit-message: 'Sync generated docs with upstream Grundschutz++ catalog'
           title: 'Sync: upstream Grundschutz++ catalog changed'
           body: |
