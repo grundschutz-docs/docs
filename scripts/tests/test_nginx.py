@@ -46,11 +46,15 @@ class NginxAuslieferung(unittest.TestCase):
         (site / "_astro" / "a.js").write_text("x" * 2000)
         (site / "pagefind").mkdir()
         (site / "pagefind" / "p.json").write_text("{}")
+        (site / "pagefind" / "index").mkdir()
+        (site / "pagefind" / "index" / "de_3b60196.pf_index").write_text("x")
+        (site / "aenderungen").mkdir()
+        (site / "aenderungen" / "ids.json").write_text("{}")
         (site / "404.html").write_text("<!doctype html><title>404</title>Seite nicht gefunden")
         (site / "en" / "404").mkdir(parents=True)
         (site / "en" / "404" / "index.html").write_text("<!doctype html><title>404</title>Page not found")
         for ordner in ("aenderungen", "befunde"):
-            (site / ordner).mkdir()
+            (site / ordner).mkdir(exist_ok=True)
             (site / ordner / "feed.xml").write_text('<?xml version="1.0"?><rss version="2.0"><channel>' + "<item/>" * 300 + "</channel></rss>")
         (site / "sitemap-0.xml").write_text('<?xml version="1.0"?><urlset>' + "<url/>" * 300 + "</urlset>")
         (site / "bild.svg").write_text('<svg xmlns="http://www.w3.org/2000/svg">' + "<g/>" * 500 + "</svg>")
@@ -228,6 +232,9 @@ class NginxAuslieferung(unittest.TestCase):
             ("/downloads/anforderungen.csv", 200),
             ("/_astro/a.js", 200),
             ("/pagefind/p.json", 200),
+            ("/pagefind/index/de_3b60196.pf_index", 200),
+            ("/downloads/anforderungen.json", 200),
+            ("/aenderungen/ids.json", 200),
             ("/gibt-es-nicht/", 404),
             ("/en/gibt-es-nicht/", 404),
         ]:
@@ -237,8 +244,13 @@ class NginxAuslieferung(unittest.TestCase):
     def test_cache_header_bleiben(self):
         _, headers, _ = self.get("/_astro/a.js")
         self.assertIn("immutable", headers.get("cache-control", ""))
-        _, headers, _ = self.get("/pagefind/p.json")
-        self.assertIn("max-age=3600", headers.get("cache-control", ""))
+        # Pagefind: Dateien mit Hash im Namen lange, der Rest mit festem Namen nur mit Nachfrage.
+        _, headers, _ = self.get("/pagefind/index/de_3b60196.pf_index")
+        self.assertIn("immutable", headers.get("cache-control", ""))
+        for pfad in ("/pagefind/p.json", "/downloads/anforderungen.csv", "/downloads/anforderungen.json", "/aenderungen/ids.json"):
+            with self.subTest(pfad=pfad):
+                _, headers, _ = self.get(pfad)
+                self.assertEqual(headers.get("cache-control"), "no-cache", pfad)
 
     def test_keine_nginx_version(self):
         _, headers, _ = self.get("/")

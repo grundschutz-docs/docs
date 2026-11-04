@@ -6,8 +6,8 @@ This covers vulnerabilities in **this site's code** — the Astro build,
 the generator script, the GitHub Actions workflows. It does not cover
 problems with the Grundschutz++ catalog's own content (wrong text,
 contradictions, bad mappings) — those go in the public
-[findings register](https://github.com/grundschutz-docs/docs#readme)
-(`/befunde/` on the site) instead, not here.
+[findings register](https://grundschutz-docs.de/befunde/)
+instead, not here.
 
 ## Supported versions
 
