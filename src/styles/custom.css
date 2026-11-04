@@ -219,6 +219,13 @@ header.header {
 	box-shadow: var(--glass-shadow);
 }
 
+/* Der Menü-Knopf (mobil) ist bei Starlight fixiert und rechnet seine Höhe vom Fensterrand aus. Er kennt unsere feste
+   Status-Leiste nicht und saß deshalb im Banner, auf "Zum Zeitplan". Jetzt: Banner + Abstand, dann in der Mitte der
+   Kopfleiste */
+button.sl-menu-button {
+	top: calc(var(--banner-height) + var(--glass-gap) + (var(--sl-nav-height) - var(--sl-menu-button-size)) / 2);
+}
+
 /* Sidebar-Popover (mobil: volle Breite, bleibt bewusst randlos für Bedienbarkeit;
    Abstand nach unten wegen Status-Leiste + Header). */
 .sidebar-pane {
