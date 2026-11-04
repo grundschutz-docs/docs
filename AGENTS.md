@@ -34,7 +34,7 @@ of use, not under CC BY-SA (see the licence line in `Footer.astro`).
 
 ## Accessibility
 
-Target WCAG 2.2 AA, AAA where cheap. `a11y.test.cjs` runs axe on 36 pages and two interaction states in four variants.
+Target WCAG 2.2 AA, AAA where cheap. `a11y.test.cjs` runs axe on a fixed list of pages and two interaction states in four variants (add new page types to the list).
 Colour tokens: do not use `--sl-color-accent` for small text in the light theme (3.6:1); `--sl-color-gray-3` is tuned
 for 7:1, see the comments in `src/styles/custom.css`. Wide tables and code blocks are made keyboard-reachable by
 `ScrollBereiche.astro`; do not wrap them by hand.
