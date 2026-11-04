@@ -9,6 +9,7 @@
 
 <script>
 	import { anforderungenImDom, istKatalogseite } from '../lib/anforderung-dom';
+	import { copyToClipboard } from '../lib/export-clipboard';
 
 	if (istKatalogseite()) {
 		const anforderungen = anforderungenImDom();
@@ -37,12 +38,12 @@
 				label.textContent = `Kurzlink /${id}`;
 				knopf.append(label);
 				knopf.addEventListener('click', async () => {
-					try {
-						await navigator.clipboard.writeText(text);
+					// Mit Rückfallstufen (auch ohne sicheren Kontext, ältere Browser); 'failed' heißt: nichts kopiert.
+					if ((await copyToClipboard(text)) !== 'failed') {
 						label.textContent = 'Kopiert';
 						meldung.textContent = `Kurzlink für ${id} kopiert.`;
-					} catch {
-						// Zwischenablage gesperrt (eingebettete Seite, ältere Browser): den Text zum Markieren zeigen.
+					} else {
+						// Zwischenablage gesperrt (eingebettete Seite): den Text zum Markieren zeigen.
 						label.textContent = 'Nicht kopiert';
 						meldung.textContent = `Kopieren nicht möglich. Kurzlink: ${url}`;
 					}

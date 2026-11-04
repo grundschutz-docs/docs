@@ -37,17 +37,17 @@ const url = new URL(href, Astro.site ?? 'https://grundschutz-docs.de').href;
 </aside>
 
 <script>
+	import { copyToClipboard } from '../lib/export-clipboard';
+
 	document.querySelectorAll<HTMLButtonElement>('.feed-knopf').forEach((knopf) => {
 		const status = knopf.closest('.feed-hinweis')?.querySelector('.feed-status');
 		knopf.addEventListener('click', async () => {
 			const url = knopf.dataset.feedUrl ?? '';
-			try {
-				await navigator.clipboard.writeText(url);
-				if (status) status.textContent = 'Adresse kopiert. Füge sie in deinen Feed-Reader ein.';
-			} catch {
-				// Zwischenablage gesperrt (ältere Browser, eingebettete Seiten): die Adresse zeigen, zum Markieren.
-				if (status) status.textContent = `Adresse: ${url}`;
-			}
+			// Mit Rückfallstufen (auch ohne sicheren Kontext, ältere Browser); 'failed' heißt: nichts kopiert.
+			const ergebnis = await copyToClipboard(url);
+			if (!status) return;
+			// Zwischenablage gesperrt (eingebettete Seiten): die Adresse zeigen, zum Markieren.
+			status.textContent = ergebnis === 'failed' ? `Adresse: ${url}` : 'Adresse kopiert. Füge sie in deinen Feed-Reader ein.';
 		});
 	});
 </script>
