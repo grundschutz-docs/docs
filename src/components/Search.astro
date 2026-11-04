@@ -566,7 +566,10 @@ const resultTemplate = `
 
 		.gs-search pagefind-summary {
 			display: block;
-			color: var(--sl-color-gray-3);
+			/* Der Hinweis vor der ersten Eingabe liest --pf-text-muted (gray-3): im Dunkeln 4,34:1 auf dem
+			   Dialoggrund (WCAG 1.4.3, axe auf 390 px). Die Variable gilt hier, nicht am ganzen Dialog. */
+			--pf-text-muted: var(--sl-color-gray-2);
+			color: var(--sl-color-gray-2);
 			font-size: var(--sl-text-sm);
 		}
 

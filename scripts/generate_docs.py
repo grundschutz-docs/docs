@@ -2666,7 +2666,7 @@ def render_mapping_notice(by_baustein, baustein_links, total):
         "die Datei so wieder, wie das BSI sie veröffentlicht hat, und haben sie nicht korrigiert."
     )
     return (
-        f'<aside class="mapping-notice" id="{MAPPING_NOTE_ANCHOR}">\n'
+        f'<aside class="mapping-notice" id="{MAPPING_NOTE_ANCHOR}" aria-label="Stand der Mapping-Datei">\n'
         "<strong>Stand der Mapping-Datei</strong>\n"
         f"<p>{''.join(parts)}</p>\n"
         "</aside>\n\n"

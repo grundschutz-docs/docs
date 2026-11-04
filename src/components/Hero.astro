@@ -5,7 +5,8 @@ import { LinkButton } from '@astrojs/starlight/components';
 import CatalogPreview from './CatalogPreview.astro';
 import LandingStats from './LandingStats.astro';
 
-const PAGE_TITLE_ID = 'starlight__hero';
+// "_top" ist das Ziel des Skip-Links (#_top); mit einer anderen ID lief er auf der Startseite ins Leere.
+const PAGE_TITLE_ID = '_top';
 
 // Starlight reserviert ab 50rem eine zweite Hero-Spalte (7fr 4fr) für ein
 // Bild. Wir haben keins — ohne Inhalt stand dort ein Drittel der Startseite
