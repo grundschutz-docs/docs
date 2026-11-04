@@ -68,4 +68,4 @@ const WEBSITE_JSONLD = {
     einfuegt, meist die Startseite. */}
 <link rel="alternate" type="application/rss+xml" title="Grundschutz++ Docs: Änderungen am Katalog" href={`${SITE_URL}/aenderungen/feed.xml`} />
 <link rel="alternate" type="application/rss+xml" title="Grundschutz++ Docs: Befunde" href={`${SITE_URL}/befunde/feed.xml`} />
-<script type="application/ld+json" set:html={JSON.stringify(WEBSITE_JSONLD)} />
+<script type="application/ld+json" set:html={JSON.stringify(WEBSITE_JSONLD).replace(/</g, '\\u003c')} />

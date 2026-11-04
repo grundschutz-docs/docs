@@ -131,6 +131,10 @@ const shouldRenderSearch =
 		}
 
 		.quicknav a {
+			/* Mindestens 24 px hoch (WCAG 2.5.8), gemessen waren es 23. */
+			display: inline-flex;
+			align-items: center;
+			min-height: 2.75rem;
 			color: var(--sl-color-gray-2);
 			text-decoration: none;
 			font-weight: 600;
