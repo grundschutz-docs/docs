@@ -3,7 +3,7 @@ title: Katalog und Standard 300-1 nennen den Umsetzungsstatus und den Anlass fü
 description: UMS.1.1 kennt zwei Statuswerte, der Standard drei („nicht anwendbar“). STM.4.1 nennt die Herabstufung des Sicherheitsniveaus als Anlass für eine Risikobetrachtung, die Aufzählung im Standard nicht.
 befund:
   typ: beobachtung
-  status: gemeldet
+  status: beantwortet
   gefunden: 2026-10-27
   betrifft: [UMS.1.1, STM.4.1]
   quelle: https://github.com/BSI-Bund/Stand-der-Technik-Bibliothek/blob/main/control_layer/Grundschutz++/Grundschutz++-resolved_catalog.json
@@ -16,7 +16,7 @@ import BefundMeta from '../../../components/BefundMeta.astro';
 
 <BefundMeta
 	typ="beobachtung"
-	status="gemeldet"
+	status="beantwortet"
 	gefunden={new Date('2026-10-27')}
 	betrifft={['UMS.1.1', 'STM.4.1']}
 	quelle="https://github.com/BSI-Bund/Stand-der-Technik-Bibliothek/blob/main/control_layer/Grundschutz++/Grundschutz++-resolved_catalog.json"
@@ -40,6 +40,22 @@ nicht.
 
 - Katalog, STM.4.1: „Eine Risikobetrachtung ist insbesondere notwendig bei Geschäftsprozessen oder Assets mit hohem Schutzbedarf, bei Herabstufung des Sicherheitsniveaus (von erhöht auf normal- SdT) oder bei Nicht-Umsetzung von Anforderungen.“
 - Standard, 2.11: Eine explizite Risikobetrachtung ist nötig, wenn ein Geschäftsprozess hohen Schutzbedarf hat, wenn ein relevantes Asset durch die Zielobjektkategorien nicht hinreichend abgedeckt wird und wenn eine anwendbare SOLLTE-Anforderung dauerhaft nicht erfüllt wird. Eine Herabstufung des Sicherheitsniveaus steht dort nicht.
+
+## Antwort des BSI
+
+Das Grundschutz-Team des BSI hat am 5. November 2026 per E-Mail geantwortet.
+Sinngemäß:
+
+- **Umsetzungsstatus:** Der Unterschied ist nicht bewusst vorgesehen. Er liegt
+  an der Asynchronität zwischen den Anforderungen und dem Standard 300-1. Das
+  BSI arbeitet das zeitnah auf; danach sollen die Zustände in UMS.1.1 denen des
+  Standards entsprechen.
+- **Herabstufung des Sicherheitsniveaus:** Sie ist kein Anlass für eine
+  Risikobetrachtung. Auch das ist eine Asynchronität, an der das BSI arbeitet.
+
+Das ist eine Auskunft per E-Mail, keine veröffentlichte Fassung. Geändert ist
+der Katalog noch nicht, deshalb steht der Befund auf „beantwortet“ und nicht auf
+„behoben“. Sobald UMS.1.1 und STM.4.1 angepasst sind, prüfen wir es nach.
 
 ## Nachprüfen
 
