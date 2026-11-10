@@ -53,7 +53,9 @@ class Vergleichsbeschreibungen(unittest.TestCase):
                 if m.get("relationship") and b and neu:
                     felder.setdefault(b.group(1), set()).add(neu)
         cls.erwartet = {}
+        cls.anzahl = {}  # Seitenname -> Zahl der eindeutigen neuen IDs
         for baustein, neue in felder.items():
+            cls.anzahl[baustein.lower().replace(".", "-")] = len(neue)
             zaehler = {}
             for n in neue:
                 zaehler[n.split(".")[0]] = zaehler.get(n.split(".")[0], 0) + 1
@@ -68,6 +70,32 @@ class Vergleichsbeschreibungen(unittest.TestCase):
             if not re.search(rf"\b{self.erwartet[seite.stem]}\b", beschreibung):
                 falsch.append(f"{seite.name}: erwartet {self.erwartet[seite.stem]} in {beschreibung!r}")
         self.assertEqual(falsch[:3], [], f"{len(falsch)} von {len(seiten)} Seiten ohne Themenfeld")
+
+
+    def seiten(self):
+        return [p for p in sorted((DOCS / "vergleich").glob("*.mdx")) if p.name != "index.mdx"]
+
+    def test_beschreibung_antwortet_mit_nachfolger_und_zaehlt_eindeutige_ids(self):
+        """"Nachfolger von <ID>: <n> Grundschutz++-Anforderungen": n sind die eindeutigen neuen IDs (wie im
+        ersten Absatz der Seite), nicht die Zuordnungspaare. Die ID ist die der Seite."""
+        falsch = []
+        for seite in self.seiten():
+            beschreibung = frontmatter(seite.read_text(encoding="utf-8"), "description")
+            baustein = seite.stem.upper().replace("-", ".")
+            n = self.anzahl[seite.stem]
+            nomen = "Grundschutz++-Anforderung" if n == 1 else "Grundschutz++-Anforderungen"
+            # ID, dann (wenn er in 160 Zeichen passt) der Name, dann die Zahl
+            if not re.match(rf"Nachfolger von {re.escape(baustein)}(?: .*?)?: {n} {re.escape(nomen)},", beschreibung):
+                falsch.append(f"{seite.name}: erwartet {n} {nomen} in {beschreibung!r}")
+        self.assertEqual(falsch[:3], [], f"{len(falsch)} von {len(self.seiten())} Seiten falsch")
+
+    def test_beschreibung_ist_nicht_laenger_als_das_snippet(self):
+        zu_lang = []
+        for seite in self.seiten():
+            beschreibung = frontmatter(seite.read_text(encoding="utf-8"), "description")
+            if len(beschreibung) > 160:
+                zu_lang.append(f"{seite.name}: {len(beschreibung)} Zeichen")
+        self.assertEqual(zu_lang[:3], [], f"{len(zu_lang)} Beschreibungen ueber 160 Zeichen")
 
 
 class Dokumentbeschreibungen(unittest.TestCase):

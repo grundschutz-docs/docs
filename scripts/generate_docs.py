@@ -2608,13 +2608,28 @@ def baustein_wo(entries, group_titles, links):
     return f"verteilt auf {len(ranked)} Themenfelder, am häufigsten {field_name(top_id)} ({top_n})"
 
 
-def baustein_description(full_name, count, entries, group_titles):
-    noun = "Zuordnung" if count == 1 else "Zuordnungen"
+DESCRIPTION_MAX = 160  # Google schneidet Snippets darueber ab; die Antwort steht vorn, der Rest ist Zugabe
+
+
+def baustein_description(full_name, entries, group_titles):
+    """Beschreibung fuer die Suche. Wer "ops.1.1.5" eintippt, sucht den alten Baustein und will wissen,
+    was an seine Stelle getreten ist: "Nachfolger von ...". Gezaehlt werden eindeutige neue IDs, wie im
+    ersten Absatz der Seite (baustein_lead), nicht die Zuordnungspaare.
+
+    Passt der Satz nicht in DESCRIPTION_MAX, wird in dieser Reihenfolge gekuerzt: erst der Schlusssatz,
+    dann der Name (nur die ID bleibt; sie wird gesucht, der Name steht im Titel). Der Name geht zuletzt,
+    weil er ein Suchwort ist ("Protokollierung")."""
+    n = len({new for _, _, new in entries})
+    noun = "Grundschutz++-Anforderung" if n == 1 else "Grundschutz++-Anforderungen"
     wo = baustein_wo(entries, group_titles, links=False)
-    return (
-        f"{full_name}: {count} {noun} zur Nachfolge in Grundschutz++, {wo}. "
-        "Nach dem BSI-Mapping, je mit Beziehungstyp."
-    )
+    baustein_id = full_name.split(" ", 1)[0]
+
+    def satz(name, schluss):
+        return f"Nachfolger von {name}: {n} {noun}, {wo}. {schluss}"
+
+    lang, kurz = "Nach dem BSI-Mapping, mit Beziehungstyp.", "Nach dem BSI-Mapping."
+    kandidaten = [satz(name, schluss) for name in (full_name, baustein_id) for schluss in (lang, kurz)]
+    return next((k for k in kandidaten if len(k) <= DESCRIPTION_MAX), kandidaten[-1])
 
 
 def baustein_lead(full_name, layer, entries, group_titles):
@@ -2717,7 +2732,7 @@ def render_baustein_page(baustein_id, entries, baustein_links, control_index, gr
     lines = [
         "---\n",
         f"title: {yaml_quote(full_name)}\n",
-        f"description: {yaml_quote(baustein_description(full_name, len(entries), entries, group_titles))}\n",
+        f"description: {yaml_quote(baustein_description(full_name, entries, group_titles))}\n",
         # <title> für die Suchergebnisse; Überschrift und Seitenleiste behalten
         # den kurzen Titel. Suchende tippen die alte Baustein-ID.
         "head:\n",
