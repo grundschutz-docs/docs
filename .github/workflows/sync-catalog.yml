@@ -63,7 +63,7 @@ jobs:
         # workflow where a retagged or compromised release could do real
         # damage. Trailing version comment is Dependabot's convention for
         # tracking pinned Action SHAs — it bumps both together.
-        uses: peter-evans/create-pull-request@5f6978faf089d4d20b00c7766989d076bb2fc7f1 # v8.1.1
+        uses: peter-evans/create-pull-request@15733dbdfeedb4f7fdb73d13c6f5ac83b710fab8 # v8.1.2
         with:
           # A PR opened with the default GITHUB_TOKEN does not start other workflows, so CI and the
           # accessibility test never ran on sync PRs. SYNC_PR_TOKEN is a fine-grained token
