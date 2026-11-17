@@ -1,3 +1,10 @@
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset=".github/images/banner-dark.png">
+  <img alt="Grundschutz++ Docs: search it, link it, compare it, export it. A comparison of old IT-Grundschutz requirements and their Grundschutz++ counterparts." src=".github/images/banner-light.png">
+</picture>
+
+<sub>The banner is an illustration, not a screenshot. The placeholder bars stand for requirement text.</sub>
+
 # Grundschutz++ Docs
 
 The BSI ships its Grundschutz++ security catalog as a 92,000-line OSCAL JSON

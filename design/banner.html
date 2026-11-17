@@ -1,0 +1,216 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Grundschutz++ Docs banner</title>
+<!--
+  README banner, 1280 x 640 px. An ILLUSTRATION, not a screenshot: no real requirement text, no catalog figures
+  (those come from the generator, see CLAUDE.md), no BSI logo or colours. Colours: tokens of src/styles/custom.css.
+  Fonts (SIL OFL 1.1, via Fontsource): Fraunces, Inter, JetBrains Mono, in design/fonts/.
+
+  Variants:  ?v=a  thread (sans, raw -> readable)   ?v=b  editorial (serif)   ?v=c  split (raw | readable)
+  Theme:     ?day=1 for light (c is the same in both)
+  Render:    node design/render-banner.cjs
+-->
+<style>
+  @font-face { font-family: Fraunces; font-weight: 600; src: url(fonts/fraunces-5.0.0-latin-600-normal.woff2); }
+  @font-face { font-family: Fraunces; font-weight: 400; font-style: italic; src: url(fonts/fraunces-5.0.0-latin-400-italic.woff2); }
+  @font-face { font-family: Inter; font-weight: 500; src: url(fonts/inter-5.0.0-latin-500-normal.woff2); }
+  @font-face { font-family: Inter; font-weight: 700; src: url(fonts/inter-5.0.0-latin-700-normal.woff2); }
+  @font-face { font-family: "JetBrains Mono"; font-weight: 400; src: url(fonts/jetbrains-mono-5.0.0-latin-400-normal.woff2); }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; background: #000; }
+  :root {
+    --bg: oklch(19% 0.014 70); --panel: oklch(24% 0.016 70); --panel2: oklch(30% 0.017 70);
+    --line: oklch(38% 0.018 70); --text: oklch(98% 0.006 70); --soft: oklch(84% 0.015 70);
+    --mute: oklch(74% 0.02 70); --accent: oklch(74% 0.14 75); --accent-low: oklch(32% 0.06 75);
+    --shadow: rgba(0,0,0,.45);
+  }
+  .day {
+    --bg: oklch(98.5% 0.008 80); --panel: oklch(96% 0.01 78); --panel2: oklch(93% 0.012 78);
+    --line: oklch(82% 0.013 70); --text: oklch(20% 0.015 70); --soft: oklch(26% 0.016 70);
+    --mute: oklch(42% 0.018 70); --accent: oklch(62% 0.15 75); --accent-low: oklch(93% 0.05 78);
+    --shadow: rgba(60,40,10,.16);
+  }
+  #banner { position: relative; width: 1280px; height: 640px; overflow: hidden; background: var(--bg); color: var(--text);
+    font-family: Inter, system-ui, sans-serif; }
+  .grain { position: absolute; inset: 0; pointer-events: none; opacity: .07; mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='200' height='200' filter='url(%23n)'/></svg>"); }
+  .abs { position: absolute; }
+  .mono { font-family: "JetBrains Mono", ui-monospace, monospace; }
+  .glow { position: absolute; inset: 0; background: radial-gradient(760px 460px at var(--gx, 78%) var(--gy, 45%), color-mix(in oklch, var(--accent) 18%, transparent), transparent 70%); }
+  .rule { position: absolute; height: 1px; background: var(--line); }
+  .tag { font-size: 13px; letter-spacing: .24em; text-transform: uppercase; color: var(--mute); }
+
+  /* ---- A: thread ---- */
+  .a .title { position: absolute; left: 72px; top: 62px; margin: 0; font-size: 82px; line-height: 1; font-weight: 700; letter-spacing: -.045em; white-space: nowrap; }
+  .a .title em { font-style: normal; color: var(--accent); }
+  .a .title span { font-weight: 500; color: var(--mute); }
+  .a .sub { position: absolute; left: 74px; top: 168px; font-size: 24px; letter-spacing: -.01em; color: var(--soft); }
+  .a .raw { left: 72px; top: 300px; width: 420px; font-size: 16px; line-height: 1.75; color: var(--mute); }
+  .a .raw i { font-style: normal; color: var(--accent); }
+  .a .raw .hl { background: var(--accent-low); border-radius: 4px; margin: 0 -8px; padding: 0 8px; color: var(--text); display: block; white-space: pre; }
+  .a svg.thread { position: absolute; left: 0; top: 0; width: 1280px; height: 640px; }
+  .a .card { left: 640px; top: 252px; width: 700px; height: 460px; background: var(--panel); border: 1px solid var(--line); border-radius: 26px; padding: 36px 40px; box-shadow: 0 30px 70px var(--shadow); }
+  .a .card2 { left: 668px; top: 224px; width: 700px; height: 460px; border: 1px solid var(--line); border-radius: 26px; background: var(--panel2); opacity: .55; }
+  .a .scale { display: flex; gap: 10px; }
+  .a .scale span { font-size: 14px; font-weight: 700; letter-spacing: .12em; padding: 8px 16px; border-radius: 999px; border: 1px solid var(--line); color: var(--mute); }
+  .a .scale span.on { background: var(--accent); border-color: var(--accent); color: var(--bg); }
+  .a .card h3 { margin: 28px 0 0; font-size: 40px; line-height: 1.1; letter-spacing: -.03em; font-weight: 700; }
+  .a .card p { margin: 14px 0 0; font-size: 20px; line-height: 1.5; color: var(--mute); max-width: 520px; }
+  .a .chips { display: flex; gap: 10px; margin-top: 26px; }
+  .a .chips span { font-size: 15px; padding: 7px 14px; border-radius: 999px; background: var(--panel2); border: 1px solid var(--line); color: var(--soft); }
+
+  /* ---- B: editorial ---- */
+  .b { --gx: 85%; --gy: 20%; }
+  .b .big { position: absolute; right: -60px; top: -150px; font-family: Fraunces, serif; font-weight: 600; font-size: 780px; line-height: 1; letter-spacing: -.06em; color: var(--accent); opacity: .17; }
+  .b .head { position: absolute; left: 72px; top: 150px; margin: 0; font-family: Fraunces, serif; font-weight: 600; font-size: 104px; line-height: 1.02; letter-spacing: -.035em; }
+  .b .head em { font-weight: 400; font-style: italic; color: var(--accent); letter-spacing: -.02em; }
+  .b .name { position: absolute; left: 74px; top: 74px; }
+  .b .meta { position: absolute; left: 72px; right: 72px; bottom: 44px; display: flex; justify-content: space-between; font-size: 13px; letter-spacing: .08em; color: var(--mute); }
+  .b .meta b { color: var(--text); font-weight: 500; }
+
+  /* ---- C: split ---- */
+  .c { --bg: oklch(19% 0.014 70); }
+  .c .l { position: absolute; left: 0; top: 0; bottom: 0; width: 600px; background: oklch(17% 0.012 70); }
+  .c .wall { position: absolute; left: 36px; top: 26px; font-size: 15px; line-height: 1.62; color: oklch(48% 0.02 70); white-space: pre; }
+  .c .wall i { font-style: normal; color: oklch(62% 0.1 75); }
+  .c .fade { position: absolute; left: 0; top: 0; bottom: 0; width: 600px; background: linear-gradient(90deg, transparent 40%, oklch(17% 0.012 70)); }
+  .c .r { position: absolute; left: 600px; top: 0; right: 0; bottom: 0; background: oklch(98.5% 0.008 80); color: oklch(20% 0.015 70); }
+  .c .seam { position: absolute; left: 600px; top: 0; bottom: 0; width: 2px; background: oklch(74% 0.14 75); }
+  .c .name { position: absolute; left: 664px; top: 64px; color: oklch(42% 0.018 70); }
+  .c .head { color: oklch(20% 0.015 70); position: absolute; left: 662px; top: 190px; margin: 0; font-family: Fraunces, serif; font-weight: 600; font-size: 74px; line-height: 1.04; letter-spacing: -.03em; }
+  .c .head em { font-weight: 400; font-style: italic; color: oklch(62% 0.15 75); }
+  .c .foot { position: absolute; left: 664px; bottom: 48px; font-size: 14px; color: oklch(42% 0.018 70); }
+  .c .foot b { color: oklch(20% 0.015 70); font-weight: 700; }
+  .c .arrow { position: absolute; left: 576px; top: 300px; width: 50px; height: 50px; border-radius: 50%; background: oklch(74% 0.14 75); display: flex; align-items: center; justify-content: center; }
+  .c .arrow svg { width: 24px; height: 24px; stroke: oklch(19% 0.014 70); stroke-width: 2.4; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+
+  /* ---- D: verbs + comparison ---- */
+  .d { --gx: 82%; --gy: 70%; }
+  .d .name { position: absolute; left: 74px; top: 64px; }
+  .d .verbs { position: absolute; left: 72px; top: 128px; margin: 0; font-family: Fraunces, serif; font-weight: 600; font-size: 70px; line-height: 1.04; letter-spacing: -.035em; }
+  .d .verbs span { display: block; color: var(--mute); opacity: .55; }
+  .d .verbs span.on { opacity: 1; color: var(--text); }
+  .d .verbs span.on em { font-weight: 400; font-style: italic; color: var(--accent); }
+  .d .meta { position: absolute; left: 72px; bottom: 44px; font-size: 13px; letter-spacing: .08em; color: var(--mute); }
+  .d .meta b { color: var(--text); font-weight: 500; }
+  .d .cmp { position: absolute; left: 640px; top: 96px; width: 700px; height: 600px; background: var(--panel); border: 1px solid var(--line); border-radius: 28px; box-shadow: 0 30px 80px var(--shadow); padding: 34px 40px; }
+  .d .cols { display: grid; grid-template-columns: 1fr 76px 1fr; align-items: end; font-size: 13px; letter-spacing: .14em; text-transform: uppercase; color: var(--mute); padding-bottom: 18px; border-bottom: 1px solid var(--line); }
+  .d .cols b { color: var(--accent); font-weight: 700; }
+  .d .row { display: grid; grid-template-columns: 1fr 76px 1fr; align-items: center; padding: 22px 0; border-bottom: 1px solid var(--line); }
+  .d .row .b { height: 11px; border-radius: 6px; background: var(--line); margin: 7px 0; }
+  .d .row .b.t { height: 15px; background: var(--soft); opacity: .8; width: 70%; }
+  .d .row .link { height: 2px; background: var(--accent); position: relative; margin: 0 8px; }
+  .d .row .link::before, .d .row .link::after { content: ""; position: absolute; top: -4px; width: 10px; height: 10px; border-radius: 50%; background: var(--accent); }
+  .d .row .link::before { left: -5px; } .d .row .link::after { right: -5px; }
+  .d .row.on { background: var(--accent-low); margin: 0 -40px; padding: 22px 40px; border-radius: 0; border-color: transparent; }
+
+  /* ---- E (rag) and F (org): same system as D ---- */
+  .e, .f { --gx: 82%; --gy: 70%; }
+  .e .name, .f .name { position: absolute; left: 74px; top: 64px; }
+  .e .verbs, .f .verbs { position: absolute; left: 72px; top: 128px; margin: 0; font-family: Fraunces, serif; font-weight: 600; font-size: 70px; line-height: 1.04; letter-spacing: -.035em; }
+  .f .verbs { font-size: 64px; }
+  .e .verbs span, .f .verbs span { display: block; color: var(--mute); opacity: .55; }
+  .e .verbs span.on, .f .verbs span.on { opacity: 1; color: var(--text); }
+  .e .verbs span.on em, .f .verbs span.on em { font-weight: 400; font-style: italic; color: var(--accent); }
+  .e .meta, .f .meta { position: absolute; left: 72px; bottom: 44px; font-size: 13px; letter-spacing: .08em; color: var(--mute); }
+  .e .meta b, .f .meta b { color: var(--text); font-weight: 500; }
+  .e .pipe { position: absolute; left: 640px; top: 76px; width: 700px; height: 600px; background: var(--panel); border: 1px solid var(--line); border-radius: 28px; box-shadow: 0 30px 80px var(--shadow); padding: 38px 44px; }
+  .e .stage { border: 1px solid var(--line); background: var(--panel2); border-radius: 18px; padding: 16px 24px; }
+  .e .stage .k { font-size: 12px; letter-spacing: .16em; text-transform: uppercase; color: var(--mute); }
+  .e .stage .v { margin-top: 8px; font-size: 20px; color: var(--text); }
+  .e .stage.hot { background: var(--accent-low); border-color: transparent; }
+  .e .sv { margin-top: 6px; font-size: 16px; color: var(--soft); opacity: .85; }
+  .e .vline { width: 2px; height: 24px; margin: 0 0 0 40px; background: var(--accent); position: relative; }
+  .e .vline::after { content: ""; position: absolute; left: -4px; bottom: -3px; width: 10px; height: 10px; border-radius: 50%; background: var(--accent); }
+  .f .repo { position: absolute; left: 640px; width: 700px; height: 220px; background: var(--panel); border: 1px solid var(--line); border-radius: 28px; box-shadow: 0 30px 80px var(--shadow); padding: 34px 44px; }
+  .f .repo .k { font-size: 12px; letter-spacing: .16em; text-transform: uppercase; color: var(--accent); }
+  .f .repo h3 { margin: 10px 0 0; font-family: "JetBrains Mono", monospace; font-weight: 400; font-size: 34px; letter-spacing: -.02em; }
+  .f .repo.c { padding: 18px 36px; } .f .repo.c h3 { font-size: 28px; margin-top: 6px; }
+  .f .repo p { margin: 12px 0 0; font-size: 20px; line-height: 1.45; color: var(--mute); max-width: 520px; }
+</style>
+</head>
+<body>
+<div id="banner"></div>
+<script>
+const q = new URLSearchParams(location.search);
+const v = q.get('v') || 'a', day = q.get('day') === '1';
+const el = document.getElementById('banner');
+el.className = v + (day && v !== 'c' ? ' day' : '');
+if (day && v !== 'c') document.documentElement.classList.add('day');
+const keys = ['uuid','class','title','props','parts','links','params','controls','groups','back-matter','metadata','remarks'];
+const wall = Array.from({length: 24}, (_, i) => i % 5 === 0 ? '{' : `  "<i>${keys[(i * 7) % keys.length]}</i>": ${i % 4 === 3 ? '[ … ]' : '"…"'},`).join('\n');
+
+// Org banner: one card per repository. Add a line here and re-render; the cards shrink to fit,
+// from 4 on they drop the description, and from 6 on the rest is summarised as "+ n more".
+const REPOS = [
+  ['docs', "Readable, searchable rendering of BSI's Grundschutz++ catalog."],
+  ['rag', 'The catalog as JSONL, with Qdrant indexing for your own RAG.'],
+];
+function repoCards() {
+  const MAX = 5, top = 76, avail = 520, gap = 16;
+  let list = REPOS.slice(), more = 0;
+  if (list.length > MAX) { more = list.length - (MAX - 1); list = list.slice(0, MAX - 1); }
+  const n = list.length + (more ? 1 : 0), h = Math.min(220, (avail - (n - 1) * gap) / n), compact = n >= 4;
+  const card = (i, inner) => `<div class="repo${compact ? ' c' : ''}" style="top:${top + i * (h + gap)}px;height:${h}px">${inner}</div>`;
+  return list.map(([name, d], i) => card(i, `<div class="k">Repository</div><h3>${name}</h3>${compact ? '' : `<p>${d}</p>`}`)).join('')
+    + (more ? card(list.length, `<div class="k">+ ${more} more repositories</div>`) : '');
+}
+const T = {
+a: `<div class="glow"></div>
+<h1 class="title">Grundschutz<em>++</em> <span>Docs</span></h1>
+<div class="sub">The BSI catalog, made readable.</div>
+<div class="abs raw mono"><span style="display:block;white-space:pre">{
+  "<i>uuid</i>": "…",
+  "<i>class</i>": "…",
+<span class="hl">  "<i>props</i>": [ { "name": "sec_level" } ],</span>  "<i>parts</i>": [ … ],
+  "<i>links</i>": [ … ]
+}</span></div>
+<svg class="thread" viewBox="0 0 1280 640"><path d="M 470 395 C 560 395, 560 345, 650 345 L 700 345" fill="none" stroke="var(--accent)" stroke-width="2" stroke-dasharray="1 7" stroke-linecap="round"/><circle cx="470" cy="395" r="5" fill="var(--accent)"/><circle cx="704" cy="345" r="5" fill="var(--accent)"/></svg>
+<div class="abs card2"></div>
+<div class="abs card"><div class="scale"><span>MUSS</span><span class="on">SOLLTE</span><span>KANN</span></div>
+<h3>Readable. Linkable. Searchable.</h3><p>One permalink per requirement, with its level, effort and threats shown inline.</p>
+<div class="chips"><span>Effort</span><span>Base threats</span><span>Target objects</span></div></div>
+<div class="grain"></div>`,
+b: `<div class="glow"></div><div class="big" aria-hidden="true">++</div>
+<div class="abs tag mono name">Grundschutz++ Docs</div>
+<h1 class="head">The BSI catalog,<br><em>readable.</em></h1>
+<div class="rule" style="left:72px;right:72px;bottom:92px"></div>
+<div class="meta mono"><span><b>Unofficial</b> · independent · not affiliated with the BSI</span><span>OSCAL → HTML · open source</span></div>
+<div class="grain"></div>`,
+d: `<div class="glow"></div>
+<div class="abs tag mono name">Grundschutz++ Docs</div>
+<h1 class="verbs"><span>Search it.</span><span>Link it.</span><span class="on"><em>Compare</em> it.</span><span>Export it.</span></h1>
+<div class="meta mono"><b>Unofficial</b> · independent · not affiliated with the BSI</div>
+<div class="cmp"><div class="cols"><span>IT-Grundschutz-Kompendium</span><span></span><span><b>Grundschutz++</b></span></div>
+${[0,1,2,3].map(i => `<div class="row${i === 1 ? ' on' : ''}"><div><div class="b t"></div><div class="b" style="width:${90 - i * 8}%"></div></div><div class="link"></div><div><div class="b t"></div><div class="b" style="width:${84 + (i % 2) * 10}%"></div></div></div>`).join('')}</div>
+<div class="grain"></div>`,
+e: `<div class="glow"></div>
+<div class="abs tag mono name">grundschutz-docs / rag</div>
+<h1 class="verbs"><span class="on"><em>Embed</em> it.</span><span>Index it.</span><span>Query it.</span><span>Build on it.</span></h1>
+<div class="meta mono"><b>Unofficial</b> · independent · not affiliated with the BSI</div>
+<div class="pipe"><div class="stage"><div class="k">One requirement per line</div><div class="v mono" style="font-size:17px">grundschutzpp-controls.jsonl</div></div><div class="vline"></div>
+<div class="stage hot"><div class="k">Embedding</div><div class="v">Any OpenAI-compatible server</div><div class="sv">Fully local on your own hardware, or hosted.</div></div><div class="vline"></div>
+<div class="stage"><div class="k">Vector store</div><div class="v">Qdrant</div></div><div class="vline"></div>
+<div class="stage"><div class="k">Your RAG</div><div class="v" style="color:var(--mute)">Chatbot, search, policy check</div></div></div>
+<div class="grain"></div>`,
+f: `<div class="glow"></div>
+<div class="abs tag mono name">github.com / grundschutz-docs</div>
+<h1 class="verbs"><span>Readable.</span><span>Searchable.</span><span class="on"><em>Self-hostable.</em></span></h1>
+<div class="meta mono"><b>Unofficial</b> · independent · not affiliated with the BSI</div>
+${repoCards()}
+<div class="grain"></div>`,
+c: `<div class="l"><div class="wall mono">${wall}</div><div class="fade"></div></div>
+<div class="r"></div><div class="seam"></div>
+<div class="arrow"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+<div class="abs tag mono name">Grundschutz++ Docs</div>
+<h1 class="head">Raw OSCAL,<br><em>made readable.</em></h1>
+<div class="foot"><b>Unofficial</b> and independent. Not affiliated with the BSI.</div>
+<div class="grain"></div>`
+};
+el.innerHTML = T[v];
+</script>
+</body>
+</html>
