@@ -45,7 +45,7 @@ class FestlegungenImExport(unittest.TestCase):
         )
 
     def test_zahlen_aus_der_analyse(self):
-        self.assertEqual((len(self.f), len({x["id"] for x in self.f})), (224, 211))
+        self.assertEqual((len(self.f), len({x["id"] for x in self.f})), (225, 212))
 
 
 @unittest.skipUnless(os.environ.get("GRUNDSCHUTZPP_CATALOG"), "GRUNDSCHUTZPP_CATALOG nicht gesetzt")

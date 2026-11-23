@@ -40,6 +40,8 @@ hero:
       variant: minimal
 ---
 
+import landing from '../../../data/landing.json';
+
 <div class="stat-row">
 	<div class="stat-chip">
 		<span class="stat-chip-value">29,500</span>
@@ -93,7 +95,7 @@ it replaces.
 	<a class="role-card" href="/grundschutzpp/">
 		<span class="role-kicker">German</span>
 		<h3>The full catalog</h3>
-		<p>All 1,000 requirements, with obligation level, effort, and threats inline.</p>
+		<p>All {landing.stats.controls.toLocaleString('en-US')} requirements, with obligation level, effort, and threats inline.</p>
 	</a>
 	<a class="role-card" href="/rollen/geschaeftsfuehrung/">
 		<span class="role-kicker">German</span>

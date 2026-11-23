@@ -70,8 +70,8 @@ This step turns the catalog into an **individual requirements package** (*Anford
 The package contains three kinds of requirements (3.4):
 
 - **Methodology requirements** apply to every information domain and are mandatory. They sit in the methodology practices (GC, STM, UMS, VRB, PERF, RISK) and reflect ISO 27001 clauses 4 to 10. "An individual approach is not intended" (3.4.1). In the catalog that is **99** requirements.
-- **Requirements without a target object category** from the technical and organizational practices are likewise mandatory ([STM.2.1.5](/grundschutzpp/stm/#STM.2.1.5)). In the catalog that is **265**.
-- **Requirements with a target object category** apply as far as you have assets in that category ([STM.2.1.4](/grundschutzpp/stm/#STM.2.1.4)). In the catalog, **636** requirements carry the category in a field called `target_object_categories`. Together with the other two groups that makes the 1,000 requirements.
+- **Requirements without a target object category** from the technical and organizational practices are likewise mandatory ([STM.2.1.5](/grundschutzpp/stm/#STM.2.1.5)). In the catalog that is **263**.
+- **Requirements with a target object category** apply as far as you have assets in that category ([STM.2.1.4](/grundschutzpp/stm/#STM.2.1.4)). In the catalog, **639** requirements carry the category in a field called `target_object_categories`. Together with the other two groups that makes the 1,001 requirements.
 
 A requirement that affects several assets of the same category enters the package only once ([STM.2.1.4.2](/grundschutzpp/stm/#STM.2.1.4.2)).
 
@@ -79,12 +79,12 @@ The target object categories are stored per requirement in the catalog (field `t
 
 ### MUSS, SOLLTE, KANN and the two security levels
 
-Every requirement carries a modal verb and a security level. In the catalog (version 22 October 2026, 1,000 requirements) the split is:
+Every requirement carries a modal verb and a security level. In the catalog (version 19 November 2026, 1,001 requirements) the split is:
 
 | Modal verb | Count | Level |
 |---|---|---|
 | MUSS (must) | 149 | normal-SdT |
-| SOLLTE (should) | 624 | normal-SdT |
+| SOLLTE (should) | 625 | normal-SdT |
 | SOLLTE (should) | 3 | erhöht (elevated) |
 | KANN (may) | 224 | erhöht (elevated) |
 
@@ -123,7 +123,7 @@ Add owners and deadlines ([UMS.3.1](/grundschutzpp/ums/#UMS.3.1), [UMS.4.1](/gru
 
 ## When a risk assessment is mandatory
 
-The catalog already contains a **general risk assessment** based on an assumed typical threat situation. The underlying threats are stored as metadata on the requirements. In the catalog, 901 of 1,000 requirements carry such data, covering 47 distinct elementary threats (Annex 4). With normal protection needs, this is all you need.
+The catalog already contains a **general risk assessment** based on an assumed typical threat situation. The underlying threats are stored as metadata on the requirements. In the catalog, 902 of 1,001 requirements carry such data, covering 47 distinct elementary threats (Annex 4). With normal protection needs, this is all you need.
 
 An **explicit risk assessment** is required in these cases, according to the standard (2.11):
 
@@ -167,4 +167,4 @@ Continual improvement (6) closes the loop: analyse non-conformities, assess impr
 
 - [BSI Standard 300-1 "Methodik Grundschutz++", version 1.0](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/BSI_Standards/standard_300-1.pdf?__blob=publicationFile) (PDF, 42 pages, German)
 - [BSI press release of 26 October 2026](https://www.bsi.bund.de/DE/Service-Navi/Presse/Alle-Meldungen-News/Meldungen/2026/BSI-Standard_300-1_261026.html) (German)
-- [BSI Stand-der-Technik-Bibliothek](https://github.com/BSI-Bund/Stand-der-Technik-Bibliothek), Anwenderkatalog Grundschutz++, version 2026-10-22: figures on modal verbs, security levels and threats
+- [BSI Stand-der-Technik-Bibliothek](https://github.com/BSI-Bund/Stand-der-Technik-Bibliothek), Anwenderkatalog Grundschutz++, version 2026-11-19: figures on modal verbs, security levels and threats

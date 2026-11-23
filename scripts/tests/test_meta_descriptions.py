@@ -109,7 +109,7 @@ class Dokumentbeschreibungen(unittest.TestCase):
             if "soweit vorhanden" in beschreibung:
                 mit_floskel.append(seite.name)
             zitat = re.search(r"\*\*Beschreibung des BSI\*\*\n\n> (.+)", text)
-            if zitat and "nicht die Outsourcing-Strategie" not in text:
+            if zitat and "**Hinweis:**" not in text:
                 mit_zitat += 1
                 satz = re.split(r"(?<=[.!?])\s", zitat.group(1).replace("\\", ""), maxsplit=1)[0]
                 # Der Satz des BSI nennt oft nicht, um welches Dokument es geht: der Name steht davor.
@@ -119,7 +119,7 @@ class Dokumentbeschreibungen(unittest.TestCase):
             else:
                 ohne_zitat += 1
         self.assertGreater(mit_zitat, 40, "zu wenige Seiten mit BSI-Beschreibung gefunden")
-        self.assertGreater(ohne_zitat, 3)
+        self.assertGreater(ohne_zitat, 0)
         self.assertEqual(mit_floskel[:4], [], f"{len(mit_floskel)} Seiten")
 
 

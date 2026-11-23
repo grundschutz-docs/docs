@@ -1,6 +1,6 @@
 ---
-title: Neun Dokumenttypen im Katalog stehen nicht in der Dokumentationstabelle des BSI
-description: Der Anwenderkatalog nennt bei 961 Anforderungen ein Dokument, in dem das Ergebnis festzuhalten ist. Bei 168 davon steht ein Name, den die Tabelle documentation_guidelines.csv nicht kennt.
+title: Ein Dokumenttyp im Katalog steht nicht in der Dokumentationstabelle des BSI
+description: Der Anwenderkatalog nennt bei 962 Anforderungen ein Dokument. Bei 2 davon steht ein Name, den die Tabelle documentation_guidelines.csv nicht kennt (am 22.10.2026 waren es 168).
 befund:
   typ: fakt
   status: gemeldet
@@ -23,7 +23,7 @@ import BefundMeta from '../../../components/BefundMeta.astro';
 />
 
 Jede Anforderung im Anwenderkatalog nennt den Gegenstand, um den es geht
-(`result`, im Satz „die Datensicherung getrennt von den Originaldaten“), und bei 961 von 1.000 auch, in welchem Dokument es festzuhalten
+(`result`, im Satz „die Datensicherung getrennt von den Originaldaten“), und bei 962 von 1.001 auch, in welchem Dokument es festzuhalten
 ist (`documentation`). Für die Dokumenttypen gibt es eine Tabelle des BSI,
 `documentation_guidelines.csv`, auf die der Katalog selbst verweist. Dieser
 Befund beschreibt, wo Katalog und Tabelle nicht zusammenpassen. Er bewertet das
@@ -31,53 +31,52 @@ BSI nicht.
 
 ## Befund
 
-Der Katalog (Version 2026-10-22) verwendet 62 verschiedene Dokumentnamen. Neun
-davon, zusammen bei 168 der 961 Anforderungen mit Dokument, kommen in der
-Spalte „Begriff“ der Tabelle nicht vor:
+Der Katalog (Version 2026-11-19) verwendet 57 verschiedene Dokumentnamen. Einer
+davon, bei 2 der 962 Anforderungen mit Dokument, kommt in der Spalte „Begriff“
+der Tabelle nicht vor:
 
 | Name im Katalog | Anforderungen |
 |---|---|
-| Beschaffungskriterien | 70 |
-| Detektions-Konzept | 61 |
-| Übungs- und Prüfplan | 24 |
-| Anwendungsdokumentation | 3 |
-| Schwachstellenregister | 3 |
-| Outsourcing Strategie | 2 |
 | Risikobetrachtung | 2 |
-| Systemdokumentation | 2 |
-| Prozess Behandlung von Sicherheitsvorfällen | 1 |
 
-Umgekehrt führt die Tabelle 14 Begriffe, die im Katalog an keiner Anforderung
-vorkommen, darunter `Detektionskonzept`, `Outsourcing-Strategie`,
-`Leistungsbeschreibung`, `Verzeichnis der Schwachstellen` und `Risikobewertung`.
-Bei zwei Paaren sieht das nach unterschiedlicher Schreibweise aus
-(„Detektions-Konzept“ und „Detektionskonzept“, „Outsourcing Strategie“ und
-„Outsourcing-Strategie“). Bei den übrigen geht aus den Daten nicht hervor, ob
-derselbe Dokumenttyp gemeint ist.
+Umgekehrt führt die Tabelle 8 Begriffe, die im Katalog an keiner Anforderung
+vorkommen: `???`, `Bereinigter Netzplan`, `Inventar Standorte`,
+`Nutzungsbedingungen`, `Prozess Dienstleistersteuerung`, `Realisierungsplan`,
+`Risikobewertung` und `Verfahrensbeschreibung`. Ob `Risikobewertung` in der
+Tabelle derselbe Dokumenttyp ist wie `Risikobetrachtung` im Katalog, geht aus den
+Daten nicht hervor.
 
-Die Tabelle selbst ist an zwei Stellen erkennbar nicht fertig: Die Zeile
-„???“ kennzeichnet laut ihrer Definition „einen offenen Bedarf an vorgeschlagenen
-Dokumenten“, und der Eintrag „Verfahrensbeschreibung“ trägt „???“ in
-Definition, Kategorie und Zielgruppe.
+Die Zeile „???“ ist weiterhin in der Tabelle. Sie kennzeichnet laut ihrer Definition
+„einen offenen Bedarf an vorgeschlagenen Dokumenten“.
 
-### Die Zeile „Outsourcing-Strategie“ {#outsourcing-strategie}
+## Was sich am 23. November 2026 geändert hat
 
-Die Definition der Zeile „Outsourcing-Strategie“ beginnt mit
-„Informationssicherheitsstrategie: Ein übergeordnetes Dokument …“. Nach unserer
-Lesart beschreibt sie damit die Informationssicherheitsstrategie und nicht eine
-Outsourcing-Strategie. Die Zeile „Informationssicherheitsstrategie“ selbst trägt
-einen anderen Text. Ob das ein Versehen ist, wissen wir nicht. Von
-den 67 Zeilen der Tabelle ist das die einzige, deren Definition mit dem Namen einer
-anderen Zeile und einem Doppelpunkt beginnt.
+Am 22. Oktober 2026 (Katalogversion) standen 9 Dokumentnamen des Katalogs nicht in
+der Tabelle, bei zusammen 168 von 961 Anforderungen mit Dokument. Am 23. November 2026
+hat das BSI Katalog (Version 2026-11-19, Commit `93fbe83`) und Tabelle (Commit
+`14dfc44`) geändert. Von den neun Namen:
 
-Die Seite [Outsourcing Strategie](/dokumente/outsourcing-strategie/) zeigt den Text
-des BSI unverändert und nennt diesen Hinweis dazu; der Export enthält ihn ebenfalls
-unverändert. Der Hinweis steht im Generator und gilt nur, solange die Tabelle so
-beginnt. Ändert das BSI den Text, bricht der Generator ab, statt einen Hinweis zu
-zeigen, der nicht mehr stimmt. Die Meldung vom
-29. Oktober 2026 nannte „Outsourcing-Strategie“ nur als Paar zu „Outsourcing
-Strategie“ (Schreibweise); die Definition der Zeile war nicht Teil der Meldung. Am
-30. Oktober 2026 (Commit `c3f3785`) stand sie unverändert in der Tabelle.
+- „Detektions-Konzept“ und „Outsourcing Strategie“ stehen im Katalog jetzt als
+  „Detektionskonzept“ und „Outsourcing-Strategie“, wie in der Tabelle.
+- „Übungs- und Prüfplan“ und „Schwachstellenregister“ stehen jetzt auch in der Tabelle.
+- „Beschaffungskriterien“, „Anwendungsdokumentation“, „Systemdokumentation“ und
+  „Prozess Behandlung von Sicherheitsvorfällen“ kommen im Katalog unter diesem
+  Namen nicht mehr vor.
+- „Risikobetrachtung“ ist unverändert.
+
+Außerdem beschreibt die Definition der Zeile „Outsourcing-Strategie“ jetzt eine
+Outsourcing-Strategie. Bis dahin begann sie mit „Informationssicherheitsstrategie:
+Ein übergeordnetes Dokument …“ und beschrieb nach unserer Lesart dieses andere
+Dokument. Die Zeile „Verfahrensbeschreibung“, die „???“ in Definition, Kategorie
+und Zielgruppe trug, hat jetzt eine Definition, eine Kategorie und eine Zielgruppe.
+
+Unsere Meldung vom 29. Oktober 2026 enthielt die neun Namen und die beiden Zeilen
+mit „???“. Die Definition der Zeile „Outsourcing-Strategie“ war nicht Teil der
+Meldung. Das BSI hat nicht mitgeteilt, ob und warum es die Zeilen geändert hat; ob
+die Änderungen auf unsere Meldung zurückgehen, wissen wir nicht.
+
+Der Hinweis auf der Seite „Outsourcing Strategie“, den es bis dahin gab, ist
+entfallen, weil der Text, auf den er sich bezog, nicht mehr in der Tabelle steht.
 
 ## Rückmeldung des BSI
 
@@ -93,15 +92,16 @@ der Stand-der-Technik-Bibliothek beschreibt: Änderungsvorschläge nimmt das BSI
 über die Arbeitsgruppen der Community entgegen. Stand der Datei: zuletzt geändert
 am 10. November 2025 (Commit `b16d7bf`), gelesen am 12. November 2026; der Link
 zeigt auf genau diese Fassung. Zur Schreibweise der neun Namen
-und zu den beiden Zeilen mit „???“ gibt es damit noch keine Auskunft. Der Befund
-bleibt deshalb auf „gemeldet“.
+und zu den beiden Zeilen mit „???“ gab es damit noch keine Auskunft. Da „Risikobetrachtung“
+weiter fehlt, bleibt der Befund auf „gemeldet“; er wird „behoben“, sobald Katalog und Tabelle
+den Namen gleich schreiben.
 
 Das ist eine Auskunft per E-Mail, keine veröffentlichte Fassung.
 
 ## Nachprüfen
 
-Mit einem Klon der Stand-der-Technik-Bibliothek, Commit `160c177` vom
-23. Oktober 2026, sowie `jq` und `python3`. In `bash` ausführen.
+Mit einem Klon der Stand-der-Technik-Bibliothek, Commit `dc44ea4` vom
+23. November 2026, sowie `jq` und `python3`. In `bash` ausführen.
 
 ```sh
 F='control_layer/Grundschutz++/Grundschutz++-resolved_catalog.json'
@@ -115,46 +115,34 @@ jq -r '.. | objects | select(has("id") and has("parts"))
 # Begriffe der Tabelle (erste Spalte)
 python3 -c 'import csv; [print(r["Begriff"].strip()) for r in csv.DictReader(open("'$C'", encoding="utf-8"))]' | sort -u > csv.txt
 
-wc -l < katalog.txt                      # 961 Anforderungen mit Dokument
-sort -u katalog.txt | wc -l              # 62 verschiedene Namen
+wc -l < katalog.txt                      # 962 Anforderungen mit Dokument
+sort -u katalog.txt | wc -l              # 57 verschiedene Namen
 
-# im Katalog verwendet, in der Tabelle nicht vorhanden (die neun Namen)
-comm -23 <(sort -u katalog.txt) csv.txt
+# im Katalog verwendet, in der Tabelle nicht vorhanden
+comm -23 <(sort -u katalog.txt) csv.txt  # Risikobetrachtung
 
 # Anforderungen, die daran hängen
-comm -23 <(sort -u katalog.txt) csv.txt \
-  | while IFS= read -r n; do grep -cxF -- "$n" katalog.txt; done | paste -sd+ - | bc
-# 168
+grep -cxF -- 'Risikobetrachtung' katalog.txt
+# 2
 
-# in der Tabelle vorhanden, im Katalog nie verwendet (14 Begriffe)
+# in der Tabelle vorhanden, im Katalog nie verwendet (8 Begriffe)
 comm -13 <(sort -u katalog.txt) csv.txt
-
-# Zeilen, deren Definition mit dem Namen einer anderen Zeile und einem Doppelpunkt beginnt
-python3 -c '
-import csv
-rows = list(csv.DictReader(open("'$C'", encoding="utf-8")))
-namen = {r["Begriff"].strip() for r in rows}
-for r in rows:
-    erster = r["Definition"].split(":")[0].strip()
-    if ":" in r["Definition"][:60] and erster in namen and erster != r["Begriff"].strip():
-        print(r["Begriff"], "->", erster)'
-# Outsourcing-Strategie -> Informationssicherheitsstrategie
 ```
 
 Dass der Katalog auf diese Tabelle verweist, steht an jedem
 `documentation`-Eintrag im Feld `ns`:
 `…/documentation/namespaces/documentation_guidelines.csv`.
 
+Den Stand vom 22. Oktober 2026 (9 Namen, 168 Anforderungen) zeigen dieselben Befehle
+mit dem Commit `160c177` vom 23. Oktober 2026.
+
 ## Warum wichtig
 
 Wer aus dem Katalog eine Dokumentenübersicht ableitet, also „welche Dokumente
 braucht ein ISMS und wie viele Anforderungen hängen daran“, möchte jedem
 Dokumenttyp die Beschreibung, Kategorie und Zielgruppe der Tabelle zuordnen.
-Das geht für 168 von 961 Anforderungen nicht über den Namen. Bei zwei Namen, die
-sich nur in Schreibweise unterscheiden („Detektions-Konzept“, „Outsourcing
-Strategie“, zusammen 63 Anforderungen), ordnet die [Dokumentenübersicht](/dokumente/)
-die Beschreibung trotzdem zu und weist die Zuordnung aus. Bei den übrigen sieben Namen (105 Anforderungen) geht aus den Daten nicht
-hervor, welche Zuordnung gemeint ist. Dort raten wir nicht und zeigen keine
-Beschreibung (siehe [„Ohne Beschreibung des BSI“](/dokumente/#ohne-beschreibung-des-bsi)).
+Das geht für 2 von 962 Anforderungen nicht über den Namen. Dort raten wir nicht
+und zeigen keine Beschreibung (siehe
+[„Ohne Beschreibung des BSI“](/dokumente/#ohne-beschreibung-des-bsi)).
 
 Betroffen ist jede Auswertung, die den Dokumentnamen als Schlüssel benutzt.

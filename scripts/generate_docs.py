@@ -3198,16 +3198,10 @@ DOKUMENT_QUELLE_URL = (
 # gilt nur, solange die Tabelle noch genau diesen Text hat (Verfallsdatum): aendert das BSI ihn
 # oder die Zeile faellt weg, bricht der Generator ab, statt einen Hinweis zu zeigen, der nicht mehr
 # stimmt. Den Eintrag dann entfernen und den Befund anpassen.
-BSI_CSV_HINWEISE = {
-    "Outsourcing-Strategie": {
-        "beginnt_mit": "Informationssicherheitsstrategie: Ein übergeordnetes Dokument",
-        "hinweis": (
-            "Dieser Text steht so in der Tabelle des BSI. Er beginnt mit „Informationssicherheitsstrategie:“ "
-            "und beschreibt nach unserer Lesart dieses Dokument, nicht die Outsourcing-Strategie. Ob das ein Versehen "
-            "ist, wissen wir nicht. Mehr dazu im [Befund](/befunde/dokumenttypen-katalog-und-csv/#outsourcing-strategie)."
-        ),
-    },
-}
+# Eintrag: BSI-Name der Zeile -> {"beginnt_mit": Anfang des Textes der Tabelle, "hinweis": Satz auf der Seite}.
+# Zurzeit leer: das BSI hat den Text der Zeile "Outsourcing-Strategie" am 23.11.2026 geaendert (Commit 14dfc44),
+# der Hinweis dazu ist entfallen. Der Mechanismus bleibt, getestet in test_dokument_hinweise.py.
+BSI_CSV_HINWEISE = {}
 DOKUMENT_OHNE_KATEGORIE = "Ohne Kategorie im BSI"
 DOKUMENT_OHNE_BESCHREIBUNG = "Ohne Beschreibung des BSI"
 
@@ -3249,8 +3243,8 @@ def render_dokument_pages(catalog, control_index, params_by_id, basethreats_by_i
         if not betroffen or not betroffen[0]["beschreibung"].startswith(eintrag["beginnt_mit"]):
             raise SystemExit(
                 f"Hinweis zu {bsi_name!r} in BSI_CSV_HINWEISE ist veraltet: die Tabelle des BSI hat diesen Text "
-                "nicht mehr (oder die Zeile). Eintrag entfernen und den Befund "
-                "befunde/dokumenttypen-katalog-und-csv.mdx anpassen."
+                "nicht mehr (oder die Zeile). Eintrag entfernen und den zugehoerigen Befund unter "
+                "src/content/docs/befunde/ anpassen."
             )
 
     _, _, controls = zielobjekt_model(catalog)

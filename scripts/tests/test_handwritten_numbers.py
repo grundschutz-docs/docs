@@ -1,6 +1,6 @@
 """Katalogzahlen in handgeschriebenen Seiten (methodik, rag, Befunde) gegen den Katalog.
 
-Der Generator prueft nur, was er selbst schreibt. Diese Seiten nennen Zahlen wie "265" oder
+Der Generator prueft nur, was er selbst schreibt. Diese Seiten nennen Zahlen wie "263" oder
 "149 von 1000" von Hand: aendert der taegliche Sync den Katalog, stuenden sie still falsch da.
 check_handwritten_numbers() rechnet jede Aussage aus dem Katalog nach und sucht sie im Text.
 
@@ -57,12 +57,12 @@ class HandgeschriebeneZahlen(unittest.TestCase):
         self.assertEqual(self.problems(), [])
 
     def test_falsche_zahl_im_text_wird_gefunden(self):
-        self.edit("methodik.mdx", "Im Katalog sind das **265**.", "Im Katalog sind das **266**.")
+        self.edit("methodik.mdx", "Im Katalog sind das **263**.", "Im Katalog sind das **264**.")
         meldungen = self.problems()
         self.assertEqual(len(meldungen), 1, meldungen)
         self.assertIn("methodik.mdx", meldungen[0])
-        self.assertIn("266", meldungen[0])
-        self.assertIn("265", meldungen[0])
+        self.assertIn("264", meldungen[0])
+        self.assertIn("263", meldungen[0])
 
     def test_feste_zahlen_im_generatortext_der_rollenseiten(self):
         # rollen/isb.mdx und rollen/devs.mdx sind erzeugt, nennen aber einzelne Zahlen als festen
@@ -94,9 +94,9 @@ class HandgeschriebeneZahlen(unittest.TestCase):
 
     def test_datum_nach_dem_katalog_wird_gemeldet(self):
         # Ein Datum, das nach dem Katalogstand liegt, kann nicht stimmen (Tippfehler, falscher Stand).
-        self.edit("methodik.mdx", "(Stand 22.10.2026,", "(Stand 31.12.2026,")
-        self.edit("en/methodik.mdx", "(version 22 October 2026,", "(version 31 December 2026,")
-        self.edit("befunde/drei-sollte-mit-stufe-erhoeht.mdx", "(Version 2026-10-22,", "(Version 2026-12-31,")
+        self.edit("methodik.mdx", "(Stand 19.11.2026,", "(Stand 31.12.2026,")
+        self.edit("en/methodik.mdx", "(version 19 November 2026,", "(version 31 December 2026,")
+        self.edit("befunde/drei-sollte-mit-stufe-erhoeht.mdx", "(Version 2026-11-19,", "(Version 2026-12-31,")
         dateien = sorted(m.split(":")[0] for m in self.problems())
         self.assertEqual(dateien, ["befunde/drei-sollte-mit-stufe-erhoeht.mdx", "en/methodik.mdx", "methodik.mdx"])
 
