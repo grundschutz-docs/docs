@@ -282,6 +282,20 @@ mobile-starlight-toc .dropdown {
 		);
 		inset-block-end: var(--glass-gap);
 		margin-inline: var(--glass-gap);
+		/* Starlight gibt der Leiste position: fixed und width: 100%. Bei einem festen Element
+		   bezieht sich das auf das Fenster, nicht auf die Spalte (gemessen bei 1440 px: Leiste
+		   1440 px breit in einer Spalte von 360 px, ihr rechter Rand lag bei 2532 px). Bei Starlight
+		   sieht man das nicht, weil die Leiste dort keinen Hintergrund hat; das Glas-Panel macht es
+		   sichtbar (kein rechter Rand, keine Rundung, kein Schatten). Die Breite der Spalte steht in
+		   TwoColumnContent.astro (.right-sidebar-container) und wird hier nachgebaut, mit 100% als
+		   Fensterbreite ohne Scrollbalken: das ist die Breite von .main-frame plus die linke Sidebar.
+		   Ändert Starlight diese Formel, bricht test: scripts/tests/layout-rechte-leiste.test.cjs. */
+		width: calc(
+			max(
+					var(--sl-sidebar-width),
+					var(--sl-sidebar-width) + (100% - 2 * var(--sl-sidebar-width) - var(--sl-content-width)) / 2
+				) - 2 * var(--glass-gap)
+		);
 		height: auto;
 		padding-top: 1.25rem;
 		border-radius: 1.5rem;

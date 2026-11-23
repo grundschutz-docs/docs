@@ -81,6 +81,7 @@ jobs:
           node scripts/tests/a11y.test.cjs dist
           node scripts/tests/print.test.cjs dist
           node scripts/tests/theme-toggle.test.cjs dist
+          node scripts/tests/layout-rechte-leiste.test.cjs dist
 
   # A broken Dockerfile or a missing tool in the image would otherwise show up only at
   # deployment. Builds the image, starts it with the hardening flags the compose file uses
