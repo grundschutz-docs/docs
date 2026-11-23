@@ -9,11 +9,11 @@ import KennzeichenLegende from '../../../components/KennzeichenLegende.astro';
 <span data-pagefind-meta="section:Anforderung"></span>
 
 <div class="source-note">
-<p>Katalogstand: 29. Oktober 2026 — Quelle: <a href="https://github.com/BSI-Bund/Stand-der-Technik-Bibliothek" target="_blank" rel="noopener noreferrer">BSI Stand-der-Technik-Bibliothek</a>.</p>
+<p>Katalogstand: 19. November 2026 — Quelle: <a href="https://github.com/BSI-Bund/Stand-der-Technik-Bibliothek" target="_blank" rel="noopener noreferrer">BSI Stand-der-Technik-Bibliothek</a>.</p>
 <p>Diese Praktik als Tabelle: <a href="/export/?praktik=KONF">Excel exportieren</a> · <a href="/downloads/grundschutzpp-anforderungen-konf.csv" download>CSV</a></p>
 <details>
 <summary>Eine Anforderung von dieser Seite zitieren</summary>
-<p>Maßgeblich ist immer das Original, nicht diese Aufbereitung. Zitierfähig ist: BSI, <em>Anwenderkatalog Grundschutz++</em>, Version 2026-10-29, Dokument-ID ebe77c16-3ddc-42ce-8d53-eff5b6e23334 (RFC 9562), Anforderung <em>&lt;ID&gt;</em> — wobei die ID die Kennung neben der jeweiligen Überschrift ist, etwa <code>GC.5.1.1</code>. Sie bleibt stabil, auch wenn das BSI eine Formulierung ändert.</p>
+<p>Maßgeblich ist immer das Original, nicht diese Aufbereitung. Zitierfähig ist: BSI, <em>Anwenderkatalog Grundschutz++</em>, Version 2026-11-19, Dokument-ID ebe77c16-3ddc-42ce-8d53-eff5b6e23334 (RFC 9562), Anforderung <em>&lt;ID&gt;</em> — wobei die ID die Kennung neben der jeweiligen Überschrift ist, etwa <code>GC.5.1.1</code>. Sie bleibt stabil, auch wenn das BSI eine Formulierung ändert.</p>
 <p><strong>Kurzlink:</strong> <code>grundschutz-docs.de/GC.5.1.1</code> führt direkt zur Anforderung, für Tickets, Wikis und Audit-Dokumente. Der Knopf „Kurzlink“ bei den Kennzeichen jeder Anforderung kopiert ihn mit Titel und Katalogstand. Die ID muss groß geschrieben sein.</p>
 </details>
 <KennzeichenLegende />
@@ -411,7 +411,7 @@ Fernwartungszugänge, etwa über RDP, SNMP oder Anwendungen zur Fernsteuerung de
 
 <ControlMeta modalVerb="SOLLTE" secLevel="normal-SdT" effort="2" threats="G 0.22, G 0.43" threatsHint="G 0.22 – Manipulation von Informationen · G 0.43 – Einspielen von Nachrichten" tags={[{ name: "Produktbeschreibung", slug: "produktbeschreibung", hint: "Anforderungen mit diesem Tag sind sinnvolle Bestandteile einer dokumentierten Beschreibung eines IT-Produktes. Die vom Produkt implementierten Anforderungen können (durch Herstellers, Dienstleister oder Lieferanten) als OSCAL component-definition bereitgestellt werden um einen schnellen Abgleich zwischen Grundschutz++ und der Implementierung zu ermöglichen." }]} targets={[{ name: "IT-Systeme", slug: "it-systeme", hint: "Informationstechnische Systeme zur elektronischen Datenverarbeitung.", synonyms: "Computer, Computersystem" }]} inheritedTargets={["Hostsysteme", "Mobile Endgeräte"]} document={{ name: "Konfigurationshistorie", slug: "konfigurationshistorie" }} predecessors={[{ oldId: "OPS.1.2.6.A1-UA.5", relationship: "intersects-with", link: "https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/IT-GS-Kompendium_Einzel_PDFs_2023/04_OPS_Betrieb/OPS_1_2_6_NTP_Zeitsynchronisation_Edition_2023.pdf?__blob=publicationFile&v=3#download=1", vergleichHref: "/vergleich/ops-1-2-6/" }]} />
 
-<p class="zusammenhang not-content" data-art="voraussetzung_von" data-pagefind-ignore><span>Ist Voraussetzung für:</span> <a href="/grundschutzpp/det/#DET.3.1.7" title="Was, Wann, Wo">DET.3.1.7</a></p>
+<p class="zusammenhang not-content" data-art="voraussetzung_von" data-pagefind-ignore><span>Ist Voraussetzung für:</span> <a href="/grundschutzpp/det/#DET.3.1.1" title="Was, Wann, Wo">DET.3.1.1</a></p>
 
 > Konfiguration für IT-Systeme SOLLTE Zeitquellen autorisieren.
 
@@ -993,7 +993,7 @@ Referenzzustand („baseline configuration“) bezeichnet hier die dokumentierte
 
 <span class="sr-only" aria-hidden="true" data-pagefind-weight="10">KONF.10.5.1</span>
 
-<ControlMeta modalVerb="KANN" secLevel="erhöht" effort="5" threats="G 0.31, G 0.23, G 0.21, G 0.22" threatsHint="G 0.31 – Fehlerhafte Nutzung oder Administration von Geräten und Systemen · G 0.23 – Unbefugtes Eindringen in IT-Systeme · G 0.21 – Manipulation von Hard- oder Software · G 0.22 – Manipulation von Informationen" targets={[{ name: "Anwendungen", slug: "anwendungen", hint: "Eine Software, ein Computerprogramm oder ein Softwaredienst, der definierte fachliche oder technische Funktionen zur Verarbeitung, Bereitstellung oder Verwaltung von Informationen zur Verfügung stellt. Beispiele: Textverarbeitungen, Betriebssysteme, mobile Applikationen.", synonyms: "Apps" }]} inheritedTargets={["DNS-Server", "Dateiserver", "E-Mail", "Faxanwendungen", "Interpersonelle Kommunikation", "Office-Anwendungen", "TK-Anwendungen", "VK-Anwendungen", "Verzeichnisdienste", "Virtualisierungslösungen", "Webanwendungen", "Webbrowser", "Webserver"]} document={{ name: "Detektions-Konzept", slug: "detektions-konzept" }} />
+<ControlMeta modalVerb="KANN" secLevel="erhöht" effort="5" threats="G 0.31, G 0.23, G 0.21, G 0.22" threatsHint="G 0.31 – Fehlerhafte Nutzung oder Administration von Geräten und Systemen · G 0.23 – Unbefugtes Eindringen in IT-Systeme · G 0.21 – Manipulation von Hard- oder Software · G 0.22 – Manipulation von Informationen" targets={[{ name: "Anwendungen", slug: "anwendungen", hint: "Eine Software, ein Computerprogramm oder ein Softwaredienst, der definierte fachliche oder technische Funktionen zur Verarbeitung, Bereitstellung oder Verwaltung von Informationen zur Verfügung stellt. Beispiele: Textverarbeitungen, Betriebssysteme, mobile Applikationen.", synonyms: "Apps" }]} inheritedTargets={["DNS-Server", "Dateiserver", "E-Mail", "Faxanwendungen", "Interpersonelle Kommunikation", "Office-Anwendungen", "TK-Anwendungen", "VK-Anwendungen", "Verzeichnisdienste", "Virtualisierungslösungen", "Webanwendungen", "Webbrowser", "Webserver"]} document={{ name: "Detektionskonzept", slug: "detektionskonzept" }} />
 
 > Konfiguration für Anwendungen KANN die Überprüfung der Konfiguration durch *[einen automatisierten Mechanismus]* aktivieren.
 

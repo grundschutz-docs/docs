@@ -1,6 +1,4418 @@
 {
  "eintraege": [
   {
+   "commit": "93fbe8319db7995bb03924beacfa9e933f3a2498",
+   "veroeffentlicht": "2026-11-23T14:52:31Z",
+   "vorgaenger": "10f3c22898a4b15eb95fa228d78654cff32208e4",
+   "katalog_version": "2026-11-19T08:31:48.012242+00:00",
+   "neu": [
+    "ASST.2.4.1",
+    "ASST.2.5",
+    "DET.3.2.1",
+    "DET.3.2.2",
+    "DET.3.2.3",
+    "DET.3.2.4",
+    "DET.3.2.5",
+    "DET.3.2.6",
+    "DET.3.7",
+    "DET.3.8",
+    "DET.5.11",
+    "DET.5.12"
+   ],
+   "entfernt": [
+    "ASST.2.3.2",
+    "ASST.2.3.2.1",
+    "DET.3.1.10",
+    "DET.3.1.11",
+    "DET.3.1.12",
+    "DET.3.1.6",
+    "DET.3.1.7",
+    "DET.3.1.8",
+    "DET.3.1.9",
+    "DET.5.10.4",
+    "DET.5.10.5"
+   ],
+   "aenderungen": [
+    {
+     "id": "ARCH.2.2.1",
+     "titel": "Externe Netzanschlüsse einschränken",
+     "praktik": "ARCH",
+     "felder": [
+      {
+       "feld": "titel",
+       "name": "Titel",
+       "alt": "Externe Netzanschlüsse",
+       "neu": "Externe Netzanschlüsse einschränken",
+       "diff": [
+        [
+         "=",
+         "Externe Netzanschlüsse"
+        ],
+        [
+         "+",
+         " einschränken"
+        ]
+       ]
+      }
+     ]
+    },
+    {
+     "id": "ASST.2.1",
+     "titel": "Inventar der Informationen",
+     "praktik": "ASST",
+     "felder": [
+      {
+       "feld": "anforderung",
+       "name": "Anforderung",
+       "alt": "Informationen und Assets SOLLTE ein Inventar der Informationen und damit verbundener Assets dokumentieren.",
+       "neu": "Informationen und Assets für Daten SOLLTE ein Inventar der Informationen und damit verbundener Assets dokumentieren.",
+       "diff": [
+        [
+         "=",
+         "Informationen und Assets"
+        ],
+        [
+         "+",
+         " für Daten"
+        ],
+        [
+         "=",
+         " SOLLTE ein Inventar der Informationen und damit verbundener Assets dokumentieren."
+        ]
+       ]
+      },
+      {
+       "feld": "zielobjekte",
+       "name": "Zielobjektkategorien",
+       "alt": "",
+       "neu": "Daten"
+      }
+     ]
+    },
+    {
+     "id": "ASST.2.3",
+     "titel": "Inventar der Anwendungen",
+     "praktik": "ASST",
+     "felder": [
+      {
+       "feld": "anforderung",
+       "name": "Anforderung",
+       "alt": "Informationen und Assets SOLLTE ein Inventar der Anwendungen einschließlich Produktname, Versionsstand, Herkunft und Lizenzierung dokumentieren.",
+       "neu": "Informationen und Assets für IT-Systeme SOLLTE ein Inventar der Anwendungen einschließlich Produktname, Versionsstand, Herkunft und Lizenzierung dokumentieren.",
+       "diff": [
+        [
+         "=",
+         "Informationen und Assets"
+        ],
+        [
+         "+",
+         " für IT-Systeme"
+        ],
+        [
+         "=",
+         " SOLLTE ein Inventar der Anwendungen einschließlich Produktname, Versionsstand, Herkunft und Lizenzierung dokumentieren."
+        ]
+       ]
+      },
+      {
+       "feld": "zielobjekte",
+       "name": "Zielobjektkategorien",
+       "alt": "",
+       "neu": "IT-Systeme"
+      }
+     ]
+    },
+    {
+     "id": "ASST.2.4",
+     "titel": "Software Bill of Materials (SBOM)",
+     "praktik": "ASST",
+     "felder": [
+      {
+       "feld": "titel",
+       "name": "Titel",
+       "alt": "Klassifizierung",
+       "neu": "Software Bill of Materials (SBOM)",
+       "diff": [
+        [
+         "-",
+         "Klassifizierung"
+        ],
+        [
+         "+",
+         "Software Bill of Materials (SBOM)"
+        ]
+       ]
+      },
+      {
+       "feld": "anforderung",
+       "name": "Anforderung",
+       "alt": "Informationen und Assets für Daten SOLLTE diese einer Schutzbedarfsklasse zuweisen.",
+       "neu": "Informationen und Assets für Anwendungen SOLLTE die Software Bill of Materials (SBOM) dokumentieren.",
+       "diff": [
+        [
+         "=",
+         "Informationen und Assets für "
+        ],
+        [
+         "-",
+         "Daten"
+        ],
+        [
+         "+",
+         "Anwendungen"
+        ],
+        [
+         "=",
+         " SOLLTE "
+        ],
+        [
+         "-",
+         "diese einer Schutzbedarfsklasse zuweisen."
+        ],
+        [
+         "+",
+         "die Software Bill of Materials (SBOM) dokumentieren."
+        ]
+       ]
+      },
+      {
+       "feld": "erlaeuterung",
+       "name": "Erläuterung",
+       "alt": "Klassifizierung dient dazu, Daten entsprechend ihrer Schutzbedürftigkeit systematisch zu ordnen, um angemessene Schutzmaßnahmen zielgerichtet umzusetzen und Risiken effektiv zu reduzieren. Unter Klassifizierung versteht man dabei die Einteilung von Daten in Kategorien, etwa \"öffentlich\", \"intern\", \"vertraulich\" oder \"Verschlussache - Nur für den Dienstgebrauch\". Beispielsweise ist eine öffentlich zugängliche Marketingbroschüre weniger sensibel als personenbezogene Kundendaten, Betriebs- und Geschäftsgeheimnisse oder staatliche Verschlusssachen. Anzahl der Klassen und Umfang der Beschreibungen können sich an den ermittelten Risiken und der Menge der verarbeiteten Informationen orientieren. Die Kriterien zur Klassifizierung können sich daran orientieren, mit welchen Schäden eine Kompromittierung der Vertraulichkeit, Integrität oder Verfügbarkeit verbunden wäre, z.B. geschätzte Umsatzverluste, Gefahr für die Allgemeinheit, Schädigung der Rechte und Freiheiten betroffener Personen. Für Assets ist es sinnvoll, diese im Einklang mit der Klassifikation der Informationen ebenfalls in Klassen zu unterteilen, für deren Verarbeitung sie gebraucht werden. Je nach Aufgaben der Institution und Arten von verarbeiteten Informationen bietet es sich an, ein bestehendes Klassifikationsschema 1:1 zu verwenden - etwa das Schema der Verschlusssachenanweisung (VSA) - oder ein eigenes Schema zu erstellen, in dem mehrere bestehende Schemata auf die eigenentwickelten Klassen abgebildet werden.",
+       "neu": "Eine Software Bill of Materials (SBOM) ist in diesem Zusammenhang eine strukturierte Liste aller Komponenten, Bibliotheken und Abhängigkeiten, die in einer Anwendung enthalten sind, einschließlich ihrer Versionen und Herkunft. Sie kann dabei sowohl Open-Source- als auch proprietäre Bestandteile erfassen und in maschinenlesbaren Formaten (z. B. SPDX, CycloneDX) vorliegen. Der Zweck dieser Dokumentation liegt darin, Transparenz über die eingesetzten Softwarebestandteile zu schaffen, sodass Abhängigkeiten, potenzielle Schwachstellen oder veraltete Komponenten nachvollziehbar bleiben. Ohne diese Transparenz könnte es bei Sicherheitsvorfällen, Lizenzkonflikten oder fehlender Wartbarkeit zu erheblichen Problemen kommen, während eine gepflegte SBOM die schnelle Identifikation von Risiken, die Minimierung von Vendor Lock-in und die Nachvollziehbarkeit der Software-Lieferkette unterstützen kann. Hierzu kann die BSI TR-03183-2 verwendet werden.",
+       "diff": [
+        [
+         "-",
+         "Klassifizierung dient dazu, Daten entsprechend"
+        ],
+        [
+         "+",
+         "Eine Software Bill of Materials (SBOM) ist in diesem Zusammenhang eine strukturierte Liste aller Komponenten, Bibliotheken und Abhängigkeiten, die in einer Anwendung enthalten sind, einschließlich"
+        ],
+        [
+         "=",
+         " ihrer "
+        ],
+        [
+         "-",
+         "Schutzbedürftigkeit systematisch"
+        ],
+        [
+         "+",
+         "Versionen und Herkunft. Sie kann dabei sowohl Open-Source- als auch proprietäre Bestandteile erfassen und in maschinenlesbaren Formaten (z. B. SPDX, CycloneDX) vorliegen. Der Zweck dieser Dokumentation liegt darin, Transparenz über die eingesetzten Softwarebestandteile"
+        ],
+        [
+         "=",
+         " zu "
+        ],
+        [
+         "-",
+         "ordnen, um angemessene Schutzmaßnahmen zielgerichtet umzusetzen"
+        ],
+        [
+         "+",
+         "schaffen, sodass Abhängigkeiten, potenzielle Schwachstellen oder veraltete Komponenten nachvollziehbar bleiben. Ohne diese Transparenz könnte es bei Sicherheitsvorfällen, Lizenzkonflikten oder fehlender Wartbarkeit zu erheblichen Problemen kommen, während eine gepflegte SBOM die schnelle Identifikation von Risiken, die Minimierung von Vendor Lock-in"
+        ],
+        [
+         "=",
+         " und "
+        ],
+        [
+         "-",
+         "Risiken effektiv zu reduzieren. Unter Klassifizierung versteht man dabei"
+        ],
+        [
+         "+",
+         "die Nachvollziehbarkeit der Software-Lieferkette unterstützen kann. Hierzu kann"
+        ],
+        [
+         "=",
+         " die "
+        ],
+        [
+         "-",
+         "Einteilung von Daten in Kategorien, etwa \"öffentlich\", \"intern\", \"vertraulich\" oder \"Verschlussache - Nur für den Dienstgebrauch\". Beispielsweise ist eine öffentlich zugängliche Marketingbroschüre weniger sensibel als personenbezogene Kundendaten, Betriebs- und Geschäftsgeheimnisse oder staatliche Verschlusssachen. Anzahl der Klassen und Umfang der Beschreibungen können sich an den ermittelten Risiken und der Menge der verarbeiteten Informationen orientieren. Die Kriterien zur Klassifizierung können sich daran orientieren, mit welchen Schäden eine Kompromittierung der Vertraulichkeit, Integrität oder Verfügbarkeit verbunden wäre, z.B. geschätzte Umsatzverluste, Gefahr für die Allgemeinheit, Schädigung der Rechte und Freiheiten betroffener Personen. Für Assets ist es sinnvoll, diese im Einklang mit der Klassifikation der Informationen ebenfalls in Klassen zu unterteilen, für deren Verarbeitung sie gebraucht"
+        ],
+        [
+         "+",
+         "BSI TR-03183-2 verwendet"
+        ],
+        [
+         "=",
+         " werden."
+        ],
+        [
+         "-",
+         " Je nach Aufgaben der Institution und Arten von verarbeiteten Informationen bietet es sich an, ein bestehendes Klassifikationsschema 1:1 zu verwenden - etwa das Schema der Verschlusssachenanweisung (VSA) - oder ein eigenes Schema zu erstellen, in dem mehrere bestehende Schemata auf die eigenentwickelten Klassen abgebildet werden."
+        ]
+       ]
+      },
+      {
+       "feld": "aufwand",
+       "name": "Aufwand",
+       "alt": "3",
+       "neu": "4"
+      },
+      {
+       "feld": "ergebnis",
+       "name": "Ergebnis",
+       "alt": "diese einer Schutzbedarfsklasse",
+       "neu": "die Software Bill of Materials (SBOM)",
+       "diff": [
+        [
+         "-",
+         "diese einer Schutzbedarfsklasse"
+        ],
+        [
+         "+",
+         "die Software Bill of Materials (SBOM)"
+        ]
+       ]
+      },
+      {
+       "feld": "dokument",
+       "name": "Dokumentiert in",
+       "alt": "Inventar Informationen",
+       "neu": "Inventar Anwendungen"
+      },
+      {
+       "feld": "zielobjekte",
+       "name": "Zielobjektkategorien",
+       "alt": "Daten",
+       "neu": "Anwendungen"
+      },
+      {
+       "feld": "gefaehrdungen",
+       "name": "Gefährdungen",
+       "alt": "G 0.16, G 0.17, G 0.18, G 0.19",
+       "neu": "G 0.16, G 0.17, G 0.18, G 0.45",
+       "bezeichnungen": {
+        "G 0.16": "Diebstahl von Geräten, Datenträgern oder Dokumenten",
+        "G 0.17": "Verlust von Geräten, Datenträgern oder Dokumenten",
+        "G 0.18": "Fehlplanung oder fehlende Anpassung",
+        "G 0.19": "Offenlegung schützenswerter Informationen",
+        "G 0.45": "Datenverlust"
+       }
+      }
+     ]
+    },
+    {
+     "id": "BER.1.2",
+     "titel": "Regelmäßige Überprüfung",
+     "praktik": "BER",
+     "felder": [
+      {
+       "feld": "dokument",
+       "name": "Dokumentiert in",
+       "alt": "Prüfplan",
+       "neu": "Übungs- und Prüfplan"
+      }
+     ]
+    },
+    {
+     "id": "BER.3.24",
+     "titel": "Alternative Authentifizierung am IT-System",
+     "praktik": "BER",
+     "felder": [
+      {
+       "feld": "dokument",
+       "name": "Dokumentiert in",
+       "alt": "Anwendungsdokumentation",
+       "neu": "Betriebshandbuch"
+      }
+     ]
+    },
+    {
+     "id": "BER.3.25",
+     "titel": "Alternative Authentifizierung an der Anwendung",
+     "praktik": "BER",
+     "felder": [
+      {
+       "feld": "dokument",
+       "name": "Dokumentiert in",
+       "alt": "Anwendungsdokumentation",
+       "neu": "Betriebshandbuch"
+      }
+     ]
+    },
+    {
+     "id": "BER.4.4",
+     "titel": "Überprüfung von Berechtigungen",
+     "praktik": "BER",
+     "felder": [
+      {
+       "feld": "dokument",
+       "name": "Dokumentiert in",
+       "alt": "Prüfplan",
+       "neu": "Übungs- und Prüfplan"
+      }
+     ]
+    },
+    {
+     "id": "BER.4.5",
+     "titel": "Systemfunktionen ohne Authentifizierung",
+     "praktik": "BER",
+     "felder": [
+      {
+       "feld": "dokument",
+       "name": "Dokumentiert in",
+       "alt": "Systemdokumentation",
+       "neu": "Betriebshandbuch"
+      }
+     ]
+    },
+    {
+     "id": "BER.4.6",
+     "titel": "Anwendungsfunktionen ohne Authentifizierung",
+     "praktik": "BER",
+     "felder": [
+      {
+       "feld": "dokument",
+       "name": "Dokumentiert in",
+       "alt": "Anwendungsdokumentation",
+       "neu": "Betriebshandbuch"
+      }
+     ]
+    },
+    {
+     "id": "BER.6.6",
+     "titel": "Monitoring von Zugangsdaten",
+     "praktik": "BER",
+     "felder": [
+      {
+       "feld": "dokument",
+       "name": "Dokumentiert in",
+       "alt": "Detektions-Konzept",
+       "neu": "Detektionskonzept"
+      }
+     ]
+    },
+    {
+     "id": "BES.1.4",
+     "titel": "Outsourcing-Strategie",
+     "praktik": "BES",
+     "felder": [
+      {
+       "feld": "dokument",
+       "name": "Dokumentiert in",
+       "alt": "Outsourcing Strategie",
+       "neu": "Outsourcing-Strategie"
+      }
+     ]
+    },
+    {
+     "id": "BES.1.4.1",
+     "titel": "Freigabe der Strategie",
+     "praktik": "BES",
+     "felder": [
+      {
+       "feld": "dokument",
+       "name": "Dokumentiert in",
+       "alt": "Outsourcing Strategie",
+       "neu": "Outsourcing-Strategie"
+      }
+     ]
+    },
+    {
+     "id": "BES.1.5",
+     "titel": "Autorisierung des Bereitstellungsmodells",
+     "praktik": "BES",
+     "felder": [
+      {
+       "feld": "dokument",
+       "name": "Dokumentiert in",
+       "alt": "Beschaffungskriterien",
+       "neu": "Leistungsbeschreibung"
+      }
+     ]
+    },
+    {
+     "id": "BES.1.6",
+     "titel": "Dokumentation des Bereitstellungsmodells",
+     "praktik": "BES",
+     "felder": [
+      {
+       "feld": "dokument",
+       "name": "Dokumentiert in",
+       "alt": "Beschaffungskriterien",
+       "neu": "Leistungsbeschreibung"
+      }
+     ]
+    },
+    {
+     "id": "BES.1.7",
+     "titel": "Vereinbarung der geteilten Verantwortung",
+     "praktik": "BES",
+     "felder": [
+      {
+       "feld": "dokument",
+       "name": "Dokumentiert in",
+       "alt": "Beschaffungskriterien",
+       "neu": "Leistungsbeschreibung"
+      }
+     ]
+    },
+    {
+     "id": "BES.2.1",
+     "titel": "Erfassung des Bedarfes",
+     "praktik": "BES",
+     "felder": [
+      {
+       "feld": "dokument",
+       "name": "Dokumentiert in",
+       "alt": "Beschaffungskriterien",
+       "neu": "Leistungsbeschreibung"
+      }
+     ]
+    },
+    {
+     "id": "BES.2.1.1",
+     "titel": "Verwendungszweck",
+     "praktik": "BES",
+     "felder": [
+      {
+       "feld": "dokument",
+       "name": "Dokumentiert in",
+       "alt": "Beschaffungskriterien",
+       "neu": "Leistungsbeschreibung"
+      }
+     ]
+    },
+    {
+     "id": "BES.2.1.3",
+     "titel": "Systemvoraussetzungen",
+     "praktik": "BES",
+     "felder": [
+      {
+       "feld": "dokument",
+       "name": "Dokumentiert in",
+       "alt": "Beschaffungskriterien",
+       "neu": "Leistungsbeschreibung"
+      }
+     ]
+    },
+    {
+     "id": "BES.2.1.4",
+     "titel": "Kompatibilität",
+     "praktik": "BES",
+     "felder": [
+      {
+       "feld": "dokument",
+       "name": "Dokumentiert in",
+       "alt": "Beschaffungskriterien",
+       "neu": "Leistungsbeschreibung"
+      }
+     ]
+    },
+    {
+     "id": "BES.2.1.4.1",
+     "titel": "Kompatibilität der Schnittstellen",
+     "praktik": "BES",
+     "felder": [
+      {
+       "feld": "dokument",
+       "name": "Dokumentiert in",
+       "alt": "Beschaffungskriterien",
+       "neu": "Leistungsbeschreibung"
+      }
+     ]
+    },
+    {
+     "id": "BES.2.1.4.2",
+     "titel": "Kompatibilität der Netzanbindung",
+     "praktik": "BES",
+     "felder": [
+      {
+       "feld": "dokument",
+       "name": "Dokumentiert in",
+       "alt": "Beschaffungskriterien",
+       "neu": "Leistungsbeschreibung"
+      }
+     ]
+    },
+    {
+     "id": "BES.2.1.4.3",
+     "titel": "Kompatibilität des Administrationsmodells",
+     "praktik": "BES",
+     "felder": [
+      {
+       "feld": "dokument",
+       "name": "Dokumentiert in",
+       "alt": "Beschaffungskriterien",
+       "neu": "Leistungsbeschreibung"
+      }
+     ]
+    },
+    {
+     "id": "BES.2.1.4.4",
+     "titel": "Kompatibilität des Datenmanagementmodells",
+     "praktik": "BES",
+     "felder": [
+      {
+       "feld": "dokument",
+       "name": "Dokumentiert in",
+       "alt": "Beschaffungskriterien",
+       "neu": "Leistungsbeschreibung"
+      }
+     ]
+    },
+    {
+     "id": "BES.2.1.5",
+     "titel": "Lizenzierung",
+     "praktik": "BES",
+     "felder": [
+      {
+       "feld": "dokument",
+       "name": "Dokumentiert in",
+       "alt": "Beschaffungskriterien",
+       "neu": "Leistungsbeschreibung"
+      }
+     ]
+    },
+    {
+     "id": "BES.2.1.6",
+     "titel": "Support- und Wartungsverträge",
+     "praktik": "BES",
+     "felder": [
+      {
+       "feld": "dokument",
+       "name": "Dokumentiert in",
+       "alt": "Beschaffungskriterien",
+       "neu": "Leistungsbeschreibung"
+      }
+     ]
+    },
+    {
+     "id": "BES.2.3",
+     "titel": "Vereinbarung des Rechtsraums und der Datenlokation",
+     "praktik": "BES",
+     "felder": [
+      {
+       "feld": "dokument",
+       "name": "Dokumentiert in",
+       "alt": "Beschaffungskriterien",
+       "neu": "Leistungsbeschreibung"
+      }
+     ]
+    },
+    {
+     "id": "BES.3.2",
+     "titel": "Auswahlkriterien",
+     "praktik": "BES",
+     "felder": [
+      {
+       "feld": "dokument",
+       "name": "Dokumentiert in",
+       "alt": "Beschaffungskriterien",
+       "neu": "Leistungsbeschreibung"
+      }
+     ]
+    },
+    {
+     "id": "BES.3.2.1",
+     "titel": "Zertifizierte Lieferanten",
+     "praktik": "BES",
+     "felder": [
+      {
+       "feld": "dokument",
+       "name": "Dokumentiert in",
+       "alt": "Beschaffungskriterien",
+       "neu": "Leistungsbeschreibung"
+      }
+     ]
+    },
+    {
+     "id": "BES.3.2.2",
+     "titel": "Quellendiversifikation",
+     "praktik": "BES",
+     "felder": [
+      {
+       "feld": "dokument",
+       "name": "Dokumentiert in",
+       "alt": "Beschaffungskriterien",
+       "neu": "Leistungsbeschreibung"
+      }
+     ]
+    },
+    {
+     "id": "BES.4.1",
+     "titel": "Klassifizierung von Beschaffungsvorhaben",
+     "praktik": "BES",
+     "felder": [
+      {
+       "feld": "dokument",
+       "name": "Dokumentiert in",
+       "alt": "Beschaffungskriterien",
+       "neu": "Leistungsbeschreibung"
+      }
+     ]
+    },
+    {
+     "id": "BES.4.2",
+     "titel": "Dokumentation der Beschaffungskriterien",
+     "praktik": "BES",
+     "felder": [
+      {
+       "feld": "dokument",
+       "name": "Dokumentiert in",
+       "alt": "Beschaffungskriterien",
+       "neu": "Leistungsbeschreibung"
+      }
+     ]
+    },
+    {
+     "id": "BES.4.4",
+     "titel": "Vertragsvorlage für Outsourcing",
+     "praktik": "BES",
+     "felder": [
+      {
+       "feld": "dokument",
+       "name": "Dokumentiert in",
+       "alt": "Beschaffungskriterien",
+       "neu": "Leistungsbeschreibung"
+      }
+     ]
+    },
+    {
+     "id": "BES.4.5",
+     "titel": "Security by Design",
+     "praktik": "BES",
+     "felder": [
+      {
+       "feld": "dokument",
+       "name": "Dokumentiert in",
+       "alt": "Beschaffungskriterien",
+       "neu": "Leistungsbeschreibung"
+      }
+     ]
+    },
+    {
+     "id": "BES.4.5.1",
+     "titel": "Entwicklung nach einem Sicherheitslebenszyklus",
+     "praktik": "BES",
+     "felder": [
+      {
+       "feld": "dokument",
+       "name": "Dokumentiert in",
+       "alt": "Beschaffungskriterien",
+       "neu": "Leistungsbeschreibung"
+      }
+     ]
+    },
+    {
+     "id": "BES.4.5.2",
+     "titel": "Mandantentrennung",
+     "praktik": "BES",
+     "felder": [
+      {
+       "feld": "dokument",
+       "name": "Dokumentiert in",
+       "alt": "Beschaffungskriterien",
+       "neu": "Leistungsbeschreibung"
+      }
+     ]
+    },
+    {
+     "id": "BES.4.6",
+     "titel": "Security by Default",
+     "praktik": "BES",
+     "felder": [
+      {
+       "feld": "dokument",
+       "name": "Dokumentiert in",
+       "alt": "Beschaffungskriterien",
+       "neu": "Leistungsbeschreibung"
+      }
+     ]
+    },
+    {
+     "id": "BES.4.6.1",
+     "titel": "Authentifizierung des Kunden",
+     "praktik": "BES",
+     "felder": [
+      {
+       "feld": "dokument",
+       "name": "Dokumentiert in",
+       "alt": "Beschaffungskriterien",
+       "neu": "Leistungsbeschreibung"
+      }
+     ]
+    },
+    {
+     "id": "BES.4.6.2",
+     "titel": "Verschlüsselung durch den Anbieter",
+     "praktik": "BES",
+     "felder": [
+      {
+       "feld": "dokument",
+       "name": "Dokumentiert in",
+       "alt": "Beschaffungskriterien",
+       "neu": "Leistungsbeschreibung"
+      }
+     ]
+    },
+    {
+     "id": "BES.4.6.3",
+     "titel": "Manipulationsschutz",
+     "praktik": "BES",
+     "felder": [
+      {
+       "feld": "dokument",
+       "name": "Dokumentiert in",
+       "alt": "Beschaffungskriterien",
+       "neu": "Leistungsbeschreibung"
+      }
+     ]
+    },
+    {
+     "id": "BES.4.7",
+     "titel": "ISMS beim Dienstleister",
+     "praktik": "BES",
+     "felder": [
+      {
+       "feld": "dokument",
+       "name": "Dokumentiert in",
+       "alt": "Beschaffungskriterien",
+       "neu": "Leistungsbeschreibung"
+      }
+     ]
+    },
+    {
+     "id": "BES.4.8",
+     "titel": "Konformitätsnachweise",
+     "praktik": "BES",
+     "felder": [
+      {
+       "feld": "dokument",
+       "name": "Dokumentiert in",
+       "alt": "Beschaffungskriterien",
+       "neu": "Leistungsbeschreibung"
+      }
+     ]
+    },
+    {
+     "id": "BES.4.8.1",
+     "titel": "Zertifizierung",
+     "praktik": "BES",
+     "felder": [
+      {
+       "feld": "dokument",
+       "name": "Dokumentiert in",
+       "alt": "Beschaffungskriterien",
+       "neu": "Leistungsbeschreibung"
+      }
+     ]
+    },
+    {
+     "id": "BES.4.8.2",
+     "titel": "Cloud-Konformität",
+     "praktik": "BES",
+     "felder": [
+      {
+       "feld": "dokument",
+       "name": "Dokumentiert in",
+       "alt": "Beschaffungskriterien",
+       "neu": "Leistungsbeschreibung"
+      }
+     ]
+    },
+    {
+     "id": "BES.4.8.3",
+     "titel": "IT-Grundschutz-Analyse der Infrastruktur",
+     "praktik": "BES",
+     "felder": [
+      {
+       "feld": "dokument",
+       "name": "Dokumentiert in",
+       "alt": "Beschaffungskriterien",
+       "neu": "Leistungsbeschreibung"
+      }
+     ]
+    },
+    {
+     "id": "BES.4.8.4",
+     "titel": "Offenlegung der Risikoanalyse",
+     "praktik": "BES",
+     "felder": [
+      {
+       "feld": "dokument",
+       "name": "Dokumentiert in",
+       "alt": "Beschaffungskriterien",
+       "neu": "Leistungsbeschreibung"
+      }
+     ]
+    },
+    {
+     "id": "BES.4.9",
+     "titel": "Sicherheitsüberprüfung (extern)",
+     "praktik": "BES",
+     "felder": [
+      {
+       "feld": "dokument",
+       "name": "Dokumentiert in",
+       "alt": "Beschaffungskriterien",
+       "neu": "Leistungsbeschreibung"
+      }
+     ]
+    },
+    {
+     "id": "BES.5.1",
+     "titel": "Kompetenzen",
+     "praktik": "BES",
+     "felder": [
+      {
+       "feld": "dokument",
+       "name": "Dokumentiert in",
+       "alt": "Beschaffungskriterien",
+       "neu": "Leistungsbeschreibung"
+      }
+     ]
+    },
+    {
+     "id": "BES.5.10",
+     "titel": "Behandlung von Vorfällen",
+     "praktik": "BES",
+     "felder": [
+      {
+       "feld": "dokument",
+       "name": "Dokumentiert in",
+       "alt": "Beschaffungskriterien",
+       "neu": "Leistungsbeschreibung"
+      }
+     ]
+    },
+    {
+     "id": "BES.5.10.1",
+     "titel": "Erreichbarkeit über Meldewege",
+     "praktik": "BES",
+     "felder": [
+      {
+       "feld": "dokument",
+       "name": "Dokumentiert in",
+       "alt": "Beschaffungskriterien",
+       "neu": "Leistungsbeschreibung"
+      }
+     ]
+    },
+    {
+     "id": "BES.5.10.2",
+     "titel": "Melden von Vorfällen",
+     "praktik": "BES",
+     "felder": [
+      {
+       "feld": "dokument",
+       "name": "Dokumentiert in",
+       "alt": "Beschaffungskriterien",
+       "neu": "Leistungsbeschreibung"
+      }
+     ]
+    },
+    {
+     "id": "BES.5.10.3",
+     "titel": "Schwachstellenbehebung",
+     "praktik": "BES",
+     "felder": [
+      {
+       "feld": "dokument",
+       "name": "Dokumentiert in",
+       "alt": "Beschaffungskriterien",
+       "neu": "Leistungsbeschreibung"
+      }
+     ]
+    },
+    {
+     "id": "BES.5.10.3.1",
+     "titel": "Schwachstellenmeldeprozess",
+     "praktik": "BES",
+     "felder": [
+      {
+       "feld": "dokument",
+       "name": "Dokumentiert in",
+       "alt": "Beschaffungskriterien",
+       "neu": "Leistungsbeschreibung"
+      }
+     ]
+    },
+    {
+     "id": "BES.5.10.4",
+     "titel": "Konfliktlösungsprozesse",
+     "praktik": "BES",
+     "felder": [
+      {
+       "feld": "dokument",
+       "name": "Dokumentiert in",
+       "alt": "Beschaffungskriterien",
+       "neu": "Leistungsbeschreibung"
+      }
+     ]
+    },
+    {
+     "id": "BES.5.10.5",
+     "titel": "Konsequenzen bei Verstößen",
+     "praktik": "BES",
+     "felder": [
+      {
+       "feld": "dokument",
+       "name": "Dokumentiert in",
+       "alt": "Beschaffungskriterien",
+       "neu": "Leistungsbeschreibung"
+      }
+     ]
+    },
+    {
+     "id": "BES.5.11",
+     "titel": "Recht auf Audit",
+     "praktik": "BES",
+     "felder": [
+      {
+       "feld": "dokument",
+       "name": "Dokumentiert in",
+       "alt": "Beschaffungskriterien",
+       "neu": "Leistungsbeschreibung"
+      }
+     ]
+    },
+    {
+     "id": "BES.5.12",
+     "titel": "Informationspflichten",
+     "praktik": "BES",
+     "felder": [
+      {
+       "feld": "dokument",
+       "name": "Dokumentiert in",
+       "alt": "Beschaffungskriterien",
+       "neu": "Leistungsbeschreibung"
+      }
+     ]
+    },
+    {
+     "id": "BES.5.13",
+     "titel": "Bereitstellung von Datensicherungen",
+     "praktik": "BES",
+     "felder": [
+      {
+       "feld": "dokument",
+       "name": "Dokumentiert in",
+       "alt": "Beschaffungskriterien",
+       "neu": "Leistungsbeschreibung"
+      }
+     ]
+    },
+    {
+     "id": "BES.5.13.1",
+     "titel": "Datenbereitstellung",
+     "praktik": "BES",
+     "felder": [
+      {
+       "feld": "dokument",
+       "name": "Dokumentiert in",
+       "alt": "Beschaffungskriterien",
+       "neu": "Leistungsbeschreibung"
+      }
+     ]
+    },
+    {
+     "id": "BES.5.14",
+     "titel": "Löschregeln",
+     "praktik": "BES",
+     "felder": [
+      {
+       "feld": "dokument",
+       "name": "Dokumentiert in",
+       "alt": "Beschaffungskriterien",
+       "neu": "Leistungsbeschreibung"
+      }
+     ]
+    },
+    {
+     "id": "BES.5.2",
+     "titel": "Service Level Agreement",
+     "praktik": "BES",
+     "felder": [
+      {
+       "feld": "dokument",
+       "name": "Dokumentiert in",
+       "alt": "Beschaffungskriterien",
+       "neu": "Leistungsbeschreibung"
+      }
+     ]
+    },
+    {
+     "id": "BES.5.3",
+     "titel": "Compliance-Verpflichtungen",
+     "praktik": "BES",
+     "felder": [
+      {
+       "feld": "dokument",
+       "name": "Dokumentiert in",
+       "alt": "Beschaffungskriterien",
+       "neu": "Leistungsbeschreibung"
+      }
+     ]
+    },
+    {
+     "id": "BES.5.4",
+     "titel": "Informationssicherheitskontrollmechanismen",
+     "praktik": "BES",
+     "felder": [
+      {
+       "feld": "dokument",
+       "name": "Dokumentiert in",
+       "alt": "Beschaffungskriterien",
+       "neu": "Leistungsbeschreibung"
+      }
+     ]
+    },
+    {
+     "id": "BES.5.5",
+     "titel": "Nutzungsregelungen",
+     "praktik": "BES",
+     "felder": [
+      {
+       "feld": "dokument",
+       "name": "Dokumentiert in",
+       "alt": "Beschaffungskriterien",
+       "neu": "Leistungsbeschreibung"
+      }
+     ]
+    },
+    {
+     "id": "BES.5.5.1",
+     "titel": "Datenlokationen",
+     "praktik": "BES",
+     "felder": [
+      {
+       "feld": "dokument",
+       "name": "Dokumentiert in",
+       "alt": "Beschaffungskriterien",
+       "neu": "Leistungsbeschreibung"
+      }
+     ]
+    },
+    {
+     "id": "BES.5.5.2",
+     "titel": "Autorisierung der Zugriffsberechtigung",
+     "praktik": "BES",
+     "felder": [
+      {
+       "feld": "dokument",
+       "name": "Dokumentiert in",
+       "alt": "Beschaffungskriterien",
+       "neu": "Leistungsbeschreibung"
+      }
+     ]
+    },
+    {
+     "id": "BES.5.6",
+     "titel": "Vergabe von Unteraufträgen",
+     "praktik": "BES",
+     "felder": [
+      {
+       "feld": "dokument",
+       "name": "Dokumentiert in",
+       "alt": "Beschaffungskriterien",
+       "neu": "Leistungsbeschreibung"
+      }
+     ]
+    },
+    {
+     "id": "BES.5.6.1",
+     "titel": "Weitergabe der Beschaffungskriterien",
+     "praktik": "BES",
+     "felder": [
+      {
+       "feld": "dokument",
+       "name": "Dokumentiert in",
+       "alt": "Beschaffungskriterien",
+       "neu": "Leistungsbeschreibung"
+      }
+     ]
+    },
+    {
+     "id": "BES.5.6.2",
+     "titel": "Autorisierung von Unterauftragnehmern",
+     "praktik": "BES",
+     "felder": [
+      {
+       "feld": "dokument",
+       "name": "Dokumentiert in",
+       "alt": "Beschaffungskriterien",
+       "neu": "Leistungsbeschreibung"
+      }
+     ]
+    },
+    {
+     "id": "BES.5.6.3",
+     "titel": "Nachverfolgbarkeit der Lieferkette",
+     "praktik": "BES",
+     "felder": [
+      {
+       "feld": "dokument",
+       "name": "Dokumentiert in",
+       "alt": "Beschaffungskriterien",
+       "neu": "Leistungsbeschreibung"
+      }
+     ]
+    },
+    {
+     "id": "BES.5.7",
+     "titel": "Schulung",
+     "praktik": "BES",
+     "felder": [
+      {
+       "feld": "dokument",
+       "name": "Dokumentiert in",
+       "alt": "Beschaffungskriterien",
+       "neu": "Leistungsbeschreibung"
+      }
+     ]
+    },
+    {
+     "id": "BES.5.8",
+     "titel": "Rechte für geistges Eigentum",
+     "praktik": "BES",
+     "felder": [
+      {
+       "feld": "dokument",
+       "name": "Dokumentiert in",
+       "alt": "Beschaffungskriterien",
+       "neu": "Leistungsbeschreibung"
+      }
+     ]
+    },
+    {
+     "id": "BES.5.9",
+     "titel": "Umgang mit Änderungen",
+     "praktik": "BES",
+     "felder": [
+      {
+       "feld": "dokument",
+       "name": "Dokumentiert in",
+       "alt": "Beschaffungskriterien",
+       "neu": "Leistungsbeschreibung"
+      }
+     ]
+    },
+    {
+     "id": "BES.5.9.1",
+     "titel": "Autorisierung von Änderungen",
+     "praktik": "BES",
+     "felder": [
+      {
+       "feld": "dokument",
+       "name": "Dokumentiert in",
+       "alt": "Beschaffungskriterien",
+       "neu": "Leistungsbeschreibung"
+      }
+     ]
+    },
+    {
+     "id": "BES.6.1",
+     "titel": "Entziehung der Zugangsberechtigungen",
+     "praktik": "BES",
+     "felder": [
+      {
+       "feld": "dokument",
+       "name": "Dokumentiert in",
+       "alt": "Beschaffungskriterien",
+       "neu": "Leistungsbeschreibung"
+      }
+     ]
+    },
+    {
+     "id": "BES.6.2",
+     "titel": "Löschung von Daten",
+     "praktik": "BES",
+     "felder": [
+      {
+       "feld": "dokument",
+       "name": "Dokumentiert in",
+       "alt": "Beschaffungskriterien",
+       "neu": "Leistungsbeschreibung"
+      }
+     ]
+    },
+    {
+     "id": "BES.6.2.1",
+     "titel": "Löschverfahren",
+     "praktik": "BES",
+     "felder": [
+      {
+       "feld": "dokument",
+       "name": "Dokumentiert in",
+       "alt": "Beschaffungskriterien",
+       "neu": "Leistungsbeschreibung"
+      }
+     ]
+    },
+    {
+     "id": "BES.6.3",
+     "titel": "Übertragbarkeit von Daten",
+     "praktik": "BES",
+     "felder": [
+      {
+       "feld": "dokument",
+       "name": "Dokumentiert in",
+       "alt": "Beschaffungskriterien",
+       "neu": "Leistungsbeschreibung"
+      }
+     ]
+    },
+    {
+     "id": "BES.6.4",
+     "titel": "Übertragung von Supportdienstleistungen",
+     "praktik": "BES",
+     "felder": [
+      {
+       "feld": "dokument",
+       "name": "Dokumentiert in",
+       "alt": "Beschaffungskriterien",
+       "neu": "Leistungsbeschreibung"
+      }
+     ]
+    },
+    {
+     "id": "BES.6.5",
+     "titel": "Behandlung aufzubewahrender Aufzeichnungen",
+     "praktik": "BES",
+     "felder": [
+      {
+       "feld": "dokument",
+       "name": "Dokumentiert in",
+       "alt": "Beschaffungskriterien",
+       "neu": "Leistungsbeschreibung"
+      }
+     ]
+    },
+    {
+     "id": "BES.6.6",
+     "titel": "Rückgewähr von Assets",
+     "praktik": "BES",
+     "felder": [
+      {
+       "feld": "dokument",
+       "name": "Dokumentiert in",
+       "alt": "Beschaffungskriterien",
+       "neu": "Leistungsbeschreibung"
+      }
+     ]
+    },
+    {
+     "id": "BES.8.4",
+     "titel": "Individuelle Implementierung kritischer Komponenten",
+     "praktik": "BES",
+     "felder": [
+      {
+       "feld": "dokument",
+       "name": "Dokumentiert in",
+       "alt": "Beschaffungskriterien",
+       "neu": "Leistungsbeschreibung"
+      }
+     ]
+    },
+    {
+     "id": "BES.8.5",
+     "titel": "Treuhand",
+     "praktik": "BES",
+     "felder": [
+      {
+       "feld": "dokument",
+       "name": "Dokumentiert in",
+       "alt": "Beschaffungskriterien",
+       "neu": "Leistungsbeschreibung"
+      }
+     ]
+    },
+    {
+     "id": "DET.1.1",
+     "titel": "Verfahren und Regelungen",
+     "praktik": "DET",
+     "felder": [
+      {
+       "feld": "dokument",
+       "name": "Dokumentiert in",
+       "alt": "Detektions-Konzept",
+       "neu": "Detektionskonzept"
+      }
+     ]
+    },
+    {
+     "id": "DET.2.1.2",
+     "titel": "Meldeformulare",
+     "praktik": "DET",
+     "felder": [
+      {
+       "feld": "dokument",
+       "name": "Dokumentiert in",
+       "alt": "Detektions-Konzept",
+       "neu": "Detektionskonzept"
+      }
+     ]
+    },
+    {
+     "id": "DET.2.1.3",
+     "titel": "Rückmeldungen",
+     "praktik": "DET",
+     "felder": [
+      {
+       "feld": "dokument",
+       "name": "Dokumentiert in",
+       "alt": "Detektions-Konzept",
+       "neu": "Detektionskonzept"
+      }
+     ]
+    },
+    {
+     "id": "DET.2.2",
+     "titel": "Security Operations Center",
+     "praktik": "DET",
+     "felder": [
+      {
+       "feld": "dokument",
+       "name": "Dokumentiert in",
+       "alt": "Detektions-Konzept",
+       "neu": "Detektionskonzept"
+      }
+     ]
+    },
+    {
+     "id": "DET.2.3",
+     "titel": "Ständiger Bereitschaftsdienst",
+     "praktik": "DET",
+     "felder": [
+      {
+       "feld": "dokument",
+       "name": "Dokumentiert in",
+       "alt": "Detektions-Konzept",
+       "neu": "Detektionskonzept"
+      }
+     ]
+    },
+    {
+     "id": "DET.3.1",
+     "titel": "Protokollierung in Anwendungen",
+     "praktik": "DET",
+     "felder": [
+      {
+       "feld": "titel",
+       "name": "Titel",
+       "alt": "Protokollierung sicherheitsrelevanter Ereignisse",
+       "neu": "Protokollierung in Anwendungen",
+       "diff": [
+        [
+         "=",
+         "Protokollierung "
+        ],
+        [
+         "-",
+         "sicherheitsrelevanter Ereignisse"
+        ],
+        [
+         "+",
+         "in Anwendungen"
+        ]
+       ]
+      },
+      {
+       "feld": "erlaeuterung",
+       "name": "Erläuterung",
+       "alt": "Für die Definition eines Sicherheitsrelevanten Ereignisses, siehe Glossar (Namensräume des Grundschutz++). Relevant sind hierbei insbesondere die Protokollierung auf zentralen Diensten und Servern. Dazu gehören auch vorhandene Cloud-Anwendungen oder -Dienste. Hier besteht ein enger Bezug zur Praktik Änderungen und Tests.",
+       "neu": "Für die Definition eines Sicherheitsrelevanten Ereignisses, siehe Glossar (Namensräume des Grundschutz++). Relevant sind hierbei insbesondere die Protokollierung von Sicherheitseinstellungen sowie Anmeldereignisse. Dazu gehören auch vorhandene Cloud-Anwendungen oder -Dienste. Hier besteht ein enger Bezug zur Praktik Änderungen und Tests.",
+       "diff": [
+        [
+         "=",
+         "Für die Definition eines Sicherheitsrelevanten Ereignisses, siehe Glossar (Namensräume des Grundschutz++). Relevant sind hierbei insbesondere die Protokollierung "
+        ],
+        [
+         "-",
+         "auf zentralen Diensten und Servern."
+        ],
+        [
+         "+",
+         "von Sicherheitseinstellungen sowie Anmeldereignisse."
+        ],
+        [
+         "=",
+         " Dazu gehören auch vorhandene Cloud-Anwendungen oder -Dienste. Hier besteht ein enger Bezug zur Praktik Änderungen und Tests."
+        ]
+       ]
+      },
+      {
+       "feld": "dokument",
+       "name": "Dokumentiert in",
+       "alt": "Detektions-Konzept",
+       "neu": "Detektionskonzept"
+      }
+     ]
+    },
+    {
+     "id": "DET.3.1.1",
+     "titel": "Was, Wann, Wo",
+     "praktik": "DET",
+     "felder": [
+      {
+       "feld": "titel",
+       "name": "Titel",
+       "alt": "Authentifizierungen",
+       "neu": "Was, Wann, Wo",
+       "diff": [
+        [
+         "-",
+         "Authentifizierungen"
+        ],
+        [
+         "+",
+         "Was, Wann, Wo"
+        ]
+       ]
+      },
+      {
+       "feld": "anforderung",
+       "name": "Anforderung",
+       "alt": "Detektion für IT-Systeme SOLLTE Authentifizierungen bei Erfolg und Fehlschlag protokollieren.",
+       "neu": "Detektion für Anwendungen SOLLTE zu jedem sicherheitsrelevanten Ereignis mindestens Zeitpunkt, die Quelle und das Zielobjekt protokollieren.",
+       "diff": [
+        [
+         "=",
+         "Detektion für "
+        ],
+        [
+         "-",
+         "IT-Systeme"
+        ],
+        [
+         "+",
+         "Anwendungen"
+        ],
+        [
+         "=",
+         " SOLLTE "
+        ],
+        [
+         "-",
+         "Authentifizierungen bei Erfolg"
+        ],
+        [
+         "+",
+         "zu jedem sicherheitsrelevanten Ereignis mindestens Zeitpunkt, die Quelle"
+        ],
+        [
+         "=",
+         " und "
+        ],
+        [
+         "-",
+         "Fehlschlag"
+        ],
+        [
+         "+",
+         "das Zielobjekt"
+        ],
+        [
+         "=",
+         " protokollieren."
+        ]
+       ]
+      },
+      {
+       "feld": "erlaeuterung",
+       "name": "Erläuterung",
+       "alt": "Relevant sind dabei z.B. die lokale Anmeldung, Anmeldung und Zugriffe auf Schnittstellen des Systems über das Netz, oder auch die physische Authentifizierung an einem Zutrittskontrollsystem.",
+       "neu": "Für die Definition eines Sicherheitsrelevanten Ereignisses, siehe Glossar (Namensräume des Grundschutz++). Damit einem Ereignis zuverlässig ein bestimmter Zeitpunkt zugewiesen werden kann, ist eine einheitliche Zeitquelle für die Systemuhr (meist über NTP oder PTP) als Voraussetzung erforderlich. Bei der Protokollierung der Herkunft oder Quelle (z.B. Gerätenamen, IP-Adresse) besteht ein enger Zusammenhang zu Compliance-Anforderungen, etwa zum Datenschutz.",
+       "diff": [
+        [
+         "-",
+         "Relevant sind dabei z.B."
+        ],
+        [
+         "+",
+         "Für"
+        ],
+        [
+         "=",
+         " die "
+        ],
+        [
+         "-",
+         "lokale Anmeldung, Anmeldung und Zugriffe auf Schnittstellen"
+        ],
+        [
+         "+",
+         "Definition eines Sicherheitsrelevanten Ereignisses, siehe Glossar (Namensräume"
+        ],
+        [
+         "=",
+         " des "
+        ],
+        [
+         "-",
+         "Systems"
+        ],
+        [
+         "+",
+         "Grundschutz++). Damit einem Ereignis zuverlässig ein bestimmter Zeitpunkt zugewiesen werden kann, ist eine einheitliche Zeitquelle für die Systemuhr (meist"
+        ],
+        [
+         "=",
+         " über "
+        ],
+        [
+         "-",
+         "das Netz,"
+        ],
+        [
+         "+",
+         "NTP"
+        ],
+        [
+         "=",
+         " oder "
+        ],
+        [
+         "-",
+         "auch die physische Authentifizierung an einem Zutrittskontrollsystem."
+        ],
+        [
+         "+",
+         "PTP) als Voraussetzung erforderlich. Bei der Protokollierung der Herkunft oder Quelle (z.B. Gerätenamen, IP-Adresse) besteht ein enger Zusammenhang zu Compliance-Anforderungen, etwa zum Datenschutz."
+        ]
+       ]
+      },
+      {
+       "feld": "aufwand",
+       "name": "Aufwand",
+       "alt": "3",
+       "neu": "5"
+      },
+      {
+       "feld": "ergebnis",
+       "name": "Ergebnis",
+       "alt": "Authentifizierungen",
+       "neu": "zu jedem sicherheitsrelevanten Ereignis",
+       "diff": [
+        [
+         "-",
+         "Authentifizierungen"
+        ],
+        [
+         "+",
+         "zu jedem sicherheitsrelevanten Ereignis"
+        ]
+       ]
+      },
+      {
+       "feld": "ergebnis_zusatz",
+       "name": "Ergebnis, Zusatz",
+       "alt": "bei Erfolg und Fehlschlag",
+       "neu": "mindestens Zeitpunkt, die Quelle und das Zielobjekt",
+       "diff": [
+        [
+         "-",
+         "bei Erfolg"
+        ],
+        [
+         "+",
+         "mindestens Zeitpunkt, die Quelle"
+        ],
+        [
+         "=",
+         " und "
+        ],
+        [
+         "-",
+         "Fehlschlag"
+        ],
+        [
+         "+",
+         "das Zielobjekt"
+        ]
+       ]
+      },
+      {
+       "feld": "zielobjekte",
+       "name": "Zielobjektkategorien",
+       "alt": "IT-Systeme",
+       "neu": "Anwendungen"
+      },
+      {
+       "feld": "gefaehrdungen",
+       "name": "Gefährdungen",
+       "alt": "G 0.23, G 0.27, G 0.37",
+       "neu": "G 0.18, G 0.37",
+       "bezeichnungen": {
+        "G 0.23": "Unbefugtes Eindringen in IT-Systeme",
+        "G 0.27": "Ressourcenmangel",
+        "G 0.37": "Abstreiten von Handlungen",
+        "G 0.18": "Fehlplanung oder fehlende Anpassung"
+       }
+      }
+     ]
+    },
+    {
+     "id": "DET.3.1.2",
+     "titel": "Privilegierte Ereignisse",
+     "praktik": "DET",
+     "felder": [
+      {
+       "feld": "titel",
+       "name": "Titel",
+       "alt": "Ausgeführte Kommandozeilenbefehle",
+       "neu": "Privilegierte Ereignisse",
+       "diff": [
+        [
+         "-",
+         "Ausgeführte Kommandozeilenbefehle"
+        ],
+        [
+         "+",
+         "Privilegierte Ereignisse"
+        ]
+       ]
+      },
+      {
+       "feld": "anforderung",
+       "name": "Anforderung",
+       "alt": "Detektion für IT-Systeme SOLLTE ausgeführte Kommandozeilenbefehle protokollieren.",
+       "neu": "Detektion für Anwendungen SOLLTE privilegierte Ereignisse einschließlich der Aktivierung, Deaktivierung oder Blockierung privilegierter Funktionen protokollieren.",
+       "diff": [
+        [
+         "=",
+         "Detektion für "
+        ],
+        [
+         "-",
+         "IT-Systeme"
+        ],
+        [
+         "+",
+         "Anwendungen"
+        ],
+        [
+         "=",
+         " SOLLTE "
+        ],
+        [
+         "-",
+         "ausgeführte Kommandozeilenbefehle"
+        ],
+        [
+         "+",
+         "privilegierte Ereignisse einschließlich der Aktivierung, Deaktivierung oder Blockierung privilegierter Funktionen"
+        ],
+        [
+         "=",
+         " protokollieren."
+        ]
+       ]
+      },
+      {
+       "feld": "erlaeuterung",
+       "name": "Erläuterung",
+       "alt": "Angreifer nutzen Kommandozeilenfunktionen wie Bash oder Windows PowerShell, um mit Bordmitteln schädliche Befehle auszuführen. Hier sind vor allem Living-off-the-Land-Binaries (LOLBins) und Nutzlasten (Malware Payloads) zu nennen.",
+       "neu": "Privilegierte Ereignisse sind Vorgänge, bei denen besonders weitreichende Rechte genutzt werden – beispielsweise die Vergabe oder Entziehung von Administratorrechten, das Deaktivieren von Virenscannern oder Änderungen an Firewallregeln. Gerade solche Eingriffe könnten einen erheblichen Einfluss auf die Verfügbarkeit und Integrität von Daten haben. Ohne eine gezielte Aufzeichnung könnten sicherheitsrelevante Änderungen unentdeckt bleiben – etwa, wenn ein Angreifer unbefugt einen privilegierten Account übernimmt und Spuren verwischt, oder wenn ein interner Benutzer kritische Funktionen deaktiviert, wodurch Schutzmaßnahmen umgangen werden.",
+       "diff": [
+        [
+         "-",
+         "Angreifer nutzen Kommandozeilenfunktionen wie Bash"
+        ],
+        [
+         "+",
+         "Privilegierte Ereignisse sind Vorgänge, bei denen besonders weitreichende Rechte genutzt werden – beispielsweise die Vergabe"
+        ],
+        [
+         "=",
+         " oder "
+        ],
+        [
+         "-",
+         "Windows PowerShell, um mit Bordmitteln schädliche Befehle auszuführen. Hier sind vor allem Living-off-the-Land-Binaries (LOLBins)"
+        ],
+        [
+         "+",
+         "Entziehung von Administratorrechten, das Deaktivieren von Virenscannern oder Änderungen an Firewallregeln. Gerade solche Eingriffe könnten einen erheblichen Einfluss auf die Verfügbarkeit"
+        ],
+        [
+         "=",
+         " und "
+        ],
+        [
+         "-",
+         "Nutzlasten (Malware Payloads) zu nennen."
+        ],
+        [
+         "+",
+         "Integrität von Daten haben. Ohne eine gezielte Aufzeichnung könnten sicherheitsrelevante Änderungen unentdeckt bleiben – etwa, wenn ein Angreifer unbefugt einen privilegierten Account übernimmt und Spuren verwischt, oder wenn ein interner Benutzer kritische Funktionen deaktiviert, wodurch Schutzmaßnahmen umgangen werden."
+        ]
+       ]
+      },
+      {
+       "feld": "aufwand",
+       "name": "Aufwand",
+       "alt": "3",
+       "neu": "2"
+      },
+      {
+       "feld": "ergebnis",
+       "name": "Ergebnis",
+       "alt": "ausgeführte Kommandozeilenbefehle",
+       "neu": "privilegierte Ereignisse",
+       "diff": [
+        [
+         "-",
+         "ausgeführte Kommandozeilenbefehle"
+        ],
+        [
+         "+",
+         "privilegierte Ereignisse"
+        ]
+       ]
+      },
+      {
+       "feld": "ergebnis_zusatz",
+       "name": "Ergebnis, Zusatz",
+       "alt": "",
+       "neu": "einschließlich der Aktivierung, Deaktivierung oder Blockierung privilegierter Funktionen"
+      },
+      {
+       "feld": "zielobjekte",
+       "name": "Zielobjektkategorien",
+       "alt": "IT-Systeme",
+       "neu": "Anwendungen"
+      },
+      {
+       "feld": "gefaehrdungen",
+       "name": "Gefährdungen",
+       "alt": "G 0.30, G 0.31, G 0.32",
+       "neu": "G 0.23, G 0.29, G 0.37",
+       "bezeichnungen": {
+        "G 0.30": "Unberechtigte Nutzung oder Administration von Geräten und Systemen",
+        "G 0.31": "Fehlerhafte Nutzung oder Administration von Geräten und Systemen",
+        "G 0.32": "Missbrauch von Berechtigungen",
+        "G 0.23": "Unbefugtes Eindringen in IT-Systeme",
+        "G 0.29": "Verstoß gegen Gesetze oder Regelungen",
+        "G 0.37": "Abstreiten von Handlungen"
+       }
+      },
+      {
+       "feld": "tags",
+       "name": "Tags",
+       "alt": "Living off the land",
+       "neu": ""
+      }
+     ]
+    },
+    {
+     "id": "DET.3.1.3",
+     "titel": "Fehler der Anwendung",
+     "praktik": "DET",
+     "felder": [
+      {
+       "feld": "titel",
+       "name": "Titel",
+       "alt": "Anbindung von Peripheriegeräten",
+       "neu": "Fehler der Anwendung",
+       "diff": [
+        [
+         "-",
+         "Anbindung von Peripheriegeräten"
+        ],
+        [
+         "+",
+         "Fehler der Anwendung"
+        ]
+       ]
+      },
+      {
+       "feld": "anforderung",
+       "name": "Anforderung",
+       "alt": "Detektion für IT-Systeme SOLLTE das Anschließen von Peripheriegeräten protokollieren.",
+       "neu": "Detektion für Anwendungen SOLLTE Fehlermeldungen der Anwendung protokollieren.",
+       "diff": [
+        [
+         "=",
+         "Detektion für "
+        ],
+        [
+         "-",
+         "IT-Systeme"
+        ],
+        [
+         "+",
+         "Anwendungen"
+        ],
+        [
+         "=",
+         " SOLLTE "
+        ],
+        [
+         "-",
+         "das Anschließen von Peripheriegeräten"
+        ],
+        [
+         "+",
+         "Fehlermeldungen der Anwendung"
+        ],
+        [
+         "=",
+         " protokollieren."
+        ]
+       ]
+      },
+      {
+       "feld": "erlaeuterung",
+       "name": "Erläuterung",
+       "alt": "Das Protokollieren der Anbindung von Peripheriegeräten kann helfen, Manipulationsversuche an IT-Systemen frühzeitig zu erkennen und nachzuvollziehen. Ohne ein solches Protokoll könnte beispielsweise ein unbefugtes Speichermedium angeschlossen und vertrauliche Daten unbemerkt entwendet werden, oder es könnte Schadsoftware über ein USB-Gerät eingeschleust werden. Auch manipulierte Eingabegeräte könnten genutzt werden, um Tastatureingaben auszulesen oder unbemerkt Befehle einzuschleusen. Unter Peripheriegeräten sind in diesem Kontext externe Komponenten (aus Hardware oder virtuell) zu verstehen, die ein IT-System erweitern oder mit diesem verbunden werden – etwa USB-Sticks, externe Festplatten, Smartphones im Lade- oder Datenmodus, Drucker oder auch spezialisierte Geräte wie Diagnose- oder Messinstrumente. Zur praktischen Umsetzung kann eine Institution beispielsweise auf Betriebssystemfunktionen zurückgreifen, die Geräteanschlüsse im System-Log erfassen, oder ergänzende Endpoint-Management-Lösungen einsetzen, die eine zentralisierte Protokollierung erlauben.",
+       "neu": "Fehlermeldungen können wichtige Hinweise auf technisches Versagen oder menschliches Fehlverhalten liefern. Insbesondere, wenn Fehlermeldungen neuartig sind, oder gehäuft auftreten, können sie Indiz für Probleme sein, die behandlungsbedürftig sind. Denken Sie insbesondere auch an Fehlermeldungen in automatisierten Prozessen, da diese möglicherweise sonst nicht zur Kenntnisnahme gelangen.",
+       "diff": [
+        [
+         "-",
+         "Das Protokollieren der Anbindung von Peripheriegeräten kann helfen, Manipulationsversuche"
+        ],
+        [
+         "+",
+         "Fehlermeldungen können wichtige Hinweise auf technisches Versagen oder menschliches Fehlverhalten liefern. Insbesondere, wenn Fehlermeldungen neuartig sind, oder gehäuft auftreten, können sie Indiz für Probleme sein, die behandlungsbedürftig sind. Denken Sie insbesondere auch"
+        ],
+        [
+         "=",
+         " an "
+        ],
+        [
+         "-",
+         "IT-Systemen frühzeitig zu erkennen und nachzuvollziehen. Ohne ein solches Protokoll könnte beispielsweise ein unbefugtes Speichermedium angeschlossen und vertrauliche Daten unbemerkt entwendet werden, oder es könnte Schadsoftware über ein USB-Gerät eingeschleust werden. Auch manipulierte Eingabegeräte könnten genutzt werden, um Tastatureingaben auszulesen oder unbemerkt Befehle einzuschleusen. Unter Peripheriegeräten sind"
+        ],
+        [
+         "+",
+         "Fehlermeldungen"
+        ],
+        [
+         "=",
+         " in "
+        ],
+        [
+         "-",
+         "diesem Kontext externe Komponenten (aus Hardware oder virtuell) zu verstehen, die ein IT-System erweitern oder mit diesem verbunden werden – etwa USB-Sticks, externe Festplatten, Smartphones im Lade- oder Datenmodus, Drucker oder auch spezialisierte Geräte wie Diagnose- oder Messinstrumente. Zur praktischen Umsetzung kann eine Institution beispielsweise auf Betriebssystemfunktionen zurückgreifen, die Geräteanschlüsse im System-Log erfassen, oder ergänzende Endpoint-Management-Lösungen einsetzen, die eine zentralisierte Protokollierung erlauben."
+        ],
+        [
+         "+",
+         "automatisierten Prozessen, da diese möglicherweise sonst nicht zur Kenntnisnahme gelangen."
+        ]
+       ]
+      },
+      {
+       "feld": "ergebnis",
+       "name": "Ergebnis",
+       "alt": "das Anschließen von Peripheriegeräten",
+       "neu": "Fehlermeldungen der Anwendung",
+       "diff": [
+        [
+         "-",
+         "das Anschließen von Peripheriegeräten"
+        ],
+        [
+         "+",
+         "Fehlermeldungen der Anwendung"
+        ]
+       ]
+      },
+      {
+       "feld": "zielobjekte",
+       "name": "Zielobjektkategorien",
+       "alt": "IT-Systeme",
+       "neu": "Anwendungen"
+      },
+      {
+       "feld": "gefaehrdungen",
+       "name": "Gefährdungen",
+       "alt": "G 0.18, G 0.23, G 0.37",
+       "neu": "G 0.23, G 0.32, G 0.37",
+       "bezeichnungen": {
+        "G 0.18": "Fehlplanung oder fehlende Anpassung",
+        "G 0.23": "Unbefugtes Eindringen in IT-Systeme",
+        "G 0.37": "Abstreiten von Handlungen",
+        "G 0.32": "Missbrauch von Berechtigungen"
+       }
+      }
+     ]
+    },
+    {
+     "id": "DET.3.1.4",
+     "titel": "Nutzungsstatistik",
+     "praktik": "DET",
+     "felder": [
+      {
+       "feld": "titel",
+       "name": "Titel",
+       "alt": "Systemfehler",
+       "neu": "Nutzungsstatistik",
+       "diff": [
+        [
+         "-",
+         "Systemfehler"
+        ],
+        [
+         "+",
+         "Nutzungsstatistik"
+        ]
+       ]
+      },
+      {
+       "feld": "anforderung",
+       "name": "Anforderung",
+       "alt": "Detektion für IT-Systeme SOLLTE Fehlermeldungen des Systems protokollieren.",
+       "neu": "Detektion für Anwendungen KANN eine Nutzungsstatistik protokollieren.",
+       "diff": [
+        [
+         "=",
+         "Detektion für "
+        ],
+        [
+         "-",
+         "IT-Systeme SOLLTE Fehlermeldungen des Systems"
+        ],
+        [
+         "+",
+         "Anwendungen KANN eine Nutzungsstatistik"
+        ],
+        [
+         "=",
+         " protokollieren."
+        ]
+       ]
+      },
+      {
+       "feld": "erlaeuterung",
+       "name": "Erläuterung",
+       "alt": "Die Protokollierung von Fehlermeldungen kann eine wesentliche Grundlage für die Früherkennung von Sicherheits- und Stabilitätsproblemen in IT-Systemen bilden. Ohne ein systematisches Logging könnte ein kritischer Hardwaredefekt, eine beschädigte Systemdatei oder ein fehlgeschlagener Sicherheits-Update-Prozess unentdeckt bleiben und dadurch die Integrität oder Verfügbarkeit von IT-Systemen gefährden. Ebenso könnte ein Angreifer, der wiederholt unautorisierte Befehle ausführt oder Dienste fehlerhaft anspricht, unbemerkt bleiben, wenn die resultierenden Fehlermeldungen nicht nachvollzogen werden. Auf technischer Ebene kann es zweckmäßig sein, das native Logging des Betriebssysteme zu aktivieren und so zu konfigurieren, dass Fehlermeldungen konsistent erfasst werden – beispielsweise über Syslog-Dienste oder Windows-Event-Logs. Eine zentrale Log-Sammlung kann helfen, auch bei verteilten Systemen eine einheitliche Auswertung vorzunehmen.",
+       "neu": "Bei der statistischen Protokollierung werden z.B. Anzahl oder Durchschnittswerte gespeichert, nicht jedoch die genaue Herkunft oder der Zeitstempel bestimmter Ereignisse. Nutzungsstatistiken wahren die Privatsphäre der einzelnen Nutzenden, ermöglichen jedoch eine Erkennung von Fehlern oder Anomalien in der Nutzung. Beispiele sind die Anzahl von Anfragen für eine bestimmte Ressource (etwa Webserver-URL oder DNS-Name), Anzahl der Anfragen einer bestimmten Anfrageart, Geräte- oder Anwendungskategorien (etwa pro Browseragent oder Betriebssystemversion), Anzahl bestimmter Antworttypen (z.B. Webserver-Fehlercodes), sowie Zugriffsversuche. Hierdurch können Betriebsprobleme wie Caching Fehler oder DoS-Angriffe erkannt werden.",
+       "diff": [
+        [
+         "-",
+         "Die"
+        ],
+        [
+         "+",
+         "Bei der statistischen"
+        ],
+        [
+         "=",
+         " Protokollierung "
+        ],
+        [
+         "-",
+         "von Fehlermeldungen kann"
+        ],
+        [
+         "+",
+         "werden z.B. Anzahl oder Durchschnittswerte gespeichert, nicht jedoch die genaue Herkunft oder der Zeitstempel bestimmter Ereignisse. Nutzungsstatistiken wahren die Privatsphäre der einzelnen Nutzenden, ermöglichen jedoch"
+        ],
+        [
+         "=",
+         " eine "
+        ],
+        [
+         "-",
+         "wesentliche Grundlage"
+        ],
+        [
+         "+",
+         "Erkennung von Fehlern oder Anomalien in der Nutzung. Beispiele sind die Anzahl von Anfragen"
+        ],
+        [
+         "=",
+         " für "
+        ],
+        [
+         "-",
+         "die Früherkennung von Sicherheits- und Stabilitätsproblemen in IT-Systemen bilden. Ohne ein systematisches Logging könnte ein kritischer Hardwaredefekt, "
+        ],
+        [
+         "=",
+         "eine "
+        ],
+        [
+         "-",
+         "beschädigte Systemdatei"
+        ],
+        [
+         "+",
+         "bestimmte Ressource (etwa Webserver-URL"
+        ],
+        [
+         "=",
+         " oder "
+        ],
+        [
+         "-",
+         "ein fehlgeschlagener Sicherheits-Update-Prozess unentdeckt bleiben und dadurch die Integrität"
+        ],
+        [
+         "+",
+         "DNS-Name), Anzahl der Anfragen einer bestimmten Anfrageart, Geräte-"
+        ],
+        [
+         "=",
+         " oder "
+        ],
+        [
+         "-",
+         "Verfügbarkeit von IT-Systemen gefährden. Ebenso könnte ein Angreifer, der wiederholt unautorisierte Befehle ausführt"
+        ],
+        [
+         "+",
+         "Anwendungskategorien (etwa pro Browseragent"
+        ],
+        [
+         "=",
+         " oder "
+        ],
+        [
+         "-",
+         "Dienste fehlerhaft anspricht, unbemerkt bleiben, wenn die resultierenden Fehlermeldungen nicht nachvollzogen werden. Auf technischer Ebene kann es zweckmäßig sein, das native Logging des Betriebssysteme zu aktivieren und so zu konfigurieren, dass Fehlermeldungen konsistent erfasst werden – beispielsweise über Syslog-Dienste"
+        ],
+        [
+         "+",
+         "Betriebssystemversion), Anzahl bestimmter Antworttypen (z.B. Webserver-Fehlercodes), sowie Zugriffsversuche. Hierdurch können Betriebsprobleme wie Caching Fehler"
+        ],
+        [
+         "=",
+         " oder "
+        ],
+        [
+         "-",
+         "Windows-Event-Logs. Eine zentrale Log-Sammlung kann helfen, auch bei verteilten Systemen eine einheitliche Auswertung vorzunehmen."
+        ],
+        [
+         "+",
+         "DoS-Angriffe erkannt werden."
+        ]
+       ]
+      },
+      {
+       "feld": "pflichtgrad",
+       "name": "Pflichtgrad",
+       "alt": "SOLLTE",
+       "neu": "KANN"
+      },
+      {
+       "feld": "stufe",
+       "name": "Sicherheitsstufe",
+       "alt": "normal-SdT",
+       "neu": "erhöht"
+      },
+      {
+       "feld": "aufwand",
+       "name": "Aufwand",
+       "alt": "3",
+       "neu": "4"
+      },
+      {
+       "feld": "ergebnis",
+       "name": "Ergebnis",
+       "alt": "Fehlermeldungen des Systems",
+       "neu": "eine Nutzungsstatistik",
+       "diff": [
+        [
+         "-",
+         "Fehlermeldungen des Systems"
+        ],
+        [
+         "+",
+         "eine Nutzungsstatistik"
+        ]
+       ]
+      },
+      {
+       "feld": "zielobjekte",
+       "name": "Zielobjektkategorien",
+       "alt": "IT-Systeme",
+       "neu": "Anwendungen"
+      },
+      {
+       "feld": "gefaehrdungen",
+       "name": "Gefährdungen",
+       "alt": "G 0.18, G 0.23, G 0.26, G 0.37",
+       "neu": "G 0.23, G 0.27, G 0.29, G 0.37",
+       "bezeichnungen": {
+        "G 0.18": "Fehlplanung oder fehlende Anpassung",
+        "G 0.23": "Unbefugtes Eindringen in IT-Systeme",
+        "G 0.26": "Fehlfunktion von Geräten oder Systemen",
+        "G 0.37": "Abstreiten von Handlungen",
+        "G 0.27": "Ressourcenmangel",
+        "G 0.29": "Verstoß gegen Gesetze oder Regelungen"
+       }
+      }
+     ]
+    },
+    {
+     "id": "DET.3.1.5",
+     "titel": "Anwendungsspezifische Ereignisse",
+     "praktik": "DET",
+     "felder": [
+      {
+       "feld": "titel",
+       "name": "Titel",
+       "alt": "Störungen der Netzerreichbarkeit",
+       "neu": "Anwendungsspezifische Ereignisse",
+       "diff": [
+        [
+         "-",
+         "Störungen der Netzerreichbarkeit"
+        ],
+        [
+         "+",
+         "Anwendungsspezifische Ereignisse"
+        ]
+       ]
+      },
+      {
+       "feld": "anforderung",
+       "name": "Anforderung",
+       "alt": "Detektion für IT-Systeme KANN Störungen der Netzerreichbarkeit protokollieren.",
+       "neu": "Detektion für Anwendungen KANN [bestimmte anwendungsspezifische Ereignisse] protokollieren.",
+       "diff": [
+        [
+         "=",
+         "Detektion für "
+        ],
+        [
+         "-",
+         "IT-Systeme"
+        ],
+        [
+         "+",
+         "Anwendungen"
+        ],
+        [
+         "=",
+         " KANN "
+        ],
+        [
+         "-",
+         "Störungen der Netzerreichbarkeit"
+        ],
+        [
+         "+",
+         "[bestimmte anwendungsspezifische Ereignisse]"
+        ],
+        [
+         "=",
+         " protokollieren."
+        ]
+       ]
+      },
+      {
+       "feld": "erlaeuterung",
+       "name": "Erläuterung",
+       "alt": "Eine Störung der Netzerreichbarkeit kann ein Indiz für Überlastungen, Fehler oder Angriffe im Netz sein. Wann eine Störung vorliegt, kann anhand von Schwellwerten, z.B. durch das Ausbleiben eines regelmäßigen Heartbeat-Paketes, getestet werden.",
+       "neu": "Die Festlegung, welche spezifischen Ereignisse protokolliert werden, obliegt der Institution und hängt von der jeweiligen Systemumgebung und dem Schutzbedarf ab. Beispiele sind Änderungen an Zugangskonten im Verzeichnisdienst, Telekommunikationsverbindungen, ein Verstoß gegen eine konfigurierte Policy, unautorisierter Zugriff, API-Aufrufe zwischen verschiedenen Anwendungskomponenten, Transaktionen in einem Finanzsystem oder einer E-Commerce-Anwendung, Konfigurationsänderungen oder ein Absturz der Anwendung. Die Protokollierung dieser Ereignisse kann helfen, die Behandlung durch das Betriebspersonal anzustoßen oder Indizien für Ermittler zu sichern.",
+       "diff": [
+        [
+         "-",
+         "Eine Störung"
+        ],
+        [
+         "+",
+         "Die Festlegung, welche spezifischen Ereignisse protokolliert werden, obliegt"
+        ],
+        [
+         "=",
+         " der "
+        ],
+        [
+         "-",
+         "Netzerreichbarkeit"
+        ],
+        [
+         "+",
+         "Institution und hängt von der jeweiligen Systemumgebung und dem Schutzbedarf ab. Beispiele sind Änderungen an Zugangskonten im Verzeichnisdienst, Telekommunikationsverbindungen, ein Verstoß gegen eine konfigurierte Policy, unautorisierter Zugriff, API-Aufrufe zwischen verschiedenen Anwendungskomponenten, Transaktionen in einem Finanzsystem oder einer E-Commerce-Anwendung, Konfigurationsänderungen oder ein Absturz der Anwendung. Die Protokollierung dieser Ereignisse"
+        ],
+        [
+         "=",
+         " kann "
+        ],
+        [
+         "-",
+         "ein Indiz für Überlastungen, Fehler oder Angriffe im Netz sein. Wann eine Störung vorliegt, kann anhand von Schwellwerten, z.B."
+        ],
+        [
+         "+",
+         "helfen, die Behandlung"
+        ],
+        [
+         "=",
+         " durch das "
+        ],
+        [
+         "-",
+         "Ausbleiben eines regelmäßigen Heartbeat-Paketes, getestet werden."
+        ],
+        [
+         "+",
+         "Betriebspersonal anzustoßen oder Indizien für Ermittler zu sichern."
+        ]
+       ]
+      },
+      {
+       "feld": "aufwand",
+       "name": "Aufwand",
+       "alt": "3",
+       "neu": "4"
+      },
+      {
+       "feld": "ergebnis",
+       "name": "Ergebnis",
+       "alt": "Störungen der Netzerreichbarkeit",
+       "neu": "{{bestimmte anwendungsspezifische Ereignisse}}",
+       "diff": [
+        [
+         "-",
+         "Störungen der Netzerreichbarkeit"
+        ],
+        [
+         "+",
+         "{{bestimmte anwendungsspezifische Ereignisse}}"
+        ]
+       ]
+      },
+      {
+       "feld": "zielobjekte",
+       "name": "Zielobjektkategorien",
+       "alt": "IT-Systeme",
+       "neu": "Anwendungen"
+      },
+      {
+       "feld": "gefaehrdungen",
+       "name": "Gefährdungen",
+       "alt": "G 0.23, G 0.29, G 0.37",
+       "neu": "G 0.23, G 0.32, G 0.37, G 0.46",
+       "bezeichnungen": {
+        "G 0.23": "Unbefugtes Eindringen in IT-Systeme",
+        "G 0.29": "Verstoß gegen Gesetze oder Regelungen",
+        "G 0.37": "Abstreiten von Handlungen",
+        "G 0.32": "Missbrauch von Berechtigungen",
+        "G 0.46": "Integritätsverlust schützenswerter Informationen"
+       }
+      }
+     ]
+    },
+    {
+     "id": "DET.3.2",
+     "titel": "Protokollierung in IT-Systemen",
+     "praktik": "DET",
+     "felder": [
+      {
+       "feld": "titel",
+       "name": "Titel",
+       "alt": "Integration von Cloud-Diensten",
+       "neu": "Protokollierung in IT-Systemen",
+       "diff": [
+        [
+         "-",
+         "Integration von Cloud-Diensten"
+        ],
+        [
+         "+",
+         "Protokollierung in IT-Systemen"
+        ]
+       ]
+      },
+      {
+       "feld": "anforderung",
+       "name": "Anforderung",
+       "alt": "Detektion für Cloud-Dienste KANN Ereignisse in der Cloud im Audit Log der Institution protokollieren.",
+       "neu": "Detektion für IT-Systeme SOLLTE Sicherheitsrelevante Ereignisse mindestens für [eine bestimmte Frist] protokollieren.",
+       "diff": [
+        [
+         "=",
+         "Detektion für "
+        ],
+        [
+         "-",
+         "Cloud-Dienste KANN"
+        ],
+        [
+         "+",
+         "IT-Systeme SOLLTE Sicherheitsrelevante"
+        ],
+        [
+         "=",
+         " Ereignisse "
+        ],
+        [
+         "-",
+         "in der Cloud im Audit Log der Institution"
+        ],
+        [
+         "+",
+         "mindestens für [eine bestimmte Frist]"
+        ],
+        [
+         "=",
+         " protokollieren."
+        ]
+       ]
+      },
+      {
+       "feld": "erlaeuterung",
+       "name": "Erläuterung",
+       "alt": "Daten in Cloud-Diensten könnten von Angreifern über das Internet angegriffen werden, ohne dass Ereignisse im internen Netz hierauf Rückschlüsse geben. Dies könnte zum Beispiel durch Phishing geschehen, wodurch ein OAuth Token für den Cloud-Zugang missbraucht wird. Die Integration der Logs des Cloud-Dienstleisters in die institutionseigene Protokollierung kann hier helfen, z.B. bei Authentifizierung oder Berechtigungsänderungen, sowie bei Zugriff oder Veränderung von Daten. Insbesondere die Integration des Loggings mit einer bedingten Zugriffsrichtlinie kann hier helfen, z.B. indem Zugriffe von ungewöhnlichen IP-Adressen oder Browser Agents auf Angriffe hinweisen können. Die Integration von Cloud-Protokollen in ein internes Logging birgt oft erhebliche Herausforderungen, darunter die Bewältigung des enormen Volumens und der Vielfalt an Datenformaten, was durch selektive Protokollierung, Datennormalisierung und -anreicherung angegangen werden kann. Die Absicherung der Datenpipeline gegen Man-in-the-Middle-Angriffe kann durch die Einhaltung der technischen Anforderungen an die beteiligten IT-Systeme und Anwendungen bewältigt werden, z.B. Verschlüsselung und Authentifizierung. Da Cloud-Anbieter oftzusätzliche Gebühren für den Datentransfer (Egress-Kosten) verlangen bietet es sich an, die Protokolle vor der Übertragung zu filtern, um die Kosten für die Verbesserung der Sicherheit gering zu halten.",
+       "neu": "Für die Definition eines Sicherheitsrelevanten Ereignisses, siehe Glossar (Namensräume des Grundschutz++). Relevant sind hierbei insbesondere die Protokollierung auf zentralen Diensten und Servern. Dazu gehören auch vorhandene Cloud-Anwendungen oder -Dienste. Hier besteht ein enger Bezug zur Praktik Änderungen und Tests.",
+       "diff": [
+        [
+         "-",
+         "Daten in Cloud-Diensten könnten von Angreifern über das Internet angegriffen werden, ohne dass Ereignisse im internen Netz hierauf Rückschlüsse geben. Dies könnte zum Beispiel durch Phishing geschehen, wodurch"
+        ],
+        [
+         "+",
+         "Für die Definition eines Sicherheitsrelevanten Ereignisses, siehe Glossar (Namensräume des Grundschutz++). Relevant sind hierbei insbesondere die Protokollierung auf zentralen Diensten und Servern. Dazu gehören auch vorhandene Cloud-Anwendungen oder -Dienste. Hier besteht"
+        ],
+        [
+         "=",
+         " ein "
+        ],
+        [
+         "-",
+         "OAuth Token für den Cloud-Zugang missbraucht wird. Die Integration der Logs des Cloud-Dienstleisters in die institutionseigene Protokollierung kann hier helfen, z.B. bei Authentifizierung oder Berechtigungsänderungen, sowie bei Zugriff oder Veränderung von Daten. Insbesondere die Integration des Loggings mit einer bedingten Zugriffsrichtlinie kann hier helfen, z.B. indem Zugriffe von ungewöhnlichen IP-Adressen oder Browser Agents auf Angriffe hinweisen können. Die Integration von Cloud-Protokollen in ein internes Logging birgt oft erhebliche Herausforderungen, darunter die Bewältigung des enormen Volumens"
+        ],
+        [
+         "+",
+         "enger Bezug zur Praktik Änderungen"
+        ],
+        [
+         "=",
+         " und "
+        ],
+        [
+         "-",
+         "der Vielfalt an Datenformaten, was durch selektive Protokollierung, Datennormalisierung und -anreicherung angegangen werden kann. Die Absicherung der Datenpipeline gegen Man-in-the-Middle-Angriffe kann durch die Einhaltung der technischen Anforderungen an die beteiligten IT-Systeme und Anwendungen bewältigt werden, z.B. Verschlüsselung und Authentifizierung. Da Cloud-Anbieter oftzusätzliche Gebühren für den Datentransfer (Egress-Kosten) verlangen bietet es sich an, die Protokolle vor der Übertragung zu filtern, um die Kosten für die Verbesserung der Sicherheit gering zu halten."
+        ],
+        [
+         "+",
+         "Tests."
+        ]
+       ]
+      },
+      {
+       "feld": "pflichtgrad",
+       "name": "Pflichtgrad",
+       "alt": "KANN",
+       "neu": "SOLLTE"
+      },
+      {
+       "feld": "stufe",
+       "name": "Sicherheitsstufe",
+       "alt": "erhöht",
+       "neu": "normal-SdT"
+      },
+      {
+       "feld": "aufwand",
+       "name": "Aufwand",
+       "alt": "5",
+       "neu": "2"
+      },
+      {
+       "feld": "ergebnis",
+       "name": "Ergebnis",
+       "alt": "Ereignisse in der Cloud",
+       "neu": "Sicherheitsrelevante Ereignisse",
+       "diff": [
+        [
+         "+",
+         "Sicherheitsrelevante "
+        ],
+        [
+         "=",
+         "Ereignisse"
+        ],
+        [
+         "-",
+         " in der Cloud"
+        ]
+       ]
+      },
+      {
+       "feld": "ergebnis_zusatz",
+       "name": "Ergebnis, Zusatz",
+       "alt": "im Audit Log der Institution",
+       "neu": "mindestens für {{eine bestimmte Frist}}",
+       "diff": [
+        [
+         "-",
+         "im Audit Log der Institution"
+        ],
+        [
+         "+",
+         "mindestens für {{eine bestimmte Frist}}"
+        ]
+       ]
+      },
+      {
+       "feld": "dokument",
+       "name": "Dokumentiert in",
+       "alt": "Audit Log",
+       "neu": "Detektionskonzept"
+      },
+      {
+       "feld": "zielobjekte",
+       "name": "Zielobjektkategorien",
+       "alt": "Cloud-Dienste",
+       "neu": "IT-Systeme"
+      },
+      {
+       "feld": "gefaehrdungen",
+       "name": "Gefährdungen",
+       "alt": "G 0.14, G 0.18, G 0.23",
+       "neu": "G 0.29, G 0.32, G 0.37",
+       "bezeichnungen": {
+        "G 0.14": "Ausspähen von Informationen (Spionage)",
+        "G 0.18": "Fehlplanung oder fehlende Anpassung",
+        "G 0.23": "Unbefugtes Eindringen in IT-Systeme",
+        "G 0.29": "Verstoß gegen Gesetze oder Regelungen",
+        "G 0.32": "Missbrauch von Berechtigungen",
+        "G 0.37": "Abstreiten von Handlungen"
+       }
+      }
+     ]
+    },
+    {
+     "id": "DET.3.3",
+     "titel": "Datenverarbeitungen",
+     "praktik": "DET",
+     "felder": [
+      {
+       "feld": "titel",
+       "name": "Titel",
+       "alt": "Filterung nicht benötigter Inhalte",
+       "neu": "Datenverarbeitungen",
+       "diff": [
+        [
+         "-",
+         "Filterung nicht benötigter Inhalte"
+        ],
+        [
+         "+",
+         "Datenverarbeitungen"
+        ]
+       ]
+      },
+      {
+       "feld": "anforderung",
+       "name": "Anforderung",
+       "alt": "Detektion KANN die Protokollierung nicht benötigter Inhalte anhand von [Kriterien] einschränken.",
+       "neu": "Detektion für Daten KANN die Verarbeitung von Daten protokollieren.",
+       "diff": [
+        [
+         "=",
+         "Detektion"
+        ],
+        [
+         "+",
+         " für Daten"
+        ],
+        [
+         "=",
+         " KANN die "
+        ],
+        [
+         "-",
+         "Protokollierung nicht benötigter Inhalte anhand"
+        ],
+        [
+         "+",
+         "Verarbeitung"
+        ],
+        [
+         "=",
+         " von "
+        ],
+        [
+         "-",
+         "[Kriterien] einschränken."
+        ],
+        [
+         "+",
+         "Daten protokollieren."
+        ]
+       ]
+      },
+      {
+       "feld": "erlaeuterung",
+       "name": "Erläuterung",
+       "alt": "Je nach Anwendung und Konfigurationeinstellungen könnten Protokolle auch Daten enthalten, die dort nicht benötigt werden, z.B. um die Vertraulichkeit der Daten zu wahren oder aufgrund von Compliance-Anforderungen. Dem kommt eine noch höhere Bedeutung zu, wenn die Protokolle zwischen Institutionen ausgetauscht, oder bei Cloud-Dienstleistern gespeichert oder analysiert werden. Maßnahmen können z.B. Anonymisierung von IP-Adressen oder anderen personenbezogenen Daten oder Geschäftsgeheimnissen, sowie enge Löschfristen sein. Für Verkehrsdaten kann der BfDI Leitfaden Speicherung Verkehrsdaten als Grundlage genutzt werden. Soweit möglich, ist es sinnvoll, die Filterung minimalinvasiv zu gestalten, d.h. nur diejenigen Daten auszufiltern, deren Speicherung nicht rechtlich oder tatsächlich möglich ist, die restlichen Angaben zum Ergebnis jedoch zu protokollieren.",
+       "neu": "Bei Daten mit hohem Schutzbedarf kann es sinnvoll sein, bestimmte Verarbeitungen (z.B. Zugriffe, Veränderungen, Löschung, Datenexporte) zu protokollieren. Änderungen können mit Versionsverwaltungssystemen automatisch protokolliert werden. Beispiele sind Zugriffe auf Dateifreigaben, Webportale oder Datenbank-Abfragen durch eine Anwendung, der Export von Verbindungsdaten auf dem TK-Server, oder der Versand von Nachrichten mit bestimmten Schlüsselnwörtern.",
+       "diff": [
+        [
+         "-",
+         "Je nach Anwendung und Konfigurationeinstellungen könnten Protokolle auch"
+        ],
+        [
+         "+",
+         "Bei"
+        ],
+        [
+         "=",
+         " Daten "
+        ],
+        [
+         "-",
+         "enthalten, die dort nicht benötigt werden, z.B. um die Vertraulichkeit der Daten zu wahren oder aufgrund von Compliance-Anforderungen. Dem kommt eine noch höhere Bedeutung zu, wenn die Protokolle zwischen Institutionen ausgetauscht, oder bei Cloud-Dienstleistern gespeichert oder analysiert werden. Maßnahmen können z.B. Anonymisierung von IP-Adressen oder anderen personenbezogenen Daten oder Geschäftsgeheimnissen, sowie enge Löschfristen sein. Für Verkehrsdaten"
+        ],
+        [
+         "+",
+         "mit hohem Schutzbedarf"
+        ],
+        [
+         "=",
+         " kann "
+        ],
+        [
+         "-",
+         "der BfDI Leitfaden Speicherung Verkehrsdaten als Grundlage genutzt werden. Soweit möglich, ist "
+        ],
+        [
+         "=",
+         "es "
+        ],
+        [
+         "-",
+         "sinnvoll, die Filterung minimalinvasiv zu gestalten, d.h. nur diejenigen Daten auszufiltern, deren Speicherung nicht rechtlich oder tatsächlich möglich ist, die restlichen Angaben zum Ergebnis jedoch"
+        ],
+        [
+         "+",
+         "sinnvoll sein, bestimmte Verarbeitungen (z.B. Zugriffe, Veränderungen, Löschung, Datenexporte)"
+        ],
+        [
+         "=",
+         " zu protokollieren."
+        ],
+        [
+         "+",
+         " Änderungen können mit Versionsverwaltungssystemen automatisch protokolliert werden. Beispiele sind Zugriffe auf Dateifreigaben, Webportale oder Datenbank-Abfragen durch eine Anwendung, der Export von Verbindungsdaten auf dem TK-Server, oder der Versand von Nachrichten mit bestimmten Schlüsselnwörtern."
+        ]
+       ]
+      },
+      {
+       "feld": "ergebnis",
+       "name": "Ergebnis",
+       "alt": "die Protokollierung nicht benötigter Inhalte",
+       "neu": "die Verarbeitung von Daten",
+       "diff": [
+        [
+         "=",
+         "die "
+        ],
+        [
+         "-",
+         "Protokollierung nicht benötigter Inhalte"
+        ],
+        [
+         "+",
+         "Verarbeitung von Daten"
+        ]
+       ]
+      },
+      {
+       "feld": "ergebnis_zusatz",
+       "name": "Ergebnis, Zusatz",
+       "alt": "anhand von {{Kriterien}}",
+       "neu": ""
+      },
+      {
+       "feld": "dokument",
+       "name": "Dokumentiert in",
+       "alt": "Detektions-Konzept",
+       "neu": "Audit Log"
+      },
+      {
+       "feld": "zielobjekte",
+       "name": "Zielobjektkategorien",
+       "alt": "",
+       "neu": "Daten"
+      },
+      {
+       "feld": "gefaehrdungen",
+       "name": "Gefährdungen",
+       "alt": "G 0.18, G 0.26, G 0.37, G 0.46",
+       "neu": "G 0.37",
+       "bezeichnungen": {
+        "G 0.18": "Fehlplanung oder fehlende Anpassung",
+        "G 0.26": "Fehlfunktion von Geräten oder Systemen",
+        "G 0.37": "Abstreiten von Handlungen",
+        "G 0.46": "Integritätsverlust schützenswerter Informationen"
+       }
+      }
+     ]
+    },
+    {
+     "id": "DET.3.4",
+     "titel": "Integration von Cloud-Diensten",
+     "praktik": "DET",
+     "felder": [
+      {
+       "feld": "titel",
+       "name": "Titel",
+       "alt": "Speicherkapazität",
+       "neu": "Integration von Cloud-Diensten",
+       "diff": [
+        [
+         "-",
+         "Speicherkapazität"
+        ],
+        [
+         "+",
+         "Integration von Cloud-Diensten"
+        ]
+       ]
+      },
+      {
+       "feld": "anforderung",
+       "name": "Anforderung",
+       "alt": "Detektion SOLLTE den für die Protokollierung zur Verfügung stehenden Speicherplatz [bei Erreichen eines bestimmten Schwellwertes oder regelmäßig] überprüfen.",
+       "neu": "Detektion für Cloud-Dienste KANN Ereignisse in der Cloud im Audit Log der Institution protokollieren.",
+       "diff": [
+        [
+         "=",
+         "Detektion"
+        ],
+        [
+         "-",
+         " SOLLTE den"
+        ],
+        [
+         "=",
+         " für "
+        ],
+        [
+         "-",
+         "die Protokollierung zur Verfügung stehenden Speicherplatz [bei Erreichen eines bestimmten Schwellwertes oder regelmäßig] überprüfen."
+        ],
+        [
+         "+",
+         "Cloud-Dienste KANN Ereignisse in der Cloud im Audit Log der Institution protokollieren."
+        ]
+       ]
+      },
+      {
+       "feld": "erlaeuterung",
+       "name": "Erläuterung",
+       "alt": "Diese Vorschrift zielt darauf ab, die Verfügbarkeit der Protokolldaten sicherzustellen. Das ist essenziell, da eine unterbrochene oder lückenhafte Aufzeichnung die Früherkennung von Angriffen unmöglich machen könnte, was dazu führen könnte, dass kritische forensische Beweise für eine Untersuchung fehlen. Die Umsetzung dieser Anforderung kann auf verschiedene Arten erfolgen. Es könnte ein Skript oder ein automatisierter Dienst eingesetzt werden, der den Füllstand des Speicherplatzes in regelmäßigen Abständen, zum Beispiel alle 15 Minuten oder einmal pro Stunde, prüft. Alternativ kann eine Überprüfung bei einem definierten Schwellenwert durchgeführt werden, etwa wenn 80 % oder 90 % des zugewiesenen Speicherplatzes belegt sind. Zur Behebung könnte bei Kapazitätsengpässen eine automatische Archivierung älterer Protokolldaten auf einem separaten, kostengünstigeren Speicher gestartet werden, um den primären Speicher zu entlasten. Es kann aber auch eine Rotationsstrategie für Log-Dateien konfiguriert werden, die bei Erreichen einer bestimmten Größe oder eines Alters die ältesten Dateien löscht oder archiviert.",
+       "neu": "Daten in Cloud-Diensten könnten von Angreifern über das Internet angegriffen werden, ohne dass Ereignisse im internen Netz hierauf Rückschlüsse geben. Dies könnte zum Beispiel durch Phishing geschehen, wodurch ein OAuth Token für den Cloud-Zugang missbraucht wird. Die Integration der Logs des Cloud-Dienstleisters in die institutionseigene Protokollierung kann hier helfen, z.B. bei Authentifizierung oder Berechtigungsänderungen, sowie bei Zugriff oder Veränderung von Daten. Insbesondere die Integration des Loggings mit einer bedingten Zugriffsrichtlinie kann hier helfen, z.B. indem Zugriffe von ungewöhnlichen IP-Adressen oder Browser Agents auf Angriffe hinweisen können. Die Integration von Cloud-Protokollen in ein internes Logging birgt oft erhebliche Herausforderungen, darunter die Bewältigung des enormen Volumens und der Vielfalt an Datenformaten, was durch selektive Protokollierung, Datennormalisierung und -anreicherung angegangen werden kann. Die Absicherung der Datenpipeline gegen Man-in-the-Middle-Angriffe kann durch die Einhaltung der technischen Anforderungen an die beteiligten IT-Systeme und Anwendungen bewältigt werden, z.B. Verschlüsselung und Authentifizierung. Da Cloud-Anbieter oftzusätzliche Gebühren für den Datentransfer (Egress-Kosten) verlangen bietet es sich an, die Protokolle vor der Übertragung zu filtern, um die Kosten für die Verbesserung der Sicherheit gering zu halten.",
+       "diff": [
+        [
+         "-",
+         "Diese Vorschrift zielt darauf ab, die Verfügbarkeit der Protokolldaten sicherzustellen. Das ist essenziell, da eine unterbrochene oder lückenhafte Aufzeichnung die Früherkennung"
+        ],
+        [
+         "+",
+         "Daten in Cloud-Diensten könnten"
+        ],
+        [
+         "=",
+         " von "
+        ],
+        [
+         "-",
+         "Angriffen unmöglich machen könnte, was dazu führen könnte,"
+        ],
+        [
+         "+",
+         "Angreifern über das Internet angegriffen werden, ohne"
+        ],
+        [
+         "=",
+         " dass "
+        ],
+        [
+         "-",
+         "kritische forensische Beweise für eine Untersuchung fehlen. Die Umsetzung dieser Anforderung kann auf verschiedene Arten erfolgen. Es"
+        ],
+        [
+         "+",
+         "Ereignisse im internen Netz hierauf Rückschlüsse geben. Dies"
+        ],
+        [
+         "=",
+         " könnte"
+        ],
+        [
+         "-",
+         " ein Skript oder ein automatisierter Dienst eingesetzt werden, der den Füllstand des Speicherplatzes in regelmäßigen Abständen,"
+        ],
+        [
+         "=",
+         " zum Beispiel "
+        ],
+        [
+         "-",
+         "alle 15 Minuten"
+        ],
+        [
+         "+",
+         "durch Phishing geschehen, wodurch ein OAuth Token für den Cloud-Zugang missbraucht wird. Die Integration der Logs des Cloud-Dienstleisters in die institutionseigene Protokollierung kann hier helfen, z.B. bei Authentifizierung"
+        ],
+        [
+         "=",
+         " oder "
+        ],
+        [
+         "-",
+         "einmal pro Stunde, prüft. Alternativ"
+        ],
+        [
+         "+",
+         "Berechtigungsänderungen, sowie bei Zugriff oder Veränderung von Daten. Insbesondere die Integration des Loggings mit einer bedingten Zugriffsrichtlinie"
+        ],
+        [
+         "=",
+         " kann "
+        ],
+        [
+         "-",
+         "eine Überprüfung bei einem definierten Schwellenwert durchgeführt"
+        ],
+        [
+         "+",
+         "hier helfen, z.B. indem Zugriffe von ungewöhnlichen IP-Adressen oder Browser Agents auf Angriffe hinweisen können. Die Integration von Cloud-Protokollen in ein internes Logging birgt oft erhebliche Herausforderungen, darunter die Bewältigung des enormen Volumens und der Vielfalt an Datenformaten, was durch selektive Protokollierung, Datennormalisierung und -anreicherung angegangen werden kann. Die Absicherung der Datenpipeline gegen Man-in-the-Middle-Angriffe kann durch die Einhaltung der technischen Anforderungen an die beteiligten IT-Systeme und Anwendungen bewältigt"
+        ],
+        [
+         "=",
+         " werden, "
+        ],
+        [
+         "-",
+         "etwa wenn 80 % oder 90 % des zugewiesenen Speicherplatzes belegt sind. Zur Behebung könnte bei Kapazitätsengpässen eine automatische Archivierung älterer Protokolldaten auf einem separaten, kostengünstigeren Speicher gestartet werden,"
+        ],
+        [
+         "+",
+         "z.B. Verschlüsselung und Authentifizierung. Da Cloud-Anbieter oftzusätzliche Gebühren für den Datentransfer (Egress-Kosten) verlangen bietet es sich an, die Protokolle vor der Übertragung zu filtern,"
+        ],
+        [
+         "=",
+         " um "
+        ],
+        [
+         "-",
+         "den primären Speicher"
+        ],
+        [
+         "+",
+         "die Kosten für die Verbesserung der Sicherheit gering"
+        ],
+        [
+         "=",
+         " zu "
+        ],
+        [
+         "-",
+         "entlasten. Es kann aber auch eine Rotationsstrategie für Log-Dateien konfiguriert werden, die bei Erreichen einer bestimmten Größe oder eines Alters die ältesten Dateien löscht oder archiviert."
+        ],
+        [
+         "+",
+         "halten."
+        ]
+       ]
+      },
+      {
+       "feld": "pflichtgrad",
+       "name": "Pflichtgrad",
+       "alt": "SOLLTE",
+       "neu": "KANN"
+      },
+      {
+       "feld": "stufe",
+       "name": "Sicherheitsstufe",
+       "alt": "normal-SdT",
+       "neu": "erhöht"
+      },
+      {
+       "feld": "aufwand",
+       "name": "Aufwand",
+       "alt": "4",
+       "neu": "5"
+      },
+      {
+       "feld": "ergebnis",
+       "name": "Ergebnis",
+       "alt": "den für die Protokollierung zur Verfügung stehenden Speicherplatz",
+       "neu": "Ereignisse in der Cloud",
+       "diff": [
+        [
+         "-",
+         "den für die Protokollierung zur Verfügung stehenden Speicherplatz"
+        ],
+        [
+         "+",
+         "Ereignisse in der Cloud"
+        ]
+       ]
+      },
+      {
+       "feld": "ergebnis_zusatz",
+       "name": "Ergebnis, Zusatz",
+       "alt": "{{bei Erreichen eines bestimmten Schwellwertes oder regelmäßig}}",
+       "neu": "im Audit Log der Institution",
+       "diff": [
+        [
+         "-",
+         "{{bei Erreichen eines bestimmten Schwellwertes oder regelmäßig}}"
+        ],
+        [
+         "+",
+         "im Audit Log der Institution"
+        ]
+       ]
+      },
+      {
+       "feld": "dokument",
+       "name": "Dokumentiert in",
+       "alt": "Detektions-Konzept",
+       "neu": "Audit Log"
+      },
+      {
+       "feld": "zielobjekte",
+       "name": "Zielobjektkategorien",
+       "alt": "",
+       "neu": "Cloud-Dienste"
+      },
+      {
+       "feld": "gefaehrdungen",
+       "name": "Gefährdungen",
+       "alt": "G 0.32, G 0.37, G 0.46",
+       "neu": "G 0.14, G 0.18, G 0.23",
+       "bezeichnungen": {
+        "G 0.32": "Missbrauch von Berechtigungen",
+        "G 0.37": "Abstreiten von Handlungen",
+        "G 0.46": "Integritätsverlust schützenswerter Informationen",
+        "G 0.14": "Ausspähen von Informationen (Spionage)",
+        "G 0.18": "Fehlplanung oder fehlende Anpassung",
+        "G 0.23": "Unbefugtes Eindringen in IT-Systeme"
+       }
+      }
+     ]
+    },
+    {
+     "id": "DET.3.5",
+     "titel": "Filterung nicht benötigter Inhalte",
+     "praktik": "DET",
+     "felder": [
+      {
+       "feld": "titel",
+       "name": "Titel",
+       "alt": "Revisionssicherheit",
+       "neu": "Filterung nicht benötigter Inhalte",
+       "diff": [
+        [
+         "-",
+         "Revisionssicherheit"
+        ],
+        [
+         "+",
+         "Filterung nicht benötigter Inhalte"
+        ]
+       ]
+      },
+      {
+       "feld": "anforderung",
+       "name": "Anforderung",
+       "alt": "Detektion SOLLTE Änderungen am Audit Log revisionssicher dokumentieren.",
+       "neu": "Detektion KANN die Protokollierung nicht benötigter Inhalte anhand von [Kriterien] einschränken.",
+       "diff": [
+        [
+         "=",
+         "Detektion "
+        ],
+        [
+         "-",
+         "SOLLTE Änderungen am Audit Log revisionssicher dokumentieren."
+        ],
+        [
+         "+",
+         "KANN die Protokollierung nicht benötigter Inhalte anhand von [Kriterien] einschränken."
+        ]
+       ]
+      },
+      {
+       "feld": "erlaeuterung",
+       "name": "Erläuterung",
+       "alt": "Wenn die Protokollaufzeichnung unzureichend vor Veränderung geschützt ist, könnten Innentäter diese manipulieren oder löschen, um nicht erkannt oder belangt zu werden. Hierzu gehört auch, dass Administrierende die Protokolldaten zu ihren eigenen Tätigkeiten manipulieren oder löschen könnten. Die Integrität kann durch die Erstellung und getrennte Aufbewahrung von kryptografischen Hashes oder ein Versionskontrollsystem sichergestellt werden. Um sicherzustellen, dass nur autorisierte Personen die Protokolle verändern können, können z.B. Verschlüsselung und getrennte Aufbewahrung des Schlüssels, einmalig beschreibare Datenträger, oder ein Protokollierungsserver/SIEM mit stark eingeschränkten Zugriffsrechten eingesetzt werden. Auch die Aufzeichnung in einer öffentlichen Transparenzdatei ist möglich, wenn die Protokolle keine vertraulichen Daten enthalten.",
+       "neu": "Je nach Anwendung und Konfigurationeinstellungen könnten Protokolle auch Daten enthalten, die dort nicht benötigt werden, z.B. um die Vertraulichkeit der Daten zu wahren oder aufgrund von Compliance-Anforderungen. Dem kommt eine noch höhere Bedeutung zu, wenn die Protokolle zwischen Institutionen ausgetauscht, oder bei Cloud-Dienstleistern gespeichert oder analysiert werden. Maßnahmen können z.B. Anonymisierung von IP-Adressen oder anderen personenbezogenen Daten oder Geschäftsgeheimnissen, sowie enge Löschfristen sein. Für Verkehrsdaten kann der BfDI Leitfaden Speicherung Verkehrsdaten als Grundlage genutzt werden. Soweit möglich, ist es sinnvoll, die Filterung minimalinvasiv zu gestalten, d.h. nur diejenigen Daten auszufiltern, deren Speicherung nicht rechtlich oder tatsächlich möglich ist, die restlichen Angaben zum Ergebnis jedoch zu protokollieren.",
+       "diff": [
+        [
+         "-",
+         "Wenn"
+        ],
+        [
+         "+",
+         "Je nach Anwendung und Konfigurationeinstellungen könnten Protokolle auch Daten enthalten,"
+        ],
+        [
+         "=",
+         " die "
+        ],
+        [
+         "-",
+         "Protokollaufzeichnung unzureichend vor Veränderung geschützt ist, könnten Innentäter diese manipulieren"
+        ],
+        [
+         "+",
+         "dort nicht benötigt werden, z.B. um die Vertraulichkeit der Daten zu wahren"
+        ],
+        [
+         "=",
+         " oder "
+        ],
+        [
+         "-",
+         "löschen, um nicht erkannt oder belangt zu werden. Hierzu gehört auch, dass Administrierende die Protokolldaten zu ihren eigenen Tätigkeiten manipulieren oder löschen könnten. Die Integrität kann durch die Erstellung und getrennte Aufbewahrung"
+        ],
+        [
+         "+",
+         "aufgrund"
+        ],
+        [
+         "=",
+         " von "
+        ],
+        [
+         "-",
+         "kryptografischen Hashes oder ein Versionskontrollsystem sichergestellt werden. Um sicherzustellen, dass nur autorisierte Personen die Protokolle verändern können, können z.B. Verschlüsselung und getrennte Aufbewahrung des Schlüssels, einmalig beschreibare Datenträger, oder ein Protokollierungsserver/SIEM mit stark eingeschränkten Zugriffsrechten eingesetzt werden. Auch die Aufzeichnung in einer öffentlichen Transparenzdatei ist möglich,"
+        ],
+        [
+         "+",
+         "Compliance-Anforderungen. Dem kommt eine noch höhere Bedeutung zu,"
+        ],
+        [
+         "=",
+         " wenn die Protokolle "
+        ],
+        [
+         "-",
+         "keine vertraulichen"
+        ],
+        [
+         "+",
+         "zwischen Institutionen ausgetauscht, oder bei Cloud-Dienstleistern gespeichert oder analysiert werden. Maßnahmen können z.B. Anonymisierung von IP-Adressen oder anderen personenbezogenen"
+        ],
+        [
+         "=",
+         " Daten "
+        ],
+        [
+         "-",
+         "enthalten."
+        ],
+        [
+         "+",
+         "oder Geschäftsgeheimnissen, sowie enge Löschfristen sein. Für Verkehrsdaten kann der BfDI Leitfaden Speicherung Verkehrsdaten als Grundlage genutzt werden. Soweit möglich, ist es sinnvoll, die Filterung minimalinvasiv zu gestalten, d.h. nur diejenigen Daten auszufiltern, deren Speicherung nicht rechtlich oder tatsächlich möglich ist, die restlichen Angaben zum Ergebnis jedoch zu protokollieren."
+        ]
+       ]
+      },
+      {
+       "feld": "pflichtgrad",
+       "name": "Pflichtgrad",
+       "alt": "SOLLTE",
+       "neu": "KANN"
+      },
+      {
+       "feld": "stufe",
+       "name": "Sicherheitsstufe",
+       "alt": "normal-SdT",
+       "neu": "erhöht"
+      },
+      {
+       "feld": "aufwand",
+       "name": "Aufwand",
+       "alt": "4",
+       "neu": "5"
+      },
+      {
+       "feld": "ergebnis",
+       "name": "Ergebnis",
+       "alt": "Änderungen am Audit Log",
+       "neu": "die Protokollierung nicht benötigter Inhalte",
+       "diff": [
+        [
+         "-",
+         "Änderungen am Audit Log"
+        ],
+        [
+         "+",
+         "die Protokollierung nicht benötigter Inhalte"
+        ]
+       ]
+      },
+      {
+       "feld": "ergebnis_zusatz",
+       "name": "Ergebnis, Zusatz",
+       "alt": "revisionssicher",
+       "neu": "anhand von {{Kriterien}}",
+       "diff": [
+        [
+         "-",
+         "revisionssicher"
+        ],
+        [
+         "+",
+         "anhand von {{Kriterien}}"
+        ]
+       ]
+      },
+      {
+       "feld": "dokument",
+       "name": "Dokumentiert in",
+       "alt": "Detektions-Konzept",
+       "neu": "Detektionskonzept"
+      },
+      {
+       "feld": "gefaehrdungen",
+       "name": "Gefährdungen",
+       "alt": "G 0.18, G 0.37",
+       "neu": "G 0.18, G 0.26, G 0.37, G 0.46",
+       "bezeichnungen": {
+        "G 0.18": "Fehlplanung oder fehlende Anpassung",
+        "G 0.37": "Abstreiten von Handlungen",
+        "G 0.26": "Fehlfunktion von Geräten oder Systemen",
+        "G 0.46": "Integritätsverlust schützenswerter Informationen"
+       }
+      },
+      {
+       "feld": "tags",
+       "name": "Tags",
+       "alt": "Insider Threat",
+       "neu": ""
+      }
+     ]
+    },
+    {
+     "id": "DET.3.6",
+     "titel": "Speicherkapazität",
+     "praktik": "DET",
+     "felder": [
+      {
+       "feld": "titel",
+       "name": "Titel",
+       "alt": "Unbestreitbarkeit",
+       "neu": "Speicherkapazität",
+       "diff": [
+        [
+         "-",
+         "Unbestreitbarkeit"
+        ],
+        [
+         "+",
+         "Speicherkapazität"
+        ]
+       ]
+      },
+      {
+       "feld": "anforderung",
+       "name": "Anforderung",
+       "alt": "Detektion für Daten KANN Nachweise für den Zusammenhang [bestimter Ereignisse] mit [einer bestimmten Person oder Rolle] dokumentieren.",
+       "neu": "Detektion SOLLTE den für die Protokollierung zur Verfügung stehenden Speicherplatz [bei Erreichen eines bestimmten Schwellwertes oder regelmäßig] überprüfen.",
+       "diff": [
+        [
+         "=",
+         "Detektion"
+        ],
+        [
+         "+",
+         " SOLLTE den"
+        ],
+        [
+         "=",
+         " für "
+        ],
+        [
+         "-",
+         "Daten KANN Nachweise für den Zusammenhang [bestimter Ereignisse] mit [einer"
+        ],
+        [
+         "+",
+         "die Protokollierung zur Verfügung stehenden Speicherplatz [bei Erreichen eines"
+        ],
+        [
+         "=",
+         " bestimmten "
+        ],
+        [
+         "-",
+         "Person"
+        ],
+        [
+         "+",
+         "Schwellwertes"
+        ],
+        [
+         "=",
+         " oder "
+        ],
+        [
+         "-",
+         "Rolle] dokumentieren."
+        ],
+        [
+         "+",
+         "regelmäßig] überprüfen."
+        ]
+       ]
+      },
+      {
+       "feld": "erlaeuterung",
+       "name": "Erläuterung",
+       "alt": "Für Handlungen, die eine besondere Bedeutung für die rechtliche Compliance oder die korrekte Verarbeitung von Daten in kritischen Geschäftsprozessen haben, kann es sinnvoll sein, eine zweifelsfreie Zuordnung des Ereignisses zu einer Person zu gewährleisten. Beispiele können das Senden von Nachrichten als Geschäftsleitung, die Überweisung hoher Beträge auf Konten im Ausland oder der Zugang einer Nachricht mit großer rechtlicher Bedeutung sein. Für einen zweifelsfreien Nachweis reicht die einfache Zuordnung zu einem Zugangskonto oft nicht aus, da das Konto auch von anderen missbraucht worden sein könnte. Zum Nachweis können verschiedene Maßnahmen eingesetzt werden: Digitale Signaturen auf Basis asymmetrischer Kryptographie können die Urheberschaft von Dokumenten verifizieren, während Zeitstempel von vertrauenswürdigen Zeitservern die chronologische Integrität sicherstellen. Eine dezentrale Speicherung der Logs auf verschiedenen Systemen erschwert Manipulationsversuche; ergänzend erhöht die Implementierung einer Blockchain-Technologie mit verketteten Hashwerten die Fälschungssicherheit erheblich. Hardwarebasierte Sicherheitsmodule (HSMs) können kryptografische Schlüssel vor unbefugtem Zugriff schützen.",
+       "neu": "Diese Vorschrift zielt darauf ab, die Verfügbarkeit der Protokolldaten sicherzustellen. Das ist essenziell, da eine unterbrochene oder lückenhafte Aufzeichnung die Früherkennung von Angriffen unmöglich machen könnte, was dazu führen könnte, dass kritische forensische Beweise für eine Untersuchung fehlen. Die Umsetzung dieser Anforderung kann auf verschiedene Arten erfolgen. Es könnte ein Skript oder ein automatisierter Dienst eingesetzt werden, der den Füllstand des Speicherplatzes in regelmäßigen Abständen, zum Beispiel alle 15 Minuten oder einmal pro Stunde, prüft. Alternativ kann eine Überprüfung bei einem definierten Schwellenwert durchgeführt werden, etwa wenn 80 % oder 90 % des zugewiesenen Speicherplatzes belegt sind. Zur Behebung könnte bei Kapazitätsengpässen eine automatische Archivierung älterer Protokolldaten auf einem separaten, kostengünstigeren Speicher gestartet werden, um den primären Speicher zu entlasten. Es kann aber auch eine Rotationsstrategie für Log-Dateien konfiguriert werden, die bei Erreichen einer bestimmten Größe oder eines Alters die ältesten Dateien löscht oder archiviert.",
+       "diff": [
+        [
+         "-",
+         "Für Handlungen,"
+        ],
+        [
+         "+",
+         "Diese Vorschrift zielt darauf ab,"
+        ],
+        [
+         "=",
+         " die "
+        ],
+        [
+         "+",
+         "Verfügbarkeit der Protokolldaten sicherzustellen. Das ist essenziell, da "
+        ],
+        [
+         "=",
+         "eine "
+        ],
+        [
+         "-",
+         "besondere Bedeutung"
+        ],
+        [
+         "+",
+         "unterbrochene oder lückenhafte Aufzeichnung die Früherkennung von Angriffen unmöglich machen könnte, was dazu führen könnte, dass kritische forensische Beweise"
+        ],
+        [
+         "=",
+         " für "
+        ],
+        [
+         "-",
+         "die rechtliche Compliance"
+        ],
+        [
+         "+",
+         "eine Untersuchung fehlen. Die Umsetzung dieser Anforderung kann auf verschiedene Arten erfolgen. Es könnte ein Skript"
+        ],
+        [
+         "=",
+         " oder "
+        ],
+        [
+         "-",
+         "die korrekte Verarbeitung von Daten"
+        ],
+        [
+         "+",
+         "ein automatisierter Dienst eingesetzt werden, der den Füllstand des Speicherplatzes"
+        ],
+        [
+         "=",
+         " in "
+        ],
+        [
+         "-",
+         "kritischen Geschäftsprozessen haben,"
+        ],
+        [
+         "+",
+         "regelmäßigen Abständen, zum Beispiel alle 15 Minuten oder einmal pro Stunde, prüft. Alternativ"
+        ],
+        [
+         "=",
+         " kann "
+        ],
+        [
+         "-",
+         "es sinnvoll sein,"
+        ],
+        [
+         "+",
+         "eine Überprüfung bei einem definierten Schwellenwert durchgeführt werden, etwa wenn 80 % oder 90 % des zugewiesenen Speicherplatzes belegt sind. Zur Behebung könnte bei Kapazitätsengpässen"
+        ],
+        [
+         "=",
+         " eine "
+        ],
+        [
+         "-",
+         "zweifelsfreie Zuordnung des Ereignisses"
+        ],
+        [
+         "+",
+         "automatische Archivierung älterer Protokolldaten auf einem separaten, kostengünstigeren Speicher gestartet werden, um den primären Speicher"
+        ],
+        [
+         "=",
+         " zu "
+        ],
+        [
+         "-",
+         "einer Person zu gewährleisten. Beispiele können das Senden von Nachrichten als Geschäftsleitung,"
+        ],
+        [
+         "+",
+         "entlasten. Es kann aber auch eine Rotationsstrategie für Log-Dateien konfiguriert werden,"
+        ],
+        [
+         "=",
+         " die "
+        ],
+        [
+         "-",
+         "Überweisung hoher Beträge auf Konten im Ausland"
+        ],
+        [
+         "+",
+         "bei Erreichen einer bestimmten Größe"
+        ],
+        [
+         "=",
+         " oder "
+        ],
+        [
+         "-",
+         "der Zugang einer Nachricht mit großer rechtlicher Bedeutung sein. Für einen zweifelsfreien Nachweis reicht"
+        ],
+        [
+         "+",
+         "eines Alters"
+        ],
+        [
+         "=",
+         " die "
+        ],
+        [
+         "-",
+         "einfache Zuordnung zu einem Zugangskonto oft nicht aus, da das Konto auch von anderen missbraucht worden sein könnte. Zum Nachweis können verschiedene Maßnahmen eingesetzt werden: Digitale Signaturen auf Basis asymmetrischer Kryptographie können die Urheberschaft von Dokumenten verifizieren, während Zeitstempel von vertrauenswürdigen Zeitservern die chronologische Integrität sicherstellen. Eine dezentrale Speicherung der Logs auf verschiedenen Systemen erschwert Manipulationsversuche; ergänzend erhöht die Implementierung einer Blockchain-Technologie mit verketteten Hashwerten die Fälschungssicherheit erheblich. Hardwarebasierte Sicherheitsmodule (HSMs) können kryptografische Schlüssel vor unbefugtem Zugriff schützen."
+        ],
+        [
+         "+",
+         "ältesten Dateien löscht oder archiviert."
+        ]
+       ]
+      },
+      {
+       "feld": "pflichtgrad",
+       "name": "Pflichtgrad",
+       "alt": "KANN",
+       "neu": "SOLLTE"
+      },
+      {
+       "feld": "stufe",
+       "name": "Sicherheitsstufe",
+       "alt": "erhöht",
+       "neu": "normal-SdT"
+      },
+      {
+       "feld": "aufwand",
+       "name": "Aufwand",
+       "alt": "3",
+       "neu": "4"
+      },
+      {
+       "feld": "ergebnis",
+       "name": "Ergebnis",
+       "alt": "Nachweise für den Zusammenhang {{bestimter Ereignisse}} mit {{einer bestimmten Person oder Rolle}}",
+       "neu": "den für die Protokollierung zur Verfügung stehenden Speicherplatz",
+       "diff": [
+        [
+         "-",
+         "Nachweise"
+        ],
+        [
+         "+",
+         "den"
+        ],
+        [
+         "=",
+         " für "
+        ],
+        [
+         "-",
+         "den Zusammenhang {{bestimter Ereignisse}} mit {{einer bestimmten Person oder Rolle}}"
+        ],
+        [
+         "+",
+         "die Protokollierung zur Verfügung stehenden Speicherplatz"
+        ]
+       ]
+      },
+      {
+       "feld": "ergebnis_zusatz",
+       "name": "Ergebnis, Zusatz",
+       "alt": "",
+       "neu": "{{bei Erreichen eines bestimmten Schwellwertes oder regelmäßig}}"
+      },
+      {
+       "feld": "dokument",
+       "name": "Dokumentiert in",
+       "alt": "Detektions-Konzept",
+       "neu": "Detektionskonzept"
+      },
+      {
+       "feld": "zielobjekte",
+       "name": "Zielobjektkategorien",
+       "alt": "Daten",
+       "neu": ""
+      },
+      {
+       "feld": "gefaehrdungen",
+       "name": "Gefährdungen",
+       "alt": "G 0.23, G 0.32, G 0.37, G 0.46",
+       "neu": "G 0.32, G 0.37, G 0.46",
+       "bezeichnungen": {
+        "G 0.23": "Unbefugtes Eindringen in IT-Systeme",
+        "G 0.32": "Missbrauch von Berechtigungen",
+        "G 0.37": "Abstreiten von Handlungen",
+        "G 0.46": "Integritätsverlust schützenswerter Informationen"
+       }
+      },
+      {
+       "feld": "tags",
+       "name": "Tags",
+       "alt": "Insider Threat",
+       "neu": ""
+      }
+     ]
+    },
+    {
+     "id": "DET.4.1",
+     "titel": "Überwachung der Protokollierung",
+     "praktik": "DET",
+     "felder": [
+      {
+       "feld": "dokument",
+       "name": "Dokumentiert in",
+       "alt": "Detektions-Konzept",
+       "neu": "Detektionskonzept"
+      }
+     ]
+    },
+    {
+     "id": "DET.4.10",
+     "titel": "Host-basierte Köder",
+     "praktik": "DET",
+     "felder": [
+      {
+       "feld": "dokument",
+       "name": "Dokumentiert in",
+       "alt": "Detektions-Konzept",
+       "neu": "Detektionskonzept"
+      }
+     ]
+    },
+    {
+     "id": "DET.4.11",
+     "titel": "Anomalien in Netzen und am Perimeter",
+     "praktik": "DET",
+     "felder": [
+      {
+       "feld": "dokument",
+       "name": "Dokumentiert in",
+       "alt": "Detektions-Konzept",
+       "neu": "Detektionskonzept"
+      }
+     ]
+    },
+    {
+     "id": "DET.4.11.1",
+     "titel": "Authentifizierungsversuche an externen Schnittstellen",
+     "praktik": "DET",
+     "felder": [
+      {
+       "feld": "dokument",
+       "name": "Dokumentiert in",
+       "alt": "Detektions-Konzept",
+       "neu": "Detektionskonzept"
+      }
+     ]
+    },
+    {
+     "id": "DET.4.11.2",
+     "titel": "Netzwerk-Honeypots",
+     "praktik": "DET",
+     "felder": [
+      {
+       "feld": "dokument",
+       "name": "Dokumentiert in",
+       "alt": "Detektions-Konzept",
+       "neu": "Detektionskonzept"
+      }
+     ]
+    },
+    {
+     "id": "DET.4.12",
+     "titel": "Monitoring der Netzverfügbarkeit",
+     "praktik": "DET",
+     "felder": [
+      {
+       "feld": "dokument",
+       "name": "Dokumentiert in",
+       "alt": "Detektions-Konzept",
+       "neu": "Detektionskonzept"
+      }
+     ]
+    },
+    {
+     "id": "DET.4.12.1",
+     "titel": "Auslastung des Netzes",
+     "praktik": "DET",
+     "felder": [
+      {
+       "feld": "dokument",
+       "name": "Dokumentiert in",
+       "alt": "Detektions-Konzept",
+       "neu": "Detektionskonzept"
+      }
+     ]
+    },
+    {
+     "id": "DET.4.13",
+     "titel": "Verfügbarkeit des Hostsystems",
+     "praktik": "DET",
+     "felder": [
+      {
+       "feld": "dokument",
+       "name": "Dokumentiert in",
+       "alt": "Detektions-Konzept",
+       "neu": "Detektionskonzept"
+      }
+     ]
+    },
+    {
+     "id": "DET.4.14",
+     "titel": "Verfügbarkeit der Anwendung",
+     "praktik": "DET",
+     "felder": [
+      {
+       "feld": "dokument",
+       "name": "Dokumentiert in",
+       "alt": "Detektions-Konzept",
+       "neu": "Detektionskonzept"
+      }
+     ]
+    },
+    {
+     "id": "DET.4.15",
+     "titel": "Ressourcenauslastung von Hostsystemen",
+     "praktik": "DET",
+     "felder": [
+      {
+       "feld": "dokument",
+       "name": "Dokumentiert in",
+       "alt": "Detektions-Konzept",
+       "neu": "Detektionskonzept"
+      }
+     ]
+    },
+    {
+     "id": "DET.4.16",
+     "titel": "Ressourcenauslastung der Server-Dienste",
+     "praktik": "DET",
+     "felder": [
+      {
+       "feld": "dokument",
+       "name": "Dokumentiert in",
+       "alt": "Detektions-Konzept",
+       "neu": "Detektionskonzept"
+      }
+     ]
+    },
+    {
+     "id": "DET.4.17",
+     "titel": "Anwendungsbasiertes Kapazitätsmanagement",
+     "praktik": "DET",
+     "felder": [
+      {
+       "feld": "dokument",
+       "name": "Dokumentiert in",
+       "alt": "Detektions-Konzept",
+       "neu": "Detektionskonzept"
+      }
+     ]
+    },
+    {
+     "id": "DET.4.18",
+     "titel": "Öffentliche Blocklisten",
+     "praktik": "DET",
+     "felder": [
+      {
+       "feld": "dokument",
+       "name": "Dokumentiert in",
+       "alt": "Detektions-Konzept",
+       "neu": "Detektionskonzept"
+      }
+     ]
+    },
+    {
+     "id": "DET.4.19",
+     "titel": "Unautorisierte Sendeanlagen",
+     "praktik": "DET",
+     "felder": [
+      {
+       "feld": "dokument",
+       "name": "Dokumentiert in",
+       "alt": "Detektions-Konzept",
+       "neu": "Detektionskonzept"
+      }
+     ]
+    },
+    {
+     "id": "DET.4.2",
+     "titel": "Automatische Angriffserkennung",
+     "praktik": "DET",
+     "felder": [
+      {
+       "feld": "dokument",
+       "name": "Dokumentiert in",
+       "alt": "Detektions-Konzept",
+       "neu": "Detektionskonzept"
+      }
+     ]
+    },
+    {
+     "id": "DET.4.3",
+     "titel": "Überwachung der Angriffserkennung",
+     "praktik": "DET",
+     "felder": [
+      {
+       "feld": "dokument",
+       "name": "Dokumentiert in",
+       "alt": "Detektions-Konzept",
+       "neu": "Detektionskonzept"
+      }
+     ]
+    },
+    {
+     "id": "DET.4.4",
+     "titel": "Änderungen an Sicherheitsrichtlinien",
+     "praktik": "DET",
+     "felder": [
+      {
+       "feld": "dokument",
+       "name": "Dokumentiert in",
+       "alt": "Detektions-Konzept",
+       "neu": "Detektionskonzept"
+      }
+     ]
+    },
+    {
+     "id": "DET.4.5",
+     "titel": "Unerwünschte Datenabflüsse",
+     "praktik": "DET",
+     "felder": [
+      {
+       "feld": "dokument",
+       "name": "Dokumentiert in",
+       "alt": "Detektions-Konzept",
+       "neu": "Detektionskonzept"
+      }
+     ]
+    },
+    {
+     "id": "DET.4.6",
+     "titel": "Anomale Nutzung der Anwendung",
+     "praktik": "DET",
+     "felder": [
+      {
+       "feld": "dokument",
+       "name": "Dokumentiert in",
+       "alt": "Detektions-Konzept",
+       "neu": "Detektionskonzept"
+      }
+     ]
+    },
+    {
+     "id": "DET.4.6.1",
+     "titel": "Verhaltensanalyse von Zugangskonten",
+     "praktik": "DET",
+     "felder": [
+      {
+       "feld": "dokument",
+       "name": "Dokumentiert in",
+       "alt": "Detektions-Konzept",
+       "neu": "Detektionskonzept"
+      }
+     ]
+    },
+    {
+     "id": "DET.4.7",
+     "titel": "Auslaufen von Domains",
+     "praktik": "DET",
+     "felder": [
+      {
+       "feld": "dokument",
+       "name": "Dokumentiert in",
+       "alt": "Detektions-Konzept",
+       "neu": "Detektionskonzept"
+      }
+     ]
+    },
+    {
+     "id": "DET.4.8",
+     "titel": "Ausstellung neuer HTTPS-Zertifikate",
+     "praktik": "DET",
+     "felder": [
+      {
+       "feld": "dokument",
+       "name": "Dokumentiert in",
+       "alt": "Detektions-Konzept",
+       "neu": "Detektionskonzept"
+      }
+     ]
+    },
+    {
+     "id": "DET.4.9",
+     "titel": "Manipulations-Checkup",
+     "praktik": "DET",
+     "felder": [
+      {
+       "feld": "dokument",
+       "name": "Dokumentiert in",
+       "alt": "Detektions-Konzept",
+       "neu": "Detektionskonzept"
+      }
+     ]
+    },
+    {
+     "id": "DET.5.10",
+     "titel": "Zeitnahes Patchmanagement",
+     "praktik": "DET",
+     "felder": [
+      {
+       "feld": "dokument",
+       "name": "Dokumentiert in",
+       "alt": "Detektions-Konzept",
+       "neu": "Detektionskonzept"
+      }
+     ]
+    },
+    {
+     "id": "DET.5.10.1",
+     "titel": "Autorisierte Bezugsquellen",
+     "praktik": "DET",
+     "felder": [
+      {
+       "feld": "dokument",
+       "name": "Dokumentiert in",
+       "alt": "Detektions-Konzept",
+       "neu": "Detektionskonzept"
+      }
+     ]
+    },
+    {
+     "id": "DET.5.10.2",
+     "titel": "Integritätsprüfung von Patches",
+     "praktik": "DET",
+     "felder": [
+      {
+       "feld": "titel",
+       "name": "Titel",
+       "alt": "Automatisierte Überwachung von Systemupdates",
+       "neu": "Integritätsprüfung von Patches",
+       "diff": [
+        [
+         "-",
+         "Automatisierte Überwachung"
+        ],
+        [
+         "+",
+         "Integritätsprüfung"
+        ],
+        [
+         "=",
+         " von "
+        ],
+        [
+         "-",
+         "Systemupdates"
+        ],
+        [
+         "+",
+         "Patches"
+        ]
+       ]
+      },
+      {
+       "feld": "anforderung",
+       "name": "Anforderung",
+       "alt": "Detektion für IT-Systeme SOLLTE den Patchstatus durch [einen automatisierten Mechanismus] überwachen.",
+       "neu": "Detektion SOLLTE Patches vor der Installation auf Integrität testen.",
+       "diff": [
+        [
+         "=",
+         "Detektion"
+        ],
+        [
+         "-",
+         " für IT-Systeme"
+        ],
+        [
+         "=",
+         " SOLLTE "
+        ],
+        [
+         "-",
+         "den Patchstatus durch [einen automatisierten Mechanismus] überwachen."
+        ],
+        [
+         "+",
+         "Patches vor der Installation auf Integrität testen."
+        ]
+       ]
+      },
+      {
+       "feld": "erlaeuterung",
+       "name": "Erläuterung",
+       "alt": "Der Patchsstatus des Informationsverbundes kann dabei durch Kennzahlen bestimmt werden, z.B. durchschnittliche Zeit bis zum Patch (Mean Time To Patch), Prozentsatz aktuell gepatchter Assets, Anzahl offener/geschlossener Ausnahmen.",
+       "neu": "Wenn Patches durch Fehler bei der Übertragung oder sogar bewusst von Angreifern verändert wurden, kann dies nach der Installation zu nicht behebbaren Fehlerzuständen oder zur Verbreitung von Schadcode führen. Kann durch einen Abgleich von Prüfsummen umgesetzt werden, z.B. durch automatisierte Installationsroutinen oder einen manuellen Abgleich mit der Herstellerwebseite.",
+       "diff": [
+        [
+         "-",
+         "Der Patchsstatus des Informationsverbundes"
+        ],
+        [
+         "+",
+         "Wenn Patches durch Fehler bei der Übertragung oder sogar bewusst von Angreifern verändert wurden,"
+        ],
+        [
+         "=",
+         " kann "
+        ],
+        [
+         "-",
+         "dabei"
+        ],
+        [
+         "+",
+         "dies nach der Installation zu nicht behebbaren Fehlerzuständen oder zur Verbreitung von Schadcode führen. Kann"
+        ],
+        [
+         "=",
+         " durch "
+        ],
+        [
+         "-",
+         "Kennzahlen bestimmt"
+        ],
+        [
+         "+",
+         "einen Abgleich von Prüfsummen umgesetzt"
+        ],
+        [
+         "=",
+         " werden, z.B. "
+        ],
+        [
+         "-",
+         "durchschnittliche Zeit bis zum Patch (Mean Time To Patch), Prozentsatz aktuell gepatchter Assets, Anzahl offener/geschlossener Ausnahmen."
+        ],
+        [
+         "+",
+         "durch automatisierte Installationsroutinen oder einen manuellen Abgleich mit der Herstellerwebseite."
+        ]
+       ]
+      },
+      {
+       "feld": "aufwand",
+       "name": "Aufwand",
+       "alt": "3",
+       "neu": "4"
+      },
+      {
+       "feld": "ergebnis",
+       "name": "Ergebnis",
+       "alt": "den Patchstatus",
+       "neu": "Patches vor der Installation auf Integrität",
+       "diff": [
+        [
+         "-",
+         "den Patchstatus"
+        ],
+        [
+         "+",
+         "Patches vor der Installation auf Integrität"
+        ]
+       ]
+      },
+      {
+       "feld": "ergebnis_zusatz",
+       "name": "Ergebnis, Zusatz",
+       "alt": "durch {{einen automatisierten Mechanismus}}",
+       "neu": ""
+      },
+      {
+       "feld": "dokument",
+       "name": "Dokumentiert in",
+       "alt": "Detektions-Konzept",
+       "neu": "Detektionskonzept"
+      },
+      {
+       "feld": "zielobjekte",
+       "name": "Zielobjektkategorien",
+       "alt": "IT-Systeme",
+       "neu": ""
+      },
+      {
+       "feld": "gefaehrdungen",
+       "name": "Gefährdungen",
+       "alt": "G 0.21, G 0.23, G 0.30, G 0.39",
+       "neu": "G 0.20, G 0.23, G 0.28, G 0.39",
+       "bezeichnungen": {
+        "G 0.21": "Manipulation von Hard- oder Software",
+        "G 0.23": "Unbefugtes Eindringen in IT-Systeme",
+        "G 0.30": "Unberechtigte Nutzung oder Administration von Geräten und Systemen",
+        "G 0.39": "Schadprogramme",
+        "G 0.20": "Informationen oder Produkte aus unzuverlässiger Quelle",
+        "G 0.28": "Software-Schwachstellen oder -Fehler"
+       }
+      }
+     ]
+    },
+    {
+     "id": "DET.5.10.3",
+     "titel": "Test gemäß Änderungsmanagement",
+     "praktik": "DET",
+     "felder": [
+      {
+       "feld": "titel",
+       "name": "Titel",
+       "alt": "Automatisierte Überwachung von Anwendungsupdates",
+       "neu": "Test gemäß Änderungsmanagement",
+       "diff": [
+        [
+         "-",
+         "Automatisierte Überwachung von Anwendungsupdates"
+        ],
+        [
+         "+",
+         "Test gemäß Änderungsmanagement"
+        ]
+       ]
+      },
+      {
+       "feld": "anforderung",
+       "name": "Anforderung",
+       "alt": "Detektion für Anwendungen KANN den Patchstatus durch [einen automatisierten Mechanismus] überwachen.",
+       "neu": "Detektion KANN Patches entsprechend der Anforderungen der Praktik „Änderungen und Tests“ ausführen.",
+       "diff": [
+        [
+         "=",
+         "Detektion"
+        ],
+        [
+         "-",
+         " für Anwendungen"
+        ],
+        [
+         "=",
+         " KANN "
+        ],
+        [
+         "-",
+         "den Patchstatus durch [einen automatisierten Mechanismus] überwachen."
+        ],
+        [
+         "+",
+         "Patches entsprechend der Anforderungen der Praktik „Änderungen und Tests“ ausführen."
+        ]
+       ]
+      },
+      {
+       "feld": "erlaeuterung",
+       "name": "Erläuterung",
+       "alt": "Eine nicht gepatchte Anwendung könnte als Einfallstor für Angreifer dienen, die bekannte Schwachstellen ausnutzen, um sich Zugang zu Systemen oder Daten zu verschaffen. Die Umsetzung kann beispielsweise auf einem Patch Management System (PMS) oder einem Vulnerability Management System (VMS) basieren. Ein Patch-Managementsystem kann beispielsweise so konfiguriert werden, dass es kontinuierlich die Versionen der installierten Software mit einer zentralen Datenbank für verfügbare Updates abgleicht. Auch die Nutzung eines Schwachstellen-Scanners, der im Netzwerk nach ungepatchten Anwendungen sucht, ist eine wirksame Maßnahme. Ein solcher Scanner könnte beispielsweise wöchentlich oder sogar täglich einen Scan durchführen und die Ergebnisse in einem Dashboard visualisieren. Wichtige prozessuale Tipps sind die Einrichtung von Benachrichtigungsworkflows, die sicherstellen, dass kritische Patch-Status-Änderungen sofort an die richtigen Personen eskaliert werden, sowie die Integration der Überwachungsergebnisse in ein zentrales Incident Response System. Dies kann helfen, die Reaktionszeit zu verkürzen, sodass die Anwendungen schnellstmöglich aktualisiert werden.",
+       "neu": "Stellt sicher, dass Patches zusammen mit anderen Änderungen geprüft werden und trennt zwischen „Routine“- und „Notfall“-Änderungen.",
+       "diff": [
+        [
+         "-",
+         "Eine nicht gepatchte Anwendung könnte als Einfallstor für Angreifer dienen, die bekannte Schwachstellen ausnutzen, um sich Zugang zu Systemen oder Daten zu verschaffen. Die Umsetzung kann beispielsweise auf einem Patch Management System (PMS) oder einem Vulnerability Management System (VMS) basieren. Ein Patch-Managementsystem kann beispielsweise so konfiguriert werden,"
+        ],
+        [
+         "+",
+         "Stellt sicher,"
+        ],
+        [
+         "=",
+         " dass "
+        ],
+        [
+         "-",
+         "es kontinuierlich die Versionen der installierten Software"
+        ],
+        [
+         "+",
+         "Patches zusammen"
+        ],
+        [
+         "=",
+         " mit "
+        ],
+        [
+         "-",
+         "einer zentralen Datenbank für verfügbare Updates abgleicht. Auch die Nutzung eines Schwachstellen-Scanners, der im Netzwerk nach ungepatchten Anwendungen sucht, ist eine wirksame Maßnahme. Ein solcher Scanner könnte beispielsweise wöchentlich oder sogar täglich einen Scan durchführen"
+        ],
+        [
+         "+",
+         "anderen Änderungen geprüft werden"
+        ],
+        [
+         "=",
+         " und "
+        ],
+        [
+         "-",
+         "die Ergebnisse in einem Dashboard visualisieren. Wichtige prozessuale Tipps sind die Einrichtung von Benachrichtigungsworkflows, die sicherstellen, dass kritische Patch-Status-Änderungen sofort an die richtigen Personen eskaliert werden, sowie die Integration der Überwachungsergebnisse in ein zentrales Incident Response System. Dies kann helfen, die Reaktionszeit zu verkürzen, sodass die Anwendungen schnellstmöglich aktualisiert werden."
+        ],
+        [
+         "+",
+         "trennt zwischen „Routine“- und „Notfall“-Änderungen."
+        ]
+       ]
+      },
+      {
+       "feld": "aufwand",
+       "name": "Aufwand",
+       "alt": "4",
+       "neu": "5"
+      },
+      {
+       "feld": "ergebnis",
+       "name": "Ergebnis",
+       "alt": "den Patchstatus",
+       "neu": "Patches entsprechend der Anforderungen der Praktik „Änderungen und Tests“",
+       "diff": [
+        [
+         "-",
+         "den Patchstatus"
+        ],
+        [
+         "+",
+         "Patches entsprechend der Anforderungen der Praktik „Änderungen und Tests“"
+        ]
+       ]
+      },
+      {
+       "feld": "ergebnis_zusatz",
+       "name": "Ergebnis, Zusatz",
+       "alt": "durch {{einen automatisierten Mechanismus}}",
+       "neu": ""
+      },
+      {
+       "feld": "dokument",
+       "name": "Dokumentiert in",
+       "alt": "Detektions-Konzept",
+       "neu": "Detektionskonzept"
+      },
+      {
+       "feld": "zielobjekte",
+       "name": "Zielobjektkategorien",
+       "alt": "Anwendungen",
+       "neu": ""
+      },
+      {
+       "feld": "gefaehrdungen",
+       "name": "Gefährdungen",
+       "alt": "G 0.23, G 0.28, G 0.39",
+       "neu": "G 0.18, G 0.28, G 0.39",
+       "bezeichnungen": {
+        "G 0.23": "Unbefugtes Eindringen in IT-Systeme",
+        "G 0.28": "Software-Schwachstellen oder -Fehler",
+        "G 0.39": "Schadprogramme",
+        "G 0.18": "Fehlplanung oder fehlende Anpassung"
+       }
+      }
+     ]
+    },
+    {
+     "id": "DET.5.3",
+     "titel": "Schwachstellenscans",
+     "praktik": "DET",
+     "felder": [
+      {
+       "feld": "dokument",
+       "name": "Dokumentiert in",
+       "alt": "Detektions-Konzept",
+       "neu": "Detektionskonzept"
+      }
+     ]
+    },
+    {
+     "id": "DET.5.3.1",
+     "titel": "Autorisierung kritischer Scans",
+     "praktik": "DET",
+     "felder": [
+      {
+       "feld": "dokument",
+       "name": "Dokumentiert in",
+       "alt": "Detektions-Konzept",
+       "neu": "Detektionskonzept"
+      }
+     ]
+    },
+    {
+     "id": "DET.5.3.2",
+     "titel": "Korrelation komplexer Angriffswege",
+     "praktik": "DET",
+     "felder": [
+      {
+       "feld": "dokument",
+       "name": "Dokumentiert in",
+       "alt": "Detektions-Konzept",
+       "neu": "Detektionskonzept"
+      }
+     ]
+    },
+    {
+     "id": "DET.5.3.3",
+     "titel": "Historische Analyse",
+     "praktik": "DET",
+     "felder": [
+      {
+       "feld": "dokument",
+       "name": "Dokumentiert in",
+       "alt": "Detektions-Konzept",
+       "neu": "Detektionskonzept"
+      }
+     ]
+    },
+    {
+     "id": "DET.5.4",
+     "titel": "Regelmäßige Penetrationstests",
+     "praktik": "DET",
+     "felder": [
+      {
+       "feld": "dokument",
+       "name": "Dokumentiert in",
+       "alt": "Detektions-Konzept",
+       "neu": "Detektionskonzept"
+      }
+     ]
+    },
+    {
+     "id": "DET.5.5",
+     "titel": "Red Teaming",
+     "praktik": "DET",
+     "felder": [
+      {
+       "feld": "dokument",
+       "name": "Dokumentiert in",
+       "alt": "Detektions-Konzept",
+       "neu": "Detektionskonzept"
+      }
+     ]
+    },
+    {
+     "id": "DET.5.6",
+     "titel": "Threat Hunting",
+     "praktik": "DET",
+     "felder": [
+      {
+       "feld": "dokument",
+       "name": "Dokumentiert in",
+       "alt": "Detektions-Konzept",
+       "neu": "Detektionskonzept"
+      }
+     ]
+    },
+    {
+     "id": "DET.5.7",
+     "titel": "Analyse verdeckter Kanäle",
+     "praktik": "DET",
+     "felder": [
+      {
+       "feld": "dokument",
+       "name": "Dokumentiert in",
+       "alt": "Detektions-Konzept",
+       "neu": "Detektionskonzept"
+      }
+     ]
+    },
+    {
+     "id": "DET.5.8",
+     "titel": "Bedrohungsanalyse",
+     "praktik": "DET",
+     "felder": [
+      {
+       "feld": "dokument",
+       "name": "Dokumentiert in",
+       "alt": "Detektions-Konzept",
+       "neu": "Detektionskonzept"
+      }
+     ]
+    },
+    {
+     "id": "DET.5.8.1",
+     "titel": "Auswertung öffentlicher Quellen",
+     "praktik": "DET",
+     "felder": [
+      {
+       "feld": "dokument",
+       "name": "Dokumentiert in",
+       "alt": "Detektions-Konzept",
+       "neu": "Detektionskonzept"
+      }
+     ]
+    },
+    {
+     "id": "DET.5.8.1.1",
+     "titel": "Unautorisierte Publikation",
+     "praktik": "DET",
+     "felder": [
+      {
+       "feld": "dokument",
+       "name": "Dokumentiert in",
+       "alt": "Detektions-Konzept",
+       "neu": "Detektionskonzept"
+      }
+     ]
+    },
+    {
+     "id": "DET.5.9",
+     "titel": "Externe Schwachstellenmeldungen",
+     "praktik": "DET",
+     "felder": [
+      {
+       "feld": "dokument",
+       "name": "Dokumentiert in",
+       "alt": "Detektions-Konzept",
+       "neu": "Detektionskonzept"
+      }
+     ]
+    },
+    {
+     "id": "DET.5.9.1",
+     "titel": "Bonusprogramm",
+     "praktik": "DET",
+     "felder": [
+      {
+       "feld": "dokument",
+       "name": "Dokumentiert in",
+       "alt": "Detektions-Konzept",
+       "neu": "Detektionskonzept"
+      }
+     ]
+    },
+    {
+     "id": "DET.6.1",
+     "titel": "Beurteilung von Ereignissen",
+     "praktik": "DET",
+     "felder": [
+      {
+       "feld": "dokument",
+       "name": "Dokumentiert in",
+       "alt": "Detektions-Konzept",
+       "neu": "Detektionskonzept"
+      }
+     ]
+    },
+    {
+     "id": "DET.6.1.1",
+     "titel": "Automatisierte Feststellung",
+     "praktik": "DET",
+     "felder": [
+      {
+       "feld": "dokument",
+       "name": "Dokumentiert in",
+       "alt": "Detektions-Konzept",
+       "neu": "Detektionskonzept"
+      }
+     ]
+    },
+    {
+     "id": "DET.6.1.2",
+     "titel": "Automatische Alarmierung",
+     "praktik": "DET",
+     "felder": [
+      {
+       "feld": "dokument",
+       "name": "Dokumentiert in",
+       "alt": "Detektions-Konzept",
+       "neu": "Detektionskonzept"
+      }
+     ]
+    },
+    {
+     "id": "DET.6.1.3",
+     "titel": "Dokumentation von Ergebnissen",
+     "praktik": "DET",
+     "felder": [
+      {
+       "feld": "dokument",
+       "name": "Dokumentiert in",
+       "alt": "Detektions-Konzept",
+       "neu": "Detektionskonzept"
+      }
+     ]
+    },
+    {
+     "id": "DET.6.2",
+     "titel": "Beurteilung von Eingängen",
+     "praktik": "DET",
+     "felder": [
+      {
+       "feld": "dokument",
+       "name": "Dokumentiert in",
+       "alt": "Detektions-Konzept",
+       "neu": "Detektionskonzept"
+      }
+     ]
+    },
+    {
+     "id": "DET.6.2.1",
+     "titel": "Dynamische Sandbox-Analyse",
+     "praktik": "DET",
+     "felder": [
+      {
+       "feld": "dokument",
+       "name": "Dokumentiert in",
+       "alt": "Detektions-Konzept",
+       "neu": "Detektionskonzept"
+      }
+     ]
+    },
+    {
+     "id": "DEV.7.2",
+     "titel": "Zertifikatsmonitoring",
+     "praktik": "DEV",
+     "felder": [
+      {
+       "feld": "dokument",
+       "name": "Dokumentiert in",
+       "alt": "Detektions-Konzept",
+       "neu": "Detektionskonzept"
+      }
+     ]
+    },
+    {
+     "id": "GEB.8.1.1",
+     "titel": "Kritische Medien ins Archiv",
+     "praktik": "GEB",
+     "felder": [
+      {
+       "feld": "titel",
+       "name": "Titel",
+       "alt": "Archiv",
+       "neu": "Kritische Medien ins Archiv",
+       "diff": [
+        [
+         "+",
+         "Kritische Medien ins "
+        ],
+        [
+         "=",
+         "Archiv"
+        ]
+       ]
+      }
+     ]
+    },
+    {
+     "id": "KONF.10.5.1",
+     "titel": "Automatisierte Überprüfung der Konfiguration",
+     "praktik": "KONF",
+     "felder": [
+      {
+       "feld": "dokument",
+       "name": "Dokumentiert in",
+       "alt": "Detektions-Konzept",
+       "neu": "Detektionskonzept"
+      }
+     ]
+    },
+    {
+     "id": "NOT.3.4",
+     "titel": "Funktionstest",
+     "praktik": "NOT",
+     "felder": [
+      {
+       "feld": "dokument",
+       "name": "Dokumentiert in",
+       "alt": "Übungsplan",
+       "neu": "Übungs- und Prüfplan"
+      }
+     ]
+    },
+    {
+     "id": "REA.1.1",
+     "titel": "Verfahren und Regelungen",
+     "praktik": "REA",
+     "felder": [
+      {
+       "feld": "dokument",
+       "name": "Dokumentiert in",
+       "alt": "Prozess Behandlung von Sicherheitsvorfällen",
+       "neu": "Behandlung von Sicherheitsvorfällen"
+      }
+     ]
+    },
+    {
+     "id": "REA.1.3",
+     "titel": "Übungen zur Vorfallsbehandlung",
+     "praktik": "REA",
+     "felder": [
+      {
+       "feld": "dokument",
+       "name": "Dokumentiert in",
+       "alt": "Übungsplan",
+       "neu": "Übungs- und Prüfplan"
+      }
+     ]
+    },
+    {
+     "id": "SENS.1.2",
+     "titel": "Erfolgsmessung",
+     "praktik": "SENS",
+     "felder": [
+      {
+       "feld": "dokument",
+       "name": "Dokumentiert in",
+       "alt": "Übungsplan",
+       "neu": "Übungs- und Prüfplan"
+      }
+     ]
+    },
+    {
+     "id": "TEST.2.2.3",
+     "titel": "Dokumentation der Abhängigkeiten",
+     "praktik": "TEST",
+     "felder": [
+      {
+       "feld": "dokument",
+       "name": "Dokumentiert in",
+       "alt": "Systemdokumentation",
+       "neu": "Betriebshandbuch"
+      }
+     ]
+    }
+   ],
+   "technische_aenderungen": [
+    {
+     "pfad": "links[]/href",
+     "ids": [
+      "ARCH.4.1",
+      "GEB.3.3",
+      "TEST.3.1.3"
+     ],
+     "beispiel": {
+      "id": "ARCH.4.1",
+      "alt": "\"#DET.3.1.8\"",
+      "neu": "\"#DET.3.1.2\""
+     },
+     "anzahl": 3
+    }
+   ]
+  },
+  {
    "commit": "10f3c22898a4b15eb95fa228d78654cff32208e4",
    "veroeffentlicht": "2026-10-30T09:59:42Z",
    "vorgaenger": "9fb19de7a80f243cc06fec73aa1c6159fcc6ebc5",
@@ -3788,7 +8200,7 @@
   "veroeffentlicht": "2026-07-27T17:04:57+02:00"
  },
  "stand": {
-  "commit": "10f3c22898a4b15eb95fa228d78654cff32208e4",
-  "veroeffentlicht": "2026-10-30T09:59:42Z"
+  "commit": "93fbe8319db7995bb03924beacfa9e933f3a2498",
+  "veroeffentlicht": "2026-11-23T14:52:31Z"
  }
 }

@@ -1,6 +1,6 @@
 {
 	"repository": "https://github.com/BSI-Bund/Stand-der-Technik-Bibliothek",
-	"commit": "10f3c22898a4b15eb95fa228d78654cff32208e4",
+	"commit": "14dfc44afbcf8a9ecd46caac62a728eb29f4f0cf",
 	"dateien": [
 		"control_layer/Grundschutz++/Grundschutz++-resolved_catalog.json",
 		"documentation/namespaces/basethreats.csv",
